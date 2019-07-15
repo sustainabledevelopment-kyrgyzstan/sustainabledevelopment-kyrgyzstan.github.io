@@ -5,6 +5,8 @@
 
 
 
+
+
 <!DOCTYPE html>
 <html lang="en" class="no-js">
     <head>
@@ -116,7 +118,7 @@ var translations = {
         <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
         <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
         <link rel="stylesheet" href="https://cdn.datatables.net/fixedcolumns/3.2.3/css/fixedColumns.dataTables.min.css">
-        <link rel="stylesheet" href="/assets/css/default.css?v=20190702103423">
+        <link rel="stylesheet" href="/assets/css/default.css?v=20190715163808">
         <link href="https://fonts.googleapis.com/css?family=Open+Sans|Roboto" rel="stylesheet">
         <link rel="stylesheet" href="https://unpkg.com/leaflet@1.3.4/dist/leaflet.css"
           integrity="sha512-puBpdR0798OZvTTbP4A8Ix/l+A4dHDD0DGqYW6RQ+9jxkRFclaxxQb/SJAWZfWAkuyeQUytO7+7N4QKrDh+drA=="
@@ -124,7 +126,7 @@ var translations = {
         <link rel="stylesheet" href="https://cdn.rawgit.com/socib/Leaflet.TimeDimension/master/dist/leaflet.timedimension.control.min.css" />
         <link rel="stylesheet" href='https://api.mapbox.com/mapbox.js/plugins/leaflet-fullscreen/v1.0.1/leaflet.fullscreen.css' />
         <link rel="stylesheet" href="https://bowercdn.net/c/leaflet.zoomhome-latest/dist/leaflet.zoomhome.css" />
-        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet-search@2.9.7/dist/leaflet-search.min.css"><link rel="stylesheet" href="/assets/css/custom.css?v=20190702103423"></head>
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet-search@2.9.7/dist/leaflet-search.min.css"><link rel="stylesheet" href="/assets/css/custom.css?v=20190715163808"></head>
 <body class="language-en">
 <!-- <div class="container"> -->
 
@@ -285,32 +287,183 @@ var translations = {
 
   <div class="row">
     <div class="col-xs-12">
-      <h2>Forest area as a proportion of total land area</h2>
+      <h2>Площадь лесов в процентном отношении к общей площади суши</h2>
     </div>
   </div>
 
   <div class="row" id="indicatorData" data-indicatorid='indicator_15-1-1' data-id="15-1-1" data-country=""
-  data-charttitle="Forest area as a proportion of total land area" data-measurementunit="" data-datasource="" data-geographicalarea="" data-footnote="" data-showdata="false" data-graphtype="line" data-geocoderegex="" data-showmap="">
+  data-charttitle="Площадь лесов в процентном отношении к общей площади суши" data-measurementunit="" data-datasource=""
+  data-geographicalarea="" data-footnote="" data-showdata="true" data-graphtype="line"
+  data-geocoderegex="" data-showmap="false" data-startvalues="">
     
-    <div class="col-md-12">
+    <div class="col-md-3">
+      <div id="toolbar">
+        <span id="series-help">
+          <h4>Sub-categories</h4>
+          <p>Choose categories from the dropdowns below to see different breakdowns of the data. Some will not be available until a higher level is chosen.</p>
+        </span>
+        <p>Click on the legend to remove individual lines from the chart.</p>
+        <div id="fields">
+          <p class="async-loading" data-img="/assets/img/loading-small.gif"></p>
+        </div>
+      </div>
+      <div id="units"></div>
+    </div>
+    <div class="col-md-9">
     
+
+      
+      
+
+
+<div id="headlineTable">
+
+  <div id="datatables">
+
+    <a href="https://sustainabledevelopment-kyrgyzstan.github.io/sdg-data/headline/15-1-1.csv" class="btn btn-primary btn-download" download="indicator_15-1-1.csv" tabindex="0" role="button">Download Headline CSV</a>
+
+    <a href="https://sustainabledevelopment-kyrgyzstan.github.io/sdg-data/data/15-1-1.csv" class="btn btn-primary btn-download" style='float:left;margin-right:1em' download='indicator_15-1-1.csv' tabindex='0' role='button'>Download Source CSV</a>
+
+    <h3>Headline data</h3>
+    <table class="table-responsive table table-hover dataTable no-footer" role="grid">
+      <caption></caption>
+      <thead>
+        
+        
+        <th scope="col">Year</th>
+        
+        
+        
+        <th scope="col" class="table-value">Value</th>
+        
+        
+      </thead>
+      <tbody>
+        
+        <tr>
+          
+          
+          <td>2015</td>
+          
+          
+          
+          <td class="table-value">2</td>
+          
+          
+        </tr>
+        
+        <tr>
+          
+          
+          <td>2016</td>
+          
+          
+          
+          <td class="table-value">2</td>
+          
+          
+        </tr>
+        
+      </tbody>
+    </table>
+  </div>
+
+  <div id="datatableFooter">
+    
+    
+    
+    
+  </div>
+
+</div>
 
       
 
       <section>
 
         
+        <p class="async-loading" data-img="/assets/img/loading-small.gif"></p>
+        <div class="async-loaded" style="display:none">
+          <ul class="nav nav-tabs data-view" role="tablist">
+            <li role="presentation" class="nav-item active">
+              <a class="nav-link" data-toggle="tab" href="#chartview" aria-controls="chartview" role="tab" data-on="click"
+data-event-category="Tab change"
+data-event-action="Change data view"
+data-event-label="Change to Chart tab"
+>Chart</a>
+            </li>
+            <li role="presentation" class="nav-item">
+              <a class="nav-link" data-toggle="tab" href="#tableview" aria-controls="tableview" role="tab" data-on="click"
+data-event-category="Tab change"
+data-event-action="Change data view"
+data-event-label="Change to Table tab"
+>Table</a>
+            </li>
+            <li role="presentation" class="nav-item map" style="display:none">
+              <a class="nav-link" data-toggle="tab" href="#mapview" aria-controls="mapview" role="tab" data-on="click"
+data-event-category="Tab change"
+data-event-action="Change data view"
+data-event-label="Change to Map tab"
+>Map</a>
+            </li></ul>
+
+          <!-- Tab panes -->
+          <div class="tab-content data-view">
+            <div role="tabpanel" class="tab-pane active" id="chartview">
+              
+
+    <div id="dataset-size-warning" style="display:none">
+      <i class="fa fa-bolt"></i> There are too many datasets to show on the chart. Not all will be shown until you remove some selections.
+    </div>
+
+    
+    <div class="plot-container">
+        
+<canvas></canvas>
+
+    </div>
+    <div id="plotLegend"></div>
+
+    <div id="chartSelectionDownload"></div>
+
+
+
+            </div>
+            <div role="tabpanel" class="tab-pane" id="tableview">
+              <div id="selectionsTable"></div>
+            </div>
+            <div role="tabpanel" class="tab-pane" id="mapview" class="map">
+              <div id="map">
+                <img src="/assets/img/loading.gif" alt="Loading map" />
+              </div>
+            </div>
+            
+          </div>
+        </div>
+        
 
         <!-- Nav tabs -->
         <ul class="nav nav-tabs" role="tablist">
           <li role="presentation" class="nav-item active">
-            <a class="nav-link" data-toggle="tab" href="#metadata" aria-controls="metadata" role="tab">National Metadata</a>
+            <a class="nav-link" data-toggle="tab" href="#metadata" aria-controls="metadata" role="tab" data-on="click"
+data-event-category="Tab change"
+data-event-action="Change metadata view"
+data-event-label="Change to National Metadata tab"
+>National Metadata</a>
           </li>
           <li role="presentation" class="nav-item">
-            <a class="nav-link" data-toggle="tab" href="#globalmetadata" aria-controls="globalmetadata" role="tab">Global Metadata</a>
+            <a class="nav-link" data-toggle="tab" href="#globalmetadata" aria-controls="globalmetadata" role="tab" data-on="click"
+data-event-category="Tab change"
+data-event-action="Change metadata view"
+data-event-label="Change to Global Metadata tab"
+>Global Metadata</a>
           </li>
           <li role="presentation" class="nav-item">
-            <a class="nav-link" data-toggle="tab" href="#sources" aria-controls="sources" role="tab">Sources</a>
+            <a class="nav-link" data-toggle="tab" href="#sources" aria-controls="sources" role="tab" data-on="click"
+data-event-category="Tab change"
+data-event-action="Change metadata view"
+data-event-label="Change to Sources tab"
+>Sources</a>
           </li>
           
         </ul>
@@ -437,8 +590,8 @@ var translations = {
             
 
             
-              <a href="https://github.com/sdg-kyrgyzstan/open-sdg-data-starter/commit/c668a137c13a542f480233edcff3476972c2b897" target="_blank">
-                2018-10-20: see changes on GitHub <span class="visuallyhidden">opens in a new window</span>
+              <a href="https://github.com/sdg-kyrgyzstan/open-sdg-data-starter/commit/a4ddb2e7e624f720bd662e8addefe056469dc22b" target="_blank">
+                2019-07-15: see changes on GitHub <span class="visuallyhidden">opens in a new window</span>
               </a>
             
 
@@ -462,8 +615,8 @@ var translations = {
             
 
             
-              <a href="https://github.com/sdg-kyrgyzstan/open-sdg-data-starter/commit/324e97b64ed9aa4bd1a36d8ec47530a404d87d66" target="_blank">
-                2018-12-05: see changes on GitHub <span class="visuallyhidden">opens in a new window</span>
+              <a href="https://github.com/sdg-kyrgyzstan/open-sdg-data-starter/commit/49af1e720498eddb3195b9b73d11e1a8ac92b1d3" target="_blank">
+                2019-07-15: see changes on GitHub <span class="visuallyhidden">opens in a new window</span>
               </a>
             
 
@@ -579,7 +732,7 @@ var translations = {
         <th scope="row">Indicator name </th>
         <td>
           
-            Forest area as a proportion of total land area
+            Площадь лесов в процентном отношении к общей площади суши
           
         </td>
         </tr>
@@ -603,7 +756,7 @@ var translations = {
         <th scope="row">Target name </th>
         <td>
           
-            Protect, restore and promote sustainable use of terrestrial ecosystems, sustainably manage forests, combat desertification, and halt and reverse land degradation and halt biodiversity loss
+            К 2020 году обеспечить сохранение, восстановление и рациональное использование наземных и внутренних пресноводных экосистем и их услуг, в том числе лесов, водно-болотных угодий, гор и за-сушливых земель, в соответствии с обязательствами, вытекающими из международных соглашений
           
         </td>
         </tr>
@@ -615,7 +768,7 @@ var translations = {
         <th scope="row">Target number </th>
         <td>
           
-            15
+            15.1
           
         </td>
         </tr>
@@ -627,7 +780,7 @@ var translations = {
         <th scope="row">Global indicator description </th>
         <td>
           
-            Forest area as a proportion of total land area
+            
           
         </td>
         </tr>
@@ -639,7 +792,7 @@ var translations = {
         <th scope="row">UN designated tier </th>
         <td>
           
-            1
+            1.0
           
         </td>
         </tr>
@@ -651,7 +804,7 @@ var translations = {
         <th scope="row">UN custodian agency </th>
         <td>
           
-            Food and Agricultural Organization
+            Продовольственная и сельскохозяйственная организация
           
         </td>
         </tr>
@@ -670,7 +823,7 @@ var translations = {
 
             
               <a href="https://unstats.un.org/sdgs/metadata/files/Metadata-15-01-01.pdf" target="_blank">
-                United Nations Sustainable Development Goals Metadata (PDF 379 KB) <span class="visuallyhidden">opens in a new window</span>
+                Метаданные Целей ООН в области устойчивого развития (PDF, 379 КБ) <span class="visuallyhidden">opens in a new window</span>
               </a>
             
 
@@ -798,12 +951,16 @@ var translations = {
 <footer role="contentinfo">
   <div class="container">
     <div class="row">
-      <div class="col-xs-9">
-        <a href="mailto:test@example.com">Contact us</a>
-        
-      </div>
-      <div class="col-xs-3 text-right">
-        <a href="/faq/">FAQ</a> | <a href="/about/cookies-and-privacy/">Cookies</a>
+      <div class="col-xs-12">
+        <div id="footerLinks">
+          <ul>
+            <li><a href="mailto:test@example.com">Contact us</a></li>
+            
+            
+            <li><a href="/faq/">FAQ</a></li>
+            <li><a href="/about/cookies-and-privacy/">Cookies</a></li>
+          </ul>
+        </div>
       </div>
     </div>
   </div>
@@ -831,7 +988,8 @@ var translations = {
 <script src='https://api.mapbox.com/mapbox.js/plugins/leaflet-fullscreen/v1.0.1/Leaflet.fullscreen.min.js'></script>
 <script src="https://bowercdn.net/c/leaflet.zoomhome-latest/dist/leaflet.zoomhome.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/leaflet-search@2.9.7/dist/leaflet-search.min.js"></script>
-<script src='/assets/js/sdg.js?v=20190702103423'></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/autotrack/2.4.1/autotrack.js"></script>
+<script src='/assets/js/sdg.js?v=20190715163808'></script>
 <script>
 $(function() {
     if($('#indicatorData').length) {
@@ -862,7 +1020,8 @@ $(function() {
             geographicalArea: domData.geographicalarea,
             showData: domData.showdata,
             footnote: domData.footnote,
-            graphType: domData.graphtype
+            graphType: domData.graphtype,
+            startValues: domData.startvalues
           }),
           view  = new indicatorView(model, {
             rootElement: '#indicatorData',
