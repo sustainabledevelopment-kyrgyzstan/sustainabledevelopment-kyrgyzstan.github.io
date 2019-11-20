@@ -1,10 +1,10 @@
 [{
     "goal": {
       "id": "1",
-      "title": "",
+      "title": "End poverty in all its forms everywhere",
       "indicators": [{
           "id": "1-5-3",
-          "title": "Number of countries that adopt and implement national disaster risk reduction strategies in line with the Sendai Framework for Disaster Risk Reduction 2015-2030",
+          "title": "Number of countries that adopt and implement national disaster risk reduction strategies in line with the Sendai Framework for Disaster Risk Reduction 2015–2030",
           "description": "",
           "keywords": "",
           "href": "/en/1-5-3",
@@ -18,7 +18,7 @@
           "status": "notstarted"
         },{
           "id": "1-2-2",
-          "title": "Доля мужчин, женщин и детей всех возрастов, живущих в нищете во всех ее проявлениях, согласно национальным определениям",
+          "title": "Proportion of men, women and children of all ages living in poverty in all its dimensions according to national definitions",
           "description": "",
           "keywords": "",
           "href": "/en/1-2-2",
@@ -32,28 +32,28 @@
           "status": "complete"
         },{
           "id": "1-3-1",
-          "title": "Доля населения, охватываемого минимальным уровнем/системами социальной защиты, в разбивке по полу, с выделением детей, безработных, пожилых, инвалидов, беременных, новорожденных, лиц, получивших трудовое увечье, и бедных и уязвимых",
+          "title": "Proportion of population covered by social protection floors/systems, by sex, distinguishing children, unemployed persons, older persons, persons with disabilities, pregnant women, newborns, work-injury victims and the poor and the vulnerable",
           "description": "",
           "keywords": "",
           "href": "/en/1-3-1",
           "status": "complete"
         },{
           "id": "1-5-1",
-          "title": "Number of deaths, missing persons and directly affected persons attributed to disasters per 100,000 population (repeat of 1 and 13.1.1)",
+          "title": "Number of deaths, missing persons and directly affected persons attributed to disasters per 100,000 population",
           "description": "",
           "keywords": "",
           "href": "/en/1-5-1",
           "status": "notstarted"
         },{
           "id": "1-a-2",
-          "title": "Доля расходов на основные услуги (образование, здравоохранение и социальную защиту) в общей сумме государственных расходов",
+          "title": "Proportion of total government spending on essential services (education, health and social protection)",
           "description": "",
           "keywords": "",
           "href": "/en/1-a-2",
           "status": "complete"
         },{
           "id": "1-5-2",
-          "title": "Прямые экономические потери от бедствий в процентном отношении к мировому валовому внутреннему продукту (ВВП)",
+          "title": "Direct economic loss attributed to disasters in relation to global gross domestic product (GDP)",
           "description": "",
           "keywords": "",
           "href": "/en/1-5-2",
@@ -88,14 +88,14 @@
           "status": "notstarted"
         },{
           "id": "1-4-2",
-          "title": "Proportion of total adult population with secure tenure rights to land, with legally recognized documentation and who perceive their rights to land as secure, by sex and by type of tenure",
+          "title": "Proportion of total adult population with secure tenure rights to land, with legally recognized documentation, and who perceive their rights to land as secure, by sex and by type of tenure",
           "description": "",
           "keywords": "",
           "href": "/en/1-4-2",
           "status": "notstarted"
         },{
           "id": "1-1-1",
-          "title": "1.1.1 (a) Доля населения, живущего за международной чертой бедности, в разбивке по полу, возрасту, статусу занятости и месту проживания (городское/сельское)",
+          "title": "Proportion of population below the international poverty line, by sex, age, employment status and geographical location (urban/rural)",
           "description": "",
           "keywords": "",
           "href": "/en/1-1-1",
@@ -105,7 +105,7 @@
   },{
     "goal": {
       "id": "2",
-      "title": "",
+      "title": "End hunger, achieve food security and improved nutrition and promote sustainable agriculture",
       "indicators": [{
           "id": "2-1-2",
           "title": "Prevalence of moderate or severe food insecurity in the population, based on the Food Insecurity Experience Scale (FIES)",
@@ -143,21 +143,21 @@
           "status": "notstarted"
         },{
           "id": "2-2-1",
-          "title": "Распространенность задержки роста среди детей в возрасте до пяти лет (среднеквадратичное отклонение от медианного показателя роста к возрасту ребенка в соответствии с нормами роста детей, установленными Всемирной организацией здравоохранения (ВОЗ), <-2)",
+          "title": "Prevalence of stunting (height for age <-2 standard deviation from the median of the World Health Organization (WHO) Child Growth Standards) among children under 5 years of age",
           "description": "",
           "keywords": "",
           "href": "/en/2-2-1",
           "status": "complete"
         },{
           "id": "2-5-2",
-          "title": "Proportion of local breeds classified as being at risk, not-at-risk or at unknown level of risk of extinction",
+          "title": "Proportion of local breeds classified as being at risk, not at risk or at unknown level of risk of extinction",
           "description": "",
           "keywords": "",
           "href": "/en/2-5-2",
           "status": "notstarted"
         },{
           "id": "2-2-2",
-          "title": "Распространенность неполноценного питания среди детей в возрасте до пяти лет в разбивке по виду (истощение или ожирение) (среднеквадратичное отклонение от медианного показателя веса к возрасту в соответствии с нормами роста детей, установленными ВОЗ, >+2 или <-2)",
+          "title": "Prevalence of malnutrition (weight for height >+2 or <-2 standard deviation from the median of the WHO Child Growth Standards) among children under 5 years of age, by type (wasting and overweight)",
           "description": "",
           "keywords": "",
           "href": "/en/2-2-2",
@@ -171,7 +171,7 @@
           "status": "notstarted"
         },{
           "id": "2-5-1",
-          "title": "Number of plant and animal genetic resources for food and agriculture secured in either medium or long-term conservation facilities",
+          "title": "Number of plant and animal genetic resources for food and agriculture secured in either medium- or long-term conservation facilities",
           "description": "",
           "keywords": "",
           "href": "/en/2-5-1",
@@ -202,7 +202,7 @@
   },{
     "goal": {
       "id": "3",
-      "title": "",
+      "title": "Ensure healthy lives and promote well-being for all at all ages",
       "indicators": [{
           "id": "3-3-5",
           "title": "Number of people requiring interventions against neglected tropical diseases",
@@ -226,42 +226,42 @@
           "status": "notstarted"
         },{
           "id": "3-2-2",
-          "title": "Коэффициент неонатальной смертности",
+          "title": "Neonatal mortality rate",
           "description": "Число умерших детей в возрасте 0-27 дней на 1000 родившихся живыми",
           "keywords": "",
           "href": "/en/3-2-2",
           "status": "complete"
         },{
           "id": "3-3-2",
-          "title": "Заболеваемость туберкулезом на 100 000 человек",
+          "title": "Tuberculosis incidence per 100,000 population",
           "description": "",
           "keywords": "",
           "href": "/en/3-3-2",
           "status": "complete"
         },{
           "id": "3-4-2",
-          "title": "Смертность от самоубийств",
+          "title": "Suicide mortality rate",
           "description": "",
           "keywords": "",
           "href": "/en/3-4-2",
           "status": "complete"
         },{
           "id": "3-3-4",
-          "title": "Заболеваемость гепатитом B на 100 000 человек",
+          "title": "Hepatitis B incidence per 100,000 population",
           "description": "",
           "keywords": "",
           "href": "/en/3-3-4",
           "status": "complete"
         },{
           "id": "3-2-1",
-          "title": "Коэффициент смертности детей в возрасте до пяти лет",
+          "title": "Under‐five mortality rate",
           "description": "",
           "keywords": "",
           "href": "/en/3-2-1",
           "status": "complete"
         },{
           "id": "3-1-2",
-          "title": "Доля родов, принятых квалифицированными медицинскими работниками",
+          "title": "Proportion of births attended by skilled health personnel",
           "description": "",
           "keywords": "",
           "href": "/en/3-1-2",
@@ -282,21 +282,21 @@
           "status": "notstarted"
         },{
           "id": "3-3-3",
-          "title": "Заболеваемость малярией на 1000 человек",
+          "title": "Malaria incidence per 1,000 population",
           "description": "",
           "keywords": "",
           "href": "/en/3-3-3",
           "status": "complete"
         },{
           "id": "3-1-1",
-          "title": "Коэффициент материнской смертности",
+          "title": "Maternal mortality ratio",
           "description": "",
           "keywords": "",
           "href": "/en/3-1-1",
           "status": "complete"
         },{
           "id": "3-a-1",
-          "title": "3.a.1 Age-standardized prevalence of current tobacco use among persons aged 15 years and older",
+          "title": "Age-standardized prevalence of current tobacco use among persons aged 15 years and older",
           "description": "",
           "keywords": "",
           "href": "/en/3-a-1",
@@ -331,14 +331,14 @@
           "status": "notstarted"
         },{
           "id": "3-3-1",
-          "title": "Число новых заражений ВИЧ на 1000 неинфицированных в разбивке по полу, возрасту и принадлежности к основным группам населения",
+          "title": "Number of new HIV infections per 1,000 uninfected population, by sex, age and key populations",
           "description": "",
           "keywords": "",
           "href": "/en/3-3-1",
           "status": "complete"
         },{
           "id": "3-7-1",
-          "title": "Доля женщин репродуктивного возраста (от 15 до 49 лет), чьи потребности по планированию семьи удовлетворяются современными методами",
+          "title": "Proportion of women of reproductive age (aged 15–49 years) who have their need for family planning satisfied with modern methods",
           "description": "",
           "keywords": "",
           "href": "/en/3-7-1",
@@ -352,14 +352,14 @@
           "status": "notstarted"
         },{
           "id": "3-4-1",
-          "title": "Смертность от сердечно-сосудистых заболеваний, рака, диабета, хронических респираторных заболеваний",
+          "title": "Mortality rate attributed to cardiovascular disease, cancer, diabetes or chronic respiratory disease",
           "description": "",
           "keywords": "",
           "href": "/en/3-4-1",
           "status": "complete"
         },{
           "id": "3-7-2",
-          "title": "Показатель рождаемости среди девушек-подростков (в возрасте от 10 до 14 лет; в возрасте от 15 до 19 лет) на 1000 женщин в данной возрастной группе",
+          "title": "Adolescent birth rate (aged 10–14 years; aged 15–19 years) per 1,000 women in that age group",
           "description": "",
           "keywords": "",
           "href": "/en/3-7-2",
@@ -397,7 +397,7 @@
   },{
     "goal": {
       "id": "4",
-      "title": "",
+      "title": "Ensure inclusive and equitable quality education and promote lifelong learning opportunities for all",
       "indicators": [{
           "id": "4-3-1",
           "title": "Participation rate of youth and adults in formal and non-formal education and training in the previous 12 months, by sex",
@@ -407,7 +407,7 @@
           "status": "notstarted"
         },{
           "id": "4-4-1",
-          "title": "Доля молодежи/взрослых, обладающей/ обладающих навыками в области информационно-коммуникационных технологий, в разбивке по видам навыков",
+          "title": "Proportion of youth and adults with information and communications technology (ICT) skills, by type of skill",
           "description": "",
           "keywords": "",
           "href": "/en/4-4-1",
@@ -421,14 +421,14 @@
           "status": "notstarted"
         },{
           "id": "4-2-2",
-          "title": "Уровень участия в организованных видах обучения (за один год до достижения официального возраста поступления в школу) в разбивке по полу",
+          "title": "Participation rate in organized learning (one year before the official primary entry age), by sex",
           "description": "",
           "keywords": "",
           "href": "/en/4-2-2",
           "status": "complete"
         },{
           "id": "4-a-1",
-          "title": "Proportion of schools with access to: (a) electricity; (b) the Internet for pedagogical purposes; (c) computers for pedagogical purposes; (d) adapted infrastructure and materials for students with disabilities; (e) basic drinking water; (f) single-sex basic sanitation facilities; and (g) basic handwashing facilities (as per the WASH indicator definitions)",
+          "title": "Proportion of schools with access to (a) electricity; (b) the Internet for pedagogical purposes; (c) computers for pedagogical purposes; (d) adapted infrastructure and materials for students with disabilities; (e) basic drinking water; (f) single-sex basic sanitation facilities; and (g) basic handwashing facilities (as per the WASH indicator definitions)",
           "description": "",
           "keywords": "",
           "href": "/en/4-a-1",
@@ -442,14 +442,14 @@
           "status": "notstarted"
         },{
           "id": "4-2-1",
-          "title": "Доля детей в возрасте до пяти лет, которые развиваются без отклонений в плане здоровья, обучения и психосоциального благополучия, в разбивке по полу",
+          "title": "Proportion of children under 5 years of age who are developmentally on track in health, learning and psychosocial well-being, by sex",
           "description": "",
           "keywords": "",
           "href": "/en/4-2-1",
           "status": "complete"
         },{
           "id": "4-1-1",
-          "title": "Доля детей и молодежи, приходящаяся на a) учащихся 23 классов; b) выпускников начальной школы; и c) выпускников младшей средней школы, которые достигли по меньшей мере минимального уровня владения навыками i) чтения и ii) математики",
+          "title": "Proportion of children and young people (a) in grades 2/3; (b) at the end of primary; and (c) at the end of lower secondary achieving at least a minimum proficiency level in (i) reading and (ii) mathematics, by sex",
           "description": "",
           "keywords": "",
           "href": "/en/4-1-1",
@@ -470,7 +470,7 @@
           "status": "notstarted"
         },{
           "id": "4-7-1",
-          "title": "Extent to which (i) global citizenship education and (ii) education for sustainable development, including gender equality and human rights, are mainstreamed at all levels in: (a) national education policies; (b) curricula; (c) teacher education; and (d) student assessment",
+          "title": "Extent to which (i) global citizenship education and (ii) education for sustainable development, including gender equality and human rights, are mainstreamed at all levels in (a) national education policies; (b) curricula; (c) teacher education; and (d) student assessment",
           "description": "",
           "keywords": "",
           "href": "/en/4-7-1",
@@ -480,10 +480,10 @@
   },{
     "goal": {
       "id": "5",
-      "title": "",
+      "title": "Achieve gender equality and empower all women and girls",
       "indicators": [{
           "id": "5-b-1",
-          "title": "Доля людей, имеющих мобильный телефон, в разбивке по полу",
+          "title": "Proportion of individuals who own a mobile telephone, by sex",
           "description": "",
           "keywords": "",
           "href": "/en/5-b-1",
@@ -497,14 +497,14 @@
           "status": "notstarted"
         },{
           "id": "5-5-2",
-          "title": "Доля женщин на руководящих должностях",
+          "title": "Proportion of women in managerial positions",
           "description": "",
           "keywords": "",
           "href": "/en/5-5-2",
           "status": "complete"
         },{
           "id": "5-6-1",
-          "title": "Proportion of women aged 15-49 years who make their own informed decisions regarding sexual relations, contraceptive use and reproductive health care",
+          "title": "Proportion of women aged 15–49 years who make their own informed decisions regarding sexual relations, contraceptive use and reproductive health care",
           "description": "",
           "keywords": "",
           "href": "/en/5-6-1",
@@ -532,7 +532,7 @@
           "status": "notstarted"
         },{
           "id": "5-3-2",
-          "title": "Proportion of girls and women aged 15-49 years who have undergone female genital mutilation/cutting, by age",
+          "title": "Proportion of girls and women aged 15–49 years who have undergone female genital mutilation/cutting, by age",
           "description": "",
           "keywords": "",
           "href": "/en/5-3-2",
@@ -567,14 +567,14 @@
           "status": "notstarted"
         },{
           "id": "5-3-1",
-          "title": "Доля женщин в возрасте от 20 до 24 лет, вступивших в брак или союз до 15 лет и до 18 лет",
+          "title": "Proportion of women aged 20–24 years who were married or in a union before age 15 and before age 18",
           "description": "",
           "keywords": "",
           "href": "/en/5-3-1",
           "status": "complete"
         },{
           "id": "5-1-1",
-          "title": "Whether or not legal frameworks are in place to promote, enforce and monitor equality and non‑discrimination on the basis of sex",
+          "title": "Whether or not legal frameworks are in place to promote, enforce and monitor equality and non‐discrimination on the basis of sex",
           "description": "",
           "keywords": "",
           "href": "/en/5-1-1",
@@ -584,17 +584,17 @@
   },{
     "goal": {
       "id": "6",
-      "title": "",
+      "title": "Ensure availability and sustainable management of water and sanitation for all",
       "indicators": [{
           "id": "6-2-1",
-          "title": "Доля населения, использующего a) организо-ванные с соблюдением требований безопасности услуги санитарии и b) устройства для мытья рук с мылом и водой",
+          "title": "Proportion of population using safely managed sanitation services, including a handwashing facility with soap and water",
           "description": "",
           "keywords": "",
           "href": "/en/6-2-1",
           "status": "complete"
         },{
           "id": "6-5-1",
-          "title": "Degree of integrated water resources management implementation (0-100)",
+          "title": "Degree of integrated water resources management implementation (0 to 100)",
           "description": "",
           "keywords": "",
           "href": "/en/6-5-1",
@@ -657,7 +657,7 @@
           "status": "notstarted"
         },{
           "id": "6-3-1",
-          "title": "Доля безопасно очищаемых сточных вод",
+          "title": "Proportion of wastewater safely treated",
           "description": "",
           "keywords": "",
           "href": "/en/6-3-1",
@@ -667,10 +667,10 @@
   },{
     "goal": {
       "id": "7",
-      "title": "",
+      "title": "Ensure access to affordable, reliable, sustainable and modern energy for all",
       "indicators": [{
           "id": "7-2-1",
-          "title": "Доля возобновляемых источников энергии в общем объеме конечного энергопотребления",
+          "title": "Renewable energy share in the total final energy consumption",
           "description": "",
           "keywords": "",
           "href": "/en/7-2-1",
@@ -684,14 +684,14 @@
           "status": "notstarted"
         },{
           "id": "7-1-1",
-          "title": "Доля населения, имеющего доступ к элек-троэнергии",
+          "title": "Proportion of population with access to electricity",
           "description": "",
           "keywords": "",
           "href": "/en/7-1-1",
           "status": "complete"
         },{
           "id": "7-1-2",
-          "title": "Доля населения, использующего в основном чистые виды топлива и технологии",
+          "title": "Proportion of population with primary reliance on clean fuels and technology",
           "description": "",
           "keywords": "",
           "href": "/en/7-1-2",
@@ -715,7 +715,7 @@
   },{
     "goal": {
       "id": "8",
-      "title": "",
+      "title": "Promote sustained, inclusive and sustainable economic growth, full and productive employment and decent work for all",
       "indicators": [{
           "id": "8-4-2",
           "title": "Domestic material consumption, domestic material consumption per capita, and domestic material consumption per GDP",
@@ -739,14 +739,14 @@
           "status": "notstarted"
         },{
           "id": "8-6-1",
-          "title": "Proportion of youth (aged 15-24 years) not in education, employment or training",
+          "title": "Proportion of youth (aged 15–24 years) not in education, employment or training",
           "description": "",
           "keywords": "",
           "href": "/en/8-6-1",
           "status": "notstarted"
         },{
           "id": "8-1-1",
-          "title": "Ежегодные темпы роста реального ВВП на душу населения",
+          "title": "Annual growth rate of real GDP per capita",
           "description": "",
           "keywords": "",
           "href": "/en/8-1-1",
@@ -760,28 +760,28 @@
           "status": "notstarted"
         },{
           "id": "8-5-2",
-          "title": "Уровень безработицы в разбивке по полу, возрасту и признаку инвалидности",
+          "title": "Unemployment rate, by sex, age and persons with disabilities",
           "description": "",
           "keywords": "",
           "href": "/en/8-5-2",
           "status": "complete"
         },{
           "id": "8-3-1",
-          "title": "Proportion of informal employment in non-agriculture employment, by sex",
+          "title": "Proportion of informal employment in non‐agriculture employment, by sex",
           "description": "",
           "keywords": "",
           "href": "/en/8-3-1",
           "status": "notstarted"
         },{
           "id": "8-9-1",
-          "title": "Непосредственный вклад туризма в ВВП в процентном отношении к совокупному ВВП и по темпам роста",
+          "title": "Tourism direct GDP as a proportion of total GDP and in growth rate",
           "description": "",
           "keywords": "",
           "href": "/en/8-9-1",
           "status": "complete"
         },{
           "id": "8-5-1",
-          "title": "8.5.1 Average hourly earnings of female and male employees, by occupation, age and persons with disabilities",
+          "title": "Average hourly earnings of female and male employees, by occupation, age and persons with disabilities",
           "description": "",
           "keywords": "",
           "href": "/en/8-5-1",
@@ -795,14 +795,14 @@
           "status": "notstarted"
         },{
           "id": "8-2-1",
-          "title": "Ежегодные темпы роста реального ВВП на каждого занятого",
+          "title": "Annual growth rate of real GDP per employed person",
           "description": "",
           "keywords": "",
           "href": "/en/8-2-1",
           "status": "complete"
         },{
           "id": "8-10-1",
-          "title": "Число a) филиалов коммерческих банков и b) банкоматов на 100 000 взрослых",
+          "title": "(a) Number of commercial bank branches per 100,000 adults and (b) number of automated teller machines (ATMs) per 100,000 adults",
           "description": "",
           "keywords": "",
           "href": "/en/8-10-1",
@@ -816,7 +816,7 @@
           "status": "notstarted"
         },{
           "id": "8-7-1",
-          "title": "Доля и число детей в возрасте от 5 до 17 лет, занятых детским трудом, в разбивке по полу и возрасту",
+          "title": "Proportion and number of children aged 5–17 years engaged in child labour, by sex and age",
           "description": "",
           "keywords": "",
           "href": "/en/8-7-1",
@@ -830,7 +830,7 @@
           "status": "notstarted"
         },{
           "id": "8-8-2",
-          "title": "Level of national compliance of labour rights (freedom of association and collective bargaining) based on International Labour Organization (ILO) textual sources and national legislation, by sex and migrant status",
+          "title": "Level of national compliance with labour rights (freedom of association and collective bargaining) based on International Labour Organization (ILO) textual sources and national legislation, by sex and migrant status",
           "description": "",
           "keywords": "",
           "href": "/en/8-8-2",
@@ -840,10 +840,10 @@
   },{
     "goal": {
       "id": "9",
-      "title": "",
+      "title": "Build resilient infrastructure, promote inclusive and sustainable industrialization and foster innovation",
       "indicators": [{
           "id": "9-5-2",
-          "title": "Количество исследователей (в эквиваленте полной занятости) на миллион жителей",
+          "title": "Researchers (in full-time equivalent) per million inhabitants",
           "description": "",
           "keywords": "",
           "href": "/en/9-5-2",
@@ -885,14 +885,14 @@
           "status": "notstarted"
         },{
           "id": "9-2-2",
-          "title": "Занятость в обрабатывающей промышленности в процентах от общей занятости",
+          "title": "Manufacturing employment as a proportion of total employment",
           "description": "",
           "keywords": "",
           "href": "/en/9-2-2",
           "status": "complete"
         },{
           "id": "9-c-1",
-          "title": "Доля населения, охваченного мобильными сетями, в разбивке по технологиям",
+          "title": "Proportion of population covered by a mobile network, by technology",
           "description": "",
           "keywords": "",
           "href": "/en/9-c-1",
@@ -906,14 +906,14 @@
           "status": "notstarted"
         },{
           "id": "9-1-2",
-          "title": "Объем пассажирских и грузовых перевозок в разбивке по видам транспорта",
+          "title": "Passenger and freight volumes, by mode of transport",
           "description": "",
           "keywords": "",
           "href": "/en/9-1-2",
           "status": "complete"
         },{
           "id": "9-1-1",
-          "title": "Proportion of the rural population who live within 2 km of an all-season road",
+          "title": "Proportion of the rural population who live within 2 km of an all-season road",
           "description": "",
           "keywords": "",
           "href": "/en/9-1-1",
@@ -930,7 +930,7 @@
   },{
     "goal": {
       "id": "10",
-      "title": "",
+      "title": "Reduce inequality within and among countries",
       "indicators": [{
           "id": "10-2-1",
           "title": "Proportion of people living below 50 per cent of median income, by sex, age and persons with disabilities",
@@ -954,7 +954,7 @@
           "status": "notstarted"
         },{
           "id": "10-5-1",
-          "title": "Financial Soundness Indicators",
+          "title": "Financial Soundness Indicators (FSIs)",
           "description": "",
           "keywords": "",
           "href": "/en/10-5-1",
@@ -968,7 +968,7 @@
           "status": "notstarted"
         },{
           "id": "10-1-1",
-          "title": "10.1.1 Growth rates of household expenditure or income per capita among the bottom 40 per cent of the population and the total population",
+          "title": "Growth rates of household expenditure or income per capita among the bottom 40 per cent of the population and the total population",
           "description": "",
           "keywords": "",
           "href": "/en/10-1-1",
@@ -1003,7 +1003,7 @@
           "status": "notstarted"
         },{
           "id": "10-3-1",
-          "title": "Доля людей, сообщивших об испытанных ими лично в последние 12 месяцев проявлениях дискриминации или преследованиях на основании, дискриминация на котором запрещена международным правом прав человека",
+          "title": "Proportion of population reporting having personally felt discriminated against or harassed in the previous 12 months on the basis of a ground of discrimination prohibited under international human rights law",
           "description": "",
           "keywords": "",
           "href": "/en/10-3-1",
@@ -1013,7 +1013,7 @@
   },{
     "goal": {
       "id": "11",
-      "title": "",
+      "title": "Make cities and human settlements inclusive, safe, resilient and sustainable",
       "indicators": [{
           "id": "11-6-1",
           "title": "Proportion of urban solid waste regularly collected and with adequate final discharge out of total urban solid waste generated, by cities",
@@ -1030,7 +1030,7 @@
           "status": "notstarted"
         },{
           "id": "11-5-1",
-          "title": "Number of deaths, missing persons and directly affected persons attributed to disasters per 100,000 population (repeat of and 13.1.1)",
+          "title": "Number of deaths, missing persons and directly affected persons attributed to disasters per 100,000 population",
           "description": "",
           "keywords": "",
           "href": "/en/11-5-1",
@@ -1058,7 +1058,7 @@
           "status": "notstarted"
         },{
           "id": "11-b-1",
-          "title": "Number of countries that adopt and implement national disaster risk reduction strategies in line with the Sendai Framework for Disaster Risk Reduction 2015-2030",
+          "title": "Number of countries that adopt and implement national disaster risk reduction strategies in line with the Sendai Framework for Disaster Risk Reduction 2015–2030",
           "description": "",
           "keywords": "",
           "href": "/en/11-b-1",
@@ -1124,7 +1124,7 @@
   },{
     "goal": {
       "id": "12",
-      "title": "",
+      "title": "Ensure sustainable consumption and production patterns",
       "indicators": [{
           "id": "12-c-1",
           "title": "Amount of fossil-fuel subsidies per unit of GDP (production and consumption) and as a proportion of total national expenditure on fossil fuels",
@@ -1197,7 +1197,7 @@
           "status": "notstarted"
         },{
           "id": "12-8-1",
-          "title": "Extent to which (i) global citizenship education and (ii) education for sustainable development (including climate change education) are mainstreamed in (a) national education policies; (b) curricula; (c) teacher education; and (d) student assessment",
+          "title": "Extent to which (i) global citizenship education and (ii) education for sustainable development (including climate change education) are mainstreamed in (a) national education policies; (b) curricula; (c) teacher education; and (d) student assessment",
           "description": "",
           "keywords": "",
           "href": "/en/12-8-1",
@@ -1221,7 +1221,7 @@
   },{
     "goal": {
       "id": "13",
-      "title": "",
+      "title": "Take urgent action to combat climate change and its impacts",
       "indicators": [{
           "id": "13-1-1",
           "title": "Number of deaths, missing persons and directly affected persons attributed to disasters per 100,000 population",
@@ -1238,14 +1238,14 @@
           "status": "notstarted"
         },{
           "id": "13-1-2",
-          "title": "Number of countries that adopt and implement national disaster risk reduction strategies in line with the Sendai Framework for Disaster Risk Reduction 2015-2030",
+          "title": "Number of countries that adopt and implement national disaster risk reduction strategies in line with the Sendai Framework for Disaster Risk Reduction 2015–2030",
           "description": "",
           "keywords": "",
           "href": "/en/13-1-2",
           "status": "notstarted"
         },{
           "id": "13-a-1",
-          "title": "Mobilized amount of United States dollars per year between 2020 and 2025 accountable towards the $100 billion commitment",
+          "title": "Mobilized amount of United States dollars per year between 2020 and 2025 accountable towards the $100 billion commitment",
           "description": "",
           "keywords": "",
           "href": "/en/13-a-1",
@@ -1283,7 +1283,7 @@
   },{
     "goal": {
       "id": "14",
-      "title": "",
+      "title": "Conserve and sustainably use the oceans, seas and marine resources for sustainable development",
       "indicators": [{
           "id": "14-6-1",
           "title": "Progress by countries in the degree of implementation of international instruments aiming to combat illegal, unreported and unregulated fishing",
@@ -1335,7 +1335,7 @@
           "status": "notstarted"
         },{
           "id": "14-c-1",
-          "title": "Number of countries making progress in ratifying, accepting and implementing through legal, policy and institutional frameworks, ocean-related instruments that implement international law, as reflected in the United Nation Convention on the Law of the Sea, for the conservation and sustainable use of the oceans and their resources",
+          "title": "Number of countries making progress in ratifying, accepting and implementing through legal, policy and institutional frameworks, ocean-related instruments that implement international law, as reflected in the United Nations Convention on the Law of the Sea, for the conservation and sustainable use of the oceans and their resources",
           "description": "",
           "keywords": "",
           "href": "/en/14-c-1",
@@ -1359,10 +1359,10 @@
   },{
     "goal": {
       "id": "15",
-      "title": "",
+      "title": "Protect, restore and promote sustainable use of terrestrial ecosystems, sustainably manage forests, combat desertification, and halt and reverse land degradation and halt biodiversity loss",
       "indicators": [{
           "id": "15-1-1",
-          "title": "Площадь лесов в процентном отношении к общей площади суши",
+          "title": "Forest area as a proportion of total land area",
           "description": "",
           "keywords": "",
           "href": "/en/15-1-1",
@@ -1446,7 +1446,7 @@
           "status": "notstarted"
         },{
           "id": "15-9-1",
-          "title": "Progress towards national targets established in accordance with Aichi Biodiversity Target 2 of the Strategic Plan for Biodiversity 2011-2020",
+          "title": "Progress towards national targets established in accordance with Aichi Biodiversity Target 2 of the Strategic Plan for Biodiversity 2011–2020",
           "description": "",
           "keywords": "",
           "href": "/en/15-9-1",
@@ -1463,7 +1463,7 @@
   },{
     "goal": {
       "id": "16",
-      "title": "",
+      "title": "Promote peaceful and inclusive societies for sustainable development, provide access to justice for all and build effective, accountable and inclusive institutions at all levels",
       "indicators": [{
           "id": "16-7-2",
           "title": "Proportion of population who believe decision-making is inclusive and responsive, by sex, age, disability and population group",
@@ -1494,14 +1494,14 @@
           "status": "notstarted"
         },{
           "id": "16-1-3",
-          "title": "Доля населения, в последние 12 месяцев подвергшегося a) физическому, b) психологическому и c) сексуальному насилию",
+          "title": "Proportion of population subjected to (a) physical violence, (b) psychological violence and (c) sexual violence in the previous 12 months",
           "description": "",
           "keywords": "",
           "href": "/en/16-1-3",
           "status": "complete"
         },{
           "id": "16-9-1",
-          "title": "Доля детей в возрасте до пяти лет, рождение которых было зарегистрировано в гражданских органах, в разбивке по возрасту",
+          "title": "Proportion of children under 5 years of age whose births have been registered with a civil authority, by age",
           "description": "",
           "keywords": "",
           "href": "/en/16-9-1",
@@ -1522,7 +1522,7 @@
           "status": "notstarted"
         },{
           "id": "16-2-3",
-          "title": "Proportion of young women and men aged 18-29 years who experienced sexual violence by age 18",
+          "title": "Proportion of young women and men aged 18–29 years who experienced sexual violence by age 18",
           "description": "",
           "keywords": "",
           "href": "/en/16-2-3",
@@ -1557,7 +1557,7 @@
           "status": "notstarted"
         },{
           "id": "16-6-1",
-          "title": "Primary government expenditures as a proportion of original approved budget, by sector (or by budget codes or similar)",
+          "title": "Primary government expenditures as a proportion of original approved budget, by sector (or by budget codes or similar)",
           "description": "",
           "keywords": "",
           "href": "/en/16-6-1",
@@ -1571,14 +1571,14 @@
           "status": "notstarted"
         },{
           "id": "16-1-4",
-          "title": "Доля людей, чувствующих себя в безопасности, когда они идут одни по улице в своем районе",
+          "title": "Proportion of population that feel safe walking alone around the area they live",
           "description": "",
           "keywords": "",
           "href": "/en/16-1-4",
           "status": "complete"
         },{
           "id": "16-3-1",
-          "title": "Доля жертв насилия, которые в последние 12 месяцев подали соответствующую жалобу в компетентные органы или другие официально признанные механизмы урегулирования конфликтов",
+          "title": "Proportion of victims of violence in the previous 12 months who reported their victimization to competent authorities or other officially recognized conflict resolution mechanisms",
           "description": "",
           "keywords": "",
           "href": "/en/16-3-1",
@@ -1592,7 +1592,7 @@
           "status": "notstarted"
         },{
           "id": "16-2-1",
-          "title": "Доля детей в возрасте от 1 года до 17 лет, в последний месяц подвергшихся любому физическому наказанию и/или психологической агрессии со стороны тех, кто обеспечивает уход за ними",
+          "title": "Proportion of children aged 1–17 years who experienced any physical punishment and/or psychological aggression by caregivers in the past month",
           "description": "",
           "keywords": "",
           "href": "/en/16-2-1",
@@ -1630,10 +1630,10 @@
   },{
     "goal": {
       "id": "17",
-      "title": "",
+      "title": "Strengthen the means of implementation and revitalize the Global Partnership for Sustainable Development",
       "indicators": [{
           "id": "17-1-2",
-          "title": "Доля национального бюджета, финансируемая внутренними налогами",
+          "title": "Proportion of domestic budget funded by domestic taxes",
           "description": "",
           "keywords": "",
           "href": "/en/17-1-2",
@@ -1654,7 +1654,7 @@
           "status": "notstarted"
         },{
           "id": "17-9-1",
-          "title": "Dollar value of financial and technical assistance (including through North-South, South-South and triangular cooperation) committed to developing countries",
+          "title": "Dollar value of financial and technical assistance (including through North-South, South‐South and triangular cooperation) committed to developing countries",
           "description": "",
           "keywords": "",
           "href": "/en/17-9-1",
@@ -1696,7 +1696,7 @@
           "status": "notstarted"
         },{
           "id": "17-3-1",
-          "title": "Прямые иностранные инвестиции (ПИИ), официальная помощь в целях развития и сотрудничество Юг-Юг в процентном отношении к совокупному национальному бюджету",
+          "title": "Foreign direct investment (FDI), official development assistance and South-South cooperation as a proportion of total domestic budget",
           "description": "",
           "keywords": "",
           "href": "/en/17-3-1",
@@ -1780,7 +1780,7 @@
           "status": "notstarted"
         },{
           "id": "17-8-1",
-          "title": "Доля населения, пользующегося Интернетом",
+          "title": "Proportion of individuals using the Internet",
           "description": "",
           "keywords": "",
           "href": "/en/17-8-1",
