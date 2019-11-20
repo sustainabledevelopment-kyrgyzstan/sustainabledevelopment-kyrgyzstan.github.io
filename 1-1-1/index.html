@@ -7,11 +7,18 @@
 
 
 
+
+
+
+
+
 <!DOCTYPE html>
 <html lang="en" class="no-js">
     <head>
+        <meta charset="utf-8">
         <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.min.js"></script>
-        <script crossorigin="anonymous" src="https://polyfill.io/v3/polyfill.min.js?features=Array.prototype.forEach%2CString.prototype.includes"></script>
+        <script crossorigin="anonymous" src="https://polyfill.io/v3/polyfill.min.js?features=Promise%2CArray.prototype.forEach%2CString.prototype.includes"></script>
+<script crossorigin="anonymous" src="https://cdnjs.cloudflare.com/ajax/libs/javascript-canvas-to-blob/3.15.0/js/canvas-to-blob.min.js"></script>
 
         <script>
 // This is where we initialise any global variables, namespaced in "opensdg".
@@ -26,6 +33,13 @@ var opensdg = {
   chartConfigAlter: function(config) {
     // Alterations go here.
     return config;
+  },
+
+  // A hook which can be replaced to alter whether/how the values that are
+  // displayed on indicator tables/graphs get rounded.
+  dataRounding: function(value) {
+    // Alterations go here.
+    return value;
   },
 };
 
@@ -47,12 +61,12 @@ var translations = {
 
     // The majority of uses of this function are to translate disaggregation
     // data. To spare data providers of needing to enter "data." in front of
-    // their disaggregation data, we do it for them here.
-    var originalKey = key;
-    if (!key.includes('.') && this.data) {
-      key = 'data.' + key.toLowerCase();
+    // their disaggregation data, we specifically look for that here.
+    if (typeof this.data === 'object' && this.data !== null && this.data[key]) {
+      return this.data[key];
     }
 
+    var originalKey = key;
     var drilled = this;
     var levelsDrilled = 0;
     var levels = key.split('.');
@@ -82,7 +96,6 @@ var translations = {
 
         <!-- Basic Page Needs
         ================================================== -->
-        <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge"><!-- Mobile Specific Metas
         ================================================== -->
         <meta name="HandheldFriendly" content="True">
@@ -91,9 +104,17 @@ var translations = {
         <!-- Title and meta description
         ================================================== -->
         
+
+        
+
         <title>
-        Показатель 1.1.1 - Цель 1 - Ликвидация нищеты
+          
+            
+        Показатель 1.1.1 - Цель 1
+        
+          
         </title>
+
         <meta name="description" content="">
         <meta property="og:description" content="">
         
@@ -115,20 +136,24 @@ var translations = {
         
 
         
-        <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
-        <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
-        <link rel="stylesheet" href="https://cdn.datatables.net/fixedcolumns/3.2.3/css/fixedColumns.dataTables.min.css">
-        <link rel="stylesheet" href="/assets/css/default.css?v=20191120155936">
-        <link href="https://fonts.googleapis.com/css?family=Open+Sans|Roboto" rel="stylesheet">
+        <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css" crossorigin="">
+        <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" crossorigin="">
+        <link rel="stylesheet" href="https://cdn.datatables.net/fixedcolumns/3.2.3/css/fixedColumns.dataTables.min.css" crossorigin="">
+        <link rel="stylesheet" href="/assets/css/default.css?v=20191120160933">
+        <link href="https://fonts.googleapis.com/css?family=Open+Sans|Roboto" rel="stylesheet" crossorigin="">
         <link rel="stylesheet" href="https://unpkg.com/leaflet@1.3.4/dist/leaflet.css"
           integrity="sha512-puBpdR0798OZvTTbP4A8Ix/l+A4dHDD0DGqYW6RQ+9jxkRFclaxxQb/SJAWZfWAkuyeQUytO7+7N4QKrDh+drA=="
           crossorigin=""/>
-        <link rel="stylesheet" href="https://cdn.rawgit.com/socib/Leaflet.TimeDimension/master/dist/leaflet.timedimension.control.min.css" />
-        <link rel="stylesheet" href='https://api.mapbox.com/mapbox.js/plugins/leaflet-fullscreen/v1.0.1/leaflet.fullscreen.css' />
-        <link rel="stylesheet" href="https://bowercdn.net/c/leaflet.zoomhome-latest/dist/leaflet.zoomhome.css" />
-        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet-search@2.9.7/dist/leaflet-search.min.css"><link rel="stylesheet" href="/assets/css/custom.css?v=20191120155936"></head>
-<body class="language-ru">
+        <link rel="stylesheet" href="https://cdn.rawgit.com/socib/Leaflet.TimeDimension/master/dist/leaflet.timedimension.control.min.css"  crossorigin=""/>
+        <link rel="stylesheet" href='https://api.mapbox.com/mapbox.js/plugins/leaflet-fullscreen/v1.0.1/leaflet.fullscreen.css'  crossorigin=""/>
+        <link rel="stylesheet" href="https://bowercdn.net/c/leaflet.zoomhome-latest/dist/leaflet.zoomhome.css"  crossorigin=""/>
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet-search@2.9.7/dist/leaflet-search.min.css" crossorigin=""><link rel="stylesheet" href="/assets/css/custom.css?v=20191120160933"><!-- ShareThis BEGIN --><!-- ShareThis END -->
+
+    </head>
+<body class="language-ru layout-indicator">
 <!-- <div class="container"> -->
+
+<script>translations['header'] = {"alpha":"Альфа","disclaimer":"Это сайт находится в разработке. Мы рады вашим отзывам.","skip_link":"Перейти к главному содержанию","tag_line":"17 Целей, чтобы преобразовать наш мир"};</script>
 
 <a class="sr-only sr-only-focusable" id="skiplink" href="#main-content" tabindex="0">Перейти к главному содержанию</a>
 <div id="disclaimer">
@@ -163,7 +188,13 @@ var translations = {
     <nav class="navbar navbar-default" id="main-nav">
 
       <ul class="top-level">
-        <li><span data-target="menu">Меню</span></li>
+        <li id="menuToggle"
+            aria-label="Menu toggle. Click to expand or collapse the menu."
+            aria-haspopup="true"
+            aria-expanded="false">
+          <span data-target="menu" tabindex="0"
+          role="navigation">Меню</span>
+        </li>
         <li><span data-target="search">Поиск</span></li>
       </ul>
 
@@ -187,10 +218,10 @@ var translations = {
         </li></ul>
 
       <div id="search" class="menu-target">
-  <label for="indicator_search">
-    <i class="fa fa-search" aria-hidden="true"></i><span>Поиск:</span>
-  </label>
   <input id="indicator_search" title="Поиск показателя" placeholder="Поиск показателя" data-url="/indicators.json" data-pageurl="/search/?q=" />
+  <label for="indicator_search">
+    <button id="search-btn" type="submit"><i class="fa fa-search" aria-hidden="false" aria-label=Поиск показателя></i></button><span>Поиск:</span>
+  </label>
 </div>
 
 
@@ -201,8 +232,8 @@ var translations = {
 
 <script type="text/template" id="item_template">
   <% _.each(series, function(seriesItem) { %>
-    <div class="variable-selector<% if(allowedFields.indexOf(seriesItem.field) == -1) { %> disallowed child<% }%>" data-field="<%=seriesItem.field%>" aria-expanded='false'>
-      <button class='accessBtn' tabindex='0'><h5><%=translations.t(seriesItem.field)%><i class="fa fa-chevron-down"></i></h5></button>
+    <div class="variable-selector<% if(allowedFields.indexOf(seriesItem.field) == -1) { %> disallowed child<% }%>" data-field="<%=seriesItem.field%>">
+      <button class='accessBtn' tabindex='0' aria-expanded='false'><h5><%=translations.t(seriesItem.field)%><i class="fa fa-chevron-down"></i></h5></button>
       <div class="bar">
         <div class="selected"></div>
       </div>
@@ -232,7 +263,8 @@ var translations = {
   <% if(units.length) { %>
     <h5>Вид единиц</h5>
     <% _.each(units, function(unitsItem, index) { %>
-      <label><input type="radio" name="unit" value="<%=unitsItem%>" tabindex=0 <% if(!index) { %>checked="checked"<% } %> /> <%=translations.t(unitsItem)%></label>
+      <% var checked = (selectedUnit) ? (selectedUnit==unitsItem) : (index==0); %>
+      <label><input type="radio" name="unit" value="<%=unitsItem%>" tabindex=0 <%=checked ? 'checked' : ''%> /> <%=translations.t(unitsItem)%></label>
     <% }); %>
   <% } %>
 </script>
@@ -247,13 +279,13 @@ var translations = {
     <div class="row">
       <div class="col-xs-4 col-md-3 col-lg-2">
         <a href="/1" title="Посмотреть показательный список этой цели">
-          <img src="https://open-sdg.github.io/sdg-translations/assets/img/goals/ru/1.png" alt="Ликвидация нищеты - Цель 1" />
+          <img src="https://open-sdg.github.io/sdg-translations/assets/img/goals/ru/1.png" alt=" - Цель 1" />
         </a>
       </div>
       <div class="col-xs-8 col-md-9 col-lg-10">
         <h1>
           <a href="/1">
-            <span class="hidden-sm hidden-md hidden-lg">Цель 1: </span>Повсеместная ликвидация нищеты во всех ее формах
+            <span class="hidden-sm hidden-md hidden-lg">Цель 1: </span>
           </a>
         </h1>
         <h2>Показатель 1.1.1: 1.1.1 (a) Доля населения, живущего за международной чертой бедности, в разбивке по полу, возрасту, статусу занятости и месту проживания (городское/сельское)</h2>
@@ -266,13 +298,16 @@ var translations = {
   <ol class="breadcrumb">
   <li><a href="/">Главная</a></li>
   
-      <li><a href="/1" title="Повсеместная ликвидация нищеты во всех ее формах">Цель 1</a></li>
+      <li><a href="/1" title="">Цель 1</a></li>
       <li class="active">Показатель 1.1.1</li>
   
 </ol>
 
+
   <div class="row" id="page-content-row">
     <div class="col-xs-12">
+      
+
       <div id="page-content">
   
 
@@ -287,12 +322,17 @@ var translations = {
     </div>
   </div>
 
+  
+  
+
+  
+
   <div class="row" id="indicatorData" data-indicatorid='indicator_1-1-1' data-id="1-1-1" data-country="Кыргызская Республика"
-  data-charttitle="Доля населения, живущего за международной" data-measurementunit="Пропорция" data-datasource="НСК КР"
+  data-charttitle="Доля населения, живущего за международной" data-measurementunit="Пропорция" data-datasource="НСК КР" data-copyright=""
   data-geographicalarea="Кыргызская Республика" data-footnote="" data-showdata="true" data-graphtype="line"
   data-geocoderegex="" data-showmap="false" data-startvalues="">
     
-    <div class="col-md-3">
+    <div id="indicator-sidebar" class="col-md-3">
       <div id="toolbar">
         <span id="series-help">
           <h4>Субкатегории</h4>
@@ -305,7 +345,7 @@ var translations = {
       </div>
       <div id="units"></div>
     </div>
-    <div class="col-md-9">
+    <div id="indicator-main" class="col-md-9">
     
 
       
@@ -504,7 +544,7 @@ data-event-label="Change to Table tab"
 >Таблица</a>
             </li>
             <li role="presentation" class="nav-item map" style="display:none">
-              <a class="nav-link" data-toggle="tab" href="#mapview" aria-controls="mapview" role="tab" data-on="click"
+              <a data-no-disagg="true" class="nav-link" data-toggle="tab" href="#mapview" aria-controls="mapview" role="tab" data-on="click"
 data-event-category="Tab change"
 data-event-action="Change data view"
 data-event-label="Change to Map tab"
@@ -521,13 +561,21 @@ data-event-label="Change to Map tab"
     </div>
 
     
-    <div class="plot-container">
-        
+    <div id="selectionsChart">
+      <div id="chart-canvas">
+        <h3 class="chart-title">Доля населения, живущего за международной</h3>
+        <div id="chart" class="plot-container">
+          
 <canvas></canvas>
 
-    </div>
-    <div id="plotLegend"></div>
 
+        </div>
+        <div id="plotLegend"></div>
+      </div>
+      <button id="btnSave" title="" class='btn btn-primary btn-download'>
+        
+      </button>
+    </div>
     <div id="chartSelectionDownload"></div>
 
 
@@ -605,6 +653,7 @@ data-event-label="Change to Sources tab"
         <td>
           
             
+
           
         </td>
         </tr>
@@ -617,6 +666,7 @@ data-event-label="Change to Sources tab"
         <td>
           
             
+
           
         </td>
         </tr>
@@ -628,7 +678,8 @@ data-event-label="Change to Sources tab"
         <th scope="row">Географический охват </th>
         <td>
           
-            Кыргызская Республика
+            <p>Кыргызская Республика</p>
+
           
         </td>
         </tr>
@@ -640,7 +691,8 @@ data-event-label="Change to Sources tab"
         <th scope="row">Единица измерения </th>
         <td>
           
-            Пропорция
+            <p>Пропорция</p>
+
           
         </td>
         </tr>
@@ -652,7 +704,8 @@ data-event-label="Change to Sources tab"
         <th scope="row">Определения </th>
         <td>
           
-            Показатель Доля населения, живущего за международной чертой бедности определяется как процент населения, живущего менее чем на 1,90 долл. США в день в международных ценах 2011 года. «Международная черта бедности» в настоящее время установлена в размере 1,90 долл. США в день по международным ценам в 2011 году. Мониторинг бедности имеет важное значение для глобальной повестки дня в области развития, а также для национальной повестки дня в области развития многих стран. Всемирный банк подготовил первую глобальную оценку бедности для развивающихся стран для Доклада о мировом развитии за 1990 год: «Бедность» (Всемирный банк, 1990 год), в котором использовались данные обследований домохозяйств для 22 стран (Раваллион, Датт и Ван де Валле 1991 года). С тех пор значительно увеличилось число стран, которые проводят обследования доходов и расходов домашних хозяйств. Исследовательская группа Всемирного банка по вопросам развития ведет базу данных, которая обновляется ежегодно по мере поступления новых данных обследований (и, следовательно, может содержать более свежие данные или изменения) и проводит ежегодную переоценку прогресса в борьбе с нищетой. PovcalNet - это интерактивный вычислительный инструмент, который позволяет пользователям тиражировать сопоставимые на глобальном, региональном и страновом уровнях оценки уровня бедности относительно международной черты бедности 1,90 и 3,10 долл. США в день, а также рассчитывать меры по борьбе с нищетой для отдельных групп стран и для разных черт бедности.
+            <p>Показатель Доля населения, живущего за международной чертой бедности определяется как процент населения, живущего менее чем на 1,90 долл. США в день в международных ценах 2011 года. «Международная черта бедности» в настоящее время установлена в размере 1,90 долл. США в день по международным ценам в 2011 году. Мониторинг бедности имеет важное значение для глобальной повестки дня в области развития, а также для национальной повестки дня в области развития многих стран. Всемирный банк подготовил первую глобальную оценку бедности для развивающихся стран для Доклада о мировом развитии за 1990 год: «Бедность» (Всемирный банк, 1990 год), в котором использовались данные обследований домохозяйств для 22 стран (Раваллион, Датт и Ван де Валле 1991 года). С тех пор значительно увеличилось число стран, которые проводят обследования доходов и расходов домашних хозяйств. Исследовательская группа Всемирного банка по вопросам развития ведет базу данных, которая обновляется ежегодно по мере поступления новых данных обследований (и, следовательно, может содержать более свежие данные или изменения) и проводит ежегодную переоценку прогресса в борьбе с нищетой. PovcalNet - это интерактивный вычислительный инструмент, который позволяет пользователям тиражировать сопоставимые на глобальном, региональном и страновом уровнях оценки уровня бедности относительно международной черты бедности 1,90 и 3,10 долл. США в день, а также рассчитывать меры по борьбе с нищетой для отдельных групп стран и для разных черт бедности.</p>
+
           
         </td>
         </tr>
@@ -664,7 +717,8 @@ data-event-label="Change to Sources tab"
         <th scope="row">Расчёты </th>
         <td>
           
-            Для последовательного измерения масштабов нищеты в разных странах, международные меры Всемирного банка применяют общий стандарт, закрепленный за тем, что означает «бедность» в самых бедных странах мира. Первоначальная черта в «1 доллар в день» была основана на компиляции национальных черт бедности только для 22 развивающихся стран, в основном из академических исследований 1980-х годов (Ravallion, et al., 1991). Хотя это было лучшее, что можно было сделать в то время, образец вряд ли представлял развивающиеся страны даже в 1980-х годах. С тех пор национальные черты бедности были разработаны для многих других стран. На основе новой подборки национальных черт для 75 развивающихся стран Раваллион, Чен и Санграула (РКС) (2009 г.) предложили новую международную черту бедности в размере 1,25 долл. США в день. Это средняя черта бедности для самых бедных 15 стран в их наборе данных. Нынешняя крайняя черта бедности установлена в размере 1,90 долл. США в день в условиях ППС в 2011 году, которая представляет собой среднее значение национальных черт бедности, обнаруженных в тех же самых беднейших 15 странах, что оценивается по потреблению на душу населения. Новая черта бедности поддерживает тот же стандарт для крайней нищеты - черты бедности, характерные для беднейших стран мира, - но обновляет ее, используя самую последнюю информацию о стоимости жизни в развивающихся странах. При измерении международной бедности в стране международная черта бедности в ППС конвертируется в местные валюты в 2011 году и затем преобразуется в цены, преобладающие во время соответствующего обследования домашних хозяйств, с использованием наилучшего доступного индекса потребительских цен (ИПЦ). (Эквивалентно, данные опроса о потреблении или доходах домохозяйства в отчетном году выражены в ценах базового года ICP, а затем конвертированы по ППС в долл. США). Затем уровень бедности рассчитывается на основе этого опроса. Все межвременные сопоставления являются реальными, так как оцениваются с использованием ИПЦ для конкретной страны. Методы интерполяции/экстраполяции используются для выравнивания оценок, основанных на исследованиях, с этими отчетными годами.
+            <p>Для последовательного измерения масштабов нищеты в разных странах, международные меры Всемирного банка применяют общий стандарт, закрепленный за тем, что означает «бедность» в самых бедных странах мира. Первоначальная черта в «1 доллар в день» была основана на компиляции национальных черт бедности только для 22 развивающихся стран, в основном из академических исследований 1980-х годов (Ravallion, et al., 1991). Хотя это было лучшее, что можно было сделать в то время, образец вряд ли представлял развивающиеся страны даже в 1980-х годах. С тех пор национальные черты бедности были разработаны для многих других стран. На основе новой подборки национальных черт для 75 развивающихся стран Раваллион, Чен и Санграула (РКС) (2009 г.) предложили новую международную черту бедности в размере 1,25 долл. США в день. Это средняя черта бедности для самых бедных 15 стран в их наборе данных. Нынешняя крайняя черта бедности установлена в размере 1,90 долл. США в день в условиях ППС в 2011 году, которая представляет собой среднее значение национальных черт бедности, обнаруженных в тех же самых беднейших 15 странах, что оценивается по потреблению на душу населения. Новая черта бедности поддерживает тот же стандарт для крайней нищеты - черты бедности, характерные для беднейших стран мира, - но обновляет ее, используя самую последнюю информацию о стоимости жизни в развивающихся странах. При измерении международной бедности в стране международная черта бедности в ППС конвертируется в местные валюты в 2011 году и затем преобразуется в цены, преобладающие во время соответствующего обследования домашних хозяйств, с использованием наилучшего доступного индекса потребительских цен (ИПЦ). (Эквивалентно, данные опроса о потреблении или доходах домохозяйства в отчетном году выражены в ценах базового года ICP, а затем конвертированы по ППС в долл. США). Затем уровень бедности рассчитывается на основе этого опроса. Все межвременные сопоставления являются реальными, так как оцениваются с использованием ИПЦ для конкретной страны. Методы интерполяции/экстраполяции используются для выравнивания оценок, основанных на исследованиях, с этими отчетными годами.</p>
+
           
         </td>
         </tr>
@@ -676,7 +730,8 @@ data-event-label="Change to Sources tab"
         <th scope="row">Другая информация </th>
         <td>
           
-            Оценивая бедность в данной стране и как лучше всего сокращать масштабы нищеты, естественно, основное внимание уделяется черте бедности, которая считается подходящей для этой страны. Но как мы можем говорить о «глобальной бедности»? Черта бедности в разных странах различается с точки зрения покупательной способности в этих странах, и он имеет сильный экономический градиент, так что более богатые страны, как правило, принимают более высокий уровень жизни при определении бедности. Но для того, чтобы последовательно измерять глобальную абсолютную бедность с точки зрения потребления, мы должны рассматривать два человека с той же покупательной способности по товарам таким же образом - как бедным, так и не бедным - даже если они живут в разных странах. Начиная с Доклада о мировом развитии за 1990 год, Всемирный банк стремился применять единый стандарт в измерении крайней нищеты, привязанный к тому, что означает бедность в беднейших странах мира. Благосостояние людей, живущих в разных странах, можно измерять в общих масштабах путем корректировки различий в покупательной способности валют. Обычно используемый стандарт  в размере 1 долл. США в день, измеряемый в международных ценах 1985 года и скорректированный на местную валюту с использованием ППС, был выбран для отчета о мировом развитии за 1990 год, поскольку он был типичным для черты бедности в странах с низким доходом в то время. По мере развития различий в стоимости жизни во всем мире международная черта бедности должна периодически обновляться с использованием новых данных о ценах на ППС для отражения этих изменений. Последнее изменение было в октябре 2015 года, когда Всемирный банк принял 1,90 долл. США в качестве международной черты бедности, используя ППС 2011 года. До этого в обновлении 2008 года международная черта бедности составляла 1,25 долл. США с использованием ППС 2005 года. Меры по борьбе с бедностью, основанные на международных чертах бедности, пытаются сохранить реальную ценность бедности в разных странах, как это делается при проведении сопоставлений с течением времени. Ранние издания индикаторов мирового развития Всемирного банка (WDI) использовали ППС из Penn World Tables для конвертации значений в местной валюте в эквивалентную покупательную способность, измеренную в долларах США. В более поздних изданиях использовались оценки ППС потребления 1993, 2005 и 2011 годов, подготовленные Программой международных сопоставлений Всемирного банка (ICP). Национальная бедность - это другая концепция, чем глобальная нищета. Национальный уровень бедности определяется по отдельным чертам бедности в местных валютах, которые в разных странах различны и отличаются от международной черты бедности в размере 1,90 долл. США в день. Таким образом, уровень национальной бедности нельзя сравнивать по странам или с уровнем бедности в 1,90 долл. в день. Всемирный банк обычно получает данные из национальных статистических управлений (НСУ) напрямую. В других случаях он использует данные НСУ, полученные косвенно. Дополнительную информацию см. в разделе источников данных. www.worldbank.org Для получения дополнительной информации и методологии см. PovcalNet (http://iresearch.worldbank.org/PovcalNet/index.htm). Also, consult http://documents.worldbank.org/curated/en/2015/10/25114899/global-count-extremepoor-2012-data-issues-methodology-initial-results For a short review see http://www.worldbank.org/en/topic/poverty/brief/global-poverty-line-faq For a comprehensive link to related background papers, working papers and journal articles see http://iresearch.worldbank.org/PovcalNet/index.htm?0,4 Измеренный подход к прекращению бедности и усиление совместного процветания концепции, данные и двойные цели. (http://www.worldbank.org/en/research/publication/a-measured-approach-to-ending-povertyand-boosting-shared-prosperity)
+            <p>Оценивая бедность в данной стране и как лучше всего сокращать масштабы нищеты, естественно, основное внимание уделяется черте бедности, которая считается подходящей для этой страны. Но как мы можем говорить о «глобальной бедности»? Черта бедности в разных странах различается с точки зрения покупательной способности в этих странах, и он имеет сильный экономический градиент, так что более богатые страны, как правило, принимают более высокий уровень жизни при определении бедности. Но для того, чтобы последовательно измерять глобальную абсолютную бедность с точки зрения потребления, мы должны рассматривать два человека с той же покупательной способности по товарам таким же образом - как бедным, так и не бедным - даже если они живут в разных странах. Начиная с Доклада о мировом развитии за 1990 год, Всемирный банк стремился применять единый стандарт в измерении крайней нищеты, привязанный к тому, что означает бедность в беднейших странах мира. Благосостояние людей, живущих в разных странах, можно измерять в общих масштабах путем корректировки различий в покупательной способности валют. Обычно используемый стандарт  в размере 1 долл. США в день, измеряемый в международных ценах 1985 года и скорректированный на местную валюту с использованием ППС, был выбран для отчета о мировом развитии за 1990 год, поскольку он был типичным для черты бедности в странах с низким доходом в то время. По мере развития различий в стоимости жизни во всем мире международная черта бедности должна периодически обновляться с использованием новых данных о ценах на ППС для отражения этих изменений. Последнее изменение было в октябре 2015 года, когда Всемирный банк принял 1,90 долл. США в качестве международной черты бедности, используя ППС 2011 года. До этого в обновлении 2008 года международная черта бедности составляла 1,25 долл. США с использованием ППС 2005 года. Меры по борьбе с бедностью, основанные на международных чертах бедности, пытаются сохранить реальную ценность бедности в разных странах, как это делается при проведении сопоставлений с течением времени. Ранние издания индикаторов мирового развития Всемирного банка (WDI) использовали ППС из Penn World Tables для конвертации значений в местной валюте в эквивалентную покупательную способность, измеренную в долларах США. В более поздних изданиях использовались оценки ППС потребления 1993, 2005 и 2011 годов, подготовленные Программой международных сопоставлений Всемирного банка (ICP). Национальная бедность - это другая концепция, чем глобальная нищета. Национальный уровень бедности определяется по отдельным чертам бедности в местных валютах, которые в разных странах различны и отличаются от международной черты бедности в размере 1,90 долл. США в день. Таким образом, уровень национальной бедности нельзя сравнивать по странам или с уровнем бедности в 1,90 долл. в день. Всемирный банк обычно получает данные из национальных статистических управлений (НСУ) напрямую. В других случаях он использует данные НСУ, полученные косвенно. Дополнительную информацию см. в разделе источников данных. www.worldbank.org Для получения дополнительной информации и методологии см. PovcalNet (http://iresearch.worldbank.org/PovcalNet/index.htm). Also, consult http://documents.worldbank.org/curated/en/2015/10/25114899/global-count-extremepoor-2012-data-issues-methodology-initial-results For a short review see http://www.worldbank.org/en/topic/poverty/brief/global-poverty-line-faq For a comprehensive link to related background papers, working papers and journal articles see http://iresearch.worldbank.org/PovcalNet/index.htm?0,4 Измеренный подход к прекращению бедности и усиление совместного процветания концепции, данные и двойные цели. (http://www.worldbank.org/en/research/publication/a-measured-approach-to-ending-povertyand-boosting-shared-prosperity)</p>
+
           
         </td>
         </tr>
@@ -828,7 +883,8 @@ data-event-label="Change to Sources tab"
         <th scope="row">Название показателя </th>
         <td>
           
-            1.1.1 (a) Доля населения, живущего за международной чертой бедности, в разбивке по полу, возрасту, статусу занятости и месту проживания (городское/сельское)
+            <p>1.1.1 (a) Доля населения, живущего за международной чертой бедности, в разбивке по полу, возрасту, статусу занятости и месту проживания (городское/сельское)</p>
+
           
         </td>
         </tr>
@@ -840,7 +896,8 @@ data-event-label="Change to Sources tab"
         <th scope="row">Номер показателя </th>
         <td>
           
-            1.1.1
+            <p>1.1.1</p>
+
           
         </td>
         </tr>
@@ -852,7 +909,8 @@ data-event-label="Change to Sources tab"
         <th scope="row">Название задачи </th>
         <td>
           
-            1.1 К 2030 году ликвидировать крайнюю нищету для всех людей во всем мире (в настоящее время крайняя нищета определяется как проживание на сумму менее чем 1,25 долл. США в день)
+            <p>1.1 К 2030 году ликвидировать крайнюю нищету для всех людей во всем мире (в настоящее время крайняя нищета определяется как проживание на сумму менее чем 1,25 долл. США в день)</p>
+
           
         </td>
         </tr>
@@ -864,7 +922,8 @@ data-event-label="Change to Sources tab"
         <th scope="row">Номер задачи </th>
         <td>
           
-            1.1
+            <p>1.1</p>
+
           
         </td>
         </tr>
@@ -877,6 +936,7 @@ data-event-label="Change to Sources tab"
         <td>
           
             
+
           
         </td>
         </tr>
@@ -888,7 +948,8 @@ data-event-label="Change to Sources tab"
         <th scope="row">ООН-ями назначенный уровень </th>
         <td>
           
-            1.0
+            <p>1.0</p>
+
           
         </td>
         </tr>
@@ -900,7 +961,8 @@ data-event-label="Change to Sources tab"
         <th scope="row">Депозитарное учреждение ООН  </th>
         <td>
           
-            World Bank
+            <p>World Bank</p>
+
           
         </td>
         </tr>
@@ -1082,7 +1144,8 @@ data-event-label="Change to Sources tab"
         <th scope="row">Организация </th>
         <td>
           
-            НСК КР
+            <p>НСК КР</p>
+
           
         </td>
         </tr>
@@ -1095,6 +1158,7 @@ data-event-label="Change to Sources tab"
         <td>
           
             
+
           
         </td>
         </tr>
@@ -1107,6 +1171,7 @@ data-event-label="Change to Sources tab"
         <td>
           
             
+
           
         </td>
         </tr>
@@ -1119,6 +1184,7 @@ data-event-label="Change to Sources tab"
         <td>
           
             
+
           
         </td>
         </tr>
@@ -1152,6 +1218,7 @@ data-event-label="Change to Sources tab"
         <td>
           
             
+
           
         </td>
         </tr>
@@ -1164,6 +1231,7 @@ data-event-label="Change to Sources tab"
         <td>
           
             
+
           
         </td>
         </tr>
@@ -1176,6 +1244,7 @@ data-event-label="Change to Sources tab"
         <td>
           
             
+
           
         </td>
         </tr>
@@ -1187,7 +1256,8 @@ data-event-label="Change to Sources tab"
         <th scope="row">Контактные данные </th>
         <td>
           
-            Керималиева Н.К, nazira.kerimaliena@gmail.com, (0312) 32 46 91
+            <p>Керималиева Н.К, nazira.kerimaliena@gmail.com, (0312) 32 46 91</p>
+
           
         </td>
         </tr>
@@ -1199,7 +1269,8 @@ data-event-label="Change to Sources tab"
         <th scope="row">Другая информация </th>
         <td>
           
-            Всемирный банк обычно получает данные из национальных статистических управлений (НСУ) напрямую. В других случаях он использует данные НСУ, полученные косвенно. Например, он получает данные от Евростата и из LIS (Люксембургское исследование доходов), которые предоставляют данные НСУ Всемирного банка, которые они получили/согласовали. Национальный университет штата Ла-Плата, Аргентина и Всемирный банк совместно поддерживают базу данных SEDLAC (Социально-экономическая база данных для Латинской Америки и Карибского бассейна), которая включает согласованные статистические данные о бедности и других распределительных и социальных показателях из 24 стран Латинской Америки и Карибского бассейна на основе микроданных из обследований домашних хозяйств, проводимых НСУ. Данные получены в рамках программ стран, в том числе программ технической помощи и совместных аналитических мероприятий и мероприятий по наращиванию потенциала. Всемирный банк связан с НСУ по программам работы с использованием статистических систем и анализа данных. Экономисты по бедности из Всемирного банка обычно взаимодействуют с НСУ в целом по измерению и анализу бедности в рамках деятельности по оказанию технической помощи.В рамках Всемирного банка Глобальная группа по борьбе с нищетой (GPWG) отвечает за сбор, утверждение и оценку данных по бедности. GPWG архивирует данные, полученные из НСУ, а затем гармонизирует их, применяя общие методологии. Целью GPWG является обеспечение того, чтобы данные по бедности и неравенству, которые были созданы, отслежены и распространены Всемирным банком, обновлены, соответствуют высоким стандартам качества и хорошо документированы и согласованы во всех каналах распространения. Члены GPWG генерируют и обновляют оценки доли населения ниже международной черты бедности, используя необработанные данные, обычно предоставляемые правительствами стран. Исходные данные получены экономистами по бедности через их контакты в НСУ и проверяются на качество, прежде чем они будут представлены для дальнейшего анализа. Исходными данными могут быть данные обследований единичных записей или сгруппированные данные, в зависимости от соглашений с правительствами стран. В большинстве случаев совокупность благосостояния, являющаяся основным элементом оценки бедности, создается правительствами стран. Иногда Всемирный банк должен построить совокупность благосостояния или скорректировать совокупность, предоставляемую страной.
+            <p>Всемирный банк обычно получает данные из национальных статистических управлений (НСУ) напрямую. В других случаях он использует данные НСУ, полученные косвенно. Например, он получает данные от Евростата и из LIS (Люксембургское исследование доходов), которые предоставляют данные НСУ Всемирного банка, которые они получили/согласовали. Национальный университет штата Ла-Плата, Аргентина и Всемирный банк совместно поддерживают базу данных SEDLAC (Социально-экономическая база данных для Латинской Америки и Карибского бассейна), которая включает согласованные статистические данные о бедности и других распределительных и социальных показателях из 24 стран Латинской Америки и Карибского бассейна на основе микроданных из обследований домашних хозяйств, проводимых НСУ. Данные получены в рамках программ стран, в том числе программ технической помощи и совместных аналитических мероприятий и мероприятий по наращиванию потенциала. Всемирный банк связан с НСУ по программам работы с использованием статистических систем и анализа данных. Экономисты по бедности из Всемирного банка обычно взаимодействуют с НСУ в целом по измерению и анализу бедности в рамках деятельности по оказанию технической помощи.В рамках Всемирного банка Глобальная группа по борьбе с нищетой (GPWG) отвечает за сбор, утверждение и оценку данных по бедности. GPWG архивирует данные, полученные из НСУ, а затем гармонизирует их, применяя общие методологии. Целью GPWG является обеспечение того, чтобы данные по бедности и неравенству, которые были созданы, отслежены и распространены Всемирным банком, обновлены, соответствуют высоким стандартам качества и хорошо документированы и согласованы во всех каналах распространения. Члены GPWG генерируют и обновляют оценки доли населения ниже международной черты бедности, используя необработанные данные, обычно предоставляемые правительствами стран. Исходные данные получены экономистами по бедности через их контакты в НСУ и проверяются на качество, прежде чем они будут представлены для дальнейшего анализа. Исходными данными могут быть данные обследований единичных записей или сгруппированные данные, в зависимости от соглашений с правительствами стран. В большинстве случаев совокупность благосостояния, являющаяся основным элементом оценки бедности, создается правительствами стран. Иногда Всемирный банк должен построить совокупность благосостояния или скорректировать совокупность, предоставляемую страной.</p>
+
           
         </td>
         </tr>
@@ -1312,7 +1383,6 @@ data-event-label="Change to Sources tab"
 <script src="//cdn.datatables.net/fixedcolumns/3.2.3/js/dataTables.fixedColumns.min.js"></script>
 <script src="//cdnjs.cloudflare.com/ajax/libs/underscore.js/1.8.3/underscore-min.js"></script>
 <script src="//cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.0/Chart.bundle.min.js"></script>
-<script src="//cdn.jsdelivr.net/bluebird/3.5.0/bluebird.min.js"></script>
 <script src="https://unpkg.com/leaflet@1.3.4/dist/leaflet.js" integrity="sha512-nMMmRyTVoLYqjP9hrbed9S+FzjZHW5gY1TWCHA5ckwXZBadntCNs8kEqAWdrb9O7rxbCaA4lKTIWjDXZxflOcA==" crossorigin=""></script>
 <script src="https://cdn.jsdelivr.net/npm/leaflet.zoomshowhide@0.1.0/dist/leaflet-zoom-show-hide.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/chroma-js/1.4.0/chroma.min.js"></script>
@@ -1322,8 +1392,9 @@ data-event-label="Change to Sources tab"
 <script src="https://bowercdn.net/c/leaflet.zoomhome-latest/dist/leaflet.zoomhome.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/leaflet-search@2.9.7/dist/leaflet-search.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/autotrack/2.4.1/autotrack.js"></script>
-<script src='/assets/js/sdg.js?v=20191120155936'></script>
-<script>
+<script src="https://cdn.jsdelivr.net/npm/html2canvas@1.0.0-rc.3/dist/html2canvas.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/file-saver@2.0.2/dist/FileSaver.min.js"></script>
+<script src='/assets/js/sdg.js?v=20191120160933'></script><script>
 $(function() {
     if($('#indicatorData').length) {
       var domData = $('#indicatorData').data();
@@ -1349,6 +1420,7 @@ $(function() {
             shortIndicatorId: domData.id,
             chartTitle: domData.charttitle,
             measurementUnit: domData.measurementunit,
+            copyright: domData.copyright,
             dataSource: domData.datasource,
             geographicalArea: domData.geographicalarea,
             showData: domData.showdata,
@@ -1359,7 +1431,7 @@ $(function() {
           view  = new indicatorView(model, {
             rootElement: '#indicatorData',
             legendElement: '#plotLegend',
-            maxChartHeight: 600,
+            maxChartHeight: 420,
             tableColumnDefs: [
               { maxCharCount: 25 }, // nowrap
               { maxCharCount: 35, width: 200 },

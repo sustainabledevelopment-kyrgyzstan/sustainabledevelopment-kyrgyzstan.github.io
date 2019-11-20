@@ -1,8 +1,10 @@
 <!DOCTYPE html>
 <html lang="en" class="no-js">
     <head>
+        <meta charset="utf-8">
         <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.min.js"></script>
-        <script crossorigin="anonymous" src="https://polyfill.io/v3/polyfill.min.js?features=Array.prototype.forEach%2CString.prototype.includes"></script>
+        <script crossorigin="anonymous" src="https://polyfill.io/v3/polyfill.min.js?features=Promise%2CArray.prototype.forEach%2CString.prototype.includes"></script>
+<script crossorigin="anonymous" src="https://cdnjs.cloudflare.com/ajax/libs/javascript-canvas-to-blob/3.15.0/js/canvas-to-blob.min.js"></script>
 
         <script>
 // This is where we initialise any global variables, namespaced in "opensdg".
@@ -17,6 +19,13 @@ var opensdg = {
   chartConfigAlter: function(config) {
     // Alterations go here.
     return config;
+  },
+
+  // A hook which can be replaced to alter whether/how the values that are
+  // displayed on indicator tables/graphs get rounded.
+  dataRounding: function(value) {
+    // Alterations go here.
+    return value;
   },
 };
 
@@ -38,12 +47,12 @@ var translations = {
 
     // The majority of uses of this function are to translate disaggregation
     // data. To spare data providers of needing to enter "data." in front of
-    // their disaggregation data, we do it for them here.
-    var originalKey = key;
-    if (!key.includes('.') && this.data) {
-      key = 'data.' + key.toLowerCase();
+    // their disaggregation data, we specifically look for that here.
+    if (typeof this.data === 'object' && this.data !== null && this.data[key]) {
+      return this.data[key];
     }
 
+    var originalKey = key;
     var drilled = this;
     var levelsDrilled = 0;
     var levels = key.split('.');
@@ -73,7 +82,6 @@ var translations = {
 
         <!-- Basic Page Needs
         ================================================== -->
-        <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge"><!-- Mobile Specific Metas
         ================================================== -->
         <meta name="HandheldFriendly" content="True">
@@ -82,7 +90,17 @@ var translations = {
         <!-- Title and meta description
         ================================================== -->
         
-        <title>Indicators For The Sustainable Development Goals</title>
+
+        
+
+        <title>
+          
+            
+        Цель  - 
+        
+          
+        </title>
+
         <meta name="description" content="">
         <meta property="og:description" content="">
         
@@ -104,20 +122,24 @@ var translations = {
         
 
         
-        <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
-        <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
-        <link rel="stylesheet" href="https://cdn.datatables.net/fixedcolumns/3.2.3/css/fixedColumns.dataTables.min.css">
-        <link rel="stylesheet" href="/assets/css/default.css?v=20191120155936">
-        <link href="https://fonts.googleapis.com/css?family=Open+Sans|Roboto" rel="stylesheet">
+        <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css" crossorigin="">
+        <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" crossorigin="">
+        <link rel="stylesheet" href="https://cdn.datatables.net/fixedcolumns/3.2.3/css/fixedColumns.dataTables.min.css" crossorigin="">
+        <link rel="stylesheet" href="/assets/css/default.css?v=20191120160933">
+        <link href="https://fonts.googleapis.com/css?family=Open+Sans|Roboto" rel="stylesheet" crossorigin="">
         <link rel="stylesheet" href="https://unpkg.com/leaflet@1.3.4/dist/leaflet.css"
           integrity="sha512-puBpdR0798OZvTTbP4A8Ix/l+A4dHDD0DGqYW6RQ+9jxkRFclaxxQb/SJAWZfWAkuyeQUytO7+7N4QKrDh+drA=="
           crossorigin=""/>
-        <link rel="stylesheet" href="https://cdn.rawgit.com/socib/Leaflet.TimeDimension/master/dist/leaflet.timedimension.control.min.css" />
-        <link rel="stylesheet" href='https://api.mapbox.com/mapbox.js/plugins/leaflet-fullscreen/v1.0.1/leaflet.fullscreen.css' />
-        <link rel="stylesheet" href="https://bowercdn.net/c/leaflet.zoomhome-latest/dist/leaflet.zoomhome.css" />
-        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet-search@2.9.7/dist/leaflet-search.min.css"><link rel="stylesheet" href="/assets/css/custom.css?v=20191120155936"></head>
-<body class="language-ru">
+        <link rel="stylesheet" href="https://cdn.rawgit.com/socib/Leaflet.TimeDimension/master/dist/leaflet.timedimension.control.min.css"  crossorigin=""/>
+        <link rel="stylesheet" href='https://api.mapbox.com/mapbox.js/plugins/leaflet-fullscreen/v1.0.1/leaflet.fullscreen.css'  crossorigin=""/>
+        <link rel="stylesheet" href="https://bowercdn.net/c/leaflet.zoomhome-latest/dist/leaflet.zoomhome.css"  crossorigin=""/>
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet-search@2.9.7/dist/leaflet-search.min.css" crossorigin=""><link rel="stylesheet" href="/assets/css/custom.css?v=20191120160933"><!-- ShareThis BEGIN --><!-- ShareThis END -->
+
+    </head>
+<body class="language-ru layout-goal-by-target">
 <!-- <div class="container"> -->
+
+<script>translations['header'] = {"alpha":"Альфа","disclaimer":"Это сайт находится в разработке. Мы рады вашим отзывам.","skip_link":"Перейти к главному содержанию","tag_line":"17 Целей, чтобы преобразовать наш мир"};</script>
 
 <a class="sr-only sr-only-focusable" id="skiplink" href="#main-content" tabindex="0">Перейти к главному содержанию</a>
 <div id="disclaimer">
@@ -152,7 +174,13 @@ var translations = {
     <nav class="navbar navbar-default" id="main-nav">
 
       <ul class="top-level">
-        <li><span data-target="menu">Меню</span></li>
+        <li id="menuToggle"
+            aria-label="Menu toggle. Click to expand or collapse the menu."
+            aria-haspopup="true"
+            aria-expanded="false">
+          <span data-target="menu" tabindex="0"
+          role="navigation">Меню</span>
+        </li>
         <li><span data-target="search">Поиск</span></li>
       </ul>
 
@@ -176,10 +204,10 @@ var translations = {
         </li></ul>
 
       <div id="search" class="menu-target">
-  <label for="indicator_search">
-    <i class="fa fa-search" aria-hidden="true"></i><span>Поиск:</span>
-  </label>
   <input id="indicator_search" title="Поиск показателя" placeholder="Поиск показателя" data-url="/indicators.json" data-pageurl="/search/?q=" />
+  <label for="indicator_search">
+    <button id="search-btn" type="submit"><i class="fa fa-search" aria-hidden="false" aria-label=Поиск показателя></i></button><span>Поиск:</span>
+  </label>
 </div>
 
 
@@ -191,16 +219,18 @@ var translations = {
 
 
 
+
+
+
 <div class="heading goal-17">
   <div class="container">
     <div class="row">
       <div class="col-xs-4 col-md-3 col-lg-2">
-        <img src="https://open-sdg.github.io/sdg-translations/assets/img/goals/ru/17.png" alt="Партнерство в интересах устойчивого развития - Цель 17" />
+        <img src="https://open-sdg.github.io/sdg-translations/assets/img/goals/ru/17.png" alt=" - Цель 17" />
       </div>
       <div class="col-xs-8 col-md-9 col-lg-10">
         <h1>
-          <span class="hidden-sm hidden-md hidden-lg">Цель 17: </span>Укрепление средств осуществления и активизация работы в рамках Глобального
-партнерства в интересах устойчивого развития
+          <span class="hidden-sm hidden-md hidden-lg">Цель 17: </span>
         </h1>
       </div>
     </div>
@@ -218,6 +248,7 @@ var translations = {
   
 </ol>
 
+
   <div class="visible-md-block visible-lg-block">
     <div class="col-md-6">
       <h4>Задачи</h4>
@@ -229,6 +260,9 @@ var translations = {
 
   
   
+    
+    
+    
     
     
     <div class="indicator-cards target col-md-6">
@@ -290,24 +324,15 @@ var translations = {
   
     
     
+    
+    
+    
     <div class="indicator-cards target col-md-6">
       <span>
         <label class="hidden-md hidden-lg">Задача</label>
         17.2
       </span>
-      Обеспечить, чтобы развитые страны полностью
-выполнили свои обязательства по оказанию
-официальной помощи в целях развития (ОПР), в том
-числе взятое многими развитыми странами обязательство
-достичь целевого показателя выделения
-средств по линии ОПР развивающимся странам на
-уровне 0,7 процента своего валового национального
-дохода (ВНД) и выделения ОПР наименее развитым
-странам на уровне 0,15–0,20 процента своего ВНД;
-государствам, предоставляющим ОПР, предлагается
-рассмотреть вопрос о том, чтобы поставить перед
-собой цель выделять не менее 0,20 процента своего
-ВНД по линии ОПР наименее развитым странам
+      
     </div>
     <div class="indicator-cards col-md-6 row no-gutters">
     
@@ -338,14 +363,15 @@ var translations = {
   
     
     
+    
+    
+    
     <div class="indicator-cards target col-md-6">
       <span>
         <label class="hidden-md hidden-lg">Задача</label>
         17.3
       </span>
-      Мобилизовать дополнительные финансовые
-ресурсы из самых разных источников для развивающихся
-стран
+      
     </div>
     <div class="indicator-cards col-md-6 row no-gutters">
     
@@ -399,22 +425,15 @@ var translations = {
   
     
     
+    
+    
+    
     <div class="indicator-cards target col-md-6">
       <span>
         <label class="hidden-md hidden-lg">Задача</label>
         17.4
       </span>
-      Оказывать развивающимся странам помощь в
-целях обеспечения долгосрочной приемлемости
-уровня их задолженности благодаря проведению
-скоординированной политики, направленной на поощрение,
-в зависимости от обстоятельств, финансирования
-за счет заемных средств, облегчения долгового
-бремени и реструктуризации задолженности, и
-решить проблему внешней задолженности бедных
-стран с крупной задолженностью, с тем чтобы облегчить
-их долговое бремя
-
+      
     </div>
     <div class="indicator-cards col-md-6 row no-gutters">
     
@@ -445,13 +464,15 @@ var translations = {
   
     
     
+    
+    
+    
     <div class="indicator-cards target col-md-6">
       <span>
         <label class="hidden-md hidden-lg">Задача</label>
         17.5
       </span>
-      Принять и применять режимы поощрения инвестиций
-в интересах наименее развитых стран
+      
     </div>
     <div class="indicator-cards col-md-6 row no-gutters">
     
@@ -482,22 +503,15 @@ var translations = {
   
     
     
+    
+    
+    
     <div class="indicator-cards target col-md-6">
       <span>
         <label class="hidden-md hidden-lg">Задача</label>
         17.6
       </span>
-      Расширять сотрудничество по линии Север —
-Юг и Юг — Юг, а также трехстороннее региональное
-и международное сотрудничество в областях
-науки, техники и инноваций и доступ к соответствующим
-достижениям; активизировать обмен знаниями
-на взаимно согласованных условиях, в том
-числе благодаря улучшению координации между существующими
-механизмами, в частности на уровне
-Организации Объединенных Наций, а также с помощью
-глобального механизма содействия передаче
-технологий
+      
     </div>
     <div class="indicator-cards col-md-6 row no-gutters">
     
@@ -551,17 +565,15 @@ var translations = {
   
     
     
+    
+    
+    
     <div class="indicator-cards target col-md-6">
       <span>
         <label class="hidden-md hidden-lg">Задача</label>
         17.7
       </span>
-      Содействовать разработке, передаче, распространению
-и освоению экологически безопасных
-технологий, так чтобы их получали развивающиеся
-страны на взаимно согласованных благоприятных
-условиях, в том числе на льготных и преференциальных
-условиях
+      
     </div>
     <div class="indicator-cards col-md-6 row no-gutters">
     
@@ -592,17 +604,15 @@ var translations = {
   
     
     
+    
+    
+    
     <div class="indicator-cards target col-md-6">
       <span>
         <label class="hidden-md hidden-lg">Задача</label>
         17.8
       </span>
-      Обеспечить к 2017 году полномасштабное
-функционирование банка технологий и механизма
-развития науки, технологий и инноваций в интересах
-наименее развитых стран и расширить использование
-высокоэффективных технологий, в частности
-информационно-коммуникационных технологий
+      
     </div>
     <div class="indicator-cards col-md-6 row no-gutters">
     
@@ -633,17 +643,15 @@ var translations = {
   
     
     
+    
+    
+    
     <div class="indicator-cards target col-md-6">
       <span>
         <label class="hidden-md hidden-lg">Задача</label>
         17.9
       </span>
-      Усилить международную поддержку эффективного
-и целенаправленного наращивания потенциала
-развивающихся стран для содействия реализации
-национальных планов достижения всех целей в области устойчивого развития, в том числе благодаря
-сотрудничеству по линии Север — Юг и Юг —
-Юг и трехстороннему сотрудничеству
+      
     </div>
     <div class="indicator-cards col-md-6 row no-gutters">
     
@@ -674,17 +682,15 @@ var translations = {
   
     
     
+    
+    
+    
     <div class="indicator-cards target col-md-6">
       <span>
         <label class="hidden-md hidden-lg">Задача</label>
         17.10
       </span>
-      Поощрять универсальную, основанную на
-правилах, открытую, недискриминационную и справедливую
-многостороннюю торговую систему в
-рамках Всемирной торговой организации, в том
-числе благодаря завершению переговоров по ее Дохинской
-повестке дня в области развития
+      
     </div>
     <div class="indicator-cards col-md-6 row no-gutters">
     
@@ -715,16 +721,15 @@ var translations = {
   
     
     
+    
+    
+    
     <div class="indicator-cards target col-md-6">
       <span>
         <label class="hidden-md hidden-lg">Задача</label>
         17.11
       </span>
-      Значительно увеличить экспорт развивающихся
-стран, в частности в целях удвоения доли
-наименее развитых стран в мировом экспорте к
-2020 году
-
+      
     </div>
     <div class="indicator-cards col-md-6 row no-gutters">
     
@@ -755,21 +760,15 @@ var translations = {
   
     
     
+    
+    
+    
     <div class="indicator-cards target col-md-6">
       <span>
         <label class="hidden-md hidden-lg">Задача</label>
         17.12
       </span>
-      Обеспечить своевременное предоставление
-всем наименее развитым странам на долгосрочной
-основе беспошлинного и неквотируемого доступа на
-рынки в соответствии с решениями Всемирной торговой
-организации, в том числе путем обеспечения
-того, чтобы преференциальные правила происхождения,
-применяемые в отношении товаров, импортируемых
-из наименее развитых стран, были прозрачными
-и простыми и содействовали облегчению доступа
-на рынки
+      
     </div>
     <div class="indicator-cards col-md-6 row no-gutters">
     
@@ -800,14 +799,15 @@ var translations = {
   
     
     
+    
+    
+    
     <div class="indicator-cards target col-md-6">
       <span>
         <label class="hidden-md hidden-lg">Задача</label>
         17.13
       </span>
-      Повысить глобальную макроэкономическую
-стабильность, в том числе посредством координации
-политики и обеспечения последовательности политики
+      
     </div>
     <div class="indicator-cards col-md-6 row no-gutters">
     
@@ -838,13 +838,15 @@ var translations = {
   
     
     
+    
+    
+    
     <div class="indicator-cards target col-md-6">
       <span>
         <label class="hidden-md hidden-lg">Задача</label>
         17.14
       </span>
-      Сделать более последовательной политику по
-обеспечению устойчивого развития
+      
     </div>
     <div class="indicator-cards col-md-6 row no-gutters">
     
@@ -875,16 +877,15 @@ var translations = {
   
     
     
+    
+    
+    
     <div class="indicator-cards target col-md-6">
       <span>
         <label class="hidden-md hidden-lg">Задача</label>
         17.15
       </span>
-       Уважать имеющееся у каждой страны пространство
-для стратегического маневра и ее ведущую
-роль в разработке и проведении в жизнь политики
-ликвидации нищеты и политики в области
-устойчивого развития
+      
     </div>
     <div class="indicator-cards col-md-6 row no-gutters">
     
@@ -915,19 +916,15 @@ var translations = {
   
     
     
+    
+    
+    
     <div class="indicator-cards target col-md-6">
       <span>
         <label class="hidden-md hidden-lg">Задача</label>
         17.16
       </span>
-      Укреплять Глобальное партнерство в интересах
-устойчивого развития, дополняемое партнерствами
-с участием многих заинтересованных сторон,
-которые мобилизуют и распространяют знания,
-опыт, технологии и финансовые ресурсы, с тем
-чтобы поддерживать достижение целей в области
-устойчивого развития во всех странах, особенно в
-развивающихся странах
+      
     </div>
     <div class="indicator-cards col-md-6 row no-gutters">
     
@@ -958,17 +955,15 @@ var translations = {
   
     
     
+    
+    
+    
     <div class="indicator-cards target col-md-6">
       <span>
         <label class="hidden-md hidden-lg">Задача</label>
         17.17
       </span>
-      Стимулировать и поощрять эффективное партнерство
-между государственными организациями,
-между государственным и частным секторами и
-между организациями гражданского общества, опираясь
-на опыт и стратегии использования ресурсов
-партнеров
+      
     </div>
     <div class="indicator-cards col-md-6 row no-gutters">
     
@@ -999,22 +994,15 @@ var translations = {
   
     
     
+    
+    
+    
     <div class="indicator-cards target col-md-6">
       <span>
         <label class="hidden-md hidden-lg">Задача</label>
         17.18
       </span>
-       К 2020 году усилить поддержку в целях наращивания
-потенциала развивающихся стран, в том
-числе наименее развитых стран и малых островных
-развивающихся государств, с тем чтобы значительно
-повысить доступность высококачественных, актуальных
-и достоверных данных, дезагрегированных
-по уровню доходов, гендерной принадлежности,
-возрасту, расе, национальности, миграционному статусу,
-инвалидности, географическому местонахождению
-и другим характеристикам, значимым с учетом
-национальных условий
+      
     </div>
     <div class="indicator-cards col-md-6 row no-gutters">
     
@@ -1091,17 +1079,15 @@ var translations = {
   
     
     
+    
+    
+    
     <div class="indicator-cards target col-md-6">
       <span>
         <label class="hidden-md hidden-lg">Задача</label>
         17.19
       </span>
-      К 2030 году, опираясь на нынешние инициативы,
-разработать, в дополнение к показателю валового
-внутреннего продукта, и другие показатели измерения
-прогресса в деле обеспечения устойчивого
-развития и содействовать наращиванию потенциала
-развивающихся стран в области статистики
+      
     </div>
     <div class="indicator-cards col-md-6 row no-gutters">
     
@@ -1186,7 +1172,6 @@ var translations = {
 <script src="//cdn.datatables.net/fixedcolumns/3.2.3/js/dataTables.fixedColumns.min.js"></script>
 <script src="//cdnjs.cloudflare.com/ajax/libs/underscore.js/1.8.3/underscore-min.js"></script>
 <script src="//cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.0/Chart.bundle.min.js"></script>
-<script src="//cdn.jsdelivr.net/bluebird/3.5.0/bluebird.min.js"></script>
 <script src="https://unpkg.com/leaflet@1.3.4/dist/leaflet.js" integrity="sha512-nMMmRyTVoLYqjP9hrbed9S+FzjZHW5gY1TWCHA5ckwXZBadntCNs8kEqAWdrb9O7rxbCaA4lKTIWjDXZxflOcA==" crossorigin=""></script>
 <script src="https://cdn.jsdelivr.net/npm/leaflet.zoomshowhide@0.1.0/dist/leaflet-zoom-show-hide.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/chroma-js/1.4.0/chroma.min.js"></script>
@@ -1196,8 +1181,9 @@ var translations = {
 <script src="https://bowercdn.net/c/leaflet.zoomhome-latest/dist/leaflet.zoomhome.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/leaflet-search@2.9.7/dist/leaflet-search.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/autotrack/2.4.1/autotrack.js"></script>
-<script src='/assets/js/sdg.js?v=20191120155936'></script>
-<script>
+<script src="https://cdn.jsdelivr.net/npm/html2canvas@1.0.0-rc.3/dist/html2canvas.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/file-saver@2.0.2/dist/FileSaver.min.js"></script>
+<script src='/assets/js/sdg.js?v=20191120160933'></script><script>
 $(function() {
     if($('#indicatorData').length) {
       var domData = $('#indicatorData').data();
@@ -1223,6 +1209,7 @@ $(function() {
             shortIndicatorId: domData.id,
             chartTitle: domData.charttitle,
             measurementUnit: domData.measurementunit,
+            copyright: domData.copyright,
             dataSource: domData.datasource,
             geographicalArea: domData.geographicalarea,
             showData: domData.showdata,
@@ -1233,7 +1220,7 @@ $(function() {
           view  = new indicatorView(model, {
             rootElement: '#indicatorData',
             legendElement: '#plotLegend',
-            maxChartHeight: 600,
+            maxChartHeight: 420,
             tableColumnDefs: [
               { maxCharCount: 25 }, // nowrap
               { maxCharCount: 35, width: 200 },

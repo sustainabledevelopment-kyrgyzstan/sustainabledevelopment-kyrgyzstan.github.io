@@ -1,7 +1,7 @@
 [{
     "goal": {
       "id": "1",
-      "title": "End poverty in all its forms everywhere",
+      "title": "",
       "indicators": [{
           "id": "1-5-3",
           "title": "Number of countries that adopt and implement national disaster risk reduction strategies in line with the Sendai Framework for Disaster Risk Reduction 2015-2030",
@@ -105,7 +105,7 @@
   },{
     "goal": {
       "id": "2",
-      "title": "End hunger, achieve food security and improved nutrition and promote sustainable agriculture",
+      "title": "",
       "indicators": [{
           "id": "2-1-2",
           "title": "Prevalence of moderate or severe food insecurity in the population, based on the Food Insecurity Experience Scale (FIES)",
@@ -202,7 +202,7 @@
   },{
     "goal": {
       "id": "3",
-      "title": "Ensure healthy lives and promote well-being for all at all ages",
+      "title": "",
       "indicators": [{
           "id": "3-3-5",
           "title": "Number of people requiring interventions against neglected tropical diseases",
@@ -397,7 +397,7 @@
   },{
     "goal": {
       "id": "4",
-      "title": "Ensure inclusive and equitable quality education and promote lifelong learning opportunities for all",
+      "title": "",
       "indicators": [{
           "id": "4-3-1",
           "title": "Participation rate of youth and adults in formal and non-formal education and training in the previous 12 months, by sex",
@@ -480,7 +480,7 @@
   },{
     "goal": {
       "id": "5",
-      "title": "Achieve gender equality and empower all women and girls",
+      "title": "",
       "indicators": [{
           "id": "5-b-1",
           "title": "Доля людей, имеющих мобильный телефон, в разбивке по полу",
@@ -584,7 +584,7 @@
   },{
     "goal": {
       "id": "6",
-      "title": "Ensure availability and sustainable management of water and sanitation for all",
+      "title": "",
       "indicators": [{
           "id": "6-2-1",
           "title": "Доля населения, использующего a) организо-ванные с соблюдением требований безопасности услуги санитарии и b) устройства для мытья рук с мылом и водой",
@@ -667,7 +667,7 @@
   },{
     "goal": {
       "id": "7",
-      "title": "Ensure access to affordable, reliable, sustainable and modern energy for all",
+      "title": "",
       "indicators": [{
           "id": "7-2-1",
           "title": "Доля возобновляемых источников энергии в общем объеме конечного энергопотребления",
@@ -715,7 +715,7 @@
   },{
     "goal": {
       "id": "8",
-      "title": "Promote sustained, inclusive and sustainable economic growth, full and productive employment and decent work for all",
+      "title": "",
       "indicators": [{
           "id": "8-4-2",
           "title": "Domestic material consumption, domestic material consumption per capita, and domestic material consumption per GDP",
@@ -840,7 +840,7 @@
   },{
     "goal": {
       "id": "9",
-      "title": "Build resilient infrastructure, promote inclusive and sustainable industrialization and foster innovation",
+      "title": "",
       "indicators": [{
           "id": "9-5-2",
           "title": "Количество исследователей (в эквиваленте полной занятости) на миллион жителей",
@@ -930,7 +930,7 @@
   },{
     "goal": {
       "id": "10",
-      "title": "Reduce inequality within and among countries",
+      "title": "",
       "indicators": [{
           "id": "10-2-1",
           "title": "Proportion of people living below 50 per cent of median income, by sex, age and persons with disabilities",
@@ -1013,7 +1013,7 @@
   },{
     "goal": {
       "id": "11",
-      "title": "Make cities and human settlements inclusive, safe, resilient and sustainable",
+      "title": "",
       "indicators": [{
           "id": "11-6-1",
           "title": "Proportion of urban solid waste regularly collected and with adequate final discharge out of total urban solid waste generated, by cities",
@@ -1124,7 +1124,7 @@
   },{
     "goal": {
       "id": "12",
-      "title": "Ensure sustainable consumption and production patterns",
+      "title": "",
       "indicators": [{
           "id": "12-c-1",
           "title": "Amount of fossil-fuel subsidies per unit of GDP (production and consumption) and as a proportion of total national expenditure on fossil fuels",
@@ -1221,7 +1221,7 @@
   },{
     "goal": {
       "id": "13",
-      "title": "Take urgent action to combat climate change and its impacts",
+      "title": "",
       "indicators": [{
           "id": "13-1-1",
           "title": "Number of deaths, missing persons and directly affected persons attributed to disasters per 100,000 population",
@@ -1283,7 +1283,7 @@
   },{
     "goal": {
       "id": "14",
-      "title": "Conserve and sustainably use the oceans, seas and marine resources for sustainable development",
+      "title": "",
       "indicators": [{
           "id": "14-6-1",
           "title": "Progress by countries in the degree of implementation of international instruments aiming to combat illegal, unreported and unregulated fishing",
@@ -1359,7 +1359,7 @@
   },{
     "goal": {
       "id": "15",
-      "title": "Protect, restore and promote sustainable use of terrestrial ecosystems, sustainably manage forests, combat desertification, and halt and reverse land degradation and halt biodiversity loss",
+      "title": "",
       "indicators": [{
           "id": "15-1-1",
           "title": "Площадь лесов в процентном отношении к общей площади суши",
@@ -1463,7 +1463,7 @@
   },{
     "goal": {
       "id": "16",
-      "title": "Promote peaceful and inclusive societies for sustainable development, provide access to justice for all and build effective, accountable and inclusive institutions at all levels",
+      "title": "",
       "indicators": [{
           "id": "16-7-2",
           "title": "Proportion of population who believe decision-making is inclusive and responsive, by sex, age, disability and population group",
@@ -1630,7 +1630,7 @@
   },{
     "goal": {
       "id": "17",
-      "title": "Strengthen the means of implementation and revitalize the Global Partnership for Sustainable Development",
+      "title": "",
       "indicators": [{
           "id": "17-1-2",
           "title": "Доля национального бюджета, финансируемая внутренними налогами",
