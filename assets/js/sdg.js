@@ -2467,7 +2467,7 @@ function initialiseGoogleAnalytics(){
 }
 
 function sendPageviewToGoogleAnalytics(){
-    ga('create', '', 'auto');
+    ga('create', 'UA-155242465-1', 'auto');
     ga('require', 'eventTracker', {
         attributePrefix: 'data-'
     });
