@@ -43,7 +43,7 @@
           "description": "",
           "keywords": "",
           "href": "/en/1-4-1",
-          "status": "complete"
+          "status": "notstarted"
         },
         {
           "id": "1-4-2",
@@ -1982,6 +1982,14 @@
           "status": "notstarted"
         },
         {
+          "id": "17-3-1-1",
+          "title": "Foreign direct investment by (a) economic activity and (b) country of origin",
+          "description": "",
+          "keywords": "",
+          "href": "/en/17-3-1-1",
+          "status": "complete"
+        },
+        {
           "id": "17-3-2",
           "title": "Volume of remittances (in United States dollars) as a proportion of total GDP",
           "description": "",
@@ -2076,14 +2084,6 @@
           "keywords": "",
           "href": "/en/17-13-1",
           "status": "notstarted"
-        },
-        {
-          "id": "17-13-1-1",
-          "title": "Foreign direct investment by (a) economic activity and (b) country of origin",
-          "description": "",
-          "keywords": "",
-          "href": "/en/17-13-1-1",
-          "status": "complete"
         },
         {
           "id": "17-14-1",
