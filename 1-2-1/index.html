@@ -120,7 +120,7 @@ var translations = {
         <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css" crossorigin="">
         <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" crossorigin="">
         <link rel="stylesheet" href="https://cdn.datatables.net/fixedcolumns/3.2.3/css/fixedColumns.dataTables.min.css" crossorigin="">
-        <link rel="stylesheet" href="/assets/css/style.css?v=20200217085128">
+        <link rel="stylesheet" href="/assets/css/style.css?v=20200217101430">
         <link href="https://fonts.googleapis.com/css?family=Open+Sans|Roboto" rel="stylesheet" crossorigin="">
         <link rel="stylesheet" href="https://unpkg.com/leaflet@1.3.4/dist/leaflet.css"
           integrity="sha512-puBpdR0798OZvTTbP4A8Ix/l+A4dHDD0DGqYW6RQ+9jxkRFclaxxQb/SJAWZfWAkuyeQUytO7+7N4QKrDh+drA=="
@@ -128,7 +128,7 @@ var translations = {
         <link rel="stylesheet" href="https://cdn.rawgit.com/socib/Leaflet.TimeDimension/master/dist/leaflet.timedimension.control.min.css"  crossorigin=""/>
         <link rel="stylesheet" href='https://api.mapbox.com/mapbox.js/plugins/leaflet-fullscreen/v1.0.1/leaflet.fullscreen.css'  crossorigin=""/>
         <link rel="stylesheet" href="https://bowercdn.net/c/leaflet.zoomhome-latest/dist/leaflet.zoomhome.css"  crossorigin=""/>
-        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet-search@2.9.7/dist/leaflet-search.min.css" crossorigin=""><link rel="stylesheet" href="/assets/css/custom.css?v=20200217085128"><!-- ShareThis BEGIN --><!-- ShareThis END -->
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet-search@2.9.7/dist/leaflet-search.min.css" crossorigin=""><link rel="stylesheet" href="/assets/css/custom.css?v=20200217101430"><!-- ShareThis BEGIN --><!-- ShareThis END -->
 
     </head>
 <body class="language-ru layout-indicator">
@@ -312,9 +312,9 @@ var translations = {
   <div class="row" id="indicatorData" data-indicatorid='indicator_1-2-1' data-id="1-2-1" data-country="Кыргызская Республика"
   data-charttitle="Доля населения страны, живущего за официальной
 чертой бедности, в разбивке по полу и возрасту
-" data-measurementunit="Доля (%)" data-datasource="НСК КР" data-copyright=""
+" data-measurementunit="" data-datasource="" data-copyright=""
   data-geographicalarea="Кыргызская Республика" data-footnote="" data-showdata="true" data-graphtype="line"
-  data-geocoderegex="" data-showmap="false" data-startvalues="">
+  data-geocoderegex="" data-showmap="" data-startvalues="">
 
     
     <div id="indicator-sidebar" class="col-md-3">
@@ -512,13 +512,9 @@ var translations = {
 
   <div id="datatableFooter">
     
-    <p>Источник: НСК КР</p>
-    
     
     <p>Географический район: Кыргызская Республика</p>
     
-    
-    <p>Единица измерения: Доля (%)</p>
     
     
   </div>
@@ -651,40 +647,6 @@ data-event-label="Change to Sources tab"
   
   
   
-  
-  
-  
-  
-  
-  
-      
-      
-      <tr>
-        <th scope="row">Показатель доступен </th>
-        <td>
-          
-            
-
-          
-        </td>
-        </tr>
-        
-      
-  
-      
-      
-      <tr>
-        <th scope="row">Описание показателя </th>
-        <td>
-          
-            
-
-          
-        </td>
-        </tr>
-        
-      
-  
       
       
       <tr>
@@ -719,7 +681,7 @@ data-event-label="Change to Sources tab"
         <th scope="row">Определения </th>
         <td>
           
-            <p>Национальный уровень бедности – это доля общей численности населения, живущая ниже национальной черты бедности. Уровень бедности в сельских районах – это процент сельского населения, живущего ниже национальной черты бедности (или в тех случаях, когда используется отдельная черта бедности в сельской местности, черта бедности в сельской местности). Уровень бедности в городах – это процент городского населения, живущего ниже национальной черты бедности (или в тех случаях, когда используется отдельная черта бедности в городах, черта бедности в городах). Мониторинг национального уровня бедности имеет важное значение для программ развития конкретной страны. Национальная черта бедности используется для получения более точных оценок бедности в соответствии с конкретными экономическими и социальными условиями страны. Показатели бедности, полученные с применением нацианальной черты бедности не предназначены для международного сопоставления по странам. computation_calculations: &gt;- Формула для расчета доли общего, городского и сельского населения, живущего за национальной чертой бедности, доля населения, живущего в условиях нищеты, выглядит следующим образом [INSERT CALCULATION HERE] Где I (.) - функция, которая принимает значение 1, если выражение в скобках истинно, а 0 - ложно. Если индивидуальное потребление или доход меньше национальной черты бедности z (например, в абсолютном выражении черта может быть ценой единицы потребления или в относительном выражении процентом от распределения доходов), то I (.) равна 1, и индивидуум считается бедным. Np – общее, городское или сельское число бедных. N – общее, городское или сельское население. Где I (.) - функция, которая принимает значение 1, если выражение в скобках истинно, а 0 - ложно. Если индивидуальное потребление или доход меньше национальной черты бедности z (например, в абсолютном выражении черта может быть ценой единицы потребления или в относительном выражении процентом от распределения доходов), то I (.) равна 1, и индивидуум считается бедным. Np – общее, городское или сельское число бедных. N – общее, городское или сельское население. Национальные показатели бедности используют черту бедности в конкретной стране, отражающую экономические и социальные условия страны.</p>
+            
 
           
         </td>
@@ -730,7 +692,7 @@ data-event-label="Change to Sources tab"
       
       
       <tr>
-        <th scope="row">Расчёты </th>
+        <th scope="row">Основные понятия </th>
         <td>
           
             
@@ -744,180 +706,7 @@ data-event-label="Change to Sources tab"
       
       
       <tr>
-        <th scope="row">Другая информация </th>
-        <td>
-          
-            <p>Оценивая бедность в определённой стране и как наилучшим образом сократить бедность в соответствии с национальными определениями, основное внимание уделяется черте бедности, которая считается подходящей для этой страны. Черты бедности в разных странах различаются с точки зрения их покупательной способности, и у них есть сильный экономический уклон, так что более богатые страны, как правило, принимают более высокий уровень жизни при определении бедности. Внутри страны стоимость жизни обычно выше в городских районах, чем в сельской местности. Некоторые страны могут иметь отдельные городские и сельские черты бедности, чтобы представлять различные покупательные способности. Оценки национальной бедности основаны на данных исследования домашних хозяйств. Оговорки и ограничения, связанные с данными исследований, применяемые к разработке индикатора 1.1.1, так же применимы и в отношении данного индикатора. Чтобы быть полезными для оценки бедности, исследования должны быть национально репрезентативными. Они также должны включать достаточно информации для расчёта комплексной оценки общего потребления или доходов домашних хозяйств (включая потребление или доход от собственного производства) и построения правильно взвешенного распределения потребления или дохода на человека. Доступность данных зависит от наличия исследований домашних хозяйств и анализа данных исследований. В настоящее время имеются данные об общей, сельской и городской бедности для 132, 101 и 103 стран, соответственно. Концепция оценки национальной бедности отличаются от международных оценок бедности. Национальный уровень бедности определяется по чертам бедности по конкретным странам в местных валютах, которые в разных странах различны и отличаются от международной черты бедности в размере 1,90 долл. США в день. Таким образом, уровень национальной бедности нельзя сравнивать по странам или с уровнем бедности в 1,90 доллара за день. Poverty and Equity Data Portal http://povertydata.worldbank.org/poverty/home/ Deaton, Angus. 2003. “Household Surveys, Consumption, and the Measurement of Poverty”. Economic Systems Research, Vol. 15, No. 2, June 2003 Deaton, Angus; Zaidi, Salman. 2002. Guidelines for Constructing Consumption Aggregates for Welfare Analysis. LSMS Working Paper; No. 135. World Bank. World Bank 2008. Poverty data - A supplement to World Development Indicators 2008. Washington, DC. http://data.worldbank.org/products/wd</p>
-
-          
-        </td>
-        </tr>
-        
-      
-  
-      
-      
-      <tr>
-        <th scope="row">Последний раз данные обновлялись </th>
-        <td>
-          
-            
-            
-            
-            
-
-            
-
-          
-        </td>
-        </tr>
-        
-      
-  
-      
-      
-      
-  
-      
-      
-      <tr>
-        <th scope="row"> Последний раз метаданные обновлялись </th>
-        <td>
-          
-            
-            
-            
-            
-
-            
-
-          
-        </td>
-        </tr>
-        
-      
-  
-      
-      
-      
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-</table>
-
-              </article>
-            </div>
-          </div>
-          <div role="tabpanel" class="tab-pane" id="global">
-            <!-- Global Metadata -->
-            <div> <!-- formerly <div class="collapsible expanded"> -->
-              <!-- <h3 tabindex='0'>Global Metadata</h3> -->
-              <article>
-                <p>В этой таблице представлена информация для метаданных показателей ЦУР, определенных Статистической комиссией ООН. Полные глобальные метаданные представлены Статистическим отделом ООН.</p>
-                <table class="table table-hover">
-  
-  
-  
-  
-  
-      
-      
-      <tr>
-        <th scope="row">Название показателя </th>
-        <td>
-          
-            <p>Доля населения страны, живущего за официальной
-чертой бедности, в разбивке по полу и возрасту</p>
-
-          
-        </td>
-        </tr>
-        
-      
-  
-      
-      
-      <tr>
-        <th scope="row">Номер показателя </th>
+        <th scope="row">Обоснование и толкование </th>
         <td>
           
             
@@ -931,7 +720,7 @@ data-event-label="Change to Sources tab"
       
       
       <tr>
-        <th scope="row">Название задачи </th>
+        <th scope="row">Метод расчета </th>
         <td>
           
             
@@ -945,21 +734,7 @@ data-event-label="Change to Sources tab"
       
       
       <tr>
-        <th scope="row">Номер задачи </th>
-        <td>
-          
-            <p>1.2</p>
-
-          
-        </td>
-        </tr>
-        
-      
-  
-      
-      
-      <tr>
-        <th scope="row">Описание глобального показателя </th>
+        <th scope="row">Комментарий и ограничения </th>
         <td>
           
             
@@ -973,10 +748,10 @@ data-event-label="Change to Sources tab"
       
       
       <tr>
-        <th scope="row">Назначенный ООН уровень </th>
+        <th scope="row">Гарантия качества </th>
         <td>
           
-            <p>1</p>
+            
 
           
         </td>
@@ -987,10 +762,80 @@ data-event-label="Change to Sources tab"
       
       
       <tr>
-        <th scope="row">Депозитарное учреждение ООН  </th>
+        <th scope="row">Доступность данных и пробелы </th>
         <td>
           
-            <p>World Bank</p>
+            
+
+          
+        </td>
+        </tr>
+        
+      
+  
+      
+      
+      <tr>
+        <th scope="row">Разбивка </th>
+        <td>
+          
+            
+
+          
+        </td>
+        </tr>
+        
+      
+  
+      
+      
+      <tr>
+        <th scope="row">Сопоставимость с международными данными/стандартами </th>
+        <td>
+          
+            
+
+          
+        </td>
+        </tr>
+        
+      
+  
+      
+      
+      <tr>
+        <th scope="row">Ссылки и документация </th>
+        <td>
+          
+            
+
+          
+        </td>
+        </tr>
+        
+      
+  
+      
+      
+      <tr>
+        <th scope="row">Источники данных </th>
+        <td>
+          
+            
+
+          
+        </td>
+        </tr>
+        
+      
+  
+      
+      
+      <tr>
+        <th scope="row">Методы сбора данных </th>
+        <td>
+          
+            
 
           
         </td>
@@ -1038,48 +883,18 @@ data-event-label="Change to Sources tab"
   
   
   
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
+</table>
+
+              </article>
+            </div>
+          </div>
+          <div role="tabpanel" class="tab-pane" id="global">
+            <!-- Global Metadata -->
+            <div> <!-- formerly <div class="collapsible expanded"> -->
+              <!-- <h3 tabindex='0'>Global Metadata</h3> -->
+              <article>
+                <p>В этой таблице представлена информация для метаданных показателей ЦУР, определенных Статистической комиссией ООН. Полные глобальные метаданные представлены Статистическим отделом ООН.</p>
+                <table class="table table-hover">
   
   
   
@@ -1127,263 +942,6 @@ data-event-label="Change to Sources tab"
 
 
 
-
-  <div class="row no-gutters">
-  
-    
-    
-    <div class="col-md-6">
-      
-      <table class="table table-hover">
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-      
-      
-      <tr>
-        <th scope="row">Организация </th>
-        <td>
-          
-            <p>НСК КР</p>
-
-          
-        </td>
-        </tr>
-        
-      
-  
-      
-      
-      <tr>
-        <th scope="row">Периодичность </th>
-        <td>
-          
-            
-
-          
-        </td>
-        </tr>
-        
-      
-  
-      
-      
-      <tr>
-        <th scope="row">Самые ранние доступные данные </th>
-        <td>
-          
-            
-
-          
-        </td>
-        </tr>
-        
-      
-  
-      
-      
-      <tr>
-        <th scope="row">Географический охват </th>
-        <td>
-          
-            
-
-          
-        </td>
-        </tr>
-        
-      
-  
-      
-      
-      <tr>
-        <th scope="row">Ссылка на источник данных </th>
-        <td>
-          
-            
-            
-            
-            
-
-            
-
-          
-        </td>
-        </tr>
-        
-      
-  
-      
-      
-      
-  
-      
-      
-      <tr>
-        <th scope="row">Дата выпуска </th>
-        <td>
-          
-            
-
-          
-        </td>
-        </tr>
-        
-      
-  
-      
-      
-      <tr>
-        <th scope="row">Следующий  выпуск </th>
-        <td>
-          
-            
-
-          
-        </td>
-        </tr>
-        
-      
-  
-      
-      
-      <tr>
-        <th scope="row">Статистическая классификация </th>
-        <td>
-          
-            
-
-          
-        </td>
-        </tr>
-        
-      
-  
-      
-      
-      <tr>
-        <th scope="row">Контактные данные </th>
-        <td>
-          
-            <p>Керималиева Н.К, nazira.kerimaliena@gmail.com, (0312) 32 46 91</p>
-
-          
-        </td>
-        </tr>
-        
-      
-  
-      
-      
-      <tr>
-        <th scope="row">Другая информация </th>
-        <td>
-          
-            <p>Оценки национальной бедности обычно производятся и принадлежат правительствам стран (например, Национальными статистическими офисами), а иногда с технической помощью со стороны Всемирного банка и ПРООН (UNDP). После опубликования национальной оценки бедности правительством, Глобальная группа по вопросам бедности Всемирного банка оценивает методологию, используемую правительством, по возможности оценивает оценки с необработанными данными и консультирует экономистов страны для публикации. Принятые оценки наряду с метаданными будут опубликованы в базе данных WDI, а также в Базе данных Всемирного банка по вопросам бедности и социальной справедливости.Другим источником является оценка бедности Всемирного банка. Всемирный банк периодически готовит оценки бедности для стран, в которых она активно участвует, в тесном сотрудничестве с национальными учреждениями, группами гражданского общества и другими учреждениями, занимающимися вопросами развития. Отчеты об оценках бедности сообщают о масштабах и причинах бедности и предлагают стратегии по ее сокращению. Они часто включают отдельные оценки городской и сельской бедности. Такие исследования бедности являются наилучшим источником информации об оценке бедности с использованием национальной черты бедности. Сбор исходных материалов осуществляется Глобальной рабочей группой по проблемам бедности Всемирного банка. Данные в показателях мирового развития (WDI) обновляются ежеквартально после расписания обновления базы данных WDI.</p>
-
-          
-        </td>
-        </tr>
-        
-      
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-</table>
-
-    </div>
-    
-  </div>
 
 
           </div>
@@ -1448,7 +1006,7 @@ data-event-label="Change to Sources tab"
 <script src="https://cdnjs.cloudflare.com/ajax/libs/autotrack/2.4.1/autotrack.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/html2canvas@1.0.0-rc.3/dist/html2canvas.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/file-saver@2.0.2/dist/FileSaver.min.js"></script>
-<script src='/assets/js/sdg.js?v=20200217085128'></script><script>
+<script src='/assets/js/sdg.js?v=20200217101430'></script><script>
 $(function() {
     if($('#indicatorData').length) {
       var domData = $('#indicatorData').data();
