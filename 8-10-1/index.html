@@ -3,7 +3,7 @@
     <head>
         <meta charset="utf-8">
         <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.min.js"></script>
-        <script crossorigin="anonymous" src="https://polyfill.io/v3/polyfill.min.js?features=Promise%2CArray.prototype.forEach%2CString.prototype.includes"></script>
+        <script crossorigin="anonymous" src="https://polyfill.io/v3/polyfill.min.js?features=Promise%2CArray.prototype.forEach%2CString.prototype.includes%2CURLSearchParams"></script>
 <script crossorigin="anonymous" src="https://cdnjs.cloudflare.com/ajax/libs/javascript-canvas-to-blob/3.15.0/js/canvas-to-blob.min.js"></script>
 
         <script>
@@ -120,7 +120,7 @@ var translations = {
         <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css" crossorigin="">
         <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" crossorigin="">
         <link rel="stylesheet" href="https://cdn.datatables.net/fixedcolumns/3.2.3/css/fixedColumns.dataTables.min.css" crossorigin="">
-        <link rel="stylesheet" href="/assets/css/style.css?v=20200212032410">
+        <link rel="stylesheet" href="/assets/css/style.css?v=20200217061543">
         <link href="https://fonts.googleapis.com/css?family=Open+Sans|Roboto" rel="stylesheet" crossorigin="">
         <link rel="stylesheet" href="https://unpkg.com/leaflet@1.3.4/dist/leaflet.css"
           integrity="sha512-puBpdR0798OZvTTbP4A8Ix/l+A4dHDD0DGqYW6RQ+9jxkRFclaxxQb/SJAWZfWAkuyeQUytO7+7N4QKrDh+drA=="
@@ -128,7 +128,7 @@ var translations = {
         <link rel="stylesheet" href="https://cdn.rawgit.com/socib/Leaflet.TimeDimension/master/dist/leaflet.timedimension.control.min.css"  crossorigin=""/>
         <link rel="stylesheet" href='https://api.mapbox.com/mapbox.js/plugins/leaflet-fullscreen/v1.0.1/leaflet.fullscreen.css'  crossorigin=""/>
         <link rel="stylesheet" href="https://bowercdn.net/c/leaflet.zoomhome-latest/dist/leaflet.zoomhome.css"  crossorigin=""/>
-        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet-search@2.9.7/dist/leaflet-search.min.css" crossorigin=""><link rel="stylesheet" href="/assets/css/custom.css?v=20200212032410"><!-- ShareThis BEGIN --><!-- ShareThis END -->
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet-search@2.9.7/dist/leaflet-search.min.css" crossorigin=""><link rel="stylesheet" href="/assets/css/custom.css?v=20200217061543"><!-- ShareThis BEGIN --><!-- ShareThis END -->
 
     </head>
 <body class="language-ru layout-indicator">
@@ -368,7 +368,7 @@ b) банкоматов на 100 000 взрослых</caption>
           
           
           
-          <td class="table-value">6.107469</td>
+          <td class="table-value">6.1</td>
           
           
         </tr>
@@ -380,7 +380,7 @@ b) банкоматов на 100 000 взрослых</caption>
           
           
           
-          <td class="table-value">6.545429</td>
+          <td class="table-value">6.5</td>
           
           
         </tr>
@@ -392,7 +392,7 @@ b) банкоматов на 100 000 взрослых</caption>
           
           
           
-          <td class="table-value">6.616596</td>
+          <td class="table-value">6.6</td>
           
           
         </tr>
@@ -404,7 +404,7 @@ b) банкоматов на 100 000 взрослых</caption>
           
           
           
-          <td class="table-value">5.693049</td>
+          <td class="table-value">5.7</td>
           
           
         </tr>
@@ -416,7 +416,7 @@ b) банкоматов на 100 000 взрослых</caption>
           
           
           
-          <td class="table-value">6.799081</td>
+          <td class="table-value">6.8</td>
           
           
         </tr>
@@ -428,7 +428,7 @@ b) банкоматов на 100 000 взрослых</caption>
           
           
           
-          <td class="table-value">7.28108</td>
+          <td class="table-value">7.3</td>
           
           
         </tr>
@@ -440,7 +440,7 @@ b) банкоматов на 100 000 взрослых</caption>
           
           
           
-          <td class="table-value">7.394386</td>
+          <td class="table-value">7.4</td>
           
           
         </tr>
@@ -452,7 +452,7 @@ b) банкоматов на 100 000 взрослых</caption>
           
           
           
-          <td class="table-value">7.425508</td>
+          <td class="table-value">7.4</td>
           
           
         </tr>
@@ -464,7 +464,7 @@ b) банкоматов на 100 000 взрослых</caption>
           
           
           
-          <td class="table-value">7.827334</td>
+          <td class="table-value">7.8</td>
           
           
         </tr>
@@ -476,7 +476,7 @@ b) банкоматов на 100 000 взрослых</caption>
           
           
           
-          <td class="table-value">7.94841</td>
+          <td class="table-value">7.9</td>
           
           
         </tr>
@@ -488,7 +488,7 @@ b) банкоматов на 100 000 взрослых</caption>
           
           
           
-          <td class="table-value">7.710477</td>
+          <td class="table-value">7.7</td>
           
           
         </tr>
@@ -500,7 +500,7 @@ b) банкоматов на 100 000 взрослых</caption>
           
           
           
-          <td class="table-value">7.640969</td>
+          <td class="table-value">7.6</td>
           
           
         </tr>
@@ -512,7 +512,7 @@ b) банкоматов на 100 000 взрослых</caption>
           
           
           
-          <td class="table-value">2.471394</td>
+          <td class="table-value">2.5</td>
           
           
         </tr>
@@ -524,7 +524,7 @@ b) банкоматов на 100 000 взрослых</caption>
           
           
           
-          <td class="table-value">4.888003</td>
+          <td class="table-value">4.9</td>
           
           
         </tr>
@@ -536,7 +536,7 @@ b) банкоматов на 100 000 взрослых</caption>
           
           
           
-          <td class="table-value">8.720619</td>
+          <td class="table-value">8.7</td>
           
           
         </tr>
@@ -548,7 +548,7 @@ b) банкоматов на 100 000 взрослых</caption>
           
           
           
-          <td class="table-value">7.554757</td>
+          <td class="table-value">7.6</td>
           
           
         </tr>
@@ -560,7 +560,7 @@ b) банкоматов на 100 000 взрослых</caption>
           
           
           
-          <td class="table-value">12.265008</td>
+          <td class="table-value">12.3</td>
           
           
         </tr>
@@ -572,7 +572,7 @@ b) банкоматов на 100 000 взрослых</caption>
           
           
           
-          <td class="table-value">15.97647</td>
+          <td class="table-value">160.0</td>
           
           
         </tr>
@@ -584,7 +584,7 @@ b) банкоматов на 100 000 взрослых</caption>
           
           
           
-          <td class="table-value">21.075288</td>
+          <td class="table-value">21.1</td>
           
           
         </tr>
@@ -596,7 +596,7 @@ b) банкоматов на 100 000 взрослых</caption>
           
           
           
-          <td class="table-value">25.292345</td>
+          <td class="table-value">25.3</td>
           
           
         </tr>
@@ -608,7 +608,7 @@ b) банкоматов на 100 000 взрослых</caption>
           
           
           
-          <td class="table-value">30.81078</td>
+          <td class="table-value">30.8</td>
           
           
         </tr>
@@ -620,7 +620,7 @@ b) банкоматов на 100 000 взрослых</caption>
           
           
           
-          <td class="table-value">31.891768</td>
+          <td class="table-value">31.9</td>
           
           
         </tr>
@@ -632,7 +632,7 @@ b) банкоматов на 100 000 взрослых</caption>
           
           
           
-          <td class="table-value">34.153303</td>
+          <td class="table-value">34.2</td>
           
           
         </tr>
@@ -644,7 +644,7 @@ b) банкоматов на 100 000 взрослых</caption>
           
           
           
-          <td class="table-value">37.681164</td>
+          <td class="table-value">37.7</td>
           
           
         </tr>
@@ -670,7 +670,8 @@ b) банкоматов на 100 000 взрослых</caption>
 
         
         <p class="async-loading" data-img="/assets/img/loading-small.gif"></p>
-        <div class="async-loaded" style="display:none">
+        
+        <div class="async-loaded spacer medium" style="display:none;">
           <ul class="nav nav-tabs data-view" role="tablist">
             <li role="presentation" class="nav-item active">
               <a class="nav-link" data-toggle="tab" href="#chartview" aria-controls="chartview" role="tab" data-on="click"
@@ -739,7 +740,7 @@ b) банкоматов на 100 000 взрослых</h3>
         
 
         <!-- Nav tabs -->
-        <ul class="nav nav-tabs" role="tablist">
+        <ul class="nav nav-tabs spacer medium" role="tablist">
         
           <li role="presentation" class="nav-item active">
             <a class="nav-link" data-toggle="tab" href="#national" aria-controls="national" role="tab" data-on="click"
@@ -1328,7 +1329,7 @@ b) банкоматов на 100 000 взрослых</p>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/autotrack/2.4.1/autotrack.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/html2canvas@1.0.0-rc.3/dist/html2canvas.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/file-saver@2.0.2/dist/FileSaver.min.js"></script>
-<script src='/assets/js/sdg.js?v=20200212032410'></script><script>
+<script src='/assets/js/sdg.js?v=20200217061543'></script><script>
 $(function() {
     if($('#indicatorData').length) {
       var domData = $('#indicatorData').data();
