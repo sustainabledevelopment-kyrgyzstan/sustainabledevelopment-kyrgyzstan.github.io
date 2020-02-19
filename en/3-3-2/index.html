@@ -11,7 +11,7 @@
 var opensdg = {
 
   // A base URL for asynchronous calls to SDG data.
-  remoteDataBaseUrl: 'https://sustainabledevelopment-kyrgyzstan.github.io/sdg-data',
+  remoteDataBaseUrl: 'https://sustainabledevelopment-kyrgyzstan.github.io/sdg-data/en',
 
   // A hook which can be replaced to modify the configuration for Chart.js.
   // To see where this is used, see indicatorView.js createPlot() and updatePlot().
@@ -27,6 +27,8 @@ var opensdg = {
     // Alterations go here.
     return value;
   },
+
+  language: 'en',
 };
 
 // For backwards compatibility, some of these might need to be global.
@@ -120,7 +122,7 @@ var translations = {
         <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css" crossorigin="">
         <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" crossorigin="">
         <link rel="stylesheet" href="https://cdn.datatables.net/fixedcolumns/3.2.3/css/fixedColumns.dataTables.min.css" crossorigin="">
-        <link rel="stylesheet" href="/assets/css/style.css?v=20200217105158">
+        <link rel="stylesheet" href="/assets/css/style.css?v=20200219050443">
         <link href="https://fonts.googleapis.com/css?family=Open+Sans|Roboto" rel="stylesheet" crossorigin="">
         <link rel="stylesheet" href="https://unpkg.com/leaflet@1.3.4/dist/leaflet.css"
           integrity="sha512-puBpdR0798OZvTTbP4A8Ix/l+A4dHDD0DGqYW6RQ+9jxkRFclaxxQb/SJAWZfWAkuyeQUytO7+7N4QKrDh+drA=="
@@ -128,7 +130,7 @@ var translations = {
         <link rel="stylesheet" href="https://cdn.rawgit.com/socib/Leaflet.TimeDimension/master/dist/leaflet.timedimension.control.min.css"  crossorigin=""/>
         <link rel="stylesheet" href='https://api.mapbox.com/mapbox.js/plugins/leaflet-fullscreen/v1.0.1/leaflet.fullscreen.css'  crossorigin=""/>
         <link rel="stylesheet" href="https://bowercdn.net/c/leaflet.zoomhome-latest/dist/leaflet.zoomhome.css"  crossorigin=""/>
-        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet-search@2.9.7/dist/leaflet-search.min.css" crossorigin=""><link rel="stylesheet" href="/assets/css/custom.css?v=20200217105158"><!-- ShareThis BEGIN --><!-- ShareThis END -->
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet-search@2.9.7/dist/leaflet-search.min.css" crossorigin=""><link rel="stylesheet" href="/assets/css/custom.css?v=20200219050443"><!-- ShareThis BEGIN --><!-- ShareThis END -->
 
     </head>
 <body class="language-en layout-indicator">
@@ -184,10 +186,11 @@ var translations = {
   <form action="/en/search">
     <input name="q" id="indicator_search" title="Search" />
     <label for="indicator_search">
-      <button id="search-btn" type="submit"><i class="fa fa-search" aria-hidden="false" aria-label=Search></i></button><span>Search:</span>
+      <button aria-label="Search" id="search-btn" type="submit"><i class="fa fa-search" aria-hidden="false"></i></button><span>Search:</span>
     </label>
   </form>
 </div>
+
       
       <ul class="nav navbar-nav menu-target contrast-switcher" id="menu"><li class="nav-link ">
             <a href="/en/reporting-status">Reporting Status</a>
@@ -274,7 +277,7 @@ var translations = {
             <span class="hidden-sm hidden-md hidden-lg">Goal 3: </span>Ensure healthy lives and promote well-being for all at all ages
           </a>
         </h1>
-        <h2>Indicator 3.3.2: Tuberculosis incidence</h2>
+        <h2>Indicator 3.3.2: Tuberculosis incidence per 100,000 population</h2>
       </div>
     </div>
   </div>
@@ -332,13 +335,14 @@ var translations = {
       
       
 
+
 <div id="headlineTable">
 
   <div id="datatables">
 
-    <a href="https://sustainabledevelopment-kyrgyzstan.github.io/sdg-data/headline/3-3-2.csv" class="btn btn-primary btn-download" download="indicator_3-3-2.csv" tabindex="0" role="button">Download Headline CSV</a>
+    <a href="https://sustainabledevelopment-kyrgyzstan.github.io/sdg-data/en/headline/3-3-2.csv" class="btn btn-primary btn-download" download="indicator_3-3-2.csv" tabindex="0" role="button">Download Headline CSV</a>
 
-    <a href="https://sustainabledevelopment-kyrgyzstan.github.io/sdg-data/data/3-3-2.csv" class="btn btn-primary btn-download" style='float:left;margin-right:1em' download='indicator_3-3-2.csv' tabindex='0' role='button'>Download Source CSV</a>
+    <a href="https://sustainabledevelopment-kyrgyzstan.github.io/sdg-data/en/data/3-3-2.csv" class="btn btn-primary btn-download" style='float:left;margin-right:1em' download='indicator_3-3-2.csv' tabindex='0' role='button'>Download Source CSV</a>
 
     <h3>Headline data</h3>
     <table class="table-responsive table table-hover dataTable no-footer" role="grid">
@@ -363,7 +367,7 @@ var translations = {
           
           
           
-          <td class="table-value">1155.0</td>
+          <td class="table-value">115.478276</td>
           
           
         </tr>
@@ -375,7 +379,7 @@ var translations = {
           
           
           
-          <td class="table-value">1063.0</td>
+          <td class="table-value">106.340082</td>
           
           
         </tr>
@@ -387,7 +391,7 @@ var translations = {
           
           
           
-          <td class="table-value">1039.0</td>
+          <td class="table-value">103.932976</td>
           
           
         </tr>
@@ -399,7 +403,7 @@ var translations = {
           
           
           
-          <td class="table-value">1011.0</td>
+          <td class="table-value">101.138775</td>
           
           
         </tr>
@@ -411,7 +415,7 @@ var translations = {
           
           
           
-          <td class="table-value">1004.0</td>
+          <td class="table-value">100.367124</td>
           
           
         </tr>
@@ -423,7 +427,7 @@ var translations = {
           
           
           
-          <td class="table-value">1043.0</td>
+          <td class="table-value">104.342194</td>
           
           
         </tr>
@@ -435,7 +439,7 @@ var translations = {
           
           
           
-          <td class="table-value">1024.0</td>
+          <td class="table-value">102.43272</td>
           
           
         </tr>
@@ -447,7 +451,7 @@ var translations = {
           
           
           
-          <td class="table-value">1011.0</td>
+          <td class="table-value">101.065558</td>
           
           
         </tr>
@@ -459,7 +463,7 @@ var translations = {
           
           
           
-          <td class="table-value">982.0</td>
+          <td class="table-value">98.249685</td>
           
           
         </tr>
@@ -471,7 +475,7 @@ var translations = {
           
           
           
-          <td class="table-value">934.0</td>
+          <td class="table-value">93.423511</td>
           
           
         </tr>
@@ -495,7 +499,7 @@ var translations = {
           
           
           
-          <td class="table-value">830.0</td>
+          <td class="table-value">83.012882</td>
           
           
         </tr>
@@ -673,7 +677,7 @@ data-event-label="Change to Sources tab"
         <th scope="row">Definitions </th>
         <td>
           
-            
+            <p>Показатель заболеваемости туберкулезом на 100 000 человек определяется как оцененное количество новых или вновь заболевших туберкулезом (учитываются все формы туберкулеза, в том числе у людей, болеющих СПИДом), возникших в данном году, в расчете на 100 000 населения.</p>
 
           
         </td>
@@ -687,7 +691,7 @@ data-event-label="Change to Sources tab"
         <th scope="row">Concepts </th>
         <td>
           
-            
+            <p>Для прямого измерения требуются высококачественные системы наблюдения, которые имеют низкий уровень недооценки, и качественная система здравоохранения, для того, чтобы вероятность недооценки диагноза также была минимальна. В противном случае косвенные оценки будут основаны на данных о регистрации и оценках уровня недоучета и недооценки диагноза.</p>
 
           
         </td>
@@ -701,7 +705,7 @@ data-event-label="Change to Sources tab"
         <th scope="row">Rationale and interpretation </th>
         <td>
           
-            
+            <p>После двух лет консультаций в Мае 2015 года Всемирной ассамблеей здравоохранения была одобрена новая Глобальная стратегия борьбы с туберкулёзом после 2015 года. Известная как Конечная стратегия туберкулеза, она охватывает период 2016-2035 годы. Общая цель стратегии -  «Окончить глобальную эпидемию туберкулеза», и соответственно, в контексте ЦУР, были установлены амбициозные цели по сокращению случаев заболеваний и смертности от туберкулёза для 2030 года (снижение уровня заболеваемости на 80% по сравнению с 2015 годом) и для 2035 года (снижение уровня заболеваемости на 90%). Показатель Уровень заболеваемости туберкулезом был выбран для  измерения сокращения числа случаев заболеваемости туберкулезом. Несмотря на то, что данный показатель в большинстве стран был оценен в 2014 году с высоким уровнем неопределённости, национальные власти предоставляют хороший прокси показатель (заменитель) для случаев, когда имеет место ограниченное занижение выявленных случаев заболевания или ограниченные недооценка или переоценка случаев диагноза.</p>
 
           
         </td>
@@ -715,7 +719,7 @@ data-event-label="Change to Sources tab"
         <th scope="row">Method of computation </th>
         <td>
           
-            
+            <p>Оценки заболеваемости туберкулезом производятся в рамках консультативного и аналитического процесса, проводимого ВОЗ, и публикуются ежегодно. Эти оценки основаны на ежегодных уведомлениях о случаях заболевании, оценке качества и охвата получаемых данных о заболеваемости туберкулезом, национальных обследованиях распространенности заболевания туберкулезом и информации из систем учета естественного движения населения.</p>
 
           
         </td>
@@ -729,7 +733,7 @@ data-event-label="Change to Sources tab"
         <th scope="row">Comments and limitations </th>
         <td>
           
-            
+            <p>Показатель уровня заболеваемости туберкулезом был использован на протяжении столетия как основной показатель бремени туберкулеза, совместно с показателем смертности от туберкулеза. Данный показатель позволяет проводить сравнения во времени и между странами. Повышение качества наблюдения за туберкулезом приведет к уменьшению неопределённости в отношении значений показателя.</p>
 
           
         </td>
@@ -771,7 +775,7 @@ data-event-label="Change to Sources tab"
         <th scope="row">Disaggregation </th>
         <td>
           
-            
+            <p>Показатель дезагрегирован по странам, полу и возрасту (дети и взрослые).</p>
 
           
         </td>
@@ -799,7 +803,7 @@ data-event-label="Change to Sources tab"
         <th scope="row">References and documentation </th>
         <td>
           
-            
+            <p>www.uis.unesco.org</p>
 
           
         </td>
@@ -813,7 +817,8 @@ data-event-label="Change to Sources tab"
         <th scope="row">Data sources </th>
         <td>
           
-            
+            <p>Подробная информация об источниках данных и методах доступна в следующем общедоступном документе 
+https://arxiv.org/ftp/arxiv/papers/1603/1603.00278.pdf</p>
 
           
         </td>
@@ -998,7 +1003,7 @@ data-event-label="Change to Sources tab"
 <script src="https://cdnjs.cloudflare.com/ajax/libs/autotrack/2.4.1/autotrack.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/html2canvas@1.0.0-rc.3/dist/html2canvas.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/file-saver@2.0.2/dist/FileSaver.min.js"></script>
-<script src='/assets/js/sdg.js?v=20200217105158'></script><script>
+<script src='/assets/js/sdg.js?v=20200219050443'></script><script>
 $(function() {
     if($('#indicatorData').length) {
       var domData = $('#indicatorData').data();

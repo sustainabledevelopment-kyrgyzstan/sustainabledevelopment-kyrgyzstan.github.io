@@ -11,7 +11,7 @@
 var opensdg = {
 
   // A base URL for asynchronous calls to SDG data.
-  remoteDataBaseUrl: 'https://sustainabledevelopment-kyrgyzstan.github.io/sdg-data',
+  remoteDataBaseUrl: 'https://sustainabledevelopment-kyrgyzstan.github.io/sdg-data/en',
 
   // A hook which can be replaced to modify the configuration for Chart.js.
   // To see where this is used, see indicatorView.js createPlot() and updatePlot().
@@ -27,6 +27,8 @@ var opensdg = {
     // Alterations go here.
     return value;
   },
+
+  language: 'en',
 };
 
 // For backwards compatibility, some of these might need to be global.
@@ -120,7 +122,7 @@ var translations = {
         <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css" crossorigin="">
         <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" crossorigin="">
         <link rel="stylesheet" href="https://cdn.datatables.net/fixedcolumns/3.2.3/css/fixedColumns.dataTables.min.css" crossorigin="">
-        <link rel="stylesheet" href="/assets/css/style.css?v=20200217105158">
+        <link rel="stylesheet" href="/assets/css/style.css?v=20200219050443">
         <link href="https://fonts.googleapis.com/css?family=Open+Sans|Roboto" rel="stylesheet" crossorigin="">
         <link rel="stylesheet" href="https://unpkg.com/leaflet@1.3.4/dist/leaflet.css"
           integrity="sha512-puBpdR0798OZvTTbP4A8Ix/l+A4dHDD0DGqYW6RQ+9jxkRFclaxxQb/SJAWZfWAkuyeQUytO7+7N4QKrDh+drA=="
@@ -128,7 +130,7 @@ var translations = {
         <link rel="stylesheet" href="https://cdn.rawgit.com/socib/Leaflet.TimeDimension/master/dist/leaflet.timedimension.control.min.css"  crossorigin=""/>
         <link rel="stylesheet" href='https://api.mapbox.com/mapbox.js/plugins/leaflet-fullscreen/v1.0.1/leaflet.fullscreen.css'  crossorigin=""/>
         <link rel="stylesheet" href="https://bowercdn.net/c/leaflet.zoomhome-latest/dist/leaflet.zoomhome.css"  crossorigin=""/>
-        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet-search@2.9.7/dist/leaflet-search.min.css" crossorigin=""><link rel="stylesheet" href="/assets/css/custom.css?v=20200217105158"><!-- ShareThis BEGIN --><!-- ShareThis END -->
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet-search@2.9.7/dist/leaflet-search.min.css" crossorigin=""><link rel="stylesheet" href="/assets/css/custom.css?v=20200219050443"><!-- ShareThis BEGIN --><!-- ShareThis END -->
 
     </head>
 <body class="language-en layout-indicator">
@@ -184,10 +186,11 @@ var translations = {
   <form action="/en/search">
     <input name="q" id="indicator_search" title="Search" />
     <label for="indicator_search">
-      <button id="search-btn" type="submit"><i class="fa fa-search" aria-hidden="false" aria-label=Search></i></button><span>Search:</span>
+      <button aria-label="Search" id="search-btn" type="submit"><i class="fa fa-search" aria-hidden="false"></i></button><span>Search:</span>
     </label>
   </form>
 </div>
+
       
       <ul class="nav navbar-nav menu-target contrast-switcher" id="menu"><li class="nav-link ">
             <a href="/en/reporting-status">Reporting Status</a>
@@ -332,13 +335,14 @@ var translations = {
       
       
 
+
 <div id="headlineTable">
 
   <div id="datatables">
 
-    <a href="https://sustainabledevelopment-kyrgyzstan.github.io/sdg-data/headline/5-5-2.csv" class="btn btn-primary btn-download" download="indicator_5-5-2.csv" tabindex="0" role="button">Download Headline CSV</a>
+    <a href="https://sustainabledevelopment-kyrgyzstan.github.io/sdg-data/en/headline/5-5-2.csv" class="btn btn-primary btn-download" download="indicator_5-5-2.csv" tabindex="0" role="button">Download Headline CSV</a>
 
-    <a href="https://sustainabledevelopment-kyrgyzstan.github.io/sdg-data/data/5-5-2.csv" class="btn btn-primary btn-download" style='float:left;margin-right:1em' download='indicator_5-5-2.csv' tabindex='0' role='button'>Download Source CSV</a>
+    <a href="https://sustainabledevelopment-kyrgyzstan.github.io/sdg-data/en/data/5-5-2.csv" class="btn btn-primary btn-download" style='float:left;margin-right:1em' download='indicator_5-5-2.csv' tabindex='0' role='button'>Download Source CSV</a>
 
     <h3>Headline data</h3>
     <table class="table-responsive table table-hover dataTable no-footer" role="grid">
@@ -673,7 +677,7 @@ data-event-label="Change to Sources tab"
         <th scope="row">Definitions </th>
         <td>
           
-            
+            <p>Доля женщин на руководящих должностях определяется отношением численности женщин руководителей к общей численности руководителей выраженных в процентах. Доля женщин на руководящих должностях = (занятые женщины, входящие в позицию 1 МСКЗ-88 за вычетом занятых женщин, входящих в позицию 13 МСКЗ-88) / (все занятые лица, входящие в позицию 1 МСКЗ-88 за вычетом занятых, входящих в субпозицию 14 МСКЗ-88) * 100.                 К Руководителям предпиятий, учреждений  и организаций  (и их структурных подразделений) относятся: министры, губернаторы, главы администраций, президенты, директора (генеральные директора), ректоры, начальники, управляющие, заведующие, председатели, командиры, менеджеры, мастера, главный бухгалтер, главный диспетчер, главный инженер, главный врач., главный редактор и т.д. и их заместители</p>
 
           
         </td>
@@ -687,7 +691,7 @@ data-event-label="Change to Sources tab"
         <th scope="row">Concepts </th>
         <td>
           
-            
+            <p>Доля женщин на руководящих должностях показывает какую долю занимает  численность женщин среди рукододителей всех уровней. Показатель отражает долю женщин, занимающие позиции старших руководителей и руководителей среднего звена, в общем количестве занятых. Для целей расчета показателя руководители высшего и среднего звена соответствуют основной позиции 1  МСКЗ-88, за вычетом субпозиций  категории 13 в МСКЗ-88 (генеральные менеджеры), поскольку в основном это менеджеры малых предприятий. Если статистические данные не дезагрегируются на уровне субпозиций, основная группа 1 МСКЗ-88 применяется по умолчанию.</p>
 
           
         </td>
@@ -701,7 +705,7 @@ data-event-label="Change to Sources tab"
         <th scope="row">Rationale and interpretation </th>
         <td>
           
-            
+            <p>Цель этого показателя -показать насколько выполняется гендерное равенство среди руководителей по видам деятельности и по территории</p>
 
           
         </td>
@@ -715,7 +719,7 @@ data-event-label="Change to Sources tab"
         <th scope="row">Method of computation </th>
         <td>
           
-            
+            <p>Расчеты показателя доли женщин занимающих руководящие должности производятся на основе данных ОРС делением численности женщин руководителей на  общую численность руководителей</p>
 
           
         </td>
@@ -757,7 +761,7 @@ data-event-label="Change to Sources tab"
         <th scope="row">Data availability and gaps </th>
         <td>
           
-            
+            <p>Данные публикуются с статистическом сборнике “Занятость и безработица” и  “Женщины и мужчины Кыргызской Республики”</p>
 
           
         </td>
@@ -771,7 +775,7 @@ data-event-label="Change to Sources tab"
         <th scope="row">Disaggregation </th>
         <td>
           
-            
+            <p>на уровне республики, областей гг. Бишкек и Ош</p>
 
           
         </td>
@@ -785,7 +789,7 @@ data-event-label="Change to Sources tab"
         <th scope="row">Comparability with international data/standards </th>
         <td>
           
-            
+            <p>Стандарты МОТ</p>
 
           
         </td>
@@ -813,7 +817,7 @@ data-event-label="Change to Sources tab"
         <th scope="row">Data sources </th>
         <td>
           
-            
+            <p>Интегрированное выборочное обследование бюджетов домашних хозяйств и рабочей силы ф. №4”Занятость и безработица”</p>
 
           
         </td>
@@ -827,7 +831,7 @@ data-event-label="Change to Sources tab"
         <th scope="row">Data collection methods </th>
         <td>
           
-            
+            <p>Опрос населения проводится интервьюерами путем непосредственного посещения домашних хозяйств и записи сведений в планшет по вопросникам выборочного обследования, утвержденные Постановлением Нацстаткома Кыргызской Республики. При непосредственном посещении домашнего хозяйства ответы на вопросы анкеты могут быть получены как от самого респондента, так и со слов совместно проживающих членов домашнего хозяйства в случае отсутствия респондента в момент опроса. Ежеквартально  для проведения обследования отобрано 5016 домохозяйств. Ежегодная ротация выборки составляет 25 процентов.</p>
 
           
         </td>
@@ -998,7 +1002,7 @@ data-event-label="Change to Sources tab"
 <script src="https://cdnjs.cloudflare.com/ajax/libs/autotrack/2.4.1/autotrack.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/html2canvas@1.0.0-rc.3/dist/html2canvas.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/file-saver@2.0.2/dist/FileSaver.min.js"></script>
-<script src='/assets/js/sdg.js?v=20200217105158'></script><script>
+<script src='/assets/js/sdg.js?v=20200219050443'></script><script>
 $(function() {
     if($('#indicatorData').length) {
       var domData = $('#indicatorData').data();

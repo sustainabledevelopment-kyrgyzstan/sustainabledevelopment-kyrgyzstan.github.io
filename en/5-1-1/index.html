@@ -11,7 +11,7 @@
 var opensdg = {
 
   // A base URL for asynchronous calls to SDG data.
-  remoteDataBaseUrl: 'https://sustainabledevelopment-kyrgyzstan.github.io/sdg-data',
+  remoteDataBaseUrl: 'https://sustainabledevelopment-kyrgyzstan.github.io/sdg-data/en',
 
   // A hook which can be replaced to modify the configuration for Chart.js.
   // To see where this is used, see indicatorView.js createPlot() and updatePlot().
@@ -27,6 +27,8 @@ var opensdg = {
     // Alterations go here.
     return value;
   },
+
+  language: 'en',
 };
 
 // For backwards compatibility, some of these might need to be global.
@@ -120,7 +122,7 @@ var translations = {
         <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css" crossorigin="">
         <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" crossorigin="">
         <link rel="stylesheet" href="https://cdn.datatables.net/fixedcolumns/3.2.3/css/fixedColumns.dataTables.min.css" crossorigin="">
-        <link rel="stylesheet" href="/assets/css/style.css?v=20200217105158">
+        <link rel="stylesheet" href="/assets/css/style.css?v=20200219050443">
         <link href="https://fonts.googleapis.com/css?family=Open+Sans|Roboto" rel="stylesheet" crossorigin="">
         <link rel="stylesheet" href="https://unpkg.com/leaflet@1.3.4/dist/leaflet.css"
           integrity="sha512-puBpdR0798OZvTTbP4A8Ix/l+A4dHDD0DGqYW6RQ+9jxkRFclaxxQb/SJAWZfWAkuyeQUytO7+7N4QKrDh+drA=="
@@ -128,7 +130,7 @@ var translations = {
         <link rel="stylesheet" href="https://cdn.rawgit.com/socib/Leaflet.TimeDimension/master/dist/leaflet.timedimension.control.min.css"  crossorigin=""/>
         <link rel="stylesheet" href='https://api.mapbox.com/mapbox.js/plugins/leaflet-fullscreen/v1.0.1/leaflet.fullscreen.css'  crossorigin=""/>
         <link rel="stylesheet" href="https://bowercdn.net/c/leaflet.zoomhome-latest/dist/leaflet.zoomhome.css"  crossorigin=""/>
-        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet-search@2.9.7/dist/leaflet-search.min.css" crossorigin=""><link rel="stylesheet" href="/assets/css/custom.css?v=20200217105158"><!-- ShareThis BEGIN --><!-- ShareThis END -->
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet-search@2.9.7/dist/leaflet-search.min.css" crossorigin=""><link rel="stylesheet" href="/assets/css/custom.css?v=20200219050443"><!-- ShareThis BEGIN --><!-- ShareThis END -->
 
     </head>
 <body class="language-en layout-indicator">
@@ -184,10 +186,11 @@ var translations = {
   <form action="/en/search">
     <input name="q" id="indicator_search" title="Search" />
     <label for="indicator_search">
-      <button id="search-btn" type="submit"><i class="fa fa-search" aria-hidden="false" aria-label=Search></i></button><span>Search:</span>
+      <button aria-label="Search" id="search-btn" type="submit"><i class="fa fa-search" aria-hidden="false"></i></button><span>Search:</span>
     </label>
   </form>
 </div>
+
       
       <ul class="nav navbar-nav menu-target contrast-switcher" id="menu"><li class="nav-link ">
             <a href="/en/reporting-status">Reporting Status</a>
@@ -274,7 +277,7 @@ var translations = {
             <span class="hidden-sm hidden-md hidden-lg">Goal 5: </span>Achieve gender equality and empower all women and girls
           </a>
         </h1>
-        <h2>Indicator 5.1.1: Legal frameworks that promote, enforce and monitor gender equality (percentage of achievement, 0 - 100) -- Area 1: overarching legal frameworks and public life.</h2>
+        <h2>Indicator 5.1.1: Whether or not legal frameworks are in place to promote, enforce and monitor equality and non‐discrimination on the basis of sex</h2>
       </div>
     </div>
   </div>
@@ -406,7 +409,8 @@ data-event-label="Change to Sources tab"
         <th scope="row">Definitions </th>
         <td>
           
-            
+            <p>Нормативно-правовые рамки, которые способствуют, обеспечивают соблюдение и контроль за гендерным равенством.  Согласно Конституции в Кыргызской Республике мужчины и женщины имеют равные права и свободы, равные возможности для их реализации, никто не может подвергаться дискриминации по признаку пола (статья 16).
+Реализация данной конституционной нормы обеспечивается Законом КР «О государственных гарантиях равных прав и равных возможностей для мужчин и женщин» (от 4 августа 2008 года № 184). В ст. 1 говорится, что термин: «Гендерная дискриминация (прямая, косвенная)» означает, что «любое различие, исключение или предпочтение, которое ограничивает права и интересы лиц по признаку пола; направлена на ослабление или лишение признания, пользования или осуществления равноправия мужчин и женщин в политической, экономической, социальной, культурной, гражданской или любых других областях общественной жизни».</p>
 
           
         </td>
@@ -420,7 +424,8 @@ data-event-label="Change to Sources tab"
         <th scope="row">Concepts </th>
         <td>
           
-            
+            <p>Конституция Кыргызской республики; Конституционный Закон «О выборах Президента Кыргызской Республики и депутатов Жогорку Кенеша Кыргызской Республики» (от 2 июля 2011 года № 68); Семейный кодекс (от 30 августа 2003 года № 201);  Трудовой кодекс (от 4 августа 2004 года N 106). 
+Законы «О государственных гарантиях равных прав и равных возможностей для мужчин и женщин» (от 4 августа 2008 года № 184), «Об охране и защите от семейного насилия» (от 27 апреля 2017 года № 63).     «Национальная стратегия Кыргызской Республики по достижению гендерного равенства до 2020 года» и «Национальный план действий по достижению гендерного равенства в Кыргызской Республике на 2018-2020 годы»  (постановление Правительства от 27 июня 2012 года № 443).</p>
 
           
         </td>
@@ -434,7 +439,9 @@ data-event-label="Change to Sources tab"
         <th scope="row">Rationale and interpretation </th>
         <td>
           
-            
+            <p>Конституционный закон - нормативный правовой акт, принимаемый Жогорку Кенешем Кыргызской Республики в установленном Конституцией Кыргызской Республики порядке и по определенным ею вопросам;
+закон - нормативный правовой акт, принимаемый Жогорку Кенешем в установленном порядке и регулирующий наиболее важные общественные отношения в соответствующей сфере;
+постановление Правительства Кыргызской Республики - нормативный правовой акт, принимаемый Правительством Кыргызской Республики, на основе и во исполнение нормативных правовых актов, имеющих более высокую юридическую силу.</p>
 
           
         </td>
@@ -490,7 +497,7 @@ data-event-label="Change to Sources tab"
         <th scope="row">Data availability and gaps </th>
         <td>
           
-            
+            <p>Источники данных доступны в любое время</p>
 
           
         </td>
@@ -518,7 +525,9 @@ data-event-label="Change to Sources tab"
         <th scope="row">Comparability with international data/standards </th>
         <td>
           
-            
+            <p>Кыргызстаном ратифицированы: Конвенция ООН о ликвидации всех форм дискриминации в отношении женщин (CEDAW), Факультативный протокол к Конвенции о ликвидации всех форм дискриминации в отношении женщин,
+Конвенция о согласии на вступление в брак, брачном возрасте и регистрации браков, Конвенция о гражданстве замужней женщины, Конвенция о политических правах женщины. Нормы международных актов имплементированы в национальное законодательство.</p>
+
 
           
         </td>
@@ -532,7 +541,8 @@ data-event-label="Change to Sources tab"
         <th scope="row">References and documentation </th>
         <td>
           
-            
+            <p>Пятый периодический доклад Кыргызской Республики по выполнению норм Конвенции о ликвидации всех форм дискриминации в отношении женщин за период с 2013 по 2018 годы, утвержденный распоряжением Правительства КР от 1 марта 2019 года № 35-р</p>
+
 
           
         </td>
@@ -546,7 +556,7 @@ data-event-label="Change to Sources tab"
         <th scope="row">Data sources </th>
         <td>
           
-            
+            <p>Нормативные правовые акты доступны на сайтах:  https://www.gov.kg/;     https://mlsp.gov.kg/gendernaya-politika2/;  http://cbd.minjust.gov.kg/; http://www.toktom.kg;   http://stat.kg</p>
 
           
         </td>
@@ -731,7 +741,7 @@ data-event-label="Change to Sources tab"
 <script src="https://cdnjs.cloudflare.com/ajax/libs/autotrack/2.4.1/autotrack.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/html2canvas@1.0.0-rc.3/dist/html2canvas.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/file-saver@2.0.2/dist/FileSaver.min.js"></script>
-<script src='/assets/js/sdg.js?v=20200217105158'></script><script>
+<script src='/assets/js/sdg.js?v=20200219050443'></script><script>
 $(function() {
     if($('#indicatorData').length) {
       var domData = $('#indicatorData').data();

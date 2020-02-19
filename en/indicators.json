@@ -19,7 +19,7 @@
           "description": "",
           "keywords": "",
           "href": "/en/1-1-1-1a",
-          "status": "notstarted"
+          "status": "complete"
         },
         {
           "id": "1-2-1",
@@ -35,7 +35,7 @@
           "description": "",
           "keywords": "",
           "href": "/en/1-2-1-1a",
-          "status": "notstarted"
+          "status": "complete"
         },
         {
           "id": "1-2-2",
@@ -59,7 +59,7 @@
           "description": "",
           "keywords": "",
           "href": "/en/1-3-1-1c",
-          "status": "notstarted"
+          "status": "complete"
         },
         {
           "id": "1-3-1-1e",
@@ -67,7 +67,7 @@
           "description": "",
           "keywords": "",
           "href": "/en/1-3-1-1e",
-          "status": "notstarted"
+          "status": "complete"
         },
         {
           "id": "1-3-1-1f",
@@ -75,7 +75,7 @@
           "description": "",
           "keywords": "",
           "href": "/en/1-3-1-1f",
-          "status": "notstarted"
+          "status": "complete"
         },
         {
           "id": "1-3-1-1g",
@@ -83,7 +83,7 @@
           "description": "",
           "keywords": "",
           "href": "/en/1-3-1-1g",
-          "status": "notstarted"
+          "status": "complete"
         },
         {
           "id": "1-4-1",
@@ -103,19 +103,27 @@
         },
         {
           "id": "1-5-1",
-          "title": "Number of deaths due to disaster",
+          "title": "",
           "description": "",
           "keywords": "",
           "href": "/en/1-5-1",
-          "status": "complete"
+          "status": "notstarted"
         },
         {
           "id": "1-5-2",
-          "title": "Direct economic loss attributed to disasters relative to GDP",
+          "title": "Direct economic loss attributed to disasters in relation to global gross domestic product (GDP)",
           "description": "",
           "keywords": "",
           "href": "/en/1-5-2",
           "status": "complete"
+        },
+        {
+          "id": "1-5-2-1",
+          "title": "",
+          "description": "",
+          "keywords": "",
+          "href": "/en/1-5-2-1",
+          "status": "notstarted"
         },
         {
           "id": "1-5-3",
@@ -123,7 +131,7 @@
           "description": "",
           "keywords": "",
           "href": "/en/1-5-3",
-          "status": "complete"
+          "status": "notstarted"
         },
         {
           "id": "1-5-4",
@@ -131,7 +139,7 @@
           "description": "",
           "keywords": "",
           "href": "/en/1-5-4",
-          "status": "complete"
+          "status": "notstarted"
         },
         {
           "id": "1-a-1",
@@ -143,7 +151,7 @@
         },
         {
           "id": "1-a-2",
-          "title": "Proportion of total government spending on essential services, education",
+          "title": "Proportion of total government spending on essential services (education, health and social protection)",
           "description": "",
           "keywords": "",
           "href": "/en/1-a-2",
@@ -171,6 +179,14 @@
           "description": "",
           "keywords": "",
           "href": "/en/1-b-1-1",
+          "status": "complete"
+        },
+        {
+          "id": "1-а-2",
+          "title": "",
+          "description": "",
+          "keywords": "",
+          "href": "/en/1-а-2",
           "status": "notstarted"
         }]
     }
@@ -187,6 +203,14 @@
           "description": "",
           "keywords": "",
           "href": "/en/2-1-1",
+          "status": "complete"
+        },
+        {
+          "id": "2-1-1-1d",
+          "title": "",
+          "description": "",
+          "keywords": "",
+          "href": "/en/2-1-1-1d",
           "status": "notstarted"
         },
         {
@@ -195,11 +219,19 @@
           "description": "",
           "keywords": "",
           "href": "/en/2-1-1-1e",
+          "status": "complete"
+        },
+        {
+          "id": "2-1-1-1е",
+          "title": "",
+          "description": "",
+          "keywords": "",
+          "href": "/en/2-1-1-1е",
           "status": "notstarted"
         },
         {
           "id": "2-1-2",
-          "title": "Prevalence of moderate or severe food insecurity in the population",
+          "title": "Prevalence of moderate or severe food insecurity in the population, based on the Food Insecurity Experience Scale (FIES)",
           "description": "",
           "keywords": "",
           "href": "/en/2-1-2",
@@ -207,7 +239,7 @@
         },
         {
           "id": "2-2-1",
-          "title": "Proportion of children moderately or severely stunted",
+          "title": "Prevalence of stunting (height for age <-2 standard deviation from the median of the World Health Organization (WHO) Child Growth Standards) among children under 5 years of age",
           "description": "",
           "keywords": "",
           "href": "/en/2-2-1",
@@ -215,7 +247,7 @@
         },
         {
           "id": "2-2-2",
-          "title": "Proportion of children moderately or severely wasted (number)",
+          "title": "Prevalence of malnutrition (weight for height >+2 or <-2 standard deviation from the median of the WHO Child Growth Standards) among children under 5 years of age, by type (wasting and overweight)",
           "description": "",
           "keywords": "",
           "href": "/en/2-2-2",
@@ -223,7 +255,7 @@
         },
         {
           "id": "2-3-1",
-          "title": "Productivity of small-scale food producers",
+          "title": "Volume of production per labour unit by classes of farming/pastoral/forestry enterprise size",
           "description": "",
           "keywords": "",
           "href": "/en/2-3-1",
@@ -231,7 +263,7 @@
         },
         {
           "id": "2-3-2",
-          "title": "Average income of small-scale food producers",
+          "title": "Average income of small-scale food producers, by sex and indigenous status",
           "description": "",
           "keywords": "",
           "href": "/en/2-3-2",
@@ -247,7 +279,7 @@
         },
         {
           "id": "2-5-1",
-          "title": "Number of local breeds kept in the country",
+          "title": "Number of plant and animal genetic resources for food and agriculture secured in either medium- or long-term conservation facilities",
           "description": "",
           "keywords": "",
           "href": "/en/2-5-1",
@@ -255,7 +287,7 @@
         },
         {
           "id": "2-5-2",
-          "title": "Proportion of local breeds classified as being at risk as a percentage of local breeds with known level of extinction risk",
+          "title": "Proportion of local breeds classified as being at risk, not at risk or at unknown level of risk of extinction",
           "description": "",
           "keywords": "",
           "href": "/en/2-5-2",
@@ -263,7 +295,7 @@
         },
         {
           "id": "2-a-1",
-          "title": "Agriculture orientation index for government expenditures",
+          "title": "The agriculture orientation index for government expenditures",
           "description": "",
           "keywords": "",
           "href": "/en/2-a-1",
@@ -271,11 +303,11 @@
         },
         {
           "id": "2-a-2",
-          "title": "Total official flows (disbursements) for agriculture, by recipient countries",
+          "title": "Total official flows (official development assistance plus other official flows) to the agriculture sector",
           "description": "",
           "keywords": "",
           "href": "/en/2-a-2",
-          "status": "notstarted"
+          "status": "complete"
         },
         {
           "id": "2-b-1",
@@ -287,7 +319,7 @@
         },
         {
           "id": "2-c-1",
-          "title": "Indicator of Food Price Anomalies (IFPA)",
+          "title": "Indicator of food price anomalies",
           "description": "",
           "keywords": "",
           "href": "/en/2-c-1",
@@ -300,6 +332,22 @@
           "keywords": "",
           "href": "/en/2-c-1-1b",
           "status": "notstarted"
+        },
+        {
+          "id": "2-а-1",
+          "title": "",
+          "description": "",
+          "keywords": "",
+          "href": "/en/2-а-1",
+          "status": "notstarted"
+        },
+        {
+          "id": "2-с-1-1b",
+          "title": "2.с.1.b. Consumer price index for food products in the Kyrgyz Republic and regions",
+          "description": "",
+          "keywords": "",
+          "href": "/en/2-с-1-1b",
+          "status": "complete"
         }]
     }
   },
@@ -343,7 +391,7 @@
         },
         {
           "id": "3-3-1",
-          "title": "Number of new HIV infections per 1,000 uninfected population",
+          "title": "Number of new HIV infections per 1,000 uninfected population, by sex, age and key populations",
           "description": "",
           "keywords": "",
           "href": "/en/3-3-1",
@@ -351,7 +399,7 @@
         },
         {
           "id": "3-3-2",
-          "title": "Tuberculosis incidence",
+          "title": "Tuberculosis incidence per 100,000 population",
           "description": "",
           "keywords": "",
           "href": "/en/3-3-2",
@@ -359,7 +407,7 @@
         },
         {
           "id": "3-3-3",
-          "title": "Malaria incidence per 1,000 population at risk",
+          "title": "Malaria incidence per 1,000 population",
           "description": "",
           "keywords": "",
           "href": "/en/3-3-3",
@@ -367,7 +415,7 @@
         },
         {
           "id": "3-3-4",
-          "title": "Prevalence of hepatitis B surface antigen (HBsAg)",
+          "title": "Hepatitis B incidence per 100,000 population",
           "description": "",
           "keywords": "",
           "href": "/en/3-3-4",
@@ -390,6 +438,38 @@
           "status": "complete"
         },
         {
+          "id": "3-4-1-1",
+          "title": "",
+          "description": "",
+          "keywords": "",
+          "href": "/en/3-4-1-1",
+          "status": "notstarted"
+        },
+        {
+          "id": "3-4-1-2",
+          "title": "",
+          "description": "",
+          "keywords": "",
+          "href": "/en/3-4-1-2",
+          "status": "notstarted"
+        },
+        {
+          "id": "3-4-1-3",
+          "title": "",
+          "description": "",
+          "keywords": "",
+          "href": "/en/3-4-1-3",
+          "status": "notstarted"
+        },
+        {
+          "id": "3-4-1-4",
+          "title": "",
+          "description": "",
+          "keywords": "",
+          "href": "/en/3-4-1-4",
+          "status": "notstarted"
+        },
+        {
           "id": "3-4-2",
           "title": "Suicide mortality rate",
           "description": "",
@@ -398,8 +478,16 @@
           "status": "complete"
         },
         {
-          "id": "3-5-1",
+          "id": "3-4-2-1",
           "title": "",
+          "description": "",
+          "keywords": "",
+          "href": "/en/3-4-2-1",
+          "status": "notstarted"
+        },
+        {
+          "id": "3-5-1",
+          "title": "Coverage of treatment interventions (pharmacological, psychosocial and rehabilitation and aftercare services) for substance use disorders",
           "description": "",
           "keywords": "",
           "href": "/en/3-5-1",
@@ -423,11 +511,19 @@
         },
         {
           "id": "3-5-2",
-          "title": "Alcohol consumption per capita (aged 15 years and older) within a calendar year",
+          "title": "Harmful use of alcohol, defined according to the national context as alcohol per capita consumption (aged 15 years and older) within a calendar year in litres of pure alcohol",
           "description": "",
           "keywords": "",
           "href": "/en/3-5-2",
           "status": "notstarted"
+        },
+        {
+          "id": "3-5-2-1",
+          "title": "Incidence of alcohol dependence per 100 000 people",
+          "description": "",
+          "keywords": "",
+          "href": "/en/3-5-2-1",
+          "status": "complete"
         },
         {
           "id": "3-6-1",
@@ -438,8 +534,16 @@
           "status": "complete"
         },
         {
+          "id": "3-6-1-1",
+          "title": "",
+          "description": "",
+          "keywords": "",
+          "href": "/en/3-6-1-1",
+          "status": "notstarted"
+        },
+        {
           "id": "3-7-1",
-          "title": "Proportion of women married or in a union of reproductive age (aged 15-49 years) who have their need for family planning satisfied with modern methods",
+          "title": "Proportion of women of reproductive age (aged 15–49 years) who have their need for family planning satisfied with modern methods",
           "description": "",
           "keywords": "",
           "href": "/en/3-7-1",
@@ -447,7 +551,7 @@
         },
         {
           "id": "3-7-2",
-          "title": "Adolescent birth rate (per 1,000 women aged 15-19 years)",
+          "title": "Adolescent birth rate (aged 10–14 years; aged 15–19 years) per 1,000 women in that age group",
           "description": "",
           "keywords": "",
           "href": "/en/3-7-2",
@@ -455,7 +559,7 @@
         },
         {
           "id": "3-8-1",
-          "title": "Universal health coverage (UHC) service coverage index",
+          "title": "Coverage of essential health services (defined as the average coverage of essential services based on tracer interventions that include reproductive, maternal, newborn and child health, infectious diseases, non-communicable diseases and service capacity and access, among the general and the most disadvantaged population)",
           "description": "",
           "keywords": "",
           "href": "/en/3-8-1",
@@ -463,7 +567,7 @@
         },
         {
           "id": "3-8-2",
-          "title": "Proportion of population with large household expenditures on health (greater than 25%) as a share of total household expenditure or income",
+          "title": "Proportion of population with large household expenditures on health as a share of total household expenditure or income",
           "description": "",
           "keywords": "",
           "href": "/en/3-8-2",
@@ -471,7 +575,7 @@
         },
         {
           "id": "3-9-1",
-          "title": "Age-standardized mortality rate attributed to ambient air pollution",
+          "title": "Mortality rate attributed to household and ambient air pollution",
           "description": "",
           "keywords": "",
           "href": "/en/3-9-1",
@@ -483,23 +587,47 @@
           "description": "",
           "keywords": "",
           "href": "/en/3-9-1-1",
-          "status": "notstarted"
+          "status": "complete"
         },
         {
           "id": "3-9-2",
-          "title": "Mortality rate attributed to unsafe water, unsafe sanitation and lack of hygiene",
+          "title": "Mortality rate attributed to unsafe water, unsafe sanitation and lack of hygiene (exposure to unsafe Water, Sanitation and Hygiene for All (WASH) services)",
           "description": "",
           "keywords": "",
           "href": "/en/3-9-2",
+          "status": "complete"
+        },
+        {
+          "id": "3-9-2-1",
+          "title": "",
+          "description": "",
+          "keywords": "",
+          "href": "/en/3-9-2-1",
+          "status": "notstarted"
+        },
+        {
+          "id": "3-9-2-2",
+          "title": "",
+          "description": "",
+          "keywords": "",
+          "href": "/en/3-9-2-2",
           "status": "notstarted"
         },
         {
           "id": "3-9-3",
-          "title": "Mortality rate attributed to unintentional poisonings",
+          "title": "Mortality rate attributed to unintentional poisoning",
           "description": "",
           "keywords": "",
           "href": "/en/3-9-3",
           "status": "complete"
+        },
+        {
+          "id": "3-9-3-1",
+          "title": "",
+          "description": "",
+          "keywords": "",
+          "href": "/en/3-9-3-1",
+          "status": "notstarted"
         },
         {
           "id": "3-a-1",
@@ -511,23 +639,23 @@
         },
         {
           "id": "3-b-1",
-          "title": "Proportion of the target population with access to 3 doses of diphtheria-tetanus-pertussis (DTP3)",
+          "title": "Proportion of the target population covered by all vaccines included in their national programme",
           "description": "",
           "keywords": "",
           "href": "/en/3-b-1",
-          "status": "notstarted"
+          "status": "complete"
         },
         {
           "id": "3-b-2",
-          "title": "Total official development assistance to medical research and basic heath sectors, net disbursement, by recipient countries",
+          "title": "Total net official development assistance to medical research and basic health sectors",
           "description": "",
           "keywords": "",
           "href": "/en/3-b-2",
-          "status": "notstarted"
+          "status": "complete"
         },
         {
           "id": "3-b-3",
-          "title": "",
+          "title": "Proportion of health facilities that have a core set of relevant essential medicines available and affordable on a sustainable basis",
           "description": "",
           "keywords": "",
           "href": "/en/3-b-3",
@@ -535,7 +663,7 @@
         },
         {
           "id": "3-c-1",
-          "title": "Health workder density",
+          "title": "Health worker density and distribution",
           "description": "",
           "keywords": "",
           "href": "/en/3-c-1",
@@ -543,10 +671,18 @@
         },
         {
           "id": "3-d-1",
-          "title": "Average of 13 International Health Regulations (IHR) core capacities",
+          "title": "International Health Regulations (IHR) capacity and health emergency preparedness",
           "description": "",
           "keywords": "",
           "href": "/en/3-d-1",
+          "status": "notstarted"
+        },
+        {
+          "id": "3-с-1",
+          "title": "",
+          "description": "",
+          "keywords": "",
+          "href": "/en/3-с-1",
           "status": "notstarted"
         }]
     }
@@ -559,10 +695,18 @@
         
         {
           "id": "4-1-1",
-          "title": "Proportion of children and young people achieving a minimum proficiency level in reading and mathematics",
+          "title": "Proportion of children and young people (a) in grades 2/3; (b) at the end of primary; and (c) at the end of lower secondary achieving at least a minimum proficiency level in (i) reading and (ii) mathematics, by sex",
           "description": "",
           "keywords": "",
           "href": "/en/4-1-1",
+          "status": "complete"
+        },
+        {
+          "id": "4-1-1-1-a",
+          "title": "4.1.1.1a. Number of children and adolescents 7-17 years old who did not start studies in general education organizations of urban settlements and rural areas, and the territory",
+          "description": "",
+          "keywords": "",
+          "href": "/en/4-1-1-1-a",
           "status": "complete"
         },
         {
@@ -575,7 +719,7 @@
         },
         {
           "id": "4-2-1",
-          "title": "Proportion of children aged 36-59 months who are developmentally on track in at least three of the following domains: literacy-numeracy, physical development, social-emotional development, and learning",
+          "title": "Proportion of children under 5 years of age who are developmentally on track in health, learning and psychosocial well-being, by sex",
           "description": "",
           "keywords": "",
           "href": "/en/4-2-1",
@@ -583,11 +727,11 @@
         },
         {
           "id": "4-2-2",
-          "title": "",
+          "title": "Participation rate in organized learning (one year before the official primary entry age), by sex",
           "description": "",
           "keywords": "",
           "href": "/en/4-2-2",
-          "status": "complete"
+          "status": "notstarted"
         },
         {
           "id": "4-2-2-1a",
@@ -598,8 +742,16 @@
           "status": "notstarted"
         },
         {
+          "id": "4-2-2-1а",
+          "title": "4.2.2.1a Proportion of children who receive preschool education",
+          "description": "",
+          "keywords": "",
+          "href": "/en/4-2-2-1а",
+          "status": "complete"
+        },
+        {
           "id": "4-3-1",
-          "title": "Participation rate in formal and non-formal education and training",
+          "title": "Participation rate of youth and adults in formal and non-formal education and training in the previous 12 months, by sex",
           "description": "",
           "keywords": "",
           "href": "/en/4-3-1",
@@ -611,15 +763,15 @@
           "description": "",
           "keywords": "",
           "href": "/en/4-3-1-1",
-          "status": "notstarted"
+          "status": "complete"
         },
         {
           "id": "4-4-1",
-          "title": "Proportion of youth and adults with information and communications technology (ICT) skills",
+          "title": "Proportion of youth and adults with information and communications technology (ICT) skills, by type of skill",
           "description": "",
           "keywords": "",
           "href": "/en/4-4-1",
-          "status": "notstarted"
+          "status": "complete"
         },
         {
           "id": "4-4-1-1a",
@@ -630,8 +782,16 @@
           "status": "notstarted"
         },
         {
+          "id": "4-4-1-1а",
+          "title": "4.4.1.1a Number of people who receive training in information and communication technologies (ICT) by sex",
+          "description": "",
+          "keywords": "",
+          "href": "/en/4-4-1-1а",
+          "status": "complete"
+        },
+        {
           "id": "4-5-1",
-          "title": "Gender parity index for participation rate in formal and non-formal education and training",
+          "title": "Parity indices (female/male, rural/urban, bottom/top wealth quintile and others such as disability status, indigenous peoples and conflict-affected, as data become available) for all education indicators on this list that can be disaggregated",
           "description": "",
           "keywords": "",
           "href": "/en/4-5-1",
@@ -639,7 +799,7 @@
         },
         {
           "id": "4-6-1",
-          "title": "Proportion of population achieving at least a fixed level of proficiency in functional skills",
+          "title": "Proportion of population in a given age group achieving at least a fixed level of proficiency in functional (a) literacy and (b) numeracy skills, by sex",
           "description": "",
           "keywords": "",
           "href": "/en/4-6-1",
@@ -647,7 +807,7 @@
         },
         {
           "id": "4-7-1",
-          "title": "",
+          "title": "Extent to which (i) global citizenship education and (ii) education for sustainable development, including gender equality and human rights, are mainstreamed at all levels in (a) national education policies; (b) curricula; (c) teacher education; and (d) student assessment",
           "description": "",
           "keywords": "",
           "href": "/en/4-7-1",
@@ -655,7 +815,7 @@
         },
         {
           "id": "4-a-1",
-          "title": "Proportion of schools with access to electricity",
+          "title": "Proportion of schools with access to (a) electricity; (b) the Internet for pedagogical purposes; (c) computers for pedagogical purposes; (d) adapted infrastructure and materials for students with disabilities; (e) basic drinking water; (f) single-sex basic sanitation facilities; and (g) basic handwashing facilities (as per the WASH indicator definitions)",
           "description": "",
           "keywords": "",
           "href": "/en/4-a-1",
@@ -663,7 +823,7 @@
         },
         {
           "id": "4-b-1",
-          "title": "Total official flows for scholarships, by recipient countries",
+          "title": "Volume of official development assistance flows for scholarships by sector and type of study",
           "description": "",
           "keywords": "",
           "href": "/en/4-b-1",
@@ -679,7 +839,7 @@
         },
         {
           "id": "4-c-1",
-          "title": "Proportion of teachers who have received at least the minimum organized teacher training (e.g. pedagogical training) pre-service or in-service required for teaching at the relevant level in a given country",
+          "title": "Proportion of teachers in: (a) pre-primary; (b) primary; (c) lower secondary; and (d) upper secondary education who have received at least the minimum organized teacher training (e.g. pedagogical training) pre-service or in-service required for teaching at the relevant level in a given country",
           "description": "",
           "keywords": "",
           "href": "/en/4-c-1",
@@ -692,6 +852,22 @@
           "keywords": "",
           "href": "/en/4-c-1-1",
           "status": "notstarted"
+        },
+        {
+          "id": "4-а-1",
+          "title": "",
+          "description": "",
+          "keywords": "",
+          "href": "/en/4-а-1",
+          "status": "notstarted"
+        },
+        {
+          "id": "4-с-1",
+          "title": "",
+          "description": "",
+          "keywords": "",
+          "href": "/en/4-с-1",
+          "status": "notstarted"
         }]
     }
   },
@@ -703,7 +879,7 @@
         
         {
           "id": "5-1-1",
-          "title": "Legal frameworks that promote, enforce and monitor gender equality (percentage of achievement, 0 - 100) -- Area 1: overarching legal frameworks and public life.",
+          "title": "Whether or not legal frameworks are in place to promote, enforce and monitor equality and non‐discrimination on the basis of sex",
           "description": "",
           "keywords": "",
           "href": "/en/5-1-1",
@@ -711,7 +887,7 @@
         },
         {
           "id": "5-2-1",
-          "title": "Proportion of ever-partnered women and girls subjected to physical and sexual violence by a current or former intimate partner in the previous 12 months",
+          "title": "Proportion of ever-partnered women and girls aged 15 years and older subjected to physical, sexual or psychological violence by a current or former intimate partner in the previous 12 months, by form of violence and by age",
           "description": "",
           "keywords": "",
           "href": "/en/5-2-1",
@@ -735,7 +911,7 @@
         },
         {
           "id": "5-2-2",
-          "title": "Proportion of women and girls aged 15 years and older subjected to sexual violence by persons other than an intimate partner in the previous 12 months",
+          "title": "Proportion of women and girls aged 15 years and older subjected to sexual violence by persons other than an intimate partner in the previous 12 months, by age and place of occurrence",
           "description": "",
           "keywords": "",
           "href": "/en/5-2-2",
@@ -743,7 +919,7 @@
         },
         {
           "id": "5-3-1",
-          "title": "Proportion of women aged 20-24 years who were married or in a union before age 15",
+          "title": "Proportion of women aged 20–24 years who were married or in a union before age 15 and before age 18",
           "description": "",
           "keywords": "",
           "href": "/en/5-3-1",
@@ -751,7 +927,7 @@
         },
         {
           "id": "5-3-2",
-          "title": "Proportion of girls and women aged 15-49 years who have undergone female genital mutilation/cutting",
+          "title": "Proportion of girls and women aged 15–49 years who have undergone female genital mutilation/cutting, by age",
           "description": "",
           "keywords": "",
           "href": "/en/5-3-2",
@@ -759,7 +935,7 @@
         },
         {
           "id": "5-4-1",
-          "title": "Proportion of time spent on unpaid domestic chores and care work",
+          "title": "Proportion of time spent on unpaid domestic and care work, by sex, age and location",
           "description": "",
           "keywords": "",
           "href": "/en/5-4-1",
@@ -767,7 +943,7 @@
         },
         {
           "id": "5-5-1",
-          "title": "Proportion of seats held by women in national parliaments (% of total number of seats)",
+          "title": "Proportion of seats held by women in (a) national parliaments and (b) local governments",
           "description": "",
           "keywords": "",
           "href": "/en/5-5-1",
@@ -783,7 +959,7 @@
         },
         {
           "id": "5-6-1",
-          "title": "Proportion of women who make their own informed decisions regarding sexual relations, contraceptive use and reproductive health care (% of women aged 15-49 years)",
+          "title": "Proportion of women aged 15–49 years who make their own informed decisions regarding sexual relations, contraceptive use and reproductive health care",
           "description": "",
           "keywords": "",
           "href": "/en/5-6-1",
@@ -799,7 +975,7 @@
         },
         {
           "id": "5-6-2",
-          "title": "Number of countries with laws and regulations that guarantee full and equal access to women and men aged 15 years and older to sexual and reproductive health care, information and education",
+          "title": "Number of countries with laws and regulations that guarantee full and equal access to women and men aged 15 years and older to sexual and reproductive health care, information and education",
           "description": "",
           "keywords": "",
           "href": "/en/5-6-2",
@@ -807,7 +983,7 @@
         },
         {
           "id": "5-a-1",
-          "title": "Proportion of total agricultural population with ownership or secure rights over agricultural land",
+          "title": "(a) Proportion of total agricultural population with ownership or secure rights over agricultural land, by sex; and (b) share of women among owners or rights-bearers of agricultural land, by type of tenure",
           "description": "",
           "keywords": "",
           "href": "/en/5-a-1",
@@ -815,7 +991,7 @@
         },
         {
           "id": "5-a-2",
-          "title": "Proportion of countries where the legal framework (including customary law) guarantees women's equal rights to land ownership and/or control",
+          "title": "Proportion of countries where the legal framework (including customary law) guarantees women’s equal rights to land ownership and/or control",
           "description": "",
           "keywords": "",
           "href": "/en/5-a-2",
@@ -823,7 +999,7 @@
         },
         {
           "id": "5-b-1",
-          "title": "Proportion of individuals who own a mobile telephone",
+          "title": "Proportion of individuals who own a mobile telephone, by sex",
           "description": "",
           "keywords": "",
           "href": "/en/5-b-1",
@@ -831,7 +1007,7 @@
         },
         {
           "id": "5-c-1",
-          "title": "Proportion of countries with systems to track and make public allocations for gender equality and women's empowerment",
+          "title": "Proportion of countries with systems to track and make public allocations for gender equality and women’s empowerment",
           "description": "",
           "keywords": "",
           "href": "/en/5-c-1",
@@ -863,7 +1039,7 @@
         },
         {
           "id": "6-2-1",
-          "title": "Proportion of population using safely managed sanitation services",
+          "title": "Proportion of population using safely managed sanitation services, including a handwashing facility with soap and water",
           "description": "",
           "keywords": "",
           "href": "/en/6-2-1",
@@ -871,7 +1047,7 @@
         },
         {
           "id": "6-3-1",
-          "title": "Proportion of safely treated domestic wastewater flows",
+          "title": "Proportion of wastewater safely treated",
           "description": "",
           "keywords": "",
           "href": "/en/6-3-1",
@@ -879,7 +1055,7 @@
         },
         {
           "id": "6-3-2",
-          "title": "Proportion of open water bodies with good ambient water quality",
+          "title": "Proportion of bodies of water with good ambient water quality",
           "description": "",
           "keywords": "",
           "href": "/en/6-3-2",
@@ -887,7 +1063,7 @@
         },
         {
           "id": "6-4-1",
-          "title": "Water Use Efficiency (United States dollars per cubic meter)",
+          "title": "Change in water-use efficiency over time",
           "description": "",
           "keywords": "",
           "href": "/en/6-4-1",
@@ -919,7 +1095,7 @@
         },
         {
           "id": "6-5-1",
-          "title": "Degree of integrated water resources management implementation",
+          "title": "Degree of integrated water resources management implementation (0 to 100)",
           "description": "",
           "keywords": "",
           "href": "/en/6-5-1",
@@ -927,7 +1103,7 @@
         },
         {
           "id": "6-5-2",
-          "title": "Proportion of transboundary basins (river and lake basins and aquifers) with an operational arrangement for water cooperation",
+          "title": "Proportion of transboundary basin area with an operational arrangement for water cooperation",
           "description": "",
           "keywords": "",
           "href": "/en/6-5-2",
@@ -935,7 +1111,7 @@
         },
         {
           "id": "6-6-1",
-          "title": "Water body extent (permanent) (% of total land area)",
+          "title": "Change in the extent of water-related ecosystems over time",
           "description": "",
           "keywords": "",
           "href": "/en/6-6-1",
@@ -943,7 +1119,7 @@
         },
         {
           "id": "6-a-1",
-          "title": "Total official development assistance (gross disbursement) for water supply and sanitation, by recipient countries",
+          "title": "Amount of water- and sanitation-related official development assistance that is part of a government-coordinated spending plan",
           "description": "",
           "keywords": "",
           "href": "/en/6-a-1",
@@ -999,7 +1175,7 @@
         },
         {
           "id": "7-3-1",
-          "title": "Energy intensity level of primary energy (megajoules per constant purchasing power parity GDP)",
+          "title": "Energy intensity measured in terms of primary energy and GDP",
           "description": "",
           "keywords": "",
           "href": "/en/7-3-1",
@@ -1007,7 +1183,7 @@
         },
         {
           "id": "7-3-1-1",
-          "title": "Энергоемкость ВВП по отраслям",
+          "title": "Энергоемкость",
           "description": "",
           "keywords": "",
           "href": "/en/7-3-1-1",
@@ -1015,7 +1191,7 @@
         },
         {
           "id": "7-3-1-2",
-          "title": "Электроемкость ВВП по отраслям и производство электроэнергии на малых ГЭС",
+          "title": "Электроемкость",
           "description": "",
           "keywords": "",
           "href": "/en/7-3-1-2",
@@ -1031,7 +1207,7 @@
         },
         {
           "id": "7-b-1",
-          "title": "",
+          "title": "Investments in energy efficiency as a proportion of GDP and the amount of foreign direct investment in financial transfer for infrastructure and technology to sustainable development services",
           "description": "",
           "keywords": "",
           "href": "/en/7-b-1",
@@ -1071,7 +1247,7 @@
         },
         {
           "id": "8-3-1",
-          "title": "Proportion of informal employment in non-agriculture employment",
+          "title": "Proportion of informal employment in non‐agriculture employment, by sex",
           "description": "",
           "keywords": "",
           "href": "/en/8-3-1",
@@ -1083,7 +1259,7 @@
           "description": "",
           "keywords": "",
           "href": "/en/8-3-1-1",
-          "status": "notstarted"
+          "status": "complete"
         },
         {
           "id": "8-3-1-2",
@@ -1095,7 +1271,7 @@
         },
         {
           "id": "8-4-1",
-          "title": "Material footprint per capita",
+          "title": "Material footprint, material footprint per capita, and material footprint per GDP",
           "description": "",
           "keywords": "",
           "href": "/en/8-4-1",
@@ -1103,7 +1279,7 @@
         },
         {
           "id": "8-4-2",
-          "title": "Domestic material consumption per capita, by type of raw material",
+          "title": "Domestic material consumption, domestic material consumption per capita, and domestic material consumption per GDP",
           "description": "",
           "keywords": "",
           "href": "/en/8-4-2",
@@ -1111,7 +1287,7 @@
         },
         {
           "id": "8-5-1",
-          "title": "Average hourly earnings",
+          "title": "Average hourly earnings of female and male employees, by occupation, age and persons with disabilities",
           "description": "",
           "keywords": "",
           "href": "/en/8-5-1",
@@ -1127,15 +1303,23 @@
         },
         {
           "id": "8-5-2",
-          "title": "Unemployment rate",
+          "title": "Unemployment rate, by sex, age and persons with disabilities",
           "description": "",
           "keywords": "",
           "href": "/en/8-5-2",
           "status": "complete"
         },
         {
+          "id": "8-5-2-1",
+          "title": "",
+          "description": "",
+          "keywords": "",
+          "href": "/en/8-5-2-1",
+          "status": "notstarted"
+        },
+        {
           "id": "8-6-1",
-          "title": "Proportion of youth not in education, employment or training",
+          "title": "Proportion of youth (aged 15–24 years) not in education, employment or training",
           "description": "",
           "keywords": "",
           "href": "/en/8-6-1",
@@ -1143,7 +1327,7 @@
         },
         {
           "id": "8-7-1",
-          "title": "Proportion of children engaged in economic activity",
+          "title": "Proportion and number of children aged 5–17 years engaged in child labour, by sex and age",
           "description": "",
           "keywords": "",
           "href": "/en/8-7-1",
@@ -1151,15 +1335,15 @@
         },
         {
           "id": "8-8-1",
-          "title": "Non-fatal occupational injuries among employees (rate)",
+          "title": "Frequency rates of fatal and non-fatal occupational injuries, by sex and migrant status",
           "description": "",
           "keywords": "",
           "href": "/en/8-8-1",
-          "status": "notstarted"
+          "status": "complete"
         },
         {
           "id": "8-8-2",
-          "title": "",
+          "title": "Level of national compliance with labour rights (freedom of association and collective bargaining) based on International Labour Organization (ILO) textual sources and national legislation, by sex and migrant status",
           "description": "",
           "keywords": "",
           "href": "/en/8-8-2",
@@ -1167,7 +1351,7 @@
         },
         {
           "id": "8-9-1",
-          "title": "Tourism direct GDP as a proportion of total GDP",
+          "title": "Tourism direct GDP as a proportion of total GDP and in growth rate",
           "description": "",
           "keywords": "",
           "href": "/en/8-9-1",
@@ -1191,7 +1375,7 @@
         },
         {
           "id": "8-a-1",
-          "title": "Total official flows (commitments) for Aid for Trade, by donor countries",
+          "title": "Aid for Trade commitments and disbursements",
           "description": "",
           "keywords": "",
           "href": "/en/8-a-1",
@@ -1207,7 +1391,7 @@
         },
         {
           "id": "8-10-1",
-          "title": "Number of commercial bank branches per 100,000 adults",
+          "title": "(a) Number of commercial bank branches per 100,000 adults and (b) number of automated teller machines (ATMs) per 100,000 adults",
           "description": "",
           "keywords": "",
           "href": "/en/8-10-1",
@@ -1215,7 +1399,7 @@
         },
         {
           "id": "8-10-2",
-          "title": "Proportion of adults (15 years and older) with an account at a financial institution or mobile-money-service provider (% of adults aged 15 years and older)",
+          "title": "Proportion of adults (15 years and older) with an account at a bank or other financial institution or with a mobile-money-service provider",
           "description": "",
           "keywords": "",
           "href": "/en/8-10-2",
@@ -1223,27 +1407,11 @@
         },
         {
           "id": "8-10-2-2",
-          "title": "Financial indicators of insurance companies",
+          "title": "Финансовые показатели страховых компаний",
           "description": "",
           "keywords": "",
           "href": "/en/8-10-2-2",
           "status": "complete"
-        },
-        {
-          "id": "8-10-2-2a",
-          "title": "Количество отчитавшихся страховых компаний",
-          "description": "",
-          "keywords": "",
-          "href": "/en/8-10-2-2a",
-          "status": "notstarted"
-        },
-        {
-          "id": "8-10-2-2b",
-          "title": "Поступление страховых взносов",
-          "description": "",
-          "keywords": "",
-          "href": "/en/8-10-2-2b",
-          "status": "notstarted"
         }]
     }
   },
@@ -1255,7 +1423,7 @@
         
         {
           "id": "9-1-1",
-          "title": "Proportion of the rural population who live within 2 km of an all-season road",
+          "title": "Proportion of the rural population who live within 2 km of an all-season road",
           "description": "",
           "keywords": "",
           "href": "/en/9-1-1",
@@ -1263,7 +1431,7 @@
         },
         {
           "id": "9-1-2",
-          "title": "Freight volume (tonne kilometres)",
+          "title": "Passenger and freight volumes, by mode of transport",
           "description": "",
           "keywords": "",
           "href": "/en/9-1-2",
@@ -1271,7 +1439,7 @@
         },
         {
           "id": "9-2-1",
-          "title": "Manufacturing value added as a proportion of GDP",
+          "title": "Manufacturing value added as a proportion of GDP and per capita",
           "description": "",
           "keywords": "",
           "href": "/en/9-2-1",
@@ -1291,7 +1459,7 @@
           "description": "",
           "keywords": "",
           "href": "/en/9-3-1",
-          "status": "complete"
+          "status": "notstarted"
         },
         {
           "id": "9-3-2",
@@ -1303,7 +1471,7 @@
         },
         {
           "id": "9-4-1",
-          "title": "Carbon dioxide emissions from fuel combustion",
+          "title": "CO2 emission per unit of value added",
           "description": "",
           "keywords": "",
           "href": "/en/9-4-1",
@@ -1311,7 +1479,7 @@
         },
         {
           "id": "9-4-1-1",
-          "title": "Pollutants emitted by stationary sources",
+          "title": "Объем загрязняющих веществ, отходящих от стационарных источников на 1 кв.км и по территории",
           "description": "",
           "keywords": "",
           "href": "/en/9-4-1-1",
@@ -1331,11 +1499,11 @@
           "description": "",
           "keywords": "",
           "href": "/en/9-5-2",
-          "status": "complete"
+          "status": "notstarted"
         },
         {
           "id": "9-a-1",
-          "title": "Total official flows for infrastructure, by recipient countries",
+          "title": "Total official international support (official development assistance plus other official flows) to infrastructure",
           "description": "",
           "keywords": "",
           "href": "/en/9-a-1",
@@ -1351,11 +1519,11 @@
         },
         {
           "id": "9-c-1",
-          "title": "Proportion of population covered by at least a 2G mobile network",
+          "title": "Proportion of population covered by a mobile network, by technology",
           "description": "",
           "keywords": "",
           "href": "/en/9-c-1",
-          "status": "complete"
+          "status": "notstarted"
         }]
     }
   },
@@ -1367,15 +1535,15 @@
         
         {
           "id": "10-1-1",
-          "title": "Growth rates of household expenditure or income per capita",
+          "title": "Growth rates of household expenditure or income per capita among the bottom 40 per cent of the population and the total population",
           "description": "",
           "keywords": "",
           "href": "/en/10-1-1",
-          "status": "notstarted"
+          "status": "complete"
         },
         {
           "id": "10-2-1",
-          "title": "Proportion of people living below 50 percent of median income",
+          "title": "Proportion of people living below 50 per cent of median income, by sex, age and persons with disabilities",
           "description": "",
           "keywords": "",
           "href": "/en/10-2-1",
@@ -1387,7 +1555,7 @@
           "description": "",
           "keywords": "",
           "href": "/en/10-3-1",
-          "status": "complete"
+          "status": "notstarted"
         },
         {
           "id": "10-4-1",
@@ -1399,15 +1567,23 @@
         },
         {
           "id": "10-5-1",
-          "title": "Non-performing loans to total gross loans (%)",
+          "title": "Financial Soundness Indicators (FSIs)",
           "description": "",
           "keywords": "",
           "href": "/en/10-5-1",
           "status": "notstarted"
         },
         {
+          "id": "10-5-1-1",
+          "title": "",
+          "description": "",
+          "keywords": "",
+          "href": "/en/10-5-1-1",
+          "status": "notstarted"
+        },
+        {
           "id": "10-6-1",
-          "title": "Proportion of members of developing countries in international organizations, by organization",
+          "title": "Proportion of members and voting rights of developing countries in international organizations",
           "description": "",
           "keywords": "",
           "href": "/en/10-6-1",
@@ -1431,7 +1607,7 @@
         },
         {
           "id": "10-a-1",
-          "title": "Proportion of tariff lines applied to imports with zero-tariff",
+          "title": "Proportion of tariff lines applied to imports from least developed countries and developing countries with zero-tariff",
           "description": "",
           "keywords": "",
           "href": "/en/10-a-1",
@@ -1439,7 +1615,7 @@
         },
         {
           "id": "10-b-1",
-          "title": "Total assistance for development, by donor countries",
+          "title": "Total resource flows for development, by recipient and donor countries and type of flow (e.g. official development assistance, foreign direct investment and other flows)",
           "description": "",
           "keywords": "",
           "href": "/en/10-b-1",
@@ -1463,7 +1639,7 @@
         
         {
           "id": "11-1-1",
-          "title": "Proportion of urban population living in slums",
+          "title": "Proportion of urban population living in slums, informal settlements or inadequate housing",
           "description": "",
           "keywords": "",
           "href": "/en/11-1-1",
@@ -1471,7 +1647,7 @@
         },
         {
           "id": "11-2-1",
-          "title": "Proportion of population that has convenient access to public transport",
+          "title": "Proportion of population that has convenient access to public transport, by sex, age and persons with disabilities",
           "description": "",
           "keywords": "",
           "href": "/en/11-2-1",
@@ -1495,7 +1671,7 @@
         },
         {
           "id": "11-4-1",
-          "title": "",
+          "title": "Total expenditure (public and private) per capita spent on the preservation, protection and conservation of all cultural and natural heritage, by type of heritage (cultural, natural, mixed and World Heritage Centre designation), level of government (national, regional and local/municipal), type of expenditure (operating expenditure/investment) and type of private funding (donations in kind, private non-profit sector and sponsorship)",
           "description": "",
           "keywords": "",
           "href": "/en/11-4-1",
@@ -1503,15 +1679,15 @@
         },
         {
           "id": "11-5-1",
-          "title": "Number of deaths due to disaster",
+          "title": "Number of deaths, missing persons and directly affected persons attributed to disasters per 100,000 population",
           "description": "",
           "keywords": "",
           "href": "/en/11-5-1",
-          "status": "complete"
+          "status": "notstarted"
         },
         {
           "id": "11-5-2",
-          "title": "Direct economic loss attributed to disasters relative to GDP",
+          "title": "Total expenditure (public and private) per capita spent on the preservation, protection and conservation of all cultural and natural heritage, by type of heritage (cultural, natural, mixed and World Heritage Centre designation), level of government (national, regional and local/municipal), type of expenditure (operating expenditure/investment) and type of private funding (donations in kind, private non-profit sector and sponsorship)",
           "description": "",
           "keywords": "",
           "href": "/en/11-5-2",
@@ -1519,7 +1695,7 @@
         },
         {
           "id": "11-6-1",
-          "title": "Proportion of population served by municipal waste collection",
+          "title": "Proportion of urban solid waste regularly collected and with adequate final discharge out of total urban solid waste generated, by cities",
           "description": "",
           "keywords": "",
           "href": "/en/11-6-1",
@@ -1527,7 +1703,7 @@
         },
         {
           "id": "11-6-2",
-          "title": "",
+          "title": "Annual mean levels of fine particulate matter (e.g. PM2.5 and PM10) in cities (population weighted)",
           "description": "",
           "keywords": "",
           "href": "/en/11-6-2",
@@ -1535,7 +1711,7 @@
         },
         {
           "id": "11-7-1",
-          "title": "Average share of the built-up area of cities that is open space for public use for all",
+          "title": "Average share of the built-up area of cities that is open space for public use for all, by sex, age and persons with disabilities",
           "description": "",
           "keywords": "",
           "href": "/en/11-7-1",
@@ -1543,7 +1719,7 @@
         },
         {
           "id": "11-7-2",
-          "title": "Proportion of persons victim of physical or sexual harassment, in the previous 12 months",
+          "title": "Proportion of persons victim of physical or sexual harassment, by sex, age, disability status and place of occurrence, in the previous 12 months",
           "description": "",
           "keywords": "",
           "href": "/en/11-7-2",
@@ -1551,7 +1727,7 @@
         },
         {
           "id": "11-a-1",
-          "title": "Proportion of population living in cities that implement urban and regional development plans integrating population projections and resource needs",
+          "title": "Proportion of population living in cities that implement urban and regional development plans integrating population projections and resource needs, by size of city",
           "description": "",
           "keywords": "",
           "href": "/en/11-a-1",
@@ -1559,7 +1735,7 @@
         },
         {
           "id": "11-b-1",
-          "title": "Score of adoption and implementation of national DRR strategies in line with the Sendai Framework",
+          "title": "Number of countries that adopt and implement national disaster risk reduction strategies in line with the Sendai Framework for Disaster Risk Reduction 2015–2030",
           "description": "",
           "keywords": "",
           "href": "/en/11-b-1",
@@ -1590,16 +1766,8 @@
       "indicators": [
         
         {
-          "id": "12-1-1",
-          "title": "Countries with coordination mechanism for sustainable consumption and production (1 = YES; 0 = NO)",
-          "description": "",
-          "keywords": "",
-          "href": "/en/12-1-1",
-          "status": "notstarted"
-        },
-        {
           "id": "12-2-1",
-          "title": "Material footprint per capita",
+          "title": "Material footprint, material footprint per capita, and material footprint per GDP",
           "description": "",
           "keywords": "",
           "href": "/en/12-2-1",
@@ -1607,7 +1775,7 @@
         },
         {
           "id": "12-2-2",
-          "title": "",
+          "title": "Domestic material consumption, domestic material consumption per capita, and domestic material consumption per GDP",
           "description": "",
           "keywords": "",
           "href": "/en/12-2-2",
@@ -1623,7 +1791,7 @@
         },
         {
           "id": "12-4-1",
-          "title": "Compliance with the Basel Convention on hazardous waste and other chemicals",
+          "title": "Number of parties to international multilateral environmental agreements on hazardous waste, and other chemicals that meet their commitments and obligations in transmitting information as required by each relevant agreement",
           "description": "",
           "keywords": "",
           "href": "/en/12-4-1",
@@ -1631,7 +1799,7 @@
         },
         {
           "id": "12-4-2",
-          "title": "Hazardous waste generated per capita",
+          "title": "Hazardous waste generated per capita and proportion of hazardous waste treated, by type of treatment",
           "description": "",
           "keywords": "",
           "href": "/en/12-4-2",
@@ -1639,7 +1807,7 @@
         },
         {
           "id": "12-5-1",
-          "title": "",
+          "title": "National recycling rate, tons of material recycled",
           "description": "",
           "keywords": "",
           "href": "/en/12-5-1",
@@ -1663,7 +1831,7 @@
         },
         {
           "id": "12-8-1",
-          "title": "",
+          "title": "Extent to which (i) global citizenship education and (ii) education for sustainable development (including climate change education) are mainstreamed in (a) national education policies; (b) curricula; (c) teacher education; and (d) student assessment",
           "description": "",
           "keywords": "",
           "href": "/en/12-8-1",
@@ -1679,7 +1847,7 @@
         },
         {
           "id": "12-b-1",
-          "title": "",
+          "title": "Number of sustainable tourism strategies or policies and implemented action plans with agreed monitoring and evaluation tools",
           "description": "",
           "keywords": "",
           "href": "/en/12-b-1",
@@ -1687,7 +1855,7 @@
         },
         {
           "id": "12-c-1",
-          "title": "Fossil-fuel pre-tax subsidies (consumption and production)",
+          "title": "Amount of fossil-fuel subsidies per unit of GDP (production and consumption) and as a proportion of total national expenditure on fossil fuels",
           "description": "",
           "keywords": "",
           "href": "/en/12-c-1",
@@ -1703,7 +1871,7 @@
         
         {
           "id": "13-1-1",
-          "title": "Number of deaths due to disaster",
+          "title": "Number of deaths, missing persons and directly affected persons attributed to disasters per 100,000 population",
           "description": "",
           "keywords": "",
           "href": "/en/13-1-1",
@@ -1711,7 +1879,7 @@
         },
         {
           "id": "13-1-2",
-          "title": "Score of adoption and implementation of national DRR strategies in line with the Sendai Framework",
+          "title": "Number of countries that adopt and implement national disaster risk reduction strategies in line with the Sendai Framework for Disaster Risk Reduction 2015–2030",
           "description": "",
           "keywords": "",
           "href": "/en/13-1-2",
@@ -1727,7 +1895,7 @@
         },
         {
           "id": "13-2-1",
-          "title": "",
+          "title": "Number of countries that have communicated the establishment or operationalization of an integrated policy/strategy/plan which increases their ability to adapt to the adverse impacts of climate change, and foster climate resilience and low greenhouse gas emissions development in a manner that does not threaten food production (including a national adaptation plan, nationally determined contribution, national communication, biennial update report or other)",
           "description": "",
           "keywords": "",
           "href": "/en/13-2-1",
@@ -1735,7 +1903,7 @@
         },
         {
           "id": "13-3-1",
-          "title": "",
+          "title": "Number of countries that have integrated mitigation, adaptation, impact reduction and early warning into primary, secondary and tertiary curricula",
           "description": "",
           "keywords": "",
           "href": "/en/13-3-1",
@@ -1743,7 +1911,7 @@
         },
         {
           "id": "13-3-2",
-          "title": "",
+          "title": "Number of countries that have communicated the strengthening of institutional, systemic and individual capacity-building to implement adaptation, mitigation and technology transfer, and development actions",
           "description": "",
           "keywords": "",
           "href": "/en/13-3-2",
@@ -1751,7 +1919,7 @@
         },
         {
           "id": "13-a-1",
-          "title": "Mobilized amount of United States dollars per year between 2020 and 2025 accountable towards the $100 billion commitment",
+          "title": "Mobilized amount of United States dollars per year between 2020 and 2025 accountable towards the $100 billion commitment",
           "description": "",
           "keywords": "",
           "href": "/en/13-a-1",
@@ -1759,7 +1927,7 @@
         },
         {
           "id": "13-b-1",
-          "title": "",
+          "title": "Number of least developed countries and small island developing States that are receiving specialized support, and amount of support, including finance, technology and capacity-building, for mechanisms for raising capacities for effective climate change-related planning and management, including focusing on women, youth and local and marginalized communities",
           "description": "",
           "keywords": "",
           "href": "/en/13-b-1",
@@ -1775,7 +1943,7 @@
         
         {
           "id": "14-1-1",
-          "title": "",
+          "title": "Index of coastal eutrophication and floating plastic debris density",
           "description": "",
           "keywords": "",
           "href": "/en/14-1-1",
@@ -1791,7 +1959,7 @@
         },
         {
           "id": "14-3-1",
-          "title": "",
+          "title": "Average marine acidity (pH) measured at agreed suite of representative sampling stations",
           "description": "",
           "keywords": "",
           "href": "/en/14-3-1",
@@ -1799,7 +1967,7 @@
         },
         {
           "id": "14-4-1",
-          "title": "Proportion of fish stocks that are fully exploited",
+          "title": "Proportion of fish stocks within biologically sustainable levels",
           "description": "",
           "keywords": "",
           "href": "/en/14-4-1",
@@ -1807,7 +1975,7 @@
         },
         {
           "id": "14-5-1",
-          "title": "",
+          "title": "Coverage of protected areas in relation to marine areas",
           "description": "",
           "keywords": "",
           "href": "/en/14-5-1",
@@ -1815,7 +1983,7 @@
         },
         {
           "id": "14-6-1",
-          "title": "Progress by countries in the degree of implementation of international instruments aiming to combat illegal, unreported and unregulated fishing (level of implementation: 1 lowest to 5 highest)",
+          "title": "Progress by countries in the degree of implementation of international instruments aiming to combat illegal, unreported and unregulated fishing",
           "description": "",
           "keywords": "",
           "href": "/en/14-6-1",
@@ -1823,7 +1991,7 @@
         },
         {
           "id": "14-7-1",
-          "title": "Sustainable fisheries as a proportion of GDP",
+          "title": "Sustainable fisheries as a proportion of GDP in small island developing States, least developed countries and all countries",
           "description": "",
           "keywords": "",
           "href": "/en/14-7-1",
@@ -1831,7 +1999,7 @@
         },
         {
           "id": "14-a-1",
-          "title": "National ocean science expenditure as a share of total research and development funding",
+          "title": "Proportion of total research budget allocated to research in the field of marine technology",
           "description": "",
           "keywords": "",
           "href": "/en/14-a-1",
@@ -1839,7 +2007,7 @@
         },
         {
           "id": "14-b-1",
-          "title": "Degree of application of a legal/regulatory/policy/institutional framework which recognizes and protects access rights for small-scale fisheries (level of implementation: 1 lowest to 5 highest)",
+          "title": "Progress by countries in the degree of application of a legal/regulatory/policy/institutional framework which recognizes and protects access rights for small-scale fisheries",
           "description": "",
           "keywords": "",
           "href": "/en/14-b-1",
@@ -1847,7 +2015,7 @@
         },
         {
           "id": "14-c-1",
-          "title": "",
+          "title": "Number of countries making progress in ratifying, accepting and implementing through legal, policy and institutional frameworks, ocean-related instruments that implement international law, as reflected in the United Nations Convention on the Law of the Sea, for the conservation and sustainable use of the oceans and their resources",
           "description": "",
           "keywords": "",
           "href": "/en/14-c-1",
@@ -1871,7 +2039,7 @@
         },
         {
           "id": "15-1-2",
-          "title": "Average proportion of Freshwater Key Biodiversity Areas (KBAs) covered by protected areas",
+          "title": "Proportion of important sites for terrestrial and freshwater biodiversity that are covered by protected areas, by ecosystem type",
           "description": "",
           "keywords": "",
           "href": "/en/15-1-2",
@@ -1879,7 +2047,7 @@
         },
         {
           "id": "15-1-2-1",
-          "title": "Protected areas as a share of the country's surface",
+          "title": "Площадь ООПТ от всей площади",
           "description": "",
           "keywords": "",
           "href": "/en/15-1-2-1",
@@ -1887,7 +2055,7 @@
         },
         {
           "id": "15-2-1",
-          "title": "Above-ground biomass in forest (tonnes)",
+          "title": "Progress towards sustainable forest management",
           "description": "",
           "keywords": "",
           "href": "/en/15-2-1",
@@ -1903,7 +2071,7 @@
         },
         {
           "id": "15-4-1",
-          "title": "Average proportion of Mountain Key Biodiversity Areas (KBAs) covered by protected areas",
+          "title": "Coverage by protected areas of important sites for mountain biodiversity",
           "description": "",
           "keywords": "",
           "href": "/en/15-4-1",
@@ -1911,7 +2079,7 @@
         },
         {
           "id": "15-4-2",
-          "title": "Mountain green cover area (square kilometres)",
+          "title": "Mountain Green Cover Index",
           "description": "",
           "keywords": "",
           "href": "/en/15-4-2",
@@ -1927,7 +2095,7 @@
         },
         {
           "id": "15-6-1",
-          "title": "Countries that have legislative, administrative and policy framework or measures reported to the Access and Benefit-Sharing Clearing-House (1 = YES; 0 = NO)",
+          "title": "Number of countries that have adopted legislative, administrative and policy frameworks to ensure fair and equitable sharing of benefits",
           "description": "",
           "keywords": "",
           "href": "/en/15-6-1",
@@ -1943,7 +2111,7 @@
         },
         {
           "id": "15-8-1",
-          "title": "",
+          "title": "Proportion of countries adopting relevant national legislation and adequately resourcing the prevention or control of invasive alien species",
           "description": "",
           "keywords": "",
           "href": "/en/15-8-1",
@@ -1951,7 +2119,7 @@
         },
         {
           "id": "15-9-1",
-          "title": "",
+          "title": "Progress towards national targets established in accordance with Aichi Biodiversity Target 2 of the Strategic Plan for Biodiversity 2011–2020",
           "description": "",
           "keywords": "",
           "href": "/en/15-9-1",
@@ -1959,7 +2127,7 @@
         },
         {
           "id": "15-a-1",
-          "title": "Total official development assistance for biodiversity, by donor countries",
+          "title": "Official development assistance and public expenditure on conservation and sustainable use of biodiversity and ecosystems",
           "description": "",
           "keywords": "",
           "href": "/en/15-a-1",
@@ -1967,15 +2135,23 @@
         },
         {
           "id": "15-b-1",
-          "title": "",
+          "title": "Official development assistance and public expenditure on conservation and sustainable use of biodiversity and ecosystems",
           "description": "",
           "keywords": "",
           "href": "/en/15-b-1",
           "status": "notstarted"
         },
         {
+          "id": "15-b-1-1",
+          "title": "Объем государственных средств, выделяемых на охрану окружающей среды (леса)",
+          "description": "",
+          "keywords": "",
+          "href": "/en/15-b-1-1",
+          "status": "notstarted"
+        },
+        {
           "id": "15-c-1",
-          "title": "",
+          "title": "Proportion of traded wildlife that was poached or illicitly trafficked",
           "description": "",
           "keywords": "",
           "href": "/en/15-c-1",
@@ -1991,15 +2167,23 @@
         
         {
           "id": "16-1-1",
-          "title": "Number of victims of intentional homicide per 100,000 population",
+          "title": "Number of victims of intentional homicide per 100,000 population, by sex and age",
           "description": "",
           "keywords": "",
           "href": "/en/16-1-1",
           "status": "notstarted"
         },
         {
-          "id": "16-1-2",
+          "id": "16-1-1-1a",
           "title": "",
+          "description": "",
+          "keywords": "",
+          "href": "/en/16-1-1-1a",
+          "status": "notstarted"
+        },
+        {
+          "id": "16-1-2",
+          "title": "Conflict-related deaths per 100,000 population, by sex, age and cause",
           "description": "",
           "keywords": "",
           "href": "/en/16-1-2",
@@ -2007,7 +2191,7 @@
         },
         {
           "id": "16-1-3",
-          "title": "Proportion of population subjected to physical violence in the previous 12 months",
+          "title": "Proportion of population subjected to (a) physical violence, (b) psychological violence and (c) sexual violence in the previous 12 months",
           "description": "",
           "keywords": "",
           "href": "/en/16-1-3",
@@ -2015,7 +2199,7 @@
         },
         {
           "id": "16-1-4",
-          "title": "Proportion of population that feel safe walking alone around the area they live in",
+          "title": "Proportion of population that feel safe walking alone around the area they live",
           "description": "",
           "keywords": "",
           "href": "/en/16-1-4",
@@ -2023,7 +2207,7 @@
         },
         {
           "id": "16-2-1",
-          "title": "Proportion of children aged 1-14 years who experienced physical punishment and/or psychological aggression by caregivers in last month",
+          "title": "Proportion of children aged 1–17 years who experienced any physical punishment and/or psychological aggression by caregivers in the past month",
           "description": "",
           "keywords": "",
           "href": "/en/16-2-1",
@@ -2031,7 +2215,7 @@
         },
         {
           "id": "16-2-2",
-          "title": "Detected victims of human trafficking (number)",
+          "title": "Number of victims of human trafficking per 100,000 population, by sex, age and form of exploitation",
           "description": "",
           "keywords": "",
           "href": "/en/16-2-2",
@@ -2039,7 +2223,7 @@
         },
         {
           "id": "16-2-3",
-          "title": "Proportion of population aged 18-29 years who experienced sexual violence by age 18",
+          "title": "Proportion of young women and men aged 18–29 years who experienced sexual violence by age 18",
           "description": "",
           "keywords": "",
           "href": "/en/16-2-3",
@@ -2047,7 +2231,7 @@
         },
         {
           "id": "16-3-1",
-          "title": "Police reporting rate for physical assault, by sex (%)",
+          "title": "Proportion of victims of violence in the previous 12 months who reported their victimization to competent authorities or other officially recognized conflict resolution mechanisms",
           "description": "",
           "keywords": "",
           "href": "/en/16-3-1",
@@ -2063,7 +2247,7 @@
         },
         {
           "id": "16-4-1",
-          "title": "Total value of inward illicit financial flows",
+          "title": "Total value of inward and outward illicit financial flows (in current United States dollars)",
           "description": "",
           "keywords": "",
           "href": "/en/16-4-1",
@@ -2079,15 +2263,23 @@
         },
         {
           "id": "16-5-1",
-          "title": "Prevalence rate of bribery",
+          "title": "Proportion of persons who had at least one contact with a public official and who paid a bribe to a public official, or were asked for a bribe by those public officials, during the previous 12 months",
           "description": "",
           "keywords": "",
           "href": "/en/16-5-1",
           "status": "notstarted"
         },
         {
+          "id": "16-5-1-1b",
+          "title": "Number of convictions for malfeasance, including corruption and bribery",
+          "description": "",
+          "keywords": "",
+          "href": "/en/16-5-1-1b",
+          "status": "complete"
+        },
+        {
           "id": "16-5-2",
-          "title": "Bribery incidence (% of firms experiencing at least one bribe payment request)",
+          "title": "Proportion of businesses that had at least one contact with a public official and that paid a bribe to a public official, or were asked for a bribe by those public officials during the previous 12 months",
           "description": "",
           "keywords": "",
           "href": "/en/16-5-2",
@@ -2095,7 +2287,7 @@
         },
         {
           "id": "16-6-1",
-          "title": "Primary government expenditures as a proportion of original approved budget",
+          "title": "Primary government expenditures as a proportion of original approved budget, by sector (or by budget codes or similar)",
           "description": "",
           "keywords": "",
           "href": "/en/16-6-1",
@@ -2110,16 +2302,16 @@
           "status": "notstarted"
         },
         {
-          "id": "16-6-2-1",
-          "title": "Executive branch of the government satisfaction index",
+          "id": "16-6-2-1a",
+          "title": "Индекс оценки деятельности к государственным органам исполнительной власти",
           "description": "",
           "keywords": "",
-          "href": "/en/16-6-2-1",
+          "href": "/en/16-6-2-1a",
           "status": "complete"
         },
         {
           "id": "16-7-1",
-          "title": "",
+          "title": "Proportions of positions (by sex, age, persons with disabilities and population groups) in public institutions (national and local legislatures, public service, and judiciary) compared to national distributions",
           "description": "",
           "keywords": "",
           "href": "/en/16-7-1",
@@ -2127,7 +2319,7 @@
         },
         {
           "id": "16-7-2",
-          "title": "Proportion of population who believe decision-making is inclusive and responsive",
+          "title": "Proportion of population who believe decision-making is inclusive and responsive, by sex, age, disability and population group",
           "description": "",
           "keywords": "",
           "href": "/en/16-7-2",
@@ -2135,7 +2327,7 @@
         },
         {
           "id": "16-8-1",
-          "title": "Proportion of members of developing countries in international organizations, by organization",
+          "title": "Proportion of members and voting rights of developing countries in international organizations",
           "description": "",
           "keywords": "",
           "href": "/en/16-8-1",
@@ -2143,7 +2335,7 @@
         },
         {
           "id": "16-9-1",
-          "title": "Proportion of children under 5 years of age whose births have been registered with a civil authority",
+          "title": "Proportion of children under 5 years of age whose births have been registered with a civil authority, by age",
           "description": "",
           "keywords": "",
           "href": "/en/16-9-1",
@@ -2151,7 +2343,7 @@
         },
         {
           "id": "16-a-1",
-          "title": "Proportion of countries with independent National Human Rights Institutions in compliance with the Paris Principles (%)",
+          "title": "Existence of independent national human rights institutions in compliance with the Paris Principles",
           "description": "",
           "keywords": "",
           "href": "/en/16-a-1",
@@ -2159,15 +2351,15 @@
         },
         {
           "id": "16-b-1",
-          "title": "",
+          "title": "Proportion of population reporting having personally felt discriminated against or harassed in the previous 12 months on the basis of a ground of discrimination prohibited under international human rights law",
           "description": "",
           "keywords": "",
           "href": "/en/16-b-1",
-          "status": "notstarted"
+          "status": "complete"
         },
         {
           "id": "16-10-1",
-          "title": "Number of cases of killings of human rights defenders, journalists and trade unionists",
+          "title": "Number of verified cases of killing, kidnapping, enforced disappearance, arbitrary detention and torture of journalists, associated media personnel, trade unionists and human rights advocates in the previous 12 months",
           "description": "",
           "keywords": "",
           "href": "/en/16-10-1",
@@ -2175,7 +2367,7 @@
         },
         {
           "id": "16-10-2",
-          "title": "Countries that adopt and implement constitutional, statutory and/or policy guarantees for public access to information",
+          "title": "Number of countries that adopt and implement constitutional, statutory and/or policy guarantees for public access to information",
           "description": "",
           "keywords": "",
           "href": "/en/16-10-2",
@@ -2191,7 +2383,7 @@
         
         {
           "id": "17-1-1",
-          "title": "Total government revenue as a proportion of GDP",
+          "title": "Total government revenue as a proportion of GDP, by source",
           "description": "",
           "keywords": "",
           "href": "/en/17-1-1",
@@ -2207,7 +2399,7 @@
         },
         {
           "id": "17-2-1",
-          "title": "Net official development assistance (ODA) to LDCs as a percentage of OECD-DAC donors' GNI, by donor countries",
+          "title": "Net official development assistance, total and to least developed countries, as a proportion of the Organization for Economic Cooperation and Development (OECD) Development Assistance Committee donors’ gross national income (GNI)",
           "description": "",
           "keywords": "",
           "href": "/en/17-2-1",
@@ -2223,11 +2415,27 @@
         },
         {
           "id": "17-3-1-1",
-          "title": "Foreign direct investment by (a) economic activity and (b) country of origin",
+          "title": "",
           "description": "",
           "keywords": "",
           "href": "/en/17-3-1-1",
+          "status": "notstarted"
+        },
+        {
+          "id": "17-3-1-1a",
+          "title": "Поступление прямых иностранных инвестиций по  видам экономической деятельности (ГКЭД, версия 3)",
+          "description": "",
+          "keywords": "",
+          "href": "/en/17-3-1-1a",
           "status": "complete"
+        },
+        {
+          "id": "17-3-1-1b",
+          "title": "Поступление прямых иностранных инвестиций по странам",
+          "description": "",
+          "keywords": "",
+          "href": "/en/17-3-1-1b",
+          "status": "notstarted"
         },
         {
           "id": "17-3-2",
@@ -2255,7 +2463,7 @@
         },
         {
           "id": "17-6-1",
-          "title": "",
+          "title": "Number of science and/or technology cooperation agreements and programmes between countries, by type of cooperation",
           "description": "",
           "keywords": "",
           "href": "/en/17-6-1",
@@ -2263,7 +2471,7 @@
         },
         {
           "id": "17-6-2",
-          "title": "Fixed broadband subscriptions (number)",
+          "title": "Fixed Internet broadband subscriptions per 100 inhabitants, by speed",
           "description": "",
           "keywords": "",
           "href": "/en/17-6-2",
@@ -2279,15 +2487,15 @@
         },
         {
           "id": "17-8-1",
-          "title": "",
+          "title": "Proportion of individuals using the Internet",
           "description": "",
           "keywords": "",
           "href": "/en/17-8-1",
-          "status": "complete"
+          "status": "notstarted"
         },
         {
           "id": "17-9-1",
-          "title": "Total official development assistance (gross disbursement) for technical cooperation",
+          "title": "Dollar value of financial and technical assistance (including through North-South, South‐South and triangular cooperation) committed to developing countries",
           "description": "",
           "keywords": "",
           "href": "/en/17-9-1",
@@ -2295,7 +2503,7 @@
         },
         {
           "id": "17-10-1",
-          "title": "Worldwide weighted tariff-average, most-favoured-nation status",
+          "title": "Worldwide weighted tariff-average",
           "description": "",
           "keywords": "",
           "href": "/en/17-10-1",
@@ -2303,7 +2511,7 @@
         },
         {
           "id": "17-11-1",
-          "title": "Developing countries’ and least developed countries’ share of global merchandise exports",
+          "title": "Developing countries’ and least developed countries’ share of global exports",
           "description": "",
           "keywords": "",
           "href": "/en/17-11-1",
@@ -2311,7 +2519,7 @@
         },
         {
           "id": "17-12-1",
-          "title": "Average tariff applied by developed countries",
+          "title": "Average tariffs faced by developing countries, least developed countries and small island developing States",
           "description": "",
           "keywords": "",
           "href": "/en/17-12-1",
@@ -2319,7 +2527,7 @@
         },
         {
           "id": "17-13-1",
-          "title": "",
+          "title": "Macroeconomic Dashboard",
           "description": "",
           "keywords": "",
           "href": "/en/17-13-1",
@@ -2335,7 +2543,7 @@
         },
         {
           "id": "17-15-1",
-          "title": "Proportion of new development interventions drawn from country-led result frameworks - data by provider (%)",
+          "title": "",
           "description": "",
           "keywords": "",
           "href": "/en/17-15-1",
@@ -2343,7 +2551,7 @@
         },
         {
           "id": "17-16-1",
-          "title": "Progress in multi-stakeholder development effectiveness monitoring frameworks that support the achievement of the sustainable development goals (1 = YES; 0 = NO)",
+          "title": "Number of countries reporting progress in multi-stakeholder development effectiveness monitoring frameworks that support the achievement of the sustainable development goals",
           "description": "",
           "keywords": "",
           "href": "/en/17-16-1",
@@ -2351,7 +2559,7 @@
         },
         {
           "id": "17-17-1",
-          "title": "Amount of United States dollars committed to public-private partnerships",
+          "title": "Amount of United States dollars committed to public-private and civil society partnerships",
           "description": "",
           "keywords": "",
           "href": "/en/17-17-1",
@@ -2367,7 +2575,7 @@
         },
         {
           "id": "17-18-2",
-          "title": "Countries with national statistical legislation exists that complies with the Fundamental Principles of Official Statistics (1 = YES; 0 = NO)",
+          "title": "Number of countries that have national statistical legislation that complies with the Fundamental Principles of Official Statistics",
           "description": "",
           "keywords": "",
           "href": "/en/17-18-2",
@@ -2375,7 +2583,7 @@
         },
         {
           "id": "17-18-3",
-          "title": "Countries with national statistical plans with funding from donors (1 = YES; 0 = NO)",
+          "title": "Number of countries with a national statistical plan that is fully funded and under implementation, by source of funding",
           "description": "",
           "keywords": "",
           "href": "/en/17-18-3",
@@ -2391,7 +2599,7 @@
         },
         {
           "id": "17-19-2",
-          "title": "Proportion of countries with birth registration data that are at least 90 percent complete",
+          "title": "Proportion of countries that (a) have conducted at least one population and housing census in the last 10 years; and (b) have achieved 100 per cent birth registration and 80 per cent death registration",
           "description": "",
           "keywords": "",
           "href": "/en/17-19-2",

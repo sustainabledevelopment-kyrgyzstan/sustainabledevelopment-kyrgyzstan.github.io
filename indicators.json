@@ -19,7 +19,7 @@
           "description": "",
           "keywords": "",
           "href": "/1-1-1-1a",
-          "status": "notstarted"
+          "status": "complete"
         },
         {
           "id": "1-2-1",
@@ -35,7 +35,7 @@
           "description": "",
           "keywords": "",
           "href": "/1-2-1-1a",
-          "status": "notstarted"
+          "status": "complete"
         },
         {
           "id": "1-2-2",
@@ -59,7 +59,7 @@
           "description": "",
           "keywords": "",
           "href": "/1-3-1-1c",
-          "status": "notstarted"
+          "status": "complete"
         },
         {
           "id": "1-3-1-1e",
@@ -67,7 +67,7 @@
           "description": "",
           "keywords": "",
           "href": "/1-3-1-1e",
-          "status": "notstarted"
+          "status": "complete"
         },
         {
           "id": "1-3-1-1f",
@@ -75,7 +75,7 @@
           "description": "",
           "keywords": "",
           "href": "/1-3-1-1f",
-          "status": "notstarted"
+          "status": "complete"
         },
         {
           "id": "1-3-1-1g",
@@ -83,7 +83,7 @@
           "description": "",
           "keywords": "",
           "href": "/1-3-1-1g",
-          "status": "notstarted"
+          "status": "complete"
         },
         {
           "id": "1-4-1",
@@ -103,19 +103,27 @@
         },
         {
           "id": "1-5-1",
-          "title": "Number of deaths due to disaster",
+          "title": "",
           "description": "",
           "keywords": "",
           "href": "/1-5-1",
-          "status": "complete"
+          "status": "notstarted"
         },
         {
           "id": "1-5-2",
-          "title": "Direct economic loss attributed to disasters relative to GDP",
+          "title": "Прямые экономические потери от бедствий впроцентном отношении к мировому валовому внутреннемупродукту (ВВП)",
           "description": "",
           "keywords": "",
           "href": "/1-5-2",
           "status": "complete"
+        },
+        {
+          "id": "1-5-2-1",
+          "title": "",
+          "description": "",
+          "keywords": "",
+          "href": "/1-5-2-1",
+          "status": "notstarted"
         },
         {
           "id": "1-5-3",
@@ -123,7 +131,7 @@
           "description": "",
           "keywords": "",
           "href": "/1-5-3",
-          "status": "complete"
+          "status": "notstarted"
         },
         {
           "id": "1-5-4",
@@ -131,7 +139,7 @@
           "description": "",
           "keywords": "",
           "href": "/1-5-4",
-          "status": "complete"
+          "status": "notstarted"
         },
         {
           "id": "1-a-1",
@@ -143,7 +151,7 @@
         },
         {
           "id": "1-a-2",
-          "title": "Proportion of total government spending on essential services, education",
+          "title": "Proportion of total government spending on essential services (education, health and social protection)",
           "description": "",
           "keywords": "",
           "href": "/1-a-2",
@@ -171,6 +179,14 @@
           "description": "",
           "keywords": "",
           "href": "/1-b-1-1",
+          "status": "complete"
+        },
+        {
+          "id": "1-а-2",
+          "title": "",
+          "description": "",
+          "keywords": "",
+          "href": "/1-а-2",
           "status": "notstarted"
         }]
     }
@@ -183,10 +199,18 @@
         
         {
           "id": "2-1-1",
-          "title": "Prevalence of undernourishment",
+          "title": "Распространенность недоедания",
           "description": "",
           "keywords": "",
           "href": "/2-1-1",
+          "status": "complete"
+        },
+        {
+          "id": "2-1-1-1d",
+          "title": "",
+          "description": "",
+          "keywords": "",
+          "href": "/2-1-1-1d",
           "status": "notstarted"
         },
         {
@@ -195,11 +219,19 @@
           "description": "",
           "keywords": "",
           "href": "/2-1-1-1e",
+          "status": "complete"
+        },
+        {
+          "id": "2-1-1-1е",
+          "title": "",
+          "description": "",
+          "keywords": "",
+          "href": "/2-1-1-1е",
           "status": "notstarted"
         },
         {
           "id": "2-1-2",
-          "title": "Prevalence of moderate or severe food insecurity in the population",
+          "title": "Уровень умеренного или острого отсутствияпродовольственной безопасности населения (по«Шкале восприятия отсутствия продовольственнойбезопасности»)",
           "description": "",
           "keywords": "",
           "href": "/2-1-2",
@@ -207,7 +239,7 @@
         },
         {
           "id": "2-2-1",
-          "title": "Proportion of children moderately or severely stunted",
+          "title": "Распространенность задержки роста средидетей в возрасте до пяти лет (среднеквадратичное отклонениеот медианного показателя роста к возрастуребенка в соответствии с нормами роста детей, установленнымиВсемирной организацией здравоохранения(ВОЗ), <-2)",
           "description": "",
           "keywords": "",
           "href": "/2-2-1",
@@ -215,7 +247,7 @@
         },
         {
           "id": "2-2-2",
-          "title": "Proportion of children moderately or severely wasted (number)",
+          "title": "Распространенность неполноценного питаниясреди детей в возрасте до пяти лет в разбивке повиду (истощение или ожирение) (среднеквадратичноеотклонение от медианного показателя веса к возрастув соответствии с нормами роста детей, установленнымиВОЗ, >+2 или <-2)",
           "description": "",
           "keywords": "",
           "href": "/2-2-2",
@@ -223,7 +255,7 @@
         },
         {
           "id": "2-3-1",
-          "title": "Productivity of small-scale food producers",
+          "title": "Объем производства на производственнуюединицу в разбивке по классам размера предприятий фермерского хозяйства/скотоводства/лесного хозяйства",
           "description": "",
           "keywords": "",
           "href": "/2-3-1",
@@ -231,7 +263,7 @@
         },
         {
           "id": "2-3-2",
-          "title": "Average income of small-scale food producers",
+          "title": "Средний доход мелких производителей продовольственнойпродукции в разбивке по полу и статусупринадлежности к коренным народам",
           "description": "",
           "keywords": "",
           "href": "/2-3-2",
@@ -239,7 +271,7 @@
         },
         {
           "id": "2-4-1",
-          "title": "Proportion of agricultural area under productive and sustainable agriculture",
+          "title": "Доля площади сельскохозяйственных угодий,на которых применяются продуктивные и неистощительныеметоды ведения сельского хозяйства",
           "description": "",
           "keywords": "",
           "href": "/2-4-1",
@@ -247,7 +279,7 @@
         },
         {
           "id": "2-5-1",
-          "title": "Number of local breeds kept in the country",
+          "title": "Количество генетических ресурсов растительногои зоологического происхождения, предназначенныхдля производства продовольствия и сельскогохозяйства, которые хранятся на специальныхобъектах либо среднесрочного, либо долгосрочногохранения",
           "description": "",
           "keywords": "",
           "href": "/2-5-1",
@@ -255,7 +287,7 @@
         },
         {
           "id": "2-5-2",
-          "title": "Proportion of local breeds classified as being at risk as a percentage of local breeds with known level of extinction risk",
+          "title": "Доля местных пород, относимых к следующимкатегориям: находящиеся под угрозой исчезновения;не находящиеся под угрозой исчезновения;уровень угрозы исчезновения не известен",
           "description": "",
           "keywords": "",
           "href": "/2-5-2",
@@ -263,7 +295,7 @@
         },
         {
           "id": "2-a-1",
-          "title": "Agriculture orientation index for government expenditures",
+          "title": "Индекс ориентированности на сельское хозяйство,определяемый по структуре государственныхрасходов",
           "description": "",
           "keywords": "",
           "href": "/2-a-1",
@@ -271,15 +303,15 @@
         },
         {
           "id": "2-a-2",
-          "title": "Total official flows (disbursements) for agriculture, by recipient countries",
+          "title": "Совокупный приток официальных средств(официальная помощь в целях развития плюс прочиепотоки официальных средств) в сельское хозяйство",
           "description": "",
           "keywords": "",
           "href": "/2-a-2",
-          "status": "notstarted"
+          "status": "complete"
         },
         {
           "id": "2-b-1",
-          "title": "Agricultural export subsidies",
+          "title": "",
           "description": "",
           "keywords": "",
           "href": "/2-b-1",
@@ -287,7 +319,7 @@
         },
         {
           "id": "2-c-1",
-          "title": "Indicator of Food Price Anomalies (IFPA)",
+          "title": "Показатель ценовых аномалий на рынке продовольствия",
           "description": "",
           "keywords": "",
           "href": "/2-c-1",
@@ -300,6 +332,22 @@
           "keywords": "",
           "href": "/2-c-1-1b",
           "status": "notstarted"
+        },
+        {
+          "id": "2-а-1",
+          "title": "",
+          "description": "",
+          "keywords": "",
+          "href": "/2-а-1",
+          "status": "notstarted"
+        },
+        {
+          "id": "2-с-1-1b",
+          "title": "2.с.1.b. Consumer price index for food products in the Kyrgyz Republic and regions",
+          "description": "",
+          "keywords": "",
+          "href": "/2-с-1-1b",
+          "status": "complete"
         }]
     }
   },
@@ -311,7 +359,7 @@
         
         {
           "id": "3-1-1",
-          "title": "Maternal mortality ratio",
+          "title": "Коэффициент материнской смертности",
           "description": "",
           "keywords": "",
           "href": "/3-1-1",
@@ -319,7 +367,7 @@
         },
         {
           "id": "3-1-2",
-          "title": "Proportion of births attended by skilled health personnel",
+          "title": "Доля родов, принятых квалифицированнымимедицинскими работниками",
           "description": "",
           "keywords": "",
           "href": "/3-1-2",
@@ -335,7 +383,7 @@
         },
         {
           "id": "3-2-2",
-          "title": "Neonatal mortality rate",
+          "title": "Коэффициент неонатальной смертности",
           "description": "",
           "keywords": "",
           "href": "/3-2-2",
@@ -343,7 +391,7 @@
         },
         {
           "id": "3-3-1",
-          "title": "Number of new HIV infections per 1,000 uninfected population",
+          "title": "Число новых заражений ВИЧ на 1000 неинфицированныхв разбивке по полу, возрасту и принадлежностик основным группам населения",
           "description": "",
           "keywords": "",
           "href": "/3-3-1",
@@ -351,7 +399,7 @@
         },
         {
           "id": "3-3-2",
-          "title": "Tuberculosis incidence",
+          "title": "Заболеваемость туберкулезом на 100 000 человек",
           "description": "",
           "keywords": "",
           "href": "/3-3-2",
@@ -359,7 +407,7 @@
         },
         {
           "id": "3-3-3",
-          "title": "Malaria incidence per 1,000 population at risk",
+          "title": "Заболеваемость малярией на 1000 человек",
           "description": "",
           "keywords": "",
           "href": "/3-3-3",
@@ -367,7 +415,7 @@
         },
         {
           "id": "3-3-4",
-          "title": "Prevalence of hepatitis B surface antigen (HBsAg)",
+          "title": "Заболеваемость гепатитом B на 100 000 человек",
           "description": "",
           "keywords": "",
           "href": "/3-3-4",
@@ -375,7 +423,7 @@
         },
         {
           "id": "3-3-5",
-          "title": "Number of people requiring interventions against neglected tropical diseases",
+          "title": "Число людей, нуждающихся в лечении от«забытых» тропических болезней",
           "description": "",
           "keywords": "",
           "href": "/3-3-5",
@@ -383,23 +431,63 @@
         },
         {
           "id": "3-4-1",
-          "title": "Mortality rate attributed to cardiovascular disease, cancer, diabetes or chronic respiratory disease",
+          "title": "Смертность от сердечно-сосудистых заболеваний,рака, диабета, хронических респираторных заболеваний",
           "description": "",
           "keywords": "",
           "href": "/3-4-1",
           "status": "complete"
         },
         {
+          "id": "3-4-1-1",
+          "title": "",
+          "description": "",
+          "keywords": "",
+          "href": "/3-4-1-1",
+          "status": "notstarted"
+        },
+        {
+          "id": "3-4-1-2",
+          "title": "",
+          "description": "",
+          "keywords": "",
+          "href": "/3-4-1-2",
+          "status": "notstarted"
+        },
+        {
+          "id": "3-4-1-3",
+          "title": "",
+          "description": "",
+          "keywords": "",
+          "href": "/3-4-1-3",
+          "status": "notstarted"
+        },
+        {
+          "id": "3-4-1-4",
+          "title": "",
+          "description": "",
+          "keywords": "",
+          "href": "/3-4-1-4",
+          "status": "notstarted"
+        },
+        {
           "id": "3-4-2",
-          "title": "Suicide mortality rate",
+          "title": "Смертность от самоубийств",
           "description": "",
           "keywords": "",
           "href": "/3-4-2",
           "status": "complete"
         },
         {
-          "id": "3-5-1",
+          "id": "3-4-2-1",
           "title": "",
+          "description": "",
+          "keywords": "",
+          "href": "/3-4-2-1",
+          "status": "notstarted"
+        },
+        {
+          "id": "3-5-1",
+          "title": "Охват лечением расстройств, вызванныхупотреблением психоактивных веществ (медикаментозные,психосоциальные и реабилитационныеуслуги и услуги по последующему уходу)",
           "description": "",
           "keywords": "",
           "href": "/3-5-1",
@@ -423,23 +511,39 @@
         },
         {
           "id": "3-5-2",
-          "title": "Alcohol consumption per capita (aged 15 years and older) within a calendar year",
+          "title": "Злоупотребление алкоголем (определяемое в соответствии с национальными особенностями употреблениеалкоголя на душу населения в возрасте от15 лет) в литрах чистого спирта в календарный год",
           "description": "",
           "keywords": "",
           "href": "/3-5-2",
           "status": "notstarted"
         },
         {
+          "id": "3-5-2-1",
+          "title": "Incidence of alcohol dependence per 100 000 people",
+          "description": "",
+          "keywords": "",
+          "href": "/3-5-2-1",
+          "status": "complete"
+        },
+        {
           "id": "3-6-1",
-          "title": "Death rate due to road traffic injuries",
+          "title": "Смертность в результате дорожно-транспортныхпроисшествий",
           "description": "",
           "keywords": "",
           "href": "/3-6-1",
           "status": "complete"
         },
         {
+          "id": "3-6-1-1",
+          "title": "",
+          "description": "",
+          "keywords": "",
+          "href": "/3-6-1-1",
+          "status": "notstarted"
+        },
+        {
           "id": "3-7-1",
-          "title": "Proportion of women married or in a union of reproductive age (aged 15-49 years) who have their need for family planning satisfied with modern methods",
+          "title": "Доля женщин репродуктивного возраста (от15 до 49 лет), чьи потребности по планированию семьиудовлетворяются современными методами",
           "description": "",
           "keywords": "",
           "href": "/3-7-1",
@@ -447,7 +551,7 @@
         },
         {
           "id": "3-7-2",
-          "title": "Adolescent birth rate (per 1,000 women aged 15-19 years)",
+          "title": "Показатель рождаемости среди девушек-подростков(в возрасте от 10 до 14 лет; в возрасте от 15до 19 лет) на 1000 женщин в данной возрастнойгруппе",
           "description": "",
           "keywords": "",
           "href": "/3-7-2",
@@ -455,7 +559,7 @@
         },
         {
           "id": "3-8-1",
-          "title": "Universal health coverage (UHC) service coverage index",
+          "title": "Охват основными медико-санитарнымиуслугами (определяемый как средний охват основнымиуслугами по отслеживаемым процедурам, к которымотносятся охрана репродуктивного здоровья,охрана здоровья матери и ребенка, лечение инфекционныхзаболеваний, лечение неинфекционных заболеванийи масштабы и доступность услуг для широкихслоев населения и для находящихся в наиболеенеблагоприятном положении групп населения)",
           "description": "",
           "keywords": "",
           "href": "/3-8-1",
@@ -463,7 +567,7 @@
         },
         {
           "id": "3-8-2",
-          "title": "Proportion of population with large household expenditures on health (greater than 25%) as a share of total household expenditure or income",
+          "title": "Доля населения с большим удельным весомсемейных расходов на медицинскую помощь в общемобъеме расходов или доходов домохозяйств",
           "description": "",
           "keywords": "",
           "href": "/3-8-2",
@@ -471,7 +575,7 @@
         },
         {
           "id": "3-9-1",
-          "title": "Age-standardized mortality rate attributed to ambient air pollution",
+          "title": "Смертность от загрязнения воздуха в жилыхпомещениях и атмосферного воздуха",
           "description": "",
           "keywords": "",
           "href": "/3-9-1",
@@ -483,27 +587,51 @@
           "description": "",
           "keywords": "",
           "href": "/3-9-1-1",
-          "status": "notstarted"
+          "status": "complete"
         },
         {
           "id": "3-9-2",
-          "title": "Mortality rate attributed to unsafe water, unsafe sanitation and lack of hygiene",
+          "title": "Смертность от отсутствия безопасной воды,безопасной санитарии и гигиены (от отсутствия безопасныхуслуг в области водоснабжения, санитариии гигиены (ВССГ) для всех)",
           "description": "",
           "keywords": "",
           "href": "/3-9-2",
+          "status": "complete"
+        },
+        {
+          "id": "3-9-2-1",
+          "title": "",
+          "description": "",
+          "keywords": "",
+          "href": "/3-9-2-1",
+          "status": "notstarted"
+        },
+        {
+          "id": "3-9-2-2",
+          "title": "",
+          "description": "",
+          "keywords": "",
+          "href": "/3-9-2-2",
           "status": "notstarted"
         },
         {
           "id": "3-9-3",
-          "title": "Mortality rate attributed to unintentional poisonings",
+          "title": "Смертность от неумышленного отравления",
           "description": "",
           "keywords": "",
           "href": "/3-9-3",
           "status": "complete"
         },
         {
+          "id": "3-9-3-1",
+          "title": "",
+          "description": "",
+          "keywords": "",
+          "href": "/3-9-3-1",
+          "status": "notstarted"
+        },
+        {
           "id": "3-a-1",
-          "title": "Age-standardized prevalence of current tobacco use among persons aged 15 years and older",
+          "title": "Стандартизированная по возрасту распространенностьупотребления табака лицами в возрастеот 15 лет",
           "description": "",
           "keywords": "",
           "href": "/3-a-1",
@@ -511,23 +639,23 @@
         },
         {
           "id": "3-b-1",
-          "title": "Proportion of the target population with access to 3 doses of diphtheria-tetanus-pertussis (DTP3)",
+          "title": "Доля целевой группы населения, охваченнаяиммунизацией всеми вакцинами, включенными внациональные программы",
           "description": "",
           "keywords": "",
           "href": "/3-b-1",
-          "status": "notstarted"
+          "status": "complete"
         },
         {
           "id": "3-b-2",
-          "title": "Total official development assistance to medical research and basic heath sectors, net disbursement, by recipient countries",
+          "title": "Общий чистый объем официальной помощив целях развития, направленной на медицинские исследованияи в основные отрасли здравоохранения",
           "description": "",
           "keywords": "",
           "href": "/3-b-2",
-          "status": "notstarted"
+          "status": "complete"
         },
         {
           "id": "3-b-3",
-          "title": "",
+          "title": "Доля медицинских учреждений, постояннорасполагающих набором основных необходимых идоступных лекарственных средств",
           "description": "",
           "keywords": "",
           "href": "/3-b-3",
@@ -535,7 +663,7 @@
         },
         {
           "id": "3-c-1",
-          "title": "Health workder density",
+          "title": "Число медицинских работников на душунаселения и их распределение",
           "description": "",
           "keywords": "",
           "href": "/3-c-1",
@@ -543,10 +671,18 @@
         },
         {
           "id": "3-d-1",
-          "title": "Average of 13 International Health Regulations (IHR) core capacities",
+          "title": "Способность соблюдать Международные медико-санитарныеправила (ММСП) и готовность кчрезвычайным ситуациям в области общественногоздравоохранения",
           "description": "",
           "keywords": "",
           "href": "/3-d-1",
+          "status": "notstarted"
+        },
+        {
+          "id": "3-с-1",
+          "title": "",
+          "description": "",
+          "keywords": "",
+          "href": "/3-с-1",
           "status": "notstarted"
         }]
     }
@@ -559,10 +695,18 @@
         
         {
           "id": "4-1-1",
-          "title": "Proportion of children and young people achieving a minimum proficiency level in reading and mathematics",
+          "title": "Доля детей и молодежи, приходящаяся наa) учащихся 2/3 классов; b) выпускников начальнойшколы; и c) выпускников младшей средней школы,которые достигли по меньшей мере минимальногоуровня владения навыками i) чтения и ii) математики",
           "description": "",
           "keywords": "",
           "href": "/4-1-1",
+          "status": "complete"
+        },
+        {
+          "id": "4-1-1-1-a",
+          "title": "4.1.1.1a. Number of children and adolescents 7-17 years old who did not start studies in general education organizations of urban settlements and rural areas, and the territory",
+          "description": "",
+          "keywords": "",
+          "href": "/4-1-1-1-a",
           "status": "complete"
         },
         {
@@ -575,7 +719,7 @@
         },
         {
           "id": "4-2-1",
-          "title": "Proportion of children aged 36-59 months who are developmentally on track in at least three of the following domains: literacy-numeracy, physical development, social-emotional development, and learning",
+          "title": "Доля детей в возрасте до пяти лет, которыеразвиваются без отклонений в плане здоровья, обученияи психосоциального благополучия, в разбивке пополу",
           "description": "",
           "keywords": "",
           "href": "/4-2-1",
@@ -583,11 +727,11 @@
         },
         {
           "id": "4-2-2",
-          "title": "",
+          "title": "Уровень участия в организованных видахобучения (за один год до достижения официальноговозраста поступления в школу) в разбивке по полу",
           "description": "",
           "keywords": "",
           "href": "/4-2-2",
-          "status": "complete"
+          "status": "notstarted"
         },
         {
           "id": "4-2-2-1a",
@@ -598,8 +742,16 @@
           "status": "notstarted"
         },
         {
+          "id": "4-2-2-1а",
+          "title": "4.2.2.1a Proportion of children who receive preschool education",
+          "description": "",
+          "keywords": "",
+          "href": "/4-2-2-1а",
+          "status": "complete"
+        },
+        {
           "id": "4-3-1",
-          "title": "Participation rate in formal and non-formal education and training",
+          "title": "Уровень участия взрослых и молодежи вформальных и неформальных видах обучения и профессиональнойподготовки в последние 12 месяцев вразбивке по полу",
           "description": "",
           "keywords": "",
           "href": "/4-3-1",
@@ -611,15 +763,15 @@
           "description": "",
           "keywords": "",
           "href": "/4-3-1-1",
-          "status": "notstarted"
+          "status": "complete"
         },
         {
           "id": "4-4-1",
-          "title": "Proportion of youth and adults with information and communications technology (ICT) skills",
+          "title": "Доля молодежи/взрослых, обладающей/ обладающихнавыками в области информационно-коммуникационныхтехнологий, в разбивке по видамнавыков",
           "description": "",
           "keywords": "",
           "href": "/4-4-1",
-          "status": "notstarted"
+          "status": "complete"
         },
         {
           "id": "4-4-1-1a",
@@ -630,8 +782,16 @@
           "status": "notstarted"
         },
         {
+          "id": "4-4-1-1а",
+          "title": "4.4.1.1a Number of people who receive training in information and communication technologies (ICT) by sex",
+          "description": "",
+          "keywords": "",
+          "href": "/4-4-1-1а",
+          "status": "complete"
+        },
+        {
           "id": "4-5-1",
-          "title": "Gender parity index for participation rate in formal and non-formal education and training",
+          "title": "Индексы равенства (женщин и мужчин, городскихи сельских жителей, нижней и верхнейквинтили достатка и других групп, например инвалидов,коренных народов и людей, затронутых конфликтом,в зависимости от наличия данных) по всемкасающимся образования показателям в настоящемперечне, которые могут быть дезагрегированы",
           "description": "",
           "keywords": "",
           "href": "/4-5-1",
@@ -639,7 +799,7 @@
         },
         {
           "id": "4-6-1",
-          "title": "Proportion of population achieving at least a fixed level of proficiency in functional skills",
+          "title": "Доля населения в данной возрастной группе,достигшая, по меньшей мере, установленного уровняфункциональной a) грамотности и b) математическойграмотности, в разбивке по полу.",
           "description": "",
           "keywords": "",
           "href": "/4-6-1",
@@ -647,7 +807,7 @@
         },
         {
           "id": "4-7-1",
-          "title": "",
+          "title": "Статус i) воспитания в духе всемирной гражданственностии ii) пропаганды устойчивого развития,включая гендерное равенство и права человека,на всех уровнях в a) национальной политике в сфереобразования; b) учебных программах; c) программахподготовки учителей; и d) системе аттестации учащихся",
           "description": "",
           "keywords": "",
           "href": "/4-7-1",
@@ -655,7 +815,7 @@
         },
         {
           "id": "4-a-1",
-          "title": "Proportion of schools with access to electricity",
+          "title": "Доля школ, обеспеченных a) электроэнергией;b) доступом к Интернету для учебных целей;c) компьютерами для учебных целей; d) адаптированнойинфраструктурой и материалами для учащихсяинвалидов;e) базовыми источниками питьевой воды;f) раздельными минимально оборудованными туалетами;и g) базовыми средствами для мытья рук (согласноопределениям показателей инициативыВССГ)",
           "description": "",
           "keywords": "",
           "href": "/4-a-1",
@@ -663,7 +823,7 @@
         },
         {
           "id": "4-b-1",
-          "title": "Total official flows for scholarships, by recipient countries",
+          "title": "Объем официальной помощи в целях развития,направляемой на выплату стипендий, в разбивкепо отраслям и видам обучения",
           "description": "",
           "keywords": "",
           "href": "/4-b-1",
@@ -679,7 +839,7 @@
         },
         {
           "id": "4-c-1",
-          "title": "Proportion of teachers who have received at least the minimum organized teacher training (e.g. pedagogical training) pre-service or in-service required for teaching at the relevant level in a given country",
+          "title": "Доля учителей в a) дошкольных учреждениях;b) начальной школе; c) младшей среднейшколе; и d) старшей средней школе, прошедших доначала или во время работы по меньшей мере минимальнуюорганизованную профессиональную учительскуюподготовку (например, педагогическую) насоответствующем уровне в данной стране",
           "description": "",
           "keywords": "",
           "href": "/4-c-1",
@@ -692,6 +852,22 @@
           "keywords": "",
           "href": "/4-c-1-1",
           "status": "notstarted"
+        },
+        {
+          "id": "4-а-1",
+          "title": "",
+          "description": "",
+          "keywords": "",
+          "href": "/4-а-1",
+          "status": "notstarted"
+        },
+        {
+          "id": "4-с-1",
+          "title": "",
+          "description": "",
+          "keywords": "",
+          "href": "/4-с-1",
+          "status": "notstarted"
         }]
     }
   },
@@ -703,7 +879,7 @@
         
         {
           "id": "5-1-1",
-          "title": "Legal frameworks that promote, enforce and monitor gender equality (percentage of achievement, 0 - 100) -- Area 1: overarching legal frameworks and public life.",
+          "title": "Наличие нормативно-правовой базы для поощренияи обеспечения равенства и недискриминациипо признаку пола и наблюдения за положением вэтой области",
           "description": "",
           "keywords": "",
           "href": "/5-1-1",
@@ -711,7 +887,7 @@
         },
         {
           "id": "5-2-1",
-          "title": "Proportion of ever-partnered women and girls subjected to physical and sexual violence by a current or former intimate partner in the previous 12 months",
+          "title": "Доля когда-либо имевших партнера женщини девочек в возрасте от 15 лет, подвергавшихся физическому,сексуальному или психологическому насилиюсо стороны нынешнего или бывшего интимногопартнера в последние 12 месяцев, в разбивке по формамнасилия и возрасту",
           "description": "",
           "keywords": "",
           "href": "/5-2-1",
@@ -735,7 +911,7 @@
         },
         {
           "id": "5-2-2",
-          "title": "Proportion of women and girls aged 15 years and older subjected to sexual violence by persons other than an intimate partner in the previous 12 months",
+          "title": "Доля женщин и девочек в возрасте от 15 лет,подвергавшихся сексуальному насилию со стороныкого-либо, кроме интимных партнеров, в последние12 месяцев, в разбивке по возрасту и месту происшествия",
           "description": "",
           "keywords": "",
           "href": "/5-2-2",
@@ -743,7 +919,7 @@
         },
         {
           "id": "5-3-1",
-          "title": "Proportion of women aged 20-24 years who were married or in a union before age 15",
+          "title": "Доля женщин в возрасте от 20 до 24 лет,вступивших в брак или союз до 15 лет и до 18 лет",
           "description": "",
           "keywords": "",
           "href": "/5-3-1",
@@ -751,7 +927,7 @@
         },
         {
           "id": "5-3-2",
-          "title": "Proportion of girls and women aged 15-49 years who have undergone female genital mutilation/cutting",
+          "title": "Доля девочек и женщин в возрасте от 15 до49 лет, подвергшихся калечащим операциям на женскихполовых органах/обрезанию, в разбивке по возрасту",
           "description": "",
           "keywords": "",
           "href": "/5-3-2",
@@ -759,7 +935,7 @@
         },
         {
           "id": "5-4-1",
-          "title": "Proportion of time spent on unpaid domestic chores and care work",
+          "title": "Доля времени, затрачиваемого на неоплачиваемыйтруд по уходу и работу по дому, в разбивкепо полу, возрасту и месту проживания",
           "description": "",
           "keywords": "",
           "href": "/5-4-1",
@@ -767,7 +943,7 @@
         },
         {
           "id": "5-5-1",
-          "title": "Proportion of seats held by women in national parliaments (% of total number of seats)",
+          "title": "Доля мест, занимаемых женщинами вa) национальных парламентах и b) местных органахвласти",
           "description": "",
           "keywords": "",
           "href": "/5-5-1",
@@ -775,7 +951,7 @@
         },
         {
           "id": "5-5-2",
-          "title": "Proportion of women in managerial positions",
+          "title": "Доля женщин на руководящих должностях",
           "description": "",
           "keywords": "",
           "href": "/5-5-2",
@@ -783,7 +959,7 @@
         },
         {
           "id": "5-6-1",
-          "title": "Proportion of women who make their own informed decisions regarding sexual relations, contraceptive use and reproductive health care (% of women aged 15-49 years)",
+          "title": "Доля женщин в возрасте от 15 до 49 лет, самостоятельнопринимающих обдуманные решения осексуальных отношениях, применении противозачаточныхсредств и обращении за услугами по охранерепродуктивного здоровья",
           "description": "",
           "keywords": "",
           "href": "/5-6-1",
@@ -799,7 +975,7 @@
         },
         {
           "id": "5-6-2",
-          "title": "Number of countries with laws and regulations that guarantee full and equal access to women and men aged 15 years and older to sexual and reproductive health care, information and education",
+          "title": "Число стран, где действуют законы и нормативныеакты, гарантирующие женщинам и мужчинамв возрасте от 15 лет полный и равный доступ к услугампо охране сексуального и репродуктивного здоровьяи информации и просвещению в этой сфере",
           "description": "",
           "keywords": "",
           "href": "/5-6-2",
@@ -807,7 +983,7 @@
         },
         {
           "id": "5-a-1",
-          "title": "Proportion of total agricultural population with ownership or secure rights over agricultural land",
+          "title": "a) Доля людей, владеющих сельскохозяйственнойземлей или имеющих гарантированноеправо пользования ею, в общей численности населения,занимающегося сельским хозяйством, в разбивкепо полу; и b) доля женщин, владеющих сельскохозяйственнойземлей или являющихся носителямиправа владения ею, в разбивке по формам землевладения",
           "description": "",
           "keywords": "",
           "href": "/5-a-1",
@@ -815,7 +991,7 @@
         },
         {
           "id": "5-a-2",
-          "title": "Proportion of countries where the legal framework (including customary law) guarantees women's equal rights to land ownership and/or control",
+          "title": "Доля стран, в которых правовая база (в томчисле обычное право) гарантирует женщинам равныеправа на владение и/или распоряжение землей",
           "description": "",
           "keywords": "",
           "href": "/5-a-2",
@@ -823,7 +999,7 @@
         },
         {
           "id": "5-b-1",
-          "title": "Proportion of individuals who own a mobile telephone",
+          "title": "Доля людей, имеющих мобильный телефон,в разбивке по полу",
           "description": "",
           "keywords": "",
           "href": "/5-b-1",
@@ -831,7 +1007,7 @@
         },
         {
           "id": "5-c-1",
-          "title": "Proportion of countries with systems to track and make public allocations for gender equality and women's empowerment",
+          "title": "Доля стран, обладающих механизмами отслеживаниягосударственных ассигнований на обеспечениегендерного равенства и расширение прав ивозможностей женщин и обнародования данных оних",
           "description": "",
           "keywords": "",
           "href": "/5-c-1",
@@ -847,7 +1023,7 @@
         
         {
           "id": "6-1-1",
-          "title": "Proportion of population using safely managed drinking water services",
+          "title": "Доля населения, пользующегося услугамиводоснабжения, организованного с соблюдением требованийбезопасности",
           "description": "",
           "keywords": "",
           "href": "/6-1-1",
@@ -863,7 +1039,7 @@
         },
         {
           "id": "6-2-1",
-          "title": "Proportion of population using safely managed sanitation services",
+          "title": "Доля населения, использующего a) организованныес соблюдением требований безопасностиуслуги санитарии и b) устройства для мытья рук смылом и водой",
           "description": "",
           "keywords": "",
           "href": "/6-2-1",
@@ -871,7 +1047,7 @@
         },
         {
           "id": "6-3-1",
-          "title": "Proportion of safely treated domestic wastewater flows",
+          "title": "Доля безопасно очищаемых сточных вод",
           "description": "",
           "keywords": "",
           "href": "/6-3-1",
@@ -879,7 +1055,7 @@
         },
         {
           "id": "6-3-2",
-          "title": "Proportion of open water bodies with good ambient water quality",
+          "title": "Доля водоемов с хорошим качеством воды",
           "description": "",
           "keywords": "",
           "href": "/6-3-2",
@@ -887,7 +1063,7 @@
         },
         {
           "id": "6-4-1",
-          "title": "Water Use Efficiency (United States dollars per cubic meter)",
+          "title": "Динамика изменения эффективности водопользования",
           "description": "",
           "keywords": "",
           "href": "/6-4-1",
@@ -903,7 +1079,7 @@
         },
         {
           "id": "6-4-2",
-          "title": "Level of water stress: freshwater withdrawal as a proportion of available freshwater resources",
+          "title": "Уровень нагрузки на водные ресурсы: заборпресной воды в процентном отношении к имеющимсязапасам пресной воды",
           "description": "",
           "keywords": "",
           "href": "/6-4-2",
@@ -919,7 +1095,7 @@
         },
         {
           "id": "6-5-1",
-          "title": "Degree of integrated water resources management implementation",
+          "title": "Степень внедрения комплексного управленияводными ресурсами (от 0 до 100)",
           "description": "",
           "keywords": "",
           "href": "/6-5-1",
@@ -927,7 +1103,7 @@
         },
         {
           "id": "6-5-2",
-          "title": "Proportion of transboundary basins (river and lake basins and aquifers) with an operational arrangement for water cooperation",
+          "title": "Доля трансграничных водных бассейнов,охваченных действующими договоренностями о сотрудничествев области водопользования",
           "description": "",
           "keywords": "",
           "href": "/6-5-2",
@@ -935,7 +1111,7 @@
         },
         {
           "id": "6-6-1",
-          "title": "Water body extent (permanent) (% of total land area)",
+          "title": "Динамика изменения площади связанных сводой экосистем",
           "description": "",
           "keywords": "",
           "href": "/6-6-1",
@@ -943,7 +1119,7 @@
         },
         {
           "id": "6-a-1",
-          "title": "Total official development assistance (gross disbursement) for water supply and sanitation, by recipient countries",
+          "title": "Объем официальной помощи в целях развития,выделенной на водоснабжение и санитарию врамках координируемой государственной программырасходов",
           "description": "",
           "keywords": "",
           "href": "/6-a-1",
@@ -951,7 +1127,7 @@
         },
         {
           "id": "6-b-1",
-          "title": "Proportion of local administrative units with established and operational policies and procedures for participation of local communities in water and sanitation management",
+          "title": "Доля местных административных единиц, вкоторых действуют правила и процедуры участияграждан в управлении водными ресурсами и санитарией",
           "description": "",
           "keywords": "",
           "href": "/6-b-1",
@@ -967,7 +1143,7 @@
         
         {
           "id": "7-1-1",
-          "title": "Proportion of population with access to electricity",
+          "title": "Доля населения, имеющего доступ к электроэнергии",
           "description": "",
           "keywords": "",
           "href": "/7-1-1",
@@ -975,7 +1151,7 @@
         },
         {
           "id": "7-1-2",
-          "title": "Proportion of population with primary reliance on clean fuels and technology",
+          "title": "Доля населения, использующего в основномчистые виды топлива и технологии",
           "description": "",
           "keywords": "",
           "href": "/7-1-2",
@@ -983,7 +1159,7 @@
         },
         {
           "id": "7-2-1",
-          "title": "Renewable energy share in the total final energy consumption",
+          "title": "Доля возобновляемых источников энергии вобщем объеме конечного энергопотребления",
           "description": "",
           "keywords": "",
           "href": "/7-2-1",
@@ -999,7 +1175,7 @@
         },
         {
           "id": "7-3-1",
-          "title": "Energy intensity level of primary energy (megajoules per constant purchasing power parity GDP)",
+          "title": "Энергоемкость, рассчитываемая как отношениерасхода первичной энергии к ВВП",
           "description": "",
           "keywords": "",
           "href": "/7-3-1",
@@ -1007,7 +1183,7 @@
         },
         {
           "id": "7-3-1-1",
-          "title": "Энергоемкость ВВП по отраслям",
+          "title": "Энергоемкость",
           "description": "",
           "keywords": "",
           "href": "/7-3-1-1",
@@ -1015,7 +1191,7 @@
         },
         {
           "id": "7-3-1-2",
-          "title": "Электроемкость ВВП по отраслям и производство электроэнергии на малых ГЭС",
+          "title": "Электроемкость",
           "description": "",
           "keywords": "",
           "href": "/7-3-1-2",
@@ -1023,7 +1199,7 @@
         },
         {
           "id": "7-a-1",
-          "title": "International financial flows to developing countries in support of clean energy research and development and renewable energy production, including in hybrid systems",
+          "title": "Объем международных финансовых потоков,поступающих в развивающиеся страны для поддержкиисследований и разработок в области «чистой»энергии и развития энергетики на возобновляемыхисточниках, включая комбинированные системы",
           "description": "",
           "keywords": "",
           "href": "/7-a-1",
@@ -1031,7 +1207,7 @@
         },
         {
           "id": "7-b-1",
-          "title": "",
+          "title": "Капиталовложения в обеспечение энергоэффективностив процентном отношении к ВВП и доля прямых иностранных инвестиций в финансовыхсредствах, поступающих в отрасли обслуживания,обеспечивающие устойчивое развитие, на цели расширенияих инфраструктуры и модернизации технологии",
           "description": "",
           "keywords": "",
           "href": "/7-b-1",
@@ -1055,7 +1231,7 @@
         
         {
           "id": "8-1-1",
-          "title": "Annual growth rate of real GDP per capita",
+          "title": "Ежегодные темпы роста реального ВВП надушу населения",
           "description": "",
           "keywords": "",
           "href": "/8-1-1",
@@ -1063,7 +1239,7 @@
         },
         {
           "id": "8-2-1",
-          "title": "Annual growth rate of real GDP per employed person",
+          "title": "Ежегодные темпы роста реального ВВП накаждого занятого",
           "description": "",
           "keywords": "",
           "href": "/8-2-1",
@@ -1071,7 +1247,7 @@
         },
         {
           "id": "8-3-1",
-          "title": "Proportion of informal employment in non-agriculture employment",
+          "title": "Доля неформальной занятости в несельскохозяйственныхсекторах в разбивке по полу",
           "description": "",
           "keywords": "",
           "href": "/8-3-1",
@@ -1083,7 +1259,7 @@
           "description": "",
           "keywords": "",
           "href": "/8-3-1-1",
-          "status": "notstarted"
+          "status": "complete"
         },
         {
           "id": "8-3-1-2",
@@ -1095,7 +1271,7 @@
         },
         {
           "id": "8-4-1",
-          "title": "Material footprint per capita",
+          "title": "Совокупные ресурсозатраты и ресурсозатратына душу населения и в процентном отношениик ВВП",
           "description": "",
           "keywords": "",
           "href": "/8-4-1",
@@ -1103,7 +1279,7 @@
         },
         {
           "id": "8-4-2",
-          "title": "Domestic material consumption per capita, by type of raw material",
+          "title": "Совокупное внутреннее материальное потреблениеи внутреннее материальное потреблениена душу населения и в процентном отношении кВВП",
           "description": "",
           "keywords": "",
           "href": "/8-4-2",
@@ -1111,7 +1287,7 @@
         },
         {
           "id": "8-5-1",
-          "title": "Average hourly earnings",
+          "title": "Средний почасовой заработок женщин имужчин в разбивке по роду занятий, возрасту и признакуинвалидности",
           "description": "",
           "keywords": "",
           "href": "/8-5-1",
@@ -1127,15 +1303,23 @@
         },
         {
           "id": "8-5-2",
-          "title": "Unemployment rate",
+          "title": "Уровень безработицы в разбивке по полу,возрасту и признаку инвалидности",
           "description": "",
           "keywords": "",
           "href": "/8-5-2",
           "status": "complete"
         },
         {
+          "id": "8-5-2-1",
+          "title": "",
+          "description": "",
+          "keywords": "",
+          "href": "/8-5-2-1",
+          "status": "notstarted"
+        },
+        {
           "id": "8-6-1",
-          "title": "Proportion of youth not in education, employment or training",
+          "title": "Доля молодежи (в возрасте от 15 до 24 лет),которая не учится, не работает и не приобретает профессиональныхнавыков",
           "description": "",
           "keywords": "",
           "href": "/8-6-1",
@@ -1143,7 +1327,7 @@
         },
         {
           "id": "8-7-1",
-          "title": "Proportion of children engaged in economic activity",
+          "title": "Доля и число детей в возрасте от 5 до 17 лет,занятых детским трудом, в разбивке по полу и возрасту",
           "description": "",
           "keywords": "",
           "href": "/8-7-1",
@@ -1151,15 +1335,15 @@
         },
         {
           "id": "8-8-1",
-          "title": "Non-fatal occupational injuries among employees (rate)",
+          "title": "Производственный травматизм со смертельными несмертельным исходом в разбивке по полу имиграционному статусу",
           "description": "",
           "keywords": "",
           "href": "/8-8-1",
-          "status": "notstarted"
+          "status": "complete"
         },
         {
           "id": "8-8-2",
-          "title": "",
+          "title": "Ситуация с соблюдением трудовых прав нанациональном уровне (свобода объединений и заключениеколлективных трудовых договоров) на основедокументальных источников Международнойорганизации труда (МОТ) и национального законодательствав разбивке по полу и миграционному статусу",
           "description": "",
           "keywords": "",
           "href": "/8-8-2",
@@ -1167,7 +1351,7 @@
         },
         {
           "id": "8-9-1",
-          "title": "Tourism direct GDP as a proportion of total GDP",
+          "title": "Непосредственный вклад туризма в ВВП впроцентном отношении к совокупному ВВП и потемпам роста",
           "description": "",
           "keywords": "",
           "href": "/8-9-1",
@@ -1183,7 +1367,7 @@
         },
         {
           "id": "8-9-2",
-          "title": "Proportion of jobs in sustainable tourism industries out of total tourism jobs",
+          "title": "Доля занятых в индустрии устойчивого туризмав общем числе рабочих мест в отрасли",
           "description": "",
           "keywords": "",
           "href": "/8-9-2",
@@ -1191,7 +1375,7 @@
         },
         {
           "id": "8-a-1",
-          "title": "Total official flows (commitments) for Aid for Trade, by donor countries",
+          "title": "Объем обязательств и выплат в рамках инициативы«Помощь в торговле»",
           "description": "",
           "keywords": "",
           "href": "/8-a-1",
@@ -1199,7 +1383,7 @@
         },
         {
           "id": "8-b-1",
-          "title": "Existence of a developed and operationalized national strategy for youth employment, as a distinct strategy or as part of a national employment strategy",
+          "title": "Наличие разработанной и осуществляемойнациональной стратегии молодежной занятости в качествеотдельной стратегии или в рамках национальнойстратегии в области занятости",
           "description": "",
           "keywords": "",
           "href": "/8-b-1",
@@ -1207,7 +1391,7 @@
         },
         {
           "id": "8-10-1",
-          "title": "Number of commercial bank branches per 100,000 adults",
+          "title": "Число a) филиалов коммерческих банков иb) банкоматов на 100 000 взрослых",
           "description": "",
           "keywords": "",
           "href": "/8-10-1",
@@ -1215,7 +1399,7 @@
         },
         {
           "id": "8-10-2",
-          "title": "Proportion of adults (15 years and older) with an account at a financial institution or mobile-money-service provider (% of adults aged 15 years and older)",
+          "title": "Доля взрослых (от 15 лет), имеющих счет вбанке или ином финансовом учреждении или пользующихсяуслугами операторов мобильных финансовыхуслуг",
           "description": "",
           "keywords": "",
           "href": "/8-10-2",
@@ -1223,27 +1407,11 @@
         },
         {
           "id": "8-10-2-2",
-          "title": "Financial indicators of insurance companies",
+          "title": "Финансовые показатели страховых компаний",
           "description": "",
           "keywords": "",
           "href": "/8-10-2-2",
           "status": "complete"
-        },
-        {
-          "id": "8-10-2-2a",
-          "title": "Количество отчитавшихся страховых компаний",
-          "description": "",
-          "keywords": "",
-          "href": "/8-10-2-2a",
-          "status": "notstarted"
-        },
-        {
-          "id": "8-10-2-2b",
-          "title": "Поступление страховых взносов",
-          "description": "",
-          "keywords": "",
-          "href": "/8-10-2-2b",
-          "status": "notstarted"
         }]
     }
   },
@@ -1255,7 +1423,7 @@
         
         {
           "id": "9-1-1",
-          "title": "Proportion of the rural population who live within 2 km of an all-season road",
+          "title": "Доля сельского населения, проживающего впределах 2 км от круглогодичной дороги",
           "description": "",
           "keywords": "",
           "href": "/9-1-1",
@@ -1263,7 +1431,7 @@
         },
         {
           "id": "9-1-2",
-          "title": "Freight volume (tonne kilometres)",
+          "title": "Объем пассажирских и грузовых перевозок вразбивке по видам транспорта",
           "description": "",
           "keywords": "",
           "href": "/9-1-2",
@@ -1271,7 +1439,7 @@
         },
         {
           "id": "9-2-1",
-          "title": "Manufacturing value added as a proportion of GDP",
+          "title": "Добавленная стоимость, создаваемая в обрабатывающейпромышленности, в процентном отношениик ВВП и на душу населения",
           "description": "",
           "keywords": "",
           "href": "/9-2-1",
@@ -1279,7 +1447,7 @@
         },
         {
           "id": "9-2-2",
-          "title": "Manufacturing employment as a proportion of total employment",
+          "title": "Занятость в обрабатывающей промышленностив процентах от общей занятости",
           "description": "",
           "keywords": "",
           "href": "/9-2-2",
@@ -1287,15 +1455,15 @@
         },
         {
           "id": "9-3-1",
-          "title": "Proportion of small-scale industries in total industry value added",
+          "title": "Доля мелких предприятий в совокупном объемечистой продукции промышленности",
           "description": "",
           "keywords": "",
           "href": "/9-3-1",
-          "status": "complete"
+          "status": "notstarted"
         },
         {
           "id": "9-3-2",
-          "title": "Proportion of small-scale industries with a loan or line of credit",
+          "title": "Доля мелких предприятий, имеющих кредитили кредитную линию",
           "description": "",
           "keywords": "",
           "href": "/9-3-2",
@@ -1303,7 +1471,7 @@
         },
         {
           "id": "9-4-1",
-          "title": "Carbon dioxide emissions from fuel combustion",
+          "title": "Выбросы CO2 на единицу добавленной стоимости",
           "description": "",
           "keywords": "",
           "href": "/9-4-1",
@@ -1311,7 +1479,7 @@
         },
         {
           "id": "9-4-1-1",
-          "title": "Pollutants emitted by stationary sources",
+          "title": "Объем загрязняющих веществ, отходящих от стационарных источников на 1 кв.км и по территории",
           "description": "",
           "keywords": "",
           "href": "/9-4-1-1",
@@ -1319,7 +1487,7 @@
         },
         {
           "id": "9-5-1",
-          "title": "Research and development expenditure as a proportion of GDP",
+          "title": "Доля расходов на научно-исследовательскиеи опытно-конструкторские работы в ВВП",
           "description": "",
           "keywords": "",
           "href": "/9-5-1",
@@ -1327,15 +1495,15 @@
         },
         {
           "id": "9-5-2",
-          "title": "Researchers (in full-time equivalent) per million inhabitants",
+          "title": "Количество исследователей (в эквивалентеполной занятости) на миллион жителей",
           "description": "",
           "keywords": "",
           "href": "/9-5-2",
-          "status": "complete"
+          "status": "notstarted"
         },
         {
           "id": "9-a-1",
-          "title": "Total official flows for infrastructure, by recipient countries",
+          "title": "Совокупный объем официальной международнойподдержки (официальной помощи в целяхразвития и других потоков официального финансирования),направляемой на инфраструктуру",
           "description": "",
           "keywords": "",
           "href": "/9-a-1",
@@ -1343,7 +1511,7 @@
         },
         {
           "id": "9-b-1",
-          "title": "Proportion of medium and high-tech industry value added in total value added",
+          "title": "Доля добавленной стоимости продукциисреднетехнологичных и высокотехнологичных отраслейв общем объеме добавленной стоимости",
           "description": "",
           "keywords": "",
           "href": "/9-b-1",
@@ -1351,11 +1519,11 @@
         },
         {
           "id": "9-c-1",
-          "title": "Proportion of population covered by at least a 2G mobile network",
+          "title": "Доля населения, охваченного мобильнымисетями, в разбивке по технологиям",
           "description": "",
           "keywords": "",
           "href": "/9-c-1",
-          "status": "complete"
+          "status": "notstarted"
         }]
     }
   },
@@ -1367,15 +1535,15 @@
         
         {
           "id": "10-1-1",
-          "title": "Growth rates of household expenditure or income per capita",
+          "title": "Темпы роста расходов домохозяйств или доходовна душу населения среди наименее обеспеченных40 процентов населения и среди населения в целом",
           "description": "",
           "keywords": "",
           "href": "/10-1-1",
-          "status": "notstarted"
+          "status": "complete"
         },
         {
           "id": "10-2-1",
-          "title": "Proportion of people living below 50 percent of median income",
+          "title": "Доля людей с доходом ниже 50 процентовмедианного дохода в разбивке по полу, возрасту ипризнаку инвалидности",
           "description": "",
           "keywords": "",
           "href": "/10-2-1",
@@ -1383,15 +1551,15 @@
         },
         {
           "id": "10-3-1",
-          "title": "Proportion of population reporting having personally felt discriminated against or harassed in the previous 12 months on the basis of a ground of discrimination prohibited under international human rights law",
+          "title": "Доля людей, сообщивших об испытанныхими лично в последние 12 месяцев проявлениях дискриминацииили преследованиях на основании, дискриминацияна котором запрещена международнымправом прав человека",
           "description": "",
           "keywords": "",
           "href": "/10-3-1",
-          "status": "complete"
+          "status": "notstarted"
         },
         {
           "id": "10-4-1",
-          "title": "Labour share of GDP, comprising wages and social protection transfers",
+          "title": "Доля доходов трудящихся в ВВП, в томчисле заработная плата и выплаты по линии социальнойзащиты",
           "description": "",
           "keywords": "",
           "href": "/10-4-1",
@@ -1399,15 +1567,23 @@
         },
         {
           "id": "10-5-1",
-          "title": "Non-performing loans to total gross loans (%)",
+          "title": "Показатели финансовой устойчивости",
           "description": "",
           "keywords": "",
           "href": "/10-5-1",
           "status": "notstarted"
         },
         {
+          "id": "10-5-1-1",
+          "title": "",
+          "description": "",
+          "keywords": "",
+          "href": "/10-5-1-1",
+          "status": "notstarted"
+        },
+        {
           "id": "10-6-1",
-          "title": "Proportion of members of developing countries in international organizations, by organization",
+          "title": "Доля развивающихся стран в членском составемеждународных организаций и удельный весих голосов",
           "description": "",
           "keywords": "",
           "href": "/10-6-1",
@@ -1415,7 +1591,7 @@
         },
         {
           "id": "10-7-1",
-          "title": "Recruitment cost borne by employee as a proportion of yearly income earned in country of destination",
+          "title": "Затраты работника на трудоустройство в процентахот его годового дохода в стране назначения",
           "description": "",
           "keywords": "",
           "href": "/10-7-1",
@@ -1423,7 +1599,7 @@
         },
         {
           "id": "10-7-2",
-          "title": "Number of countries that have implemented well-managed migration policies",
+          "title": "Число стран, проводящих хорошо продуманнуюмиграционную политику",
           "description": "",
           "keywords": "",
           "href": "/10-7-2",
@@ -1431,7 +1607,7 @@
         },
         {
           "id": "10-a-1",
-          "title": "Proportion of tariff lines applied to imports with zero-tariff",
+          "title": "Доля товарных позиций наименее развитыхстран и развивающихся стран, к которым применяютсянулевые тарифы",
           "description": "",
           "keywords": "",
           "href": "/10-a-1",
@@ -1439,7 +1615,7 @@
         },
         {
           "id": "10-b-1",
-          "title": "Total assistance for development, by donor countries",
+          "title": "Совокупный объем потоков ресурсов в целяхразвития в разбивке по странам-получателям и странам-донорами видам потоков (например, официальнаяпомощь в целях развития, прямые иностранныеинвестиции и прочие финансовые потоки)",
           "description": "",
           "keywords": "",
           "href": "/10-b-1",
@@ -1447,7 +1623,7 @@
         },
         {
           "id": "10-c-1",
-          "title": "Remittance costs as a proportion of the amount remitted",
+          "title": "Стоимость перевода в процентном отношениик переводимой сумме",
           "description": "",
           "keywords": "",
           "href": "/10-c-1",
@@ -1463,7 +1639,7 @@
         
         {
           "id": "11-1-1",
-          "title": "Proportion of urban population living in slums",
+          "title": "Доля городского населения, проживающего втрущобах, неформальных поселениях или в неудовлетворительныхжилищных условиях",
           "description": "",
           "keywords": "",
           "href": "/11-1-1",
@@ -1471,7 +1647,7 @@
         },
         {
           "id": "11-2-1",
-          "title": "Proportion of population that has convenient access to public transport",
+          "title": "Доля населения, имеющего удобный доступк общественному транспорту, в разбивке по полу,возрасту и признаку инвалидности",
           "description": "",
           "keywords": "",
           "href": "/11-2-1",
@@ -1479,7 +1655,7 @@
         },
         {
           "id": "11-3-1",
-          "title": "Ratio of land consumption rate to population growth rate",
+          "title": "Соотношение темпов застройки и темпов ростанаселения",
           "description": "",
           "keywords": "",
           "href": "/11-3-1",
@@ -1487,7 +1663,7 @@
         },
         {
           "id": "11-3-2",
-          "title": "Proportion of cities with a direct participation structure of civil society in urban planning and management that operate regularly and democratically",
+          "title": "Доля городов, в которых регулярно и на демократическойоснове функционируют структуры,обеспечивающие прямое участие гражданского обществав градостроительном планировании и управлениигородским хозяйством",
           "description": "",
           "keywords": "",
           "href": "/11-3-2",
@@ -1495,7 +1671,7 @@
         },
         {
           "id": "11-4-1",
-          "title": "",
+          "title": "Общая сумма расходов (государственных ичастных) в расчете на душу населения на цели сохраненияи защиты всего культурного и природногонаследия в разбивке по видам наследия (культурное,природное, смешанного характера и признанное объектомвсемирного наследия Центром всемирногонаследия), уровню государственной подведомственности(национальный, региональный и местный/ муниципальный),видам расходов (эксплуатационные расходы/капиталовложения) и видам частного финансирования(пожертвования в натуральной форме,частный некоммерческий сектор и спонсорство)",
           "description": "",
           "keywords": "",
           "href": "/11-4-1",
@@ -1503,15 +1679,15 @@
         },
         {
           "id": "11-5-1",
-          "title": "Number of deaths due to disaster",
+          "title": "Число погибших, пропавших без вести и пострадавшихнепосредственно в результате бедствий на 100 000 человек",
           "description": "",
           "keywords": "",
           "href": "/11-5-1",
-          "status": "complete"
+          "status": "notstarted"
         },
         {
           "id": "11-5-2",
-          "title": "Direct economic loss attributed to disasters relative to GDP",
+          "title": "Общая сумма расходов (государственных ичастных) в расчете на душу населения на цели сохраненияи защиты всего культурного и природногонаследия в разбивке по видам наследия (культурное,природное, смешанного характера и признанное объектомвсемирного наследия Центром всемирногонаследия), уровню государственной подведомственности(национальный, региональный и местный/ муниципальный),видам расходов (эксплуатационные расходы/капиталовложения) и видам частного финансирования(пожертвования в натуральной форме,частный некоммерческий сектор и спонсорство)",
           "description": "",
           "keywords": "",
           "href": "/11-5-2",
@@ -1519,7 +1695,7 @@
         },
         {
           "id": "11-6-1",
-          "title": "Proportion of population served by municipal waste collection",
+          "title": "Доля твердых бытовых отходов, которые регулярнособираются и надлежащим образом удаляются,в общей массе городских отходов",
           "description": "",
           "keywords": "",
           "href": "/11-6-1",
@@ -1527,7 +1703,7 @@
         },
         {
           "id": "11-6-2",
-          "title": "",
+          "title": "Среднегодовой уровень содержания мелкихтвердых частиц (например, класса PM2.5 и PM10) ватмосфере городов (в пересчете на численность населения)",
           "description": "",
           "keywords": "",
           "href": "/11-6-2",
@@ -1535,7 +1711,7 @@
         },
         {
           "id": "11-7-1",
-          "title": "Average share of the built-up area of cities that is open space for public use for all",
+          "title": "Средняя доля застроенной городской территории,относящейся к открытым для всех общественнымместам, с указанием доступности в разбивке пополу, возрасту и признаку инвалидности",
           "description": "",
           "keywords": "",
           "href": "/11-7-1",
@@ -1543,7 +1719,7 @@
         },
         {
           "id": "11-7-2",
-          "title": "Proportion of persons victim of physical or sexual harassment, in the previous 12 months",
+          "title": "Доля лиц, подвергшихся физическим илисексуальным домогательствам, в разбивке по полу,возрасту, признаку инвалидности и месту происшествияза последние 12 месяцев",
           "description": "",
           "keywords": "",
           "href": "/11-7-2",
@@ -1551,7 +1727,7 @@
         },
         {
           "id": "11-a-1",
-          "title": "Proportion of population living in cities that implement urban and regional development plans integrating population projections and resource needs",
+          "title": "Доля населения, живущего в городах, осуществляющихгородские и региональные планы застройки,в которых учитываются прогнозы ростанаселения и потребности в ресурсах, в разбивке поразмерам городов",
           "description": "",
           "keywords": "",
           "href": "/11-a-1",
@@ -1559,7 +1735,7 @@
         },
         {
           "id": "11-b-1",
-          "title": "Score of adoption and implementation of national DRR strategies in line with the Sendai Framework",
+          "title": "Число стран, принявших и осуществляющихнациональные стратегии снижения риска бедствий всоответствии с Сендайской рамочной программой поснижению риска бедствий на 2015–2030 годы",
           "description": "",
           "keywords": "",
           "href": "/11-b-1",
@@ -1567,7 +1743,7 @@
         },
         {
           "id": "11-b-2",
-          "title": "Proportion of local governments that adopt and implement local disaster risk reduction strategies in line with national disaster risk reduction strategies",
+          "title": "Доля местных органов власти, принявших иосуществляющих местные стратегии снижения рискабедствий в соответствии с национальными стратегиямиснижения риска бедствий",
           "description": "",
           "keywords": "",
           "href": "/11-b-2",
@@ -1575,7 +1751,7 @@
         },
         {
           "id": "11-c-1",
-          "title": "Proportion of financial support to the least developed countries that is allocated to the construction and retrofitting of sustainable, resilient and resource-efficient buildings utilizing local materials",
+          "title": "Доля финансовой поддержки наименее развитыхстран, выделяемой на строительство экологичных,прочных и ресурсосберегающих зданий и переоборудование зданий для обеспечения их экологичности,прочности и экономии ресурсов с использованиемместных материалов",
           "description": "",
           "keywords": "",
           "href": "/11-c-1",
@@ -1590,16 +1766,8 @@
       "indicators": [
         
         {
-          "id": "12-1-1",
-          "title": "Countries with coordination mechanism for sustainable consumption and production (1 = YES; 0 = NO)",
-          "description": "",
-          "keywords": "",
-          "href": "/12-1-1",
-          "status": "notstarted"
-        },
-        {
           "id": "12-2-1",
-          "title": "Material footprint per capita",
+          "title": "Совокупные ресурсозатраты и ресурсозатратына душу населения и в процентном отношениик ВВП",
           "description": "",
           "keywords": "",
           "href": "/12-2-1",
@@ -1607,7 +1775,7 @@
         },
         {
           "id": "12-2-2",
-          "title": "",
+          "title": "Совокупное внутреннее материальное потреблениеи внутреннее материальное потреблениена душу населения и в процентном отношении кВВП",
           "description": "",
           "keywords": "",
           "href": "/12-2-2",
@@ -1615,7 +1783,7 @@
         },
         {
           "id": "12-3-1",
-          "title": "Global food loss index",
+          "title": "Глобальный индекс потерь продовольствия",
           "description": "",
           "keywords": "",
           "href": "/12-3-1",
@@ -1623,7 +1791,7 @@
         },
         {
           "id": "12-4-1",
-          "title": "Compliance with the Basel Convention on hazardous waste and other chemicals",
+          "title": "Число сторон международных многостороннихэкологических соглашений по опасным и инымхимических веществам и отходам, выполняющихсвои обязательства и обязанности по передаче информациив соответствии с требованиями каждогосоглашения",
           "description": "",
           "keywords": "",
           "href": "/12-4-1",
@@ -1631,7 +1799,7 @@
         },
         {
           "id": "12-4-2",
-          "title": "Hazardous waste generated per capita",
+          "title": "Образование опасных отходов на душу населенияи доля обрабатываемых опасных отходов в разбивкепо видам обработки",
           "description": "",
           "keywords": "",
           "href": "/12-4-2",
@@ -1639,7 +1807,7 @@
         },
         {
           "id": "12-5-1",
-          "title": "",
+          "title": "Национальный уровень переработки отходов,масса утилизированных материалов в тоннах",
           "description": "",
           "keywords": "",
           "href": "/12-5-1",
@@ -1647,7 +1815,7 @@
         },
         {
           "id": "12-6-1",
-          "title": "Number of companies publishing sustainability reports",
+          "title": "Число компаний, публикующих отчеты о рациональномиспользовании ресурсов",
           "description": "",
           "keywords": "",
           "href": "/12-6-1",
@@ -1655,7 +1823,7 @@
         },
         {
           "id": "12-7-1",
-          "title": "Number of countries implementing sustainable public procurement policies and action plans",
+          "title": "Число стран, осуществляющих стратегии ипланы действий по экологизации государственныхзакупок",
           "description": "",
           "keywords": "",
           "href": "/12-7-1",
@@ -1663,7 +1831,7 @@
         },
         {
           "id": "12-8-1",
-          "title": "",
+          "title": "Статус i) воспитания в духе всемирной гражданственностии ii) пропаганды устойчивого развития(включая просвещение по проблеме измененияклимата) a) в национальной политике в сфере образования;b) в учебных программах; c) в программахподготовки учителей; и d) в системе аттестации учащихся",
           "description": "",
           "keywords": "",
           "href": "/12-8-1",
@@ -1671,7 +1839,7 @@
         },
         {
           "id": "12-a-1",
-          "title": "Amount of support to developing countries on research and development for sustainable consumption and production and environmentally sound technologies",
+          "title": "Объем помощи развивающимся странам всфере научно-исследовательских и опытно-конструкторскихработ в интересах обеспечения рациональногопотребления и производства и внедрения экологическибезопасных технологий",
           "description": "",
           "keywords": "",
           "href": "/12-a-1",
@@ -1679,7 +1847,7 @@
         },
         {
           "id": "12-b-1",
-          "title": "",
+          "title": "Число стратегий или директив и осуществляемыхпланов действий в области устойчивого туризмас согласованными инструментами мониторингаи оценки",
           "description": "",
           "keywords": "",
           "href": "/12-b-1",
@@ -1687,7 +1855,7 @@
         },
         {
           "id": "12-c-1",
-          "title": "Fossil-fuel pre-tax subsidies (consumption and production)",
+          "title": "Сумма субсидий на ископаемое топливо наединицу ВВП (производство и потребление) и ихдоля в совокупных национальных расходах на ископаемоетопливо",
           "description": "",
           "keywords": "",
           "href": "/12-c-1",
@@ -1703,7 +1871,7 @@
         
         {
           "id": "13-1-1",
-          "title": "Number of deaths due to disaster",
+          "title": "Число погибших, пропавших без вести и пострадавшихнепосредственно в результате бедствийна 100 000 человек",
           "description": "",
           "keywords": "",
           "href": "/13-1-1",
@@ -1711,7 +1879,7 @@
         },
         {
           "id": "13-1-2",
-          "title": "Score of adoption and implementation of national DRR strategies in line with the Sendai Framework",
+          "title": "Число стран, принявших и осуществляющихнациональные стратегии снижения риска бедствий всоответствии с Сендайской рамочной программой поснижению риска бедствий на 2015–2030 годы",
           "description": "",
           "keywords": "",
           "href": "/13-1-2",
@@ -1719,7 +1887,7 @@
         },
         {
           "id": "13-1-3",
-          "title": "Proportion of local governments that adopt and implement local disaster risk reduction strategies in line with national disaster risk reduction strategies",
+          "title": "Доля местных органов власти, принявших иосуществляющих местные стратегии снижения рискабедствий в соответствии с национальными стратегиямиснижения риска бедствий",
           "description": "",
           "keywords": "",
           "href": "/13-1-3",
@@ -1727,7 +1895,7 @@
         },
         {
           "id": "13-2-1",
-          "title": "",
+          "title": "Число стран, сообщивших о создании иливведении в действие комплексной политики/стратегии/плана, повышающих их способность адаптироватьсяк неблагоприятным последствиям измененияклимата и содействующих развитию их потенциалапротиводействия климатическим изменениям иснижению выбросов парниковых газов таким образом,чтобы это не ставило под угрозу производствопродовольствия (включая национальный адаптационныйплан, определяемый на национальном уровневклад, национальную систему информирования населения,подготовку двухгодичного обновленного докладаили другое)",
           "description": "",
           "keywords": "",
           "href": "/13-2-1",
@@ -1735,7 +1903,7 @@
         },
         {
           "id": "13-3-1",
-          "title": "",
+          "title": "Число стран, включивших вопросы смягченияостроты и ослабления последствий измененияклимата, адаптации к ним и раннего предупрежденияв учебные программы начальной и средней школы ивысших учебных заведений",
           "description": "",
           "keywords": "",
           "href": "/13-3-1",
@@ -1743,7 +1911,7 @@
         },
         {
           "id": "13-3-2",
-          "title": "",
+          "title": "Число стран, сообщивших об укрепленииинституциональных, системных и индивидуальныхвозможностей для осуществления мер в областиадаптации к климатическим изменениям, смягченияих последствий и передачи и развития технологии",
           "description": "",
           "keywords": "",
           "href": "/13-3-2",
@@ -1751,7 +1919,7 @@
         },
         {
           "id": "13-a-1",
-          "title": "Mobilized amount of United States dollars per year between 2020 and 2025 accountable towards the $100 billion commitment",
+          "title": "Сумма (в долл. США), мобилизованнаяза год с 2020 по 2025 год в соответствии с обязательствомпо мобилизации 100 млрд. долл. США",
           "description": "",
           "keywords": "",
           "href": "/13-a-1",
@@ -1759,7 +1927,7 @@
         },
         {
           "id": "13-b-1",
-          "title": "",
+          "title": "Число наименее развитых стран и малыхостровных развивающихся государств, которые получаютспециализированную поддержку, в том числеориентированную на женщин, молодежь и местные имаргинализированные общины, и величина такойподдержки, включая финансирование, технологии иукрепление потенциала, предоставляемой для созданиямеханизмов, расширяющих возможности в частипланирования и управления, связанных с изменением климата",
           "description": "",
           "keywords": "",
           "href": "/13-b-1",
@@ -1775,7 +1943,7 @@
         
         {
           "id": "14-1-1",
-          "title": "",
+          "title": "Индекс прибрежной эвтрофикации и плотностьплавающего лома пластмасс",
           "description": "",
           "keywords": "",
           "href": "/14-1-1",
@@ -1783,7 +1951,7 @@
         },
         {
           "id": "14-2-1",
-          "title": "Proportion of national exclusive economic zones managed using ecosystem-based approaches",
+          "title": "Доля национальных исключительных экономическихзон, в управлении которыми применяютсяэкосистемные подходы",
           "description": "",
           "keywords": "",
           "href": "/14-2-1",
@@ -1791,7 +1959,7 @@
         },
         {
           "id": "14-3-1",
-          "title": "",
+          "title": "Средняя кислотность (pH) морской воды, измеряемаяв согласованной группе репрезентативныхстанций отбора проб",
           "description": "",
           "keywords": "",
           "href": "/14-3-1",
@@ -1799,7 +1967,7 @@
         },
         {
           "id": "14-4-1",
-          "title": "Proportion of fish stocks that are fully exploited",
+          "title": "Доля рыбных запасов, находящихся в биологическиустойчивых пределах",
           "description": "",
           "keywords": "",
           "href": "/14-4-1",
@@ -1807,7 +1975,7 @@
         },
         {
           "id": "14-5-1",
-          "title": "",
+          "title": "Доля охраняемых морских районов",
           "description": "",
           "keywords": "",
           "href": "/14-5-1",
@@ -1815,7 +1983,7 @@
         },
         {
           "id": "14-6-1",
-          "title": "Progress by countries in the degree of implementation of international instruments aiming to combat illegal, unreported and unregulated fishing (level of implementation: 1 lowest to 5 highest)",
+          "title": "Достигнутый странами прогресс с точки зрениястепени соблюдения международно-правовыхдокументов по борьбе с незаконным, несообщаемыми нерегулируемым рыбным промыслом",
           "description": "",
           "keywords": "",
           "href": "/14-6-1",
@@ -1823,7 +1991,7 @@
         },
         {
           "id": "14-7-1",
-          "title": "Sustainable fisheries as a proportion of GDP",
+          "title": "Экологически рациональный рыбный промыселв процентах от ВВП в малых островных развивающихсягосударствах, в наименее развитых странахи во всех странах",
           "description": "",
           "keywords": "",
           "href": "/14-7-1",
@@ -1831,7 +1999,7 @@
         },
         {
           "id": "14-a-1",
-          "title": "National ocean science expenditure as a share of total research and development funding",
+          "title": "Доля бюджетных ассигнований на научныеисследования в области морских технологий в общемобъеме бюджетных ассигнований на научные исследования",
           "description": "",
           "keywords": "",
           "href": "/14-a-1",
@@ -1839,7 +2007,7 @@
         },
         {
           "id": "14-b-1",
-          "title": "Degree of application of a legal/regulatory/policy/institutional framework which recognizes and protects access rights for small-scale fisheries (level of implementation: 1 lowest to 5 highest)",
+          "title": "Достигнутый странами прогресс с точки зрениястепени применения нормативно-правовых/ стратегических/институциональныхрамок, обеспечивающихпризнание и защиту прав доступа мелких рыбопромысловыхпредприятий",
           "description": "",
           "keywords": "",
           "href": "/14-b-1",
@@ -1847,7 +2015,7 @@
         },
         {
           "id": "14-c-1",
-          "title": "",
+          "title": "Число стран, добившихся прогресса в ратификации,принятии и осуществлении, по линии правовых,стратегических и институциональных рамок,правовых документов по вопросам Мирового океана,направленных на осуществление закрепленных вКонвенции Организации Объединенных Наций поморскому праву норм международного права, касающихсясохранения и рационального использованияМирового океана и его ресурсов",
           "description": "",
           "keywords": "",
           "href": "/14-c-1",
@@ -1863,7 +2031,7 @@
         
         {
           "id": "15-1-1",
-          "title": "Forest area as a proportion of total land area",
+          "title": "Площадь лесов в процентном отношении кобщей площади суши",
           "description": "",
           "keywords": "",
           "href": "/15-1-1",
@@ -1871,7 +2039,7 @@
         },
         {
           "id": "15-1-2",
-          "title": "Average proportion of Freshwater Key Biodiversity Areas (KBAs) covered by protected areas",
+          "title": "Доля важных с точки зрения биологического разнообразия районов суши и пресноводных районов,находящихся под охраной, в разбивке по видамэкосистем",
           "description": "",
           "keywords": "",
           "href": "/15-1-2",
@@ -1879,7 +2047,7 @@
         },
         {
           "id": "15-1-2-1",
-          "title": "Protected areas as a share of the country's surface",
+          "title": "Площадь ООПТ от всей площади",
           "description": "",
           "keywords": "",
           "href": "/15-1-2-1",
@@ -1887,7 +2055,7 @@
         },
         {
           "id": "15-2-1",
-          "title": "Above-ground biomass in forest (tonnes)",
+          "title": "Прогресс в переходе на неистощительное ведениелесного хозяйства",
           "description": "",
           "keywords": "",
           "href": "/15-2-1",
@@ -1895,7 +2063,7 @@
         },
         {
           "id": "15-3-1",
-          "title": "Proportion of land that is degraded over total land area",
+          "title": "Площадь деградировавших земель в процентномотношении к общей площади суши",
           "description": "",
           "keywords": "",
           "href": "/15-3-1",
@@ -1903,7 +2071,7 @@
         },
         {
           "id": "15-4-1",
-          "title": "Average proportion of Mountain Key Biodiversity Areas (KBAs) covered by protected areas",
+          "title": "Доля охраняемых районов среди важных длягорного биоразнообразия участков",
           "description": "",
           "keywords": "",
           "href": "/15-4-1",
@@ -1911,7 +2079,7 @@
         },
         {
           "id": "15-4-2",
-          "title": "Mountain green cover area (square kilometres)",
+          "title": "Индекс растительного покрова гор",
           "description": "",
           "keywords": "",
           "href": "/15-4-2",
@@ -1919,7 +2087,7 @@
         },
         {
           "id": "15-5-1",
-          "title": "Red List Index",
+          "title": "Индекс Красного списка",
           "description": "",
           "keywords": "",
           "href": "/15-5-1",
@@ -1927,7 +2095,7 @@
         },
         {
           "id": "15-6-1",
-          "title": "Countries that have legislative, administrative and policy framework or measures reported to the Access and Benefit-Sharing Clearing-House (1 = YES; 0 = NO)",
+          "title": "Число стран, принявших комплексы законодательных,административных и директивных мер,обеспечивающих справедливое и недискриминационноераспределение благ",
           "description": "",
           "keywords": "",
           "href": "/15-6-1",
@@ -1935,7 +2103,7 @@
         },
         {
           "id": "15-7-1",
-          "title": "Proportion of traded wildlife that was poached or illicitly trafficked",
+          "title": "Доля диких животных, являющихся объектомбраконьерства или незаконного оборота, средивидов, которыми ведется торговля",
           "description": "",
           "keywords": "",
           "href": "/15-7-1",
@@ -1943,7 +2111,7 @@
         },
         {
           "id": "15-8-1",
-          "title": "",
+          "title": "Доля стран, принимающих соответствующеенациональное законодательство и выделяющих достаточныересурсы для предотвращения проникновенияили регулирования численности чужеродных инвазивныхвидов",
           "description": "",
           "keywords": "",
           "href": "/15-8-1",
@@ -1951,7 +2119,7 @@
         },
         {
           "id": "15-9-1",
-          "title": "",
+          "title": "Прогресс в достижении национальных целевыхпоказателей, установленных в соответствии сАйтинской целевой задачей 2 по биоразнообразию врамках Стратегического плана по биоразнообразиюна 2011–2020 годы",
           "description": "",
           "keywords": "",
           "href": "/15-9-1",
@@ -1959,7 +2127,7 @@
         },
         {
           "id": "15-a-1",
-          "title": "Total official development assistance for biodiversity, by donor countries",
+          "title": "Объем официальной помощи в целях развитияи государственных средств, выделяемых на сохранениеи рациональное использование биоразнообразияи экосистем",
           "description": "",
           "keywords": "",
           "href": "/15-a-1",
@@ -1967,15 +2135,23 @@
         },
         {
           "id": "15-b-1",
-          "title": "",
+          "title": "Объем официальной помощи в целях развитияи государственных средств, выделяемых на сохранениеи рациональное использование биоразнообразияи экосистем",
           "description": "",
           "keywords": "",
           "href": "/15-b-1",
           "status": "notstarted"
         },
         {
+          "id": "15-b-1-1",
+          "title": "Объем государственных средств, выделяемых на охрану окружающей среды (леса)",
+          "description": "",
+          "keywords": "",
+          "href": "/15-b-1-1",
+          "status": "notstarted"
+        },
+        {
           "id": "15-c-1",
-          "title": "",
+          "title": "Доля диких животных, являющихся объектомбраконьерства или незаконного оборота, средивидов, которыми ведется торговля",
           "description": "",
           "keywords": "",
           "href": "/15-c-1",
@@ -1991,15 +2167,23 @@
         
         {
           "id": "16-1-1",
-          "title": "Number of victims of intentional homicide per 100,000 population",
+          "title": "Число жертв умышленных убийств на100 000 человек в разбивке по возрастной группе иполу",
           "description": "",
           "keywords": "",
           "href": "/16-1-1",
           "status": "notstarted"
         },
         {
-          "id": "16-1-2",
+          "id": "16-1-1-1a",
           "title": "",
+          "description": "",
+          "keywords": "",
+          "href": "/16-1-1-1a",
+          "status": "notstarted"
+        },
+        {
+          "id": "16-1-2",
+          "title": "Число связанных с конфликтами смертей на100 000 человек (в разбивке по возрастной группе,полу и причине)",
           "description": "",
           "keywords": "",
           "href": "/16-1-2",
@@ -2007,7 +2191,7 @@
         },
         {
           "id": "16-1-3",
-          "title": "Proportion of population subjected to physical violence in the previous 12 months",
+          "title": "Доля населения, в последние 12 месяцевподвергшегося a) физическому, b) психологическомуи c) сексуальному насилию",
           "description": "",
           "keywords": "",
           "href": "/16-1-3",
@@ -2015,7 +2199,7 @@
         },
         {
           "id": "16-1-4",
-          "title": "Proportion of population that feel safe walking alone around the area they live in",
+          "title": "Доля людей, чувствующих себя в безопасности,когда они идут одни по улице в своем районе",
           "description": "",
           "keywords": "",
           "href": "/16-1-4",
@@ -2023,7 +2207,7 @@
         },
         {
           "id": "16-2-1",
-          "title": "Proportion of children aged 1-14 years who experienced physical punishment and/or psychological aggression by caregivers in last month",
+          "title": "Доля детей в возрасте от 1 года до 17 лет, впоследний месяц подвергшихся любому физическомунаказанию и/или психологической агрессии состороны тех, кто обеспечивает уход за ними",
           "description": "",
           "keywords": "",
           "href": "/16-2-1",
@@ -2031,7 +2215,7 @@
         },
         {
           "id": "16-2-2",
-          "title": "Detected victims of human trafficking (number)",
+          "title": "Число жертв торговли людьми на 100 000 человекв разбивке по полу, возрасту и форме эксплуатации",
           "description": "",
           "keywords": "",
           "href": "/16-2-2",
@@ -2039,7 +2223,7 @@
         },
         {
           "id": "16-2-3",
-          "title": "Proportion of population aged 18-29 years who experienced sexual violence by age 18",
+          "title": "Доля молодых женщин и мужчин в возрастеот 18 до 24 лет, подвергшихся сексуальному насилиюдо достижения 18 лет",
           "description": "",
           "keywords": "",
           "href": "/16-2-3",
@@ -2047,7 +2231,7 @@
         },
         {
           "id": "16-3-1",
-          "title": "Police reporting rate for physical assault, by sex (%)",
+          "title": "Доля жертв насилия, которые в последние12 месяцев подали соответствующую жалобу в компетентныеорганы или другие официально признанныемеханизмы урегулирования конфликтов",
           "description": "",
           "keywords": "",
           "href": "/16-3-1",
@@ -2055,7 +2239,7 @@
         },
         {
           "id": "16-3-2",
-          "title": "Unsentenced detainees as a proportion of overall prison population",
+          "title": "Доля лиц, задерживаемых до вынесения приговора,в общей численности лиц, содержащихся под стражей",
           "description": "",
           "keywords": "",
           "href": "/16-3-2",
@@ -2063,7 +2247,7 @@
         },
         {
           "id": "16-4-1",
-          "title": "Total value of inward illicit financial flows",
+          "title": "Общий объем входящих и исходящих незаконныхфинансовых потоков (в долларах США в текущихценах)",
           "description": "",
           "keywords": "",
           "href": "/16-4-1",
@@ -2071,7 +2255,7 @@
         },
         {
           "id": "16-4-2",
-          "title": "Proportion of seized, found or surrendered arms whose illicit origin or context has been traced or established by a competent authority in line with international instruments",
+          "title": "Доля изъятого, обнаруженного или сданногооружия, незаконное происхождение или обстоятельстваприобретения которого было отслежено илиустановлено компетентным органом в соответствии смеждународными документами",
           "description": "",
           "keywords": "",
           "href": "/16-4-2",
@@ -2079,15 +2263,23 @@
         },
         {
           "id": "16-5-1",
-          "title": "Prevalence rate of bribery",
+          "title": "Доля лиц, которые в предыдущие 12 месяцевхотя бы один раз имели контакт с государственнымдолжностным лицом и которые заплатили взятку государственномудолжностному лицу или от которыхэто государственное должностное лицо требоваловзятку",
           "description": "",
           "keywords": "",
           "href": "/16-5-1",
           "status": "notstarted"
         },
         {
+          "id": "16-5-1-1b",
+          "title": "Number of convictions for malfeasance, including corruption and bribery",
+          "description": "",
+          "keywords": "",
+          "href": "/16-5-1-1b",
+          "status": "complete"
+        },
+        {
           "id": "16-5-2",
-          "title": "Bribery incidence (% of firms experiencing at least one bribe payment request)",
+          "title": "Доля коммерческих компаний, которые впредыдущие 12 месяцев хотя бы один раз имели контактс государственным должностным лицом и которыезаплатили взятку государственному должностномулицу или от которых это государственное должностноелицо требовало взятку",
           "description": "",
           "keywords": "",
           "href": "/16-5-2",
@@ -2095,7 +2287,7 @@
         },
         {
           "id": "16-6-1",
-          "title": "Primary government expenditures as a proportion of original approved budget",
+          "title": "Первичные расходы правительства в процентномотношении к первоначальному утвержденномубюджету в разбивке по секторам (по кодам бюджетнойклассификации или аналогичным категориям)",
           "description": "",
           "keywords": "",
           "href": "/16-6-1",
@@ -2103,23 +2295,23 @@
         },
         {
           "id": "16-6-2",
-          "title": "Proportion of population satisfied with their last experience of public services",
+          "title": "Доля населения, удовлетворенного последнимопытом использования государственных услуг",
           "description": "",
           "keywords": "",
           "href": "/16-6-2",
           "status": "notstarted"
         },
         {
-          "id": "16-6-2-1",
-          "title": "Executive branch of the government satisfaction index",
+          "id": "16-6-2-1a",
+          "title": "Индекс оценки деятельности к государственным органам исполнительной власти",
           "description": "",
           "keywords": "",
-          "href": "/16-6-2-1",
+          "href": "/16-6-2-1a",
           "status": "complete"
         },
         {
           "id": "16-7-1",
-          "title": "",
+          "title": "Доля должностей (в разбивке по возрастнойгруппе, полу, признаку инвалидности и группе населения)в государственных учреждениях (национальныхи местных законодательных собраниях, государственнойслужбе и судебных органах) в сравнении снациональным распределением",
           "description": "",
           "keywords": "",
           "href": "/16-7-1",
@@ -2127,7 +2319,7 @@
         },
         {
           "id": "16-7-2",
-          "title": "Proportion of population who believe decision-making is inclusive and responsive",
+          "title": "Доля населения, считающего процесс принятиярешений всеохватывающим и оперативным, вразбивке по полу, возрасту, признаку инвалидности игруппе населения",
           "description": "",
           "keywords": "",
           "href": "/16-7-2",
@@ -2135,7 +2327,7 @@
         },
         {
           "id": "16-8-1",
-          "title": "Proportion of members of developing countries in international organizations, by organization",
+          "title": "Доля развивающихся стран в членском составемеждународных организаций и удельный весих голосов",
           "description": "",
           "keywords": "",
           "href": "/16-8-1",
@@ -2143,7 +2335,7 @@
         },
         {
           "id": "16-9-1",
-          "title": "Proportion of children under 5 years of age whose births have been registered with a civil authority",
+          "title": "Доля детей в возрасте до пяти лет, рождениекоторых было зарегистрировано в гражданских органах,в разбивке по возрасту",
           "description": "",
           "keywords": "",
           "href": "/16-9-1",
@@ -2151,7 +2343,7 @@
         },
         {
           "id": "16-a-1",
-          "title": "Proportion of countries with independent National Human Rights Institutions in compliance with the Paris Principles (%)",
+          "title": "Наличие независимых национальных правозащитныхинститутов, действующих в соответствиис Парижскими принципами",
           "description": "",
           "keywords": "",
           "href": "/16-a-1",
@@ -2159,15 +2351,15 @@
         },
         {
           "id": "16-b-1",
-          "title": "",
+          "title": "Доля людей, сообщивших об испытанныхими лично в последние 12 месяцев проявлениях дискриминацииили преследованиях на основании, дискриминацияна котором запрещена международнымправом прав человека",
           "description": "",
           "keywords": "",
           "href": "/16-b-1",
-          "status": "notstarted"
+          "status": "complete"
         },
         {
           "id": "16-10-1",
-          "title": "Number of cases of killings of human rights defenders, journalists and trade unionists",
+          "title": "Число подтвержденных случаев убийства,похищения, насильственного исчезновения, произвольногозадержания и пыток журналистов и связанныхс ними представителей средств массовой информации,профсоюзных деятелей и правозащитников впоследние 12 месяцев",
           "description": "",
           "keywords": "",
           "href": "/16-10-1",
@@ -2175,7 +2367,7 @@
         },
         {
           "id": "16-10-2",
-          "title": "Countries that adopt and implement constitutional, statutory and/or policy guarantees for public access to information",
+          "title": "Число стран, в которых приняты и действуютконституционные, законодательные и/или политическиегарантии доступа граждан к информации",
           "description": "",
           "keywords": "",
           "href": "/16-10-2",
@@ -2191,7 +2383,7 @@
         
         {
           "id": "17-1-1",
-          "title": "Total government revenue as a proportion of GDP",
+          "title": "Общий объем государственных доходов впроцентном отношении к ВВП в разбивке по источникам",
           "description": "",
           "keywords": "",
           "href": "/17-1-1",
@@ -2199,7 +2391,7 @@
         },
         {
           "id": "17-1-2",
-          "title": "Proportion of domestic budget funded by domestic taxes",
+          "title": "Доля национального бюджета, финансируемаявнутренними налогами",
           "description": "",
           "keywords": "",
           "href": "/17-1-2",
@@ -2207,7 +2399,7 @@
         },
         {
           "id": "17-2-1",
-          "title": "Net official development assistance (ODA) to LDCs as a percentage of OECD-DAC donors' GNI, by donor countries",
+          "title": "Чистый объем официальной помощи в целяхразвития (как суммарной, так и выделяемой наименееразвитым странам) в процентном отношении кваловому национальному доходу доноров — членовКомитета содействия развитию ОЭСР",
           "description": "",
           "keywords": "",
           "href": "/17-2-1",
@@ -2215,7 +2407,7 @@
         },
         {
           "id": "17-3-1",
-          "title": "Foreign direct investment (FDI), official development assistance and South-South cooperation as a proportion of total domestic budget",
+          "title": "Прямые иностранные инвестиции (ПИИ),официальная помощь в целях развития и сотрудничествоЮг-Юг в процентном отношении к совокупному национальному бюджету",
           "description": "",
           "keywords": "",
           "href": "/17-3-1",
@@ -2223,15 +2415,31 @@
         },
         {
           "id": "17-3-1-1",
-          "title": "Foreign direct investment by (a) economic activity and (b) country of origin",
+          "title": "",
           "description": "",
           "keywords": "",
           "href": "/17-3-1-1",
+          "status": "notstarted"
+        },
+        {
+          "id": "17-3-1-1a",
+          "title": "Поступление прямых иностранных инвестиций по  видам экономической деятельности (ГКЭД, версия 3)",
+          "description": "",
+          "keywords": "",
+          "href": "/17-3-1-1a",
           "status": "complete"
         },
         {
+          "id": "17-3-1-1b",
+          "title": "Поступление прямых иностранных инвестиций по странам",
+          "description": "",
+          "keywords": "",
+          "href": "/17-3-1-1b",
+          "status": "notstarted"
+        },
+        {
           "id": "17-3-2",
-          "title": "Volume of remittances (in United States dollars) as a proportion of total GDP",
+          "title": "Объем переводов (в долларах США) в процентномотношении к ВВП",
           "description": "",
           "keywords": "",
           "href": "/17-3-2",
@@ -2239,7 +2447,7 @@
         },
         {
           "id": "17-4-1",
-          "title": "Debt service as a proportion of exports of goods and services",
+          "title": "Расходы на обслуживание долга в процентномотношении к экспорту товаров и услуг",
           "description": "",
           "keywords": "",
           "href": "/17-4-1",
@@ -2247,7 +2455,7 @@
         },
         {
           "id": "17-5-1",
-          "title": "Number of countries that adopt and implement investment promotion regimes for least developed countries",
+          "title": "Число стран, в которых приняты и действуютрежимы поощрения инвестиций в интересахнаименее развитых стран",
           "description": "",
           "keywords": "",
           "href": "/17-5-1",
@@ -2255,7 +2463,7 @@
         },
         {
           "id": "17-6-1",
-          "title": "",
+          "title": "Число соглашений и программ научногои/или технического сотрудничества между странамив разбивке по видам сотрудничества",
           "description": "",
           "keywords": "",
           "href": "/17-6-1",
@@ -2263,7 +2471,7 @@
         },
         {
           "id": "17-6-2",
-          "title": "Fixed broadband subscriptions (number)",
+          "title": "Число стационарных абонентов широкополосногоИнтернета в разбивке по скорости",
           "description": "",
           "keywords": "",
           "href": "/17-6-2",
@@ -2271,7 +2479,7 @@
         },
         {
           "id": "17-7-1",
-          "title": "Total amount of approved funding for developing countries to promote the development, transfer, dissemination and diffusion of environmentally sound technologies",
+          "title": "Общая сумма утвержденного финансированиядля развивающихся стран в целях содействияразработке, передаче, распространению и освоениюэкологически безопасных технологий",
           "description": "",
           "keywords": "",
           "href": "/17-7-1",
@@ -2279,15 +2487,15 @@
         },
         {
           "id": "17-8-1",
-          "title": "",
+          "title": "Доля населения, пользующегося Интернетом",
           "description": "",
           "keywords": "",
           "href": "/17-8-1",
-          "status": "complete"
+          "status": "notstarted"
         },
         {
           "id": "17-9-1",
-          "title": "Total official development assistance (gross disbursement) for technical cooperation",
+          "title": "Долларовый объем финансовой и техническойпомощи развивающимся странам(в том числеоказываемой по линии Север — Юг, Юг — Юг и врамках трехстороннего сотрудничества)",
           "description": "",
           "keywords": "",
           "href": "/17-9-1",
@@ -2295,7 +2503,7 @@
         },
         {
           "id": "17-10-1",
-          "title": "Worldwide weighted tariff-average, most-favoured-nation status",
+          "title": "Средневзвешенный мировой уровень тарифов",
           "description": "",
           "keywords": "",
           "href": "/17-10-1",
@@ -2303,7 +2511,7 @@
         },
         {
           "id": "17-11-1",
-          "title": "Developing countries’ and least developed countries’ share of global merchandise exports",
+          "title": "Доля развивающихся стран и наименее развитыхстран в мировом экспорте",
           "description": "",
           "keywords": "",
           "href": "/17-11-1",
@@ -2311,7 +2519,7 @@
         },
         {
           "id": "17-12-1",
-          "title": "Average tariff applied by developed countries",
+          "title": "Средний уровень тарифов, применяемых вотношении развивающихся стран, наименее развитыхстран и малых островных развивающихся государств",
           "description": "",
           "keywords": "",
           "href": "/17-12-1",
@@ -2319,7 +2527,7 @@
         },
         {
           "id": "17-13-1",
-          "title": "",
+          "title": "Единый набор контрольных макроэкономическихпоказателей",
           "description": "",
           "keywords": "",
           "href": "/17-13-1",
@@ -2327,7 +2535,7 @@
         },
         {
           "id": "17-14-1",
-          "title": "Number of countries with mechanisms in place to enhance policy coherence of sustainable development",
+          "title": "Число стран, в которых созданы механизмыдля повышения согласованности политики в областиустойчивого развития",
           "description": "",
           "keywords": "",
           "href": "/17-14-1",
@@ -2335,7 +2543,7 @@
         },
         {
           "id": "17-15-1",
-          "title": "Proportion of new development interventions drawn from country-led result frameworks - data by provider (%)",
+          "title": "",
           "description": "",
           "keywords": "",
           "href": "/17-15-1",
@@ -2343,7 +2551,7 @@
         },
         {
           "id": "17-16-1",
-          "title": "Progress in multi-stakeholder development effectiveness monitoring frameworks that support the achievement of the sustainable development goals (1 = YES; 0 = NO)",
+          "title": "Число стран, сообщающих о прогрессе вделе применения механизмов контроля за эффективностьюразвития с участием многих заинтересованныхсторон, которые служат подспорьем в достижениицелей устойчивого развития",
           "description": "",
           "keywords": "",
           "href": "/17-16-1",
@@ -2351,7 +2559,7 @@
         },
         {
           "id": "17-17-1",
-          "title": "Amount of United States dollars committed to public-private partnerships",
+          "title": "Сумма (в долларах США), выделяемая на a)государственно-частные партнерства и b) партнерстваорганизаций гражданского общества",
           "description": "",
           "keywords": "",
           "href": "/17-17-1",
@@ -2359,7 +2567,7 @@
         },
         {
           "id": "17-18-1",
-          "title": "Proportion of sustainable development indicators produced at the national level with full disaggregation when relevant to the target, in accordance with the Fundamental Principles of Official Statistics",
+          "title": "Доля показателей устойчивого развития, разработанныхна национальном уровне с полной дезагрегациейпо соответствующим признакам согласноОсновополагающим принципам официальной статистики",
           "description": "",
           "keywords": "",
           "href": "/17-18-1",
@@ -2367,7 +2575,7 @@
         },
         {
           "id": "17-18-2",
-          "title": "Countries with national statistical legislation exists that complies with the Fundamental Principles of Official Statistics (1 = YES; 0 = NO)",
+          "title": "Число, стран, имеющих национальное статистическоезаконодательство, соответствующее Основополагающимпринципам официальной статистики",
           "description": "",
           "keywords": "",
           "href": "/17-18-2",
@@ -2375,7 +2583,7 @@
         },
         {
           "id": "17-18-3",
-          "title": "Countries with national statistical plans with funding from donors (1 = YES; 0 = NO)",
+          "title": "Число стран, имеющих полностью финансированныйи осуществляемый национальный статистическийплан, в разбивке по источникам финансирования",
           "description": "",
           "keywords": "",
           "href": "/17-18-3",
@@ -2383,7 +2591,7 @@
         },
         {
           "id": "17-19-1",
-          "title": "Dollar value of all resources made available to strengthen statistical capacity in developing countries",
+          "title": "Долларовая стоимость всех ресурсов, выделенныхна наращивание потенциала развивающихсястран в области статистики",
           "description": "",
           "keywords": "",
           "href": "/17-19-1",
@@ -2391,7 +2599,7 @@
         },
         {
           "id": "17-19-2",
-          "title": "Proportion of countries with birth registration data that are at least 90 percent complete",
+          "title": "Доля стран, которые a) провели хотя бы однуперепись населения и жилищного фонда в течениепоследних 10 лет; и b) достигли цели регистрациирождений в 100 процентах случаев и регистрациисмерти в 80 процентах случаев",
           "description": "",
           "keywords": "",
           "href": "/17-19-2",

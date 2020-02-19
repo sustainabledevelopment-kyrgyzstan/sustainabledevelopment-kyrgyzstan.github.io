@@ -11,7 +11,7 @@
 var opensdg = {
 
   // A base URL for asynchronous calls to SDG data.
-  remoteDataBaseUrl: 'https://sustainabledevelopment-kyrgyzstan.github.io/sdg-data',
+  remoteDataBaseUrl: 'https://sustainabledevelopment-kyrgyzstan.github.io/sdg-data/ru',
 
   // A hook which can be replaced to modify the configuration for Chart.js.
   // To see where this is used, see indicatorView.js createPlot() and updatePlot().
@@ -27,6 +27,8 @@ var opensdg = {
     // Alterations go here.
     return value;
   },
+
+  language: 'ru',
 };
 
 // For backwards compatibility, some of these might need to be global.
@@ -120,7 +122,7 @@ var translations = {
         <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css" crossorigin="">
         <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" crossorigin="">
         <link rel="stylesheet" href="https://cdn.datatables.net/fixedcolumns/3.2.3/css/fixedColumns.dataTables.min.css" crossorigin="">
-        <link rel="stylesheet" href="/assets/css/style.css?v=20200217105158">
+        <link rel="stylesheet" href="/assets/css/style.css?v=20200219050443">
         <link href="https://fonts.googleapis.com/css?family=Open+Sans|Roboto" rel="stylesheet" crossorigin="">
         <link rel="stylesheet" href="https://unpkg.com/leaflet@1.3.4/dist/leaflet.css"
           integrity="sha512-puBpdR0798OZvTTbP4A8Ix/l+A4dHDD0DGqYW6RQ+9jxkRFclaxxQb/SJAWZfWAkuyeQUytO7+7N4QKrDh+drA=="
@@ -128,7 +130,7 @@ var translations = {
         <link rel="stylesheet" href="https://cdn.rawgit.com/socib/Leaflet.TimeDimension/master/dist/leaflet.timedimension.control.min.css"  crossorigin=""/>
         <link rel="stylesheet" href='https://api.mapbox.com/mapbox.js/plugins/leaflet-fullscreen/v1.0.1/leaflet.fullscreen.css'  crossorigin=""/>
         <link rel="stylesheet" href="https://bowercdn.net/c/leaflet.zoomhome-latest/dist/leaflet.zoomhome.css"  crossorigin=""/>
-        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet-search@2.9.7/dist/leaflet-search.min.css" crossorigin=""><link rel="stylesheet" href="/assets/css/custom.css?v=20200217105158"><!-- ShareThis BEGIN --><!-- ShareThis END -->
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet-search@2.9.7/dist/leaflet-search.min.css" crossorigin=""><link rel="stylesheet" href="/assets/css/custom.css?v=20200219050443"><!-- ShareThis BEGIN --><!-- ShareThis END -->
 
     </head>
 <body class="language-ru layout-indicator">
@@ -184,10 +186,11 @@ var translations = {
   <form action="/search">
     <input name="q" id="indicator_search" title="Поиск" />
     <label for="indicator_search">
-      <button id="search-btn" type="submit"><i class="fa fa-search" aria-hidden="false" aria-label=Поиск></i></button><span>Поиск:</span>
+      <button aria-label="Поиск" id="search-btn" type="submit"><i class="fa fa-search" aria-hidden="false"></i></button><span>Поиск:</span>
     </label>
   </form>
 </div>
+
       
       <ul class="nav navbar-nav menu-target contrast-switcher" id="menu"><li class="nav-link ">
             <a href="/reporting-status">Состояние отчётности</a>
@@ -340,13 +343,14 @@ var translations = {
       
       
 
+
 <div id="headlineTable">
 
   <div id="datatables">
 
-    <a href="https://sustainabledevelopment-kyrgyzstan.github.io/sdg-data/headline/1-3-1.csv" class="btn btn-primary btn-download" download="indicator_1-3-1.csv" tabindex="0" role="button">Скачать заголовки CSV</a>
+    <a href="https://sustainabledevelopment-kyrgyzstan.github.io/sdg-data/ru/headline/1-3-1.csv" class="btn btn-primary btn-download" download="indicator_1-3-1.csv" tabindex="0" role="button">Скачать заголовки CSV</a>
 
-    <a href="https://sustainabledevelopment-kyrgyzstan.github.io/sdg-data/data/1-3-1.csv" class="btn btn-primary btn-download" style='float:left;margin-right:1em' download='indicator_1-3-1.csv' tabindex='0' role='button'>Скачать исходные CSV</a>
+    <a href="https://sustainabledevelopment-kyrgyzstan.github.io/sdg-data/ru/data/1-3-1.csv" class="btn btn-primary btn-download" style='float:left;margin-right:1em' download='indicator_1-3-1.csv' tabindex='0' role='button'>Скачать исходные CSV</a>
 
     <h3>Headline data</h3>
     <table class="table-responsive table table-hover dataTable no-footer" role="grid">
@@ -689,7 +693,7 @@ data-event-label="Change to Sources tab"
         <th scope="row">Определения </th>
         <td>
           
-            
+            <p>Этот показатель отражает долю населения, охватываемого минимальным уровнем/системами социальной защиты, и включает долю безработных, получающих пособие по безработице, которая определяется как количество безработных, получающих пособие по безработице, деленное на общее число безработных в возрасте 100 лет.</p>
 
           
         </td>
@@ -703,7 +707,8 @@ data-event-label="Change to Sources tab"
         <th scope="row">Основные понятия </th>
         <td>
           
-            
+            <p>Определения основаны на Всемирном опросе по вопросам социальной защиты и на Рекомендации МОТ № 202 по вопросам социальной защиты.
+Минимальные уровни социальной защиты являются национально определенными наборами основных гарантий социального обеспечения, которые должны обеспечивать, как минимум, то, что в течение всего жизненного цикла все нуждающиеся имеют доступ к основным медицинским услугам и обеспечению базового уровня доходов, которые вместе обеспечивают гарантированный эффективный доступ к товарам и услугам, определенных в качестве необходимых на национальном уровне. Это должно включать, по крайней мере, доступ к основным медицинским услугам, включая уход за беременными женщинами; обеспечение первичной защиты детей; обеспечение лиц трудоспособного возраста, которые не могут получить достаточный доход в случае болезни, безработицы, материнства и инвалидности; и обеспечение пожилых людей.</p>
 
           
         </td>
@@ -717,7 +722,7 @@ data-event-label="Change to Sources tab"
         <th scope="row">Обоснование и толкование </th>
         <td>
           
-            
+            <p>Доступ, по крайней мере, к базовому уровню системы социального обеспечения на протяжении всего жизненного цикла имеет основополагающее значение для обеспечения здоровья и достоинства людей. Принцип идеальной универсальности социальной защиты (на основе национального уровня социальной защиты) свидетельствует о важности систем социальной защиты для обеспечения достойных условий жизни для всего населения на протяжении всей их жизни. Доля населения, охваченного минимальным уровнем/ системами социальной защиты, указывает на то, в какой степени эта универсальность достигнута, и на то, насколько защищенными являются условия жизни для населения.</p>
 
           
         </td>
@@ -731,7 +736,7 @@ data-event-label="Change to Sources tab"
         <th scope="row">Метод расчета </th>
         <td>
           
-            
+            <p>Доля населения, охваченного минимальным уровнем/системами социальной защиты = Количество лиц, охваченных минимальным уровнем/системами социальной защиты / Общая численность населения * 100</p>
 
           
         </td>
@@ -745,7 +750,7 @@ data-event-label="Change to Sources tab"
         <th scope="row">Комментарий и ограничения </th>
         <td>
           
-            
+            <p>Существует риск двойного учета бенефициаров систем социального обеспечения или даже лиц, охваченных ими, из-за наличия «дополнительных» пенсионных схем. И даже если основные источники двойного подсчета исключены, может произойти двойной подсчет, если, например, получатели перемещаются между различными пенсионными схемами в течение своей жизни и получают преимущества от нескольких схем.</p>
 
           
         </td>
@@ -773,7 +778,7 @@ data-event-label="Change to Sources tab"
         <th scope="row">Доступность данных и пробелы </th>
         <td>
           
-            
+            <p>-</p>
 
           
         </td>
@@ -787,7 +792,7 @@ data-event-label="Change to Sources tab"
         <th scope="row">Разбивка </th>
         <td>
           
-            
+            <p>Показатель дезагрегирован по странам, полу и возрасту (дети и взрослые).</p>
 
           
         </td>
@@ -815,7 +820,24 @@ data-event-label="Change to Sources tab"
         <th scope="row">Ссылки и документация </th>
         <td>
           
-            
+            <p>URL:
+www.ilo.org/ilostat
+Ссылки:
+Статистика МОТ: www.ilo.org/ilostat
+Статистика и показатели социальной защиты МОТ: 
+http://www.socialsecurityextension.org/gimi/gess/ShowTheme.action?th.themeId=10
+Рекомендация МОТ по социальной защите (№ 202), 2012 год:
+http://www.ilo.org/dyn/normlex/en/f?p=NORMLEXPUB:12100:0::NO::P12100<em>INSTRUMENT_ID,P12100</em>
+LANG_CODE:3065524,en</p>
+
+<p>Конвенция МОТ о социальном обеспечении (минимальные стандарты) (№ 102), 1952 г.:
+http://www.ilo.org/dyn/normlex/en/f?p=NORMLEXPUB:12100:0::NO:12100:P12100_INSTRUMENT_ID:3
+12247:NO 
+Руководство по показателям труда:
+http://www.ilo.org/wcmsp5/groups/public/—dgreports/—stat/documents/publication/wcms_223121.pdf</p>
+
+<p>Всемирный отчет о социальной защите 2014/2015: 
+http://www.ilo.ch/wcmsp5/groups/public/—dgreports/—dcomm/documents/publication/wcms_245201.pdf</p>
 
           
         </td>
@@ -829,7 +851,7 @@ data-event-label="Change to Sources tab"
         <th scope="row">Источники данных </th>
         <td>
           
-            
+            <p>Административные данные о схемах социального обеспечения часто являются наиболее актуальными и предоставляют исчерпывающую информацию для вычисления этого показателя. При отсутствии надежных административных записей могут использоваться данные исследований домашних хозяйств (исследование бюджетов домашних хозяйств или исследование рабочей силы). Данные исследований домашних хозяйств также могут использоваться для определения знаменателя показателя.</p>
 
           
         </td>
@@ -1014,7 +1036,7 @@ data-event-label="Change to Sources tab"
 <script src="https://cdnjs.cloudflare.com/ajax/libs/autotrack/2.4.1/autotrack.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/html2canvas@1.0.0-rc.3/dist/html2canvas.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/file-saver@2.0.2/dist/FileSaver.min.js"></script>
-<script src='/assets/js/sdg.js?v=20200217105158'></script><script>
+<script src='/assets/js/sdg.js?v=20200219050443'></script><script>
 $(function() {
     if($('#indicatorData').length) {
       var domData = $('#indicatorData').data();

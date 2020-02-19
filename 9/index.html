@@ -11,7 +11,7 @@
 var opensdg = {
 
   // A base URL for asynchronous calls to SDG data.
-  remoteDataBaseUrl: 'https://sustainabledevelopment-kyrgyzstan.github.io/sdg-data',
+  remoteDataBaseUrl: 'https://sustainabledevelopment-kyrgyzstan.github.io/sdg-data/ru',
 
   // A hook which can be replaced to modify the configuration for Chart.js.
   // To see where this is used, see indicatorView.js createPlot() and updatePlot().
@@ -27,6 +27,8 @@ var opensdg = {
     // Alterations go here.
     return value;
   },
+
+  language: 'ru',
 };
 
 // For backwards compatibility, some of these might need to be global.
@@ -120,7 +122,7 @@ var translations = {
         <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css" crossorigin="">
         <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" crossorigin="">
         <link rel="stylesheet" href="https://cdn.datatables.net/fixedcolumns/3.2.3/css/fixedColumns.dataTables.min.css" crossorigin="">
-        <link rel="stylesheet" href="/assets/css/style.css?v=20200217105158">
+        <link rel="stylesheet" href="/assets/css/style.css?v=20200219050443">
         <link href="https://fonts.googleapis.com/css?family=Open+Sans|Roboto" rel="stylesheet" crossorigin="">
         <link rel="stylesheet" href="https://unpkg.com/leaflet@1.3.4/dist/leaflet.css"
           integrity="sha512-puBpdR0798OZvTTbP4A8Ix/l+A4dHDD0DGqYW6RQ+9jxkRFclaxxQb/SJAWZfWAkuyeQUytO7+7N4QKrDh+drA=="
@@ -128,7 +130,7 @@ var translations = {
         <link rel="stylesheet" href="https://cdn.rawgit.com/socib/Leaflet.TimeDimension/master/dist/leaflet.timedimension.control.min.css"  crossorigin=""/>
         <link rel="stylesheet" href='https://api.mapbox.com/mapbox.js/plugins/leaflet-fullscreen/v1.0.1/leaflet.fullscreen.css'  crossorigin=""/>
         <link rel="stylesheet" href="https://bowercdn.net/c/leaflet.zoomhome-latest/dist/leaflet.zoomhome.css"  crossorigin=""/>
-        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet-search@2.9.7/dist/leaflet-search.min.css" crossorigin=""><link rel="stylesheet" href="/assets/css/custom.css?v=20200217105158"><!-- ShareThis BEGIN --><!-- ShareThis END -->
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet-search@2.9.7/dist/leaflet-search.min.css" crossorigin=""><link rel="stylesheet" href="/assets/css/custom.css?v=20200219050443"><!-- ShareThis BEGIN --><!-- ShareThis END -->
 
     </head>
 <body class="language-ru layout-goal-by-target">
@@ -184,10 +186,11 @@ var translations = {
   <form action="/search">
     <input name="q" id="indicator_search" title="Поиск" />
     <label for="indicator_search">
-      <button id="search-btn" type="submit"><i class="fa fa-search" aria-hidden="false" aria-label=Поиск></i></button><span>Поиск:</span>
+      <button aria-label="Поиск" id="search-btn" type="submit"><i class="fa fa-search" aria-hidden="false"></i></button><span>Поиск:</span>
     </label>
   </form>
 </div>
+
       
       <ul class="nav navbar-nav menu-target contrast-switcher" id="menu"><li class="nav-link ">
             <a href="/reporting-status">Состояние отчётности</a>
@@ -286,7 +289,8 @@ var translations = {
               В процессе разработки
             </span>
           </span>
-          Proportion of the rural population who live within 2 km of an all-season road
+          Доля сельского населения, проживающего в
+пределах 2 км от круглогодичной дороги
           
         </a>
       </div>
@@ -309,7 +313,8 @@ var translations = {
               Опубликован
             </span>
           </span>
-          Freight volume (tonne kilometres)
+          Объем пассажирских и грузовых перевозок в
+разбивке по видам транспорта
           
         </a>
       </div>
@@ -350,7 +355,10 @@ var translations = {
               В процессе разработки
             </span>
           </span>
-          Manufacturing value added as a proportion of GDP
+          Добавленная стоимость, создаваемая в обрабатывающей
+промышленности, в процентном отношении
+к ВВП и на душу населения
+
           
         </a>
       </div>
@@ -373,7 +381,9 @@ var translations = {
               Опубликован
             </span>
           </span>
-          Manufacturing employment as a proportion of total employment
+          Занятость в обрабатывающей промышленности
+в процентах от общей занятости
+
           
         </a>
       </div>
@@ -408,11 +418,12 @@ var translations = {
         <a href="/9-3-1">
           <span>
             9.3.1
-            <span class="status complete">
-              Опубликован
+            <span class="status notstarted">
+              В процессе разработки
             </span>
           </span>
-          Proportion of small-scale industries in total industry value added
+          Доля мелких предприятий в совокупном объеме
+чистой продукции промышленности
           
         </a>
       </div>
@@ -435,7 +446,9 @@ var translations = {
               В процессе разработки
             </span>
           </span>
-          Proportion of small-scale industries with a loan or line of credit
+          Доля мелких предприятий, имеющих кредит
+или кредитную линию
+
           
         </a>
       </div>
@@ -477,7 +490,7 @@ var translations = {
               В процессе разработки
             </span>
           </span>
-          Carbon dioxide emissions from fuel combustion
+          Выбросы CO2 на единицу добавленной стоимости
           
         </a>
       </div>
@@ -500,7 +513,7 @@ var translations = {
               Опубликован
             </span>
           </span>
-          Pollutants emitted by stationary sources
+          Объем загрязняющих веществ, отходящих от стационарных источников на 1 кв.км и по территории
           
             <ul class="tags">
             
@@ -550,7 +563,8 @@ var translations = {
               В процессе разработки
             </span>
           </span>
-          Research and development expenditure as a proportion of GDP
+          Доля расходов на научно-исследовательские
+и опытно-конструкторские работы в ВВП
           
         </a>
       </div>
@@ -569,11 +583,12 @@ var translations = {
         <a href="/9-5-2">
           <span>
             9.5.2
-            <span class="status complete">
-              Опубликован
+            <span class="status notstarted">
+              В процессе разработки
             </span>
           </span>
-          Researchers (in full-time equivalent) per million inhabitants
+          Количество исследователей (в эквиваленте
+полной занятости) на миллион жителей
           
         </a>
       </div>
@@ -614,7 +629,10 @@ var translations = {
               В процессе разработки
             </span>
           </span>
-          Total official flows for infrastructure, by recipient countries
+          Совокупный объем официальной международной
+поддержки (официальной помощи в целях
+развития и других потоков официального финансирования),
+направляемой на инфраструктуру
           
         </a>
       </div>
@@ -653,7 +671,9 @@ var translations = {
               В процессе разработки
             </span>
           </span>
-          Proportion of medium and high-tech industry value added in total value added
+          Доля добавленной стоимости продукции
+среднетехнологичных и высокотехнологичных отраслей
+в общем объеме добавленной стоимости
           
         </a>
       </div>
@@ -687,11 +707,12 @@ var translations = {
         <a href="/9-c-1">
           <span>
             9.c.1
-            <span class="status complete">
-              Опубликован
+            <span class="status notstarted">
+              В процессе разработки
             </span>
           </span>
-          Proportion of population covered by at least a 2G mobile network
+          Доля населения, охваченного мобильными
+сетями, в разбивке по технологиям
           
         </a>
       </div>
@@ -753,7 +774,7 @@ var translations = {
 <script src="https://cdnjs.cloudflare.com/ajax/libs/autotrack/2.4.1/autotrack.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/html2canvas@1.0.0-rc.3/dist/html2canvas.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/file-saver@2.0.2/dist/FileSaver.min.js"></script>
-<script src='/assets/js/sdg.js?v=20200217105158'></script><script>
+<script src='/assets/js/sdg.js?v=20200219050443'></script><script>
 $(function() {
     if($('#indicatorData').length) {
       var domData = $('#indicatorData').data();

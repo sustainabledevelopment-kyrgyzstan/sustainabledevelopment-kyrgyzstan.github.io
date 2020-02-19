@@ -11,7 +11,7 @@
 var opensdg = {
 
   // A base URL for asynchronous calls to SDG data.
-  remoteDataBaseUrl: 'https://sustainabledevelopment-kyrgyzstan.github.io/sdg-data',
+  remoteDataBaseUrl: 'https://sustainabledevelopment-kyrgyzstan.github.io/sdg-data/en',
 
   // A hook which can be replaced to modify the configuration for Chart.js.
   // To see where this is used, see indicatorView.js createPlot() and updatePlot().
@@ -27,6 +27,8 @@ var opensdg = {
     // Alterations go here.
     return value;
   },
+
+  language: 'en',
 };
 
 // For backwards compatibility, some of these might need to be global.
@@ -120,7 +122,7 @@ var translations = {
         <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css" crossorigin="">
         <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" crossorigin="">
         <link rel="stylesheet" href="https://cdn.datatables.net/fixedcolumns/3.2.3/css/fixedColumns.dataTables.min.css" crossorigin="">
-        <link rel="stylesheet" href="/assets/css/style.css?v=20200217105158">
+        <link rel="stylesheet" href="/assets/css/style.css?v=20200219050443">
         <link href="https://fonts.googleapis.com/css?family=Open+Sans|Roboto" rel="stylesheet" crossorigin="">
         <link rel="stylesheet" href="https://unpkg.com/leaflet@1.3.4/dist/leaflet.css"
           integrity="sha512-puBpdR0798OZvTTbP4A8Ix/l+A4dHDD0DGqYW6RQ+9jxkRFclaxxQb/SJAWZfWAkuyeQUytO7+7N4QKrDh+drA=="
@@ -128,7 +130,7 @@ var translations = {
         <link rel="stylesheet" href="https://cdn.rawgit.com/socib/Leaflet.TimeDimension/master/dist/leaflet.timedimension.control.min.css"  crossorigin=""/>
         <link rel="stylesheet" href='https://api.mapbox.com/mapbox.js/plugins/leaflet-fullscreen/v1.0.1/leaflet.fullscreen.css'  crossorigin=""/>
         <link rel="stylesheet" href="https://bowercdn.net/c/leaflet.zoomhome-latest/dist/leaflet.zoomhome.css"  crossorigin=""/>
-        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet-search@2.9.7/dist/leaflet-search.min.css" crossorigin=""><link rel="stylesheet" href="/assets/css/custom.css?v=20200217105158"><!-- ShareThis BEGIN --><!-- ShareThis END -->
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet-search@2.9.7/dist/leaflet-search.min.css" crossorigin=""><link rel="stylesheet" href="/assets/css/custom.css?v=20200219050443"><!-- ShareThis BEGIN --><!-- ShareThis END -->
 
     </head>
 <body class="language-en layout-indicator">
@@ -184,10 +186,11 @@ var translations = {
   <form action="/en/search">
     <input name="q" id="indicator_search" title="Search" />
     <label for="indicator_search">
-      <button id="search-btn" type="submit"><i class="fa fa-search" aria-hidden="false" aria-label=Search></i></button><span>Search:</span>
+      <button aria-label="Search" id="search-btn" type="submit"><i class="fa fa-search" aria-hidden="false"></i></button><span>Search:</span>
     </label>
   </form>
 </div>
+
       
       <ul class="nav navbar-nav menu-target contrast-switcher" id="menu"><li class="nav-link ">
             <a href="/en/reporting-status">Reporting Status</a>
@@ -274,7 +277,7 @@ var translations = {
             <span class="hidden-sm hidden-md hidden-lg">Goal 3: </span>Ensure healthy lives and promote well-being for all at all ages
           </a>
         </h1>
-        <h2>Indicator 3.9.2: Mortality rate attributed to unsafe water, unsafe sanitation and lack of hygiene</h2>
+        <h2>Indicator 3.9.2: Mortality rate attributed to unsafe water, unsafe sanitation and lack of hygiene (exposure to unsafe Water, Sanitation and Hygiene for All (WASH) services)</h2>
       </div>
     </div>
   </div>
@@ -309,17 +312,285 @@ var translations = {
   
   <div class="row" id="indicatorData" data-indicatorid='indicator_3-9-2' data-id="3-9-2" data-country="Кыргызская Республика"
   data-charttitle="Mortality rate attributed to unsafe water, unsafe sanitation and lack of hygiene (exposure to unsafe Water, Sanitation and Hygiene for All (WASH) services)" data-measurementunit="" data-datasource="" data-copyright=""
-  data-geographicalarea="Кыргызская Республика" data-footnote="" data-showdata="false" data-graphtype="line"
+  data-geographicalarea="Кыргызская Республика" data-footnote="" data-showdata="true" data-graphtype="line"
   data-geocoderegex="" data-showmap="" data-startvalues="">
 
     
-    <div id="indicator-main" class="col-md-12">
+    <div id="indicator-sidebar" class="col-md-3">
+      <div id="toolbar">
+        <span id="series-help">
+          <h4>Sub-categories</h4>
+          <p>Choose categories from the dropdowns below to see different breakdowns of the data. Some will not be available until a higher level is chosen.</p>
+        </span>
+        <p>Click on the legend to remove individual lines from the chart.</p>
+        <div id="fields">
+          <p class="async-loading" data-img="/assets/img/loading-small.gif"></p>
+        </div>
+      </div>
+      <div id="units"></div>
+    </div>
+    <div id="indicator-main" class="col-md-9">
     
+
+      
+      
+
+
+<div id="headlineTable">
+
+  <div id="datatables">
+
+    <a href="https://sustainabledevelopment-kyrgyzstan.github.io/sdg-data/en/headline/3-9-2.csv" class="btn btn-primary btn-download" download="indicator_3-9-2.csv" tabindex="0" role="button">Download Headline CSV</a>
+
+    <a href="https://sustainabledevelopment-kyrgyzstan.github.io/sdg-data/en/data/3-9-2.csv" class="btn btn-primary btn-download" style='float:left;margin-right:1em' download='indicator_3-9-2.csv' tabindex='0' role='button'>Download Source CSV</a>
+
+    <h3>Headline data</h3>
+    <table class="table-responsive table table-hover dataTable no-footer" role="grid">
+      <caption>Mortality rate attributed to unsafe water, unsafe sanitation and lack of hygiene (exposure to unsafe Water, Sanitation and Hygiene for All (WASH) services)</caption>
+      <thead>
+        
+        
+        <th scope="col">Year</th>
+        
+        
+        
+        <th scope="col" class="table-value">Value</th>
+        
+        
+      </thead>
+      <tbody>
+        
+        <tr>
+          
+          
+          <td>2007</td>
+          
+          
+          
+          <td class="table-value">4.3</td>
+          
+          
+        </tr>
+        
+        <tr>
+          
+          
+          <td>2008</td>
+          
+          
+          
+          <td class="table-value">4.0</td>
+          
+          
+        </tr>
+        
+        <tr>
+          
+          
+          <td>2009</td>
+          
+          
+          
+          <td class="table-value">3.2</td>
+          
+          
+        </tr>
+        
+        <tr>
+          
+          
+          <td>2010</td>
+          
+          
+          
+          <td class="table-value">2.5</td>
+          
+          
+        </tr>
+        
+        <tr>
+          
+          
+          <td>2011</td>
+          
+          
+          
+          <td class="table-value">3.2</td>
+          
+          
+        </tr>
+        
+        <tr>
+          
+          
+          <td>2012</td>
+          
+          
+          
+          <td class="table-value">2.8</td>
+          
+          
+        </tr>
+        
+        <tr>
+          
+          
+          <td>2013</td>
+          
+          
+          
+          <td class="table-value">1.8</td>
+          
+          
+        </tr>
+        
+        <tr>
+          
+          
+          <td>2014</td>
+          
+          
+          
+          <td class="table-value">1.7</td>
+          
+          
+        </tr>
+        
+        <tr>
+          
+          
+          <td>2015</td>
+          
+          
+          
+          <td class="table-value">1.9</td>
+          
+          
+        </tr>
+        
+        <tr>
+          
+          
+          <td>2016</td>
+          
+          
+          
+          <td class="table-value">1.3</td>
+          
+          
+        </tr>
+        
+        <tr>
+          
+          
+          <td>2017</td>
+          
+          
+          
+          <td class="table-value">1.2</td>
+          
+          
+        </tr>
+        
+        <tr>
+          
+          
+          <td>2018</td>
+          
+          
+          
+          <td class="table-value">0.8</td>
+          
+          
+        </tr>
+        
+      </tbody>
+    </table>
+  </div>
+
+  <div id="datatableFooter">
+    
+    
+    <p>Geographical Area: Кыргызская Республика</p>
+    
+    
+    
+  </div>
+
+</div>
 
       
 
       <section>
 
+        
+        <p class="async-loading" data-img="/assets/img/loading-small.gif"></p>
+        
+        <div class="async-loaded spacer medium" style="display:none;">
+          <ul class="nav nav-tabs data-view" role="tablist">
+            <li role="presentation" class="nav-item active">
+              <a class="nav-link" data-toggle="tab" href="#chartview" aria-controls="chartview" role="tab" data-on="click"
+data-event-category="Tab change"
+data-event-action="Change data view"
+data-event-label="Change to Chart tab"
+>Chart</a>
+            </li>
+            <li role="presentation" class="nav-item">
+              <a class="nav-link" data-toggle="tab" href="#tableview" aria-controls="tableview" role="tab" data-on="click"
+data-event-category="Tab change"
+data-event-action="Change data view"
+data-event-label="Change to Table tab"
+>Table</a>
+            </li>
+            <li role="presentation" class="nav-item map" style="display:none">
+              <a data-no-disagg="true" class="nav-link" data-toggle="tab" href="#mapview" aria-controls="mapview" role="tab" data-on="click"
+data-event-category="Tab change"
+data-event-action="Change data view"
+data-event-label="Change to Map tab"
+>Map</a>
+            </li></ul>
+
+          <!-- Tab panes -->
+          <div class="tab-content data-view">
+            <div role="tabpanel" class="tab-pane active" id="chartview">
+              
+
+    <div id="dataset-size-warning" style="display:none">
+      <i class="fa fa-bolt"></i> There are too many datasets to show on the chart. Not all will be shown until you remove some selections.
+    </div>
+
+    
+    <div id="selectionsChart">
+      <div id="chart-canvas">
+        <h3 class="chart-title">Mortality rate attributed to unsafe water, unsafe sanitation and lack of hygiene (exposure to unsafe Water, Sanitation and Hygiene for All (WASH) services)</h3>
+        <div id="chart" class="plot-container">
+          
+<canvas></canvas>
+
+
+        </div>
+        <div id="plotLegend"></div>
+      </div>
+      <button id="btnSave" title="Download chart as image" class='btn btn-primary btn-download'>
+        Download Chart Image
+      </button>
+    </div>
+    <div id="chartSelectionDownload"></div>
+
+
+
+            </div>
+            <div role="tabpanel" class="tab-pane" id="tableview">
+              <div id="selectionsTable"></div>
+            </div>
+            <div role="tabpanel" class="tab-pane" id="mapview" class="map">
+              <div id="map">
+                <img src="/assets/img/loading.gif" alt="Loading map" />
+              </div>
+            </div>
+            
+          </div>
+        </div>
         
 
         <!-- Nav tabs -->
@@ -406,7 +677,7 @@ data-event-label="Change to Sources tab"
         <th scope="row">Definitions </th>
         <td>
           
-            
+            <p>Смертность в результате употребления нечистой воды, антисанитарии и недостаточной гигиены (воздействия некачественных услуг в области водоснабжения, санитарии и гигиены (WASH)).</p>
 
           
         </td>
@@ -420,7 +691,7 @@ data-event-label="Change to Sources tab"
         <th scope="row">Concepts </th>
         <td>
           
-            
+            <p>Случаи смерти, связанные с нечистой водой, антисанитарией и недостаточной гигиеной, с особым акцентом на качестве  услуг WASH. Включенными заболеваниями являются фракции диареи (МКБ-10 код А00, А01, А03, А04, А06-А09), вызванные некачественными услугами WASH, инфекции кишечной нематоды (МКБ-10 код В76-В77, В79) и недостаточность белковой пищи (МКБ-10 Е40-Е46).</p>
 
           
         </td>
@@ -434,7 +705,7 @@ data-event-label="Change to Sources tab"
         <th scope="row">Rationale and interpretation </th>
         <td>
           
-            
+            <p>Показатель выражает количество смертей из-за нечистой воды, антисанитарии и недостаточной гигиены ( с акцентом на услуги WASH), которые могут быть предотвращены путем улучшения качества этих услуг и практики их применения. Он основан как на информации о качестве услуг WASH в стране, так и на данных о состоянии здоровья населения в результате их использования, и, следовательно, содержит важную информацию о фактических заболеваниях.</p>
 
           
         </td>
@@ -448,7 +719,7 @@ data-event-label="Change to Sources tab"
         <th scope="row">Method of computation </th>
         <td>
           
-            
+            <p>Отношение числа умерших от употребления нечистой воды, антисанитарии и недостаточной гигиены (воздействие небезопасных  услуг WASH) к среднегодовой численности постоянного населения по текущей оценке. Рассчитывается на 100 000 населения.</p>
 
           
         </td>
@@ -462,7 +733,7 @@ data-event-label="Change to Sources tab"
         <th scope="row">Comments and limitations </th>
         <td>
           
-            
+            <p>Знать правила кодирования первоначальной причины смерти и дефиниции, изложенные в классификаторе Международная статистическая классификация болезней и проблем, связанных со здоровьем 10-го пересмотра (МКБ-10). В случае затруднения с правильностью выставленного диагноза обратиться к сотрудникам Центра электронного здравоохранения МЗ КР с целью установления окончательного диагноза. Эти данные имеют решающее значение для улучшения здоровья и сокращения случаев предотвратимой смертности в стране.</p>
 
           
         </td>
@@ -476,7 +747,7 @@ data-event-label="Change to Sources tab"
         <th scope="row">Quality assurance </th>
         <td>
           
-            
+            <p>Проводится логический и арифметический контроль отчетных данных. Процедура проверки правильности данных в актовых записях о смерти осуществляется путем логического контроля, заложенного в программном обеспечении по вводу и разработке данных. Корректировка проставленных кодов причин смерти на соответствие диагнозам, записанным в актовой записи о смерти, согласно МКБ-10. Анализ выходных таблиц по причинам смерти.</p>
 
           
         </td>
@@ -490,7 +761,7 @@ data-event-label="Change to Sources tab"
         <th scope="row">Data availability and gaps </th>
         <td>
           
-            
+            <p>По запросам пользователей.</p>
 
           
         </td>
@@ -504,7 +775,7 @@ data-event-label="Change to Sources tab"
         <th scope="row">Disaggregation </th>
         <td>
           
-            
+            <p>Агрегация данных по территории : республика,область, район.                                                                                                                                                Агрегация данных по полу : оба пола, мужчины, женщины.</p>
 
           
         </td>
@@ -518,7 +789,7 @@ data-event-label="Change to Sources tab"
         <th scope="row">Comparability with international data/standards </th>
         <td>
           
-            
+            <p>Национальное определение показателя, используемое в статистике, соответствует его международному определению. Кодирование и разработка данных об умерших по причинам смерти производятся органами государственной статистики на основании Международной статистической классификации болезней и причин смерти 10-го пересмотра (МКБ-10) Всемирной организации здравоохранения (ВОЗ), начиная с отчета за 2000г. По соглашению с НСК база данных по смертности передается Центру электронного здравоохранения КР при Министерстве здравоохранения: форма С52 «Смертность населения по причинам смерти» – ежегодно, в июне месяце года, следующего за отчетным годом.</p>
 
           
         </td>
@@ -532,7 +803,7 @@ data-event-label="Change to Sources tab"
         <th scope="row">References and documentation </th>
         <td>
           
-            
+            <p>Ссылки на НПА и методологию: http://www.stat.kg/ru/about/pravovye-osnovy-organov-gosudarstvennoj-statistiki/; https://unstats.un.org/sdgs/metadata/files/Metadata; http://www.stat.kg/ru/statistics/download/methodology/68/.</p>
 
           
         </td>
@@ -546,7 +817,7 @@ data-event-label="Change to Sources tab"
         <th scope="row">Data sources </th>
         <td>
           
-            
+            <p>Источником информации о причинах смерти являются записи в медицинских свидетельствах о смерти, составляемых врачом или средним медицинским персоналом относительно заболевания, несчастного случая, убийства, самоубийства и другого внешнего воздействия, послуживших причиной смерти. Эти документы вместе с актовыми записями о смерти направляются для разработки в органы государственной статистики.</p>
 
           
         </td>
@@ -560,7 +831,7 @@ data-event-label="Change to Sources tab"
         <th scope="row">Data collection methods </th>
         <td>
           
-            
+            <p>Сведения о смертях получаются на основании ежегодной статистической разработки данных, содержащихся в актовых записях о смерти, составляемых органами записи актов гражданского состояния.  Агрегированные данные собираются и обрабатываются областными управлениями статистики и НСК КР.</p>
 
           
         </td>
@@ -731,7 +1002,7 @@ data-event-label="Change to Sources tab"
 <script src="https://cdnjs.cloudflare.com/ajax/libs/autotrack/2.4.1/autotrack.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/html2canvas@1.0.0-rc.3/dist/html2canvas.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/file-saver@2.0.2/dist/FileSaver.min.js"></script>
-<script src='/assets/js/sdg.js?v=20200217105158'></script><script>
+<script src='/assets/js/sdg.js?v=20200219050443'></script><script>
 $(function() {
     if($('#indicatorData').length) {
       var domData = $('#indicatorData').data();

@@ -11,7 +11,7 @@
 var opensdg = {
 
   // A base URL for asynchronous calls to SDG data.
-  remoteDataBaseUrl: 'https://sustainabledevelopment-kyrgyzstan.github.io/sdg-data',
+  remoteDataBaseUrl: 'https://sustainabledevelopment-kyrgyzstan.github.io/sdg-data/en',
 
   // A hook which can be replaced to modify the configuration for Chart.js.
   // To see where this is used, see indicatorView.js createPlot() and updatePlot().
@@ -27,6 +27,8 @@ var opensdg = {
     // Alterations go here.
     return value;
   },
+
+  language: 'en',
 };
 
 // For backwards compatibility, some of these might need to be global.
@@ -120,7 +122,7 @@ var translations = {
         <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css" crossorigin="">
         <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" crossorigin="">
         <link rel="stylesheet" href="https://cdn.datatables.net/fixedcolumns/3.2.3/css/fixedColumns.dataTables.min.css" crossorigin="">
-        <link rel="stylesheet" href="/assets/css/style.css?v=20200217105158">
+        <link rel="stylesheet" href="/assets/css/style.css?v=20200219050443">
         <link href="https://fonts.googleapis.com/css?family=Open+Sans|Roboto" rel="stylesheet" crossorigin="">
         <link rel="stylesheet" href="https://unpkg.com/leaflet@1.3.4/dist/leaflet.css"
           integrity="sha512-puBpdR0798OZvTTbP4A8Ix/l+A4dHDD0DGqYW6RQ+9jxkRFclaxxQb/SJAWZfWAkuyeQUytO7+7N4QKrDh+drA=="
@@ -128,7 +130,7 @@ var translations = {
         <link rel="stylesheet" href="https://cdn.rawgit.com/socib/Leaflet.TimeDimension/master/dist/leaflet.timedimension.control.min.css"  crossorigin=""/>
         <link rel="stylesheet" href='https://api.mapbox.com/mapbox.js/plugins/leaflet-fullscreen/v1.0.1/leaflet.fullscreen.css'  crossorigin=""/>
         <link rel="stylesheet" href="https://bowercdn.net/c/leaflet.zoomhome-latest/dist/leaflet.zoomhome.css"  crossorigin=""/>
-        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet-search@2.9.7/dist/leaflet-search.min.css" crossorigin=""><link rel="stylesheet" href="/assets/css/custom.css?v=20200217105158"><!-- ShareThis BEGIN --><!-- ShareThis END -->
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet-search@2.9.7/dist/leaflet-search.min.css" crossorigin=""><link rel="stylesheet" href="/assets/css/custom.css?v=20200219050443"><!-- ShareThis BEGIN --><!-- ShareThis END -->
 
     </head>
 <body class="language-en layout-goal-by-target">
@@ -184,10 +186,11 @@ var translations = {
   <form action="/en/search">
     <input name="q" id="indicator_search" title="Search" />
     <label for="indicator_search">
-      <button id="search-btn" type="submit"><i class="fa fa-search" aria-hidden="false" aria-label=Search></i></button><span>Search:</span>
+      <button aria-label="Search" id="search-btn" type="submit"><i class="fa fa-search" aria-hidden="false"></i></button><span>Search:</span>
     </label>
   </form>
 </div>
+
       
       <ul class="nav navbar-nav menu-target contrast-switcher" id="menu"><li class="nav-link ">
             <a href="/en/reporting-status">Reporting Status</a>
@@ -280,7 +283,30 @@ var translations = {
               Reported online
             </span>
           </span>
-          Proportion of children and young people achieving a minimum proficiency level in reading and mathematics
+          Proportion of children and young people (a) in grades 2/3; (b) at the end of primary; and (c) at the end of lower secondary achieving at least a minimum proficiency level in (i) reading and (ii) mathematics, by sex
+          
+        </a>
+      </div>
+    
+
+      
+      
+      
+      
+      
+      
+      
+      
+
+      <div class="col-md-12 ">
+        <a href="/en/4-1-1-1-a">
+          <span>
+            4.1.1.1.a
+            <span class="status complete">
+              Reported online
+            </span>
+          </span>
+          4.1.1.1a. Number of children and adolescents 7-17 years old who did not start studies in general education organizations of urban settlements and rural areas, and the territory
           
         </a>
       </div>
@@ -345,7 +371,7 @@ var translations = {
               Reported online
             </span>
           </span>
-          Proportion of children aged 36-59 months who are developmentally on track in at least three of the following domains: literacy-numeracy, physical development, social-emotional development, and learning
+          Proportion of children under 5 years of age who are developmentally on track in health, learning and psychosocial well-being, by sex
           
         </a>
       </div>
@@ -364,11 +390,11 @@ var translations = {
         <a href="/en/4-2-2">
           <span>
             4.2.2
-            <span class="status complete">
-              Reported online
+            <span class="status notstarted">
+              Exploring data sources
             </span>
           </span>
-          
+          Participation rate in organized learning (one year before the official primary entry age), by sex
           
         </a>
       </div>
@@ -403,6 +429,29 @@ var translations = {
         </a>
       </div>
     
+
+      
+      
+      
+      
+      
+      
+      
+      
+
+      <div class="col-md-12 ">
+        <a href="/en/4-2-2-1а">
+          <span>
+            4.2.2.1а
+            <span class="status complete">
+              Reported online
+            </span>
+          </span>
+          4.2.2.1a Proportion of children who receive preschool education
+          
+        </a>
+      </div>
+    
     </div>
   
     
@@ -433,7 +482,7 @@ var translations = {
               Exploring data sources
             </span>
           </span>
-          Participation rate in formal and non-formal education and training
+          Participation rate of youth and adults in formal and non-formal education and training in the previous 12 months, by sex
           
         </a>
       </div>
@@ -452,8 +501,8 @@ var translations = {
         <a href="/en/4-3-1-1">
           <span>
             4.3.1.1
-            <span class="status notstarted">
-              Exploring data sources
+            <span class="status complete">
+              Reported online
             </span>
           </span>
           Доля молодежи, получающая образование
@@ -494,11 +543,11 @@ var translations = {
         <a href="/en/4-4-1">
           <span>
             4.4.1
-            <span class="status notstarted">
-              Exploring data sources
+            <span class="status complete">
+              Reported online
             </span>
           </span>
-          Proportion of youth and adults with information and communications technology (ICT) skills
+          Proportion of youth and adults with information and communications technology (ICT) skills, by type of skill
           
         </a>
       </div>
@@ -533,6 +582,29 @@ var translations = {
         </a>
       </div>
     
+
+      
+      
+      
+      
+      
+      
+      
+      
+
+      <div class="col-md-12 ">
+        <a href="/en/4-4-1-1а">
+          <span>
+            4.4.1.1а
+            <span class="status complete">
+              Reported online
+            </span>
+          </span>
+          4.4.1.1a Number of people who receive training in information and communication technologies (ICT) by sex
+          
+        </a>
+      </div>
+    
     </div>
   
     
@@ -563,7 +635,7 @@ var translations = {
               Exploring data sources
             </span>
           </span>
-          Gender parity index for participation rate in formal and non-formal education and training
+          Parity indices (female/male, rural/urban, bottom/top wealth quintile and others such as disability status, indigenous peoples and conflict-affected, as data become available) for all education indicators on this list that can be disaggregated
           
         </a>
       </div>
@@ -598,7 +670,7 @@ var translations = {
               Exploring data sources
             </span>
           </span>
-          Proportion of population achieving at least a fixed level of proficiency in functional skills
+          Proportion of population in a given age group achieving at least a fixed level of proficiency in functional (a) literacy and (b) numeracy skills, by sex
           
         </a>
       </div>
@@ -633,7 +705,7 @@ var translations = {
               Exploring data sources
             </span>
           </span>
-          
+          Extent to which (i) global citizenship education and (ii) education for sustainable development, including gender equality and human rights, are mainstreamed at all levels in (a) national education policies; (b) curricula; (c) teacher education; and (d) student assessment
           
         </a>
       </div>
@@ -668,7 +740,7 @@ var translations = {
               Exploring data sources
             </span>
           </span>
-          Proportion of schools with access to electricity
+          Proportion of schools with access to (a) electricity; (b) the Internet for pedagogical purposes; (c) computers for pedagogical purposes; (d) adapted infrastructure and materials for students with disabilities; (e) basic drinking water; (f) single-sex basic sanitation facilities; and (g) basic handwashing facilities (as per the WASH indicator definitions)
           
         </a>
       </div>
@@ -703,7 +775,7 @@ var translations = {
               Exploring data sources
             </span>
           </span>
-          Total official flows for scholarships, by recipient countries
+          Volume of official development assistance flows for scholarships by sector and type of study
           
         </a>
       </div>
@@ -768,7 +840,7 @@ var translations = {
               Exploring data sources
             </span>
           </span>
-          Proportion of teachers who have received at least the minimum organized teacher training (e.g. pedagogical training) pre-service or in-service required for teaching at the relevant level in a given country
+          Proportion of teachers in: (a) pre-primary; (b) primary; (c) lower secondary; and (d) upper secondary education who have received at least the minimum organized teacher training (e.g. pedagogical training) pre-service or in-service required for teaching at the relevant level in a given country
           
         </a>
       </div>
@@ -799,6 +871,76 @@ var translations = {
               <li class="tag-custom-national warning">National</li>
             
             </ul>
+          
+        </a>
+      </div>
+    
+    </div>
+  
+    
+    <div class="indicator-cards target col-md-6">
+      <span>
+        <label class="hidden-md hidden-lg">Target</label>
+        4.а
+      </span>
+      global_targets.4-а-title
+    </div>
+    <div class="indicator-cards col-md-6 row no-gutters">
+    
+
+      
+      
+      
+      
+      
+      
+      
+      
+
+      <div class="col-md-12 ">
+        <a href="/en/4-а-1">
+          <span>
+            4.а.1
+            <span class="status notstarted">
+              Exploring data sources
+            </span>
+          </span>
+          
+          
+        </a>
+      </div>
+    
+    </div>
+  
+    
+    <div class="indicator-cards target col-md-6">
+      <span>
+        <label class="hidden-md hidden-lg">Target</label>
+        4.с
+      </span>
+      global_targets.4-с-title
+    </div>
+    <div class="indicator-cards col-md-6 row no-gutters">
+    
+
+      
+      
+      
+      
+      
+      
+      
+      
+
+      <div class="col-md-12 ">
+        <a href="/en/4-с-1">
+          <span>
+            4.с.1
+            <span class="status notstarted">
+              Exploring data sources
+            </span>
+          </span>
+          
           
         </a>
       </div>
@@ -860,7 +1002,7 @@ var translations = {
 <script src="https://cdnjs.cloudflare.com/ajax/libs/autotrack/2.4.1/autotrack.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/html2canvas@1.0.0-rc.3/dist/html2canvas.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/file-saver@2.0.2/dist/FileSaver.min.js"></script>
-<script src='/assets/js/sdg.js?v=20200217105158'></script><script>
+<script src='/assets/js/sdg.js?v=20200219050443'></script><script>
 $(function() {
     if($('#indicatorData').length) {
       var domData = $('#indicatorData').data();

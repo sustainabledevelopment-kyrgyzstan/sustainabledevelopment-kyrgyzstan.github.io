@@ -11,7 +11,7 @@
 var opensdg = {
 
   // A base URL for asynchronous calls to SDG data.
-  remoteDataBaseUrl: 'https://sustainabledevelopment-kyrgyzstan.github.io/sdg-data',
+  remoteDataBaseUrl: 'https://sustainabledevelopment-kyrgyzstan.github.io/sdg-data/ru',
 
   // A hook which can be replaced to modify the configuration for Chart.js.
   // To see where this is used, see indicatorView.js createPlot() and updatePlot().
@@ -27,6 +27,8 @@ var opensdg = {
     // Alterations go here.
     return value;
   },
+
+  language: 'ru',
 };
 
 // For backwards compatibility, some of these might need to be global.
@@ -120,7 +122,7 @@ var translations = {
         <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css" crossorigin="">
         <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" crossorigin="">
         <link rel="stylesheet" href="https://cdn.datatables.net/fixedcolumns/3.2.3/css/fixedColumns.dataTables.min.css" crossorigin="">
-        <link rel="stylesheet" href="/assets/css/style.css?v=20200217105158">
+        <link rel="stylesheet" href="/assets/css/style.css?v=20200219050443">
         <link href="https://fonts.googleapis.com/css?family=Open+Sans|Roboto" rel="stylesheet" crossorigin="">
         <link rel="stylesheet" href="https://unpkg.com/leaflet@1.3.4/dist/leaflet.css"
           integrity="sha512-puBpdR0798OZvTTbP4A8Ix/l+A4dHDD0DGqYW6RQ+9jxkRFclaxxQb/SJAWZfWAkuyeQUytO7+7N4QKrDh+drA=="
@@ -128,7 +130,7 @@ var translations = {
         <link rel="stylesheet" href="https://cdn.rawgit.com/socib/Leaflet.TimeDimension/master/dist/leaflet.timedimension.control.min.css"  crossorigin=""/>
         <link rel="stylesheet" href='https://api.mapbox.com/mapbox.js/plugins/leaflet-fullscreen/v1.0.1/leaflet.fullscreen.css'  crossorigin=""/>
         <link rel="stylesheet" href="https://bowercdn.net/c/leaflet.zoomhome-latest/dist/leaflet.zoomhome.css"  crossorigin=""/>
-        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet-search@2.9.7/dist/leaflet-search.min.css" crossorigin=""><link rel="stylesheet" href="/assets/css/custom.css?v=20200217105158"><!-- ShareThis BEGIN --><!-- ShareThis END -->
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet-search@2.9.7/dist/leaflet-search.min.css" crossorigin=""><link rel="stylesheet" href="/assets/css/custom.css?v=20200219050443"><!-- ShareThis BEGIN --><!-- ShareThis END -->
 
     </head>
 <body class="language-ru layout-goal-by-target">
@@ -184,10 +186,11 @@ var translations = {
   <form action="/search">
     <input name="q" id="indicator_search" title="Поиск" />
     <label for="indicator_search">
-      <button id="search-btn" type="submit"><i class="fa fa-search" aria-hidden="false" aria-label=Поиск></i></button><span>Поиск:</span>
+      <button aria-label="Поиск" id="search-btn" type="submit"><i class="fa fa-search" aria-hidden="false"></i></button><span>Поиск:</span>
     </label>
   </form>
 </div>
+
       
       <ul class="nav navbar-nav menu-target contrast-switcher" id="menu"><li class="nav-link ">
             <a href="/reporting-status">Состояние отчётности</a>
@@ -279,11 +282,14 @@ var translations = {
         <a href="/10-1-1">
           <span>
             10.1.1
-            <span class="status notstarted">
-              В процессе разработки
+            <span class="status complete">
+              Опубликован
             </span>
           </span>
-          Growth rates of household expenditure or income per capita
+          Темпы роста расходов домохозяйств или доходов
+на душу населения среди наименее обеспеченных
+40 процентов населения и среди населения в целом
+
           
         </a>
       </div>
@@ -323,7 +329,9 @@ var translations = {
               В процессе разработки
             </span>
           </span>
-          Proportion of people living below 50 percent of median income
+          Доля людей с доходом ниже 50 процентов
+медианного дохода в разбивке по полу, возрасту и
+признаку инвалидности
           
         </a>
       </div>
@@ -358,11 +366,15 @@ var translations = {
         <a href="/10-3-1">
           <span>
             10.3.1
-            <span class="status complete">
-              Опубликован
+            <span class="status notstarted">
+              В процессе разработки
             </span>
           </span>
-          Proportion of population reporting having personally felt discriminated against or harassed in the previous 12 months on the basis of a ground of discrimination prohibited under international human rights law
+          Доля людей, сообщивших об испытанных
+ими лично в последние 12 месяцев проявлениях дискриминации
+или преследованиях на основании, дискриминация
+на котором запрещена международным
+правом прав человека
           
         </a>
       </div>
@@ -400,7 +412,9 @@ var translations = {
               В процессе разработки
             </span>
           </span>
-          Labour share of GDP, comprising wages and social protection transfers
+          Доля доходов трудящихся в ВВП, в том
+числе заработная плата и выплаты по линии социальной
+защиты
           
         </a>
       </div>
@@ -438,7 +452,30 @@ var translations = {
               В процессе разработки
             </span>
           </span>
-          Non-performing loans to total gross loans (%)
+          Показатели финансовой устойчивости
+          
+        </a>
+      </div>
+    
+
+      
+      
+      
+      
+      
+      
+      
+      
+
+      <div class="col-md-12 ">
+        <a href="/10-5-1-1">
+          <span>
+            10.5.1.1
+            <span class="status notstarted">
+              В процессе разработки
+            </span>
+          </span>
+          
           
         </a>
       </div>
@@ -478,7 +515,10 @@ var translations = {
               В процессе разработки
             </span>
           </span>
-          Proportion of members of developing countries in international organizations, by organization
+          Доля развивающихся стран в членском составе
+международных организаций и удельный вес
+их голосов
+
           
         </a>
       </div>
@@ -516,7 +556,8 @@ var translations = {
               В процессе разработки
             </span>
           </span>
-          Recruitment cost borne by employee as a proportion of yearly income earned in country of destination
+          Затраты работника на трудоустройство в процентах
+от его годового дохода в стране назначения
           
         </a>
       </div>
@@ -539,7 +580,8 @@ var translations = {
               В процессе разработки
             </span>
           </span>
-          Number of countries that have implemented well-managed migration policies
+          Число стран, проводящих хорошо продуманную
+миграционную политику
           
         </a>
       </div>
@@ -577,7 +619,9 @@ var translations = {
               В процессе разработки
             </span>
           </span>
-          Proportion of tariff lines applied to imports with zero-tariff
+          Доля товарных позиций наименее развитых
+стран и развивающихся стран, к которым применяются
+нулевые тарифы
           
         </a>
       </div>
@@ -619,7 +663,11 @@ var translations = {
               В процессе разработки
             </span>
           </span>
-          Total assistance for development, by donor countries
+          Совокупный объем потоков ресурсов в целях
+развития в разбивке по странам-получателям и странам-донорам
+и видам потоков (например, официальная
+помощь в целях развития, прямые иностранные
+инвестиции и прочие финансовые потоки)
           
         </a>
       </div>
@@ -658,7 +706,9 @@ var translations = {
               В процессе разработки
             </span>
           </span>
-          Remittance costs as a proportion of the amount remitted
+          Стоимость перевода в процентном отношении
+к переводимой сумме
+
           
         </a>
       </div>
@@ -720,7 +770,7 @@ var translations = {
 <script src="https://cdnjs.cloudflare.com/ajax/libs/autotrack/2.4.1/autotrack.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/html2canvas@1.0.0-rc.3/dist/html2canvas.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/file-saver@2.0.2/dist/FileSaver.min.js"></script>
-<script src='/assets/js/sdg.js?v=20200217105158'></script><script>
+<script src='/assets/js/sdg.js?v=20200219050443'></script><script>
 $(function() {
     if($('#indicatorData').length) {
       var domData = $('#indicatorData').data();

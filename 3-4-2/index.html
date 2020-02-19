@@ -11,7 +11,7 @@
 var opensdg = {
 
   // A base URL for asynchronous calls to SDG data.
-  remoteDataBaseUrl: 'https://sustainabledevelopment-kyrgyzstan.github.io/sdg-data',
+  remoteDataBaseUrl: 'https://sustainabledevelopment-kyrgyzstan.github.io/sdg-data/ru',
 
   // A hook which can be replaced to modify the configuration for Chart.js.
   // To see where this is used, see indicatorView.js createPlot() and updatePlot().
@@ -27,6 +27,8 @@ var opensdg = {
     // Alterations go here.
     return value;
   },
+
+  language: 'ru',
 };
 
 // For backwards compatibility, some of these might need to be global.
@@ -120,7 +122,7 @@ var translations = {
         <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css" crossorigin="">
         <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" crossorigin="">
         <link rel="stylesheet" href="https://cdn.datatables.net/fixedcolumns/3.2.3/css/fixedColumns.dataTables.min.css" crossorigin="">
-        <link rel="stylesheet" href="/assets/css/style.css?v=20200217105158">
+        <link rel="stylesheet" href="/assets/css/style.css?v=20200219050443">
         <link href="https://fonts.googleapis.com/css?family=Open+Sans|Roboto" rel="stylesheet" crossorigin="">
         <link rel="stylesheet" href="https://unpkg.com/leaflet@1.3.4/dist/leaflet.css"
           integrity="sha512-puBpdR0798OZvTTbP4A8Ix/l+A4dHDD0DGqYW6RQ+9jxkRFclaxxQb/SJAWZfWAkuyeQUytO7+7N4QKrDh+drA=="
@@ -128,7 +130,7 @@ var translations = {
         <link rel="stylesheet" href="https://cdn.rawgit.com/socib/Leaflet.TimeDimension/master/dist/leaflet.timedimension.control.min.css"  crossorigin=""/>
         <link rel="stylesheet" href='https://api.mapbox.com/mapbox.js/plugins/leaflet-fullscreen/v1.0.1/leaflet.fullscreen.css'  crossorigin=""/>
         <link rel="stylesheet" href="https://bowercdn.net/c/leaflet.zoomhome-latest/dist/leaflet.zoomhome.css"  crossorigin=""/>
-        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet-search@2.9.7/dist/leaflet-search.min.css" crossorigin=""><link rel="stylesheet" href="/assets/css/custom.css?v=20200217105158"><!-- ShareThis BEGIN --><!-- ShareThis END -->
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet-search@2.9.7/dist/leaflet-search.min.css" crossorigin=""><link rel="stylesheet" href="/assets/css/custom.css?v=20200219050443"><!-- ShareThis BEGIN --><!-- ShareThis END -->
 
     </head>
 <body class="language-ru layout-indicator">
@@ -184,10 +186,11 @@ var translations = {
   <form action="/search">
     <input name="q" id="indicator_search" title="Поиск" />
     <label for="indicator_search">
-      <button id="search-btn" type="submit"><i class="fa fa-search" aria-hidden="false" aria-label=Поиск></i></button><span>Поиск:</span>
+      <button aria-label="Поиск" id="search-btn" type="submit"><i class="fa fa-search" aria-hidden="false"></i></button><span>Поиск:</span>
     </label>
   </form>
 </div>
+
       
       <ul class="nav navbar-nav menu-target contrast-switcher" id="menu"><li class="nav-link ">
             <a href="/reporting-status">Состояние отчётности</a>
@@ -275,7 +278,7 @@ var translations = {
 в любом возрасте
           </a>
         </h1>
-        <h2>Показатель 3.4.2: Suicide mortality rate</h2>
+        <h2>Показатель 3.4.2: Смертность от самоубийств</h2>
       </div>
     </div>
   </div>
@@ -334,13 +337,14 @@ var translations = {
       
       
 
+
 <div id="headlineTable">
 
   <div id="datatables">
 
-    <a href="https://sustainabledevelopment-kyrgyzstan.github.io/sdg-data/headline/3-4-2.csv" class="btn btn-primary btn-download" download="indicator_3-4-2.csv" tabindex="0" role="button">Скачать заголовки CSV</a>
+    <a href="https://sustainabledevelopment-kyrgyzstan.github.io/sdg-data/ru/headline/3-4-2.csv" class="btn btn-primary btn-download" download="indicator_3-4-2.csv" tabindex="0" role="button">Скачать заголовки CSV</a>
 
-    <a href="https://sustainabledevelopment-kyrgyzstan.github.io/sdg-data/data/3-4-2.csv" class="btn btn-primary btn-download" style='float:left;margin-right:1em' download='indicator_3-4-2.csv' tabindex='0' role='button'>Скачать исходные CSV</a>
+    <a href="https://sustainabledevelopment-kyrgyzstan.github.io/sdg-data/ru/data/3-4-2.csv" class="btn btn-primary btn-download" style='float:left;margin-right:1em' download='indicator_3-4-2.csv' tabindex='0' role='button'>Скачать исходные CSV</a>
 
     <h3>Headline data</h3>
     <table class="table-responsive table table-hover dataTable no-footer" role="grid">
@@ -365,7 +369,7 @@ var translations = {
           
           
           
-          <td class="table-value">92.0</td>
+          <td class="table-value">9.2</td>
           
           
         </tr>
@@ -377,7 +381,7 @@ var translations = {
           
           
           
-          <td class="table-value">89.0</td>
+          <td class="table-value">8.9</td>
           
           
         </tr>
@@ -389,7 +393,7 @@ var translations = {
           
           
           
-          <td class="table-value">85.0</td>
+          <td class="table-value">8.5</td>
           
           
         </tr>
@@ -401,7 +405,7 @@ var translations = {
           
           
           
-          <td class="table-value">92.0</td>
+          <td class="table-value">9.2</td>
           
           
         </tr>
@@ -413,7 +417,7 @@ var translations = {
           
           
           
-          <td class="table-value">85.0</td>
+          <td class="table-value">8.5</td>
           
           
         </tr>
@@ -425,7 +429,7 @@ var translations = {
           
           
           
-          <td class="table-value">93.0</td>
+          <td class="table-value">9.3</td>
           
           
         </tr>
@@ -437,7 +441,7 @@ var translations = {
           
           
           
-          <td class="table-value">78.0</td>
+          <td class="table-value">7.8</td>
           
           
         </tr>
@@ -449,7 +453,7 @@ var translations = {
           
           
           
-          <td class="table-value">79.0</td>
+          <td class="table-value">7.9</td>
           
           
         </tr>
@@ -461,7 +465,7 @@ var translations = {
           
           
           
-          <td class="table-value">70.0</td>
+          <td class="table-value">7.0</td>
           
           
         </tr>
@@ -473,7 +477,7 @@ var translations = {
           
           
           
-          <td class="table-value">69.0</td>
+          <td class="table-value">6.9</td>
           
           
         </tr>
@@ -497,7 +501,7 @@ var translations = {
           
           
           
-          <td class="table-value">60.0</td>
+          <td class="table-value">6.0</td>
           
           
         </tr>
@@ -675,7 +679,7 @@ data-event-label="Change to Sources tab"
         <th scope="row">Определения </th>
         <td>
           
-            
+            <p>Уровень смертности, связанный с самоубийствами (преднамеренным самоповреждением).</p>
 
           
         </td>
@@ -689,7 +693,7 @@ data-event-label="Change to Sources tab"
         <th scope="row">Основные понятия </th>
         <td>
           
-            
+            <p>Смертность населения - процесс вымирания поколения, один из двух главных подпроцессов воспроизводства населения. Причины смерти - это болезни, патологические состояния или травмы, которые привели к смерти или способствовали ее наступлению, а также обстоятельства несчастного случая или акта насилия, которые вызвали травму со смертельным исходом. Кодирование причин смерти производится с 2000г. на основании Международной статистической классификации болезней и причин смерти 10-го пересмотра Всемирной организации здравоохранения (МКБ-10).</p>
 
           
         </td>
@@ -703,7 +707,7 @@ data-event-label="Change to Sources tab"
         <th scope="row">Обоснование и толкование </th>
         <td>
           
-            
+            <p>Анализ данного показателя позволяет оценить эффективность проводимых профилактических мероприятий в отношении самоубийств. Уровень данного показателя также используется для оценки здоровья населения в целом и качества лечебнопрофилактического обслуживания населения.</p>
 
           
         </td>
@@ -717,7 +721,7 @@ data-event-label="Change to Sources tab"
         <th scope="row">Метод расчета </th>
         <td>
           
-            
+            <p>Отношение числа умерших от самоубийств к среднегодовой численности постоянного населения по текущей оценке. Рассчитывается на 100 000 населения.</p>
 
           
         </td>
@@ -731,7 +735,7 @@ data-event-label="Change to Sources tab"
         <th scope="row">Комментарий и ограничения </th>
         <td>
           
-            
+            <p>Полная запись смертей от самоубийств в системах регистрации смерти требует хороших связей с силовыми струтурами, однако ей могут серьезно препятствовать стигматизация, социальные и правовые соображения и задержки в определении причины смерти.</p>
 
           
         </td>
@@ -745,7 +749,7 @@ data-event-label="Change to Sources tab"
         <th scope="row">Гарантия качества </th>
         <td>
           
-            
+            <p>Проводится логический и арифметический контроль отчетных данных. Процедура проверки правильности данных в актовых записях о смерти осуществляется путем логического контроля, заложенного в программном обеспечении по вводу и разработке данных. Корректировка проставленных кодов причин смерти на соответствие диагнозам, записанным в актовой записи о смерти, согласно МКБ-10. Анализ выходных таблиц по причинам смерти.</p>
 
           
         </td>
@@ -759,7 +763,7 @@ data-event-label="Change to Sources tab"
         <th scope="row">Доступность данных и пробелы </th>
         <td>
           
-            
+            <p>Данные по смертности от самоубийств публикуются в статистических сборниках “Женщины и мужчины КР”,  “Социальные тенденции КР”,  “Статистический ежегодник КР”, “Кыргызстан в цифрах”, размещаются на сайте НСК.</p>
 
           
         </td>
@@ -773,7 +777,7 @@ data-event-label="Change to Sources tab"
         <th scope="row">Разбивка </th>
         <td>
           
-            
+            <p>Агрегация данных по территории : республика,область, район.                                                                                                                                                Агрегация данных по полу : оба пола, мужчины, женщины.</p>
 
           
         </td>
@@ -787,7 +791,7 @@ data-event-label="Change to Sources tab"
         <th scope="row">Сопоставимость с международными данными/стандартами </th>
         <td>
           
-            
+            <p>Национальное определение показателя, используемое в статистике, соответствует его международному определению. Кодирование и разработка данных об умерших по причинам смерти производятся органами государственной статистики на основании Международной статистической классификации болезней и причин смерти 10-го пересмотра (МКБ-10) Всемирной организации здравоохранения (ВОЗ), начиная с отчета за 2000г. По соглашению с НСК база данных по смертности передается Центру электронного здравоохранения КР при Министерстве здравоохранения: форма 2 «Сведения о числе родившихся, браков, разводов и умерших по причинам смерти» – ежемесячно, с отставанием на 1,5 мес. от отчетного месяца и форма С52 «Смертность населения по причинам смерти» – ежегодно, в июне месяце года, следующего за отчетным годом.</p>
 
           
         </td>
@@ -801,7 +805,7 @@ data-event-label="Change to Sources tab"
         <th scope="row">Ссылки и документация </th>
         <td>
           
-            
+            <p>Ссылки на НПА и методологию: http://www.stat.kg/ru/about/pravovye-osnovy-organov-gosudarstvennoj-statistiki/; https://unstats.un.org/sdgs/metadata/files/Metadata; http://www.stat.kg/ru/statistics/download/methodology/68/. Статистические публикации НСК: ежемесячный доклад «Социально-экономическое положение КР», статистические сборники: «Социальные тенденции КР», «Женщины и мужчины КР», «Здоровье населения и здравоохранение в КР» на официальном сайте НСК КР: http://www.stat.kg/ru/publications/</p>
 
           
         </td>
@@ -815,7 +819,7 @@ data-event-label="Change to Sources tab"
         <th scope="row">Источники данных </th>
         <td>
           
-            
+            <p>Источником информации о причинах смерти являются записи в медицинских свидетельствах о смерти, составляемых врачом или средним медицинским персоналом относительно заболевания, несчастного случая, убийства, самоубийства и другого внешнего воздействия, послуживших причиной смерти. Эти документы вместе с Записи актов гражданского состояния о смерти, составляемыми в органах ЗАГС (находятся в подчинении Государственной регистрационной службы при Правительстве КР), направляются для разработки в органы статистики. Из указанных в них заболеваний для статистических целей выбирается одно – основное (начальное), т.е. болезнь или травма, вызвавшая события, прямо приведшие к смерти. Агрегированные данные собираются и обрабатываются   областными управлениями статистики и НСК.</p>
 
           
         </td>
@@ -829,7 +833,7 @@ data-event-label="Change to Sources tab"
         <th scope="row">Методы сбора данных </th>
         <td>
           
-            
+            <p>Сведения о смертях получаются на основании ежегодной статистической разработки данных, содержащихся в актовых записях о смерти, составляемых органами записи актов гражданского состояния.  Агрегированные данные собираются и обрабатываются областными управлениями статистики и НСК КР.</p>
 
           
         </td>
@@ -1000,7 +1004,7 @@ data-event-label="Change to Sources tab"
 <script src="https://cdnjs.cloudflare.com/ajax/libs/autotrack/2.4.1/autotrack.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/html2canvas@1.0.0-rc.3/dist/html2canvas.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/file-saver@2.0.2/dist/FileSaver.min.js"></script>
-<script src='/assets/js/sdg.js?v=20200217105158'></script><script>
+<script src='/assets/js/sdg.js?v=20200219050443'></script><script>
 $(function() {
     if($('#indicatorData').length) {
       var domData = $('#indicatorData').data();

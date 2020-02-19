@@ -11,7 +11,7 @@
 var opensdg = {
 
   // A base URL for asynchronous calls to SDG data.
-  remoteDataBaseUrl: 'https://sustainabledevelopment-kyrgyzstan.github.io/sdg-data',
+  remoteDataBaseUrl: 'https://sustainabledevelopment-kyrgyzstan.github.io/sdg-data/ru',
 
   // A hook which can be replaced to modify the configuration for Chart.js.
   // To see where this is used, see indicatorView.js createPlot() and updatePlot().
@@ -27,6 +27,8 @@ var opensdg = {
     // Alterations go here.
     return value;
   },
+
+  language: 'ru',
 };
 
 // For backwards compatibility, some of these might need to be global.
@@ -120,7 +122,7 @@ var translations = {
         <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css" crossorigin="">
         <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" crossorigin="">
         <link rel="stylesheet" href="https://cdn.datatables.net/fixedcolumns/3.2.3/css/fixedColumns.dataTables.min.css" crossorigin="">
-        <link rel="stylesheet" href="/assets/css/style.css?v=20200217105158">
+        <link rel="stylesheet" href="/assets/css/style.css?v=20200219050443">
         <link href="https://fonts.googleapis.com/css?family=Open+Sans|Roboto" rel="stylesheet" crossorigin="">
         <link rel="stylesheet" href="https://unpkg.com/leaflet@1.3.4/dist/leaflet.css"
           integrity="sha512-puBpdR0798OZvTTbP4A8Ix/l+A4dHDD0DGqYW6RQ+9jxkRFclaxxQb/SJAWZfWAkuyeQUytO7+7N4QKrDh+drA=="
@@ -128,7 +130,7 @@ var translations = {
         <link rel="stylesheet" href="https://cdn.rawgit.com/socib/Leaflet.TimeDimension/master/dist/leaflet.timedimension.control.min.css"  crossorigin=""/>
         <link rel="stylesheet" href='https://api.mapbox.com/mapbox.js/plugins/leaflet-fullscreen/v1.0.1/leaflet.fullscreen.css'  crossorigin=""/>
         <link rel="stylesheet" href="https://bowercdn.net/c/leaflet.zoomhome-latest/dist/leaflet.zoomhome.css"  crossorigin=""/>
-        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet-search@2.9.7/dist/leaflet-search.min.css" crossorigin=""><link rel="stylesheet" href="/assets/css/custom.css?v=20200217105158"><!-- ShareThis BEGIN --><!-- ShareThis END -->
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet-search@2.9.7/dist/leaflet-search.min.css" crossorigin=""><link rel="stylesheet" href="/assets/css/custom.css?v=20200219050443"><!-- ShareThis BEGIN --><!-- ShareThis END -->
 
     </head>
 <body class="language-ru layout-indicator">
@@ -184,10 +186,11 @@ var translations = {
   <form action="/search">
     <input name="q" id="indicator_search" title="Поиск" />
     <label for="indicator_search">
-      <button id="search-btn" type="submit"><i class="fa fa-search" aria-hidden="false" aria-label=Поиск></i></button><span>Поиск:</span>
+      <button aria-label="Поиск" id="search-btn" type="submit"><i class="fa fa-search" aria-hidden="false"></i></button><span>Поиск:</span>
     </label>
   </form>
 </div>
+
       
       <ul class="nav navbar-nav menu-target contrast-switcher" id="menu"><li class="nav-link ">
             <a href="/reporting-status">Состояние отчётности</a>
@@ -275,7 +278,10 @@ var translations = {
 в любом возрасте
           </a>
         </h1>
-        <h2>Показатель 3.7.2: Adolescent birth rate (per 1,000 women aged 15-19 years)</h2>
+        <h2>Показатель 3.7.2: Показатель рождаемости среди девушек-подростков
+(в возрасте от 10 до 14 лет; в возрасте от 15
+до 19 лет) на 1000 женщин в данной возрастной
+группе</h2>
       </div>
     </div>
   </div>
@@ -337,13 +343,14 @@ var translations = {
       
       
 
+
 <div id="headlineTable">
 
   <div id="datatables">
 
-    <a href="https://sustainabledevelopment-kyrgyzstan.github.io/sdg-data/headline/3-7-2.csv" class="btn btn-primary btn-download" download="indicator_3-7-2.csv" tabindex="0" role="button">Скачать заголовки CSV</a>
+    <a href="https://sustainabledevelopment-kyrgyzstan.github.io/sdg-data/ru/headline/3-7-2.csv" class="btn btn-primary btn-download" download="indicator_3-7-2.csv" tabindex="0" role="button">Скачать заголовки CSV</a>
 
-    <a href="https://sustainabledevelopment-kyrgyzstan.github.io/sdg-data/data/3-7-2.csv" class="btn btn-primary btn-download" style='float:left;margin-right:1em' download='indicator_3-7-2.csv' tabindex='0' role='button'>Скачать исходные CSV</a>
+    <a href="https://sustainabledevelopment-kyrgyzstan.github.io/sdg-data/ru/data/3-7-2.csv" class="btn btn-primary btn-download" style='float:left;margin-right:1em' download='indicator_3-7-2.csv' tabindex='0' role='button'>Скачать исходные CSV</a>
 
     <h3>Headline data</h3>
     <table class="table-responsive table table-hover dataTable no-footer" role="grid">
@@ -371,7 +378,7 @@ var translations = {
           
           
           
-          <td class="table-value">295.0</td>
+          <td class="table-value">29.5</td>
           
           
         </tr>
@@ -383,7 +390,7 @@ var translations = {
           
           
           
-          <td class="table-value">301.0</td>
+          <td class="table-value">30.1</td>
           
           
         </tr>
@@ -395,7 +402,7 @@ var translations = {
           
           
           
-          <td class="table-value">312.0</td>
+          <td class="table-value">31.2</td>
           
           
         </tr>
@@ -407,7 +414,7 @@ var translations = {
           
           
           
-          <td class="table-value">341.0</td>
+          <td class="table-value">34.1</td>
           
           
         </tr>
@@ -419,7 +426,7 @@ var translations = {
           
           
           
-          <td class="table-value">414.0</td>
+          <td class="table-value">41.4</td>
           
           
         </tr>
@@ -431,7 +438,7 @@ var translations = {
           
           
           
-          <td class="table-value">421.0</td>
+          <td class="table-value">42.1</td>
           
           
         </tr>
@@ -443,7 +450,7 @@ var translations = {
           
           
           
-          <td class="table-value">419.0</td>
+          <td class="table-value">41.9</td>
           
           
         </tr>
@@ -455,7 +462,7 @@ var translations = {
           
           
           
-          <td class="table-value">433.0</td>
+          <td class="table-value">43.3</td>
           
           
         </tr>
@@ -467,7 +474,7 @@ var translations = {
           
           
           
-          <td class="table-value">397.0</td>
+          <td class="table-value">39.7</td>
           
           
         </tr>
@@ -479,7 +486,7 @@ var translations = {
           
           
           
-          <td class="table-value">386.0</td>
+          <td class="table-value">38.6</td>
           
           
         </tr>
@@ -491,7 +498,7 @@ var translations = {
           
           
           
-          <td class="table-value">339.0</td>
+          <td class="table-value">33.9</td>
           
           
         </tr>
@@ -503,7 +510,7 @@ var translations = {
           
           
           
-          <td class="table-value">359.0</td>
+          <td class="table-value">35.9</td>
           
           
         </tr>
@@ -684,7 +691,7 @@ data-event-label="Change to Sources tab"
         <th scope="row">Определения </th>
         <td>
           
-            
+            <p>Ежегодное число рождений у женщин в возрасте 15-19 лет на 1000 женщин соответствующей возрастной группы.</p>
 
           
         </td>
@@ -698,7 +705,7 @@ data-event-label="Change to Sources tab"
         <th scope="row">Основные понятия </th>
         <td>
           
-            
+            <p>Рождаемость - процесс, который определяется частотой и характеристиками деторождений (возраст матери, очередность рождения и др.) в данном населении.Уровень рождаемости среди подростков представляет собой риск деторождения среди женщин в конкретной возрастной группе. Коэффициент подростковой рождаемости среди женщин в возрасте 15-19 лет также называется коэффициентом возрастной фертильности среди женщин в возрасте 15-19 лет..</p>
 
           
         </td>
@@ -712,7 +719,7 @@ data-event-label="Change to Sources tab"
         <th scope="row">Обоснование и толкование </th>
         <td>
           
-            
+            <p>Анализ показателя позволяет оценить уровень эффективности государственной политики в области охраны материнства и детства в республике, поскольку уровень медицинской помощи беременным и родильницам определяет судьбу и здоровье будущих поколений. Сокращение подростковой фертильности и устранение многочисленных факторов, лежащих в ее основе, имеют важное значение для улучшения сексуального и репродуктивного здоровья и социально-экономического благосостояния подростков. В литературе широко признается, что женщины, забеременевшие и родившие очень рано в своей репродуктивной жизни, подвергаются более высокому риску осложнений или даже смерти во время беременности и родов, а их дети также являются более уязвимыми. Поэтому профилактика деторождения на самых ранних этапах жизни женщины является важной мерой по улучшению материнского здоровья и снижению младенческой смертности. Кроме того, женщины, имеющие детей в раннем возрасте, сталкиваются с ограничением своих возможностей в социально-экономическом развитии, особенно в силу того, что молодые матери вряд ли будут продолжать учиться и, если им необходимо работать, то может быть особенно трудно совмещать семейные и трудовые обязанности. Коэффициент рождаемости среди подростков также дает косвенные данные о доступе к соответствующим медицинским услугам, поскольку молодые люди, и в частности незамужние женщины-подростки, часто сталкиваются с трудностями в доступе к услугам в области сексуального и репродуктивного здоровья.</p>
 
           
         </td>
@@ -726,7 +733,7 @@ data-event-label="Change to Sources tab"
         <th scope="row">Метод расчета </th>
         <td>
           
-            
+            <p>Коэффициент рождаемости среди подростков рассчитывается как отношение. Числителем является число живорождений у женщин в возрасте 15-19 лет, а знаменателем - оценка подверженности деторождению женщин в возрасте 15-19 лет.</p>
 
           
         </td>
@@ -740,7 +747,7 @@ data-event-label="Change to Sources tab"
         <th scope="row">Комментарий и ограничения </th>
         <td>
           
-            
+            <p>По оценке экспертов охват системы регистрации актов гражданского состояния считается удовлетворительным, но нуждается в совершенствовании, т.к. основана на использовании бумажных носителей. С декабря 2014г. начала функционировать автоматизированная электронная истема АИС “ЗАГС”, как один из компонентов информационных систем ГРС. Однако, в органы статистики данные поступают на бумажных носителях и затем вводятся в специальное программное обеспечение сотрудниками статорганов, что иногда приводит к ошибкам, пропускам данных. В ближайшей перспективе (до конца 2019г.) одним из источников статистических данных о населении станет база данных по естественному и миграционному движению населения, создаваемая на основе данных ГРС.</p>
 
           
         </td>
@@ -754,7 +761,7 @@ data-event-label="Change to Sources tab"
         <th scope="row">Гарантия качества </th>
         <td>
           
-            
+            <p>Проводится логический и арифметический контроль отчетных данных. Процедура проверки правильности данных в актовых записях осуществляется путем логического контроля, заложенного в программном обеспечении по вводу и разработке данных.</p>
 
           
         </td>
@@ -768,7 +775,7 @@ data-event-label="Change to Sources tab"
         <th scope="row">Доступность данных и пробелы </th>
         <td>
           
-            
+            <p>Данные распространяются в статистических публикациях НСК: статистических сборниках «Статистический ежегодник КР», «Социальные тенденции КР», тематических сборниках «Демографический ежегодник КР», «Женщины и мужчины КР», «Здоровье населения и здравоохранение в КР», «Молодежь в КР». Информация также публикуется на официальном сайте НСК КР: http://www.stat.kg/ru/publications/</p>
 
           
         </td>
@@ -782,7 +789,7 @@ data-event-label="Change to Sources tab"
         <th scope="row">Разбивка </th>
         <td>
           
-            
+            <p>Агрегация данных по територии :Показатель рассчитывается по территории и регионам (Республика, области, г.Бишкек, г.Ош) на ежегодной основе. Сведения о рождаемости предоставляются НСК после 15 марта каждого года.</p>
 
           
         </td>
@@ -796,7 +803,7 @@ data-event-label="Change to Sources tab"
         <th scope="row">Сопоставимость с международными данными/стандартами </th>
         <td>
           
-            
+            <p>Национальное определение показателя, используемое в статистике, соответствует его международному определению. С 2004г. в Кыргызстане введены критерии ВОЗ, т.о. регистрации подлежат все случаи рождения новорожденных с массой тела 500г и выше и с гестационным сроком (сроком беременности) 22 недели и выше. Основанием для регистрации ребенка является медицинское свидетельство о рождении ребенка (форма 103/у Минздрава) и заявление о рождении, которое делается в письменной форме родителями или одним из них (в случае, если родители не имеют возможности лично заявить о рождении ребенка, это заявление может быть сделано родственниками либо администрацией медицинской организации, в которой находилась мать при рождении ребенка). Медицинское свидетельство о рождении выдается родильным домом или больницей, установившей факт и время рождения ребенка.</p>
 
           
         </td>
@@ -810,7 +817,7 @@ data-event-label="Change to Sources tab"
         <th scope="row">Ссылки и документация </th>
         <td>
           
-            
+            <p>Ссылки на НПА и методологию: http://www.stat.kg/ru/about/pravovye-osnovy-organov-gosudarstvennoj-statistiki/; https://unstats.un.org/sdgs/metadata/files/Metadata; http://www.stat.kg/ru/statistics/download/methodology/68/. Статистические публикации НСК: ежемесячный доклад «Социально-экономическое положение КР», статистические сборники «Демографический ежегодник КР», «Социальные тенденции КР», «Женщины и мужчины КР», “Уровень жизни населения КР”,«Здоровье населения и здравоохранение в КР» на официальном сайте НСК КР: http://www.stat.kg/ru/publications/</p>
 
           
         </td>
@@ -824,7 +831,7 @@ data-event-label="Change to Sources tab"
         <th scope="row">Источники данных </th>
         <td>
           
-            
+            <p>Источником данных является система регистрации актов гражданского состояния, которая регистрирует факт рождения и смерти на постоянной основе.Эти документы вместе с Записи актов гражданского состояния о рождаемости составляемыми в органах ЗАГС (находятся в подчинении Государственной регистрационной службы при Правительстве КР), направляются для разработки в органы статистики.</p>
 
           
         </td>
@@ -838,7 +845,9 @@ data-event-label="Change to Sources tab"
         <th scope="row">Методы сбора данных </th>
         <td>
           
-            
+            <p>Сбор данных проводится на основании представленных записей актов гражданского состояния о рождаемости представляемых ГРС при ПКР на регулярной основе.  Данные о рождениях в разбивке по возрасту матери поступают из систем регистрации актов гражданского состояния, охватывающих 90 или более процентов всех живорождений, и в конечном итоге дополняются оценками переписи или обследования за периоды, когда данные регистрации отсутствуют. 
+Первичная обработка и свод данных по родившимся  детям осуществляется на уровне областных органов государственной статистики. Свод данных по стране осуществляется Национальным статистическим комитетом Кыргызской Республики.</p>
+
 
           
         </td>
@@ -1009,7 +1018,7 @@ data-event-label="Change to Sources tab"
 <script src="https://cdnjs.cloudflare.com/ajax/libs/autotrack/2.4.1/autotrack.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/html2canvas@1.0.0-rc.3/dist/html2canvas.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/file-saver@2.0.2/dist/FileSaver.min.js"></script>
-<script src='/assets/js/sdg.js?v=20200217105158'></script><script>
+<script src='/assets/js/sdg.js?v=20200219050443'></script><script>
 $(function() {
     if($('#indicatorData').length) {
       var domData = $('#indicatorData').data();

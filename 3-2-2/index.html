@@ -11,7 +11,7 @@
 var opensdg = {
 
   // A base URL for asynchronous calls to SDG data.
-  remoteDataBaseUrl: 'https://sustainabledevelopment-kyrgyzstan.github.io/sdg-data',
+  remoteDataBaseUrl: 'https://sustainabledevelopment-kyrgyzstan.github.io/sdg-data/ru',
 
   // A hook which can be replaced to modify the configuration for Chart.js.
   // To see where this is used, see indicatorView.js createPlot() and updatePlot().
@@ -27,6 +27,8 @@ var opensdg = {
     // Alterations go here.
     return value;
   },
+
+  language: 'ru',
 };
 
 // For backwards compatibility, some of these might need to be global.
@@ -120,7 +122,7 @@ var translations = {
         <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css" crossorigin="">
         <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" crossorigin="">
         <link rel="stylesheet" href="https://cdn.datatables.net/fixedcolumns/3.2.3/css/fixedColumns.dataTables.min.css" crossorigin="">
-        <link rel="stylesheet" href="/assets/css/style.css?v=20200217105158">
+        <link rel="stylesheet" href="/assets/css/style.css?v=20200219050443">
         <link href="https://fonts.googleapis.com/css?family=Open+Sans|Roboto" rel="stylesheet" crossorigin="">
         <link rel="stylesheet" href="https://unpkg.com/leaflet@1.3.4/dist/leaflet.css"
           integrity="sha512-puBpdR0798OZvTTbP4A8Ix/l+A4dHDD0DGqYW6RQ+9jxkRFclaxxQb/SJAWZfWAkuyeQUytO7+7N4QKrDh+drA=="
@@ -128,7 +130,7 @@ var translations = {
         <link rel="stylesheet" href="https://cdn.rawgit.com/socib/Leaflet.TimeDimension/master/dist/leaflet.timedimension.control.min.css"  crossorigin=""/>
         <link rel="stylesheet" href='https://api.mapbox.com/mapbox.js/plugins/leaflet-fullscreen/v1.0.1/leaflet.fullscreen.css'  crossorigin=""/>
         <link rel="stylesheet" href="https://bowercdn.net/c/leaflet.zoomhome-latest/dist/leaflet.zoomhome.css"  crossorigin=""/>
-        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet-search@2.9.7/dist/leaflet-search.min.css" crossorigin=""><link rel="stylesheet" href="/assets/css/custom.css?v=20200217105158"><!-- ShareThis BEGIN --><!-- ShareThis END -->
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet-search@2.9.7/dist/leaflet-search.min.css" crossorigin=""><link rel="stylesheet" href="/assets/css/custom.css?v=20200219050443"><!-- ShareThis BEGIN --><!-- ShareThis END -->
 
     </head>
 <body class="language-ru layout-indicator">
@@ -184,10 +186,11 @@ var translations = {
   <form action="/search">
     <input name="q" id="indicator_search" title="Поиск" />
     <label for="indicator_search">
-      <button id="search-btn" type="submit"><i class="fa fa-search" aria-hidden="false" aria-label=Поиск></i></button><span>Поиск:</span>
+      <button aria-label="Поиск" id="search-btn" type="submit"><i class="fa fa-search" aria-hidden="false"></i></button><span>Поиск:</span>
     </label>
   </form>
 </div>
+
       
       <ul class="nav navbar-nav menu-target contrast-switcher" id="menu"><li class="nav-link ">
             <a href="/reporting-status">Состояние отчётности</a>
@@ -275,7 +278,7 @@ var translations = {
 в любом возрасте
           </a>
         </h1>
-        <h2>Показатель 3.2.2: Neonatal mortality rate</h2>
+        <h2>Показатель 3.2.2: Коэффициент неонатальной смертности</h2>
       </div>
     </div>
   </div>
@@ -334,13 +337,14 @@ var translations = {
       
       
 
+
 <div id="headlineTable">
 
   <div id="datatables">
 
-    <a href="https://sustainabledevelopment-kyrgyzstan.github.io/sdg-data/headline/3-2-2.csv" class="btn btn-primary btn-download" download="indicator_3-2-2.csv" tabindex="0" role="button">Скачать заголовки CSV</a>
+    <a href="https://sustainabledevelopment-kyrgyzstan.github.io/sdg-data/ru/headline/3-2-2.csv" class="btn btn-primary btn-download" download="indicator_3-2-2.csv" tabindex="0" role="button">Скачать заголовки CSV</a>
 
-    <a href="https://sustainabledevelopment-kyrgyzstan.github.io/sdg-data/data/3-2-2.csv" class="btn btn-primary btn-download" style='float:left;margin-right:1em' download='indicator_3-2-2.csv' tabindex='0' role='button'>Скачать исходные CSV</a>
+    <a href="https://sustainabledevelopment-kyrgyzstan.github.io/sdg-data/ru/data/3-2-2.csv" class="btn btn-primary btn-download" style='float:left;margin-right:1em' download='indicator_3-2-2.csv' tabindex='0' role='button'>Скачать исходные CSV</a>
 
     <h3>Headline data</h3>
     <table class="table-responsive table table-hover dataTable no-footer" role="grid">
@@ -365,7 +369,7 @@ var translations = {
           
           
           
-          <td class="table-value">211</td>
+          <td class="table-value">21.062709</td>
           
           
         </tr>
@@ -377,7 +381,7 @@ var translations = {
           
           
           
-          <td class="table-value">196</td>
+          <td class="table-value">19.633713</td>
           
           
         </tr>
@@ -389,7 +393,7 @@ var translations = {
           
           
           
-          <td class="table-value">181</td>
+          <td class="table-value">18.141025</td>
           
           
         </tr>
@@ -401,7 +405,7 @@ var translations = {
           
           
           
-          <td class="table-value">164</td>
+          <td class="table-value">16.397145</td>
           
           
         </tr>
@@ -413,7 +417,7 @@ var translations = {
           
           
           
-          <td class="table-value">153</td>
+          <td class="table-value">15.346363</td>
           
           
         </tr>
@@ -425,7 +429,7 @@ var translations = {
           
           
           
-          <td class="table-value">146</td>
+          <td class="table-value">14.627093</td>
           
           
         </tr>
@@ -437,7 +441,7 @@ var translations = {
           
           
           
-          <td class="table-value">149</td>
+          <td class="table-value">14.891975</td>
           
           
         </tr>
@@ -449,7 +453,7 @@ var translations = {
           
           
           
-          <td class="table-value">156</td>
+          <td class="table-value">15.641512</td>
           
           
         </tr>
@@ -461,7 +465,7 @@ var translations = {
           
           
           
-          <td class="table-value">140</td>
+          <td class="table-value">13.997993</td>
           
           
         </tr>
@@ -473,7 +477,7 @@ var translations = {
           
           
           
-          <td class="table-value">127</td>
+          <td class="table-value">12.670713</td>
           
           
         </tr>
@@ -485,7 +489,7 @@ var translations = {
           
           
           
-          <td class="table-value">118</td>
+          <td class="table-value">11.795339</td>
           
           
         </tr>
@@ -497,7 +501,7 @@ var translations = {
           
           
           
-          <td class="table-value">120</td>
+          <td class="table-value">12.0</td>
           
           
         </tr>
@@ -675,7 +679,7 @@ data-event-label="Change to Sources tab"
         <th scope="row">Определения </th>
         <td>
           
-            
+            <p>Коэффициент неонатальной смертности - это вероятность того, что ребенок, родившийся в конкретном году или периоде, умрет в течение первых 28 завершенных дней жизни, с учетом специфических коэффициентов смертности для этого периода, выраженный на 1000 живорождений. Ссылки на методологию: https://unstats.un.org/sdgs/metadata/files/Metadata; http://www.stat.kg/ru/statistics/download/methodology/68/</p>
 
           
         </td>
@@ -689,7 +693,7 @@ data-event-label="Change to Sources tab"
         <th scope="row">Основные понятия </th>
         <td>
           
-            
+            <p>Смертность населения - процесс вымирания поколения, один из двух главных подпроцессов воспроизводства населения. Неонатальный период (от греч. neos – новый и лат. natalis - относящийся к рождению) начинается с момента рождения до 28-го дня жизни. Неонатальная смертность подразделяется на раннюю неонатальную смертность, т.е. смертность в течение первых шести дней жизни, и позднюю неонатальную смертность, т.е. имеющую место после 7 полных дней жизни и до 28 полных дней жизни. По определению ВОЗ, которое используется в КР, живорождением является полное изгнание или извлечение продукта зачатия из организма матери вне зависимости от продолжительности беременности, причем плод после такого отделения дышит или проявляет другие признаки жизни, такие как сердцебиение, пульсация пуповины или иные движения произвольной мускулатуры, независимо от того, прорезана ли пуповина и отделилась ли плацента - каждый продукт такого зачатия рассматривается как живорожденный.</p>
 
           
         </td>
@@ -703,7 +707,7 @@ data-event-label="Change to Sources tab"
         <th scope="row">Обоснование и толкование </th>
         <td>
           
-            
+            <p>Анализ показателя позволяет оценить уровень эффективности государственной политики в области охраны материнства и детства в республике. Показатели смертности среди детей младшего возраста являются результирующим показателем здоровья и благополучия детей и, в более широком смысле, социально-экономического развития. Показатель отражает состояние общественного здравоохранения, так как он характеризует доступ детей и сообщества к основным медико-санитарным вмешательствам, таким как вакцинация, лечение инфекционных заболеваний и адекватное питание.</p>
 
           
         </td>
@@ -717,7 +721,7 @@ data-event-label="Change to Sources tab"
         <th scope="row">Метод расчета </th>
         <td>
           
-            
+            <p>Число детей, умерших в возрасте до одного месяца (0-27 полных суток) х 1000 / число родившихся живыми</p>
 
           
         </td>
@@ -731,7 +735,7 @@ data-event-label="Change to Sources tab"
         <th scope="row">Комментарий и ограничения </th>
         <td>
           
-            
+            <p>По оценке экспертов охват системы регистрации актов гражданского состояния считается удовлетворительным, но нуждается в совершенствовании, т.к. основана на использовании бумажных носителей. С декабря 2014г. начала функционировать автоматизированная электронная истема АИС “ЗАГС”, как один из компонентов информационных систем ГРС. Однако, в органы статистики данные поступают на бумажных носителях и затем вводятся в специальное программное обеспечение сотрудниками статорганов, что иногда приводит к ошибкам, пропускам данных. В ближайшей перспективе (до конца 2019г.) одним из источников статистических данных о населении станет база данных по естественному и миграционному движению населения, создаваемая на основе данных ГРС.</p>
 
           
         </td>
@@ -745,7 +749,7 @@ data-event-label="Change to Sources tab"
         <th scope="row">Гарантия качества </th>
         <td>
           
-            
+            <p>Проводится логический и арифметический контроль отчетных данных. Процедура проверки правильности данных в актовых записях осуществляется путем логического контроля, заложенного в программном обеспечении по вводу и разработке данных.</p>
 
           
         </td>
@@ -759,7 +763,7 @@ data-event-label="Change to Sources tab"
         <th scope="row">Доступность данных и пробелы </th>
         <td>
           
-            
+            <p>Данные распространяются в статистических публикациях НСК:  статистических сборниках     «Женщины и мужчины КР»,  на официальном сайте НСК КР:  http://www.stat.kg/ru/publications/  Имеются динамические ряды с 1990 года.</p>
 
           
         </td>
@@ -773,7 +777,7 @@ data-event-label="Change to Sources tab"
         <th scope="row">Разбивка </th>
         <td>
           
-            
+            <p>Агрегация данных по територии : Показатель рассчитывается по территории и регионам (Республика, области, г.Бишкек, г.Ош) по полу</p>
 
           
         </td>
@@ -787,7 +791,7 @@ data-event-label="Change to Sources tab"
         <th scope="row">Сопоставимость с международными данными/стандартами </th>
         <td>
           
-            
+            <p>Национальное определение показателя, используемое в статистике, соответствует его международному определению. С 2004 года КР осуществлен переход на международные критерии живорождения и, соответственно, младенческой и детской смертности, рекомендованные Всемирной организацией здравоохранения (ВОЗ).</p>
 
           
         </td>
@@ -801,7 +805,7 @@ data-event-label="Change to Sources tab"
         <th scope="row">Ссылки и документация </th>
         <td>
           
-            
+            <p>Ссылки на НПА и методологию: http://www.stat.kg/ru/about/pravovye-osnovy-organov-gosudarstvennoj-statistiki/; https://unstats.un.org/sdgs/metadata/files/Metadata; http://www.stat.kg/ru/statistics/download/methodology/68/. Статистические публикации НСК: ежемесячный доклад «Социально-экономическое положение КР», статистические сборники «Демографический ежегодник КР», «Социальные тенденции КР», «Женщины и мужчины КР», “Уровень жизни населения КР”,«Здоровье населения и здравоохранение в КР» на официальном сайте НСК КР: http://www.stat.kg/ru/publications/</p>
 
           
         </td>
@@ -815,7 +819,7 @@ data-event-label="Change to Sources tab"
         <th scope="row">Источники данных </th>
         <td>
           
-            
+            <p>Источником информации о неонатальной смертности является система регистрации актов гражданского состояния, которая регистрирует факт рождения и смерти на постоянной основе. Данные регистрации актов гражданского состояния являются предпочтительным источником данных для оценки смертности в возрасте до пяти лет, младенческой и неонатальной смертности. Эти документы вместе с Записи актов гражданского состояния о смерти, составляемыми в органах ЗАГС (находятся в подчинении Государственной регистрационной службы при Правительстве КР), направляются для разработки в территориальные органы статистики по месту нахождения.</p>
 
           
         </td>
@@ -830,6 +834,8 @@ data-event-label="Change to Sources tab"
         <td>
           
             
+<p>Сбор данных проводится на основании медицинских свидетельств о смерти и перинатальной смерти, прошедших регистрацию в органах ЗАГС. Первичная обработка и свод данных по умершим детям осуществляется на уровне областных органов государственной статистики. Свод данных по стране осуществляется Национальным статистическим комитетом Кыргызской Республики.</p>
+
 
           
         </td>
@@ -1000,7 +1006,7 @@ data-event-label="Change to Sources tab"
 <script src="https://cdnjs.cloudflare.com/ajax/libs/autotrack/2.4.1/autotrack.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/html2canvas@1.0.0-rc.3/dist/html2canvas.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/file-saver@2.0.2/dist/FileSaver.min.js"></script>
-<script src='/assets/js/sdg.js?v=20200217105158'></script><script>
+<script src='/assets/js/sdg.js?v=20200219050443'></script><script>
 $(function() {
     if($('#indicatorData').length) {
       var domData = $('#indicatorData').data();
