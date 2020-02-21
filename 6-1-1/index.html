@@ -122,7 +122,7 @@ var translations = {
         <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css" crossorigin="">
         <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" crossorigin="">
         <link rel="stylesheet" href="https://cdn.datatables.net/fixedcolumns/3.2.3/css/fixedColumns.dataTables.min.css" crossorigin="">
-        <link rel="stylesheet" href="/assets/css/style.css?v=20200220051058">
+        <link rel="stylesheet" href="/assets/css/style.css?v=20200221064537">
         <link href="https://fonts.googleapis.com/css?family=Open+Sans|Roboto" rel="stylesheet" crossorigin="">
         <link rel="stylesheet" href="https://unpkg.com/leaflet@1.3.4/dist/leaflet.css"
           integrity="sha512-puBpdR0798OZvTTbP4A8Ix/l+A4dHDD0DGqYW6RQ+9jxkRFclaxxQb/SJAWZfWAkuyeQUytO7+7N4QKrDh+drA=="
@@ -130,7 +130,7 @@ var translations = {
         <link rel="stylesheet" href="https://cdn.rawgit.com/socib/Leaflet.TimeDimension/master/dist/leaflet.timedimension.control.min.css"  crossorigin=""/>
         <link rel="stylesheet" href='https://api.mapbox.com/mapbox.js/plugins/leaflet-fullscreen/v1.0.1/leaflet.fullscreen.css'  crossorigin=""/>
         <link rel="stylesheet" href="https://bowercdn.net/c/leaflet.zoomhome-latest/dist/leaflet.zoomhome.css"  crossorigin=""/>
-        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet-search@2.9.7/dist/leaflet-search.min.css" crossorigin=""><link rel="stylesheet" href="/assets/css/custom.css?v=20200220051058"><!-- ShareThis BEGIN --><!-- ShareThis END -->
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet-search@2.9.7/dist/leaflet-search.min.css" crossorigin=""><link rel="stylesheet" href="/assets/css/custom.css?v=20200221064537"><!-- ShareThis BEGIN --><!-- ShareThis END -->
 
     </head>
 <body class="language-ru layout-indicator">
@@ -194,6 +194,8 @@ var translations = {
       
       <ul class="nav navbar-nav menu-target contrast-switcher" id="menu"><li class="nav-link ">
             <a href="/reporting-status">Состояние отчётности</a>
+          </li><li class="nav-link ">
+            <a href="/news">Новости</a>
           </li><li class="nav-link ">
             <a href="/about">О нас</a>
           </li><li class="nav-link ">
@@ -272,16 +274,9 @@ var translations = {
         </a>
       </div>
       <div class="col-xs-8 col-md-9 col-lg-10">
-        <h1>
-          <a href="/6">
-            <span class="hidden-sm hidden-md hidden-lg">Цель 6: </span>Обеспечение наличия и рационального использования водных ресурсов и санитарии
-для всех
-
-          </a>
-        </h1>
-        <h2>Показатель 6.1.1: Доля населения, пользующегося услугами
+        <h1>Показатель 6.1.1: Доля населения, пользующегося услугами
 водоснабжения, организованного с соблюдением требований
-безопасности</h2>
+безопасности</h1>
       </div>
     </div>
   </div>
@@ -336,27 +331,43 @@ var translations = {
         <!-- Nav tabs -->
         <ul class="nav nav-tabs spacer medium" role="tablist">
         
+          
+          
+          
+          
+          
           <li role="presentation" class="nav-item active">
+            <a class="nav-link" data-toggle="tab" href="#indicator_information" aria-controls="indicator_information" role="tab" data-on="click"
+data-event-category="Tab change"
+data-event-action="Change metadata view"
+data-event-label="Change to custom.indicator_information tab"
+>Информация об индикаторе</a>
+          </li>
+          
+          
+          
+          
+          
+          <li role="presentation" class="nav-item ">
             <a class="nav-link" data-toggle="tab" href="#national" aria-controls="national" role="tab" data-on="click"
 data-event-category="Tab change"
 data-event-action="Change metadata view"
-data-event-label="Change to National Metadata tab"
+data-event-label="Change to indicator.national_metadata tab"
 >Национальные метаданные</a>
           </li>
-          <li role="presentation" class="nav-item">
-            <a class="nav-link" data-toggle="tab" href="#global" aria-controls="global" role="tab" data-on="click"
+          
+          
+          
+          
+          
+          <li role="presentation" class="nav-item ">
+            <a class="nav-link" data-toggle="tab" href="#data_reporter" aria-controls="data_reporter" role="tab" data-on="click"
 data-event-category="Tab change"
 data-event-action="Change metadata view"
-data-event-label="Change to Global Metadata tab"
->Глобальные метаданные</a>
+data-event-label="Change to custom.data_reporter tab"
+>Поставщики данных</a>
           </li>
-          <li role="presentation" class="nav-item">
-            <a class="nav-link" data-toggle="tab" href="#sources" aria-controls="sources" role="tab" data-on="click"
-data-event-category="Tab change"
-data-event-action="Change metadata view"
-data-event-label="Change to Sources tab"
->Источники</a>
-          </li>
+          
         
           
         </ul>
@@ -364,16 +375,103 @@ data-event-label="Change to Sources tab"
         <!-- Tab panes -->
         <div class="tab-content">
           
-          <div role="tabpanel" class="tab-pane active" id="national">
-            <!-- National Metadata -->
-            <div > <!-- formerly class="collapsible expanded" -->
-              <!-- <h3 tabindex='0'>National Metadata</h3> -->
+            
+            
+            
+            
+            
+            <div role="tabpanel" class="tab-pane active" id="indicator_information">
               <article>
-                <p>
-                  
-                  
-                  В этой таблице представлены метаданные для фактического показателя, доступного из статистики ближайшей к соответствующему глобальному индикатору ЦУР. Обратите внимание, что даже если глобальный индикатор ЦУР полностью доступен из статистики, по этой таблице следует проконсультироваться для получения информации о национальной методологии и других специфичных метаданных.
-                </p>
+                <p>Данная таблица предоставляет информацию об индикаторе</p>
+                <table class="table table-hover">
+  
+  
+  
+  
+  
+      
+      
+      <tr>
+        <th scope="row">Название показателя </th>
+        <td>
+          
+            <p>Показатель 6.1.1: Доля населения, пользующегося услугами водоснабжения, организованного с соблюдением требований безопасности</p>
+
+          
+        </td>
+        </tr>
+        
+      
+  
+      
+      
+      <tr>
+        <th scope="row">Название задачи </th>
+        <td>
+          
+            <p>Задача 6.1: К 2030 году обеспечить всеобщий и равноправный доступ к безопасной и недорогой питьевой воде для всех</p>
+
+          
+        </td>
+        </tr>
+        
+      
+  
+      
+      
+      <tr>
+        <th scope="row">Цель </th>
+        <td>
+          
+            <p>Цель 6: Обеспечение наличия и рационального использования водных ресурсов и санитарии для всех</p>
+
+          
+        </td>
+        </tr>
+        
+      
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+</table>
+
+              </article>
+            </div>
+            
+            
+            
+            
+            
+            <div role="tabpanel" class="tab-pane " id="national">
+              <article>
+                <p>В этой таблице представлены метаданные для фактического показателя, доступного из статистики ближайшей к соответствующему глобальному индикатору ЦУР. Обратите внимание, что даже если глобальный индикатор ЦУР полностью доступен из статистики, по этой таблице следует проконсультироваться для получения информации о национальной методологии и других специфичных метаданных.</p>
                 <table class="table table-hover">
   
   
@@ -629,13 +727,14 @@ data-event-label="Change to Sources tab"
 
               </article>
             </div>
-          </div>
-          <div role="tabpanel" class="tab-pane" id="global">
-            <!-- Global Metadata -->
-            <div> <!-- formerly <div class="collapsible expanded"> -->
-              <!-- <h3 tabindex='0'>Global Metadata</h3> -->
+            
+            
+            
+            
+            
+            <div role="tabpanel" class="tab-pane " id="data_reporter">
               <article>
-                <p>В этой таблице представлена информация для метаданных показателей ЦУР, определенных Статистической комиссией ООН. Полные глобальные метаданные представлены Статистическим отделом ООН.</p>
+                <p>Данная таблица предоставляет информацию о поставщиках данных</p>
                 <table class="table table-hover">
   
   
@@ -661,10 +760,75 @@ data-event-label="Change to Sources tab"
   
   
   
+      
+      
+      <tr>
+        <th scope="row">Организация </th>
+        <td>
+          
+            <p>НСК КР</p>
+
+          
+        </td>
+        </tr>
+        
+      
   
+      
+      
+      <tr>
+        <th scope="row">Контактное лицо (лица)/Координатор </th>
+        <td>
+          
+            <p>Керималиева Н.К</p>
+
+          
+        </td>
+        </tr>
+        
+      
   
+      
+      
+      <tr>
+        <th scope="row">Электронная почта контактного лица </th>
+        <td>
+          
+            <p>nazira.kerimaliena@gmail.com</p>
+
+          
+        </td>
+        </tr>
+        
+      
   
+      
+      
+      <tr>
+        <th scope="row">Телефон контактного лица </th>
+        <td>
+          
+            <p>(0312) 32 46 91</p>
+
+          
+        </td>
+        </tr>
+        
+      
   
+      
+      
+      <tr>
+        <th scope="row">Сайт организации </th>
+        <td>
+          
+            <p>www.stat.kg</p>
+
+          
+        </td>
+        </tr>
+        
+      
   
   
   
@@ -678,15 +842,7 @@ data-event-label="Change to Sources tab"
 
               </article>
             </div>
-          </div>
-          <div role="tabpanel" class="tab-pane" id="sources">
-            <!-- Count the non-empty sources (up to 5) -->
-
-
-
-
-
-          </div>
+            
           
           
         </div>
@@ -706,7 +862,7 @@ data-event-label="Change to Sources tab"
               
                 <li>
                 
-                  <a href="mailto:my-email-address@example.com" target="_blank">Свяжитесь с нами</a>
+                  <a href="mailto:sdg_nsc@stat.kg" target="_blank">Свяжитесь с нами</a>
                 
                 </li>
               
@@ -748,7 +904,7 @@ data-event-label="Change to Sources tab"
 <script src="https://cdnjs.cloudflare.com/ajax/libs/autotrack/2.4.1/autotrack.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/html2canvas@1.0.0-rc.3/dist/html2canvas.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/file-saver@2.0.2/dist/FileSaver.min.js"></script>
-<script src='/assets/js/sdg.js?v=20200220051058'></script><script>
+<script src='/assets/js/sdg.js?v=20200221064537'></script><script src="/assets/js/custom.js?v=20200221064537"></script><script>
 $(function() {
     if($('#indicatorData').length) {
       var domData = $('#indicatorData').data();

@@ -122,7 +122,7 @@ var translations = {
         <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css" crossorigin="">
         <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" crossorigin="">
         <link rel="stylesheet" href="https://cdn.datatables.net/fixedcolumns/3.2.3/css/fixedColumns.dataTables.min.css" crossorigin="">
-        <link rel="stylesheet" href="/assets/css/style.css?v=20200220051058">
+        <link rel="stylesheet" href="/assets/css/style.css?v=20200221064537">
         <link href="https://fonts.googleapis.com/css?family=Open+Sans|Roboto" rel="stylesheet" crossorigin="">
         <link rel="stylesheet" href="https://unpkg.com/leaflet@1.3.4/dist/leaflet.css"
           integrity="sha512-puBpdR0798OZvTTbP4A8Ix/l+A4dHDD0DGqYW6RQ+9jxkRFclaxxQb/SJAWZfWAkuyeQUytO7+7N4QKrDh+drA=="
@@ -130,7 +130,7 @@ var translations = {
         <link rel="stylesheet" href="https://cdn.rawgit.com/socib/Leaflet.TimeDimension/master/dist/leaflet.timedimension.control.min.css"  crossorigin=""/>
         <link rel="stylesheet" href='https://api.mapbox.com/mapbox.js/plugins/leaflet-fullscreen/v1.0.1/leaflet.fullscreen.css'  crossorigin=""/>
         <link rel="stylesheet" href="https://bowercdn.net/c/leaflet.zoomhome-latest/dist/leaflet.zoomhome.css"  crossorigin=""/>
-        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet-search@2.9.7/dist/leaflet-search.min.css" crossorigin=""><link rel="stylesheet" href="/assets/css/custom.css?v=20200220051058"><!-- ShareThis BEGIN --><!-- ShareThis END -->
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet-search@2.9.7/dist/leaflet-search.min.css" crossorigin=""><link rel="stylesheet" href="/assets/css/custom.css?v=20200221064537"><!-- ShareThis BEGIN --><!-- ShareThis END -->
 
     </head>
 <body class="language-en layout-indicator">
@@ -143,7 +143,7 @@ var translations = {
   <div class="container">
   <div class="alert alert-danger" role="alert">
     <strong class="phase-tag">Alpha</strong>
-    This is a development website. We welcome your <a href="mailto:test@example.com">feedback</a>.
+    This is a development website. We welcome your <a href="mailto:sdg_nsc@stat.kg">feedback</a>.
   </div>
 </div>
 
@@ -194,6 +194,8 @@ var translations = {
       
       <ul class="nav navbar-nav menu-target contrast-switcher" id="menu"><li class="nav-link ">
             <a href="/en/reporting-status">Reporting Status</a>
+          </li><li class="nav-link ">
+            <a href="/en/news">News</a>
           </li><li class="nav-link ">
             <a href="/en/about">About</a>
           </li><li class="nav-link ">
@@ -272,12 +274,7 @@ var translations = {
         </a>
       </div>
       <div class="col-xs-8 col-md-9 col-lg-10">
-        <h1>
-          <a href="/en/3">
-            <span class="hidden-sm hidden-md hidden-lg">Goal 3: </span>Ensure healthy lives and promote well-being for all at all ages
-          </a>
-        </h1>
-        <h2>Indicator 3.2.2: Neonatal mortality rate</h2>
+        <h1>Indicator 3.2.2: Neonatal mortality rate</h1>
       </div>
     </div>
   </div>
@@ -596,27 +593,43 @@ data-event-label="Change to Map tab"
         <!-- Nav tabs -->
         <ul class="nav nav-tabs spacer medium" role="tablist">
         
+          
+          
+          
+          
+          
           <li role="presentation" class="nav-item active">
+            <a class="nav-link" data-toggle="tab" href="#indicator_information" aria-controls="indicator_information" role="tab" data-on="click"
+data-event-category="Tab change"
+data-event-action="Change metadata view"
+data-event-label="Change to custom.indicator_information tab"
+>Indicator information</a>
+          </li>
+          
+          
+          
+          
+          
+          <li role="presentation" class="nav-item ">
             <a class="nav-link" data-toggle="tab" href="#national" aria-controls="national" role="tab" data-on="click"
 data-event-category="Tab change"
 data-event-action="Change metadata view"
-data-event-label="Change to National Metadata tab"
+data-event-label="Change to indicator.national_metadata tab"
 >National Metadata</a>
           </li>
-          <li role="presentation" class="nav-item">
-            <a class="nav-link" data-toggle="tab" href="#global" aria-controls="global" role="tab" data-on="click"
+          
+          
+          
+          
+          
+          <li role="presentation" class="nav-item ">
+            <a class="nav-link" data-toggle="tab" href="#data_reporter" aria-controls="data_reporter" role="tab" data-on="click"
 data-event-category="Tab change"
 data-event-action="Change metadata view"
-data-event-label="Change to Global Metadata tab"
->Global Metadata</a>
+data-event-label="Change to custom.data_reporter tab"
+>Data supplier</a>
           </li>
-          <li role="presentation" class="nav-item">
-            <a class="nav-link" data-toggle="tab" href="#sources" aria-controls="sources" role="tab" data-on="click"
-data-event-category="Tab change"
-data-event-action="Change metadata view"
-data-event-label="Change to Sources tab"
->Sources</a>
-          </li>
+          
         
           
         </ul>
@@ -624,16 +637,103 @@ data-event-label="Change to Sources tab"
         <!-- Tab panes -->
         <div class="tab-content">
           
-          <div role="tabpanel" class="tab-pane active" id="national">
-            <!-- National Metadata -->
-            <div > <!-- formerly class="collapsible expanded" -->
-              <!-- <h3 tabindex='0'>National Metadata</h3> -->
+            
+            
+            
+            
+            
+            <div role="tabpanel" class="tab-pane active" id="indicator_information">
               <article>
-                <p>
-                  
-                  
-                  This table provides metadata for the actual indicator available from Kyrgyzstan statistics closest to the corresponding global SDG indicator. Please note that even when the global SDG indicator is fully available from Kyrgyz statistics, this table should be consulted for information on national methodology and other Kyrgyz-specific metadata information.
-                </p>
+                <p>This table provides information about the indicator</p>
+                <table class="table table-hover">
+  
+  
+  
+  
+  
+      
+      
+      <tr>
+        <th scope="row">Indicator name </th>
+        <td>
+          
+            <p>3.2.2 Неонатальная смертность на 1000 живорождений</p>
+
+          
+        </td>
+        </tr>
+        
+      
+  
+      
+      
+      <tr>
+        <th scope="row">Target name </th>
+        <td>
+          
+            <p>К 2030 году положить конец предотвратимой смертности новорожденных и детей в возрасте до пяти лет, при этом все страны должны стремиться снизить уменьшить неонатальную смертность до не более 12 случаев на 1000 живорождений, а смертность детей в возрасте до пяти лет до не более 25 на 1000 живорождений.</p>
+
+          
+        </td>
+        </tr>
+        
+      
+  
+      
+      
+      <tr>
+        <th scope="row">Goal </th>
+        <td>
+          
+            <p>Обеспечение здорового образа жизни и содействие благополучию для всех в любом возрасте</p>
+
+          
+        </td>
+        </tr>
+        
+      
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+</table>
+
+              </article>
+            </div>
+            
+            
+            
+            
+            
+            <div role="tabpanel" class="tab-pane " id="national">
+              <article>
+                <p>This table provides metadata for the actual indicator available from %country_name statistics closest to the corresponding global SDG indicator. Please note that even when the global SDG indicator is fully available from %country_adjective statistics, this table should be consulted for information on national methodology and other %country_adjective-specific metadata information.</p>
                 <table class="table table-hover">
   
   
@@ -885,13 +985,14 @@ data-event-label="Change to Sources tab"
 
               </article>
             </div>
-          </div>
-          <div role="tabpanel" class="tab-pane" id="global">
-            <!-- Global Metadata -->
-            <div> <!-- formerly <div class="collapsible expanded"> -->
-              <!-- <h3 tabindex='0'>Global Metadata</h3> -->
+            
+            
+            
+            
+            
+            <div role="tabpanel" class="tab-pane " id="data_reporter">
               <article>
-                <p>This table provides information on metadata for SDG indicators as defined by the UN Statistical Commission. <a href="https://unstats.un.org/sdgs/metadata/">Complete global metadata</a> is provided by the UN Statistics Division.</p>
+                <p>This table provides information about the supplier of the data</p>
                 <table class="table table-hover">
   
   
@@ -917,10 +1018,75 @@ data-event-label="Change to Sources tab"
   
   
   
+      
+      
+      <tr>
+        <th scope="row">Organization </th>
+        <td>
+          
+            <p>НСК КР, ГРС при ПКР, Минздрав КР</p>
+
+          
+        </td>
+        </tr>
+        
+      
   
+      
+      
+      <tr>
+        <th scope="row">Contact person(s)/focal point </th>
+        <td>
+          
+            <p>Мааткулова Ж.Б.</p>
+
+          
+        </td>
+        </tr>
+        
+      
   
+      
+      
+      <tr>
+        <th scope="row">Contact person's email </th>
+        <td>
+          
+            <p>Jmaatkulova@stat.kg</p>
+
+          
+        </td>
+        </tr>
+        
+      
   
+      
+      
+      <tr>
+        <th scope="row">Contact person's phone </th>
+        <td>
+          
+            <p>(0312)32 46 36</p>
+
+          
+        </td>
+        </tr>
+        
+      
   
+      
+      
+      <tr>
+        <th scope="row">Organization website </th>
+        <td>
+          
+            <p>www.stat.kg</p>
+
+          
+        </td>
+        </tr>
+        
+      
   
   
   
@@ -934,15 +1100,7 @@ data-event-label="Change to Sources tab"
 
               </article>
             </div>
-          </div>
-          <div role="tabpanel" class="tab-pane" id="sources">
-            <!-- Count the non-empty sources (up to 5) -->
-
-
-
-
-
-          </div>
+            
           
           
         </div>
@@ -962,7 +1120,7 @@ data-event-label="Change to Sources tab"
               
                 <li>
                 
-                  <a href="mailto:my-email-address@example.com" target="_blank">Contact us</a>
+                  <a href="mailto:sdg_nsc@stat.kg" target="_blank">Contact us</a>
                 
                 </li>
               
@@ -1004,7 +1162,7 @@ data-event-label="Change to Sources tab"
 <script src="https://cdnjs.cloudflare.com/ajax/libs/autotrack/2.4.1/autotrack.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/html2canvas@1.0.0-rc.3/dist/html2canvas.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/file-saver@2.0.2/dist/FileSaver.min.js"></script>
-<script src='/assets/js/sdg.js?v=20200220051058'></script><script>
+<script src='/assets/js/sdg.js?v=20200221064537'></script><script src="/assets/js/custom.js?v=20200221064537"></script><script>
 $(function() {
     if($('#indicatorData').length) {
       var domData = $('#indicatorData').data();
