@@ -71,7 +71,7 @@
         },
         {
           "id": "1-3-1-1f",
-          "title": "Доля лиц, получающих пенсии и пособия по инвалидности к общей численности населения",
+          "title": "Proportion of people with disabilities receiving pensions Monthly Social Allowance to total population",
           "description": "",
           "keywords": "",
           "href": "/en/1-3-1-1f",
@@ -191,7 +191,7 @@
         },
         {
           "id": "2-1-1-1e",
-          "title": "Среднедушевое потребление основных продуктов питания по отношению к среднефизиологическим нормам",
+          "title": "Average per capita consumption of basic food products in relation to the average physiological norms of consumption, in",
           "description": "",
           "keywords": "",
           "href": "/en/2-1-1-1e",
@@ -407,7 +407,7 @@
         },
         {
           "id": "3-5-1-1",
-          "title": "Заболеваемость наркотической зависимостью на 100 000 населения",
+          "title": "Incidence of drug addition per 100 000 people",
           "description": "",
           "keywords": "",
           "href": "/en/3-5-1-1",
@@ -415,7 +415,7 @@
         },
         {
           "id": "3-5-1-2",
-          "title": "Заболеваемость алкогольной зависимостью на 100 000 населения по полу и территории",
+          "title": "Incidence of alcohol dependence per 100 000 people",
           "description": "",
           "keywords": "",
           "href": "/en/3-5-1-2",
@@ -487,7 +487,7 @@
         },
         {
           "id": "3-9-1-1",
-          "title": "Смертность от токсического действия окиси углерода на 100 000 населения",
+          "title": "Mortality from the toxic effect of carbon monoxide per 100 000 population",
           "description": "",
           "keywords": "",
           "href": "/en/3-9-1-1",
@@ -575,7 +575,7 @@
         },
         {
           "id": "4-1-1-1a",
-          "title": "Численность детей и подростков 7-17 лет (1-11классов), не приступивших  к занятиям  в общеобразовательные организации по причинам,  по полу",
+          "title": "Number of children and adolescents 7-17 years old who did not start studies in general education organizations",
           "description": "",
           "keywords": "",
           "href": "/en/4-1-1-1a",
@@ -599,7 +599,7 @@
         },
         {
           "id": "4-2-2-1a",
-          "title": "Охват детей дошкольным образованием",
+          "title": "Proportion of children who receive preschool education",
           "description": "",
           "keywords": "",
           "href": "/en/4-2-2-1a",
@@ -615,7 +615,7 @@
         },
         {
           "id": "4-3-1-1",
-          "title": "Доля молодежи, получающая образование",
+          "title": "Proportion of young people receiving education",
           "description": "",
           "keywords": "",
           "href": "/en/4-3-1-1",
@@ -687,7 +687,7 @@
         },
         {
           "id": "4-b-1-1",
-          "title": "Количество мест, предоставляемых Кыргызстану для подготовки кадров зарубежом за счет принимающей стороны в рамках официальных межправительственных и межгосударственных договоров и соглашений",
+          "title": "Number of fellowships provided to Kyrgyzstan for the training of personnel abroad at the expense of the host country within the framework of official intergovernmental and interstate treaties and agreements",
           "description": "",
           "keywords": "",
           "href": "/en/4-b-1-1",
@@ -703,7 +703,7 @@
         },
         {
           "id": "4-c-1-1",
-          "title": "Доля дипломированных учителей в образовательных учереждениях",
+          "title": "Share of graduated teachers with pedagogical education",
           "description": "",
           "keywords": "",
           "href": "/en/4-c-1-1",
@@ -743,7 +743,7 @@
         },
         {
           "id": "5-2-1-1b",
-          "title": "Число пострадавших от семейного насилия",
+          "title": "Number of victims of domestic violence",
           "description": "",
           "keywords": "",
           "href": "/en/5-2-1-1b",
@@ -807,7 +807,7 @@
         },
         {
           "id": "5-6-1-1",
-          "title": "Доля замужних женщин и сексуально активных незамужних женщин в возрасте 15-49 лет, которые были осведомлены о соврeменном методе контрацепции",
+          "title": "Proportion of married women and sexually active non-married women from 15-49 years aware of any modern method of contraception",
           "description": "",
           "keywords": "",
           "href": "/en/5-6-1-1",
@@ -927,7 +927,7 @@
         },
         {
           "id": "6-4-2-1",
-          "title": "Общий объем забора пресной воды",
+          "title": "Freshwater withdrawal",
           "description": "",
           "keywords": "",
           "href": "/en/6-4-2-1",
@@ -1007,7 +1007,7 @@
         },
         {
           "id": "7-2-1-1",
-          "title": "Доля возобновляемых источников энергии в общем объеме конечного энергопотребления, за исключением электроэнергии крупных ГЭС",
+          "title": "Share of renewable energy sources in the total volume of final energy consumption, excluding  electricity produced by large hydroelectric power stations",
           "description": "",
           "keywords": "",
           "href": "/en/7-2-1-1",
@@ -1031,7 +1031,7 @@
         },
         {
           "id": "7-3-1-2",
-          "title": "Электроемкость",
+          "title": "Power intensity of GDP by indusry",
           "description": "",
           "keywords": "",
           "href": "/en/7-3-1-2",
@@ -1055,7 +1055,7 @@
         },
         {
           "id": "7-b-1-1a",
-          "title": "Поступление прямых иностранных инвестиций, поступающих на цели расширения энергетической инфраструктуры и модернизации технологий",
+          "title": "Foreign direct investment for the expansion of energy infrastructure and modernization of technologies",
           "description": "",
           "keywords": "",
           "href": "/en/7-b-1-1a",
@@ -1135,7 +1135,7 @@
         },
         {
           "id": "8-5-1-1",
-          "title": "Среднемесячная заработная плата по видам экономической деятельности",
+          "title": "Average monthly wages",
           "description": "",
           "keywords": "",
           "href": "/en/8-5-1-1",
@@ -1199,7 +1199,7 @@
         },
         {
           "id": "8-9-1-1",
-          "title": "Доля туризма в ВВП",
+          "title": "Tourism share in GDP",
           "description": "",
           "keywords": "",
           "href": "/en/8-9-1-1",
@@ -1319,7 +1319,7 @@
         },
         {
           "id": "9-4-1-1",
-          "title": "Объем загрязняющих веществ, отходящих от стационарных источников на 1 кв.км и по территории",
+          "title": "Pollutants emitted by stationary sources per km2",
           "description": "",
           "keywords": "",
           "href": "/en/9-4-1-1",
@@ -1871,7 +1871,7 @@
         },
         {
           "id": "15-1-2-1",
-          "title": "Площадь ООПТ от всей площади",
+          "title": "Protected areas as a share of the country's surface",
           "description": "",
           "keywords": "",
           "href": "/en/15-1-2-1",
@@ -2119,7 +2119,7 @@
         },
         {
           "id": "16-6-2-1a",
-          "title": "Индекс оценки деятельности к государственным органам исполнительной власти",
+          "title": "Executive branch of the government satisfaction index",
           "description": "",
           "keywords": "",
           "href": "/en/16-6-2-1a",
@@ -2231,7 +2231,7 @@
         },
         {
           "id": "17-3-1-1a",
-          "title": "Поступление прямых иностранных инвестиций по  видам экономической деятельности (ГКЭД, версия 3)",
+          "title": "Foreign direct investment by economic activity",
           "description": "",
           "keywords": "",
           "href": "/en/17-3-1-1a",
@@ -2239,7 +2239,7 @@
         },
         {
           "id": "17-3-1-1b",
-          "title": "Поступление прямых иностранных инвестиций по странам",
+          "title": "Foreign direct investment by country of origin",
           "description": "",
           "keywords": "",
           "href": "/en/17-3-1-1b",
