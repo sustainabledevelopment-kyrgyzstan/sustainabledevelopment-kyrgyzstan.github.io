@@ -29,11 +29,15 @@ opensdg.autotrack = function(preset, category, action, label) {
 
   return obj;
 };
-!function(t,e){"object"==typeof exports&&"undefined"!=typeof module?e(exports,require("d3-array"),require("d3-axis"),require("d3-dispatch"),require("d3-drag"),require("d3-ease"),require("d3-scale"),require("d3-selection")):"function"==typeof define&&define.amd?define(["exports","d3-array","d3-axis","d3-dispatch","d3-drag","d3-ease","d3-scale","d3-selection"],e):e(t.d3=t.d3||{},t.d3,t.d3,t.d3,t.d3,t.d3,t.d3,t.d3)}(this,function(t,e,a,r,n,l,i,s){"use strict";function c(){function t(t){z=t.selection?t.selection():t,M=h[0]instanceof Date?i.scaleTime():i.scaleLinear(),M=M.domain(h).range([0,m]).clamp(!0),D=i.scaleLinear().range(M.range()).domain(M.range()).clamp(!0),q=q||M.tickFormat(),z.selectAll(".axis").data([null]).enter().append("g").attr("transform","translate(0,7)").attr("class","axis");var e=z.selectAll(".slider").data([null]),r=e.enter().append("g").attr("class","slider").attr("cursor","ew-resize").attr("transform","translate(0,0)").call(n.drag().on("start",function(){s.select(this).classed("active",!0);var t=D(s.event.x),a=u(M.invert(t));f(a),A.call("start",e,a),d(a)}).on("drag",function(){var t=D(s.event.x),a=u(M.invert(t));f(a),A.call("drag",e,a),d(a)}).on("end",function(){s.select(this).classed("active",!1);var t=D(s.event.x),a=u(M.invert(t));f(a),A.call("end",e,a),d(a)}));r.append("line").attr("class","track").attr("x1",0).attr("y1",0).attr("y2",0).attr("stroke","#bbb").attr("stroke-width",6).attr("stroke-linecap","round"),r.append("line").attr("class","track-inset").attr("x1",0).attr("y1",0).attr("y2",0).attr("stroke","#eee").attr("stroke-width",4).attr("stroke-linecap","round"),r.append("line").attr("class","track-overlay").attr("x1",0).attr("y1",0).attr("y2",0).attr("stroke","transparent").attr("stroke-width",40).attr("stroke-linecap","round").merge(e.select(".track-overlay"));var l=r.append("g").attr("class","parameter-value").attr("transform","translate("+M(p)+",0)").attr("font-family","sans-serif").attr("text-anchor","middle");l.append("path").attr("d",g).attr("fill","white").attr("stroke","#777"),x&&l.append("text").attr("font-size",10).attr("y",27).attr("dy",".71em").text(q(p)),t.select(".track").attr("x2",M.range()[1]),t.select(".track-inset").attr("x2",M.range()[1]),t.select(".track-overlay").attr("x2",M.range()[1]),t.select(".axis").call(a.axisBottom(M).tickFormat(q).ticks(w).tickValues(y)),z.select(".axis").select(".domain").remove(),t.select(".axis").attr("transform","translate(0,7)"),t.selectAll(".axis text").attr("fill","#aaa").attr("y",20).attr("dy",".71em").attr("text-anchor","middle"),t.selectAll(".axis line").attr("stroke","#aaa"),t.select(".parameter-value").attr("transform","translate("+M(p)+",0)"),c()}function c(){if(x){var t=[];z.selectAll(".axis .tick").each(function(e){t.push(Math.abs(e-p))});var a=e.scan(t);z.selectAll(".axis .tick text").attr("opacity",function(t,e){return e===a?0:1})}}function u(t){if(k){var a=(t-h[0])%k,r=t-a;return 2*a>k&&(r+=k),t instanceof Date?new Date(r):r}if(b){var n=e.scan(b.map(function(e){return Math.abs(t-e)}));return b[n]}return t}function d(e){p!==e&&(p=e,A.call("onchange",t,e),c())}function f(t,e){e=void 0!==e&&e;var a=z.select(".parameter-value");e&&(a=a.transition().ease(l.easeQuadOut).duration(o)),a.attr("transform","translate("+M(t)+",0)"),x&&z.select(".parameter-value text").text(q(t))}var p=0,v=0,h=[0,10],m=100,x=!0,g="M-5.5,-5.5v10l6,5.5l6,-5.5v-10z",k=null,y=null,b=null,q=null,w=null,A=r.dispatch("onchange","start","end","drag"),z=null,M=null,D=null;return t.min=function(e){return arguments.length?(h[0]=e,t):h[0]},t.max=function(e){return arguments.length?(h[1]=e,t):h[1]},t.domain=function(e){return arguments.length?(h=e,t):h},t.width=function(e){return arguments.length?(m=e,t):m},t.tickFormat=function(e){return arguments.length?(q=e,t):q},t.ticks=function(e){return arguments.length?(w=e,t):w},t.value=function(e){if(!arguments.length)return p;var a=D(M(e)),r=u(M.invert(a));return f(r,!0),d(r),t},t.default=function(e){return arguments.length?(v=e,p=e,t):v},t.step=function(e){return arguments.length?(k=e,t):k},t.tickValues=function(e){return arguments.length?(y=e,t):y},t.marks=function(e){return arguments.length?(b=e,t):b},t.handle=function(e){return arguments.length?(g=e,t):g},t.displayValue=function(e){return arguments.length?(x=e,t):x},t.on=function(){var e=A.on.apply(A,arguments);return e===A?t:e},t}var o=200;t.sliderHorizontal=function(){return c()},Object.defineProperty(t,"__esModule",{value:!0})});/**
+/**
  * TODO:
  * Integrate with high-contrast switcher.
  */
-(function($, L, chroma, window, document, undefined) {
+(function($) {
+
+  if (typeof L === 'undefined') {
+    return;
+  }
 
   // Create the defaults once
   var defaults = {
@@ -76,9 +80,8 @@ opensdg.autotrack = function(preset, category, action, label) {
   var mapLayerDefaults = {
     min_zoom: 0,
     max_zoom: 10,
-    serviceUrl: '[replace me]',
-    nameProperty: '[replace me]',
-    idProperty: '[replace me]',
+    subfolder: 'regions',
+    label: 'indicator.map',
     staticBorders: false,
   };
 
@@ -87,12 +90,12 @@ opensdg.autotrack = function(preset, category, action, label) {
     this.element = element;
     this.options = $.extend(true, {}, defaults, options.mapOptions);
     this.mapLayers = [];
-    this.geoData = options.geoData;
-    this.geoCodeRegEx = options.geoCodeRegEx;
+    this.indicatorId = options.indicatorId;
+    this.currentDisaggregation = 0;
 
     // Require at least one geoLayer.
-    if (!options.mapLayers.length) {
-      console.log('Map disabled, no mapLayers in options.');
+    if (!options.mapLayers || !options.mapLayers.length) {
+      console.log('Map disabled - please add "map_layers" in site configuration.');
       return;
     }
 
@@ -104,39 +107,10 @@ opensdg.autotrack = function(preset, category, action, label) {
     this._defaults = defaults;
     this._name = 'sdgMap';
 
-    this.valueRange = [_.min(_.pluck(this.geoData, 'Value')), _.max(_.pluck(this.geoData, 'Value'))];
-    this.colorScale = chroma.scale(this.options.colorRange)
-      .domain(this.valueRange)
-      .classes(this.options.colorRange.length);
-
-    this.years = _.uniq(_.pluck(this.geoData, 'Year')).sort();
-    this.currentYear = this.years[0];
-
     this.init();
   }
 
   Plugin.prototype = {
-
-    // Add time series to GeoJSON data and normalize the name and geocode.
-    prepareGeoJson: function(geoJson, idProperty, nameProperty) {
-      var geoData = this.geoData;
-      geoJson.features.forEach(function(feature) {
-        var geocode = feature.properties[idProperty];
-        var name = feature.properties[nameProperty];
-        // First add the time series data.
-        var records = _.where(geoData, { GeoCode: geocode });
-        records.forEach(function(record) {
-          // Add the Year data into the properties.
-          feature.properties[record.Year] = record.Value;
-        });
-        // Next normalize the geocode and name.
-        feature.properties.name = translations.t(name);
-        feature.properties.geocode = geocode;
-        delete feature.properties[idProperty];
-        delete feature.properties[nameProperty];
-      });
-      return geoJson;
-    },
 
     // Zoom to a feature.
     zoomToFeature: function(layer) {
@@ -218,8 +192,8 @@ opensdg.autotrack = function(preset, category, action, label) {
 
     // Get the data from a feature's properties, according to the current year.
     getData: function(props) {
-      if (props[this.currentYear]) {
-        return props[this.currentYear];
+      if (props.values && props.values.length && props.values[this.currentDisaggregation][this.currentYear]) {
+        return props.values[this.currentDisaggregation][this.currentYear];
       }
       return false;
     },
@@ -233,6 +207,12 @@ opensdg.autotrack = function(preset, category, action, label) {
       else {
         return this.options.noValueColor;
       }
+    },
+
+    // Get the (long) URL of a geojson file, given a particular subfolder.
+    getGeoJsonUrl: function(subfolder) {
+      var fileName = this.indicatorId + '.geojson';
+      return [opensdg.remoteDataBaseUrl, 'geojson', subfolder, fileName].join('/');
     },
 
     // Initialize the map itself.
@@ -250,12 +230,6 @@ opensdg.autotrack = function(preset, category, action, label) {
       this.staticLayers = new ZoomShowHide();
       this.staticLayers.addTo(this.map);
 
-      // Add zoom control.
-      this.map.addControl(L.Control.zoomHome());
-
-      // Add full-screen functionality.
-      this.map.addControl(new L.Control.Fullscreen());
-
       // Add scale.
       this.map.addControl(L.control.scale({position: 'bottomright'}));
 
@@ -265,26 +239,14 @@ opensdg.autotrack = function(preset, category, action, label) {
       // Because after this point, "this" rarely works.
       var plugin = this;
 
-      // Add the year slider.
-      this.map.addControl(L.Control.yearSlider({
-        years: this.years,
-        yearChangeCallback: function(e) {
-          plugin.currentYear = new Date(e.time).getFullYear();
-          plugin.updateColors();
-          plugin.selectionLegend.update();
-        }
-      }));
-
-      // Add the selection legend.
-      this.selectionLegend = L.Control.selectionLegend(plugin);
-      this.map.addControl(this.selectionLegend);
-
-      // Add the download button.
-      this.map.addControl(L.Control.downloadGeoJson(plugin));
+      // Below we'll be figuring out the min/max values and available years.
+      var minimumValues = [],
+          maximumValues = [],
+          availableYears = [];
 
       // At this point we need to load the GeoJSON layer/s.
       var geoURLs = this.mapLayers.map(function(item) {
-        return $.getJSON(item.serviceUrl);
+        return $.getJSON(plugin.getGeoJsonUrl(item.subfolder));
       });
       $.when.apply($, geoURLs).done(function() {
 
@@ -315,10 +277,7 @@ opensdg.autotrack = function(preset, category, action, label) {
             plugin.staticLayers.addLayer(staticLayer);
           }
           // Now go on to add the geoJson again as choropleth dynamic regions.
-          var idProperty = plugin.mapLayers[i].idProperty;
-          var nameProperty = plugin.mapLayers[i].nameProperty;
-          var geoJson = plugin.prepareGeoJson(geoJsons[i][0], idProperty, nameProperty);
-
+          var geoJson = geoJsons[i][0]
           var layer = L.geoJson(geoJson, {
             style: plugin.options.styleNormal,
             onEachFeature: onEachFeature,
@@ -333,10 +292,58 @@ opensdg.autotrack = function(preset, category, action, label) {
           layer.geoJsonObject = geoJson;
           // Add the layer to the ZoomShowHide group.
           plugin.dynamicLayers.addLayer(layer);
+
+          // Add a download button below the map.
+          var downloadLabel = translations.t(plugin.mapLayers[i].label)
+          var downloadButton = $('<a></a>')
+            .attr('href', plugin.getGeoJsonUrl(plugin.mapLayers[i].subfolder))
+            .attr('class', 'btn btn-primary btn-download')
+            .attr('title', translations.indicator.download_geojson_title + ' - ' + downloadLabel)
+            .text(translations.indicator.download_geojson + ' - ' + downloadLabel);
+          $(plugin.element).parent().append(downloadButton);
+
+          // Keep track of the minimums and maximums.
+          _.each(geoJson.features, function(feature) {
+            if (feature.properties.values && feature.properties.values.length) {
+              availableYears = availableYears.concat(Object.keys(feature.properties.values[0]));
+              minimumValues.push(_.min(Object.values(feature.properties.values[0])));
+              maximumValues.push(_.max(Object.values(feature.properties.values[0])));
+            }
+          });
         }
+
+        // Calculate the ranges of values, years and colors.
+        plugin.valueRange = [_.min(minimumValues), _.max(maximumValues)];
+        plugin.colorScale = chroma.scale(plugin.options.colorRange)
+          .domain(plugin.valueRange)
+          .classes(plugin.options.colorRange.length);
+        plugin.years = _.uniq(availableYears).sort();
+        plugin.currentYear = plugin.years[0];
+
+        // And we can now update the colors.
         plugin.updateColors();
 
-        // Now that we have layers, we can add the search feature.
+        // Add zoom control.
+        plugin.map.addControl(L.Control.zoomHome());
+
+        // Add full-screen functionality.
+        plugin.map.addControl(new L.Control.Fullscreen());
+
+        // Add the year slider.
+        plugin.map.addControl(L.Control.yearSlider({
+          years: plugin.years,
+          yearChangeCallback: function(e) {
+            plugin.currentYear = new Date(e.time).getFullYear();
+            plugin.updateColors();
+            plugin.selectionLegend.update();
+          }
+        }));
+
+        // Add the selection legend.
+        plugin.selectionLegend = L.Control.selectionLegend(plugin);
+        plugin.map.addControl(plugin.selectionLegend);
+
+        // Add the search feature.
         plugin.searchControl = new L.Control.Search({
           layer: plugin.getAllLayers(),
           propertyName: 'name',
@@ -359,9 +366,11 @@ opensdg.autotrack = function(preset, category, action, label) {
 
         // The list of handlers to apply to each feature on a GeoJson layer.
         function onEachFeature(feature, layer) {
-          layer.on('click', clickHandler);
-          layer.on('mouseover', mouseoverHandler);
-          layer.on('mouseout', mouseoutHandler);
+          if (plugin.featureShouldDisplay(feature)) {
+            layer.on('click', clickHandler);
+            layer.on('mouseover', mouseoverHandler);
+            layer.on('mouseout', mouseoutHandler);
+          }
         }
         // Event handler for click/touch.
         function clickHandler(e) {
@@ -435,6 +444,15 @@ opensdg.autotrack = function(preset, category, action, label) {
         }, 500);
       });
     },
+
+    featureShouldDisplay: function(feature) {
+      var display = true;
+      display = display && typeof feature.properties.name !== 'undefined';
+      display = display && typeof feature.properties.geocode !== 'undefined';
+      display = display && typeof feature.properties.values !== 'undefined';
+      display = display && typeof feature.properties.disaggregations !== 'undefined';
+      return display;
+    },
   };
 
   // A really lightweight plugin wrapper around the constructor,
@@ -446,7 +464,7 @@ opensdg.autotrack = function(preset, category, action, label) {
       }
     });
   };
-})(jQuery, L, chroma, window, document);
+})(jQuery);
 Chart.plugins.register({
   id: 'rescaler',
   beforeInit: function (chart, options) {
@@ -588,47 +606,92 @@ var accessibilitySwitcher = function() {
     }).html(getContrastToggleLabel(contrast).replace(" ", "<br/>")).click(function() {
       setActiveContrast($(this).data('contrast'));
       imageFix(contrast);
+      broadcastContrastChange(contrast, this);
     })));
   });
-  
-function getContrastToggleLabel(identifier){
-  var contrastType = ""
-  if(contrastType === "long") {
-    if(identifier === "default"){	
-      return translations.header.default_contrast; 	
-    }	
-    else if(identifier === "high"){	
-      return translations.header.high_contrast;	
+
+  function broadcastContrastChange(contrast, elem) {
+    var event = new CustomEvent('contrastChange', {
+      bubbles: true,
+      detail: contrast
+    });
+    elem.dispatchEvent(event);
+  }
+
+  function getContrastToggleLabel(identifier){
+    var contrastType = ""
+    if(contrastType === "long") {
+      if(identifier === "default"){
+        return translations.header.default_contrast;
+      }
+      else if(identifier === "high"){
+        return translations.header.high_contrast;
+      }
+    }
+    else {
+      return 'A'
     }
   }
-  else {
-    return 'A'
-  }
-}
 
-function getContrastToggleTitle(identifier){	
-  if(identifier === "default"){	
-    return translations.header.disable_high_contrast; 	
-  }	
-  else if(identifier === "high"){	
-    return translations.header.enable_high_contrast;	
-  }	
-}
-  
-  
-function imageFix(contrast) {
-  if (contrast == 'high')  {
-    _.each($('img:not([src*=high-contrast])'), function(goalImage){
-      if ($(goalImage).attr('src').slice(0, 35) != "https://platform-cdn.sharethis.com/") {
-      $(goalImage).attr('src', $(goalImage).attr('src').replace('img/', 'img/high-contrast/'));
-      }})
-  } else {
-    // Remove high-contrast
-    _.each($('img[src*=high-contrast]'), function(goalImage){
-      $(goalImage).attr('src', $(goalImage).attr('src').replace('high-contrast/', ''));
-    })
+  function getContrastToggleTitle(identifier){
+    if(identifier === "default"){
+      return translations.header.disable_high_contrast;
+    }
+    else if(identifier === "high"){
+      return translations.header.enable_high_contrast;
+    }
   }
+
+
+  function imageFix(contrast) {
+    if (contrast == 'high')  {
+      _.each($('img:not([src*=high-contrast])'), function(goalImage){
+        if ($(goalImage).attr('src').slice(0, 35) != "https://platform-cdn.sharethis.com/") {
+        $(goalImage).attr('src', $(goalImage).attr('src').replace('img/', 'img/high-contrast/'));
+        }})
+    } else {
+      // Remove high-contrast
+      _.each($('img[src*=high-contrast]'), function(goalImage){
+        $(goalImage).attr('src', $(goalImage).attr('src').replace('high-contrast/', ''));
+      })
+    }
+  };
+
 };
+opensdg.chartColors = function(indicatorId) {
+  var colorSet = null;
+  var numberOfColors = null;
+  var customColorList = null;
+  
+  this.goalNumber = parseInt(indicatorId.slice(indicatorId.indexOf('_')+1,indicatorId.indexOf('-')));
+  this.goalColors = [['e5243b', '891523', 'ef7b89', '2d070b', 'f4a7b0', 'b71c2f', 'ea4f62', '5b0e17', 'fce9eb'],
+                ['e5b735', '896d1f', 'efd385', '2d240a', 'f4e2ae', 'b7922a', 'eac55d', '5b4915', 'f9f0d6'],
+                ['4c9f38', '2d5f21', '93c587', '0f1f0b', 'c9e2c3', '3c7f2c', '6fb25f', '1e3f16', 'a7d899'],
+                ['c5192d', '760f1b', 'dc7581', '270509', 'f3d1d5', '9d1424', 'd04656', '4e0a12', 'e7a3ab'],
+                ['ff3a21', 'b22817', 'ff7563', '330b06', 'ffd7d2', 'cc2e1a', 'ff614d', '7f1d10', 'ff9c90'],
+                ['26bde2', '167187', '7cd7ed', '07252d', 'd3f1f9', '1e97b4', '51cae7', '0f4b5a', 'a8e4f3'],
+                ['fcc30b', '977506', 'fddb6c', '322702', 'fef3ce', 'c99c08', 'fccf3b', '644e04', 'fde79d'],
+                ['a21942', '610f27', 'c7758d', '610F28', 'ecd1d9', '811434', 'b44667', '400a1a', 'd9a3b3'],
+                ['fd6925', '973f16', 'fda57c', '321507', 'fee1d3', 'ca541d', 'fd8750', '652a0e', 'fec3a7'],
+                ['dd1367', '840b3d', 'ea71a3', '2c0314', 'f8cfe0', 'b00f52', 'd5358b', '580729', 'f1a0c2'],
+                ['fd9d24', '653e0e', 'fed7a7', 'b16d19', 'fdba65', 'b14a1e', 'fd976b', '000000', 'fed2bf'],
+                ['c9992d', '785b1b', 'dec181', '281e09', 'f4ead5', 'a07a24', 'd3ad56', '503d12', 'e9d6ab'],
+                ['3f7e44', '254b28', '8bb18e', '0c190d', 'd8e5d9', '326436', '659769', '19321b', 'b2cbb4'],
+                ['0a97d9', '065a82', '6cc0e8', '021e2b', 'ceeaf7', '0878ad', '3aabe0', '043c56', '9dd5ef'],
+                ['56c02b', '337319', '99d97f', '112608', 'ddf2d4', '449922', '77cc55', '224c11', 'bbe5aa'],
+                ['00689d', '00293e', '99c2d7', '00486d', '4c95ba', '126b80', 'cce0eb', '5a9fb0', 'a1c8d2'],
+                ['19486a', '0a1c2a', '8ca3b4', '16377c', 'd1dae1', '11324a', '466c87', '5b73a3', '0f2656']];
+  this.colorSets = {'default':['7e984f', '8d73ca', 'aaa533', 'c65b8a', '4aac8d', 'c95f44'],
+                  'sdg':['e5243b', 'dda63a', '4c9f38', 'c5192d', 'ff3a21', '26bde2', 'fcc30b', 'a21942', 'fd6925', 'dd1367','fd9d24','bf8b2e','3f7e44','0a97d9','56c02b','00689d','19486a'],
+                  'goal': this.goalColors[this.goalNumber-1],
+                  'custom': customColorList};
+  if(Object.keys(this.colorSets).indexOf(colorSet) == -1 || (colorSet=='custom' && customColorList == null)){
+    return this.colorSets['default'];
+  }
+  this.numberOfColors = (numberOfColors>this.colorSets[colorSet].length || numberOfColors == null) ? this.colorSets[colorSet].length : numberOfColors;
+  this.colors = this.colorSets[colorSet].slice(0,this.numberOfColors);
+
+  return this.colors;
 
 };
 var indicatorModel = function (options) {
@@ -646,7 +709,7 @@ var indicatorModel = function (options) {
   this.onFieldsStatusUpdated = new event(this);
   this.onFieldsCleared = new event(this);
   this.onSelectionUpdate = new event(this);
-  this.onNoHeadlineData = new event(this);
+  this.onStartValuesNeeded = new event(this);
 
   // json conversion:
   var convertJsonFormat = function(data) {
@@ -667,7 +730,8 @@ var indicatorModel = function (options) {
   this.country = options.country;
   this.indicatorId = options.indicatorId;
   this.shortIndicatorId = options.shortIndicatorId;
-  this.chartTitle = options.chartTitle;
+  this.chartTitle = options.chartTitle,
+  this.chartTitles = options.chartTitles;
   this.graphType = options.graphType;
   this.measurementUnit = options.measurementUnit;
   this.copyright = options.copyright;
@@ -684,9 +748,9 @@ var indicatorModel = function (options) {
   this.fieldValueStatuses = [];
   this.validParentsByChild = {};
   this.hasGeoData = false;
-  this.geoData = [];
-  this.geoCodeRegEx = options.geoCodeRegEx;
   this.showMap = options.showMap;
+  this.graphLimits = options.graphLimits;
+  this.stackedDisaggregation = options.stackedDisaggregation;
 
   // initialise the field information, unique fields and unique values for each field:
   (function initialise() {
@@ -701,11 +765,6 @@ var indicatorModel = function (options) {
 
     if(that.data[0].hasOwnProperty('GeoCode')) {
       that.hasGeoData = true;
-
-      // Year, GeoCode, Value
-      that.geoData = _.filter(that.data, function(dataItem) {
-        return dataItem.GeoCode;
-      });
     }
 
     if(that.data[0].hasOwnProperty('Units')) {
@@ -827,8 +886,10 @@ var indicatorModel = function (options) {
   }());
 
   var headlineColor = '777777';
-  var colors = ['7e984f', '8d73ca', 'aaa533', 'c65b8a', '4aac8d', 'c95f44'];
-
+  
+  // use custom colors
+  var colors = opensdg.chartColors(this.indicatorId);
+  
   // allow headline + (2 x others)
   var maxDatasetCount = 2 * colors.length;
 
@@ -919,8 +980,17 @@ var indicatorModel = function (options) {
     });
   };
 
+  this.updateChartTitle = function() {
+    // We only need to change anything if this indicator has multiple titles.
+    if (that.chartTitles && that.chartTitles.length > 0) {
+      var chartTitle = _.findWhere(that.chartTitles, { unit: that.selectedUnit });
+      that.chartTitle = (chartTitle) ? chartTitle.title : that.chartTitles[0].title;
+    }
+  }
+
   this.updateSelectedUnit = function(selectedUnit) {
     this.selectedUnit = selectedUnit;
+    this.updateChartTitle();
 
     // if fields are dependent on the unit, reset:
     this.getData({
@@ -1045,9 +1115,10 @@ var indicatorModel = function (options) {
         // the first dataset is the headline:
         return datasetIndex > colors.length ? [5, 5] : undefined;
       },
-      convertToDataset = function (data, combinationDescription) {
+      convertToDataset = function (data, combinationDescription, combination) {
         var ds = _.extend({
             label: combinationDescription ? combinationDescription : that.country,
+            disaggregation: combination,
             borderColor: '#' + getColor(datasetIndex),
             backgroundColor: getBackground(datasetIndex),
             pointBorderColor: '#' + getColor(datasetIndex),
@@ -1148,7 +1219,8 @@ var indicatorModel = function (options) {
         // but some combinations may not have any data:
         filteredDatasets.push({
           data: filtered,
-          combinationDescription: getCombinationDescription(combination)
+          combinationDescription: getCombinationDescription(combination),
+          combination: combination,
         });
       }
     });
@@ -1161,7 +1233,7 @@ var indicatorModel = function (options) {
 
     _.chain(filteredDatasets)
       .sortBy(function(ds) { return ds.combinationDescription; })
-      .each(function(ds) { datasets.push(convertToDataset(ds.data, ds.combinationDescription)); });
+      .each(function(ds) { datasets.push(convertToDataset(ds.data, ds.combinationDescription, ds.combination)); });
 
     // convert datasets to tables:
     var selectionsTable = {
@@ -1174,6 +1246,8 @@ var indicatorModel = function (options) {
       })));
     });
 
+    this.updateChartTitle();
+
     this.onDataComplete.notify({
       datasetCountExceedsMax: datasetCountExceedsMax,
       datasets: datasetCountExceedsMax ? datasets.slice(0, maxDatasetCount) : datasets,
@@ -1183,7 +1257,10 @@ var indicatorModel = function (options) {
       indicatorId: this.indicatorId,
       shortIndicatorId: this.shortIndicatorId,
       selectedUnit: this.selectedUnit,
-      footerFields: this.footerFields
+      footerFields: this.footerFields,
+      graphLimits: this.graphLimits,
+      stackedDisaggregation: this.stackedDisaggregation,
+      chartTitle: this.chartTitle
     });
 
     if(options.initial || options.unitsChangeSeries) {
@@ -1219,8 +1296,7 @@ var indicatorModel = function (options) {
         allowedFields: this.allowedFields,
         edges: this.edgesData,
         hasGeoData: this.hasGeoData,
-        geoData: this.geoData,
-        geoCodeRegEx: this.geoCodeRegEx,
+        indicatorId: this.indicatorId,
         showMap: this.showMap
       });
 
@@ -1231,27 +1307,12 @@ var indicatorModel = function (options) {
       });
     }
 
-    if((options.initial || options.unitsChangeSeries) && !this.hasHeadline) {
-      // if there is no initial data, select some:
+    if ((options.initial || options.unitsChangeSeries) && (this.startValues || !this.hasHeadline)) {
 
-      var minimumFieldSelections = {},
+      var startingFieldSelections = this.startValues,
           forceUnit = false;
-      // First, do we have some already pre-configured from data_start_values?
-      if (this.startValues) {
-        // We need to confirm that these values are valid, and pair them up
-        // with disaggregation categories. The value, at this point, is a string
-        // which we assume to be pipe-delimited.
-        var valuesToLookFor = this.startValues.split('|');
-        // Match up each field value with a field.
-        _.each(this.fieldItemStates, function(fieldItem) {
-          _.each(fieldItem.values, function(fieldValue) {
-            if (_.contains(valuesToLookFor, fieldValue.value)) {
-              minimumFieldSelections[fieldItem.field] = fieldValue.value;
-            }
-          });
-        });
-      }
-      if (_.size(minimumFieldSelections) == 0) {
+
+      if (!startingFieldSelections) {
         // If we did not have any pre-configured start values, we calculate them.
         // We have to decide what filters will be selected, and in some cases it
         // may need to be multiple filters. So we find the smallest row (meaning,
@@ -1272,13 +1333,23 @@ var indicatorModel = function (options) {
         // But actually we want the top-priority sort to be the "size" of the
         // rows. In other words we want the row with the fewest number of fields.
         fieldData = _.sortBy(fieldData, function(item) { return _.size(item); });
-        minimumFieldSelections = fieldData[0];
-        // If we ended up finding something with "Units", we need to remove it
-        // before continuing and then remember to force it later.
-        if ('Units' in minimumFieldSelections) {
-          forceUnit = minimumFieldSelections['Units'];
-          delete minimumFieldSelections['Units'];
-        }
+        // Convert to an array of objects with 'field' and 'value' keys.
+        startingFieldSelections = _.map(_.keys(fieldData[0]), function(key) {
+          return {
+            field: key,
+            value: fieldData[0][key]
+          };
+        });
+      }
+
+      var startingUnit = _.findWhere(startingFieldSelections, { field: 'Units' });
+      if (startingUnit) {
+        // If one of the starting field selections is a Unit, remember for later
+        // and remove it from the list.
+        forceUnit = startingUnit.value;
+        startingFieldSelections = _.filter(startingFieldSelections, function(item) {
+          return item.field !== 'Units';
+        });
       }
 
       // Ensure that we only force a unit on the initial load.
@@ -1286,10 +1357,10 @@ var indicatorModel = function (options) {
         forceUnit = false;
       }
 
-      // Now that we are all sorted, we notify the view that there is no headline,
-      // and pass along the first row as the minimum field selections.
-      this.onNoHeadlineData.notify({
-        minimumFieldSelections: minimumFieldSelections,
+      // Now that we are all sorted, we notify the view that there needs to be
+      // starting values, and pass along the info.
+      this.onStartValuesNeeded.notify({
+        startingFieldSelections: startingFieldSelections,
         forceUnit: forceUnit
       });
     }
@@ -1310,11 +1381,10 @@ var mapView = function () {
 
   "use strict";
 
-  this.initialise = function(geoData, geoCodeRegEx) {
+  this.initialise = function(indicatorId) {
     $('.map').show();
     $('#map').sdgMap({
-      geoData: geoData,
-      geoCodeRegEx: geoCodeRegEx,
+      indicatorId: indicatorId,
       mapOptions: {"tileURL":"https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={accessToken}","tileOptions":{"id":"mapbox.light","accessToken":"pk.eyJ1IjoiYnJvY2tmYW5uaW5nMSIsImEiOiJjaXplbmgzczgyMmRtMnZxbzlmbGJmdW9pIn0.LU-BYMX69uu3eGgk0Imibg","attribution":"<a href=\"https://www.mapbox.com\">Mapbox</a> | <a href=\"http://geoportal.statistics.gov.uk/\">ONS</a>"},"minZoom":6},
       mapLayers: [{"min_zoom":6,"max_zoom":10,"serviceUrl":"https://opendata.arcgis.com/datasets/493025a10e2f41eda90f57a5a38d5af8_1.geojson","nameProperty":"ADM0_NAME","idProperty":"ADM0_CODE","staticBorders":true}],
     });
@@ -1395,9 +1465,11 @@ var indicatorView = function (model, options) {
     }
 
     view_obj.createSelectionsTable(args);
+
+    view_obj.updateChartTitle(args.chartTitle);
   });
 
-  this._model.onNoHeadlineData.attach(function(sender, args) {
+  this._model.onStartValuesNeeded.attach(function(sender, args) {
     // Force a unit if necessary.
     if (args && args.forceUnit) {
       $('#units input[type="radio"]')
@@ -1407,7 +1479,7 @@ var indicatorView = function (model, options) {
     }
     // Force particular minimum field selections if necessary. We have to delay
     // this slightly to make it work...
-    if (args && args.minimumFieldSelections && _.size(args.minimumFieldSelections)) {
+    if (args && args.startingFieldSelections && args.startingFieldSelections.length) {
       function getClickFunction(fieldToSelect, fieldValue) {
         return function() {
           $('#fields .variable-options input[type="checkbox"]')
@@ -1418,10 +1490,9 @@ var indicatorView = function (model, options) {
             .click();
         }
       }
-      for (var fieldToSelect in args.minimumFieldSelections) {
-        var fieldValue = args.minimumFieldSelections[fieldToSelect];
-        setTimeout(getClickFunction(fieldToSelect, fieldValue), 500);
-      }
+      args.startingFieldSelections.forEach(function(selection) {
+        setTimeout(getClickFunction(selection.field, selection.value), 500);
+      });
     }
     else {
       // Fallback behavior - just click on the first one, whatever it is.
@@ -1437,7 +1508,7 @@ var indicatorView = function (model, options) {
 
     if(args.hasGeoData && args.showMap) {
       view_obj._mapView = new mapView();
-      view_obj._mapView.initialise(args.geoData, args.geoCodeRegEx);
+      view_obj._mapView.initialise(args.indicatorId);
     }
   });
 
@@ -1630,6 +1701,18 @@ var indicatorView = function (model, options) {
     }
   };
 
+  this.alterChartConfig = function(config, info) {
+    opensdg.chartConfigAlterations.forEach(function(callback) {
+      callback(config, info);
+    });
+  };
+
+  this.updateChartTitle = function(chartTitle) {
+    if (typeof chartTitle !== 'undefined') {
+      $('.chart-title').text(chartTitle);
+    }
+  }
+
   this.updatePlot = function(chartInfo) {
     view_obj._chartInstance.data.datasets = chartInfo.datasets;
 
@@ -1640,11 +1723,12 @@ var indicatorView = function (model, options) {
     // Create a temp object to alter, and then apply. We go to all this trouble
     // to avoid completely replacing view_obj._chartInstance -- and instead we
     // just replace it's properties: "type", "data", and "options".
-    var updatedConfig = opensdg.chartConfigAlter({
+    var updatedConfig = {
       type: view_obj._chartInstance.type,
       data: view_obj._chartInstance.data,
       options: view_obj._chartInstance.options
-    });
+    }
+    this.alterChartConfig(updatedConfig, chartInfo);
     view_obj._chartInstance.type = updatedConfig.type;
     view_obj._chartInstance.data = updatedConfig.data;
     view_obj._chartInstance.options = updatedConfig.options;
@@ -1661,6 +1745,8 @@ var indicatorView = function (model, options) {
   this.createPlot = function (chartInfo) {
 
     var that = this;
+    var gridColor = that.getGridColor();
+    var tickColor = that.getTickColor();
 
     var chartConfig = {
       type: this._model.graphType,
@@ -1676,12 +1762,19 @@ var indicatorView = function (model, options) {
           xAxes: [{
             maxBarThickness: 150,
             gridLines: {
-              color: '#ddd',
-            }
+              color: gridColor,
+            },
+            ticks: {
+              fontColor: tickColor,
+            },
           }],
           yAxes: [{
+            gridLines: {
+              color: gridColor,
+            },
             ticks: {
-              suggestedMin: 0
+              suggestedMin: 0,
+              fontColor: tickColor,
             },
             scaleLabel: {
               display: this._model.selectedUnit ? translations.t(this._model.selectedUnit) : this._model.measurementUnit,
@@ -1714,9 +1807,19 @@ var indicatorView = function (model, options) {
         }
       }
     };
-    chartConfig = opensdg.chartConfigAlter(chartConfig);
+    this.alterChartConfig(chartConfig, chartInfo);
 
     this._chartInstance = new Chart($(this._rootElement).find('canvas'), chartConfig);
+
+    window.addEventListener('contrastChange', function(e) {
+      var gridColor = that.getGridColor(e.detail);
+      var tickColor = that.getTickColor(e.detail);
+      view_obj._chartInstance.options.scales.yAxes[0].gridLines.color = gridColor;
+      view_obj._chartInstance.options.scales.yAxes[0].ticks.fontColor = tickColor;
+      view_obj._chartInstance.options.scales.xAxes[0].gridLines.color = gridColor;
+      view_obj._chartInstance.options.scales.xAxes[0].ticks.fontColor = tickColor;
+      view_obj._chartInstance.update();
+    });
 
     Chart.pluginService.register({
       afterDraw: function(chart) {
@@ -1783,6 +1886,23 @@ var indicatorView = function (model, options) {
     });
 
     $(this._legendElement).html(view_obj._chartInstance.generateLegend());
+  };
+
+  this.getGridColor = function(contrast=null) {
+    return this.isHighContrast(contrast) ? '#222' : '#ddd';
+  };
+
+  this.getTickColor = function(contrast=null) {
+    return this.isHighContrast(contrast) ? '#fff' : '#000';
+  }
+
+  this.isHighContrast = function(contrast=null) {
+    if (contrast) {
+      return contrast === 'high';
+    }
+    else {
+      return $('body').hasClass('contrast-high');
+    }
   };
 
   this.toCsv = function (tableData) {
@@ -2316,51 +2436,6 @@ $(function() {
 "document"in self&&("classList"in document.createElement("_")&&(!document.createElementNS||"classList"in document.createElementNS("http://www.w3.org/2000/svg","g"))||!function(t){"use strict";if("Element"in t){var e="classList",n="prototype",i=t.Element[n],s=Object,r=String[n].trim||function(){return this.replace(/^\s+|\s+$/g,"")},o=Array[n].indexOf||function(t){for(var e=0,n=this.length;n>e;e++)if(e in this&&this[e]===t)return e;return-1},a=function(t,e){this.name=t,this.code=DOMException[t],this.message=e},c=function(t,e){if(""===e)throw new a("SYNTAX_ERR","An invalid or illegal string was specified");if(/\s/.test(e))throw new a("INVALID_CHARACTER_ERR","String contains an invalid character");return o.call(t,e)},l=function(t){for(var e=r.call(t.getAttribute("class")||""),n=e?e.split(/\s+/):[],i=0,s=n.length;s>i;i++)this.push(n[i]);this._updateClassName=function(){t.setAttribute("class",""+this)}},u=l[n]=[],h=function(){return new l(this)};if(a[n]=Error[n],u.item=function(t){return this[t]||null},u.contains=function(t){return t+="",-1!==c(this,t)},u.add=function(){var t,e=arguments,n=0,i=e.length,s=!1;do t=e[n]+"",-1===c(this,t)&&(this.push(t),s=!0);while(++n<i);s&&this._updateClassName()},u.remove=function(){var t,e,n=arguments,i=0,s=n.length,r=!1;do for(t=n[i]+"",e=c(this,t);-1!==e;)this.splice(e,1),r=!0,e=c(this,t);while(++i<s);r&&this._updateClassName()},u.toggle=function(t,e){t+="";var n=this.contains(t),i=n?e!==!0&&"remove":e!==!1&&"add";return i&&this[i](t),e===!0||e===!1?e:!n},u.toString=function(){return this.join(" ")},s.defineProperty){var f={get:h,enumerable:!0,configurable:!0};try{s.defineProperty(i,e,f)}catch(g){(void 0===g.number||-2146823252===g.number)&&(f.enumerable=!1,s.defineProperty(i,e,f))}}else s[n].__defineGetter__&&i.__defineGetter__(e,h)}}(self),function(){"use strict";var t=document.createElement("_");if(t.classList.add("c1","c2"),!t.classList.contains("c2")){var e=function(t){var e=DOMTokenList.prototype[t];DOMTokenList.prototype[t]=function(t){var n,i=arguments.length;for(n=0;i>n;n++)t=arguments[n],e.call(this,t)}};e("add"),e("remove")}if(t.classList.toggle("c3",!1),t.classList.contains("c3")){var n=DOMTokenList.prototype.toggle;DOMTokenList.prototype.toggle=function(t,e){return 1 in arguments&&!this.contains(t)==!e?e:n.call(this,t)}}t=null}());/*! modernizr 3.5.0 (Custom Build) | MIT *
  * https://modernizr.com/download/?-blobconstructor-localstorage-setclasses !*/
  !function(e,n,o){function s(e,n){return typeof e===n}function t(){var e,n,o,t,a,l,c;for(var f in i)if(i.hasOwnProperty(f)){if(e=[],n=i[f],n.name&&(e.push(n.name.toLowerCase()),n.options&&n.options.aliases&&n.options.aliases.length))for(o=0;o<n.options.aliases.length;o++)e.push(n.options.aliases[o].toLowerCase());for(t=s(n.fn,"function")?n.fn():n.fn,a=0;a<e.length;a++)l=e[a],c=l.split("."),1===c.length?Modernizr[c[0]]=t:(!Modernizr[c[0]]||Modernizr[c[0]]instanceof Boolean||(Modernizr[c[0]]=new Boolean(Modernizr[c[0]])),Modernizr[c[0]][c[1]]=t),r.push((t?"":"no-")+c.join("-"))}}function a(e){var n=c.className,o=Modernizr._config.classPrefix||"";if(f&&(n=n.baseVal),Modernizr._config.enableJSClass){var s=new RegExp("(^|\\s)"+o+"no-js(\\s|$)");n=n.replace(s,"$1"+o+"js$2")}Modernizr._config.enableClasses&&(n+=" "+o+e.join(" "+o),f?c.className.baseVal=n:c.className=n)}var r=[],i=[],l={_version:"3.5.0",_config:{classPrefix:"",enableClasses:!0,enableJSClass:!0,usePrefixes:!0},_q:[],on:function(e,n){var o=this;setTimeout(function(){n(o[e])},0)},addTest:function(e,n,o){i.push({name:e,fn:n,options:o})},addAsyncTest:function(e){i.push({name:null,fn:e})}},Modernizr=function(){};Modernizr.prototype=l,Modernizr=new Modernizr,Modernizr.addTest("blobconstructor",function(){try{return!!new Blob}catch(e){return!1}},{aliases:["blob-constructor"]}),Modernizr.addTest("localstorage",function(){var e="modernizr";try{return localStorage.setItem(e,e),localStorage.removeItem(e),!0}catch(n){return!1}});var c=n.documentElement,f="svg"===c.nodeName.toLowerCase();t(),a(r),delete l.addTest,delete l.addAsyncTest;for(var u=0;u<Modernizr._q.length;u++)Modernizr._q[u]();e.Modernizr=Modernizr}(window,document);/*
- * Leaflet download map.
- *
- * This is a Leaflet control for downloading the current GeoJSON layer.
- */
-(function () {
-  "use strict";
-
-  L.Control.DownloadGeoJson = L.Control.extend({
-
-    initialize: function(plugin) {
-      this.plugin = plugin;
-      this.setPosition('topleft');
-    },
-
-    onAdd: function() {
-      var div = L.DomUtil.create('div', 'download-geojson leaflet-bar');
-      div.innerHTML = '<a id="download-geojson-anchor-elem" style="display:none;"></a>';
-      var trigger = L.DomUtil.create('a', 'download-geojson-button leaflet-bar-part', div);
-      trigger.innerHTML = '<i aria-hidden title="Download" class="fa fa-download"></i>' +
-        '<span class="visuallyhidden">Download</span>';
-      var plugin = this.plugin;
-      L.DomEvent.on(trigger, 'click', (function(e) {
-        e.preventDefault();
-        e.stopPropagation();
-        plugin.getVisibleLayers().eachLayer(function(layer) {
-          var dataStr = 'data:text/json;charset=utf-8,' + encodeURIComponent(JSON.stringify(layer.geoJsonObject));
-          var dlAnchorElem = document.getElementById('download-geojson-anchor-elem');
-          dlAnchorElem.setAttribute('href', dataStr);
-          dlAnchorElem.setAttribute('download', 'map.geo.json');
-          dlAnchorElem.click();
-        });
-      }));
-
-      return div;
-    },
-
-  });
-
-  // Factory function for this class.
-  L.Control.downloadGeoJson = function(plugin) {
-    return new L.Control.DownloadGeoJson(plugin);
-  };
-}());
-
-/*
  * Leaflet selection legend.
  *
  * This is a Leaflet control designed to keep track of selected layers on a map
@@ -2368,6 +2443,10 @@ $(function() {
  */
 (function () {
   "use strict";
+
+  if (typeof L === 'undefined') {
+    return;
+  }
 
   L.Control.SelectionLegend = L.Control.extend({
 
@@ -2478,6 +2557,10 @@ $(function() {
  */
 (function () {
   "use strict";
+
+  if (typeof L === 'undefined') {
+    return;
+  }
 
   var defaultOptions = {
     // YearSlider options.
