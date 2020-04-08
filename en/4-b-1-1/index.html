@@ -120,7 +120,7 @@ var translations = {
         <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css" crossorigin="">
         <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" crossorigin="">
         <link rel="stylesheet" href="https://cdn.datatables.net/fixedcolumns/3.2.3/css/fixedColumns.dataTables.min.css" crossorigin="">
-        <link rel="stylesheet" href="/assets/css/style.css?v=20200408163601">
+        <link rel="stylesheet" href="/assets/css/style.css?v=20200408173817">
         <link href="https://fonts.googleapis.com/css?family=Open+Sans|Roboto" rel="stylesheet" crossorigin="">
         <link rel="stylesheet" href="https://unpkg.com/leaflet@1.3.4/dist/leaflet.css"
           integrity="sha512-puBpdR0798OZvTTbP4A8Ix/l+A4dHDD0DGqYW6RQ+9jxkRFclaxxQb/SJAWZfWAkuyeQUytO7+7N4QKrDh+drA=="
@@ -128,7 +128,7 @@ var translations = {
         <link rel="stylesheet" href="https://cdn.rawgit.com/socib/Leaflet.TimeDimension/master/dist/leaflet.timedimension.control.min.css"  crossorigin=""/>
         <link rel="stylesheet" href='https://api.mapbox.com/mapbox.js/plugins/leaflet-fullscreen/v1.0.1/leaflet.fullscreen.css'  crossorigin=""/>
         <link rel="stylesheet" href="https://bowercdn.net/c/leaflet.zoomhome-latest/dist/leaflet.zoomhome.css"  crossorigin=""/>
-        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet-search@2.9.7/dist/leaflet-search.min.css" crossorigin=""><link rel="stylesheet" href="/assets/css/custom.css?v=20200408163601"><!-- ShareThis BEGIN --><!-- ShareThis END -->
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet-search@2.9.7/dist/leaflet-search.min.css" crossorigin=""><link rel="stylesheet" href="/assets/css/custom.css?v=20200408173817"><!-- ShareThis BEGIN --><!-- ShareThis END -->
 
     </head>
 <body class="language-en layout-indicator">
@@ -258,7 +258,7 @@ var translations = {
   <% } %>
 </script>
 
-<script>translations['indicator'] = {"chart":"Chart","clear_all":"Clear all","clear_selections":"Clear selections","dataset_size_warning":"There are too many datasets to show on the chart. Not all will be shown until you remove some selections.","download_chart":"Download Chart CSV","download_chart_image":"Download Chart Image","download_chart_image_title":"Download chart as image","download_csv":"Download CSV","download_csv_title":"Download as CSV","download_headline":"Download Headline CSV","download_headline_title":"Download headline data as CSV","download_source":"Download Source CSV","download_source_title":"Download source data as CSV","download_table":"Download Table CSV","edit":"Edit","edit_data":"Edit Data","edit_metadata":"Edit Metadata","footnote":"Footnote","geographical_area":"Geographical Area","global_metadata":"Global Metadata","global_metadata_blurb":"This table provides information on metadata for SDG indicators as defined by the UN Statistical Commission. <a href=\"https://unstats.un.org/sdgs/metadata/\">Complete global metadata</a> is provided by the UN Statistics Division.","legend_help":"Click on the legend to remove individual lines from the chart.","loading_map":"Loading map","map":"Map","national_metadata":"National Metadata","national_metadata_blurb":"This table provides metadata for the actual indicator available from %country_name statistics closest to the corresponding global SDG indicator. Please note that even when the global SDG indicator is fully available from %country_adjective statistics, this table should be consulted for information on national methodology and other %country_adjective-specific metadata information.","no_data_hint":"No options available because of filters above","select_all":"Select all","series_help":"Choose categories from the dropdowns below to see different breakdowns of the data. Some will not be available until a higher level is chosen.","source":"Source","sources":"Sources","sub_categories":"Sub-categories","table":"Table","unit_of_measurement":"Unit of Measurement","units_type":"Units type","variable_hint":"Available when '%field' is selected","view_indicator_list":"View this goal's indicator list"};</script>
+<script>translations['indicator'] = {"chart":"Chart","clear_all":"Clear all","clear_selections":"Clear selections","dataset_size_warning":"There are too many datasets to show on the chart. Not all will be shown until you remove some selections.","download_chart":"Download Chart CSV","download_chart_image":"Download Chart Image","download_chart_image_title":"Download chart as image","download_csv":"Download CSV","download_csv_title":"Download as CSV","download_geojson":"Download GeoJSON","download_geojson_title":"Download as GeoJSON","download_headline":"Download Headline CSV","download_headline_title":"Download headline data as CSV","download_source":"Download Source CSV","download_source_title":"Download source data as CSV","download_table":"Download Table CSV","edit":"Edit","edit_data":"Edit Data","edit_metadata":"Edit Metadata","footnote":"Footnote","geographical_area":"Geographical Area","global_metadata":"Global Metadata","global_metadata_blurb":"This table provides information on metadata for SDG indicators as defined by the UN Statistical Commission. <a href=\"https://unstats.un.org/sdgs/metadata/\">Complete global metadata</a> is provided by the UN Statistics Division.","legend_help":"Click on the legend to remove individual lines from the chart.","loading_map":"Loading map","map":"Map","national_metadata":"National Metadata","national_metadata_blurb":"This table provides metadata for the actual indicator available from %country_name statistics closest to the corresponding global SDG indicator. Please note that even when the global SDG indicator is fully available from %country_adjective statistics, this table should be consulted for information on national methodology and other %country_adjective-specific metadata information.","no_data_hint":"No options available because of filters above","select_all":"Select all","series_help":"Choose categories from the dropdowns below to see different breakdowns of the data. Some will not be available until a higher level is chosen.","source":"Source","sources":"Sources","sub_categories":"Sub-categories","table":"Table","unit_of_measurement":"Unit of Measurement","units_type":"Units type","variable_hint":"Available when '%field' is selected","view_indicator_list":"View this goal's indicator list"};</script>
 
 <script>translations['data'] = {"Баткенская область":"Batken Oblast","Бишкек":"Bishkek","Женщины":"Female","Мужчины":"Male","Пол":"Sex","Территория":"Geographical area"};</script>
 
@@ -668,12 +668,22 @@ data-event-label="Change to custom.data_reporter tab"
         <th scope="row">Definitions </th>
         <td>
           
-            <ol>
+            <p>На основании имеющихся межправительственных и межведомственных соглашений о сотрудничестве в области образования между Кыргызской Республикой и странами-партнерами осуществляется ежегодное выделение мест для обучения граждан КР в зарубежных вузах.</p>
+<ol>
+  <li>Российская Федерация
+По линии Соглашения между Правительством Кыргызской Республики и Правительством Российской Федерации о сотрудничестве в области высшего образования (г. Москва, 29 марта 1996 года) для граждан КР ежегодно выделяются бюджетные места в вузах РФ (до 400 мест). 
+С 2014 года, в соответствии с решением российской стороны, прием документов, отбор кандидатов и отправку их документов осуществляет Представительство Россотрудничества в Кыргызской Республике.</li>
+  <li>Республика Казахстан
+В рамках Соглашения между Правительством Кыргызской Республики и Правительством Республики Казахстан о сотрудничестве в области образования (г. Астана, 4 июля 2006 года) осуществляется ежегодное выделение 5 бюджетных мест в вузах Казахстана для граждан КР.</li>
   <li>Республика Беларусь 
 Соглашение между Правительством Кыргызской Республики и Правительством Республики Беларусь о сотрудничестве в области образования и науки (от 27 ноября 2006 года) предусматривает ежегодное выделение до 10 бюджетных мест в высших учебных заведениях сторон по программам бакалавриат/специалитет, магистратура, аспирантура, докторантура, курсам повышения квалификации и стажировкам.</li>
   <li>Китайская Народная Республика
 На основе Соглашения между Министерством образования и науки Кыргызской Республики и Министерством образования и науки Китайской Народной Республики  о сотрудничестве в области образования (г. Пекин, 16 декабря 2015 года) и Соглашения между правительствами государств-членов Шанхайской организации сотрудничества о сотрудничестве в области образования (г.Шанхай, 15 июня 2006 года) китайской стороной ежегодно выделяются места для граждан КР.<br />
 При этом, общее количество кыргызстанских студентов, которые обучаются в вузах КНР, по линии упомянутых соглашений ежегодно не должно превышать 60 человек, включая уже обучающихся и вновь зачисленных (20 человек по линии межведомственного Соглашения и 40 человек по линии Соглашения ШОС).</li>
+  <li>Венгрия
+В рамках Соглашения между Министерством образования и науки КР и Министерством человеческих ресурсов Венгрии о сотрудничестве в области образования и науки (г.Нью-Йорк, 21 сентября 2016 года), предусмотрено выделение 25 бюджетных мест для обучения граждан КР в вузах Венгрии по программам бакалавриата, магистратуры и докторантуры.</li>
+  <li>Таджикистан
+В рамках Соглашения между Министерством образования и науки Кыргызской Республики и Министерством образования Республики Таджикистан (от 15 марта 2007 года), ежегодно выделяется до 50 бюджетных мест для граждан Кыргызской Республики.</li>
 </ol>
 
           
@@ -800,10 +810,14 @@ data-event-label="Change to custom.data_reporter tab"
         <th scope="row">References and documentation </th>
         <td>
           
-            <p>1. Соглашение между Правительством Кыргызской Республики и Правительством Российской Федерации о сотрудничестве в области высшего образования (г. Москва, 29 марта 1996 года)  - toktom.kg, minjust.gov.kg.                                                                                   2. Соглашение между Правительством Кыргызской Республики и Правительством Республики Казахстан о сотрудничестве в области образования (г. Астана, 4 июля)  -  toktom.kg, minjust.gov.kg.                                                                                          3. Соглашение между Правительством Кыргызской Республики и Правительством Республики Беларусь о сотрудничестве в области образования и науки (от 27 ноября 2006 года)  - toktom.kg, minjust.gov.kg.                                                                                                     4. Соглашение между Министерством образования и науки Кыргызской Республики и Министерством образования и науки Китайской Народной Республики  о сотрудничестве в области образования (г. Пекин, 16 декабря 2015 года)  - toktom.kg, minjust.gov.kg.</p>
+            <p>1. Соглашение между Правительством Кыргызской Республики и Правительством Российской Федерации о сотрудничестве в области высшего образования (г. Москва, 29 марта 1996 года)  - toktom.kg, minjust.gov.kg
+2. Соглашение между Правительством Кыргызской Республики и Правительством Республики Казахстан о сотрудничестве в области образования (г. Астана, 4 июля)  -  toktom.kg, minjust.gov.kg</p>
 <ol>
-  <li>Соглашение между правительствами государств-членов Шанхайской организации сотрудничества о сотрудничестве в области образования (г.Шанхай, 15 июня 2006 года)  - toktom.kg, minjust.gov.kg.</li>
-  <li>Соглашение между Министерством образования и науки КР и Министерством человеческих ресурсов Венгрии о сотрудничестве в области образования и науки (г.Нью-Йорк, 21 сентября 2016 года) - toktom.kg, minjust.gov.kg.</li>
+  <li>Соглашение между Правительством Кыргызской Республики и Правительством Республики Беларусь о сотрудничестве в области образования и науки (от 27 ноября 2006 года)  - toktom.kg, minjust.gov.kg</li>
+  <li>Соглашение между Министерством образования и науки Кыргызской Республики и Министерством образования и науки Китайской Народной Республики  о сотрудничестве в области образования (г. Пекин, 16 декабря 2015 года)  - toktom.kg, minjust.gov.kg</li>
+  <li>Соглашение между правительствами государств-членов Шанхайской организации сотрудничества о сотрудничестве в области образования (г.Шанхай, 15 июня 2006 года)  - toktom.kg, minjust.gov.kg</li>
+  <li>Соглашение между Министерством образования и науки КР и Министерством человеческих ресурсов Венгрии о сотрудничестве в области образования и науки (г.Нью-Йорк, 21 сентября 2016 года) - toktom.kg, minjust.gov.kg</li>
+  <li>Соглашение между Министерством образования и науки Кыргызской Республики и Министерством образования Республики Таджикистан (от 15 марта 2007 года), ежегодно выделяется до 50 бюджетных мест для граждан Кыргызской Республики (кооперированный набор) - toktom.kg, minjust.gov.kg.   8. Сайт Министерства образования и науки Кыргызской Республики - edu.gov.kg</li>
 </ol>
 
           
@@ -1050,7 +1064,7 @@ data-event-label="Change to custom.data_reporter tab"
 <script src="https://cdnjs.cloudflare.com/ajax/libs/autotrack/2.4.1/autotrack.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/html2canvas@1.0.0-rc.3/dist/html2canvas.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/file-saver@2.0.2/dist/FileSaver.min.js"></script>
-<script src='/assets/js/sdg.js?v=20200408163601'></script><script src="/assets/js/custom.js?v=20200408163601"></script><script>
+<script src='/assets/js/sdg.js?v=20200408173817'></script><script src="/assets/js/custom.js?v=20200408173817"></script><script>
 $(function() {
     if($('#indicatorData').length) {
       var domData = $('#indicatorData').data();
