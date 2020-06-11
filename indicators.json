@@ -107,7 +107,7 @@
           "description": "",
           "keywords": "",
           "href": "/1-5-1",
-          "status": "notstarted"
+          "status": "complete"
         },
         {
           "id": "1-5-2",
@@ -191,7 +191,7 @@
         },
         {
           "id": "2-1-1-1e",
-          "title": "Среднедушевое потребление основных продуктов питания по отношению к среднефизиологическим нормам",
+          "title": "Среднедушевое потребление основных продуктов питания по отношению к среднефизиологическим нормам потребления",
           "description": "",
           "keywords": "",
           "href": "/2-1-1-1e",
@@ -275,7 +275,7 @@
           "description": "",
           "keywords": "",
           "href": "/2-a-2",
-          "status": "complete"
+          "status": "notstarted"
         },
         {
           "id": "2-b-1",
@@ -523,7 +523,7 @@
           "description": "",
           "keywords": "",
           "href": "/3-b-2",
-          "status": "complete"
+          "status": "notstarted"
         },
         {
           "id": "3-b-3",
@@ -563,7 +563,7 @@
           "description": "",
           "keywords": "",
           "href": "/4-1-1",
-          "status": "notstarted"
+          "status": "complete"
         },
         {
           "id": "4-1-1-1a",
@@ -687,7 +687,7 @@
         },
         {
           "id": "4-c-1-1",
-          "title": "Доля дипломированных учителей в образовательных учереждениях",
+          "title": "Доля дипломированных учителей в образовательных учреждениях",
           "description": "",
           "keywords": "",
           "href": "/4-c-1-1",
@@ -995,7 +995,7 @@
           "description": "",
           "keywords": "",
           "href": "/7-2-1-1",
-          "status": "complete"
+          "status": "notstarted"
         },
         {
           "id": "7-3-1",
@@ -1379,7 +1379,7 @@
           "description": "",
           "keywords": "",
           "href": "/10-3-1",
-          "status": "notstarted"
+          "status": "complete"
         },
         {
           "id": "10-3-1-1-a",
@@ -1459,7 +1459,7 @@
           "description": "",
           "keywords": "",
           "href": "/10-b-1",
-          "status": "notstarted"
+          "status": "complete"
         },
         {
           "id": "10-c-1",
@@ -1523,11 +1523,11 @@
           "description": "",
           "keywords": "",
           "href": "/11-5-1",
-          "status": "notstarted"
+          "status": "complete"
         },
         {
           "id": "11-5-2",
-          "title": "Общая сумма расходов (государственных ичастных) в расчете на душу населения на цели сохраненияи защиты всего культурного и природногонаследия в разбивке по видам наследия (культурное,природное, смешанного характера и признанное объектомвсемирного наследия Центром всемирногонаследия), уровню государственной подведомственности(национальный, региональный и местный/ муниципальный),видам расходов (эксплуатационные расходы/капиталовложения) и видам частного финансирования(пожертвования в натуральной форме,частный некоммерческий сектор и спонсорство)",
+          "title": "Прямые экономические потери в процентном отношении к общемировому ВВП, ущерб важнейшим объектам инфраструктуры и число обусловленных бедствиями сбоев в работе основных служб",
           "description": "",
           "keywords": "",
           "href": "/11-5-2",
@@ -1595,7 +1595,7 @@
           "description": "",
           "keywords": "",
           "href": "/11-b-1",
-          "status": "notstarted"
+          "status": "complete"
         },
         {
           "id": "11-b-2",
@@ -1627,7 +1627,7 @@
           "description": "",
           "keywords": "",
           "href": "/12-1-1",
-          "status": "notapplicable"
+          "status": "complete"
         },
         {
           "id": "12-2-1",
@@ -1774,14 +1774,6 @@
           "status": "notstarted"
         },
         {
-          "id": "13-3-1-1b",
-          "title": "",
-          "description": "",
-          "keywords": "",
-          "href": "/13-3-1-1b",
-          "status": "notstarted"
-        },
-        {
           "id": "13-3-2",
           "title": "Число стран, сообщивших об укрепленииинституциональных, системных и индивидуальныхвозможностей для осуществления мер в областиадаптации к климатическим изменениям, смягченияих последствий и передачи и развития технологии",
           "description": "",
@@ -1915,11 +1907,11 @@
           "description": "",
           "keywords": "",
           "href": "/15-1-2",
-          "status": "notstarted"
+          "status": "complete"
         },
         {
           "id": "15-1-2-1",
-          "title": "Площадь ООПТ от всей площади",
+          "title": "Площадь ООПТ от всей площади старны",
           "description": "",
           "keywords": "",
           "href": "/15-1-2-1",
@@ -1995,7 +1987,7 @@
           "description": "",
           "keywords": "",
           "href": "/15-9-1",
-          "status": "notstarted"
+          "status": "complete"
         },
         {
           "id": "15-a-1",
@@ -2070,6 +2062,14 @@
           "status": "complete"
         },
         {
+          "id": "16-1-4-1a",
+          "title": ". Proportion of crimes committed in public places and on the streets to the total number of recorded crimes",
+          "description": "",
+          "keywords": "",
+          "href": "/16-1-4-1a",
+          "status": "complete"
+        },
+        {
           "id": "16-2-1",
           "title": "Доля детей в возрасте от 1 года до 17 лет, впоследний месяц подвергшихся любому физическомунаказанию и/или психологической агрессии состороны тех, кто обеспечивает уход за ними",
           "description": "",
@@ -2083,7 +2083,7 @@
           "description": "",
           "keywords": "",
           "href": "/16-2-2",
-          "status": "notstarted"
+          "status": "complete"
         },
         {
           "id": "16-2-3",
@@ -2163,7 +2163,7 @@
           "description": "",
           "keywords": "",
           "href": "/16-6-1",
-          "status": "notstarted"
+          "status": "complete"
         },
         {
           "id": "16-6-2",
@@ -2187,7 +2187,7 @@
           "description": "",
           "keywords": "",
           "href": "/16-7-1",
-          "status": "notstarted"
+          "status": "complete"
         },
         {
           "id": "16-7-2",
@@ -2267,7 +2267,7 @@
           "description": "",
           "keywords": "",
           "href": "/17-1-1",
-          "status": "notstarted"
+          "status": "complete"
         },
         {
           "id": "17-1-2",
@@ -2295,7 +2295,7 @@
         },
         {
           "id": "17-3-1-1a",
-          "title": "Поступление прямых иностранных инвестиций по  видам экономической деятельности (ГКЭД, версия 3)",
+          "title": "Поступление прямых иностранных инвестиций по  видам экономической деятельности",
           "description": "",
           "keywords": "",
           "href": "/17-3-1-1a",
@@ -2363,7 +2363,7 @@
           "description": "",
           "keywords": "",
           "href": "/17-8-1",
-          "status": "notstarted"
+          "status": "complete"
         },
         {
           "id": "17-9-1",
