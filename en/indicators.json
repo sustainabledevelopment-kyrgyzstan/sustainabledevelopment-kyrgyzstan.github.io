@@ -275,7 +275,7 @@
           "description": "",
           "keywords": "",
           "href": "/en/2-a-2",
-          "status": "notstarted"
+          "status": "notapplicable"
         },
         {
           "id": "2-b-1",
@@ -523,7 +523,7 @@
           "description": "",
           "keywords": "",
           "href": "/en/3-b-2",
-          "status": "notstarted"
+          "status": "notapplicable"
         },
         {
           "id": "3-b-3",
@@ -731,7 +731,7 @@
           "description": "",
           "keywords": "",
           "href": "/en/5-2-1-1b",
-          "status": "notstarted"
+          "status": "complete"
         },
         {
           "id": "5-2-2",
@@ -830,6 +830,14 @@
           "status": "complete"
         },
         {
+          "id": "5-b-1-1",
+          "title": "Число мобильных телефонов на 100 домохозяйств",
+          "description": "",
+          "keywords": "",
+          "href": "/en/5-b-1-1",
+          "status": "complete"
+        },
+        {
           "id": "5-c-1",
           "title": "Proportion of countries with systems to track and make public allocations for gender equality and women’s empowerment",
           "description": "",
@@ -867,6 +875,14 @@
           "description": "",
           "keywords": "",
           "href": "/en/6-2-1",
+          "status": "complete"
+        },
+        {
+          "id": "6-2-1-1",
+          "title": "Доля населения, имеющего устойчивый доступ к санитарным сооружениям",
+          "description": "",
+          "keywords": "",
+          "href": "/en/6-2-1-1",
           "status": "complete"
         },
         {
@@ -950,6 +966,14 @@
           "status": "notapplicable"
         },
         {
+          "id": "6-a-1-1",
+          "title": "Объем официальной помощи в целях развития, выделенной на водоснабжение и санитарию в рамках координируемой государственной программы расходов",
+          "description": "",
+          "keywords": "",
+          "href": "/en/6-a-1-1",
+          "status": "complete"
+        },
+        {
           "id": "6-b-1",
           "title": "Proportion of local administrative units with established and operational policies and procedures for participation of local communities in water and sanitation management",
           "description": "",
@@ -995,7 +1019,7 @@
           "description": "",
           "keywords": "",
           "href": "/en/7-2-1-1",
-          "status": "notstarted"
+          "status": "complete"
         },
         {
           "id": "7-3-1",
@@ -1415,7 +1439,7 @@
         },
         {
           "id": "10-5-1-1",
-          "title": ". Financial Soundness Indicators",
+          "title": "Показатели финансовой устойчивости",
           "description": "",
           "keywords": "",
           "href": "/en/10-5-1-1",
@@ -1543,10 +1567,18 @@
         },
         {
           "id": "11-6-1-1",
-          "title": ". Volume of removed solid household waste per person,kg",
+          "title": "Объем вывезенных твердых бытовых отходов",
           "description": "",
           "keywords": "",
           "href": "/en/11-6-1-1",
+          "status": "complete"
+        },
+        {
+          "id": "11-6-1-1a",
+          "title": "Избавление от твердых бытовых отходов домашними хозяйствами по видам",
+          "description": "",
+          "keywords": "",
+          "href": "/en/11-6-1-1a",
           "status": "complete"
         },
         {
@@ -1895,7 +1927,7 @@
         
         {
           "id": "15-1-1-1",
-          "title": ". Forest area as a proportion of total country",
+          "title": "Площадь лесов в процентном отношении к общей площади страны",
           "description": "",
           "keywords": "",
           "href": "/en/15-1-1-1",
@@ -1934,6 +1966,14 @@
           "status": "notstarted"
         },
         {
+          "id": "15-3-1-1",
+          "title": "Площадь пашни по причинам неиспользования",
+          "description": "",
+          "keywords": "",
+          "href": "/en/15-3-1-1",
+          "status": "complete"
+        },
+        {
           "id": "15-4-1",
           "title": "Coverage by protected areas of important sites for mountain biodiversity",
           "description": "",
@@ -1958,6 +1998,14 @@
           "status": "notstarted"
         },
         {
+          "id": "15-5-1-1",
+          "title": "Доля краснокнижных видов от всех видов соответствующего класса",
+          "description": "",
+          "keywords": "",
+          "href": "/en/15-5-1-1",
+          "status": "complete"
+        },
+        {
           "id": "15-6-1",
           "title": "Number of countries that have adopted legislative, administrative and policy frameworks to ensure fair and equitable sharing of benefits",
           "description": "",
@@ -1972,6 +2020,22 @@
           "keywords": "",
           "href": "/en/15-7-1",
           "status": "notstarted"
+        },
+        {
+          "id": "15-7-1-1",
+          "title": "Доля диких животных, являющихся объектом браконьерства или незаконного оборота от всех видов соответствующего класса",
+          "description": "",
+          "keywords": "",
+          "href": "/en/15-7-1-1",
+          "status": "complete"
+        },
+        {
+          "id": "15-7-1-2",
+          "title": "Количество выданных разрешений на вывоз и ввоз животных и растений, их частей и дериватов, попадающих под действие Конвенции CITES",
+          "description": "",
+          "keywords": "",
+          "href": "/en/15-7-1-2",
+          "status": "complete"
         },
         {
           "id": "15-8-1",
@@ -1995,7 +2059,7 @@
           "description": "",
           "keywords": "",
           "href": "/en/15-a-1",
-          "status": "complete"
+          "status": "notstarted"
         },
         {
           "id": "15-b-1",
@@ -2007,7 +2071,7 @@
         },
         {
           "id": "15-b-1-1",
-          "title": "Объем государственных средств, выделяемых на охрану окружающей среды (леса)",
+          "title": "Объем государственных средств, выделяемых на охрану окружающей среды",
           "description": "",
           "keywords": "",
           "href": "/en/15-b-1-1",
@@ -2038,6 +2102,14 @@
           "status": "complete"
         },
         {
+          "id": "16-1-1-1",
+          "title": "Смертность от нападений на 100 000 человек",
+          "description": "",
+          "keywords": "",
+          "href": "/en/16-1-1-1",
+          "status": "complete"
+        },
+        {
           "id": "16-1-2",
           "title": "Conflict-related deaths per 100,000 population, by sex, age and cause",
           "description": "",
@@ -2063,7 +2135,7 @@
         },
         {
           "id": "16-1-4-1a",
-          "title": ". Proportion of crimes committed in public places and on the streets to the total number of recorded crimes",
+          "title": "Доля совершенных преступлений в общественных местах и на улицах от общего количества зарегистрированных преступлений",
           "description": "",
           "keywords": "",
           "href": "/en/16-1-4-1a",
@@ -2231,7 +2303,7 @@
         },
         {
           "id": "16-b-1-1",
-          "title": ". Proportion of women aged 15-49 reporting having personally felt discriminated against or harassed in the previous 12 months on the basis of a ground of discrimination prohibited under international human rights law",
+          "title": "Доля женщин в возрасте 15–49 лет, сообщивших о личной дискриминации или преследованиях в последние 12 месяцев на основании, дискриминация на котором запрещена международным правом в области прав человека",
           "description": "",
           "keywords": "",
           "href": "/en/16-b-1-1",
