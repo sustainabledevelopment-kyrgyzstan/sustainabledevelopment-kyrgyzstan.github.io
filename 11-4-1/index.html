@@ -3,7 +3,7 @@
     <head>
         <meta charset="utf-8">
         <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.min.js"></script>
-        <script crossorigin="anonymous" src="https://polyfill.io/v3/polyfill.min.js?features=Promise%2CArray.prototype.forEach%2CString.prototype.includes%2CURLSearchParams%2CCustomEvent%2CArray.prototype.includes%2CArray.prototype.filter%2CArray.prototype.some%2CArray.prototype.find%2CObject.assign"></script>
+        <script crossorigin="anonymous" src="https://polyfill.io/v3/polyfill.min.js?features=Promise%2CArray.prototype.forEach%2CString.prototype.includes%2CURLSearchParams%2CCustomEvent%2CArray.prototype.includes%2CArray.prototype.filter%2CArray.prototype.some%2CArray.prototype.find%2CObject.assign%2CArray.isArray%2CObject.values"></script>
 <script crossorigin="anonymous" src="https://cdnjs.cloudflare.com/ajax/libs/javascript-canvas-to-blob/3.15.0/js/canvas-to-blob.min.js"></script>
 
         <script>
@@ -120,7 +120,7 @@ var translations = {
         <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css" crossorigin="">
         <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" crossorigin="">
         <link rel="stylesheet" href="https://cdn.datatables.net/fixedcolumns/3.2.3/css/fixedColumns.dataTables.min.css" crossorigin="">
-        <link rel="stylesheet" href="/assets/css/style.css?v=20200617095208">
+        <link rel="stylesheet" href="/assets/css/style.css?v=20200727050650">
         <link href="https://fonts.googleapis.com/css?family=Open+Sans|Roboto" rel="stylesheet" crossorigin="">
         <link rel="stylesheet" href="https://unpkg.com/leaflet@1.3.4/dist/leaflet.css"
           integrity="sha512-puBpdR0798OZvTTbP4A8Ix/l+A4dHDD0DGqYW6RQ+9jxkRFclaxxQb/SJAWZfWAkuyeQUytO7+7N4QKrDh+drA=="
@@ -128,7 +128,7 @@ var translations = {
         <link rel="stylesheet" href="https://cdn.rawgit.com/socib/Leaflet.TimeDimension/master/dist/leaflet.timedimension.control.min.css"  crossorigin=""/>
         <link rel="stylesheet" href='https://api.mapbox.com/mapbox.js/plugins/leaflet-fullscreen/v1.0.1/leaflet.fullscreen.css'  crossorigin=""/>
         <link rel="stylesheet" href="https://bowercdn.net/c/leaflet.zoomhome-latest/dist/leaflet.zoomhome.css"  crossorigin=""/>
-        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet-search@2.9.7/dist/leaflet-search.min.css" crossorigin=""><link rel="stylesheet" href="/assets/css/custom.css?v=20200617095208"><!-- ShareThis BEGIN --><!-- ShareThis END -->
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet-search@2.9.7/dist/leaflet-search.min.css" crossorigin=""><link rel="stylesheet" href="/assets/css/custom.css?v=20200727050650"><!-- ShareThis BEGIN --><!-- ShareThis END -->
 
     </head>
 <body class="language-ru layout-indicator">
@@ -277,7 +277,7 @@ var translations = {
 <script>translations['data'] = {"0 to 5 months old":" возраст от 0-5 месяцев","1 to 14 years old":"1-14 лет","1 to 2 years old":"1-2 года","1 year old":" в возрасте 1 года","10 to 14 years old":"10-14 лет","12 to 14 years old":"12-14 лет","12 to 17 months old":" возраст от 12-17  месяцев","15 to 17 years old":"15-17 лет","15 to 19 years old":"15-19 лет","18 to 23 months old":" возраст от 18-23  месяцев","18 to 25 years old":"18-25 лет","2 years old":"2 года и старше","20 to 24 years old":"20-24 лет","24 to 35 months old":" возраст от 24-35  месяцев","25 to 29 years old":"25-29 лет","26 to 34 years old":"26-34 лет","3 to 4 years old":"3-4 года","3 years old":"3 года","30 to 34 years old":"30-34 лет","35 to 39 years old":"35-39 лет","35 to 45 years old":"35-45 лет","36 to 47 months old":" возраст от 36-47  месяцев","4 years old":"4 года","40 to 44 years old":"40-44 лет","45 to 49 years old":"45-49 лет","46 to 54 years old":"46-54 лет","48 to 59 months old":" возраст от 48-59  месяцев","5 to 11 years old":"5-11 лет","5 to 17 years old":"5-17 лет","5 to 6 years old":"5-6 лет","55 to 59 years old":"55-59 лет","6 to 11 months old":" возраст от 6-11  месяцев","60 years old and over":"60 лет и старше","7 to 14 years old":"7-14 лет","8 to 9 years old":"8-9 лет","Age":"Возраст","At the time of departure cargo.":"В момент отправления груза.","Batken":"Баткенская область","Bishkek (city)":"г. Бишкек","Chui":"Чуйская область","Composite breakdown":"Композитная разбивка","Degree of urbanisation":"Степень урбанизации","Education level":"Уровень образования","Female":"женский","Income or wealth quantile":"Доход или квинтиль благосостояния","Internet speed: 10 Mbit/s or above":"Скорость интернета: 10 Мбит /с  или выше","Internet speed: 2 Mbit/s to less than 10 Mbit/s":"Скорость интернета: от 2 Мбит /с  до менее 10 Мбит / с","Internet speed: 256 kbit/s to less than 2 Mbit/s":"Скорость интернета: от 256 кбит /с  до менее 2 Мбит / с","Issyk-Kul":"Иссык-Кульская область","Jalal-Abad":"Жалал-Абад область","Local currency":"Местная валюта","Lower secondary education":"1- этап среднего образования","Male":"мужской","Medical doctors":"Врачи","Mode of Transport: Air":"Вид транспорта: воздушный","Mode of Transport: Pipeline":"Вид транспорта: трубопроводный","Mode of Transport: Rail":"Вид транспорта: железнодорожный","Mode of Transport: Road":"Вид транспорта: дорожный","Mode of Transport: Water":"Вид транспорта: водный","Naryn":"Нарынская область","Non-communicable disease: Cancer":"Неинфекционные заболевания: рак","Non-communicable disease: Cardiovascular disease":"Неинфекционные заболевания: сердечно-сосудистые заболевания","Non-communicable disease: Chronic respiratory disease":"Неинфекционные заболевания: хронические респираторные заболевания","Non-communicable disease: Diabetes":"Неинфекционные заболевания:диабет","Nursing and midwifery professionals":"Медсестры и акушеры","Occupation":"Род занятий (Профессия)","Osh":"Ошская область","Osh (city)":"г. Ош","Percent":"Процент","Post-secondary non-tertiary education":"Послесреднее нетретичное образование","Pre-primary education":"Дошкольное образование","Primary education":"Начальное образование (1-4 классы)","Quintile 1 (poorest)":"квинтиль 1 (самые бедные)","Quintile 2":"квинтиль 2","Quintile 3":"квинтиль 3","Quintile 4":"квинтиль 4","Quintile 5 (richest)":"квинтиль 5 (самые богатые)","Reference area":"Справочная зона (условная зона)","Rural":"сельская местность","Sex":"пол","Since 2014 excluding deparmental transport.":"С 2014 года исключая департационный транспорт.","Skill: Functional literacy":"Навыки: Функциональная грамотность","Skill: Functional numeracy":"Навыки: Функциональное счисление ","Some primary education, grades 2 or 3":"Неполное начальное образование","Talas":"Таласская область","Time series-level footnotes":"Сноски для временных рядов","Until 2013 - including Osh.":"До 2013 года - включая Ош.","Upper secondary education":"2- этап среднего образования","Urban":"городская местность","under 1 year old":"возрасте до 1 года","under 5 years old":"до 5 лет"};</script>
 
 
-<div class="heading indicator goal-11">
+<div class="heading goal-banner indicator goal-11">
   <div class="container">
     <div class="row">
       <div class="col-xs-4 col-md-3 col-lg-2 goal-icon">
@@ -323,11 +323,47 @@ var translations = {
 
   
 
-  <div class="row">
 
-  <div id="metadata-main" class="indicator-main col-md-12">
 
-    <ul class="nav nav-tabs spacer medium" role="tablist">
+
+
+
+
+<div class="row"
+  id="indicatorData"
+  data-indicatorid='indicator_11-4-1'
+  data-id="11-4-1"
+  data-country="Кыргызская Республика"
+  data-charttitle="Общая сумма расходов (государственных и
+частных) в расчете на душу населения на цели сохранения
+и защиты всего культурного и природного
+наследия в разбивке по видам наследия (культурное,
+природное, смешанного характера и признанное объектом
+всемирного наследия Центром всемирного
+наследия), уровню государственной подведомственности
+(национальный, региональный и местный/ муниципальный),
+видам расходов (эксплуатационные расходы/капиталовложения) и видам частного финансирования
+(пожертвования в натуральной форме,
+частный некоммерческий сектор и спонсорство)
+"
+  data-charttitles="null"
+  data-measurementunit=""
+  data-datasource=""
+  data-copyright=""
+  data-geographicalarea="Кыргызская Республика"
+  data-footnote=""
+  data-showdata="false"
+  data-graphtype="line"
+  data-geocoderegex=""
+  data-showmap=""
+  data-startvalues="null"
+  data-graphlimits="null"
+  data-stackeddisaggregation=""
+>
+  
+  <div id="indicator-main" class="indicator-main col-md-12">
+  
+  <ul class="nav nav-tabs spacer medium" role="tablist">
 
 
   
@@ -370,7 +406,7 @@ data-event-label="Change to custom.data_reporter tab"
   
 </ul>
 
-    <div class="tab-content">
+<div class="tab-content">
   
     
     
@@ -838,6 +874,7 @@ data-event-label="Change to custom.data_reporter tab"
   
 </div>
 
+
   </div>
 </div>
 
@@ -849,7 +886,7 @@ data-event-label="Change to custom.data_reporter tab"
       <div class="col-xs-12">
         <div id="footerLinks">
           <ul>
-            <li><a href="https://open-sdg.readthedocs.io/en/latest/">Построен с использованием Open SDG</a></li>
+            <li><a href="https://open-sdg.org">Построен с использованием Open SDG</a></li>
             
               
                 <li>
@@ -889,61 +926,70 @@ data-event-label="Change to custom.data_reporter tab"
 <script src="https://cdnjs.cloudflare.com/ajax/libs/autotrack/2.4.1/autotrack.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/html2canvas@1.0.0-rc.3/dist/html2canvas.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/file-saver@2.0.2/dist/FileSaver.min.js"></script>
-<script src='/assets/js/sdg.js?v=20200617095208'></script><script src="/assets/js/custom.js?v=20200617095208"></script><script>
+<script>translations['general'] = translations['general'] || {};
+    translations['general']['hide'] = '';</script>
+
+<script>translations['search'] = translations['search'] || {};
+    translations['search']['search'] = 'Поиск';</script>
+
+<script src='/assets/js/sdg.js?v=20200727050650'></script><script src="/assets/js/custom.js?v=20200727050650"></script><script>
 $(function() {
     if($('#indicatorData').length) {
       var domData = $('#indicatorData').data();
 
-      $('.async-loading').each(function(i, obj) {
-          $(obj).append($('<img />').attr('src', $(obj).data('img')));
-      });
+      if (domData.showdata) {
 
-      var remoteUrl = '/comb/' + domData.id + '.json';
-      if (opensdg.remoteDataBaseUrl !== '/') {
-        remoteUrl = opensdg.remoteDataBaseUrl + remoteUrl;
-      }
+        $('.async-loading').each(function(i, obj) {
+            $(obj).append($('<img />').attr('src', $(obj).data('img')).attr('alt', translations.indicator.loading));
+        });
 
-      $.ajax({
-        url: remoteUrl,
-        success: function(res) {
-
-          $('.async-loading').remove();
-          $('.async-loaded').show();
-
-          var model = new indicatorModel({
-            data: res.data,
-            edgesData: res.edges,
-            showMap: domData.showmap,
-            country: domData.country,
-            indicatorId: domData.indicatorid,
-            shortIndicatorId: domData.id,
-            chartTitle: domData.charttitle,
-            chartTitles: domData.charttitles,
-            measurementUnit: domData.measurementunit,
-            copyright: domData.copyright,
-            dataSource: domData.datasource,
-            geographicalArea: domData.geographicalarea,
-            showData: domData.showdata,
-            footnote: domData.footnote,
-            graphType: domData.graphtype,
-            startValues: domData.startvalues,
-            graphLimits: domData.graphlimits,
-            stackedDisaggregation: domData.stackeddisaggregation,
-          }),
-          view  = new indicatorView(model, {
-            rootElement: '#indicatorData',
-            legendElement: '#plotLegend',
-            maxChartHeight: 420,
-            tableColumnDefs: [
-              { maxCharCount: 25 }, // nowrap
-              { maxCharCount: 35, width: 200 },
-              { maxCharCount: Infinity, width: 250 }
-            ]
-          }),
-          controller = new indicatorController(model, view);
-          controller.initialise();
+        var remoteUrl = '/comb/' + domData.id + '.json';
+        if (opensdg.remoteDataBaseUrl !== '/') {
+          remoteUrl = opensdg.remoteDataBaseUrl + remoteUrl;
         }
-      });
+
+        $.ajax({
+          url: remoteUrl,
+          success: function(res) {
+
+            $('.async-loading').remove();
+            $('.async-loaded').show();
+
+            var model = new indicatorModel({
+              data: res.data,
+              edgesData: res.edges,
+              showMap: domData.showmap,
+              country: domData.country,
+              indicatorId: domData.indicatorid,
+              shortIndicatorId: domData.id,
+              chartTitle: domData.charttitle,
+              chartTitles: domData.charttitles,
+              measurementUnit: domData.measurementunit,
+              copyright: domData.copyright,
+              dataSource: domData.datasource,
+              geographicalArea: domData.geographicalarea,
+              showData: domData.showdata,
+              footnote: domData.footnote,
+              graphType: domData.graphtype,
+              startValues: domData.startvalues,
+              graphLimits: domData.graphlimits,
+              stackedDisaggregation: domData.stackeddisaggregation,
+            }),
+            view  = new indicatorView(model, {
+              rootElement: '#indicatorData',
+              legendElement: '#plotLegend',
+              maxChartHeight: 420,
+              tableColumnDefs: [
+                { maxCharCount: 25 }, // nowrap
+                { maxCharCount: 35, width: 200 },
+                { maxCharCount: Infinity, width: 250 }
+              ]
+            }),
+            controller = new indicatorController(model, view);
+            controller.initialise();
+          }
+        });
+      }
     }
 
     var switcher = new accessibilitySwitcher();

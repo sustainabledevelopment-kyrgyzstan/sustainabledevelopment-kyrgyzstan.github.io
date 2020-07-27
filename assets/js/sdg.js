@@ -117,6 +117,34 @@ opensdg.autotrack = function(preset, category, action, label) {
       this.map.fitBounds(layer.getBounds());
     },
 
+    // Build content for a tooltip.
+    getTooltipContent: function(feature) {
+      var tooltipContent = feature.properties.name;
+      var tooltipData = this.getData(feature.properties);
+      if (tooltipData) {
+        tooltipContent += ': ' + tooltipData;
+      }
+      return tooltipContent;
+    },
+
+    // Update a tooltip.
+    updateTooltip: function(layer) {
+      if (layer.getTooltip()) {
+        var tooltipContent = this.getTooltipContent(layer.feature);
+        layer.setTooltipContent(tooltipContent);
+      }
+    },
+
+    // Create tooltip.
+    createTooltip: function(layer) {
+      if (!layer.getTooltip()) {
+        var tooltipContent = this.getTooltipContent(layer.feature);
+        layer.bindTooltip(tooltipContent, {
+          permanent: true,
+        }).addTo(this.map);
+      }
+    },
+
     // Select a feature.
     highlightFeature: function(layer) {
       // Abort if the layer is not on the map.
@@ -126,16 +154,7 @@ opensdg.autotrack = function(preset, category, action, label) {
       // Update the style.
       layer.setStyle(this.options.styleHighlighted);
       // Add a tooltip if not already there.
-      if (!layer.getTooltip()) {
-        var tooltipContent = layer.feature.properties.name;
-        var tooltipData = this.getData(layer.feature.properties);
-        if (tooltipData) {
-          tooltipContent += ': ' + tooltipData;
-        }
-        layer.bindTooltip(tooltipContent, {
-          permanent: true,
-        }).addTo(this.map);
-      }
+      this.createTooltip(layer);
       if (!L.Browser.ie && !L.Browser.opera && !L.Browser.edge) {
         layer.bringToFront();
       }
@@ -187,6 +206,14 @@ opensdg.autotrack = function(preset, category, action, label) {
             fillColor: plugin.getColor(feature.properties),
           }
         });
+      });
+    },
+
+    // Update the tooltips of the selected Features on the map.
+    updateTooltips: function() {
+      var plugin = this;
+      this.selectionLegend.selections.forEach(function(selection) {
+        plugin.updateTooltip(selection);
       });
     },
 
@@ -297,6 +324,7 @@ opensdg.autotrack = function(preset, category, action, label) {
           var downloadLabel = translations.t(plugin.mapLayers[i].label)
           var downloadButton = $('<a></a>')
             .attr('href', plugin.getGeoJsonUrl(plugin.mapLayers[i].subfolder))
+            .attr('download', '')
             .attr('class', 'btn btn-primary btn-download')
             .attr('title', translations.indicator.download_geojson_title + ' - ' + downloadLabel)
             .text(translations.indicator.download_geojson + ' - ' + downloadLabel);
@@ -335,6 +363,7 @@ opensdg.autotrack = function(preset, category, action, label) {
           yearChangeCallback: function(e) {
             plugin.currentYear = new Date(e.time).getFullYear();
             plugin.updateColors();
+            plugin.updateTooltips();
             plugin.selectionLegend.update();
           }
         }));
@@ -702,6 +731,7 @@ var GEOCODE_COLUMN = 'GeoCode';
 var YEAR_COLUMN = 'Year';
 var VALUE_COLUMN = 'Value';
 var HEADLINE_COLOR = '#777777';
+var SERIES_TOGGLE = false;
 
   /**
  * Model helper functions with general utility.
@@ -766,16 +796,19 @@ function getFieldColumnsFromData(rows) {
  * All other data columns can be considered "field columns".
  */
 function nonFieldColumns() {
-  return [
+  var columns = [
     YEAR_COLUMN,
     VALUE_COLUMN,
     UNIT_COLUMN,
-    SERIES_COLUMN,
     GEOCODE_COLUMN,
     'Observation status',
     'Unit multiplier',
     'Unit measure',
   ];
+  if (SERIES_TOGGLE) {
+    columns.push(SERIES_COLUMN);
+  }
+  return columns;
 }
 
   /**
@@ -1205,10 +1238,17 @@ function selectFieldsFromStartValues(startValues, selectableFieldNames) {
 /**
  * @param {Array} rows
  * @param {Array} selectableFieldNames Field names
+ * @param {string} selectedUnit
  * @return {Array} Field items
  */
-function selectMinimumStartingFields(rows, selectableFieldNames) {
-  var filteredData = rows.filter(function(row) {
+function selectMinimumStartingFields(rows, selectableFieldNames, selectedUnit) {
+  var filteredData = rows;
+  if (selectedUnit) {
+    filteredData = filteredData.filter(function(row) {
+      return row[UNIT_COLUMN] === selectedUnit;
+    });
+  }
+  filteredData = filteredData.filter(function(row) {
     return selectableFieldNames.some(function(fieldName) {
       return row[fieldName];
     });
@@ -1478,7 +1518,7 @@ function makeDataset(years, rows, combination, labelFallback, color, background,
     backgroundColor: background,
     pointBorderColor: color,
     borderDash: border,
-    borderWidth: 4,
+    borderWidth: 2,
     data: prepareDataForDataset(years, rows),
   });
 }
@@ -1493,7 +1533,7 @@ function getBaseDataset() {
     pointBackgroundColor: '#FFFFFF',
     pointHoverBorderWidth: 1,
     tension: 0,
-    spanGaps: false
+    spanGaps: true
   });
 }
 
@@ -1503,7 +1543,7 @@ function getBaseDataset() {
  * @return {string} Human-readable description of combo
  */
 function getCombinationDescription(combination, fallback) {
-  var keys = Object.keys(combination);
+  var keys = Object.keys(combination).sort();
   if (keys.length === 0) {
     return fallback;
   }
@@ -1519,10 +1559,11 @@ function getCombinationDescription(combination, fallback) {
  */
 function prepareDataForDataset(years, rows) {
   return years.map(function(year) {
-    return rows
-      .filter(function(row) { return row[YEAR_COLUMN] === year; }, this)
-      .map(function(row) { return row[VALUE_COLUMN]; }, this)[0];
-  }, this);
+    var found = rows.find(function (row) {
+      return row[YEAR_COLUMN] === year;
+    });
+    return found ? found[VALUE_COLUMN] : null;
+  });
 }
 
 /**
@@ -1547,6 +1588,7 @@ function makeHeadlineDataset(years, rows, label) {
     borderColor: getHeadlineColor(),
     backgroundColor: getHeadlineColor(),
     pointBorderColor: getHeadlineColor(),
+    borderWidth: 4,
     data: prepareDataForDataset(years, rows),
   });
 }
@@ -1682,6 +1724,7 @@ function sortData(rows, selectedUnit) {
     GEOCODE_COLUMN: GEOCODE_COLUMN,
     YEAR_COLUMN: YEAR_COLUMN,
     VALUE_COLUMN: VALUE_COLUMN,
+    SERIES_TOGGLE: SERIES_TOGGLE,
     convertJsonFormatToRows: convertJsonFormatToRows,
     getUniqueValuesByProperty: getUniqueValuesByProperty,
     dataHasUnits: dataHasUnits,
@@ -1776,7 +1819,7 @@ function sortData(rows, selectedUnit) {
   else {
     this.hasUnits = false;
   }
-  if (helpers.dataHasSerieses(this.data)) {
+  if (helpers.SERIES_TOGGLE && helpers.dataHasSerieses(this.data)) {
     this.hasSerieses = true;
     this.serieses = helpers.getUniqueValuesByProperty(helpers.SERIES_COLUMN, this.data);
     this.selectedSeries = this.serieses[0];
@@ -1794,6 +1837,7 @@ function sortData(rows, selectedUnit) {
   this.footerFields = helpers.footerFields(this);
   this.colors = opensdg.chartColors(this.indicatorId);
   this.maxDatasetCount = 2 * this.colors.length;
+  this.hasStartValues = Array.isArray(this.startValues) && this.startValues.length > 0;
 
   this.clearSelectedFields = function() {
     this.selectedFields = [];
@@ -1864,7 +1908,7 @@ function sortData(rows, selectedUnit) {
       // Decide on a starting unit.
       if (this.hasUnits) {
         var startingUnit = this.selectedUnit;
-        if (this.startValues) {
+        if (this.hasStartValues) {
           var unitInStartValues = helpers.getUnitFromStartValues(this.startValues);
           if (unitInStartValues) {
             startingUnit = unitInStartValues;
@@ -1909,12 +1953,12 @@ function sortData(rows, selectedUnit) {
 
       // Decide on starting field values.
       var startingFields = this.selectedFields;
-      if (this.startValues) {
+      if (this.hasStartValues) {
         startingFields = helpers.selectFieldsFromStartValues(this.startValues, this.selectableFields);
       }
       else {
         if (headline.length === 0) {
-          startingFields = helpers.selectMinimumStartingFields(this.data, this.selectableFields);
+          startingFields = helpers.selectMinimumStartingFields(this.data, this.selectableFields, this.selectedUnit);
         }
       }
       if (startingFields.length > 0) {
@@ -1953,7 +1997,7 @@ function sortData(rows, selectedUnit) {
       });
     }
 
-    if (selectionUpdateNeeded) {
+    if (selectionUpdateNeeded || options.unitsChangeSeries) {
       this.updateFieldStates(this.selectedFields);
     }
 
@@ -2189,7 +2233,7 @@ var indicatorView = function (model, options) {
 
   $(this._rootElement).on('click', '#fields label', function (e) {
 
-    if(!$(this).closest('.variable-options').hasClass('disallowed')) {
+    if(!$(this).closest('.variable-selector').hasClass('disallowed')) {
       $(this).find(':checkbox').trigger('click');
     }
 
@@ -2470,7 +2514,8 @@ var indicatorView = function (model, options) {
     $("#btnSave").click(function() {
       var filename = chartInfo.indicatorId + '.png',
           element = document.getElementById('chart-canvas'),
-          height = element.clientHeight + 25,
+          footer = document.getElementById('selectionChartFooter'),
+          height = element.clientHeight + 25 + ((footer) ? footer.clientHeight : 0),
           width = element.clientWidth + 25;
       var options = {
         // These options fix the height, width, and position.
@@ -2515,15 +2560,15 @@ var indicatorView = function (model, options) {
     $(this._legendElement).html(view_obj._chartInstance.generateLegend());
   };
 
-  this.getGridColor = function(contrast=null) {
+  this.getGridColor = function(contrast) {
     return this.isHighContrast(contrast) ? '#222' : '#ddd';
   };
 
-  this.getTickColor = function(contrast=null) {
+  this.getTickColor = function(contrast) {
     return this.isHighContrast(contrast) ? '#fff' : '#000';
   }
 
-  this.isHighContrast = function(contrast=null) {
+  this.isHighContrast = function(contrast) {
     if (contrast) {
       return contrast === 'high';
     }
@@ -2945,7 +2990,7 @@ var indicatorSearch = function() {
   function getSearchFieldOptions(field) {
     var opts = {}
     if (opensdg.searchIndexBoost[field]) {
-      opts['boost'] = intval(opensdg.searchIndexBoost[field])
+      opts['boost'] = parseInt(opensdg.searchIndexBoost[field])
     }
     return opts
   }
@@ -2977,10 +3022,10 @@ $(function() {
     topLevelSearchLink.text('Search');
     $('.top-level li').removeClass('active');
     $('.top-level span').removeClass('open');
-  };  
-  
+  };
+
   var topLevelMenuToggle = document.querySelector("#menuToggle");
-  
+
   topLevelMenuToggle.addEventListener("click", function(){
     setTopLevelMenuAccessibilityActions();
   });
@@ -3022,16 +3067,16 @@ $(function() {
 
     if(target === 'search') {
       $(this).toggleClass('open');
-      
+
       if($(this).hasClass('open') || !wasVisible) {
-        $(this).text('Hide');
+        $(this).text(translations.general.hide);
       } else {
-        $(this).text('Search');
+        $(this).text(translations.search.search);
       }
     } else {
       // menu click, always hide search:
       topLevelSearchLink.removeClass('open');
-      topLevelSearchLink.text('Search');
+      topLevelSearchLink.text(translations.search.search);
     }
 
     if(!wasVisible) {
