@@ -55,7 +55,7 @@
         },
         {
           "id": "1-3-1-1c",
-          "title": "Доля населения, получающих ЕПМС, социальные пособия и пенсии",
+          "title": "Proportion of population receiving Monthly Allowance for Low-Income Families, social benefits and pensions",
           "description": "",
           "keywords": "",
           "href": "/en/1-3-1-1c",
@@ -607,7 +607,7 @@
         },
         {
           "id": "4-3-1-1a",
-          "title": "Доля молодежи, получающая образование",
+          "title": "Proportion of young people receiving education",
           "description": "",
           "keywords": "",
           "href": "/en/4-3-1-1a",
@@ -863,7 +863,7 @@
         },
         {
           "id": "6-1-1-2b",
-          "title": "Доля проб воды, не отвечающих гигиеническим нормативам по санитарно-химическим и микробиологическим показателям",
+          "title": "Proportion of water samples that do not meet hygienic standards for sanitary-chemical and microbiological indicators",
           "description": "",
           "keywords": "",
           "href": "/en/6-1-1-2b",
@@ -879,7 +879,7 @@
         },
         {
           "id": "6-2-1-1",
-          "title": "Доля населения, имеющего устойчивый доступ к санитарным сооружениям",
+          "title": "Proportion of population with sustainable access to sanitation facilities",
           "description": "",
           "keywords": "",
           "href": "/en/6-2-1-1",
@@ -911,7 +911,7 @@
         },
         {
           "id": "6-4-1-2",
-          "title": "Потери воды при транспортировке по территории",
+          "title": "Loss of water during transportation",
           "description": "",
           "keywords": "",
           "href": "/en/6-4-1-2",
@@ -967,7 +967,7 @@
         },
         {
           "id": "6-a-1-1",
-          "title": "Объем официальной помощи в целях развития, выделенной на водоснабжение и санитарию в рамках координируемой государственной программы расходов",
+          "title": "Amount of water- and sanitation-related official development assistance that is part of a governmentcoordinated spending plan",
           "description": "",
           "keywords": "",
           "href": "/en/6-a-1-1",
@@ -1119,7 +1119,7 @@
         },
         {
           "id": "8-3-1-2",
-          "title": "Доля занятых в малых и средних предприятиях от всего занятого населения в экономике",
+          "title": "Proportion of employed in small and medium enterprises of the total employed population in the economy",
           "description": "",
           "keywords": "",
           "href": "/en/8-3-1-2",
@@ -1151,7 +1151,7 @@
         },
         {
           "id": "8-5-1-1",
-          "title": "Average monthly wages",
+          "title": "Average monthly wages by type of economic activity",
           "description": "",
           "keywords": "",
           "href": "/en/8-5-1-1",
@@ -1255,7 +1255,7 @@
         },
         {
           "id": "8-10-2-2",
-          "title": "Финансовые показатели страховых компаний",
+          "title": "Financial indicators of insurance companies",
           "description": "",
           "keywords": "",
           "href": "/en/8-10-2-2",
@@ -1439,7 +1439,7 @@
         },
         {
           "id": "10-5-1-1",
-          "title": "Показатели финансовой устойчивости",
+          "title": "Financial Soundness Indicators (FSIs)",
           "description": "",
           "keywords": "",
           "href": "/en/10-5-1-1",
@@ -1551,7 +1551,7 @@
         },
         {
           "id": "11-5-2",
-          "title": "Прямые экономические потери в процентном отношении к общемировому ВВП, ущерб важнейшим объектам инфраструктуры и число обусловленных бедствиями сбоев в работе основных служб",
+          "title": "Direct economic loss in relation to global GDP, damage to critical infrastructure and number of disruptions to basic services, attributed to disasters",
           "description": "",
           "keywords": "",
           "href": "/en/11-5-2",
@@ -1567,7 +1567,7 @@
         },
         {
           "id": "11-6-1-1",
-          "title": "Объем вывезенных твердых бытовых отходов",
+          "title": "Volume of solid household waste removed",
           "description": "",
           "keywords": "",
           "href": "/en/11-6-1-1",
@@ -1575,7 +1575,7 @@
         },
         {
           "id": "11-6-1-1a",
-          "title": "Избавление от твердых бытовых отходов домашними хозяйствами по видам",
+          "title": "Disposal of solid waste by households by type",
           "description": "",
           "keywords": "",
           "href": "/en/11-6-1-1a",
@@ -1927,7 +1927,7 @@
         
         {
           "id": "15-1-1-1",
-          "title": "Площадь лесов в процентном отношении к общей площади страны",
+          "title": "Forest area as a proportion of the total area of the country",
           "description": "",
           "keywords": "",
           "href": "/en/15-1-1-1",
@@ -1967,7 +1967,7 @@
         },
         {
           "id": "15-3-1-1",
-          "title": "Площадь пашни по причинам неиспользования",
+          "title": "Arable land area for reasons of non-use",
           "description": "",
           "keywords": "",
           "href": "/en/15-3-1-1",
@@ -1999,7 +1999,7 @@
         },
         {
           "id": "15-5-1-1",
-          "title": "Доля краснокнижных видов от всех видов соответствующего класса",
+          "title": "Share of Red Book species from all species of the corresponding class",
           "description": "",
           "keywords": "",
           "href": "/en/15-5-1-1",
@@ -2023,7 +2023,7 @@
         },
         {
           "id": "15-7-1-1",
-          "title": "Доля диких животных, являющихся объектом браконьерства или незаконного оборота от всех видов соответствующего класса",
+          "title": "Proportion of wild animals that are the object of poaching or illegal trafficking from all species of the corresponding class",
           "description": "",
           "keywords": "",
           "href": "/en/15-7-1-1",
@@ -2031,7 +2031,7 @@
         },
         {
           "id": "15-7-1-2",
-          "title": "Количество выданных разрешений на вывоз и ввоз животных и растений, их частей и дериватов, попадающих под действие Конвенции CITES",
+          "title": "Number of permits issued for the export and import of animals and plants, their parts and derivatives that fall under the CITES Convention",
           "description": "",
           "keywords": "",
           "href": "/en/15-7-1-2",
@@ -2071,7 +2071,7 @@
         },
         {
           "id": "15-b-1-1",
-          "title": "Объем государственных средств, выделяемых на охрану окружающей среды",
+          "title": "Amount of public funds allocated for environmental protection",
           "description": "",
           "keywords": "",
           "href": "/en/15-b-1-1",
@@ -2087,7 +2087,7 @@
         },
         {
           "id": "15-c-1-1",
-          "title": "Доля диких животных, являющихся объектом браконьерства или незаконного оборота, среди видов, которыми ведется торговля",
+          "title": "Proportion of wild animals that are the object of poaching or illegal trafficking from all species of the corresponding class",
           "description": "",
           "keywords": "",
           "href": "/en/15-c-1-1",
@@ -2111,7 +2111,7 @@
         },
         {
           "id": "16-1-1-1",
-          "title": "Смертность от нападений на 100 000 человек",
+          "title": "Mortality from attacks per 100,000 population",
           "description": "",
           "keywords": "",
           "href": "/en/16-1-1-1",
@@ -2134,14 +2134,6 @@
           "status": "notstarted"
         },
         {
-          "id": "16-1-3-1",
-          "title": "",
-          "description": "",
-          "keywords": "",
-          "href": "/en/16-1-3-1",
-          "status": "notstarted"
-        },
-        {
           "id": "16-1-4",
           "title": "Proportion of population that feel safe walking alone around the area they live",
           "description": "",
@@ -2151,7 +2143,7 @@
         },
         {
           "id": "16-1-4-1a",
-          "title": "Доля совершенных преступлений в общественных местах и на улицах от общего количества зарегистрированных преступлений",
+          "title": "Proportion of crimes committed in public places and on the streets of the total number of recorded crimes",
           "description": "",
           "keywords": "",
           "href": "/en/16-1-4-1a",
@@ -2319,7 +2311,7 @@
         },
         {
           "id": "16-b-1-1",
-          "title": "Доля женщин в возрасте 15–49 лет, сообщивших о личной дискриминации или преследованиях в последние 12 месяцев на основании, дискриминация на котором запрещена международным правом в области прав человека",
+          "title": "Proportion of women aged 15–49 reporting having personally felt discriminated against or harassed in the previous 12 months on the basis of a ground of discrimination prohibited under international human rights law",
           "description": "",
           "keywords": "",
           "href": "/en/16-b-1-1",
