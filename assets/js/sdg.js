@@ -104,6 +104,14 @@ opensdg.autotrack = function(preset, category, action, label) {
       this.mapLayers[i] = $.extend(true, {}, mapLayerDefaults, options.mapLayers[i]);
     }
 
+    // Sort the map layers according to zoom levels.
+    this.mapLayers.sort(function(a, b) {
+      if (a.min_zoom === b.min_zoom) {
+        return a.max_zoom - b.max_zoom;
+      }
+      return a.min_zoom - b.min_zoom;
+    });
+
     this._defaults = defaults;
     this._name = 'sdgMap';
 
@@ -290,7 +298,37 @@ opensdg.autotrack = function(preset, category, action, label) {
           geoJsons = [geoJsons];
         }
 
+        // Do a quick loop through to see which layers actually have data.
         for (var i = 0; i < geoJsons.length; i++) {
+          var layerHasData = true;
+          if (typeof geoJsons[i][0].features === 'undefined') {
+            layerHasData = false;
+          }
+          else if (!plugin.featuresShouldDisplay(geoJsons[i][0].features)) {
+            layerHasData = false;
+          }
+          if (layerHasData === false) {
+            // If a layer has no data, we'll be skipping it.
+            plugin.mapLayers[i].skipLayer = true;
+            // We also need to alter a sibling layer's min_zoom or max_zoom.
+            var hasLayerBefore = i > 0;
+            var hasLayerAfter = i < (geoJsons.length - 1);
+            if (hasLayerBefore) {
+              plugin.mapLayers[i - 1].max_zoom = plugin.mapLayers[i].max_zoom;
+            }
+            else if (hasLayerAfter) {
+              plugin.mapLayers[i + 1].min_zoom = plugin.mapLayers[i].min_zoom;
+            }
+          }
+          else {
+            plugin.mapLayers[i].skipLayer = false;
+          }
+        }
+
+        for (var i = 0; i < geoJsons.length; i++) {
+          if (plugin.mapLayers[i].skipLayer) {
+            continue;
+          }
           // First add the geoJson as static (non-interactive) borders.
           if (plugin.mapLayers[i].staticBorders) {
             var staticLayer = L.geoJson(geoJsons[i][0], {
@@ -482,6 +520,15 @@ opensdg.autotrack = function(preset, category, action, label) {
       display = display && typeof feature.properties.disaggregations !== 'undefined';
       return display;
     },
+
+    featuresShouldDisplay: function(features) {
+      for (var i = 0; i < features.length; i++) {
+        if (this.featureShouldDisplay(features[i])) {
+          return true;
+        }
+      }
+      return false;
+    }
   };
 
   // A really lightweight plugin wrapper around the constructor,
@@ -540,6 +587,63 @@ Chart.plugins.register({
 
       chart.isScaleUpdate = true;
       chart.update();
+    }
+  }
+});
+function getTextLinesOnCanvas(ctx, text, maxWidth) {
+  var words = text.split(" ");
+  var lines = [];
+  var currentLine = words[0];
+
+  for (var i = 1; i < words.length; i++) {
+      var word = words[i];
+      var width = ctx.measureText(currentLine + " " + word).width;
+      if (width < maxWidth) {
+          currentLine += " " + word;
+      } else {
+          lines.push(currentLine);
+          currentLine = word;
+      }
+  }
+  lines.push(currentLine);
+  return lines;
+}
+
+// This plugin displays a message to the user whenever a chart has no data.
+Chart.plugins.register({
+  afterDraw: function(chart) {
+    if (chart.data.datasets.length === 0) {
+
+      // @deprecated start
+      if (typeof translations.indicator.data_not_available === 'undefined') {
+        translations.indicator.data_not_available = 'This data is not available. Please choose alternative data to display.';
+      }
+      // @deprecated end
+
+      var ctx = chart.chart.ctx;
+      var width = chart.chart.width;
+      var height = chart.chart.height
+      chart.clear();
+
+      ctx.save();
+      ctx.textAlign = 'center';
+      ctx.textBaseline = 'middle';
+      ctx.font = "normal 40px 'Open Sans', Helvetica, Arial, sans-serif";
+      var lines = getTextLinesOnCanvas(ctx, translations.indicator.data_not_available, chart.chart.width);
+      var numLines = lines.length;
+      var lineHeight = 50;
+      var xLine = width / 2;
+      var yLine = (height / 2) - ((lineHeight / 2) * numLines);
+      for (var i = 0; i < numLines; i++) {
+        ctx.fillText(lines[i], xLine, yLine);
+        yLine += lineHeight;
+      }
+      ctx.restore();
+
+      $('#selectionsChart').addClass('chart-has-no-data');
+    }
+    else {
+      $('#selectionsChart').removeClass('chart-has-no-data');
     }
   }
 });
@@ -2748,6 +2852,15 @@ var indicatorView = function (model, options) {
     }));
   }
 
+  this.tableHasData = function(table) {
+    for (var i = 0; i < table.data.length; i++) {
+      if (table.data[i].length > 1) {
+        return true;
+      }
+    }
+    return false;
+  }
+
   this.createTable = function(table, indicatorId, el) {
 
     options = options || {};
@@ -2757,7 +2870,7 @@ var indicatorView = function (model, options) {
     // clear:
     $(el).html('');
 
-    if(table && table.data.length) {
+    if(table && this.tableHasData(table)) {
       var currentTable = $('<table />').attr({
         'class': table_class,
         'width': '100%'
@@ -2800,8 +2913,10 @@ var indicatorView = function (model, options) {
       // initialise data table
       initialiseDataTable(el);
 
+      $(el).removeClass('table-has-no-data');
     } else {
-      $(el).append($('<p />').text('There is no data for this breakdown.'));
+      $(el).append($('<h3 />').text(translations.indicator.data_not_available));
+      $(el).addClass('table-has-no-data');
     }
   };
 
@@ -3015,6 +3130,15 @@ $(function() {
   indicatorSearch();
 });
 $(function() {
+
+  // @deprecated start
+  if (typeof translations.search === 'undefined') {
+    translations.search = { search: 'Search' };
+  }
+  if (typeof translations.general === 'undefined') {
+    translations.general = { hide: 'Hide' };
+  }
+  // @deprecated end
 
   var topLevelSearchLink = $('.top-level span:eq(1), .top-level button:eq(1)');
 
