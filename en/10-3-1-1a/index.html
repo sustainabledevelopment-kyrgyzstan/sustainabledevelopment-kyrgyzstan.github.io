@@ -120,7 +120,7 @@ var translations = {
         <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css" crossorigin="">
         <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" crossorigin="">
         <link rel="stylesheet" href="https://cdn.datatables.net/fixedcolumns/3.2.3/css/fixedColumns.dataTables.min.css" crossorigin="">
-        <link rel="stylesheet" href="/assets/css/style.css?v=20200826045213">
+        <link rel="stylesheet" href="/assets/css/style.css?v=20200826104421">
         <link href="https://fonts.googleapis.com/css?family=Open+Sans|Roboto" rel="stylesheet" crossorigin="">
         <link rel="stylesheet" href="https://unpkg.com/leaflet@1.3.4/dist/leaflet.css"
           integrity="sha512-puBpdR0798OZvTTbP4A8Ix/l+A4dHDD0DGqYW6RQ+9jxkRFclaxxQb/SJAWZfWAkuyeQUytO7+7N4QKrDh+drA=="
@@ -128,7 +128,7 @@ var translations = {
         <link rel="stylesheet" href="https://cdn.rawgit.com/socib/Leaflet.TimeDimension/master/dist/leaflet.timedimension.control.min.css"  crossorigin=""/>
         <link rel="stylesheet" href='https://api.mapbox.com/mapbox.js/plugins/leaflet-fullscreen/v1.0.1/leaflet.fullscreen.css'  crossorigin=""/>
         <link rel="stylesheet" href="https://bowercdn.net/c/leaflet.zoomhome-latest/dist/leaflet.zoomhome.css"  crossorigin=""/>
-        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet-search@2.9.7/dist/leaflet-search.min.css" crossorigin=""><link rel="stylesheet" href="/assets/css/custom.css?v=20200826045213"><!-- ShareThis BEGIN --><!-- ShareThis END -->
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet-search@2.9.7/dist/leaflet-search.min.css" crossorigin=""><link rel="stylesheet" href="/assets/css/custom.css?v=20200826104421"><!-- ShareThis BEGIN --><!-- ShareThis END -->
 
     </head>
 <body class="language-en layout-indicator">
@@ -274,7 +274,7 @@ var translations = {
   <% } %>
 </script>
 
-<script>translations['indicator'] = {"chart":"Chart","clear_all":"Clear all","clear_selections":"Clear selections","dataset_size_warning":"There are too many datasets to show on the chart. Not all will be shown until you remove some selections.","download_chart":"Download Chart CSV","download_chart_image":"Download Chart Image","download_chart_image_title":"Download chart as image","download_csv":"Download CSV","download_csv_title":"Download as CSV","download_geojson":"Download GeoJSON","download_geojson_title":"Download as GeoJSON","download_headline":"Download Headline CSV","download_headline_title":"Download headline data as CSV","download_source":"Download Source CSV","download_source_title":"Download source data as CSV","download_table":"Download Table CSV","edit":"Edit","edit_data":"Edit Data","edit_metadata":"Edit Metadata","footnote":"Footnote","geographical_area":"Geographical Area","global_metadata":"Global Metadata","global_metadata_blurb":"This table provides information on metadata for SDG indicators as defined by the UN Statistical Commission. <a href=\"https://unstats.un.org/sdgs/metadata/\">Complete global metadata</a> is provided by the UN Statistics Division.","legend_help":"Click on the legend to remove individual lines from the chart.","loading":"Loading","loading_map":"Loading map","map":"Map","national_metadata":"National Metadata","national_metadata_blurb":"This table provides metadata for the actual indicator available from %country_name statistics closest to the corresponding global SDG indicator. Please note that even when the global SDG indicator is fully available from %country_adjective statistics, this table should be consulted for information on national methodology and other %country_adjective-specific metadata information.","no_data_hint":"No options available because of filters above","select_all":"Select all","series":"Series","series_help":"Choose categories from the dropdowns below to see different breakdowns of the data. Some will not be available until a higher level is chosen.","source":"Source","sources":"Sources","sub_categories":"Sub-categories","table":"Table","unit_of_measurement":"Unit of Measurement","units_type":"Units type","variable_hint":"Available when '%field' is selected","view_indicator_list":"View this goal's indicator list"};</script>
+<script>translations['indicator'] = {"chart":"Chart","clear_all":"Clear all","clear_selections":"Clear selections","data_not_available":"This data is not available. Please choose alternative data to display.","dataset_size_warning":"There are too many datasets to show on the chart. Not all will be shown until you remove some selections.","download_chart":"Download Chart CSV","download_chart_image":"Download Chart Image","download_chart_image_title":"Download chart as image","download_csv":"Download CSV","download_csv_title":"Download as CSV","download_geojson":"Download GeoJSON","download_geojson_title":"Download as GeoJSON","download_headline":"Download Headline CSV","download_headline_title":"Download headline data as CSV","download_source":"Download Source CSV","download_source_title":"Download source data as CSV","download_table":"Download Table CSV","edit":"Edit","edit_data":"Edit Data","edit_metadata":"Edit Metadata","footnote":"Footnote","geographical_area":"Geographical Area","global_metadata":"Global Metadata","global_metadata_blurb":"This table provides information on metadata for SDG indicators as defined by the UN Statistical Commission. <a href=\"https://unstats.un.org/sdgs/metadata/\">Complete global metadata</a> is provided by the UN Statistics Division.","legend_help":"Click on the legend to remove individual lines from the chart.","loading":"Loading","loading_map":"Loading map","map":"Map","national_metadata":"National Metadata","national_metadata_blurb":"This table provides metadata for the actual indicator available from %country_name statistics closest to the corresponding global SDG indicator. Please note that even when the global SDG indicator is fully available from %country_adjective statistics, this table should be consulted for information on national methodology and other %country_adjective-specific metadata information.","no_data_hint":"No options available because of filters above","select_all":"Select all","series":"Series","series_help":"Choose categories from the dropdowns below to see different breakdowns of the data. Some will not be available until a higher level is chosen.","source":"Source","sources":"Sources","sub_categories":"Sub-categories","table":"Table","unit_of_measurement":"Unit of Measurement","units_type":"Units type","variable_hint":"Available when '%field' is selected","view_indicator_list":"View this goal's indicator list"};</script>
 
 <script>translations['data'] = {"Баткенская область":"Batken Oblast","Бишкек":"Bishkek","Женщины":"Female","Мужчины":"Male","Пол":"Sex","Территория":"Geographical area"};</script>
 
@@ -290,7 +290,7 @@ var translations = {
       <div class="col-xs-8 col-md-9 col-lg-10 indicator-details">
         <div>
           <h1>Indicator 10.3.1.1a</h1>
-          <p class="lead-copy">. Number of appeals to the Ombudsman</p>
+          <p class="lead-copy">Number of appeals to the Ombudsman</p>
         </div>
       </div>
     </div>
@@ -323,13 +323,13 @@ var translations = {
   id="indicatorData"
   data-indicatorid='indicator_10-3-1-1a'
   data-id="10-3-1-1a"
-  data-country="Kyrgyzstan"
-  data-charttitle=". Number of appeals to the Ombudsman"
+  data-country="Kyrgyz Republic"
+  data-charttitle="Number of appeals to the Ombudsman"
   data-charttitles="null"
   data-measurementunit=""
   data-datasource=""
   data-copyright=""
-  data-geographicalarea=""
+  data-geographicalarea="Kyrgyz Republic"
   data-footnote=""
   data-showdata="true"
   data-graphtype="line"
@@ -369,11 +369,15 @@ var translations = {
 
     <h3>Headline data</h3>
     <table class="table-responsive table table-hover dataTable no-footer" role="grid">
-      <caption>. Number of appeals to the Ombudsman</caption>
+      <caption>Number of appeals to the Ombudsman</caption>
       <thead>
         
         
         <th scope="col">Year</th>
+        
+        
+        
+        <th scope="col">Series</th>
         
         
         
@@ -390,6 +394,10 @@ var translations = {
           
           
           
+          <td>Number of appeals to the Ombudsman</td>
+          
+          
+          
           <td class="table-value">3014</td>
           
           
@@ -399,6 +407,10 @@ var translations = {
           
           
           <td>2008</td>
+          
+          
+          
+          <td>Number of appeals to the Ombudsman</td>
           
           
           
@@ -414,6 +426,10 @@ var translations = {
           
           
           
+          <td>Number of appeals to the Ombudsman</td>
+          
+          
+          
           <td class="table-value">1742</td>
           
           
@@ -423,6 +439,10 @@ var translations = {
           
           
           <td>2010</td>
+          
+          
+          
+          <td>Number of appeals to the Ombudsman</td>
           
           
           
@@ -438,6 +458,10 @@ var translations = {
           
           
           
+          <td>Number of appeals to the Ombudsman</td>
+          
+          
+          
           <td class="table-value">2098</td>
           
           
@@ -447,6 +471,10 @@ var translations = {
           
           
           <td>2012</td>
+          
+          
+          
+          <td>Number of appeals to the Ombudsman</td>
           
           
           
@@ -462,6 +490,10 @@ var translations = {
           
           
           
+          <td>Number of appeals to the Ombudsman</td>
+          
+          
+          
           <td class="table-value">2466</td>
           
           
@@ -471,6 +503,10 @@ var translations = {
           
           
           <td>2014</td>
+          
+          
+          
+          <td>Number of appeals to the Ombudsman</td>
           
           
           
@@ -486,6 +522,10 @@ var translations = {
           
           
           
+          <td>Number of appeals to the Ombudsman</td>
+          
+          
+          
           <td class="table-value">2483</td>
           
           
@@ -495,6 +535,10 @@ var translations = {
           
           
           <td>2016</td>
+          
+          
+          
+          <td>Number of appeals to the Ombudsman</td>
           
           
           
@@ -510,6 +554,10 @@ var translations = {
           
           
           
+          <td>Number of appeals to the Ombudsman</td>
+          
+          
+          
           <td class="table-value">3242</td>
           
           
@@ -522,7 +570,155 @@ var translations = {
           
           
           
+          <td>Number of appeals to the Ombudsman</td>
+          
+          
+          
           <td class="table-value">3237</td>
+          
+          
+        </tr>
+        
+        <tr>
+          
+          
+          <td>2007</td>
+          
+          
+          
+          <td>Number of successful appeals to the Ombudsman</td>
+          
+          
+          
+          <td class="table-value">619</td>
+          
+          
+        </tr>
+        
+        <tr>
+          
+          
+          <td>2010</td>
+          
+          
+          
+          <td>Number of successful appeals to the Ombudsman</td>
+          
+          
+          
+          <td class="table-value">309</td>
+          
+          
+        </tr>
+        
+        <tr>
+          
+          
+          <td>2011</td>
+          
+          
+          
+          <td>Number of successful appeals to the Ombudsman</td>
+          
+          
+          
+          <td class="table-value">196</td>
+          
+          
+        </tr>
+        
+        <tr>
+          
+          
+          <td>2012</td>
+          
+          
+          
+          <td>Number of successful appeals to the Ombudsman</td>
+          
+          
+          
+          <td class="table-value">501</td>
+          
+          
+        </tr>
+        
+        <tr>
+          
+          
+          <td>2013</td>
+          
+          
+          
+          <td>Number of successful appeals to the Ombudsman</td>
+          
+          
+          
+          <td class="table-value">384</td>
+          
+          
+        </tr>
+        
+        <tr>
+          
+          
+          <td>2015</td>
+          
+          
+          
+          <td>Number of successful appeals to the Ombudsman</td>
+          
+          
+          
+          <td class="table-value">374</td>
+          
+          
+        </tr>
+        
+        <tr>
+          
+          
+          <td>2016</td>
+          
+          
+          
+          <td>Number of successful appeals to the Ombudsman</td>
+          
+          
+          
+          <td class="table-value">615</td>
+          
+          
+        </tr>
+        
+        <tr>
+          
+          
+          <td>2017</td>
+          
+          
+          
+          <td>Number of successful appeals to the Ombudsman</td>
+          
+          
+          
+          <td class="table-value">531</td>
+          
+          
+        </tr>
+        
+        <tr>
+          
+          
+          <td>2018</td>
+          
+          
+          
+          <td>Number of successful appeals to the Ombudsman</td>
+          
+          
+          
+          <td class="table-value">376</td>
           
           
         </tr>
@@ -533,6 +729,8 @@ var translations = {
 
   <div id="datatableFooter">
     
+    
+    <p>Geographical Area: Kyrgyz Republic</p>
     
     
     
@@ -583,7 +781,7 @@ data-event-label="Change to Map tab"
       <div id="chart-canvas">
         <h3 class="chart-title">
           
-            . Number of appeals to the Ombudsman
+            Number of appeals to the Ombudsman
           
         </h3>
         <div id="chart" class="plot-container">
@@ -803,7 +1001,7 @@ data-event-label="Change to custom.data_reporter tab"
         <th scope="row">Geographical coverage </th>
         <td>
           
-            
+            <p>Kyrgyz Republic</p>
 
           
         </td>
@@ -817,7 +1015,7 @@ data-event-label="Change to custom.data_reporter tab"
         <th scope="row">Unit of measurement </th>
         <td>
           
-            
+            <p>Number</p>
 
           
         </td>
@@ -1219,7 +1417,7 @@ data-event-label="Change to custom.data_reporter tab"
 <script>translations['search'] = translations['search'] || {};
     translations['search']['search'] = 'Search';</script>
 
-<script src='/assets/js/sdg.js?v=20200826045213'></script><script src="/assets/js/custom.js?v=20200826045213"></script><script>
+<script src='/assets/js/sdg.js?v=20200826104421'></script><script src="/assets/js/custom.js?v=20200826104421"></script><script>
 $(function() {
     if($('#indicatorData').length) {
       var domData = $('#indicatorData').data();

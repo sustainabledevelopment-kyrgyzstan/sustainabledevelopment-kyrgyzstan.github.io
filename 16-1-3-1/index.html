@@ -92,7 +92,7 @@ var translations = {
 
         <title>
           
-            показатель 7.b.1.1а - Цель 7
+            показатель 16.1.3.1 - Цель 16
           
         </title>
 
@@ -120,7 +120,7 @@ var translations = {
         <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css" crossorigin="">
         <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" crossorigin="">
         <link rel="stylesheet" href="https://cdn.datatables.net/fixedcolumns/3.2.3/css/fixedColumns.dataTables.min.css" crossorigin="">
-        <link rel="stylesheet" href="/assets/css/style.css?v=20200826045213">
+        <link rel="stylesheet" href="/assets/css/style.css?v=20200826104421">
         <link href="https://fonts.googleapis.com/css?family=Open+Sans|Roboto" rel="stylesheet" crossorigin="">
         <link rel="stylesheet" href="https://unpkg.com/leaflet@1.3.4/dist/leaflet.css"
           integrity="sha512-puBpdR0798OZvTTbP4A8Ix/l+A4dHDD0DGqYW6RQ+9jxkRFclaxxQb/SJAWZfWAkuyeQUytO7+7N4QKrDh+drA=="
@@ -128,7 +128,7 @@ var translations = {
         <link rel="stylesheet" href="https://cdn.rawgit.com/socib/Leaflet.TimeDimension/master/dist/leaflet.timedimension.control.min.css"  crossorigin=""/>
         <link rel="stylesheet" href='https://api.mapbox.com/mapbox.js/plugins/leaflet-fullscreen/v1.0.1/leaflet.fullscreen.css'  crossorigin=""/>
         <link rel="stylesheet" href="https://bowercdn.net/c/leaflet.zoomhome-latest/dist/leaflet.zoomhome.css"  crossorigin=""/>
-        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet-search@2.9.7/dist/leaflet-search.min.css" crossorigin=""><link rel="stylesheet" href="/assets/css/custom.css?v=20200826045213"><!-- ShareThis BEGIN --><!-- ShareThis END -->
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet-search@2.9.7/dist/leaflet-search.min.css" crossorigin=""><link rel="stylesheet" href="/assets/css/custom.css?v=20200826104421"><!-- ShareThis BEGIN --><!-- ShareThis END -->
 
     </head>
 <body class="language-ru layout-indicator">
@@ -164,7 +164,7 @@ var translations = {
   <i class="language-toggle fa fa-chevron-up" style="display:none;"></i>
 </a>
 
-<ul class="language-options language-toggle"><li><a href="/en/7-b-1-1%D0%B0/">English</a></li></ul>
+<ul class="language-options language-toggle"><li><a href="/en/16-1-3-1/">English</a></li></ul>
 
     </div></div>
 
@@ -211,7 +211,7 @@ var translations = {
   <i class="language-toggle fa fa-chevron-up" style="display:none;"></i>
 </a>
 
-<ul class="language-options language-toggle"><li><a href="/en/7-b-1-1%D0%B0/">English</a></li></ul>
+<ul class="language-options language-toggle"><li><a href="/en/16-1-3-1/">English</a></li></ul>
 
         </li></ul>
 
@@ -274,35 +274,37 @@ var translations = {
   <% } %>
 </script>
 
-<script>translations['indicator'] = {"chart":"График","clear_all":"Очистить всё","clear_selections":"Очистить выделенное","dataset_size_warning":"В таблице слишком много данных, чтобы показать в графике. Чтобы увидеть все, удалите выделенное.","download_chart":"Скачать график CSV","download_chart_image":"Загрузить изображение диаграммы","download_chart_image_title":"Скачать диаграмму как изображение","download_csv":"Скачать CSV","download_csv_title":"Скачать в формате CSV","download_geojson":"Скачать GeoJSON","download_geojson_title":"Скачать в формате GeoJSON","download_headline":"Скачать заголовки CSV","download_headline_title":"Скачать данные заголовков в формате CSV","download_source":"Скачать исходные CSV","download_source_title":"Скачать исходные данные в формате CSV","download_table":"Скачать табличные CSV","edit":"Редактировать","edit_data":"Редактировать данные","edit_metadata":"Редактировать метаданные","footnote":"Сноска","geographical_area":"Географический район","global_metadata":"Глобальные метаданные","global_metadata_blurb":"В этой таблице представлена информация для метаданных показателей ЦУР, определенных Статистической комиссией ООН. Полные глобальные метаданные представлены Статистическим отделом ООН.","legend_help":"Нажмите на легенду, чтобы убрать линии из графика.","loading":"Загрузка","loading_map":"Загрузка карты","map":"Карта","national_metadata":"Национальные метаданные","national_metadata_blurb":"В этой таблице представлены метаданные для фактического показателя, доступного из статистики ближайшей к соответствующему глобальному индикатору ЦУР. Обратите внимание, что даже если глобальный индикатор ЦУР полностью доступен из статистики, по этой таблице следует проконсультироваться для получения информации о национальной методологии и других специфичных метаданных.","no_data_hint":"Нет имеющихся вариантов из-за фильтров наверху.","select_all":"Выделить всё","series":"Серии","series_help":"Выберите категории из выпадающего меню внизу, чтобы увидеть разные разбивки данных. Несколько не будет доступно, пока более высокий уровень не выбран. ","source":"Источник","sources":"Источники","sub_categories":"Субкатегории","table":"Таблица","unit_of_measurement":"Единица измерения","units_type":"Вид единиц","variable_hint":"Доступно, когда выбрано","view_indicator_list":"Посмотреть список индикаторов этой цели"};</script>
+<script>translations['indicator'] = {"chart":"График","clear_all":"Очистить всё","clear_selections":"Очистить выделенное","data_not_available":"Эти данные не доступны. Пожалуйста, выберите альтернативные данные для отображения.","dataset_size_warning":"В таблице слишком много данных, чтобы показать в графике. Чтобы увидеть все, удалите выделенное.","download_chart":"Скачать график CSV","download_chart_image":"Загрузить изображение диаграммы","download_chart_image_title":"Скачать диаграмму как изображение","download_csv":"Скачать CSV","download_csv_title":"Скачать в формате CSV","download_geojson":"Скачать GeoJSON","download_geojson_title":"Скачать в формате GeoJSON","download_headline":"Скачать заголовки CSV","download_headline_title":"Скачать данные заголовков в формате CSV","download_source":"Скачать исходные CSV","download_source_title":"Скачать исходные данные в формате CSV","download_table":"Скачать табличные CSV","edit":"Редактировать","edit_data":"Редактировать данные","edit_metadata":"Редактировать метаданные","footnote":"Сноска","geographical_area":"Географический район","global_metadata":"Глобальные метаданные","global_metadata_blurb":"В этой таблице представлена информация для метаданных показателей ЦУР, определенных Статистической комиссией ООН. Полные глобальные метаданные представлены Статистическим отделом ООН.","legend_help":"Нажмите на легенду, чтобы убрать линии из графика.","loading":"Загрузка","loading_map":"Загрузка карты","map":"Карта","national_metadata":"Национальные метаданные","national_metadata_blurb":"В этой таблице представлены метаданные для фактического показателя, доступного из статистики ближайшей к соответствующему глобальному индикатору ЦУР. Обратите внимание, что даже если глобальный индикатор ЦУР полностью доступен из статистики, по этой таблице следует проконсультироваться для получения информации о национальной методологии и других специфичных метаданных.","no_data_hint":"Нет имеющихся вариантов из-за фильтров наверху.","select_all":"Выделить всё","series":"Серии","series_help":"Выберите категории из выпадающего меню внизу, чтобы увидеть разные разбивки данных. Несколько не будет доступно, пока более высокий уровень не выбран. ","source":"Источник","sources":"Источники","sub_categories":"Субкатегории","table":"Таблица","unit_of_measurement":"Единица измерения","units_type":"Вид единиц","variable_hint":"Доступно, когда выбрано","view_indicator_list":"Посмотреть список индикаторов этой цели"};</script>
 
 <script>translations['data'] = {"0 to 5 months old":" возраст от 0-5 месяцев","1 to 14 years old":"1-14 лет","1 to 2 years old":"1-2 года","1 year old":" в возрасте 1 года","10 to 14 years old":"10-14 лет","12 to 14 years old":"12-14 лет","12 to 17 months old":" возраст от 12-17  месяцев","15 to 17 years old":"15-17 лет","15 to 19 years old":"15-19 лет","18 to 23 months old":" возраст от 18-23  месяцев","18 to 25 years old":"18-25 лет","2 years old":"2 года и старше","20 to 24 years old":"20-24 лет","24 to 35 months old":" возраст от 24-35  месяцев","25 to 29 years old":"25-29 лет","26 to 34 years old":"26-34 лет","3 to 4 years old":"3-4 года","3 years old":"3 года","30 to 34 years old":"30-34 лет","35 to 39 years old":"35-39 лет","35 to 45 years old":"35-45 лет","36 to 47 months old":" возраст от 36-47  месяцев","4 years old":"4 года","40 to 44 years old":"40-44 лет","45 to 49 years old":"45-49 лет","46 to 54 years old":"46-54 лет","48 to 59 months old":" возраст от 48-59  месяцев","5 to 11 years old":"5-11 лет","5 to 17 years old":"5-17 лет","5 to 6 years old":"5-6 лет","55 to 59 years old":"55-59 лет","6 to 11 months old":" возраст от 6-11  месяцев","60 years old and over":"60 лет и старше","7 to 14 years old":"7-14 лет","8 to 9 years old":"8-9 лет","Age":"Возраст","At the time of departure cargo.":"В момент отправления груза.","Batken":"Баткенская область","Bishkek (city)":"г. Бишкек","Chui":"Чуйская область","Composite breakdown":"Композитная разбивка","Degree of urbanisation":"Степень урбанизации","Education level":"Уровень образования","Female":"женский","Income or wealth quantile":"Доход или квинтиль благосостояния","Internet speed: 10 Mbit/s or above":"Скорость интернета: 10 Мбит /с  или выше","Internet speed: 2 Mbit/s to less than 10 Mbit/s":"Скорость интернета: от 2 Мбит /с  до менее 10 Мбит / с","Internet speed: 256 kbit/s to less than 2 Mbit/s":"Скорость интернета: от 256 кбит /с  до менее 2 Мбит / с","Issyk-Kul":"Иссык-Кульская область","Jalal-Abad":"Жалал-Абад область","Local currency":"Местная валюта","Lower secondary education":"1- этап среднего образования","Male":"мужской","Medical doctors":"Врачи","Mode of Transport: Air":"Вид транспорта: воздушный","Mode of Transport: Pipeline":"Вид транспорта: трубопроводный","Mode of Transport: Rail":"Вид транспорта: железнодорожный","Mode of Transport: Road":"Вид транспорта: дорожный","Mode of Transport: Water":"Вид транспорта: водный","Naryn":"Нарынская область","Non-communicable disease: Cancer":"Неинфекционные заболевания: рак","Non-communicable disease: Cardiovascular disease":"Неинфекционные заболевания: сердечно-сосудистые заболевания","Non-communicable disease: Chronic respiratory disease":"Неинфекционные заболевания: хронические респираторные заболевания","Non-communicable disease: Diabetes":"Неинфекционные заболевания:диабет","Nursing and midwifery professionals":"Медсестры и акушеры","Occupation":"Род занятий (Профессия)","Osh":"Ошская область","Osh (city)":"г. Ош","Percent":"Процент","Post-secondary non-tertiary education":"Послесреднее нетретичное образование","Pre-primary education":"Дошкольное образование","Primary education":"Начальное образование (1-4 классы)","Quintile 1 (poorest)":"квинтиль 1 (самые бедные)","Quintile 2":"квинтиль 2","Quintile 3":"квинтиль 3","Quintile 4":"квинтиль 4","Quintile 5 (richest)":"квинтиль 5 (самые богатые)","Reference area":"Справочная зона (условная зона)","Rural":"сельская местность","Sex":"пол","Since 2014 excluding deparmental transport.":"С 2014 года исключая департационный транспорт.","Skill: Functional literacy":"Навыки: Функциональная грамотность","Skill: Functional numeracy":"Навыки: Функциональное счисление ","Some primary education, grades 2 or 3":"Неполное начальное образование","Talas":"Таласская область","Time series-level footnotes":"Сноски для временных рядов","Until 2013 - including Osh.":"До 2013 года - включая Ош.","Upper secondary education":"2- этап среднего образования","Urban":"городская местность","under 1 year old":"возрасте до 1 года","under 5 years old":"до 5 лет"};</script>
 
 
-<div class="heading goal-banner indicator goal-7">
+<div class="heading goal-banner indicator goal-16">
   <div class="container">
     <div class="row">
       <div class="col-xs-4 col-md-3 col-lg-2 goal-icon">
-        <a href="/7" title="Посмотреть список индикаторов этой цели">
-          <img src="https://open-sdg.github.io/sdg-translations/assets/img/goals/ru/7.png" alt="Недорогостоящая и чистая энергия - Цель 7" />
+        <a href="/16" title="Посмотреть список индикаторов этой цели">
+          <img src="https://open-sdg.github.io/sdg-translations/assets/img/goals/ru/16.png" alt="Мир, правосудие и эффективные институты - Цель 16" />
         </a>
       </div>
       <div class="col-xs-8 col-md-9 col-lg-10 indicator-details">
         <div>
-          <h1>показатель 7.b.1.1а</h1>
-          <p class="lead-copy">Flow of foreign direct investment for the expansion of energy infrastructure and modernization of technologies</p>
+          <h1>показатель 16.1.3.1</h1>
+          <p class="lead-copy">Доля женщин в возрасте 15-49 лет, в последние 12 месяцев, подвергшихся физического насилия (ограбление или нападение)</p>
         </div>
       </div>
     </div>
   </div>
 </div>
 
-<div id="main-content" class="container goal-7">
+<div id="main-content" class="container goal-16">
   <ol class="breadcrumb">
   <li><a href="/">Главная</a></li>
-  <li><a href="/7" title="Обеспечение доступа к недорогим, надежным, устойчивым и современным источникам
-энергии для всех">Цель 7</a></li>
-  <li class="active">показатель 7.b.1.1а</li>
+  <li><a href="/16" title="Содействие построению миролюбивого и открытого общества в интересах устойчивого
+развития, обеспечение доступа к правосудию для всех и создание эффективных,
+подотчетных и основанных на широком участии учреждений на всех уровнях
+">Цель 16</a></li>
+  <li class="active">показатель 16.1.3.1</li>
 </ol>
 
   
@@ -322,18 +324,18 @@ var translations = {
 
 <div class="row"
   id="indicatorData"
-  data-indicatorid='indicator_7-b-1-1а'
-  data-id="7-b-1-1а"
-  data-country="Kyrgyzstan"
-  data-charttitle="Flow of foreign direct investment for the expansion of energy infrastructure and modernization of technologies"
+  data-indicatorid='indicator_16-1-3-1'
+  data-id="16-1-3-1"
+  data-country="Кыргызская Республика"
+  data-charttitle="Доля женщин в возрасте 15-49 лет, в последние 12 месяцев, подвергшихся физического насилия (ограбление или нападение)"
   data-charttitles="null"
   data-measurementunit=""
   data-datasource=""
   data-copyright=""
-  data-geographicalarea=""
+  data-geographicalarea="Кыргызская Республика"
   data-footnote=""
   data-showdata="true"
-  data-graphtype="line"
+  data-graphtype="bar"
   data-geocoderegex=""
   data-showmap=""
   data-startvalues="null"
@@ -364,13 +366,13 @@ var translations = {
 
   <div id="datatables">
 
-    <a href="https://sustainabledevelopment-kyrgyzstan.github.io/sdg-data/ru/headline/7-b-1-1а.csv" class="btn btn-primary btn-download" download="indicator_7-b-1-1а.csv" tabindex="0" role="button">Скачать заголовки CSV</a>
+    <a href="https://sustainabledevelopment-kyrgyzstan.github.io/sdg-data/ru/headline/16-1-3-1.csv" class="btn btn-primary btn-download" download="indicator_16-1-3-1.csv" tabindex="0" role="button">Скачать заголовки CSV</a>
 
-    <a href="https://sustainabledevelopment-kyrgyzstan.github.io/sdg-data/ru/data/7-b-1-1а.csv" class="btn btn-primary btn-download" style='float:left;margin-right:1em' download='indicator_7-b-1-1а.csv' tabindex='0' role='button'>Скачать исходные CSV</a>
+    <a href="https://sustainabledevelopment-kyrgyzstan.github.io/sdg-data/ru/data/16-1-3-1.csv" class="btn btn-primary btn-download" style='float:left;margin-right:1em' download='indicator_16-1-3-1.csv' tabindex='0' role='button'>Скачать исходные CSV</a>
 
     <h3>Headline data</h3>
     <table class="table-responsive table table-hover dataTable no-footer" role="grid">
-      <caption>Flow of foreign direct investment for the expansion of energy infrastructure and modernization of technologies</caption>
+      <caption>Доля женщин в возрасте 15-49 лет, в последние 12 месяцев, подвергшихся физического насилия (ограбление или нападение)</caption>
       <thead>
         
         
@@ -387,119 +389,11 @@ var translations = {
         <tr>
           
           
-          <td>2007</td>
-          
-          
-          
-          <td class="table-value">6</td>
-          
-          
-        </tr>
-        
-        <tr>
-          
-          
-          <td>2009</td>
-          
-          
-          
-          <td class="table-value">100</td>
-          
-          
-        </tr>
-        
-        <tr>
-          
-          
-          <td>2010</td>
-          
-          
-          
-          <td class="table-value">3</td>
-          
-          
-        </tr>
-        
-        <tr>
-          
-          
-          <td>2012</td>
-          
-          
-          
-          <td class="table-value">3</td>
-          
-          
-        </tr>
-        
-        <tr>
-          
-          
-          <td>2013</td>
-          
-          
-          
-          <td class="table-value">1700</td>
-          
-          
-        </tr>
-        
-        <tr>
-          
-          
-          <td>2014</td>
-          
-          
-          
-          <td class="table-value">800</td>
-          
-          
-        </tr>
-        
-        <tr>
-          
-          
-          <td>2015</td>
-          
-          
-          
-          <td class="table-value">1000</td>
-          
-          
-        </tr>
-        
-        <tr>
-          
-          
-          <td>2016</td>
-          
-          
-          
-          <td class="table-value">30</td>
-          
-          
-        </tr>
-        
-        <tr>
-          
-          
-          <td>2017</td>
-          
-          
-          
-          <td class="table-value">100</td>
-          
-          
-        </tr>
-        
-        <tr>
-          
-          
           <td>2018</td>
           
           
           
-          <td class="table-value">0</td>
+          <td class="table-value">91.8</td>
           
           
         </tr>
@@ -510,6 +404,8 @@ var translations = {
 
   <div id="datatableFooter">
     
+    
+    <p>Географический район: Кыргызская Республика</p>
     
     
     
@@ -560,7 +456,7 @@ data-event-label="Change to Map tab"
       <div id="chart-canvas">
         <h3 class="chart-title">
           
-            Flow of foreign direct investment for the expansion of energy infrastructure and modernization of technologies
+            Доля женщин в возрасте 15-49 лет, в последние 12 месяцев, подвергшихся физического насилия (ограбление или нападение)
           
         </h3>
         <div id="chart" class="plot-container">
@@ -589,6 +485,35 @@ opensdg.chartConfigAlter(function(config, info) {
 });
 </script>
 
+<script>
+opensdg.chartConfigAlter(function(config, info) {
+  if (info.stackedDisaggregation) {
+    var overrides = {
+      options: {
+        scales: {
+          xAxes: [{ stacked: true }],
+          yAxes: [{ stacked: true }],
+        }
+      }
+    };
+    // If we have stackedDisaggregation, we need to group datasets into stacks.
+    config.data.datasets.forEach(function(dataset) {
+      var disaggregation = $.extend({}, dataset.disaggregation);
+      // We're going to "stringify" each combination of disaggregations in order
+      // to place them in their own "stacks". To place "stacked" disaggregations
+      // into the same stack, we set them as "samestack" before stringifying.
+      // Note that the string "samestack" is completely arbitrary.
+      if (typeof disaggregation[info.stackedDisaggregation] !== 'undefined') {
+        disaggregation[info.stackedDisaggregation] = 'samestack';
+      }
+      // Use the disaggregation as a unique id for each stack.
+      dataset.stack = JSON.stringify(disaggregation);
+    });
+    // Add these overrides onto the normal config, and return it.
+    $.extend(true, config, overrides);
+  }
+});
+</script>
 
         </div>
         <div id="plotLegend"></div>
@@ -686,7 +611,7 @@ data-event-label="Change to custom.data_reporter tab"
         <th scope="row">Название показателя </th>
         <td>
           
-            
+            <p>16.1.3.1 Доля женщин в возрасте 15-49 лет, в последние 12 месяцев подвергшихся физического насилия: ограбления или нападения</p>
 
           
         </td>
@@ -700,7 +625,7 @@ data-event-label="Change to custom.data_reporter tab"
         <th scope="row">Название задачи </th>
         <td>
           
-            
+            <p>16.1 Значительно сократить распространенность всех форм насилия и уменьшить показатели смертности от этого явления во всем мире</p>
 
           
         </td>
@@ -714,7 +639,7 @@ data-event-label="Change to custom.data_reporter tab"
         <th scope="row">Цель </th>
         <td>
           
-            
+            <p>Цель 16. Содействие построению миролюбивого и открытого общества в интересах устойчивого развития, обеспечение доступа к правосудию для всех и создание эффективных, подотчетных и основанных на широком участии учреждений на всех уровнях</p>
 
           
         </td>
@@ -778,7 +703,7 @@ data-event-label="Change to custom.data_reporter tab"
         <th scope="row">Географический охват </th>
         <td>
           
-            
+            <p>Кыргызская Республика</p>
 
           
         </td>
@@ -792,7 +717,7 @@ data-event-label="Change to custom.data_reporter tab"
         <th scope="row">Единица измерения </th>
         <td>
           
-            
+            <p>Процент</p>
 
           
         </td>
@@ -834,7 +759,7 @@ data-event-label="Change to custom.data_reporter tab"
         <th scope="row">Обоснование и толкование </th>
         <td>
           
-            
+            <p>Преступность может иметь большое влияние на жизнь жертв и сообщество, в котором они живут. Жертвы преступлений могут пострадать физически и психологически, а также потерять имущество и доход. Кроме того, преступность может нанести значительный ущерб сообществу в форме мер, которые могут понадобиться сообществу для предупреждения и/или исправления преступных действий</p>
 
           
         </td>
@@ -876,7 +801,9 @@ data-event-label="Change to custom.data_reporter tab"
         <th scope="row">Гарантия качества </th>
         <td>
           
-            
+            <p>Руководители команд отвечали за ежедневный мониторинг работ на местах. В одном домохозяйстве из кластера проводился обязательный повторный опрос. Проводились ежедневные наблюдения за навыками и результатами интервьюера.
+В ходе работ на местах каждую команду несколько раз посещали руководители обследования, а также организовывались визиты на места членов команды КОМП ЮНИСЕФ.
+В ходе полевых работ каждую неделю создавались проверочные таблицы для анализа и работы с командами на местах, которые представляли собой адаптированные версии стандартных таблиц, созданных Программой КОМП.</p>
 
           
         </td>
@@ -904,7 +831,7 @@ data-event-label="Change to custom.data_reporter tab"
         <th scope="row">Разбивка </th>
         <td>
           
-            
+            <p>По доходу, возрасту, территории, местности, образованию, статусу инвалидности.</p>
 
           
         </td>
@@ -932,7 +859,7 @@ data-event-label="Change to custom.data_reporter tab"
         <th scope="row">Ссылки и документация </th>
         <td>
           
-            
+            <p>Национальная платформа отчетности ЦУР КР: https://sustainabledevelopment-kyrgyzstan.github.io</p>
 
           
         </td>
@@ -946,7 +873,7 @@ data-event-label="Change to custom.data_reporter tab"
         <th scope="row">Источники данных </th>
         <td>
           
-            
+            <p>Национальный статистический комитет КР на основе данных Кластерного обследования по многим показателям Кыргызстан</p>
 
           
         </td>
@@ -960,7 +887,8 @@ data-event-label="Change to custom.data_reporter tab"
         <th scope="row">Методы сбора данных </th>
         <td>
           
-            
+            <p>В опросах КОМП используется персональное интервью с использованием компьютеров (Computer-Assisted Personal Interview, CAPI). Приложение для сбора данных, в том числе специальная платформа управления данными КОМП, основано на программном обеспечении CSPro (Census and Survey Processing System) версии 6.3. Процедуры и стандартные программы, разработанные в рамках глобальной программы КОМП, были адаптированы к окончательной версии вопросника КОМП Кыргызстан, 2018 года и использовались в опросе. 
+Данные собирались с использованием планшетных компьютеров под управлением операционной системы Windows 8 с использованием приложения Bluetooth для операций на местах, что позволяло передавать задания и заполненные вопросники с/на планшеты руководителя и интервьюера.</p>
 
           
         </td>
@@ -1047,7 +975,7 @@ data-event-label="Change to custom.data_reporter tab"
         <th scope="row">Организация </th>
         <td>
           
-            
+            <p>Национальный статистический комитет КР (Отдел статистики домашних хозяйств)</p>
 
           
         </td>
@@ -1061,7 +989,7 @@ data-event-label="Change to custom.data_reporter tab"
         <th scope="row">Контактное лицо (лица)/Координатор </th>
         <td>
           
-            
+            <p>Калымбетова Ы.И.</p>
 
           
         </td>
@@ -1075,7 +1003,7 @@ data-event-label="Change to custom.data_reporter tab"
         <th scope="row">Электронная почта контактного лица </th>
         <td>
           
-            
+            <p>y.kalymbetova@gmail.com</p>
 
           
         </td>
@@ -1089,7 +1017,7 @@ data-event-label="Change to custom.data_reporter tab"
         <th scope="row">Телефон контактного лица </th>
         <td>
           
-            
+            <p>0(312) 664164</p>
 
           
         </td>
@@ -1103,7 +1031,7 @@ data-event-label="Change to custom.data_reporter tab"
         <th scope="row">Сайт организации </th>
         <td>
           
-            
+            <p>www.stat.kg</p>
 
           
         </td>
@@ -1186,7 +1114,7 @@ data-event-label="Change to custom.data_reporter tab"
 <script>translations['search'] = translations['search'] || {};
     translations['search']['search'] = 'Поиск';</script>
 
-<script src='/assets/js/sdg.js?v=20200826045213'></script><script src="/assets/js/custom.js?v=20200826045213"></script><script>
+<script src='/assets/js/sdg.js?v=20200826104421'></script><script src="/assets/js/custom.js?v=20200826104421"></script><script>
 $(function() {
     if($('#indicatorData').length) {
       var domData = $('#indicatorData').data();
