@@ -606,8 +606,16 @@
           "status": "notstarted"
         },
         {
-          "id": "4-3-1-1a",
+          "id": "4-3-1-1",
           "title": "Доля молодежи, получающая образование",
+          "description": "",
+          "keywords": "",
+          "href": "/4-3-1-1",
+          "status": "notstarted"
+        },
+        {
+          "id": "4-3-1-1a",
+          "title": ".  Proportion of young people, by sex, who are enrolled in the system of primary vocational education (including short-term courses), in the system of secondary vocational and higher education",
           "description": "",
           "keywords": "",
           "href": "/4-3-1-1a",
