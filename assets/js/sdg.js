@@ -2109,6 +2109,9 @@ function sortData(rows, selectedUnit) {
     if (this.hasUnits) {
       filteredData = helpers.getDataByUnit(filteredData, this.selectedUnit);
     }
+    if (this.hasSerieses) {
+      filteredData = helpers.getDataBySeries(filteredData, this.selectedSeries);
+    }
 
     filteredData = helpers.sortData(filteredData, this.selectedUnit);
     if (headline.length > 0) {
