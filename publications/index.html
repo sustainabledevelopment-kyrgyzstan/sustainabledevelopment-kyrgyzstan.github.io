@@ -120,7 +120,7 @@ var translations = {
         <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css" crossorigin="">
         <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" crossorigin="">
         <link rel="stylesheet" href="https://cdn.datatables.net/fixedcolumns/3.2.3/css/fixedColumns.dataTables.min.css" crossorigin="">
-        <link rel="stylesheet" href="/assets/css/style.css?v=20200910131420">
+        <link rel="stylesheet" href="/assets/css/style.css?v=20200914085850">
         <link href="https://fonts.googleapis.com/css?family=Open+Sans|Roboto" rel="stylesheet" crossorigin="">
         <link rel="stylesheet" href="https://unpkg.com/leaflet@1.3.4/dist/leaflet.css"
           integrity="sha512-puBpdR0798OZvTTbP4A8Ix/l+A4dHDD0DGqYW6RQ+9jxkRFclaxxQb/SJAWZfWAkuyeQUytO7+7N4QKrDh+drA=="
@@ -128,7 +128,7 @@ var translations = {
         <link rel="stylesheet" href="https://cdn.rawgit.com/socib/Leaflet.TimeDimension/master/dist/leaflet.timedimension.control.min.css"  crossorigin=""/>
         <link rel="stylesheet" href='https://api.mapbox.com/mapbox.js/plugins/leaflet-fullscreen/v1.0.1/leaflet.fullscreen.css'  crossorigin=""/>
         <link rel="stylesheet" href="https://bowercdn.net/c/leaflet.zoomhome-latest/dist/leaflet.zoomhome.css"  crossorigin=""/>
-        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet-search@2.9.7/dist/leaflet-search.min.css" crossorigin=""><link rel="stylesheet" href="/assets/css/custom.css?v=20200910131420"><!-- ShareThis BEGIN --><!-- ShareThis END -->
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet-search@2.9.7/dist/leaflet-search.min.css" crossorigin=""><link rel="stylesheet" href="/assets/css/custom.css?v=20200914085850"><!-- ShareThis BEGIN --><!-- ShareThis END -->
 
     </head>
 <body class="language-ru layout-publications">
@@ -226,22 +226,44 @@ var translations = {
   <div class="row">
     <div class="col-md-9 push-md-3">
       <h2 id="публикации">Публикации</h2>
-<p>Посетите эту страницу, чтобы узнать последние новости о построении системы мониторинга и отчётности для показателей Целей устойчивого развития</p>
 
       
       
       <div class="row">
         <div class="col-md-2">
-          <img style="width: 100%" src="/publications/обложка.jpg"/>
+          <a class="thumbnail" href="/sbornik/">
+            <img style="width: 100%" src="/upload/обложка.jpg"/>
+          </a>
         </div>
         <div class="col-md-9">
           <article>
-            <h5><a href="/ru/sbornik/">Статистический сборник «Мониторинг показателей Целей устойчивого развития в Кыргызской Республике»</a></h5>
+            <h5><a href="/sbornik/">Мониторинг показателей Целей устойчивого развития в Кыргызской Республике</a></h5>
             <p>
               <time datetime="2020-08-04T00:00:00+00:00">Aug 04, 2020</time>
             </p>
             <div class="post-excerpt">
-              <p><strong>Статистический сборник «Мониторинг показателей Целей устойчивого развития в Кыргызской Республике»</strong></p>
+              <p>Целью настоящего издания является информирование общественности о текущем состоянии и прогрессе устойчивого развития в нашей стране, а также содействие в определении дальнейших приоритетных шагов для достижения успеха в реализации ЦУР.</p>
+
+
+            </div>
+          </article>
+        </div>
+      </div>
+      
+      <div class="row">
+        <div class="col-md-2">
+          <a class="thumbnail" href="/vnr/">
+            <img style="width: 100%" src="/upload/26372VNR_2020_Kyrgyzstan.jpg"/>
+          </a>
+        </div>
+        <div class="col-md-9">
+          <article>
+            <h5><a href="/vnr/">Национальный добровольный обзор Достижения Целей устойчивого развития в Кыргызской Республике</a></h5>
+            <p>
+              <time datetime="2020-09-11T00:00:00+00:00">Sep 11, 2020</time>
+            </p>
+            <div class="post-excerpt">
+              <p>Кыргызская Республика привержена осуществлению Повестки дня OOH в области устойчивого развития на период до 2030 года. Концептуальной идеей Стратегии до 2040 года является обеспечение высокого качества и достойного уровня жизни Человека, через призму концепции устойчивого экономического роста. Кыргызская Республика придерживается глобального обязательства «не оставить никого позади», с особым акцентом и приоритетным вниманием к наиболее уязвимым группам населения.</p>
 
 
             </div>
@@ -305,7 +327,7 @@ var translations = {
 <script>translations['search'] = translations['search'] || {};
     translations['search']['search'] = 'Поиск';</script>
 
-<script src='/assets/js/sdg.js?v=20200910131420'></script><script src="/assets/js/custom.js?v=20200910131420"></script><script>
+<script src='/assets/js/sdg.js?v=20200914085850'></script><script src="/assets/js/custom.js?v=20200914085850"></script><script>
 $(function() {
     if($('#indicatorData').length) {
       var domData = $('#indicatorData').data();
