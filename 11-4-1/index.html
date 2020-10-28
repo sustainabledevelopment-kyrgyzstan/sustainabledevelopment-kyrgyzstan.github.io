@@ -120,7 +120,7 @@ var translations = {
         <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css" crossorigin="">
         <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" crossorigin="">
         <link rel="stylesheet" href="https://cdn.datatables.net/fixedcolumns/3.2.3/css/fixedColumns.dataTables.min.css" crossorigin="">
-        <link rel="stylesheet" href="/assets/css/style.css?v=20200926161941">
+        <link rel="stylesheet" href="/assets/css/style.css?v=20201028113208">
         <link href="https://fonts.googleapis.com/css?family=Open+Sans|Roboto" rel="stylesheet" crossorigin="">
         <link rel="stylesheet" href="https://unpkg.com/leaflet@1.3.4/dist/leaflet.css"
           integrity="sha512-puBpdR0798OZvTTbP4A8Ix/l+A4dHDD0DGqYW6RQ+9jxkRFclaxxQb/SJAWZfWAkuyeQUytO7+7N4QKrDh+drA=="
@@ -128,7 +128,7 @@ var translations = {
         <link rel="stylesheet" href="https://cdn.rawgit.com/socib/Leaflet.TimeDimension/master/dist/leaflet.timedimension.control.min.css"  crossorigin=""/>
         <link rel="stylesheet" href='https://api.mapbox.com/mapbox.js/plugins/leaflet-fullscreen/v1.0.1/leaflet.fullscreen.css'  crossorigin=""/>
         <link rel="stylesheet" href="https://bowercdn.net/c/leaflet.zoomhome-latest/dist/leaflet.zoomhome.css"  crossorigin=""/>
-        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet-search@2.9.7/dist/leaflet-search.min.css" crossorigin=""><link rel="stylesheet" href="/assets/css/custom.css?v=20200926161941"><!-- ShareThis BEGIN --><!-- ShareThis END -->
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet-search@2.9.7/dist/leaflet-search.min.css" crossorigin=""><link rel="stylesheet" href="/assets/css/custom.css?v=20201028113208"><!-- ShareThis BEGIN --><!-- ShareThis END -->
 
     </head>
 <body class="language-ru layout-indicator">
@@ -149,6 +149,9 @@ var translations = {
 </div>
 <header role="banner">
   <div class="container">
+    <a class="navbar-brand" style="max-width: 50px" target="_blank" href="http://www.stat.kg/">
+      <img style="width: auto; height: 40px" src="/assets/img/favicons/android-chrome-192x192.png" />
+    </a>
     <a class="navbar-brand" href="/" id="home">
       <img src="/assets/img/SDG_logo_ru.png"
            alt="Цели в области устойчивого развития - 17 Целей, чтобы преобразовать наш мир"/>
@@ -192,8 +195,6 @@ var translations = {
           <a href="/publications">Публикации</a>
         </li><li class="nav-link ">
           <a href="/about">О нас</a>
-        </li><li class="nav-link ">
-          <a href="/guidance">Руководство</a>
         </li><li class="nav-link ">
           <a href="/faq">Часто задаваемые вопросы</a>
         </li><li>
@@ -273,7 +274,7 @@ var translations = {
     <div class="row">
       <div class="col-xs-4 col-md-3 col-lg-2 goal-icon">
         <a href="/11" title="Посмотреть список индикаторов этой цели">
-          <img src="https://open-sdg.github.io/sdg-translations/assets/img/goals/ru/11.png" alt="Устойчивые города и населенные пункты - Цель 11" />
+          <img src="https://sdg-kyrgyzstan.github.io/open-sdg-site-starter/assets/img/goals/ru/11.png" alt="Устойчивые города и населенные пункты - Цель 11" />
         </a>
       </div>
       <div class="col-xs-8 col-md-9 col-lg-10 indicator-details">
@@ -923,7 +924,7 @@ data-event-label="Change to custom.data_reporter tab"
 <script>translations['search'] = translations['search'] || {};
     translations['search']['search'] = 'Поиск';</script>
 
-<script src='/assets/js/sdg.js?v=20200926161941'></script><script src="/assets/js/custom.js?v=20200926161941"></script><script>
+<script src='/assets/js/sdg.js?v=20201028113208'></script><script src="/assets/js/custom.js?v=20201028113208"></script><script>
 $(function() {
     if($('#indicatorData').length) {
       var domData = $('#indicatorData').data();
