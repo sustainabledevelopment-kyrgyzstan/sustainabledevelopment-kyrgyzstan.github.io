@@ -26,3 +26,12 @@
 
 .navbar {
   margin-bottom: 0; }
+
+@media (max-width: 999px) {
+  .goal-tiles .row {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center; }
+
+  #main-content .no-gutters img#goal-18 {
+    margin-top: 0; } }
