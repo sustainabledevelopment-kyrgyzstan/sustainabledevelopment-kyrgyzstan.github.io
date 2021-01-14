@@ -3,7 +3,7 @@
     <head>
         <meta charset="utf-8">
         <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.min.js"></script>
-        <script crossorigin="anonymous" src="https://polyfill.io/v3/polyfill.min.js?features=Promise%2CArray.prototype.forEach%2CString.prototype.includes%2CURLSearchParams%2CCustomEvent%2CArray.prototype.includes%2CArray.prototype.filter%2CArray.prototype.some%2CArray.prototype.find%2CObject.assign%2CArray.isArray%2CObject.values"></script>
+        <script crossorigin="anonymous" src="https://polyfill.io/v3/polyfill.min.js?features=Promise%2CArray.prototype.forEach%2CString.prototype.includes%2CURLSearchParams%2CCustomEvent%2CArray.prototype.includes%2CArray.prototype.filter%2CArray.prototype.some%2CArray.prototype.find%2CObject.assign%2CArray.isArray%2CObject.values%2CArray.from%2CSet"></script>
 <script crossorigin="anonymous" src="https://cdnjs.cloudflare.com/ajax/libs/javascript-canvas-to-blob/3.15.0/js/canvas-to-blob.min.js"></script>
 
         <script>
@@ -90,11 +90,10 @@ var translations = {
         <!-- Title and meta description
         ================================================== -->
 
-        <title>
-          
-            Goal 16 - Peace and justice - strong institutions
-          
-        </title>
+        
+    <title>Goal 16 - Peace and justice - strong institutions - Indicators For The Sustainable Development Goals</title>
+
+
 
         <meta name="description" content="">
         <meta property="og:description" content="">
@@ -120,7 +119,7 @@ var translations = {
         <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css" crossorigin="">
         <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" crossorigin="">
         <link rel="stylesheet" href="https://cdn.datatables.net/fixedcolumns/3.2.3/css/fixedColumns.dataTables.min.css" crossorigin="">
-        <link rel="stylesheet" href="/assets/css/style.css?v=20201126032115">
+        <link rel="stylesheet" href="/assets/css/style.css?v=20210114151510">
         <link href="https://fonts.googleapis.com/css?family=Open+Sans|Roboto" rel="stylesheet" crossorigin="">
         <link rel="stylesheet" href="https://unpkg.com/leaflet@1.3.4/dist/leaflet.css"
           integrity="sha512-puBpdR0798OZvTTbP4A8Ix/l+A4dHDD0DGqYW6RQ+9jxkRFclaxxQb/SJAWZfWAkuyeQUytO7+7N4QKrDh+drA=="
@@ -128,7 +127,7 @@ var translations = {
         <link rel="stylesheet" href="https://cdn.rawgit.com/socib/Leaflet.TimeDimension/master/dist/leaflet.timedimension.control.min.css"  crossorigin=""/>
         <link rel="stylesheet" href='https://api.mapbox.com/mapbox.js/plugins/leaflet-fullscreen/v1.0.1/leaflet.fullscreen.css'  crossorigin=""/>
         <link rel="stylesheet" href="https://bowercdn.net/c/leaflet.zoomhome-latest/dist/leaflet.zoomhome.css"  crossorigin=""/>
-        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet-search@2.9.7/dist/leaflet-search.min.css" crossorigin=""><link rel="stylesheet" href="/assets/css/custom.css?v=20201126032115"><!-- ShareThis BEGIN --><!-- ShareThis END -->
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet-search@2.9.7/dist/leaflet-search.min.css" crossorigin=""><link rel="stylesheet" href="/assets/css/custom.css?v=20210114151510"><!-- ShareThis BEGIN --><!-- ShareThis END -->
 
     </head>
 <body class="language-en layout-goal-by-target">
@@ -139,7 +138,7 @@ var translations = {
 <a class="sr-only sr-only-focusable" id="skiplink" href="#main-content" tabindex="0">Skip to main content</a>
 <div id="disclaimer">
   <div class="container">
-  <div class="disclaimer-alert" role="alert">
+  <div class="disclaimer-alert">
     <strong class="phase-tag">Alpha</strong>
     
     This is a development website. We welcome your <a href="mailto:sdg_nsc@stat.kg">feedback</a>.
@@ -158,14 +157,27 @@ var translations = {
     </a>
     <div class='hidden visible-xs float-right'>
       <ul id='accessibility-nav' class='contrast-switcher'></ul><div class="language-toggle-mobile">
-        <a class="language-toggle-button" onclick="$(this).next('.language-toggle').toggle(); return false;">
-  <i class="fa fa-globe"></i>
-  <span class="language-toggle-text">English</span>
-  <i class="language-toggle fa fa-chevron-down"></i>
-  <i class="language-toggle fa fa-chevron-up" style="display:none;"></i>
-</a>
+        
 
-<ul class="language-options language-toggle"><li><a href="/16/">Pусский</a></li></ul>
+
+
+
+
+  <div class="language-toggle-container">
+  
+  <div class="btn-group language-toggle-dropdown ">
+    <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+      <span class="language-globe-in-dropdown"><i class="fa fa-globe language-toggle-globe-dropdown"></i></span><span class="language-name">English</span>
+      <span class="language-abbreviation">en</span><i class="language-toggle-caret fa fa-chevron-down"></i></button>
+    <ul class="dropdown-menu"><li>
+            <a href="/16/">
+              Pусский
+            </a>
+          </li></ul>
+  </div>
+</div>
+
+
 
       </div></div>
     <nav class="navbar navbar-default" id="main-nav">
@@ -180,10 +192,9 @@ var translations = {
       </ul>
       <div id="search" class="menu-target">
   <form action="/en/search">
-    <input name="q" id="indicator_search" title="Search" />
-    <label for="indicator_search">
-      <button aria-label="Search" id="search-btn" type="submit"><i class="fa fa-search" aria-hidden="false"></i></button><span>Search:</span>
-    </label>
+    <input type="text" name="q" id="indicator_search" title="Search" />
+    <label class="sr-only" for="indicator_search">Search</label>
+    <button aria-label="Search" id="search-btn" type="submit"><i class="fa fa-search" aria-hidden="false"></i></button>
   </form>
 </div>
 
@@ -198,14 +209,27 @@ var translations = {
         </li><li class="nav-link ">
           <a href="/en/faq">FAQ</a>
         </li><li>
-          <a class="language-toggle-button" onclick="$(this).next('.language-toggle').toggle(); return false;">
-  <i class="fa fa-globe"></i>
-  <span class="language-toggle-text">English</span>
-  <i class="language-toggle fa fa-chevron-down"></i>
-  <i class="language-toggle fa fa-chevron-up" style="display:none;"></i>
-</a>
+          
 
-<ul class="language-options language-toggle"><li><a href="/16/">Pусский</a></li></ul>
+
+
+
+
+  <div class="language-toggle-container">
+  
+  <div class="btn-group language-toggle-dropdown ">
+    <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+      <span class="language-globe-in-dropdown"><i class="fa fa-globe language-toggle-globe-dropdown"></i></span><span class="language-name">English</span>
+      <span class="language-abbreviation">en</span><i class="language-toggle-caret fa fa-chevron-down"></i></button>
+    <ul class="dropdown-menu"><li>
+            <a href="/16/">
+              Pусский
+            </a>
+          </li></ul>
+  </div>
+</div>
+
+
 
         </li></ul>
     </nav>
@@ -213,11 +237,21 @@ var translations = {
 </header>
 
 
+<div class="container">
+  <ol class="breadcrumb">
+  
+  <li><a href="/en/">Home</a></li>
+  <li class="active">Goal 16</li>
+  
+</ol>
+
+</div>
+
 <div class="heading goal-banner goal-16">
   <div class="container">
     <div class="row">
-      <div class="col-xs-4 col-md-3 col-lg-2">
-        <img src="https://sdg-kyrgyzstan.github.io/open-sdg-site-starter/assets/img/goals/en/16.png" alt="Peace and justice - strong institutions - Goal 16" />
+      <div class="col-xs-4 col-md-3 col-lg-2 goal-tiles">
+        <img src="https://sdg-kyrgyzstan.github.io/open-sdg-site-starter/assets/img/goals/en/16.png" alt="Peace and justice - strong institutions - Goal 16" id="goal-16" />
       </div>
       <div class="col-xs-8 col-md-9 col-lg-10">
         <h1>
@@ -228,14 +262,11 @@ var translations = {
   </div>
 </div>
 
-<div id="main-content" class="container goal-indicators goal-16 goal-by-target">
+<div id="main-content" class="container goal-indicators goal-16 goal-by-target" role="main">
 
   
 
-  <ol class="breadcrumb">
-    <li><a href="/en/">Home</a></li>
-    <li class="active">Goal 16</li>
-  </ol>
+
 
   <div class="visible-md-block visible-lg-block">
     <div class="col-md-6">
@@ -269,16 +300,16 @@ var translations = {
       
 
       <div class="col-md-12  goal-indicator">
+        <span>
+          16.1.1
+          <span class="status complete">
+            Reported online
+          </span>
+        </span>
         <a href="/en/16-1-1">
-          <span>
-            16.1.1
-            <span class="status complete">
-              Reported online
-            </span>
-          </span>
           Number of victims of intentional homicide per 100,000 population, by sex and age
-          
         </a>
+        
       </div>
     
 
@@ -292,23 +323,23 @@ var translations = {
       
 
       <div class="col-md-12 indicator-national goal-indicator">
+        <span>
+          16.1.1.1
+          <span class="status complete">
+            Reported online
+          </span>
+        </span>
         <a href="/en/16-1-1-1">
-          <span>
-            16.1.1.1
-            <span class="status complete">
-              Reported online
-            </span>
-          </span>
           Mortality from attacks per 100,000 population
-          
-            <ul class="tags">
-            
-              
-              <li class="tag-national warning">National</li>
-            
-            </ul>
-          
         </a>
+        
+          <ul class="tags">
+          
+            
+            <li class="tag-national warning">National</li>
+          
+          </ul>
+        
       </div>
     
 
@@ -322,16 +353,16 @@ var translations = {
       
 
       <div class="col-md-12  goal-indicator">
+        <span>
+          16.1.2
+          <span class="status notstarted">
+            Exploring data sources
+          </span>
+        </span>
         <a href="/en/16-1-2">
-          <span>
-            16.1.2
-            <span class="status notstarted">
-              Exploring data sources
-            </span>
-          </span>
           Conflict-related deaths per 100,000 population, by sex, age and cause
-          
         </a>
+        
       </div>
     
 
@@ -345,16 +376,16 @@ var translations = {
       
 
       <div class="col-md-12  goal-indicator">
+        <span>
+          16.1.3
+          <span class="status notstarted">
+            Exploring data sources
+          </span>
+        </span>
         <a href="/en/16-1-3">
-          <span>
-            16.1.3
-            <span class="status notstarted">
-              Exploring data sources
-            </span>
-          </span>
           Proportion of population subjected to (a) physical violence, (b) psychological violence and (c) sexual violence in the previous 12 months
-          
         </a>
+        
       </div>
     
 
@@ -368,23 +399,23 @@ var translations = {
       
 
       <div class="col-md-12 indicator-national goal-indicator">
-        <a href="/en/16-1-3-1">
-          <span>
-            16.1.3.1
-            <span class="status complete">
-              Reported online
-            </span>
+        <span>
+          16.1.3.1
+          <span class="status complete">
+            Reported online
           </span>
+        </span>
+        <a href="/en/16-1-3-1">
           Proportion of women aged 15-49 years, in the last 12 months who have experienced physical violence (robbery or assault)
-          
-            <ul class="tags">
-            
-              
-              <li class="tag-national warning">National</li>
-            
-            </ul>
-          
         </a>
+        
+          <ul class="tags">
+          
+            
+            <li class="tag-national warning">National</li>
+          
+          </ul>
+        
       </div>
     
 
@@ -398,16 +429,16 @@ var translations = {
       
 
       <div class="col-md-12  goal-indicator">
-        <a href="/en/16-1-4">
-          <span>
-            16.1.4
-            <span class="status complete">
-              Reported online
-            </span>
+        <span>
+          16.1.4
+          <span class="status complete">
+            Reported online
           </span>
+        </span>
+        <a href="/en/16-1-4">
           Proportion of population that feel safe walking alone around the area they live
-          
         </a>
+        
       </div>
     
 
@@ -421,23 +452,23 @@ var translations = {
       
 
       <div class="col-md-12 indicator-national goal-indicator">
-        <a href="/en/16-1-4-1a">
-          <span>
-            16.1.4.1a
-            <span class="status complete">
-              Reported online
-            </span>
+        <span>
+          16.1.4.1a
+          <span class="status complete">
+            Reported online
           </span>
+        </span>
+        <a href="/en/16-1-4-1a">
           Proportion of crimes committed in public places and on the streets of the total number of recorded crimes
-          
-            <ul class="tags">
-            
-              
-              <li class="tag-national warning">National</li>
-            
-            </ul>
-          
         </a>
+        
+          <ul class="tags">
+          
+            
+            <li class="tag-national warning">National</li>
+          
+          </ul>
+        
       </div>
     
     </div>
@@ -463,16 +494,16 @@ var translations = {
       
 
       <div class="col-md-12  goal-indicator">
+        <span>
+          16.2.1
+          <span class="status complete">
+            Reported online
+          </span>
+        </span>
         <a href="/en/16-2-1">
-          <span>
-            16.2.1
-            <span class="status complete">
-              Reported online
-            </span>
-          </span>
           Proportion of children aged 1–17 years who experienced any physical punishment and/or psychological aggression by caregivers in the past month
-          
         </a>
+        
       </div>
     
 
@@ -486,16 +517,16 @@ var translations = {
       
 
       <div class="col-md-12  goal-indicator">
+        <span>
+          16.2.2
+          <span class="status complete">
+            Reported online
+          </span>
+        </span>
         <a href="/en/16-2-2">
-          <span>
-            16.2.2
-            <span class="status complete">
-              Reported online
-            </span>
-          </span>
           Number of victims of human trafficking per 100,000 population, by sex, age and form of exploitation
-          
         </a>
+        
       </div>
     
 
@@ -509,16 +540,16 @@ var translations = {
       
 
       <div class="col-md-12  goal-indicator">
-        <a href="/en/16-2-3">
-          <span>
-            16.2.3
-            <span class="status notstarted">
-              Exploring data sources
-            </span>
+        <span>
+          16.2.3
+          <span class="status notstarted">
+            Exploring data sources
           </span>
+        </span>
+        <a href="/en/16-2-3">
           Proportion of young women and men aged 18–29 years who experienced sexual violence by age 18
-          
         </a>
+        
       </div>
     
     </div>
@@ -544,16 +575,16 @@ var translations = {
       
 
       <div class="col-md-12  goal-indicator">
-        <a href="/en/16-3-1">
-          <span>
-            16.3.1
-            <span class="status complete">
-              Reported online
-            </span>
+        <span>
+          16.3.1
+          <span class="status complete">
+            Reported online
           </span>
+        </span>
+        <a href="/en/16-3-1">
           Proportion of victims of violence in the previous 12 months who reported their victimization to competent authorities or other officially recognized conflict resolution mechanisms
-          
         </a>
+        
       </div>
     
 
@@ -567,16 +598,16 @@ var translations = {
       
 
       <div class="col-md-12  goal-indicator">
-        <a href="/en/16-3-2">
-          <span>
-            16.3.2
-            <span class="status notstarted">
-              Exploring data sources
-            </span>
+        <span>
+          16.3.2
+          <span class="status notstarted">
+            Exploring data sources
           </span>
+        </span>
+        <a href="/en/16-3-2">
           Unsentenced detainees as a proportion of overall prison population
-          
         </a>
+        
       </div>
     
     </div>
@@ -602,16 +633,16 @@ var translations = {
       
 
       <div class="col-md-12  goal-indicator">
-        <a href="/en/16-4-1">
-          <span>
-            16.4.1
-            <span class="status notstarted">
-              Exploring data sources
-            </span>
+        <span>
+          16.4.1
+          <span class="status notstarted">
+            Exploring data sources
           </span>
+        </span>
+        <a href="/en/16-4-1">
           Total value of inward and outward illicit financial flows (in current United States dollars)
-          
         </a>
+        
       </div>
     
 
@@ -625,16 +656,16 @@ var translations = {
       
 
       <div class="col-md-12  goal-indicator">
-        <a href="/en/16-4-2">
-          <span>
-            16.4.2
-            <span class="status notstarted">
-              Exploring data sources
-            </span>
+        <span>
+          16.4.2
+          <span class="status notstarted">
+            Exploring data sources
           </span>
+        </span>
+        <a href="/en/16-4-2">
           Proportion of seized, found or surrendered arms whose illicit origin or context has been traced or established by a competent authority in line with international instruments
-          
         </a>
+        
       </div>
     
 
@@ -648,23 +679,23 @@ var translations = {
       
 
       <div class="col-md-12 indicator-national goal-indicator">
-        <a href="/en/16-4-2-1">
-          <span>
-            16.4.2.1
-            <span class="status complete">
-              Reported online
-            </span>
+        <span>
+          16.4.2.1
+          <span class="status complete">
+            Reported online
           </span>
+        </span>
+        <a href="/en/16-4-2-1">
           Number of firearms seized and voluntarily surrendered
-          
-            <ul class="tags">
-            
-              
-              <li class="tag-national warning">National</li>
-            
-            </ul>
-          
         </a>
+        
+          <ul class="tags">
+          
+            
+            <li class="tag-national warning">National</li>
+          
+          </ul>
+        
       </div>
     
     </div>
@@ -690,16 +721,16 @@ var translations = {
       
 
       <div class="col-md-12  goal-indicator">
+        <span>
+          16.5.1
+          <span class="status notstarted">
+            Exploring data sources
+          </span>
+        </span>
         <a href="/en/16-5-1">
-          <span>
-            16.5.1
-            <span class="status notstarted">
-              Exploring data sources
-            </span>
-          </span>
           Proportion of persons who had at least one contact with a public official and who paid a bribe to a public official, or were asked for a bribe by those public officials, during the previous 12 months
-          
         </a>
+        
       </div>
     
 
@@ -713,23 +744,23 @@ var translations = {
       
 
       <div class="col-md-12 indicator-national goal-indicator">
+        <span>
+          16.5.1.1a
+          <span class="status complete">
+            Reported online
+          </span>
+        </span>
         <a href="/en/16-5-1-1a">
-          <span>
-            16.5.1.1a
-            <span class="status complete">
-              Reported online
-            </span>
-          </span>
           Index "Personal perception of corruption level in state bodies of executive power and local self-government bodies" (results of the 2nd half of the year)
-          
-            <ul class="tags">
-            
-              
-              <li class="tag-national warning">National</li>
-            
-            </ul>
-          
         </a>
+        
+          <ul class="tags">
+          
+            
+            <li class="tag-national warning">National</li>
+          
+          </ul>
+        
       </div>
     
 
@@ -743,23 +774,23 @@ var translations = {
       
 
       <div class="col-md-12 indicator-national goal-indicator">
-        <a href="/en/16-5-1-1b">
-          <span>
-            16.5.1.1b
-            <span class="status complete">
-              Reported online
-            </span>
+        <span>
+          16.5.1.1b
+          <span class="status complete">
+            Reported online
           </span>
+        </span>
+        <a href="/en/16-5-1-1b">
           Number of convictions for malfeasance, including corruption and bribery
-          
-            <ul class="tags">
-            
-              
-              <li class="tag-national warning">National</li>
-            
-            </ul>
-          
         </a>
+        
+          <ul class="tags">
+          
+            
+            <li class="tag-national warning">National</li>
+          
+          </ul>
+        
       </div>
     
 
@@ -773,16 +804,16 @@ var translations = {
       
 
       <div class="col-md-12  goal-indicator">
-        <a href="/en/16-5-2">
-          <span>
-            16.5.2
-            <span class="status notstarted">
-              Exploring data sources
-            </span>
+        <span>
+          16.5.2
+          <span class="status notstarted">
+            Exploring data sources
           </span>
+        </span>
+        <a href="/en/16-5-2">
           Proportion of businesses that had at least one contact with a public official and that paid a bribe to a public official, or were asked for a bribe by those public officials during the previous 12 months
-          
         </a>
+        
       </div>
     
     </div>
@@ -808,16 +839,16 @@ var translations = {
       
 
       <div class="col-md-12  goal-indicator">
-        <a href="/en/16-6-1">
-          <span>
-            16.6.1
-            <span class="status complete">
-              Reported online
-            </span>
+        <span>
+          16.6.1
+          <span class="status complete">
+            Reported online
           </span>
+        </span>
+        <a href="/en/16-6-1">
           Primary government expenditures as a proportion of original approved budget, by sector (or by budget codes or similar)
-          
         </a>
+        
       </div>
     
 
@@ -831,16 +862,16 @@ var translations = {
       
 
       <div class="col-md-12  goal-indicator">
-        <a href="/en/16-6-2">
-          <span>
-            16.6.2
-            <span class="status notstarted">
-              Exploring data sources
-            </span>
+        <span>
+          16.6.2
+          <span class="status notstarted">
+            Exploring data sources
           </span>
+        </span>
+        <a href="/en/16-6-2">
           Proportion of population satisfied with their last experience of public services
-          
         </a>
+        
       </div>
     
 
@@ -854,23 +885,23 @@ var translations = {
       
 
       <div class="col-md-12 indicator-national goal-indicator">
-        <a href="/en/16-6-2-1a">
-          <span>
-            16.6.2.1a
-            <span class="status complete">
-              Reported online
-            </span>
+        <span>
+          16.6.2.1a
+          <span class="status complete">
+            Reported online
           </span>
+        </span>
+        <a href="/en/16-6-2-1a">
           Executive branch of the government satisfaction index
-          
-            <ul class="tags">
-            
-              
-              <li class="tag-national warning">National</li>
-            
-            </ul>
-          
         </a>
+        
+          <ul class="tags">
+          
+            
+            <li class="tag-national warning">National</li>
+          
+          </ul>
+        
       </div>
     
     </div>
@@ -896,16 +927,16 @@ var translations = {
       
 
       <div class="col-md-12  goal-indicator">
-        <a href="/en/16-7-1">
-          <span>
-            16.7.1
-            <span class="status complete">
-              Reported online
-            </span>
+        <span>
+          16.7.1
+          <span class="status complete">
+            Reported online
           </span>
+        </span>
+        <a href="/en/16-7-1">
           Proportions of positions (by sex, age, persons with disabilities and population groups) in public institutions (national and local legislatures, public service, and judiciary) compared to national distributions
-          
         </a>
+        
       </div>
     
 
@@ -919,16 +950,16 @@ var translations = {
       
 
       <div class="col-md-12  goal-indicator">
-        <a href="/en/16-7-2">
-          <span>
-            16.7.2
-            <span class="status notstarted">
-              Exploring data sources
-            </span>
+        <span>
+          16.7.2
+          <span class="status notstarted">
+            Exploring data sources
           </span>
+        </span>
+        <a href="/en/16-7-2">
           Proportion of population who believe decision-making is inclusive and responsive, by sex, age, disability and population group
-          
         </a>
+        
       </div>
     
     </div>
@@ -954,16 +985,16 @@ var translations = {
       
 
       <div class="col-md-12  goal-indicator">
-        <a href="/en/16-8-1">
-          <span>
-            16.8.1
-            <span class="status notapplicable">
-              Not applicable
-            </span>
+        <span>
+          16.8.1
+          <span class="status notapplicable">
+            Not applicable
           </span>
+        </span>
+        <a href="/en/16-8-1">
           Proportion of members and voting rights of developing countries in international organizations
-          
         </a>
+        
       </div>
     
     </div>
@@ -989,93 +1020,16 @@ var translations = {
       
 
       <div class="col-md-12  goal-indicator">
+        <span>
+          16.9.1
+          <span class="status complete">
+            Reported online
+          </span>
+        </span>
         <a href="/en/16-9-1">
-          <span>
-            16.9.1
-            <span class="status complete">
-              Reported online
-            </span>
-          </span>
           Proportion of children under 5 years of age whose births have been registered with a civil authority, by age
-          
         </a>
-      </div>
-    
-    </div>
-  
-    
-    <div class="indicator-cards target goal-target col-md-6">
-      <span>
-        <label class="hidden-md hidden-lg">Target</label>
-        16.a
-      </span>
-      Strengthen relevant national institutions, including through international cooperation, for building capacity at all levels, in particular in developing countries, to prevent violence and combat terrorism and crime
-    </div>
-    <div class="indicator-cards col-md-6 row no-gutters">
-    
-
-      
-      
-      
-      
-      
-      
-      
-      
-
-      <div class="col-md-12  goal-indicator">
-        <a href="/en/16-a-1">
-          <span>
-            16.a.1
-            <span class="status notstarted">
-              Exploring data sources
-            </span>
-          </span>
-          Existence of independent national human rights institutions in compliance with the Paris Principles
-          
-        </a>
-      </div>
-    
-    </div>
-  
-    
-    <div class="indicator-cards target goal-target col-md-6">
-      <span>
-        <label class="hidden-md hidden-lg">Target</label>
-        16.b
-      </span>
-      Promote and enforce non-discriminatory laws and policies for sustainable development
-    </div>
-    <div class="indicator-cards col-md-6 row no-gutters">
-    
-
-      
-      
-      
-      
-      
-      
-      
-      
-
-      <div class="col-md-12 indicator-national goal-indicator">
-        <a href="/en/16-b-1-1">
-          <span>
-            16.b.1.1
-            <span class="status complete">
-              Reported online
-            </span>
-          </span>
-          Proportion of women aged 15–49 reporting having personally felt discriminated against or harassed in the previous 12 months on the basis of a ground of discrimination prohibited under international human rights law
-          
-            <ul class="tags">
-            
-              
-              <li class="tag-national warning">National</li>
-            
-            </ul>
-          
-        </a>
+        
       </div>
     
     </div>
@@ -1101,16 +1055,16 @@ var translations = {
       
 
       <div class="col-md-12  goal-indicator">
-        <a href="/en/16-10-1">
-          <span>
-            16.10.1
-            <span class="status notstarted">
-              Exploring data sources
-            </span>
+        <span>
+          16.10.1
+          <span class="status notstarted">
+            Exploring data sources
           </span>
+        </span>
+        <a href="/en/16-10-1">
           Number of verified cases of killing, kidnapping, enforced disappearance, arbitrary detention and torture of journalists, associated media personnel, trade unionists and human rights advocates in the previous 12 months
-          
         </a>
+        
       </div>
     
 
@@ -1124,16 +1078,93 @@ var translations = {
       
 
       <div class="col-md-12  goal-indicator">
-        <a href="/en/16-10-2">
-          <span>
-            16.10.2
-            <span class="status complete">
-              Reported online
-            </span>
+        <span>
+          16.10.2
+          <span class="status complete">
+            Reported online
           </span>
+        </span>
+        <a href="/en/16-10-2">
           Number of countries that adopt and implement constitutional, statutory and/or policy guarantees for public access to information
-          
         </a>
+        
+      </div>
+    
+    </div>
+  
+    
+    <div class="indicator-cards target goal-target col-md-6">
+      <span>
+        <label class="hidden-md hidden-lg">Target</label>
+        16.a
+      </span>
+      Strengthen relevant national institutions, including through international cooperation, for building capacity at all levels, in particular in developing countries, to prevent violence and combat terrorism and crime
+    </div>
+    <div class="indicator-cards col-md-6 row no-gutters">
+    
+
+      
+      
+      
+      
+      
+      
+      
+      
+
+      <div class="col-md-12  goal-indicator">
+        <span>
+          16.a.1
+          <span class="status notstarted">
+            Exploring data sources
+          </span>
+        </span>
+        <a href="/en/16-a-1">
+          Existence of independent national human rights institutions in compliance with the Paris Principles
+        </a>
+        
+      </div>
+    
+    </div>
+  
+    
+    <div class="indicator-cards target goal-target col-md-6">
+      <span>
+        <label class="hidden-md hidden-lg">Target</label>
+        16.b
+      </span>
+      Promote and enforce non-discriminatory laws and policies for sustainable development
+    </div>
+    <div class="indicator-cards col-md-6 row no-gutters">
+    
+
+      
+      
+      
+      
+      
+      
+      
+      
+
+      <div class="col-md-12 indicator-national goal-indicator">
+        <span>
+          16.b.1.1
+          <span class="status complete">
+            Reported online
+          </span>
+        </span>
+        <a href="/en/16-b-1-1">
+          Proportion of women aged 15–49 reporting having personally felt discriminated against or harassed in the previous 12 months on the basis of a ground of discrimination prohibited under international human rights law
+        </a>
+        
+          <ul class="tags">
+          
+            
+            <li class="tag-national warning">National</li>
+          
+          </ul>
+        
       </div>
     
     </div>
@@ -1148,20 +1179,18 @@ var translations = {
           <ul>
             <li><a href="https://open-sdg.org">Built using Open SDG</a></li>
             
-              
-                <li>
+              <li>
                 
                   <a href="mailto:sdg_nsc@stat.kg" target="_blank">Contact us</a>
                 
                 </li>
-              
-                <li>
+              <li>
                 <a href="/en/about/cookies-and-privacy">Cookies</a>
                 
                 </li>
               
             
-          </ul>
+            </ul>
         </div>
       </div>
     </div>
@@ -1183,6 +1212,7 @@ var translations = {
 <script src="//cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.bundle.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/patternomaly@1.3.2/dist/patternomaly.js"></script>
 
+
 <script src="https://cdnjs.cloudflare.com/ajax/libs/autotrack/2.4.1/autotrack.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/html2canvas@1.0.0-rc.3/dist/html2canvas.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/file-saver@2.0.2/dist/FileSaver.min.js"></script>
@@ -1192,7 +1222,12 @@ var translations = {
 <script>translations['search'] = translations['search'] || {};
     translations['search']['search'] = 'Search';</script>
 
-<script src='/assets/js/sdg.js?v=20201126032115'></script><script src="/assets/js/custom.js?v=20201126032115"></script><script>
+<script src='/assets/js/sdg.js?v=20210114151510'></script>
+
+
+    
+    
+    <script src="/assets/js/custom.js?v=20210114151510"></script><script>
 $(function() {
     if($('#indicatorData').length) {
       var domData = $('#indicatorData').data();
@@ -1225,15 +1260,13 @@ $(function() {
               chartTitle: domData.charttitle,
               chartTitles: domData.charttitles,
               measurementUnit: domData.measurementunit,
-              copyright: domData.copyright,
-              dataSource: domData.datasource,
-              geographicalArea: domData.geographicalarea,
               showData: domData.showdata,
-              footnote: domData.footnote,
               graphType: domData.graphtype,
               startValues: domData.startvalues,
               graphLimits: domData.graphlimits,
               stackedDisaggregation: domData.stackeddisaggregation,
+              graphAnnotations: domData.graphannotations,
+              indicatorDownloads: domData.indicatordownloads,
             }),
             view  = new indicatorView(model, {
               rootElement: '#indicatorData',

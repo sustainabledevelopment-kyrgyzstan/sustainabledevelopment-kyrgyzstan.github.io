@@ -3,7 +3,7 @@
     <head>
         <meta charset="utf-8">
         <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.min.js"></script>
-        <script crossorigin="anonymous" src="https://polyfill.io/v3/polyfill.min.js?features=Promise%2CArray.prototype.forEach%2CString.prototype.includes%2CURLSearchParams%2CCustomEvent%2CArray.prototype.includes%2CArray.prototype.filter%2CArray.prototype.some%2CArray.prototype.find%2CObject.assign%2CArray.isArray%2CObject.values"></script>
+        <script crossorigin="anonymous" src="https://polyfill.io/v3/polyfill.min.js?features=Promise%2CArray.prototype.forEach%2CString.prototype.includes%2CURLSearchParams%2CCustomEvent%2CArray.prototype.includes%2CArray.prototype.filter%2CArray.prototype.some%2CArray.prototype.find%2CObject.assign%2CArray.isArray%2CObject.values%2CArray.from%2CSet"></script>
 <script crossorigin="anonymous" src="https://cdnjs.cloudflare.com/ajax/libs/javascript-canvas-to-blob/3.15.0/js/canvas-to-blob.min.js"></script>
 
         <script>
@@ -90,11 +90,10 @@ var translations = {
         <!-- Title and meta description
         ================================================== -->
 
-        <title>
-          
-            Цель 7 - Недорогостоящая и чистая энергия
-          
-        </title>
+        
+    <title>Цель 7 - Недорогостоящая и чистая энергия - Indicators For The Sustainable Development Goals</title>
+
+
 
         <meta name="description" content="">
         <meta property="og:description" content="">
@@ -120,7 +119,7 @@ var translations = {
         <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css" crossorigin="">
         <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" crossorigin="">
         <link rel="stylesheet" href="https://cdn.datatables.net/fixedcolumns/3.2.3/css/fixedColumns.dataTables.min.css" crossorigin="">
-        <link rel="stylesheet" href="/assets/css/style.css?v=20201126032115">
+        <link rel="stylesheet" href="/assets/css/style.css?v=20210114151510">
         <link href="https://fonts.googleapis.com/css?family=Open+Sans|Roboto" rel="stylesheet" crossorigin="">
         <link rel="stylesheet" href="https://unpkg.com/leaflet@1.3.4/dist/leaflet.css"
           integrity="sha512-puBpdR0798OZvTTbP4A8Ix/l+A4dHDD0DGqYW6RQ+9jxkRFclaxxQb/SJAWZfWAkuyeQUytO7+7N4QKrDh+drA=="
@@ -128,7 +127,7 @@ var translations = {
         <link rel="stylesheet" href="https://cdn.rawgit.com/socib/Leaflet.TimeDimension/master/dist/leaflet.timedimension.control.min.css"  crossorigin=""/>
         <link rel="stylesheet" href='https://api.mapbox.com/mapbox.js/plugins/leaflet-fullscreen/v1.0.1/leaflet.fullscreen.css'  crossorigin=""/>
         <link rel="stylesheet" href="https://bowercdn.net/c/leaflet.zoomhome-latest/dist/leaflet.zoomhome.css"  crossorigin=""/>
-        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet-search@2.9.7/dist/leaflet-search.min.css" crossorigin=""><link rel="stylesheet" href="/assets/css/custom.css?v=20201126032115"><!-- ShareThis BEGIN --><!-- ShareThis END -->
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet-search@2.9.7/dist/leaflet-search.min.css" crossorigin=""><link rel="stylesheet" href="/assets/css/custom.css?v=20210114151510"><!-- ShareThis BEGIN --><!-- ShareThis END -->
 
     </head>
 <body class="language-ru layout-goal-by-target">
@@ -139,7 +138,7 @@ var translations = {
 <a class="sr-only sr-only-focusable" id="skiplink" href="#main-content" tabindex="0">Перейти к главному содержанию</a>
 <div id="disclaimer">
   <div class="container">
-  <div class="disclaimer-alert" role="alert">
+  <div class="disclaimer-alert">
     <strong class="phase-tag">Альфа</strong>
     
     Это сайт находится в разработке. Мы рады вашим отзывам.
@@ -158,14 +157,27 @@ var translations = {
     </a>
     <div class='hidden visible-xs float-right'>
       <ul id='accessibility-nav' class='contrast-switcher'></ul><div class="language-toggle-mobile">
-        <a class="language-toggle-button" onclick="$(this).next('.language-toggle').toggle(); return false;">
-  <i class="fa fa-globe"></i>
-  <span class="language-toggle-text">Pусский</span>
-  <i class="language-toggle fa fa-chevron-down"></i>
-  <i class="language-toggle fa fa-chevron-up" style="display:none;"></i>
-</a>
+        
 
-<ul class="language-options language-toggle"><li><a href="/en/7/">English</a></li></ul>
+
+
+
+
+  <div class="language-toggle-container">
+  
+  <div class="btn-group language-toggle-dropdown ">
+    <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+      <span class="language-globe-in-dropdown"><i class="fa fa-globe language-toggle-globe-dropdown"></i></span><span class="language-name">Pусский</span>
+      <span class="language-abbreviation">ru</span><i class="language-toggle-caret fa fa-chevron-down"></i></button>
+    <ul class="dropdown-menu"><li>
+            <a href="/en/7/">
+              English
+            </a>
+          </li></ul>
+  </div>
+</div>
+
+
 
       </div></div>
     <nav class="navbar navbar-default" id="main-nav">
@@ -180,10 +192,9 @@ var translations = {
       </ul>
       <div id="search" class="menu-target">
   <form action="/search">
-    <input name="q" id="indicator_search" title="Поиск" />
-    <label for="indicator_search">
-      <button aria-label="Поиск" id="search-btn" type="submit"><i class="fa fa-search" aria-hidden="false"></i></button><span>Поиск:</span>
-    </label>
+    <input type="text" name="q" id="indicator_search" title="Поиск" />
+    <label class="sr-only" for="indicator_search">Поиск</label>
+    <button aria-label="Поиск" id="search-btn" type="submit"><i class="fa fa-search" aria-hidden="false"></i></button>
   </form>
 </div>
 
@@ -198,14 +209,27 @@ var translations = {
         </li><li class="nav-link ">
           <a href="/faq">Часто задаваемые вопросы</a>
         </li><li>
-          <a class="language-toggle-button" onclick="$(this).next('.language-toggle').toggle(); return false;">
-  <i class="fa fa-globe"></i>
-  <span class="language-toggle-text">Pусский</span>
-  <i class="language-toggle fa fa-chevron-down"></i>
-  <i class="language-toggle fa fa-chevron-up" style="display:none;"></i>
-</a>
+          
 
-<ul class="language-options language-toggle"><li><a href="/en/7/">English</a></li></ul>
+
+
+
+
+  <div class="language-toggle-container">
+  
+  <div class="btn-group language-toggle-dropdown ">
+    <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+      <span class="language-globe-in-dropdown"><i class="fa fa-globe language-toggle-globe-dropdown"></i></span><span class="language-name">Pусский</span>
+      <span class="language-abbreviation">ru</span><i class="language-toggle-caret fa fa-chevron-down"></i></button>
+    <ul class="dropdown-menu"><li>
+            <a href="/en/7/">
+              English
+            </a>
+          </li></ul>
+  </div>
+</div>
+
+
 
         </li></ul>
     </nav>
@@ -213,11 +237,21 @@ var translations = {
 </header>
 
 
+<div class="container">
+  <ol class="breadcrumb">
+  
+  <li><a href="/">Главная</a></li>
+  <li class="active">Цель 7</li>
+  
+</ol>
+
+</div>
+
 <div class="heading goal-banner goal-7">
   <div class="container">
     <div class="row">
-      <div class="col-xs-4 col-md-3 col-lg-2">
-        <img src="https://sdg-kyrgyzstan.github.io/open-sdg-site-starter/assets/img/goals/ru/7.png" alt="Недорогостоящая и чистая энергия - Цель 7" />
+      <div class="col-xs-4 col-md-3 col-lg-2 goal-tiles">
+        <img src="https://sdg-kyrgyzstan.github.io/open-sdg-site-starter/assets/img/goals/ru/7.png" alt="Недорогостоящая и чистая энергия - Цель 7" id="goal-7" />
       </div>
       <div class="col-xs-8 col-md-9 col-lg-10">
         <h1>
@@ -229,14 +263,11 @@ var translations = {
   </div>
 </div>
 
-<div id="main-content" class="container goal-indicators goal-7 goal-by-target">
+<div id="main-content" class="container goal-indicators goal-7 goal-by-target" role="main">
 
   
 
-  <ol class="breadcrumb">
-    <li><a href="/">Главная</a></li>
-    <li class="active">Цель 7</li>
-  </ol>
+
 
   <div class="visible-md-block visible-lg-block">
     <div class="col-md-6">
@@ -271,16 +302,16 @@ var translations = {
       
 
       <div class="col-md-12  goal-indicator">
-        <a href="/7-1-1">
-          <span>
-            7.1.1
-            <span class="status complete">
-              Опубликован
-            </span>
+        <span>
+          7.1.1
+          <span class="status complete">
+            Опубликован
           </span>
+        </span>
+        <a href="/7-1-1">
           Доля населения, имеющего доступ к электроэнергии
-          
         </a>
+        
       </div>
     
 
@@ -294,17 +325,17 @@ var translations = {
       
 
       <div class="col-md-12  goal-indicator">
-        <a href="/7-1-2">
-          <span>
-            7.1.2
-            <span class="status complete">
-              Опубликован
-            </span>
+        <span>
+          7.1.2
+          <span class="status complete">
+            Опубликован
           </span>
+        </span>
+        <a href="/7-1-2">
           Доля населения, использующего в основном
 чистые виды топлива и технологии
-          
         </a>
+        
       </div>
     
     </div>
@@ -332,17 +363,17 @@ var translations = {
       
 
       <div class="col-md-12  goal-indicator">
-        <a href="/7-2-1">
-          <span>
-            7.2.1
-            <span class="status notstarted">
-              В процессе разработки
-            </span>
+        <span>
+          7.2.1
+          <span class="status notstarted">
+            В процессе разработки
           </span>
+        </span>
+        <a href="/7-2-1">
           Доля возобновляемых источников энергии в
 общем объеме конечного энергопотребления
-          
         </a>
+        
       </div>
     
 
@@ -356,23 +387,23 @@ var translations = {
       
 
       <div class="col-md-12 indicator-национальный goal-indicator">
-        <a href="/7-2-1-1">
-          <span>
-            7.2.1.1
-            <span class="status complete">
-              Опубликован
-            </span>
+        <span>
+          7.2.1.1
+          <span class="status complete">
+            Опубликован
           </span>
+        </span>
+        <a href="/7-2-1-1">
           Доля возобновляемых источников энергии в общем объеме энергопотребления
-          
-            <ul class="tags">
-            
-              
-              <li class="tag-национальный warning">национальный</li>
-            
-            </ul>
-          
         </a>
+        
+          <ul class="tags">
+          
+            
+            <li class="tag-национальный warning">национальный</li>
+          
+          </ul>
+        
       </div>
     
     </div>
@@ -399,17 +430,17 @@ var translations = {
       
 
       <div class="col-md-12  goal-indicator">
-        <a href="/7-3-1">
-          <span>
-            7.3.1
-            <span class="status notstarted">
-              В процессе разработки
-            </span>
+        <span>
+          7.3.1
+          <span class="status notstarted">
+            В процессе разработки
           </span>
+        </span>
+        <a href="/7-3-1">
           Энергоемкость, рассчитываемая как отношение
 расхода первичной энергии к ВВП
-          
         </a>
+        
       </div>
     
 
@@ -423,23 +454,23 @@ var translations = {
       
 
       <div class="col-md-12 indicator-национальный goal-indicator">
+        <span>
+          7.3.1.1
+          <span class="status complete">
+            Опубликован
+          </span>
+        </span>
         <a href="/7-3-1-1">
-          <span>
-            7.3.1.1
-            <span class="status complete">
-              Опубликован
-            </span>
-          </span>
           Энергоемкость ВВП
-          
-            <ul class="tags">
-            
-              
-              <li class="tag-национальный warning">национальный</li>
-            
-            </ul>
-          
         </a>
+        
+          <ul class="tags">
+          
+            
+            <li class="tag-национальный warning">национальный</li>
+          
+          </ul>
+        
       </div>
     
 
@@ -453,23 +484,23 @@ var translations = {
       
 
       <div class="col-md-12 indicator-национальный goal-indicator">
-        <a href="/7-3-1-2">
-          <span>
-            7.3.1.2
-            <span class="status complete">
-              Опубликован
-            </span>
+        <span>
+          7.3.1.2
+          <span class="status complete">
+            Опубликован
           </span>
+        </span>
+        <a href="/7-3-1-2">
           Электроемкость ВВП
-          
-            <ul class="tags">
-            
-              
-              <li class="tag-национальный warning">национальный</li>
-            
-            </ul>
-          
         </a>
+        
+          <ul class="tags">
+          
+            
+            <li class="tag-национальный warning">национальный</li>
+          
+          </ul>
+        
       </div>
     
     </div>
@@ -503,20 +534,20 @@ var translations = {
       
 
       <div class="col-md-12  goal-indicator">
-        <a href="/7-a-1">
-          <span>
-            7.a.1
-            <span class="status notapplicable">
-              Неприменимые
-            </span>
+        <span>
+          7.a.1
+          <span class="status notapplicable">
+            Неприменимые
           </span>
+        </span>
+        <a href="/7-a-1">
           Объем международных финансовых потоков,
 поступающих в развивающиеся страны для поддержки
 исследований и разработок в области «чистой»
 энергии и развития энергетики на возобновляемых
 источниках, включая комбинированные системы
-          
         </a>
+        
       </div>
     
     </div>
@@ -548,21 +579,21 @@ var translations = {
       
 
       <div class="col-md-12  goal-indicator">
-        <a href="/7-b-1">
-          <span>
-            7.b.1
-            <span class="status notstarted">
-              В процессе разработки
-            </span>
+        <span>
+          7.b.1
+          <span class="status notstarted">
+            В процессе разработки
           </span>
+        </span>
+        <a href="/7-b-1">
           Капиталовложения в обеспечение энергоэффективности
 в процентном отношении к ВВП и доля прямых иностранных инвестиций в финансовых
 средствах, поступающих в отрасли обслуживания,
 обеспечивающие устойчивое развитие, на цели расширения
 их инфраструктуры и модернизации технологии
 
-          
         </a>
+        
       </div>
     
 
@@ -576,23 +607,23 @@ var translations = {
       
 
       <div class="col-md-12 indicator-национальный goal-indicator">
-        <a href="/7-b-1-1a">
-          <span>
-            7.b.1.1a
-            <span class="status complete">
-              Опубликован
-            </span>
+        <span>
+          7.b.1.1a
+          <span class="status complete">
+            Опубликован
           </span>
+        </span>
+        <a href="/7-b-1-1a">
           Поступление прямых иностранных инвестиций, поступающих на цели расширения энергетической инфраструктуры и модернизации технологий
-          
-            <ul class="tags">
-            
-              
-              <li class="tag-национальный warning">национальный</li>
-            
-            </ul>
-          
         </a>
+        
+          <ul class="tags">
+          
+            
+            <li class="tag-национальный warning">национальный</li>
+          
+          </ul>
+        
       </div>
     
     </div>
@@ -607,20 +638,18 @@ var translations = {
           <ul>
             <li><a href="https://open-sdg.org">Построен с использованием Open SDG</a></li>
             
-              
-                <li>
+              <li>
                 
                   <a href="mailto:sdg_nsc@stat.kg" target="_blank">Свяжитесь с нами</a>
                 
                 </li>
-              
-                <li>
+              <li>
                 <a href="/about/cookies-and-privacy">Cookies</a>
                 
                 </li>
               
             
-          </ul>
+            </ul>
         </div>
       </div>
     </div>
@@ -642,6 +671,7 @@ var translations = {
 <script src="//cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.bundle.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/patternomaly@1.3.2/dist/patternomaly.js"></script>
 
+
 <script src="https://cdnjs.cloudflare.com/ajax/libs/autotrack/2.4.1/autotrack.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/html2canvas@1.0.0-rc.3/dist/html2canvas.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/file-saver@2.0.2/dist/FileSaver.min.js"></script>
@@ -651,7 +681,12 @@ var translations = {
 <script>translations['search'] = translations['search'] || {};
     translations['search']['search'] = 'Поиск';</script>
 
-<script src='/assets/js/sdg.js?v=20201126032115'></script><script src="/assets/js/custom.js?v=20201126032115"></script><script>
+<script src='/assets/js/sdg.js?v=20210114151510'></script>
+
+
+    
+    
+    <script src="/assets/js/custom.js?v=20210114151510"></script><script>
 $(function() {
     if($('#indicatorData').length) {
       var domData = $('#indicatorData').data();
@@ -684,15 +719,13 @@ $(function() {
               chartTitle: domData.charttitle,
               chartTitles: domData.charttitles,
               measurementUnit: domData.measurementunit,
-              copyright: domData.copyright,
-              dataSource: domData.datasource,
-              geographicalArea: domData.geographicalarea,
               showData: domData.showdata,
-              footnote: domData.footnote,
               graphType: domData.graphtype,
               startValues: domData.startvalues,
               graphLimits: domData.graphlimits,
               stackedDisaggregation: domData.stackeddisaggregation,
+              graphAnnotations: domData.graphannotations,
+              indicatorDownloads: domData.indicatordownloads,
             }),
             view  = new indicatorView(model, {
               rootElement: '#indicatorData',

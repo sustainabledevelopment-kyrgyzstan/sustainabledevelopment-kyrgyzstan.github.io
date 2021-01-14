@@ -3,7 +3,7 @@
     <head>
         <meta charset="utf-8">
         <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.min.js"></script>
-        <script crossorigin="anonymous" src="https://polyfill.io/v3/polyfill.min.js?features=Promise%2CArray.prototype.forEach%2CString.prototype.includes%2CURLSearchParams%2CCustomEvent%2CArray.prototype.includes%2CArray.prototype.filter%2CArray.prototype.some%2CArray.prototype.find%2CObject.assign%2CArray.isArray%2CObject.values"></script>
+        <script crossorigin="anonymous" src="https://polyfill.io/v3/polyfill.min.js?features=Promise%2CArray.prototype.forEach%2CString.prototype.includes%2CURLSearchParams%2CCustomEvent%2CArray.prototype.includes%2CArray.prototype.filter%2CArray.prototype.some%2CArray.prototype.find%2CObject.assign%2CArray.isArray%2CObject.values%2CArray.from%2CSet"></script>
 <script crossorigin="anonymous" src="https://cdnjs.cloudflare.com/ajax/libs/javascript-canvas-to-blob/3.15.0/js/canvas-to-blob.min.js"></script>
 
         <script>
@@ -90,11 +90,10 @@ var translations = {
         <!-- Title and meta description
         ================================================== -->
 
-        <title>
-          
-            Indicator 12.a.1 - Goal 12
-          
-        </title>
+        
+    <title>Indicator 12.a.1 - Amount of support to developing countries on research and development for sustainable consumption and production and environmentally sound technologies - Indicators For The Sustainable Development Goals</title>
+
+
 
         <meta name="description" content="">
         <meta property="og:description" content="">
@@ -120,7 +119,7 @@ var translations = {
         <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css" crossorigin="">
         <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" crossorigin="">
         <link rel="stylesheet" href="https://cdn.datatables.net/fixedcolumns/3.2.3/css/fixedColumns.dataTables.min.css" crossorigin="">
-        <link rel="stylesheet" href="/assets/css/style.css?v=20201126032115">
+        <link rel="stylesheet" href="/assets/css/style.css?v=20210114151510">
         <link href="https://fonts.googleapis.com/css?family=Open+Sans|Roboto" rel="stylesheet" crossorigin="">
         <link rel="stylesheet" href="https://unpkg.com/leaflet@1.3.4/dist/leaflet.css"
           integrity="sha512-puBpdR0798OZvTTbP4A8Ix/l+A4dHDD0DGqYW6RQ+9jxkRFclaxxQb/SJAWZfWAkuyeQUytO7+7N4QKrDh+drA=="
@@ -128,7 +127,7 @@ var translations = {
         <link rel="stylesheet" href="https://cdn.rawgit.com/socib/Leaflet.TimeDimension/master/dist/leaflet.timedimension.control.min.css"  crossorigin=""/>
         <link rel="stylesheet" href='https://api.mapbox.com/mapbox.js/plugins/leaflet-fullscreen/v1.0.1/leaflet.fullscreen.css'  crossorigin=""/>
         <link rel="stylesheet" href="https://bowercdn.net/c/leaflet.zoomhome-latest/dist/leaflet.zoomhome.css"  crossorigin=""/>
-        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet-search@2.9.7/dist/leaflet-search.min.css" crossorigin=""><link rel="stylesheet" href="/assets/css/custom.css?v=20201126032115"><!-- ShareThis BEGIN --><!-- ShareThis END -->
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet-search@2.9.7/dist/leaflet-search.min.css" crossorigin=""><link rel="stylesheet" href="/assets/css/custom.css?v=20210114151510"><!-- ShareThis BEGIN --><!-- ShareThis END -->
 
     </head>
 <body class="language-en layout-indicator">
@@ -139,7 +138,7 @@ var translations = {
 <a class="sr-only sr-only-focusable" id="skiplink" href="#main-content" tabindex="0">Skip to main content</a>
 <div id="disclaimer">
   <div class="container">
-  <div class="disclaimer-alert" role="alert">
+  <div class="disclaimer-alert">
     <strong class="phase-tag">Alpha</strong>
     
     This is a development website. We welcome your <a href="mailto:sdg_nsc@stat.kg">feedback</a>.
@@ -158,14 +157,27 @@ var translations = {
     </a>
     <div class='hidden visible-xs float-right'>
       <ul id='accessibility-nav' class='contrast-switcher'></ul><div class="language-toggle-mobile">
-        <a class="language-toggle-button" onclick="$(this).next('.language-toggle').toggle(); return false;">
-  <i class="fa fa-globe"></i>
-  <span class="language-toggle-text">English</span>
-  <i class="language-toggle fa fa-chevron-down"></i>
-  <i class="language-toggle fa fa-chevron-up" style="display:none;"></i>
-</a>
+        
 
-<ul class="language-options language-toggle"><li><a href="/12-a-1/">Pусский</a></li></ul>
+
+
+
+
+  <div class="language-toggle-container">
+  
+  <div class="btn-group language-toggle-dropdown ">
+    <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+      <span class="language-globe-in-dropdown"><i class="fa fa-globe language-toggle-globe-dropdown"></i></span><span class="language-name">English</span>
+      <span class="language-abbreviation">en</span><i class="language-toggle-caret fa fa-chevron-down"></i></button>
+    <ul class="dropdown-menu"><li>
+            <a href="/12-a-1/">
+              Pусский
+            </a>
+          </li></ul>
+  </div>
+</div>
+
+
 
       </div></div>
     <nav class="navbar navbar-default" id="main-nav">
@@ -180,10 +192,9 @@ var translations = {
       </ul>
       <div id="search" class="menu-target">
   <form action="/en/search">
-    <input name="q" id="indicator_search" title="Search" />
-    <label for="indicator_search">
-      <button aria-label="Search" id="search-btn" type="submit"><i class="fa fa-search" aria-hidden="false"></i></button><span>Search:</span>
-    </label>
+    <input type="text" name="q" id="indicator_search" title="Search" />
+    <label class="sr-only" for="indicator_search">Search</label>
+    <button aria-label="Search" id="search-btn" type="submit"><i class="fa fa-search" aria-hidden="false"></i></button>
   </form>
 </div>
 
@@ -198,14 +209,27 @@ var translations = {
         </li><li class="nav-link ">
           <a href="/en/faq">FAQ</a>
         </li><li>
-          <a class="language-toggle-button" onclick="$(this).next('.language-toggle').toggle(); return false;">
-  <i class="fa fa-globe"></i>
-  <span class="language-toggle-text">English</span>
-  <i class="language-toggle fa fa-chevron-down"></i>
-  <i class="language-toggle fa fa-chevron-up" style="display:none;"></i>
-</a>
+          
 
-<ul class="language-options language-toggle"><li><a href="/12-a-1/">Pусский</a></li></ul>
+
+
+
+
+  <div class="language-toggle-container">
+  
+  <div class="btn-group language-toggle-dropdown ">
+    <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+      <span class="language-globe-in-dropdown"><i class="fa fa-globe language-toggle-globe-dropdown"></i></span><span class="language-name">English</span>
+      <span class="language-abbreviation">en</span><i class="language-toggle-caret fa fa-chevron-down"></i></button>
+    <ul class="dropdown-menu"><li>
+            <a href="/12-a-1/">
+              Pусский
+            </a>
+          </li></ul>
+  </div>
+</div>
+
+
 
         </li></ul>
     </nav>
@@ -216,26 +240,38 @@ var translations = {
 <script type="text/template" id="item_template">
   <% _.each(fields, function(fieldItem) { %>
     <div class="variable-selector<% if(allowedFields.indexOf(fieldItem.field) == -1) { %> disallowed child<% }%>" data-field="<%=fieldItem.field%>">
-      <button class='accessBtn' tabindex='0' aria-expanded='false'><h5><%=translations.t(fieldItem.field)%><i class="fa fa-chevron-down"></i></h5></button>
+      <button class='accessBtn' tabindex='0' aria-expanded='false'
+        <% if(allowedFields.indexOf(fieldItem.field) == -1) { %>
+        aria-describedby='variable-hint-<%=fieldItem.field.replace(/ /g, '-')%>'
+        <% }%>
+      >
+        <% if(allowedFields.indexOf(fieldItem.field) == -1) { %><h6><% } else { %><h5><% } %>
+          <span aria-hidden="true"><%=translations.t(fieldItem.field)%><i class="fa fa-chevron-down"></i></span>
+          <span class="sr-only"> <%=translations.t(fieldItem.field)%></span>
+        <% if(allowedFields.indexOf(fieldItem.field) == -1) { %></h6><% } else { %></h5><% } %>
+      </button>
       <div class="bar">
         <div class="selected"></div>
       </div>
       <div class="variable-options">
-        <div>
-          <button data-type="select">Select all</button>
-          <button data-type="clear">Clear all</button>
-        </div>
-        <% _.each(fieldItem.values, function(item) { %>
-          <label>
-            <input type="checkbox" <%=item.checked ? 'checked' : ''%> value="<%=item.value%>" data-field="<%=fieldItem.field%>" /><%=translations.t(item.value)%>
-          </label>
-        <% }); %>
+        <fieldset>
+          <legend class="sr-only">Sub-categories - <%=translations.t(fieldItem.field)%></legend>
+          <div>
+            <button data-type="select">Select all</button>
+            <button data-type="clear">Clear all</button>
+          </div>
+          <% _.each(fieldItem.values, function(item) { %>
+            <label>
+              <input type="checkbox" <%=item.checked ? 'checked' : ''%> value="<%=item.value%>" data-field="<%=fieldItem.field%>" /><%=translations.t(item.value)%>
+            </label>
+          <% }); %>
+        </fieldset>
       </div>
 
       <% if(allowedFields.indexOf(fieldItem.field) == -1) { %>
-        <div class="variable-hint">Available when '<%= translations.t(_.findWhere(edges, { To: fieldItem.field }).From) %>' is selected
+        <div class="variable-hint" id="variable-hint-<%=fieldItem.field.replace(/ /g, '-')%>">Available when '<%= translations.t(_.findWhere(edges, { To: fieldItem.field }).From) %>' is selected
         </div>
-        <div class="no-data-hint">
+        <div class="no-data-hint" id="no-data-hint-<%=fieldItem.field.replace(/ /g, '-')%>">
           No options available because of filters above
         </div>
       <% }%>
@@ -247,20 +283,26 @@ var translations = {
 <script type="text/template" id="units_template">
   <% if(units.length) { %>
     <h4>Units type</h4>
-    <% _.each(units, function(unitsItem, index) { %>
-      <% var checked = (selectedUnit) ? (selectedUnit==unitsItem) : (index==0); %>
-      <label><input type="radio" name="unit" value="<%=unitsItem%>" tabindex=0 <%=checked ? 'checked' : ''%> /> <%=translations.t(unitsItem)%></label>
-    <% }); %>
+    <fieldset>
+      <legend class="sr-only">Units type</legend>
+      <% _.each(units, function(unitsItem, index) { %>
+        <% var checked = (selectedUnit) ? (selectedUnit==unitsItem) : (index==0); %>
+        <label><input type="radio" name="unit" value="<%=unitsItem%>" tabindex=0 <%=checked ? 'checked' : ''%> /> <%=translations.t(unitsItem)%></label>
+      <% }); %>
+    </fieldset>
   <% } %>
 </script>
 
 <script type="text/template" id="series_template">
   <% if(serieses.length) { %>
     <h4>Series</h4>
-    <% _.each(serieses, function(seriesItem, index) { %>
-      <% var checked = (selectedSeries) ? (selectedSeries==seriesItem) : (index==0); %>
-      <label><input type="radio" name="series" value="<%=seriesItem%>" tabindex=0 <%=checked ? 'checked' : ''%> /> <%=translations.t(seriesItem)%></label>
-    <% }); %>
+    <fieldset>
+      <legend class="sr-only">Series</legend>
+      <% _.each(serieses, function(seriesItem, index) { %>
+        <% var checked = (selectedSeries) ? (selectedSeries==seriesItem) : (index==0); %>
+        <label><input type="radio" name="series" value="<%=seriesItem%>" tabindex=0 <%=checked ? 'checked' : ''%> /> <%=translations.t(seriesItem)%></label>
+      <% }); %>
+    </fieldset>
   <% } %>
 </script>
 
@@ -269,31 +311,37 @@ var translations = {
 <script>translations['data'] = {"Баткенская область":"Batken Oblast","Бишкек":"Bishkek","Женщины":"Female","Мужчины":"Male","Пол":"Sex","Территория":"Geographical area"};</script>
 
 
+<div class="container">
+  <ol class="breadcrumb">
+  
+  <li><a href="/en/">Home</a></li>
+  <li><a href="/en/12" title="Ensure sustainable consumption and production patterns">Goal 12</a></li>
+  <li class="active">Indicator 12.a.1</li>
+  
+</ol>
+
+</div>
 <div class="heading goal-banner indicator goal-12">
   <div class="container">
     <div class="row">
-      <div class="col-xs-4 col-md-3 col-lg-2 goal-icon">
+      <div class="col-xs-4 col-md-3 col-lg-2 goal-icon goal-tiles">
         <a href="/en/12" title="View this goal's indicator list">
-          <img src="https://sdg-kyrgyzstan.github.io/open-sdg-site-starter/assets/img/goals/en/12.png" alt="Responsible consumption and production - Goal 12" />
+          <img src="https://sdg-kyrgyzstan.github.io/open-sdg-site-starter/assets/img/goals/en/12.png" alt="Responsible consumption and production - Goal 12" id="goal-12"/>
         </a>
       </div>
       <div class="col-xs-8 col-md-9 col-lg-10 indicator-details">
         <div>
-          <h1>Indicator 12.a.1</h1>
-          <p class="lead-copy">Amount of support to developing countries on research and development for sustainable consumption and production and environmentally sound technologies</p>
+          <h1>
+            Indicator 12.a.1
+            <span class="lead-copy">Amount of support to developing countries on research and development for sustainable consumption and production and environmentally sound technologies</span>
+          </h1>
         </div>
       </div>
     </div>
   </div>
 </div>
 
-<div id="main-content" class="container goal-12">
-  <ol class="breadcrumb">
-  <li><a href="/en/">Home</a></li>
-  <li><a href="/en/12" title="Ensure sustainable consumption and production patterns">Goal 12</a></li>
-  <li class="active">Indicator 12.a.1</li>
-</ol>
-
+<div id="main-content" class="container goal-12" role="main">
   
 
   
@@ -302,11 +350,6 @@ var translations = {
 
 
   
-
-
-
-
-
 
 
 <div class="row"
@@ -317,10 +360,6 @@ var translations = {
   data-charttitle="Amount of support to developing countries on research and development for sustainable consumption and production and environmentally sound technologies"
   data-charttitles="null"
   data-measurementunit=""
-  data-datasource=""
-  data-copyright=""
-  data-geographicalarea="Кыргызская Республика"
-  data-footnote=""
   data-showdata="false"
   data-graphtype="line"
   data-geocoderegex=""
@@ -328,6 +367,8 @@ var translations = {
   data-startvalues="null"
   data-graphlimits="null"
   data-stackeddisaggregation=""
+  data-graphannotations="null"
+  data-indicatordownloads="null"
 >
   
   <div id="indicator-main" class="indicator-main col-md-12">
@@ -339,8 +380,11 @@ var translations = {
   
   
   
+  
+  
+  
   <li role="presentation" class="nav-item active">
-    <a class="nav-link" data-toggle="tab" href="#indicator_information" aria-controls="indicator_information" role="tab" data-on="click"
+    <a class="nav-link" data-toggle="tab" id="tab-indicator_information" href="#indicator_information" aria-controls="indicator_information" role="tab" data-on="click"
 data-event-category="Tab change"
 data-event-action="Change metadata view"
 data-event-label="Change to custom.indicator_information tab"
@@ -351,8 +395,11 @@ data-event-label="Change to custom.indicator_information tab"
   
   
   
+  
+  
+  
   <li role="presentation" class="nav-item ">
-    <a class="nav-link" data-toggle="tab" href="#national" aria-controls="national" role="tab" data-on="click"
+    <a class="nav-link" data-toggle="tab" id="tab-national" href="#national" aria-controls="national" role="tab" data-on="click"
 data-event-category="Tab change"
 data-event-action="Change metadata view"
 data-event-label="Change to indicator.national_metadata tab"
@@ -363,8 +410,11 @@ data-event-label="Change to indicator.national_metadata tab"
   
   
   
+  
+  
+  
   <li role="presentation" class="nav-item ">
-    <a class="nav-link" data-toggle="tab" href="#data_reporter" aria-controls="data_reporter" role="tab" data-on="click"
+    <a class="nav-link" data-toggle="tab" id="tab-data_reporter" href="#data_reporter" aria-controls="data_reporter" role="tab" data-on="click"
 data-event-category="Tab change"
 data-event-action="Change metadata view"
 data-event-label="Change to custom.data_reporter tab"
@@ -382,9 +432,14 @@ data-event-label="Change to custom.data_reporter tab"
     
     
     
+    
+    
+    
+    
     <div role="tabpanel" class="tab-pane active" id="indicator_information">
       <article>
         <p>This table provides information about the indicator</p>
+
         <table class="table">
   
   
@@ -471,9 +526,14 @@ data-event-label="Change to custom.data_reporter tab"
     
     
     
+    
+    
+    
+    
     <div role="tabpanel" class="tab-pane " id="national">
       <article>
         <p>This table provides metadata for the actual indicator available from %country_name statistics closest to the corresponding global SDG indicator. Please note that even when the global SDG indicator is fully available from %country_adjective statistics, this table should be consulted for information on national methodology and other %country_adjective-specific metadata information.</p>
+
         <table class="table">
   
   
@@ -728,9 +788,14 @@ data-event-label="Change to custom.data_reporter tab"
     
     
     
+    
+    
+    
+    
     <div role="tabpanel" class="tab-pane " id="data_reporter">
       <article>
         <p>This table provides information about the supplier of the data</p>
+
         <table class="table">
   
   
@@ -857,20 +922,18 @@ data-event-label="Change to custom.data_reporter tab"
           <ul>
             <li><a href="https://open-sdg.org">Built using Open SDG</a></li>
             
-              
-                <li>
+              <li>
                 
                   <a href="mailto:sdg_nsc@stat.kg" target="_blank">Contact us</a>
                 
                 </li>
-              
-                <li>
+              <li>
                 <a href="/en/about/cookies-and-privacy">Cookies</a>
                 
                 </li>
               
             
-          </ul>
+            </ul>
         </div>
       </div>
     </div>
@@ -892,6 +955,7 @@ data-event-label="Change to custom.data_reporter tab"
 <script src="//cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.bundle.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/patternomaly@1.3.2/dist/patternomaly.js"></script>
 
+
 <script src="https://cdnjs.cloudflare.com/ajax/libs/autotrack/2.4.1/autotrack.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/html2canvas@1.0.0-rc.3/dist/html2canvas.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/file-saver@2.0.2/dist/FileSaver.min.js"></script>
@@ -901,7 +965,12 @@ data-event-label="Change to custom.data_reporter tab"
 <script>translations['search'] = translations['search'] || {};
     translations['search']['search'] = 'Search';</script>
 
-<script src='/assets/js/sdg.js?v=20201126032115'></script><script src="/assets/js/custom.js?v=20201126032115"></script><script>
+<script src='/assets/js/sdg.js?v=20210114151510'></script>
+
+
+    
+    
+    <script src="/assets/js/custom.js?v=20210114151510"></script><script>
 $(function() {
     if($('#indicatorData').length) {
       var domData = $('#indicatorData').data();
@@ -934,15 +1003,13 @@ $(function() {
               chartTitle: domData.charttitle,
               chartTitles: domData.charttitles,
               measurementUnit: domData.measurementunit,
-              copyright: domData.copyright,
-              dataSource: domData.datasource,
-              geographicalArea: domData.geographicalarea,
               showData: domData.showdata,
-              footnote: domData.footnote,
               graphType: domData.graphtype,
               startValues: domData.startvalues,
               graphLimits: domData.graphlimits,
               stackedDisaggregation: domData.stackeddisaggregation,
+              graphAnnotations: domData.graphannotations,
+              indicatorDownloads: domData.indicatordownloads,
             }),
             view  = new indicatorView(model, {
               rootElement: '#indicatorData',

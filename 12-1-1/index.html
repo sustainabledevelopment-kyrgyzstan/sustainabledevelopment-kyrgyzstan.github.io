@@ -3,7 +3,7 @@
     <head>
         <meta charset="utf-8">
         <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.min.js"></script>
-        <script crossorigin="anonymous" src="https://polyfill.io/v3/polyfill.min.js?features=Promise%2CArray.prototype.forEach%2CString.prototype.includes%2CURLSearchParams%2CCustomEvent%2CArray.prototype.includes%2CArray.prototype.filter%2CArray.prototype.some%2CArray.prototype.find%2CObject.assign%2CArray.isArray%2CObject.values"></script>
+        <script crossorigin="anonymous" src="https://polyfill.io/v3/polyfill.min.js?features=Promise%2CArray.prototype.forEach%2CString.prototype.includes%2CURLSearchParams%2CCustomEvent%2CArray.prototype.includes%2CArray.prototype.filter%2CArray.prototype.some%2CArray.prototype.find%2CObject.assign%2CArray.isArray%2CObject.values%2CArray.from%2CSet"></script>
 <script crossorigin="anonymous" src="https://cdnjs.cloudflare.com/ajax/libs/javascript-canvas-to-blob/3.15.0/js/canvas-to-blob.min.js"></script>
 
         <script>
@@ -90,11 +90,14 @@ var translations = {
         <!-- Title and meta description
         ================================================== -->
 
-        <title>
-          
-            показатель 12.1.1 - Цель 12
-          
-        </title>
+        
+    <title>показатель 12.1.1 - Число стран, имеющих национальный план
+действий по переходу к рациональным моделям потребления
+и производства или включивших рациональное
+потребление и производство в качестве приоритета
+или задачи в национальную стратегию - Indicators For The Sustainable Development Goals</title>
+
+
 
         <meta name="description" content="">
         <meta property="og:description" content="">
@@ -120,7 +123,7 @@ var translations = {
         <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css" crossorigin="">
         <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" crossorigin="">
         <link rel="stylesheet" href="https://cdn.datatables.net/fixedcolumns/3.2.3/css/fixedColumns.dataTables.min.css" crossorigin="">
-        <link rel="stylesheet" href="/assets/css/style.css?v=20201126032115">
+        <link rel="stylesheet" href="/assets/css/style.css?v=20210114151510">
         <link href="https://fonts.googleapis.com/css?family=Open+Sans|Roboto" rel="stylesheet" crossorigin="">
         <link rel="stylesheet" href="https://unpkg.com/leaflet@1.3.4/dist/leaflet.css"
           integrity="sha512-puBpdR0798OZvTTbP4A8Ix/l+A4dHDD0DGqYW6RQ+9jxkRFclaxxQb/SJAWZfWAkuyeQUytO7+7N4QKrDh+drA=="
@@ -128,7 +131,7 @@ var translations = {
         <link rel="stylesheet" href="https://cdn.rawgit.com/socib/Leaflet.TimeDimension/master/dist/leaflet.timedimension.control.min.css"  crossorigin=""/>
         <link rel="stylesheet" href='https://api.mapbox.com/mapbox.js/plugins/leaflet-fullscreen/v1.0.1/leaflet.fullscreen.css'  crossorigin=""/>
         <link rel="stylesheet" href="https://bowercdn.net/c/leaflet.zoomhome-latest/dist/leaflet.zoomhome.css"  crossorigin=""/>
-        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet-search@2.9.7/dist/leaflet-search.min.css" crossorigin=""><link rel="stylesheet" href="/assets/css/custom.css?v=20201126032115"><!-- ShareThis BEGIN --><!-- ShareThis END -->
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet-search@2.9.7/dist/leaflet-search.min.css" crossorigin=""><link rel="stylesheet" href="/assets/css/custom.css?v=20210114151510"><!-- ShareThis BEGIN --><!-- ShareThis END -->
 
     </head>
 <body class="language-ru layout-indicator">
@@ -139,7 +142,7 @@ var translations = {
 <a class="sr-only sr-only-focusable" id="skiplink" href="#main-content" tabindex="0">Перейти к главному содержанию</a>
 <div id="disclaimer">
   <div class="container">
-  <div class="disclaimer-alert" role="alert">
+  <div class="disclaimer-alert">
     <strong class="phase-tag">Альфа</strong>
     
     Это сайт находится в разработке. Мы рады вашим отзывам.
@@ -158,14 +161,27 @@ var translations = {
     </a>
     <div class='hidden visible-xs float-right'>
       <ul id='accessibility-nav' class='contrast-switcher'></ul><div class="language-toggle-mobile">
-        <a class="language-toggle-button" onclick="$(this).next('.language-toggle').toggle(); return false;">
-  <i class="fa fa-globe"></i>
-  <span class="language-toggle-text">Pусский</span>
-  <i class="language-toggle fa fa-chevron-down"></i>
-  <i class="language-toggle fa fa-chevron-up" style="display:none;"></i>
-</a>
+        
 
-<ul class="language-options language-toggle"><li><a href="/en/12-1-1/">English</a></li></ul>
+
+
+
+
+  <div class="language-toggle-container">
+  
+  <div class="btn-group language-toggle-dropdown ">
+    <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+      <span class="language-globe-in-dropdown"><i class="fa fa-globe language-toggle-globe-dropdown"></i></span><span class="language-name">Pусский</span>
+      <span class="language-abbreviation">ru</span><i class="language-toggle-caret fa fa-chevron-down"></i></button>
+    <ul class="dropdown-menu"><li>
+            <a href="/en/12-1-1/">
+              English
+            </a>
+          </li></ul>
+  </div>
+</div>
+
+
 
       </div></div>
     <nav class="navbar navbar-default" id="main-nav">
@@ -180,10 +196,9 @@ var translations = {
       </ul>
       <div id="search" class="menu-target">
   <form action="/search">
-    <input name="q" id="indicator_search" title="Поиск" />
-    <label for="indicator_search">
-      <button aria-label="Поиск" id="search-btn" type="submit"><i class="fa fa-search" aria-hidden="false"></i></button><span>Поиск:</span>
-    </label>
+    <input type="text" name="q" id="indicator_search" title="Поиск" />
+    <label class="sr-only" for="indicator_search">Поиск</label>
+    <button aria-label="Поиск" id="search-btn" type="submit"><i class="fa fa-search" aria-hidden="false"></i></button>
   </form>
 </div>
 
@@ -198,14 +213,27 @@ var translations = {
         </li><li class="nav-link ">
           <a href="/faq">Часто задаваемые вопросы</a>
         </li><li>
-          <a class="language-toggle-button" onclick="$(this).next('.language-toggle').toggle(); return false;">
-  <i class="fa fa-globe"></i>
-  <span class="language-toggle-text">Pусский</span>
-  <i class="language-toggle fa fa-chevron-down"></i>
-  <i class="language-toggle fa fa-chevron-up" style="display:none;"></i>
-</a>
+          
 
-<ul class="language-options language-toggle"><li><a href="/en/12-1-1/">English</a></li></ul>
+
+
+
+
+  <div class="language-toggle-container">
+  
+  <div class="btn-group language-toggle-dropdown ">
+    <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+      <span class="language-globe-in-dropdown"><i class="fa fa-globe language-toggle-globe-dropdown"></i></span><span class="language-name">Pусский</span>
+      <span class="language-abbreviation">ru</span><i class="language-toggle-caret fa fa-chevron-down"></i></button>
+    <ul class="dropdown-menu"><li>
+            <a href="/en/12-1-1/">
+              English
+            </a>
+          </li></ul>
+  </div>
+</div>
+
+
 
         </li></ul>
     </nav>
@@ -216,26 +244,38 @@ var translations = {
 <script type="text/template" id="item_template">
   <% _.each(fields, function(fieldItem) { %>
     <div class="variable-selector<% if(allowedFields.indexOf(fieldItem.field) == -1) { %> disallowed child<% }%>" data-field="<%=fieldItem.field%>">
-      <button class='accessBtn' tabindex='0' aria-expanded='false'><h5><%=translations.t(fieldItem.field)%><i class="fa fa-chevron-down"></i></h5></button>
+      <button class='accessBtn' tabindex='0' aria-expanded='false'
+        <% if(allowedFields.indexOf(fieldItem.field) == -1) { %>
+        aria-describedby='variable-hint-<%=fieldItem.field.replace(/ /g, '-')%>'
+        <% }%>
+      >
+        <% if(allowedFields.indexOf(fieldItem.field) == -1) { %><h6><% } else { %><h5><% } %>
+          <span aria-hidden="true"><%=translations.t(fieldItem.field)%><i class="fa fa-chevron-down"></i></span>
+          <span class="sr-only"> <%=translations.t(fieldItem.field)%></span>
+        <% if(allowedFields.indexOf(fieldItem.field) == -1) { %></h6><% } else { %></h5><% } %>
+      </button>
       <div class="bar">
         <div class="selected"></div>
       </div>
       <div class="variable-options">
-        <div>
-          <button data-type="select">Выделить всё</button>
-          <button data-type="clear">Очистить всё</button>
-        </div>
-        <% _.each(fieldItem.values, function(item) { %>
-          <label>
-            <input type="checkbox" <%=item.checked ? 'checked' : ''%> value="<%=item.value%>" data-field="<%=fieldItem.field%>" /><%=translations.t(item.value)%>
-          </label>
-        <% }); %>
+        <fieldset>
+          <legend class="sr-only">Субкатегории - <%=translations.t(fieldItem.field)%></legend>
+          <div>
+            <button data-type="select">Выделить всё</button>
+            <button data-type="clear">Очистить всё</button>
+          </div>
+          <% _.each(fieldItem.values, function(item) { %>
+            <label>
+              <input type="checkbox" <%=item.checked ? 'checked' : ''%> value="<%=item.value%>" data-field="<%=fieldItem.field%>" /><%=translations.t(item.value)%>
+            </label>
+          <% }); %>
+        </fieldset>
       </div>
 
       <% if(allowedFields.indexOf(fieldItem.field) == -1) { %>
-        <div class="variable-hint">Доступно, когда выбрано
+        <div class="variable-hint" id="variable-hint-<%=fieldItem.field.replace(/ /g, '-')%>">Доступно, когда выбрано
         </div>
-        <div class="no-data-hint">
+        <div class="no-data-hint" id="no-data-hint-<%=fieldItem.field.replace(/ /g, '-')%>">
           Нет имеющихся вариантов из-за фильтров наверху.
         </div>
       <% }%>
@@ -247,20 +287,26 @@ var translations = {
 <script type="text/template" id="units_template">
   <% if(units.length) { %>
     <h4>Вид единиц</h4>
-    <% _.each(units, function(unitsItem, index) { %>
-      <% var checked = (selectedUnit) ? (selectedUnit==unitsItem) : (index==0); %>
-      <label><input type="radio" name="unit" value="<%=unitsItem%>" tabindex=0 <%=checked ? 'checked' : ''%> /> <%=translations.t(unitsItem)%></label>
-    <% }); %>
+    <fieldset>
+      <legend class="sr-only">Вид единиц</legend>
+      <% _.each(units, function(unitsItem, index) { %>
+        <% var checked = (selectedUnit) ? (selectedUnit==unitsItem) : (index==0); %>
+        <label><input type="radio" name="unit" value="<%=unitsItem%>" tabindex=0 <%=checked ? 'checked' : ''%> /> <%=translations.t(unitsItem)%></label>
+      <% }); %>
+    </fieldset>
   <% } %>
 </script>
 
 <script type="text/template" id="series_template">
   <% if(serieses.length) { %>
     <h4>Серии</h4>
-    <% _.each(serieses, function(seriesItem, index) { %>
-      <% var checked = (selectedSeries) ? (selectedSeries==seriesItem) : (index==0); %>
-      <label><input type="radio" name="series" value="<%=seriesItem%>" tabindex=0 <%=checked ? 'checked' : ''%> /> <%=translations.t(seriesItem)%></label>
-    <% }); %>
+    <fieldset>
+      <legend class="sr-only">Серии</legend>
+      <% _.each(serieses, function(seriesItem, index) { %>
+        <% var checked = (selectedSeries) ? (selectedSeries==seriesItem) : (index==0); %>
+        <label><input type="radio" name="series" value="<%=seriesItem%>" tabindex=0 <%=checked ? 'checked' : ''%> /> <%=translations.t(seriesItem)%></label>
+      <% }); %>
+    </fieldset>
   <% } %>
 </script>
 
@@ -269,35 +315,41 @@ var translations = {
 <script>translations['data'] = {"0 to 5 months old":" возраст от 0-5 месяцев","1 to 14 years old":"1-14 лет","1 to 2 years old":"1-2 года","1 year old":" в возрасте 1 года","10 to 14 years old":"10-14 лет","12 to 14 years old":"12-14 лет","12 to 17 months old":" возраст от 12-17  месяцев","15 to 17 years old":"15-17 лет","15 to 19 years old":"15-19 лет","18 to 23 months old":" возраст от 18-23  месяцев","18 to 25 years old":"18-25 лет","2 years old":"2 года и старше","20 to 24 years old":"20-24 лет","24 to 35 months old":" возраст от 24-35  месяцев","25 to 29 years old":"25-29 лет","26 to 34 years old":"26-34 лет","3 to 4 years old":"3-4 года","3 years old":"3 года","30 to 34 years old":"30-34 лет","35 to 39 years old":"35-39 лет","35 to 45 years old":"35-45 лет","36 to 47 months old":" возраст от 36-47  месяцев","4 years old":"4 года","40 to 44 years old":"40-44 лет","45 to 49 years old":"45-49 лет","46 to 54 years old":"46-54 лет","48 to 59 months old":" возраст от 48-59  месяцев","5 to 11 years old":"5-11 лет","5 to 17 years old":"5-17 лет","5 to 6 years old":"5-6 лет","55 to 59 years old":"55-59 лет","6 to 11 months old":" возраст от 6-11  месяцев","60 years old and over":"60 лет и старше","7 to 14 years old":"7-14 лет","8 to 9 years old":"8-9 лет","Age":"Возраст","At the time of departure cargo.":"В момент отправления груза.","Batken":"Баткенская область","Bishkek (city)":"г. Бишкек","Chui":"Чуйская область","Composite breakdown":"Композитная разбивка","Degree of urbanisation":"Степень урбанизации","Education level":"Уровень образования","Female":"женский","Income or wealth quantile":"Доход или квинтиль благосостояния","Internet speed: 10 Mbit/s or above":"Скорость интернета: 10 Мбит /с  или выше","Internet speed: 2 Mbit/s to less than 10 Mbit/s":"Скорость интернета: от 2 Мбит /с  до менее 10 Мбит / с","Internet speed: 256 kbit/s to less than 2 Mbit/s":"Скорость интернета: от 256 кбит /с  до менее 2 Мбит / с","Issyk-Kul":"Иссык-Кульская область","Jalal-Abad":"Жалал-Абад область","Local currency":"Местная валюта","Lower secondary education":"1- этап среднего образования","Male":"мужской","Medical doctors":"Врачи","Mode of Transport: Air":"Вид транспорта: воздушный","Mode of Transport: Pipeline":"Вид транспорта: трубопроводный","Mode of Transport: Rail":"Вид транспорта: железнодорожный","Mode of Transport: Road":"Вид транспорта: дорожный","Mode of Transport: Water":"Вид транспорта: водный","Naryn":"Нарынская область","Non-communicable disease: Cancer":"Неинфекционные заболевания: рак","Non-communicable disease: Cardiovascular disease":"Неинфекционные заболевания: сердечно-сосудистые заболевания","Non-communicable disease: Chronic respiratory disease":"Неинфекционные заболевания: хронические респираторные заболевания","Non-communicable disease: Diabetes":"Неинфекционные заболевания:диабет","Nursing and midwifery professionals":"Медсестры и акушеры","Occupation":"Род занятий (Профессия)","Osh":"Ошская область","Osh (city)":"г. Ош","Percent":"Процент","Post-secondary non-tertiary education":"Послесреднее нетретичное образование","Pre-primary education":"Дошкольное образование","Primary education":"Начальное образование (1-4 классы)","Quintile 1 (poorest)":"квинтиль 1 (самые бедные)","Quintile 2":"квинтиль 2","Quintile 3":"квинтиль 3","Quintile 4":"квинтиль 4","Quintile 5 (richest)":"квинтиль 5 (самые богатые)","Reference area":"Справочная зона (условная зона)","Rural":"сельская местность","Sex":"пол","Since 2014 excluding deparmental transport.":"С 2014 года исключая департационный транспорт.","Skill: Functional literacy":"Навыки: Функциональная грамотность","Skill: Functional numeracy":"Навыки: Функциональное счисление ","Some primary education, grades 2 or 3":"Неполное начальное образование","Talas":"Таласская область","Time series-level footnotes":"Сноски для временных рядов","Until 2013 - including Osh.":"До 2013 года - включая Ош.","Upper secondary education":"2- этап среднего образования","Urban":"городская местность","under 1 year old":"возрасте до 1 года","under 5 years old":"до 5 лет"};</script>
 
 
+<div class="container">
+  <ol class="breadcrumb">
+  
+  <li><a href="/">Главная</a></li>
+  <li><a href="/12" title="Обеспечение перехода к рациональным моделям потребления и производства">Цель 12</a></li>
+  <li class="active">показатель 12.1.1</li>
+  
+</ol>
+
+</div>
 <div class="heading goal-banner indicator goal-12">
   <div class="container">
     <div class="row">
-      <div class="col-xs-4 col-md-3 col-lg-2 goal-icon">
+      <div class="col-xs-4 col-md-3 col-lg-2 goal-icon goal-tiles">
         <a href="/12" title="Посмотреть список индикаторов этой цели">
-          <img src="https://sdg-kyrgyzstan.github.io/open-sdg-site-starter/assets/img/goals/ru/12.png" alt="Ответственное потребление и производство - Цель 12" />
+          <img src="https://sdg-kyrgyzstan.github.io/open-sdg-site-starter/assets/img/goals/ru/12.png" alt="Ответственное потребление и производство - Цель 12" id="goal-12"/>
         </a>
       </div>
       <div class="col-xs-8 col-md-9 col-lg-10 indicator-details">
         <div>
-          <h1>показатель 12.1.1</h1>
-          <p class="lead-copy">Число стран, имеющих национальный план
+          <h1>
+            показатель 12.1.1
+            <span class="lead-copy">Число стран, имеющих национальный план
 действий по переходу к рациональным моделям потребления
 и производства или включивших рациональное
 потребление и производство в качестве приоритета
-или задачи в национальную стратегию</p>
+или задачи в национальную стратегию</span>
+          </h1>
         </div>
       </div>
     </div>
   </div>
 </div>
 
-<div id="main-content" class="container goal-12">
-  <ol class="breadcrumb">
-  <li><a href="/">Главная</a></li>
-  <li><a href="/12" title="Обеспечение перехода к рациональным моделям потребления и производства">Цель 12</a></li>
-  <li class="active">показатель 12.1.1</li>
-</ol>
-
+<div id="main-content" class="container goal-12" role="main">
   
 
   
@@ -315,11 +367,6 @@ var translations = {
   
 
 
-
-
-
-
-
 <div class="row"
   id="indicatorData"
   data-indicatorid='indicator_12-1-1'
@@ -332,10 +379,6 @@ var translations = {
 или задачи в национальную стратегию"
   data-charttitles="null"
   data-measurementunit=""
-  data-datasource=""
-  data-copyright=""
-  data-geographicalarea="Кыргызская Республика"
-  data-footnote=""
   data-showdata="false"
   data-graphtype="line"
   data-geocoderegex=""
@@ -343,6 +386,8 @@ var translations = {
   data-startvalues="null"
   data-graphlimits="null"
   data-stackeddisaggregation=""
+  data-graphannotations="null"
+  data-indicatordownloads="null"
 >
   
   <div id="indicator-main" class="indicator-main col-md-12">
@@ -354,8 +399,11 @@ var translations = {
   
   
   
+  
+  
+  
   <li role="presentation" class="nav-item active">
-    <a class="nav-link" data-toggle="tab" href="#indicator_information" aria-controls="indicator_information" role="tab" data-on="click"
+    <a class="nav-link" data-toggle="tab" id="tab-indicator_information" href="#indicator_information" aria-controls="indicator_information" role="tab" data-on="click"
 data-event-category="Tab change"
 data-event-action="Change metadata view"
 data-event-label="Change to custom.indicator_information tab"
@@ -366,8 +414,11 @@ data-event-label="Change to custom.indicator_information tab"
   
   
   
+  
+  
+  
   <li role="presentation" class="nav-item ">
-    <a class="nav-link" data-toggle="tab" href="#national" aria-controls="national" role="tab" data-on="click"
+    <a class="nav-link" data-toggle="tab" id="tab-national" href="#national" aria-controls="national" role="tab" data-on="click"
 data-event-category="Tab change"
 data-event-action="Change metadata view"
 data-event-label="Change to indicator.national_metadata tab"
@@ -378,8 +429,11 @@ data-event-label="Change to indicator.national_metadata tab"
   
   
   
+  
+  
+  
   <li role="presentation" class="nav-item ">
-    <a class="nav-link" data-toggle="tab" href="#data_reporter" aria-controls="data_reporter" role="tab" data-on="click"
+    <a class="nav-link" data-toggle="tab" id="tab-data_reporter" href="#data_reporter" aria-controls="data_reporter" role="tab" data-on="click"
 data-event-category="Tab change"
 data-event-action="Change metadata view"
 data-event-label="Change to custom.data_reporter tab"
@@ -397,9 +451,14 @@ data-event-label="Change to custom.data_reporter tab"
     
     
     
+    
+    
+    
+    
     <div role="tabpanel" class="tab-pane active" id="indicator_information">
       <article>
         <p>Данная таблица предоставляет информацию об индикаторе</p>
+
         <table class="table">
   
   
@@ -486,9 +545,14 @@ data-event-label="Change to custom.data_reporter tab"
     
     
     
+    
+    
+    
+    
     <div role="tabpanel" class="tab-pane " id="national">
       <article>
         <p>В этой таблице представлены метаданные для фактического показателя, доступного из статистики ближайшей к соответствующему глобальному индикатору ЦУР. Обратите внимание, что даже если глобальный индикатор ЦУР полностью доступен из статистики, по этой таблице следует проконсультироваться для получения информации о национальной методологии и других специфичных метаданных.</p>
+
         <table class="table">
   
   
@@ -743,9 +807,14 @@ data-event-label="Change to custom.data_reporter tab"
     
     
     
+    
+    
+    
+    
     <div role="tabpanel" class="tab-pane " id="data_reporter">
       <article>
         <p>Данная таблица предоставляет информацию о поставщиках данных</p>
+
         <table class="table">
   
   
@@ -872,20 +941,18 @@ data-event-label="Change to custom.data_reporter tab"
           <ul>
             <li><a href="https://open-sdg.org">Построен с использованием Open SDG</a></li>
             
-              
-                <li>
+              <li>
                 
                   <a href="mailto:sdg_nsc@stat.kg" target="_blank">Свяжитесь с нами</a>
                 
                 </li>
-              
-                <li>
+              <li>
                 <a href="/about/cookies-and-privacy">Cookies</a>
                 
                 </li>
               
             
-          </ul>
+            </ul>
         </div>
       </div>
     </div>
@@ -907,6 +974,7 @@ data-event-label="Change to custom.data_reporter tab"
 <script src="//cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.bundle.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/patternomaly@1.3.2/dist/patternomaly.js"></script>
 
+
 <script src="https://cdnjs.cloudflare.com/ajax/libs/autotrack/2.4.1/autotrack.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/html2canvas@1.0.0-rc.3/dist/html2canvas.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/file-saver@2.0.2/dist/FileSaver.min.js"></script>
@@ -916,7 +984,12 @@ data-event-label="Change to custom.data_reporter tab"
 <script>translations['search'] = translations['search'] || {};
     translations['search']['search'] = 'Поиск';</script>
 
-<script src='/assets/js/sdg.js?v=20201126032115'></script><script src="/assets/js/custom.js?v=20201126032115"></script><script>
+<script src='/assets/js/sdg.js?v=20210114151510'></script>
+
+
+    
+    
+    <script src="/assets/js/custom.js?v=20210114151510"></script><script>
 $(function() {
     if($('#indicatorData').length) {
       var domData = $('#indicatorData').data();
@@ -949,15 +1022,13 @@ $(function() {
               chartTitle: domData.charttitle,
               chartTitles: domData.charttitles,
               measurementUnit: domData.measurementunit,
-              copyright: domData.copyright,
-              dataSource: domData.datasource,
-              geographicalArea: domData.geographicalarea,
               showData: domData.showdata,
-              footnote: domData.footnote,
               graphType: domData.graphtype,
               startValues: domData.startvalues,
               graphLimits: domData.graphlimits,
               stackedDisaggregation: domData.stackeddisaggregation,
+              graphAnnotations: domData.graphannotations,
+              indicatorDownloads: domData.indicatordownloads,
             }),
             view  = new indicatorView(model, {
               rootElement: '#indicatorData',

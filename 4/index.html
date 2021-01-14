@@ -3,7 +3,7 @@
     <head>
         <meta charset="utf-8">
         <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.min.js"></script>
-        <script crossorigin="anonymous" src="https://polyfill.io/v3/polyfill.min.js?features=Promise%2CArray.prototype.forEach%2CString.prototype.includes%2CURLSearchParams%2CCustomEvent%2CArray.prototype.includes%2CArray.prototype.filter%2CArray.prototype.some%2CArray.prototype.find%2CObject.assign%2CArray.isArray%2CObject.values"></script>
+        <script crossorigin="anonymous" src="https://polyfill.io/v3/polyfill.min.js?features=Promise%2CArray.prototype.forEach%2CString.prototype.includes%2CURLSearchParams%2CCustomEvent%2CArray.prototype.includes%2CArray.prototype.filter%2CArray.prototype.some%2CArray.prototype.find%2CObject.assign%2CArray.isArray%2CObject.values%2CArray.from%2CSet"></script>
 <script crossorigin="anonymous" src="https://cdnjs.cloudflare.com/ajax/libs/javascript-canvas-to-blob/3.15.0/js/canvas-to-blob.min.js"></script>
 
         <script>
@@ -90,11 +90,10 @@ var translations = {
         <!-- Title and meta description
         ================================================== -->
 
-        <title>
-          
-            Цель 4 - Качественное образование
-          
-        </title>
+        
+    <title>Цель 4 - Качественное образование - Indicators For The Sustainable Development Goals</title>
+
+
 
         <meta name="description" content="">
         <meta property="og:description" content="">
@@ -120,7 +119,7 @@ var translations = {
         <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css" crossorigin="">
         <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" crossorigin="">
         <link rel="stylesheet" href="https://cdn.datatables.net/fixedcolumns/3.2.3/css/fixedColumns.dataTables.min.css" crossorigin="">
-        <link rel="stylesheet" href="/assets/css/style.css?v=20201126032115">
+        <link rel="stylesheet" href="/assets/css/style.css?v=20210114151510">
         <link href="https://fonts.googleapis.com/css?family=Open+Sans|Roboto" rel="stylesheet" crossorigin="">
         <link rel="stylesheet" href="https://unpkg.com/leaflet@1.3.4/dist/leaflet.css"
           integrity="sha512-puBpdR0798OZvTTbP4A8Ix/l+A4dHDD0DGqYW6RQ+9jxkRFclaxxQb/SJAWZfWAkuyeQUytO7+7N4QKrDh+drA=="
@@ -128,7 +127,7 @@ var translations = {
         <link rel="stylesheet" href="https://cdn.rawgit.com/socib/Leaflet.TimeDimension/master/dist/leaflet.timedimension.control.min.css"  crossorigin=""/>
         <link rel="stylesheet" href='https://api.mapbox.com/mapbox.js/plugins/leaflet-fullscreen/v1.0.1/leaflet.fullscreen.css'  crossorigin=""/>
         <link rel="stylesheet" href="https://bowercdn.net/c/leaflet.zoomhome-latest/dist/leaflet.zoomhome.css"  crossorigin=""/>
-        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet-search@2.9.7/dist/leaflet-search.min.css" crossorigin=""><link rel="stylesheet" href="/assets/css/custom.css?v=20201126032115"><!-- ShareThis BEGIN --><!-- ShareThis END -->
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet-search@2.9.7/dist/leaflet-search.min.css" crossorigin=""><link rel="stylesheet" href="/assets/css/custom.css?v=20210114151510"><!-- ShareThis BEGIN --><!-- ShareThis END -->
 
     </head>
 <body class="language-ru layout-goal-by-target">
@@ -139,7 +138,7 @@ var translations = {
 <a class="sr-only sr-only-focusable" id="skiplink" href="#main-content" tabindex="0">Перейти к главному содержанию</a>
 <div id="disclaimer">
   <div class="container">
-  <div class="disclaimer-alert" role="alert">
+  <div class="disclaimer-alert">
     <strong class="phase-tag">Альфа</strong>
     
     Это сайт находится в разработке. Мы рады вашим отзывам.
@@ -158,14 +157,27 @@ var translations = {
     </a>
     <div class='hidden visible-xs float-right'>
       <ul id='accessibility-nav' class='contrast-switcher'></ul><div class="language-toggle-mobile">
-        <a class="language-toggle-button" onclick="$(this).next('.language-toggle').toggle(); return false;">
-  <i class="fa fa-globe"></i>
-  <span class="language-toggle-text">Pусский</span>
-  <i class="language-toggle fa fa-chevron-down"></i>
-  <i class="language-toggle fa fa-chevron-up" style="display:none;"></i>
-</a>
+        
 
-<ul class="language-options language-toggle"><li><a href="/en/4/">English</a></li></ul>
+
+
+
+
+  <div class="language-toggle-container">
+  
+  <div class="btn-group language-toggle-dropdown ">
+    <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+      <span class="language-globe-in-dropdown"><i class="fa fa-globe language-toggle-globe-dropdown"></i></span><span class="language-name">Pусский</span>
+      <span class="language-abbreviation">ru</span><i class="language-toggle-caret fa fa-chevron-down"></i></button>
+    <ul class="dropdown-menu"><li>
+            <a href="/en/4/">
+              English
+            </a>
+          </li></ul>
+  </div>
+</div>
+
+
 
       </div></div>
     <nav class="navbar navbar-default" id="main-nav">
@@ -180,10 +192,9 @@ var translations = {
       </ul>
       <div id="search" class="menu-target">
   <form action="/search">
-    <input name="q" id="indicator_search" title="Поиск" />
-    <label for="indicator_search">
-      <button aria-label="Поиск" id="search-btn" type="submit"><i class="fa fa-search" aria-hidden="false"></i></button><span>Поиск:</span>
-    </label>
+    <input type="text" name="q" id="indicator_search" title="Поиск" />
+    <label class="sr-only" for="indicator_search">Поиск</label>
+    <button aria-label="Поиск" id="search-btn" type="submit"><i class="fa fa-search" aria-hidden="false"></i></button>
   </form>
 </div>
 
@@ -198,14 +209,27 @@ var translations = {
         </li><li class="nav-link ">
           <a href="/faq">Часто задаваемые вопросы</a>
         </li><li>
-          <a class="language-toggle-button" onclick="$(this).next('.language-toggle').toggle(); return false;">
-  <i class="fa fa-globe"></i>
-  <span class="language-toggle-text">Pусский</span>
-  <i class="language-toggle fa fa-chevron-down"></i>
-  <i class="language-toggle fa fa-chevron-up" style="display:none;"></i>
-</a>
+          
 
-<ul class="language-options language-toggle"><li><a href="/en/4/">English</a></li></ul>
+
+
+
+
+  <div class="language-toggle-container">
+  
+  <div class="btn-group language-toggle-dropdown ">
+    <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+      <span class="language-globe-in-dropdown"><i class="fa fa-globe language-toggle-globe-dropdown"></i></span><span class="language-name">Pусский</span>
+      <span class="language-abbreviation">ru</span><i class="language-toggle-caret fa fa-chevron-down"></i></button>
+    <ul class="dropdown-menu"><li>
+            <a href="/en/4/">
+              English
+            </a>
+          </li></ul>
+  </div>
+</div>
+
+
 
         </li></ul>
     </nav>
@@ -213,11 +237,21 @@ var translations = {
 </header>
 
 
+<div class="container">
+  <ol class="breadcrumb">
+  
+  <li><a href="/">Главная</a></li>
+  <li class="active">Цель 4</li>
+  
+</ol>
+
+</div>
+
 <div class="heading goal-banner goal-4">
   <div class="container">
     <div class="row">
-      <div class="col-xs-4 col-md-3 col-lg-2">
-        <img src="https://sdg-kyrgyzstan.github.io/open-sdg-site-starter/assets/img/goals/ru/4.png" alt="Качественное образование - Цель 4" />
+      <div class="col-xs-4 col-md-3 col-lg-2 goal-tiles">
+        <img src="https://sdg-kyrgyzstan.github.io/open-sdg-site-starter/assets/img/goals/ru/4.png" alt="Качественное образование - Цель 4" id="goal-4" />
       </div>
       <div class="col-xs-8 col-md-9 col-lg-10">
         <h1>
@@ -229,14 +263,11 @@ var translations = {
   </div>
 </div>
 
-<div id="main-content" class="container goal-indicators goal-4 goal-by-target">
+<div id="main-content" class="container goal-indicators goal-4 goal-by-target" role="main">
 
   
 
-  <ol class="breadcrumb">
-    <li><a href="/">Главная</a></li>
-    <li class="active">Цель 4</li>
-  </ol>
+
 
   <div class="visible-md-block visible-lg-block">
     <div class="col-md-6">
@@ -274,20 +305,20 @@ var translations = {
       
 
       <div class="col-md-12  goal-indicator">
-        <a href="/4-1-1">
-          <span>
-            4.1.1
-            <span class="status complete">
-              Опубликован
-            </span>
+        <span>
+          4.1.1
+          <span class="status complete">
+            Опубликован
           </span>
+        </span>
+        <a href="/4-1-1">
           Доля детей и молодежи, приходящаяся на
 a) учащихся 2/3 классов; b) выпускников начальной
 школы; и c) выпускников младшей средней школы,
 которые достигли по меньшей мере минимального
 уровня владения навыками i) чтения и ii) математики
-          
         </a>
+        
       </div>
     
 
@@ -301,23 +332,23 @@ a) учащихся 2/3 классов; b) выпускников начальн
       
 
       <div class="col-md-12 indicator-национальный goal-indicator">
-        <a href="/4-1-1-1a">
-          <span>
-            4.1.1.1a
-            <span class="status complete">
-              Опубликован
-            </span>
+        <span>
+          4.1.1.1a
+          <span class="status complete">
+            Опубликован
           </span>
+        </span>
+        <a href="/4-1-1-1a">
           Численность детей и подростков 7-17 лет (1-11классов), не приступивших  к занятиям  в общеобразовательные организации по причинам,  по полу
-          
-            <ul class="tags">
-            
-              
-              <li class="tag-национальный warning">национальный</li>
-            
-            </ul>
-          
         </a>
+        
+          <ul class="tags">
+          
+            
+            <li class="tag-национальный warning">национальный</li>
+          
+          </ul>
+        
       </div>
     
     </div>
@@ -348,19 +379,19 @@ a) учащихся 2/3 классов; b) выпускников начальн
       
 
       <div class="col-md-12  goal-indicator">
-        <a href="/4-2-1">
-          <span>
-            4.2.1
-            <span class="status complete">
-              Опубликован
-            </span>
+        <span>
+          4.2.1
+          <span class="status complete">
+            Опубликован
           </span>
+        </span>
+        <a href="/4-2-1">
           Доля детей в возрасте до пяти лет, которые
 развиваются без отклонений в плане здоровья, обучения
 и психосоциального благополучия, в разбивке по
 полу 
-          
         </a>
+        
       </div>
     
 
@@ -374,18 +405,18 @@ a) учащихся 2/3 классов; b) выпускников начальн
       
 
       <div class="col-md-12  goal-indicator">
-        <a href="/4-2-2">
-          <span>
-            4.2.2
-            <span class="status complete">
-              Опубликован
-            </span>
+        <span>
+          4.2.2
+          <span class="status complete">
+            Опубликован
           </span>
+        </span>
+        <a href="/4-2-2">
           Уровень участия в организованных видах
 обучения (за один год до достижения официального
 возраста поступления в школу) в разбивке по полу
-          
         </a>
+        
       </div>
     
 
@@ -399,23 +430,23 @@ a) учащихся 2/3 классов; b) выпускников начальн
       
 
       <div class="col-md-12 indicator-национальный goal-indicator">
-        <a href="/4-2-2-1a">
-          <span>
-            4.2.2.1a
-            <span class="status complete">
-              Опубликован
-            </span>
+        <span>
+          4.2.2.1a
+          <span class="status complete">
+            Опубликован
           </span>
+        </span>
+        <a href="/4-2-2-1a">
           Охват детей дошкольным образованием
-          
-            <ul class="tags">
-            
-              
-              <li class="tag-национальный warning">национальный</li>
-            
-            </ul>
-          
         </a>
+        
+          <ul class="tags">
+          
+            
+            <li class="tag-национальный warning">национальный</li>
+          
+          </ul>
+        
       </div>
     
     </div>
@@ -444,19 +475,19 @@ a) учащихся 2/3 классов; b) выпускников начальн
       
 
       <div class="col-md-12  goal-indicator">
-        <a href="/4-3-1">
-          <span>
-            4.3.1
-            <span class="status notstarted">
-              В процессе разработки
-            </span>
+        <span>
+          4.3.1
+          <span class="status notstarted">
+            В процессе разработки
           </span>
+        </span>
+        <a href="/4-3-1">
           Уровень участия взрослых и молодежи в
 формальных и неформальных видах обучения и профессиональной
 подготовки в последние 12 месяцев в
 разбивке по полу
-          
         </a>
+        
       </div>
     
 
@@ -470,23 +501,23 @@ a) учащихся 2/3 классов; b) выпускников начальн
       
 
       <div class="col-md-12 indicator-национальный goal-indicator">
-        <a href="/4-3-1-1">
-          <span>
-            4.3.1.1
-            <span class="status notstarted">
-              В процессе разработки
-            </span>
+        <span>
+          4.3.1.1
+          <span class="status notstarted">
+            В процессе разработки
           </span>
+        </span>
+        <a href="/4-3-1-1">
           Доля молодежи, получающая образование
-          
-            <ul class="tags">
-            
-              
-              <li class="tag-национальный warning">национальный</li>
-            
-            </ul>
-          
         </a>
+        
+          <ul class="tags">
+          
+            
+            <li class="tag-национальный warning">национальный</li>
+          
+          </ul>
+        
       </div>
     
 
@@ -500,16 +531,16 @@ a) учащихся 2/3 классов; b) выпускников начальн
       
 
       <div class="col-md-12  goal-indicator">
-        <a href="/4-3-1-1a">
-          <span>
-            4.3.1.1a
-            <span class="status complete">
-              Опубликован
-            </span>
+        <span>
+          4.3.1.1a
+          <span class="status complete">
+            Опубликован
           </span>
+        </span>
+        <a href="/4-3-1-1a">
           .  Proportion of young people, by sex, who are enrolled in the system of primary vocational education (including short-term courses), in the system of secondary vocational and higher education
-          
         </a>
+        
       </div>
     
     </div>
@@ -540,19 +571,19 @@ a) учащихся 2/3 классов; b) выпускников начальн
       
 
       <div class="col-md-12  goal-indicator">
-        <a href="/4-4-1">
-          <span>
-            4.4.1
-            <span class="status complete">
-              Опубликован
-            </span>
+        <span>
+          4.4.1
+          <span class="status complete">
+            Опубликован
           </span>
+        </span>
+        <a href="/4-4-1">
           Доля молодежи/взрослых, обладающей/ обладающих
 навыками в области информационно-коммуникационных
 технологий, в разбивке по видам
 навыков
-          
         </a>
+        
       </div>
     
 
@@ -566,23 +597,23 @@ a) учащихся 2/3 классов; b) выпускников начальн
       
 
       <div class="col-md-12 indicator-национальный goal-indicator">
-        <a href="/4-4-1-1a">
-          <span>
-            4.4.1.1a
-            <span class="status complete">
-              Опубликован
-            </span>
+        <span>
+          4.4.1.1a
+          <span class="status complete">
+            Опубликован
           </span>
+        </span>
+        <a href="/4-4-1-1a">
           Численность студентов, обучающихся по направлению ИКТ по полу
-          
-            <ul class="tags">
-            
-              
-              <li class="tag-национальный warning">национальный</li>
-            
-            </ul>
-          
         </a>
+        
+          <ul class="tags">
+          
+            
+            <li class="tag-национальный warning">национальный</li>
+          
+          </ul>
+        
       </div>
     
     </div>
@@ -614,13 +645,13 @@ a) учащихся 2/3 классов; b) выпускников начальн
       
 
       <div class="col-md-12  goal-indicator">
-        <a href="/4-5-1">
-          <span>
-            4.5.1
-            <span class="status notstarted">
-              В процессе разработки
-            </span>
+        <span>
+          4.5.1
+          <span class="status notstarted">
+            В процессе разработки
           </span>
+        </span>
+        <a href="/4-5-1">
           Индексы равенства (женщин и мужчин, городских
 и сельских жителей, нижней и верхней
 квинтили достатка и других групп, например инвалидов,
@@ -628,8 +659,8 @@ a) учащихся 2/3 классов; b) выпускников начальн
 в зависимости от наличия данных) по всем
 касающимся образования показателям в настоящем
 перечне, которые могут быть дезагрегированы
-          
         </a>
+        
       </div>
     
     </div>
@@ -658,19 +689,19 @@ a) учащихся 2/3 классов; b) выпускников начальн
       
 
       <div class="col-md-12  goal-indicator">
-        <a href="/4-6-1">
-          <span>
-            4.6.1
-            <span class="status notstarted">
-              В процессе разработки
-            </span>
+        <span>
+          4.6.1
+          <span class="status notstarted">
+            В процессе разработки
           </span>
+        </span>
+        <a href="/4-6-1">
           Доля населения в данной возрастной группе,
 достигшая, по меньшей мере, установленного уровня
 функциональной a) грамотности и b) математической
 грамотности, в разбивке по полу.
-          
         </a>
+        
       </div>
     
     </div>
@@ -705,13 +736,13 @@ a) учащихся 2/3 классов; b) выпускников начальн
       
 
       <div class="col-md-12  goal-indicator">
-        <a href="/4-7-1">
-          <span>
-            4.7.1
-            <span class="status complete">
-              Опубликован
-            </span>
+        <span>
+          4.7.1
+          <span class="status complete">
+            Опубликован
           </span>
+        </span>
+        <a href="/4-7-1">
           Статус i) воспитания в духе всемирной гражданственности
 и ii) пропаганды устойчивого развития,
 включая гендерное равенство и права человека,
@@ -719,8 +750,8 @@ a) учащихся 2/3 классов; b) выпускников начальн
 образования; b) учебных программах; c) программах
 подготовки учителей; и d) системе аттестации учащихся
 
-          
         </a>
+        
       </div>
     
     </div>
@@ -750,13 +781,13 @@ a) учащихся 2/3 классов; b) выпускников начальн
       
 
       <div class="col-md-12  goal-indicator">
-        <a href="/4-a-1">
-          <span>
-            4.a.1
-            <span class="status notstarted">
-              В процессе разработки
-            </span>
+        <span>
+          4.a.1
+          <span class="status notstarted">
+            В процессе разработки
           </span>
+        </span>
+        <a href="/4-a-1">
           Доля школ, обеспеченных a) электроэнергией;
 b) доступом к Интернету для учебных целей;
 c) компьютерами для учебных целей; d) адаптированной
@@ -766,8 +797,8 @@ f) раздельными минимально оборудованными ту
 и g) базовыми средствами для мытья рук (согласно
 определениям показателей инициативы
 ВССГ)
-          
         </a>
+        
       </div>
     
     </div>
@@ -802,18 +833,18 @@ f) раздельными минимально оборудованными ту
       
 
       <div class="col-md-12  goal-indicator">
-        <a href="/4-b-1">
-          <span>
-            4.b.1
-            <span class="status notstarted">
-              В процессе разработки
-            </span>
+        <span>
+          4.b.1
+          <span class="status notstarted">
+            В процессе разработки
           </span>
+        </span>
+        <a href="/4-b-1">
           Объем официальной помощи в целях развития,
 направляемой на выплату стипендий, в разбивке
 по отраслям и видам обучения
-          
         </a>
+        
       </div>
     
 
@@ -827,23 +858,23 @@ f) раздельными минимально оборудованными ту
       
 
       <div class="col-md-12 indicator-национальный goal-indicator">
-        <a href="/4-b-1-1">
-          <span>
-            4.b.1.1
-            <span class="status complete">
-              Опубликован
-            </span>
+        <span>
+          4.b.1.1
+          <span class="status complete">
+            Опубликован
           </span>
+        </span>
+        <a href="/4-b-1-1">
           Количество мест, предоставляемых Кыргызстану для подготовки кадров зарубежом за счет принимающей стороны в рамках официальных межправительственных и межгосударственных договоров и соглашений
-          
-            <ul class="tags">
-            
-              
-              <li class="tag-национальный warning">национальный</li>
-            
-            </ul>
-          
         </a>
+        
+          <ul class="tags">
+          
+            
+            <li class="tag-национальный warning">национальный</li>
+          
+          </ul>
+        
       </div>
     
     </div>
@@ -874,13 +905,13 @@ f) раздельными минимально оборудованными ту
       
 
       <div class="col-md-12  goal-indicator">
-        <a href="/4-c-1">
-          <span>
-            4.c.1
-            <span class="status notstarted">
-              В процессе разработки
-            </span>
+        <span>
+          4.c.1
+          <span class="status notstarted">
+            В процессе разработки
           </span>
+        </span>
+        <a href="/4-c-1">
           Доля учителей в a) дошкольных учреждениях;
 b) начальной школе; c) младшей средней
 школе; и d) старшей средней школе, прошедших до
@@ -888,8 +919,8 @@ b) начальной школе; c) младшей средней
 организованную профессиональную учительскую
 подготовку (например, педагогическую) на
 соответствующем уровне в данной стране
-          
         </a>
+        
       </div>
     
 
@@ -903,23 +934,23 @@ b) начальной школе; c) младшей средней
       
 
       <div class="col-md-12 indicator-национальный goal-indicator">
-        <a href="/4-c-1-1">
-          <span>
-            4.c.1.1
-            <span class="status complete">
-              Опубликован
-            </span>
+        <span>
+          4.c.1.1
+          <span class="status complete">
+            Опубликован
           </span>
+        </span>
+        <a href="/4-c-1-1">
           Доля дипломированных учителей в образовательных учреждениях
-          
-            <ul class="tags">
-            
-              
-              <li class="tag-национальный warning">национальный</li>
-            
-            </ul>
-          
         </a>
+        
+          <ul class="tags">
+          
+            
+            <li class="tag-национальный warning">национальный</li>
+          
+          </ul>
+        
       </div>
     
     </div>
@@ -934,20 +965,18 @@ b) начальной школе; c) младшей средней
           <ul>
             <li><a href="https://open-sdg.org">Построен с использованием Open SDG</a></li>
             
-              
-                <li>
+              <li>
                 
                   <a href="mailto:sdg_nsc@stat.kg" target="_blank">Свяжитесь с нами</a>
                 
                 </li>
-              
-                <li>
+              <li>
                 <a href="/about/cookies-and-privacy">Cookies</a>
                 
                 </li>
               
             
-          </ul>
+            </ul>
         </div>
       </div>
     </div>
@@ -969,6 +998,7 @@ b) начальной школе; c) младшей средней
 <script src="//cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.bundle.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/patternomaly@1.3.2/dist/patternomaly.js"></script>
 
+
 <script src="https://cdnjs.cloudflare.com/ajax/libs/autotrack/2.4.1/autotrack.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/html2canvas@1.0.0-rc.3/dist/html2canvas.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/file-saver@2.0.2/dist/FileSaver.min.js"></script>
@@ -978,7 +1008,12 @@ b) начальной школе; c) младшей средней
 <script>translations['search'] = translations['search'] || {};
     translations['search']['search'] = 'Поиск';</script>
 
-<script src='/assets/js/sdg.js?v=20201126032115'></script><script src="/assets/js/custom.js?v=20201126032115"></script><script>
+<script src='/assets/js/sdg.js?v=20210114151510'></script>
+
+
+    
+    
+    <script src="/assets/js/custom.js?v=20210114151510"></script><script>
 $(function() {
     if($('#indicatorData').length) {
       var domData = $('#indicatorData').data();
@@ -1011,15 +1046,13 @@ $(function() {
               chartTitle: domData.charttitle,
               chartTitles: domData.charttitles,
               measurementUnit: domData.measurementunit,
-              copyright: domData.copyright,
-              dataSource: domData.datasource,
-              geographicalArea: domData.geographicalarea,
               showData: domData.showdata,
-              footnote: domData.footnote,
               graphType: domData.graphtype,
               startValues: domData.startvalues,
               graphLimits: domData.graphlimits,
               stackedDisaggregation: domData.stackeddisaggregation,
+              graphAnnotations: domData.graphannotations,
+              indicatorDownloads: domData.indicatordownloads,
             }),
             view  = new indicatorView(model, {
               rootElement: '#indicatorData',

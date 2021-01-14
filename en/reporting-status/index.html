@@ -3,7 +3,7 @@
     <head>
         <meta charset="utf-8">
         <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.min.js"></script>
-        <script crossorigin="anonymous" src="https://polyfill.io/v3/polyfill.min.js?features=Promise%2CArray.prototype.forEach%2CString.prototype.includes%2CURLSearchParams%2CCustomEvent%2CArray.prototype.includes%2CArray.prototype.filter%2CArray.prototype.some%2CArray.prototype.find%2CObject.assign%2CArray.isArray%2CObject.values"></script>
+        <script crossorigin="anonymous" src="https://polyfill.io/v3/polyfill.min.js?features=Promise%2CArray.prototype.forEach%2CString.prototype.includes%2CURLSearchParams%2CCustomEvent%2CArray.prototype.includes%2CArray.prototype.filter%2CArray.prototype.some%2CArray.prototype.find%2CObject.assign%2CArray.isArray%2CObject.values%2CArray.from%2CSet"></script>
 <script crossorigin="anonymous" src="https://cdnjs.cloudflare.com/ajax/libs/javascript-canvas-to-blob/3.15.0/js/canvas-to-blob.min.js"></script>
 
         <script>
@@ -90,11 +90,10 @@ var translations = {
         <!-- Title and meta description
         ================================================== -->
 
-        <title>
-          
-            Indicators For The Sustainable Development Goals
-          
-        </title>
+        
+    <title>Reporting status - Indicators For The Sustainable Development Goals</title>
+
+
 
         <meta name="description" content="">
         <meta property="og:description" content="">
@@ -120,7 +119,7 @@ var translations = {
         <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css" crossorigin="">
         <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" crossorigin="">
         <link rel="stylesheet" href="https://cdn.datatables.net/fixedcolumns/3.2.3/css/fixedColumns.dataTables.min.css" crossorigin="">
-        <link rel="stylesheet" href="/assets/css/style.css?v=20201126032115">
+        <link rel="stylesheet" href="/assets/css/style.css?v=20210114151510">
         <link href="https://fonts.googleapis.com/css?family=Open+Sans|Roboto" rel="stylesheet" crossorigin="">
         <link rel="stylesheet" href="https://unpkg.com/leaflet@1.3.4/dist/leaflet.css"
           integrity="sha512-puBpdR0798OZvTTbP4A8Ix/l+A4dHDD0DGqYW6RQ+9jxkRFclaxxQb/SJAWZfWAkuyeQUytO7+7N4QKrDh+drA=="
@@ -128,7 +127,7 @@ var translations = {
         <link rel="stylesheet" href="https://cdn.rawgit.com/socib/Leaflet.TimeDimension/master/dist/leaflet.timedimension.control.min.css"  crossorigin=""/>
         <link rel="stylesheet" href='https://api.mapbox.com/mapbox.js/plugins/leaflet-fullscreen/v1.0.1/leaflet.fullscreen.css'  crossorigin=""/>
         <link rel="stylesheet" href="https://bowercdn.net/c/leaflet.zoomhome-latest/dist/leaflet.zoomhome.css"  crossorigin=""/>
-        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet-search@2.9.7/dist/leaflet-search.min.css" crossorigin=""><link rel="stylesheet" href="/assets/css/custom.css?v=20201126032115"><!-- ShareThis BEGIN --><!-- ShareThis END -->
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet-search@2.9.7/dist/leaflet-search.min.css" crossorigin=""><link rel="stylesheet" href="/assets/css/custom.css?v=20210114151510"><!-- ShareThis BEGIN --><!-- ShareThis END -->
 
     </head>
 <body class="language-en layout-reportingstatus">
@@ -139,7 +138,7 @@ var translations = {
 <a class="sr-only sr-only-focusable" id="skiplink" href="#main-content" tabindex="0">Skip to main content</a>
 <div id="disclaimer">
   <div class="container">
-  <div class="disclaimer-alert" role="alert">
+  <div class="disclaimer-alert">
     <strong class="phase-tag">Alpha</strong>
     
     This is a development website. We welcome your <a href="mailto:sdg_nsc@stat.kg">feedback</a>.
@@ -158,14 +157,27 @@ var translations = {
     </a>
     <div class='hidden visible-xs float-right'>
       <ul id='accessibility-nav' class='contrast-switcher'></ul><div class="language-toggle-mobile">
-        <a class="language-toggle-button" onclick="$(this).next('.language-toggle').toggle(); return false;">
-  <i class="fa fa-globe"></i>
-  <span class="language-toggle-text">English</span>
-  <i class="language-toggle fa fa-chevron-down"></i>
-  <i class="language-toggle fa fa-chevron-up" style="display:none;"></i>
-</a>
+        
 
-<ul class="language-options language-toggle"><li><a href="/reporting-status/">Pусский</a></li></ul>
+
+
+
+
+  <div class="language-toggle-container">
+  
+  <div class="btn-group language-toggle-dropdown ">
+    <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+      <span class="language-globe-in-dropdown"><i class="fa fa-globe language-toggle-globe-dropdown"></i></span><span class="language-name">English</span>
+      <span class="language-abbreviation">en</span><i class="language-toggle-caret fa fa-chevron-down"></i></button>
+    <ul class="dropdown-menu"><li>
+            <a href="/reporting-status/">
+              Pусский
+            </a>
+          </li></ul>
+  </div>
+</div>
+
+
 
       </div></div>
     <nav class="navbar navbar-default" id="main-nav">
@@ -180,10 +192,9 @@ var translations = {
       </ul>
       <div id="search" class="menu-target">
   <form action="/en/search">
-    <input name="q" id="indicator_search" title="Search" />
-    <label for="indicator_search">
-      <button aria-label="Search" id="search-btn" type="submit"><i class="fa fa-search" aria-hidden="false"></i></button><span>Search:</span>
-    </label>
+    <input type="text" name="q" id="indicator_search" title="Search" />
+    <label class="sr-only" for="indicator_search">Search</label>
+    <button aria-label="Search" id="search-btn" type="submit"><i class="fa fa-search" aria-hidden="false"></i></button>
   </form>
 </div>
 
@@ -198,14 +209,27 @@ var translations = {
         </li><li class="nav-link ">
           <a href="/en/faq">FAQ</a>
         </li><li>
-          <a class="language-toggle-button" onclick="$(this).next('.language-toggle').toggle(); return false;">
-  <i class="fa fa-globe"></i>
-  <span class="language-toggle-text">English</span>
-  <i class="language-toggle fa fa-chevron-down"></i>
-  <i class="language-toggle fa fa-chevron-up" style="display:none;"></i>
-</a>
+          
 
-<ul class="language-options language-toggle"><li><a href="/reporting-status/">Pусский</a></li></ul>
+
+
+
+
+  <div class="language-toggle-container">
+  
+  <div class="btn-group language-toggle-dropdown ">
+    <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+      <span class="language-globe-in-dropdown"><i class="fa fa-globe language-toggle-globe-dropdown"></i></span><span class="language-name">English</span>
+      <span class="language-abbreviation">en</span><i class="language-toggle-caret fa fa-chevron-down"></i></button>
+    <ul class="dropdown-menu"><li>
+            <a href="/reporting-status/">
+              Pусский
+            </a>
+          </li></ul>
+  </div>
+</div>
+
+
 
         </li></ul>
     </nav>
@@ -214,7 +238,13 @@ var translations = {
 
 
 
-<div id="main-content" class="container reportingstatus">
+
+
+
+
+
+
+<div id="main-content" class="container reportingstatus" role="main">
 
   <h1>
   
@@ -223,22 +253,27 @@ var translations = {
 </h1>
 
 
-<div class="goal goal-overall">
-      <div class="details">
+
+
+  
+
+  
+  <div class="goal goal-overall">
+    <div class="details">
         <h2 class="status-goal">
             Overall reporting status <span class="total"><span>305</span> indicators</span>
         </h2>
         <div class="summary">
-          <div class="statuses"><div>
-              <span class="status complete">161</span><strong>Reported online</strong><span class="value">53%</span>
+            <div class="statuses"><div>
+                <span class="status complete"><span class="status-inner">161</span></span><strong>Reported online</strong><span class="value">53%</span>
             </div><div>
-              <span class="status inprogress">0</span><strong>Statistics in progress</strong><span class="value">0%</span>
+                <span class="status inprogress"><span class="status-inner">0</span></span><strong>Statistics in progress</strong><span class="value">0%</span>
             </div><div>
-              <span class="status notstarted">114</span><strong>Not currently reported</strong><span class="value">37%</span>
+                <span class="status notstarted"><span class="status-inner">114</span></span><strong>Not currently reported</strong><span class="value">37%</span>
             </div><div>
-              <span class="status notapplicable">30</span><strong>Not applicable</strong><span class="value">10%</span>
+                <span class="status notapplicable"><span class="status-inner">30</span></span><strong>Not applicable</strong><span class="value">10%</span>
             </div><br style="clear:both;">
-          </div>
+            </div>
         </div>
         <div class="goal-stats">
             
@@ -253,696 +288,680 @@ var translations = {
             
             
             <span class="notapplicable" style="width:9.836065573770492%" title="Not applicable: 10%"></span></div>
-
-      </div>
+    </div>
     <br style="clear:both;">
-  </div>
-
-  
-  <h2>Status by goal</h2>
-  
-
-  <div class="goal">
-        <div class="frame">
-          <a href="/en/1">
-            <img src="https://sdg-kyrgyzstan.github.io/open-sdg-site-starter/assets/img/goals/en/1.png" alt="No poverty - Goal 1" width="100" height="100" />
-          </a>
-        </div>
-        <div class="details">
-          <h3 class="status-goal">
+</div>
+  <h2>Status by goal</h2><div class="goal reporting-status-item">
+    <div class="frame goal-tiles">
+        <a href="/en/1">
+        <img src="https://sdg-kyrgyzstan.github.io/open-sdg-site-starter/assets/img/goals/en/1.png" alt="No poverty - Goal 1" width="100" height="100" class="goal-icon-1"/>
+        </a>
+    </div>
+    <div class="details">
+        <h3 class="status-goal">
             <a href="/en/1">No poverty</a>
             <span class="total">21 indicators</span>
-          </h3>
-          <div class="summary">
+        </h3>
+        <div class="summary">
             <div class="statuses"><div>
-                <span class="status complete">16</span><strong>Reported online</strong><span class="value">76%</span>
-              </div><div>
-                <span class="status inprogress">0</span><strong>Statistics in progress</strong><span class="value">0%</span>
-              </div><div>
-                <span class="status notstarted">5</span><strong>Not currently reported</strong><span class="value">24%</span>
-              </div><div>
-                <span class="status notapplicable">0</span><strong>Not applicable</strong><span class="value">0%</span>
-              </div><br style="clear:both;">
+                    <span class="status complete"><span class="status-inner">16</span></span><strong>Reported online</strong><span class="value">76%</span>
+                </div><div>
+                    <span class="status inprogress"><span class="status-inner">0</span></span><strong>Statistics in progress</strong><span class="value">0%</span>
+                </div><div>
+                    <span class="status notstarted"><span class="status-inner">5</span></span><strong>Not currently reported</strong><span class="value">24%</span>
+                </div><div>
+                    <span class="status notapplicable"><span class="status-inner">0</span></span><strong>Not applicable</strong><span class="value">0%</span>
+                </div><br style="clear:both;">
             </div>
-          </div>
-          <div class="goal-stats">
-          
-          
-            <span class="complete" style="width:76.19047619047619%" title="Reported online: 76%"></span>
-          
-          
-            <span class="inprogress" style="width:0.0%" title="Statistics in progress: 0%"></span>
-          
-          
-            <span class="notstarted" style="width:23.809523809523807%" title="Not currently reported: 24%"></span>
-          
-          
-            <span class="notapplicable" style="width:0.0%" title="Not applicable: 0%"></span></div>
-          <div class="divider">
-          </div>
         </div>
-      <br style="clear:both;">
-    </div><div class="goal">
-        <div class="frame">
-          <a href="/en/2">
-            <img src="https://sdg-kyrgyzstan.github.io/open-sdg-site-starter/assets/img/goals/en/2.png" alt="Zero hunger - Goal 2" width="100" height="100" />
-          </a>
-        </div>
-        <div class="details">
-          <h3 class="status-goal">
+        <div class="goal-stats">
+                
+                
+                <span class="complete" style="width:76.19047619047619%" title="Reported online: 76%"></span>
+                
+                
+                <span class="inprogress" style="width:0.0%" title="Statistics in progress: 0%"></span>
+                
+                
+                <span class="notstarted" style="width:23.809523809523807%" title="Not currently reported: 24%"></span>
+                
+                
+                <span class="notapplicable" style="width:0.0%" title="Not applicable: 0%"></span></div>
+        <div class="divider"></div>
+    </div>
+    <br style="clear:both;">
+</div><div class="goal reporting-status-item">
+    <div class="frame goal-tiles">
+        <a href="/en/2">
+        <img src="https://sdg-kyrgyzstan.github.io/open-sdg-site-starter/assets/img/goals/en/2.png" alt="Zero hunger - Goal 2" width="100" height="100" class="goal-icon-2"/>
+        </a>
+    </div>
+    <div class="details">
+        <h3 class="status-goal">
             <a href="/en/2">Zero hunger</a>
             <span class="total">15 indicators</span>
-          </h3>
-          <div class="summary">
+        </h3>
+        <div class="summary">
             <div class="statuses"><div>
-                <span class="status complete">6</span><strong>Reported online</strong><span class="value">40%</span>
-              </div><div>
-                <span class="status inprogress">0</span><strong>Statistics in progress</strong><span class="value">0%</span>
-              </div><div>
-                <span class="status notstarted">8</span><strong>Not currently reported</strong><span class="value">53%</span>
-              </div><div>
-                <span class="status notapplicable">1</span><strong>Not applicable</strong><span class="value">7%</span>
-              </div><br style="clear:both;">
+                    <span class="status complete"><span class="status-inner">6</span></span><strong>Reported online</strong><span class="value">40%</span>
+                </div><div>
+                    <span class="status inprogress"><span class="status-inner">0</span></span><strong>Statistics in progress</strong><span class="value">0%</span>
+                </div><div>
+                    <span class="status notstarted"><span class="status-inner">8</span></span><strong>Not currently reported</strong><span class="value">53%</span>
+                </div><div>
+                    <span class="status notapplicable"><span class="status-inner">1</span></span><strong>Not applicable</strong><span class="value">7%</span>
+                </div><br style="clear:both;">
             </div>
-          </div>
-          <div class="goal-stats">
-          
-          
-            <span class="complete" style="width:40.0%" title="Reported online: 40%"></span>
-          
-          
-            <span class="inprogress" style="width:0.0%" title="Statistics in progress: 0%"></span>
-          
-          
-            <span class="notstarted" style="width:53.33333333333333%" title="Not currently reported: 53%"></span>
-          
-          
-            <span class="notapplicable" style="width:6.666666666666667%" title="Not applicable: 7%"></span></div>
-          <div class="divider">
-          </div>
         </div>
-      <br style="clear:both;">
-    </div><div class="goal">
-        <div class="frame">
-          <a href="/en/3">
-            <img src="https://sdg-kyrgyzstan.github.io/open-sdg-site-starter/assets/img/goals/en/3.png" alt="Good health and well-being - Goal 3" width="100" height="100" />
-          </a>
-        </div>
-        <div class="details">
-          <h3 class="status-goal">
+        <div class="goal-stats">
+                
+                
+                <span class="complete" style="width:40.0%" title="Reported online: 40%"></span>
+                
+                
+                <span class="inprogress" style="width:0.0%" title="Statistics in progress: 0%"></span>
+                
+                
+                <span class="notstarted" style="width:53.33333333333333%" title="Not currently reported: 53%"></span>
+                
+                
+                <span class="notapplicable" style="width:6.666666666666667%" title="Not applicable: 7%"></span></div>
+        <div class="divider"></div>
+    </div>
+    <br style="clear:both;">
+</div><div class="goal reporting-status-item">
+    <div class="frame goal-tiles">
+        <a href="/en/3">
+        <img src="https://sdg-kyrgyzstan.github.io/open-sdg-site-starter/assets/img/goals/en/3.png" alt="Good health and well-being - Goal 3" width="100" height="100" class="goal-icon-3"/>
+        </a>
+    </div>
+    <div class="details">
+        <h3 class="status-goal">
             <a href="/en/3">Good health and well-being</a>
             <span class="total">30 indicators</span>
-          </h3>
-          <div class="summary">
+        </h3>
+        <div class="summary">
             <div class="statuses"><div>
-                <span class="status complete">20</span><strong>Reported online</strong><span class="value">67%</span>
-              </div><div>
-                <span class="status inprogress">0</span><strong>Statistics in progress</strong><span class="value">0%</span>
-              </div><div>
-                <span class="status notstarted">9</span><strong>Not currently reported</strong><span class="value">30%</span>
-              </div><div>
-                <span class="status notapplicable">1</span><strong>Not applicable</strong><span class="value">3%</span>
-              </div><br style="clear:both;">
+                    <span class="status complete"><span class="status-inner">20</span></span><strong>Reported online</strong><span class="value">67%</span>
+                </div><div>
+                    <span class="status inprogress"><span class="status-inner">0</span></span><strong>Statistics in progress</strong><span class="value">0%</span>
+                </div><div>
+                    <span class="status notstarted"><span class="status-inner">9</span></span><strong>Not currently reported</strong><span class="value">30%</span>
+                </div><div>
+                    <span class="status notapplicable"><span class="status-inner">1</span></span><strong>Not applicable</strong><span class="value">3%</span>
+                </div><br style="clear:both;">
             </div>
-          </div>
-          <div class="goal-stats">
-          
-          
-            <span class="complete" style="width:66.66666666666666%" title="Reported online: 67%"></span>
-          
-          
-            <span class="inprogress" style="width:0.0%" title="Statistics in progress: 0%"></span>
-          
-          
-            <span class="notstarted" style="width:30.0%" title="Not currently reported: 30%"></span>
-          
-          
-            <span class="notapplicable" style="width:3.333333333333333%" title="Not applicable: 3%"></span></div>
-          <div class="divider">
-          </div>
         </div>
-      <br style="clear:both;">
-    </div><div class="goal">
-        <div class="frame">
-          <a href="/en/4">
-            <img src="https://sdg-kyrgyzstan.github.io/open-sdg-site-starter/assets/img/goals/en/4.png" alt="Quality education - Goal 4" width="100" height="100" />
-          </a>
-        </div>
-        <div class="details">
-          <h3 class="status-goal">
+        <div class="goal-stats">
+                
+                
+                <span class="complete" style="width:66.66666666666666%" title="Reported online: 67%"></span>
+                
+                
+                <span class="inprogress" style="width:0.0%" title="Statistics in progress: 0%"></span>
+                
+                
+                <span class="notstarted" style="width:30.0%" title="Not currently reported: 30%"></span>
+                
+                
+                <span class="notapplicable" style="width:3.333333333333333%" title="Not applicable: 3%"></span></div>
+        <div class="divider"></div>
+    </div>
+    <br style="clear:both;">
+</div><div class="goal reporting-status-item">
+    <div class="frame goal-tiles">
+        <a href="/en/4">
+        <img src="https://sdg-kyrgyzstan.github.io/open-sdg-site-starter/assets/img/goals/en/4.png" alt="Quality education - Goal 4" width="100" height="100" class="goal-icon-4"/>
+        </a>
+    </div>
+    <div class="details">
+        <h3 class="status-goal">
             <a href="/en/4">Quality education</a>
             <span class="total">18 indicators</span>
-          </h3>
-          <div class="summary">
+        </h3>
+        <div class="summary">
             <div class="statuses"><div>
-                <span class="status complete">11</span><strong>Reported online</strong><span class="value">61%</span>
-              </div><div>
-                <span class="status inprogress">0</span><strong>Statistics in progress</strong><span class="value">0%</span>
-              </div><div>
-                <span class="status notstarted">7</span><strong>Not currently reported</strong><span class="value">39%</span>
-              </div><div>
-                <span class="status notapplicable">0</span><strong>Not applicable</strong><span class="value">0%</span>
-              </div><br style="clear:both;">
+                    <span class="status complete"><span class="status-inner">11</span></span><strong>Reported online</strong><span class="value">61%</span>
+                </div><div>
+                    <span class="status inprogress"><span class="status-inner">0</span></span><strong>Statistics in progress</strong><span class="value">0%</span>
+                </div><div>
+                    <span class="status notstarted"><span class="status-inner">7</span></span><strong>Not currently reported</strong><span class="value">39%</span>
+                </div><div>
+                    <span class="status notapplicable"><span class="status-inner">0</span></span><strong>Not applicable</strong><span class="value">0%</span>
+                </div><br style="clear:both;">
             </div>
-          </div>
-          <div class="goal-stats">
-          
-          
-            <span class="complete" style="width:61.11111111111112%" title="Reported online: 61%"></span>
-          
-          
-            <span class="inprogress" style="width:0.0%" title="Statistics in progress: 0%"></span>
-          
-          
-            <span class="notstarted" style="width:38.88888888888889%" title="Not currently reported: 39%"></span>
-          
-          
-            <span class="notapplicable" style="width:0.0%" title="Not applicable: 0%"></span></div>
-          <div class="divider">
-          </div>
         </div>
-      <br style="clear:both;">
-    </div><div class="goal">
-        <div class="frame">
-          <a href="/en/5">
-            <img src="https://sdg-kyrgyzstan.github.io/open-sdg-site-starter/assets/img/goals/en/5.png" alt="Gender equality - Goal 5" width="100" height="100" />
-          </a>
-        </div>
-        <div class="details">
-          <h3 class="status-goal">
+        <div class="goal-stats">
+                
+                
+                <span class="complete" style="width:61.11111111111112%" title="Reported online: 61%"></span>
+                
+                
+                <span class="inprogress" style="width:0.0%" title="Statistics in progress: 0%"></span>
+                
+                
+                <span class="notstarted" style="width:38.88888888888889%" title="Not currently reported: 39%"></span>
+                
+                
+                <span class="notapplicable" style="width:0.0%" title="Not applicable: 0%"></span></div>
+        <div class="divider"></div>
+    </div>
+    <br style="clear:both;">
+</div><div class="goal reporting-status-item">
+    <div class="frame goal-tiles">
+        <a href="/en/5">
+        <img src="https://sdg-kyrgyzstan.github.io/open-sdg-site-starter/assets/img/goals/en/5.png" alt="Gender equality - Goal 5" width="100" height="100" class="goal-icon-5"/>
+        </a>
+    </div>
+    <div class="details">
+        <h3 class="status-goal">
             <a href="/en/5">Gender equality</a>
             <span class="total">18 indicators</span>
-          </h3>
-          <div class="summary">
+        </h3>
+        <div class="summary">
             <div class="statuses"><div>
-                <span class="status complete">11</span><strong>Reported online</strong><span class="value">61%</span>
-              </div><div>
-                <span class="status inprogress">0</span><strong>Statistics in progress</strong><span class="value">0%</span>
-              </div><div>
-                <span class="status notstarted">6</span><strong>Not currently reported</strong><span class="value">33%</span>
-              </div><div>
-                <span class="status notapplicable">1</span><strong>Not applicable</strong><span class="value">6%</span>
-              </div><br style="clear:both;">
+                    <span class="status complete"><span class="status-inner">11</span></span><strong>Reported online</strong><span class="value">61%</span>
+                </div><div>
+                    <span class="status inprogress"><span class="status-inner">0</span></span><strong>Statistics in progress</strong><span class="value">0%</span>
+                </div><div>
+                    <span class="status notstarted"><span class="status-inner">6</span></span><strong>Not currently reported</strong><span class="value">33%</span>
+                </div><div>
+                    <span class="status notapplicable"><span class="status-inner">1</span></span><strong>Not applicable</strong><span class="value">6%</span>
+                </div><br style="clear:both;">
             </div>
-          </div>
-          <div class="goal-stats">
-          
-          
-            <span class="complete" style="width:61.11111111111112%" title="Reported online: 61%"></span>
-          
-          
-            <span class="inprogress" style="width:0.0%" title="Statistics in progress: 0%"></span>
-          
-          
-            <span class="notstarted" style="width:33.33333333333333%" title="Not currently reported: 33%"></span>
-          
-          
-            <span class="notapplicable" style="width:5.555555555555556%" title="Not applicable: 6%"></span></div>
-          <div class="divider">
-          </div>
         </div>
-      <br style="clear:both;">
-    </div><div class="goal">
-        <div class="frame">
-          <a href="/en/6">
-            <img src="https://sdg-kyrgyzstan.github.io/open-sdg-site-starter/assets/img/goals/en/6.png" alt="Clean water and sanitation - Goal 6" width="100" height="100" />
-          </a>
-        </div>
-        <div class="details">
-          <h3 class="status-goal">
+        <div class="goal-stats">
+                
+                
+                <span class="complete" style="width:61.11111111111112%" title="Reported online: 61%"></span>
+                
+                
+                <span class="inprogress" style="width:0.0%" title="Statistics in progress: 0%"></span>
+                
+                
+                <span class="notstarted" style="width:33.33333333333333%" title="Not currently reported: 33%"></span>
+                
+                
+                <span class="notapplicable" style="width:5.555555555555556%" title="Not applicable: 6%"></span></div>
+        <div class="divider"></div>
+    </div>
+    <br style="clear:both;">
+</div><div class="goal reporting-status-item">
+    <div class="frame goal-tiles">
+        <a href="/en/6">
+        <img src="https://sdg-kyrgyzstan.github.io/open-sdg-site-starter/assets/img/goals/en/6.png" alt="Clean water and sanitation - Goal 6" width="100" height="100" class="goal-icon-6"/>
+        </a>
+    </div>
+    <div class="details">
+        <h3 class="status-goal">
             <a href="/en/6">Clean water and sanitation</a>
             <span class="total">16 indicators</span>
-          </h3>
-          <div class="summary">
+        </h3>
+        <div class="summary">
             <div class="statuses"><div>
-                <span class="status complete">8</span><strong>Reported online</strong><span class="value">50%</span>
-              </div><div>
-                <span class="status inprogress">0</span><strong>Statistics in progress</strong><span class="value">0%</span>
-              </div><div>
-                <span class="status notstarted">7</span><strong>Not currently reported</strong><span class="value">44%</span>
-              </div><div>
-                <span class="status notapplicable">1</span><strong>Not applicable</strong><span class="value">6%</span>
-              </div><br style="clear:both;">
+                    <span class="status complete"><span class="status-inner">8</span></span><strong>Reported online</strong><span class="value">50%</span>
+                </div><div>
+                    <span class="status inprogress"><span class="status-inner">0</span></span><strong>Statistics in progress</strong><span class="value">0%</span>
+                </div><div>
+                    <span class="status notstarted"><span class="status-inner">7</span></span><strong>Not currently reported</strong><span class="value">44%</span>
+                </div><div>
+                    <span class="status notapplicable"><span class="status-inner">1</span></span><strong>Not applicable</strong><span class="value">6%</span>
+                </div><br style="clear:both;">
             </div>
-          </div>
-          <div class="goal-stats">
-          
-          
-            <span class="complete" style="width:50.0%" title="Reported online: 50%"></span>
-          
-          
-            <span class="inprogress" style="width:0.0%" title="Statistics in progress: 0%"></span>
-          
-          
-            <span class="notstarted" style="width:43.75%" title="Not currently reported: 44%"></span>
-          
-          
-            <span class="notapplicable" style="width:6.25%" title="Not applicable: 6%"></span></div>
-          <div class="divider">
-          </div>
         </div>
-      <br style="clear:both;">
-    </div><div class="goal">
-        <div class="frame">
-          <a href="/en/7">
-            <img src="https://sdg-kyrgyzstan.github.io/open-sdg-site-starter/assets/img/goals/en/7.png" alt="Affordable and clean energy - Goal 7" width="100" height="100" />
-          </a>
-        </div>
-        <div class="details">
-          <h3 class="status-goal">
+        <div class="goal-stats">
+                
+                
+                <span class="complete" style="width:50.0%" title="Reported online: 50%"></span>
+                
+                
+                <span class="inprogress" style="width:0.0%" title="Statistics in progress: 0%"></span>
+                
+                
+                <span class="notstarted" style="width:43.75%" title="Not currently reported: 44%"></span>
+                
+                
+                <span class="notapplicable" style="width:6.25%" title="Not applicable: 6%"></span></div>
+        <div class="divider"></div>
+    </div>
+    <br style="clear:both;">
+</div><div class="goal reporting-status-item">
+    <div class="frame goal-tiles">
+        <a href="/en/7">
+        <img src="https://sdg-kyrgyzstan.github.io/open-sdg-site-starter/assets/img/goals/en/7.png" alt="Affordable and clean energy - Goal 7" width="100" height="100" class="goal-icon-7"/>
+        </a>
+    </div>
+    <div class="details">
+        <h3 class="status-goal">
             <a href="/en/7">Affordable and clean energy</a>
             <span class="total">10 indicators</span>
-          </h3>
-          <div class="summary">
+        </h3>
+        <div class="summary">
             <div class="statuses"><div>
-                <span class="status complete">6</span><strong>Reported online</strong><span class="value">60%</span>
-              </div><div>
-                <span class="status inprogress">0</span><strong>Statistics in progress</strong><span class="value">0%</span>
-              </div><div>
-                <span class="status notstarted">3</span><strong>Not currently reported</strong><span class="value">30%</span>
-              </div><div>
-                <span class="status notapplicable">1</span><strong>Not applicable</strong><span class="value">10%</span>
-              </div><br style="clear:both;">
+                    <span class="status complete"><span class="status-inner">6</span></span><strong>Reported online</strong><span class="value">60%</span>
+                </div><div>
+                    <span class="status inprogress"><span class="status-inner">0</span></span><strong>Statistics in progress</strong><span class="value">0%</span>
+                </div><div>
+                    <span class="status notstarted"><span class="status-inner">3</span></span><strong>Not currently reported</strong><span class="value">30%</span>
+                </div><div>
+                    <span class="status notapplicable"><span class="status-inner">1</span></span><strong>Not applicable</strong><span class="value">10%</span>
+                </div><br style="clear:both;">
             </div>
-          </div>
-          <div class="goal-stats">
-          
-          
-            <span class="complete" style="width:60.0%" title="Reported online: 60%"></span>
-          
-          
-            <span class="inprogress" style="width:0.0%" title="Statistics in progress: 0%"></span>
-          
-          
-            <span class="notstarted" style="width:30.0%" title="Not currently reported: 30%"></span>
-          
-          
-            <span class="notapplicable" style="width:10.0%" title="Not applicable: 10%"></span></div>
-          <div class="divider">
-          </div>
         </div>
-      <br style="clear:both;">
-    </div><div class="goal">
-        <div class="frame">
-          <a href="/en/8">
-            <img src="https://sdg-kyrgyzstan.github.io/open-sdg-site-starter/assets/img/goals/en/8.png" alt="Decent jobs and economic growth - Goal 8" width="100" height="100" />
-          </a>
-        </div>
-        <div class="details">
-          <h3 class="status-goal">
+        <div class="goal-stats">
+                
+                
+                <span class="complete" style="width:60.0%" title="Reported online: 60%"></span>
+                
+                
+                <span class="inprogress" style="width:0.0%" title="Statistics in progress: 0%"></span>
+                
+                
+                <span class="notstarted" style="width:30.0%" title="Not currently reported: 30%"></span>
+                
+                
+                <span class="notapplicable" style="width:10.0%" title="Not applicable: 10%"></span></div>
+        <div class="divider"></div>
+    </div>
+    <br style="clear:both;">
+</div><div class="goal reporting-status-item">
+    <div class="frame goal-tiles">
+        <a href="/en/8">
+        <img src="https://sdg-kyrgyzstan.github.io/open-sdg-site-starter/assets/img/goals/en/8.png" alt="Decent jobs and economic growth - Goal 8" width="100" height="100" class="goal-icon-8"/>
+        </a>
+    </div>
+    <div class="details">
+        <h3 class="status-goal">
             <a href="/en/8">Decent jobs and economic growth</a>
             <span class="total">22 indicators</span>
-          </h3>
-          <div class="summary">
+        </h3>
+        <div class="summary">
             <div class="statuses"><div>
-                <span class="status complete">13</span><strong>Reported online</strong><span class="value">59%</span>
-              </div><div>
-                <span class="status inprogress">0</span><strong>Statistics in progress</strong><span class="value">0%</span>
-              </div><div>
-                <span class="status notstarted">7</span><strong>Not currently reported</strong><span class="value">32%</span>
-              </div><div>
-                <span class="status notapplicable">2</span><strong>Not applicable</strong><span class="value">9%</span>
-              </div><br style="clear:both;">
+                    <span class="status complete"><span class="status-inner">13</span></span><strong>Reported online</strong><span class="value">59%</span>
+                </div><div>
+                    <span class="status inprogress"><span class="status-inner">0</span></span><strong>Statistics in progress</strong><span class="value">0%</span>
+                </div><div>
+                    <span class="status notstarted"><span class="status-inner">7</span></span><strong>Not currently reported</strong><span class="value">32%</span>
+                </div><div>
+                    <span class="status notapplicable"><span class="status-inner">2</span></span><strong>Not applicable</strong><span class="value">9%</span>
+                </div><br style="clear:both;">
             </div>
-          </div>
-          <div class="goal-stats">
-          
-          
-            <span class="complete" style="width:59.09090909090909%" title="Reported online: 59%"></span>
-          
-          
-            <span class="inprogress" style="width:0.0%" title="Statistics in progress: 0%"></span>
-          
-          
-            <span class="notstarted" style="width:31.81818181818182%" title="Not currently reported: 32%"></span>
-          
-          
-            <span class="notapplicable" style="width:9.090909090909092%" title="Not applicable: 9%"></span></div>
-          <div class="divider">
-          </div>
         </div>
-      <br style="clear:both;">
-    </div><div class="goal">
-        <div class="frame">
-          <a href="/en/9">
-            <img src="https://sdg-kyrgyzstan.github.io/open-sdg-site-starter/assets/img/goals/en/9.png" alt="Industry, innovation and infrastructure - Goal 9" width="100" height="100" />
-          </a>
-        </div>
-        <div class="details">
-          <h3 class="status-goal">
+        <div class="goal-stats">
+                
+                
+                <span class="complete" style="width:59.09090909090909%" title="Reported online: 59%"></span>
+                
+                
+                <span class="inprogress" style="width:0.0%" title="Statistics in progress: 0%"></span>
+                
+                
+                <span class="notstarted" style="width:31.81818181818182%" title="Not currently reported: 32%"></span>
+                
+                
+                <span class="notapplicable" style="width:9.090909090909092%" title="Not applicable: 9%"></span></div>
+        <div class="divider"></div>
+    </div>
+    <br style="clear:both;">
+</div><div class="goal reporting-status-item">
+    <div class="frame goal-tiles">
+        <a href="/en/9">
+        <img src="https://sdg-kyrgyzstan.github.io/open-sdg-site-starter/assets/img/goals/en/9.png" alt="Industry, innovation and infrastructure - Goal 9" width="100" height="100" class="goal-icon-9"/>
+        </a>
+    </div>
+    <div class="details">
+        <h3 class="status-goal">
             <a href="/en/9">Industry, innovation and infrastructure</a>
             <span class="total">13 indicators</span>
-          </h3>
-          <div class="summary">
+        </h3>
+        <div class="summary">
             <div class="statuses"><div>
-                <span class="status complete">8</span><strong>Reported online</strong><span class="value">62%</span>
-              </div><div>
-                <span class="status inprogress">0</span><strong>Statistics in progress</strong><span class="value">0%</span>
-              </div><div>
-                <span class="status notstarted">4</span><strong>Not currently reported</strong><span class="value">31%</span>
-              </div><div>
-                <span class="status notapplicable">1</span><strong>Not applicable</strong><span class="value">8%</span>
-              </div><br style="clear:both;">
+                    <span class="status complete"><span class="status-inner">8</span></span><strong>Reported online</strong><span class="value">62%</span>
+                </div><div>
+                    <span class="status inprogress"><span class="status-inner">0</span></span><strong>Statistics in progress</strong><span class="value">0%</span>
+                </div><div>
+                    <span class="status notstarted"><span class="status-inner">4</span></span><strong>Not currently reported</strong><span class="value">31%</span>
+                </div><div>
+                    <span class="status notapplicable"><span class="status-inner">1</span></span><strong>Not applicable</strong><span class="value">8%</span>
+                </div><br style="clear:both;">
             </div>
-          </div>
-          <div class="goal-stats">
-          
-          
-            <span class="complete" style="width:61.53846153846154%" title="Reported online: 62%"></span>
-          
-          
-            <span class="inprogress" style="width:0.0%" title="Statistics in progress: 0%"></span>
-          
-          
-            <span class="notstarted" style="width:30.76923076923077%" title="Not currently reported: 31%"></span>
-          
-          
-            <span class="notapplicable" style="width:7.692307692307693%" title="Not applicable: 8%"></span></div>
-          <div class="divider">
-          </div>
         </div>
-      <br style="clear:both;">
-    </div><div class="goal">
-        <div class="frame">
-          <a href="/en/10">
-            <img src="https://sdg-kyrgyzstan.github.io/open-sdg-site-starter/assets/img/goals/en/10.png" alt="Reduced inequalities - Goal 10" width="100" height="100" />
-          </a>
-        </div>
-        <div class="details">
-          <h3 class="status-goal">
+        <div class="goal-stats">
+                
+                
+                <span class="complete" style="width:61.53846153846154%" title="Reported online: 62%"></span>
+                
+                
+                <span class="inprogress" style="width:0.0%" title="Statistics in progress: 0%"></span>
+                
+                
+                <span class="notstarted" style="width:30.76923076923077%" title="Not currently reported: 31%"></span>
+                
+                
+                <span class="notapplicable" style="width:7.692307692307693%" title="Not applicable: 8%"></span></div>
+        <div class="divider"></div>
+    </div>
+    <br style="clear:both;">
+</div><div class="goal reporting-status-item">
+    <div class="frame goal-tiles">
+        <a href="/en/10">
+        <img src="https://sdg-kyrgyzstan.github.io/open-sdg-site-starter/assets/img/goals/en/10.png" alt="Reduced inequalities - Goal 10" width="100" height="100" class="goal-icon-10"/>
+        </a>
+    </div>
+    <div class="details">
+        <h3 class="status-goal">
             <a href="/en/10">Reduced inequalities</a>
             <span class="total">13 indicators</span>
-          </h3>
-          <div class="summary">
+        </h3>
+        <div class="summary">
             <div class="statuses"><div>
-                <span class="status complete">7</span><strong>Reported online</strong><span class="value">54%</span>
-              </div><div>
-                <span class="status inprogress">0</span><strong>Statistics in progress</strong><span class="value">0%</span>
-              </div><div>
-                <span class="status notstarted">5</span><strong>Not currently reported</strong><span class="value">38%</span>
-              </div><div>
-                <span class="status notapplicable">1</span><strong>Not applicable</strong><span class="value">8%</span>
-              </div><br style="clear:both;">
+                    <span class="status complete"><span class="status-inner">7</span></span><strong>Reported online</strong><span class="value">54%</span>
+                </div><div>
+                    <span class="status inprogress"><span class="status-inner">0</span></span><strong>Statistics in progress</strong><span class="value">0%</span>
+                </div><div>
+                    <span class="status notstarted"><span class="status-inner">5</span></span><strong>Not currently reported</strong><span class="value">38%</span>
+                </div><div>
+                    <span class="status notapplicable"><span class="status-inner">1</span></span><strong>Not applicable</strong><span class="value">8%</span>
+                </div><br style="clear:both;">
             </div>
-          </div>
-          <div class="goal-stats">
-          
-          
-            <span class="complete" style="width:53.84615384615384%" title="Reported online: 54%"></span>
-          
-          
-            <span class="inprogress" style="width:0.0%" title="Statistics in progress: 0%"></span>
-          
-          
-            <span class="notstarted" style="width:38.46153846153847%" title="Not currently reported: 38%"></span>
-          
-          
-            <span class="notapplicable" style="width:7.692307692307693%" title="Not applicable: 8%"></span></div>
-          <div class="divider">
-          </div>
         </div>
-      <br style="clear:both;">
-    </div><div class="goal">
-        <div class="frame">
-          <a href="/en/11">
-            <img src="https://sdg-kyrgyzstan.github.io/open-sdg-site-starter/assets/img/goals/en/11.png" alt="Sustainable cities &amp; communities - Goal 11" width="100" height="100" />
-          </a>
-        </div>
-        <div class="details">
-          <h3 class="status-goal">
+        <div class="goal-stats">
+                
+                
+                <span class="complete" style="width:53.84615384615384%" title="Reported online: 54%"></span>
+                
+                
+                <span class="inprogress" style="width:0.0%" title="Statistics in progress: 0%"></span>
+                
+                
+                <span class="notstarted" style="width:38.46153846153847%" title="Not currently reported: 38%"></span>
+                
+                
+                <span class="notapplicable" style="width:7.692307692307693%" title="Not applicable: 8%"></span></div>
+        <div class="divider"></div>
+    </div>
+    <br style="clear:both;">
+</div><div class="goal reporting-status-item">
+    <div class="frame goal-tiles">
+        <a href="/en/11">
+        <img src="https://sdg-kyrgyzstan.github.io/open-sdg-site-starter/assets/img/goals/en/11.png" alt="Sustainable cities &amp; communities - Goal 11" width="100" height="100" class="goal-icon-11"/>
+        </a>
+    </div>
+    <div class="details">
+        <h3 class="status-goal">
             <a href="/en/11">Sustainable cities & communities</a>
             <span class="total">18 indicators</span>
-          </h3>
-          <div class="summary">
+        </h3>
+        <div class="summary">
             <div class="statuses"><div>
-                <span class="status complete">7</span><strong>Reported online</strong><span class="value">39%</span>
-              </div><div>
-                <span class="status inprogress">0</span><strong>Statistics in progress</strong><span class="value">0%</span>
-              </div><div>
-                <span class="status notstarted">10</span><strong>Not currently reported</strong><span class="value">56%</span>
-              </div><div>
-                <span class="status notapplicable">1</span><strong>Not applicable</strong><span class="value">6%</span>
-              </div><br style="clear:both;">
+                    <span class="status complete"><span class="status-inner">7</span></span><strong>Reported online</strong><span class="value">39%</span>
+                </div><div>
+                    <span class="status inprogress"><span class="status-inner">0</span></span><strong>Statistics in progress</strong><span class="value">0%</span>
+                </div><div>
+                    <span class="status notstarted"><span class="status-inner">10</span></span><strong>Not currently reported</strong><span class="value">56%</span>
+                </div><div>
+                    <span class="status notapplicable"><span class="status-inner">1</span></span><strong>Not applicable</strong><span class="value">6%</span>
+                </div><br style="clear:both;">
             </div>
-          </div>
-          <div class="goal-stats">
-          
-          
-            <span class="complete" style="width:38.88888888888889%" title="Reported online: 39%"></span>
-          
-          
-            <span class="inprogress" style="width:0.0%" title="Statistics in progress: 0%"></span>
-          
-          
-            <span class="notstarted" style="width:55.55555555555556%" title="Not currently reported: 56%"></span>
-          
-          
-            <span class="notapplicable" style="width:5.555555555555556%" title="Not applicable: 6%"></span></div>
-          <div class="divider">
-          </div>
         </div>
-      <br style="clear:both;">
-    </div><div class="goal">
-        <div class="frame">
-          <a href="/en/12">
-            <img src="https://sdg-kyrgyzstan.github.io/open-sdg-site-starter/assets/img/goals/en/12.png" alt="Responsible consumption and production - Goal 12" width="100" height="100" />
-          </a>
-        </div>
-        <div class="details">
-          <h3 class="status-goal">
+        <div class="goal-stats">
+                
+                
+                <span class="complete" style="width:38.88888888888889%" title="Reported online: 39%"></span>
+                
+                
+                <span class="inprogress" style="width:0.0%" title="Statistics in progress: 0%"></span>
+                
+                
+                <span class="notstarted" style="width:55.55555555555556%" title="Not currently reported: 56%"></span>
+                
+                
+                <span class="notapplicable" style="width:5.555555555555556%" title="Not applicable: 6%"></span></div>
+        <div class="divider"></div>
+    </div>
+    <br style="clear:both;">
+</div><div class="goal reporting-status-item">
+    <div class="frame goal-tiles">
+        <a href="/en/12">
+        <img src="https://sdg-kyrgyzstan.github.io/open-sdg-site-starter/assets/img/goals/en/12.png" alt="Responsible consumption and production - Goal 12" width="100" height="100" class="goal-icon-12"/>
+        </a>
+    </div>
+    <div class="details">
+        <h3 class="status-goal">
             <a href="/en/12">Responsible consumption and production</a>
             <span class="total">13 indicators</span>
-          </h3>
-          <div class="summary">
+        </h3>
+        <div class="summary">
             <div class="statuses"><div>
-                <span class="status complete">5</span><strong>Reported online</strong><span class="value">38%</span>
-              </div><div>
-                <span class="status inprogress">0</span><strong>Statistics in progress</strong><span class="value">0%</span>
-              </div><div>
-                <span class="status notstarted">6</span><strong>Not currently reported</strong><span class="value">46%</span>
-              </div><div>
-                <span class="status notapplicable">2</span><strong>Not applicable</strong><span class="value">15%</span>
-              </div><br style="clear:both;">
+                    <span class="status complete"><span class="status-inner">5</span></span><strong>Reported online</strong><span class="value">38%</span>
+                </div><div>
+                    <span class="status inprogress"><span class="status-inner">0</span></span><strong>Statistics in progress</strong><span class="value">0%</span>
+                </div><div>
+                    <span class="status notstarted"><span class="status-inner">6</span></span><strong>Not currently reported</strong><span class="value">46%</span>
+                </div><div>
+                    <span class="status notapplicable"><span class="status-inner">2</span></span><strong>Not applicable</strong><span class="value">15%</span>
+                </div><br style="clear:both;">
             </div>
-          </div>
-          <div class="goal-stats">
-          
-          
-            <span class="complete" style="width:38.46153846153847%" title="Reported online: 38%"></span>
-          
-          
-            <span class="inprogress" style="width:0.0%" title="Statistics in progress: 0%"></span>
-          
-          
-            <span class="notstarted" style="width:46.15384615384615%" title="Not currently reported: 46%"></span>
-          
-          
-            <span class="notapplicable" style="width:15.384615384615385%" title="Not applicable: 15%"></span></div>
-          <div class="divider">
-          </div>
         </div>
-      <br style="clear:both;">
-    </div><div class="goal">
-        <div class="frame">
-          <a href="/en/13">
-            <img src="https://sdg-kyrgyzstan.github.io/open-sdg-site-starter/assets/img/goals/en/13.png" alt="Climate action - Goal 13" width="100" height="100" />
-          </a>
-        </div>
-        <div class="details">
-          <h3 class="status-goal">
+        <div class="goal-stats">
+                
+                
+                <span class="complete" style="width:38.46153846153847%" title="Reported online: 38%"></span>
+                
+                
+                <span class="inprogress" style="width:0.0%" title="Statistics in progress: 0%"></span>
+                
+                
+                <span class="notstarted" style="width:46.15384615384615%" title="Not currently reported: 46%"></span>
+                
+                
+                <span class="notapplicable" style="width:15.384615384615385%" title="Not applicable: 15%"></span></div>
+        <div class="divider"></div>
+    </div>
+    <br style="clear:both;">
+</div><div class="goal reporting-status-item">
+    <div class="frame goal-tiles">
+        <a href="/en/13">
+        <img src="https://sdg-kyrgyzstan.github.io/open-sdg-site-starter/assets/img/goals/en/13.png" alt="Climate action - Goal 13" width="100" height="100" class="goal-icon-13"/>
+        </a>
+    </div>
+    <div class="details">
+        <h3 class="status-goal">
             <a href="/en/13">Climate action</a>
             <span class="total">8 indicators</span>
-          </h3>
-          <div class="summary">
+        </h3>
+        <div class="summary">
             <div class="statuses"><div>
-                <span class="status complete">4</span><strong>Reported online</strong><span class="value">50%</span>
-              </div><div>
-                <span class="status inprogress">0</span><strong>Statistics in progress</strong><span class="value">0%</span>
-              </div><div>
-                <span class="status notstarted">2</span><strong>Not currently reported</strong><span class="value">25%</span>
-              </div><div>
-                <span class="status notapplicable">2</span><strong>Not applicable</strong><span class="value">25%</span>
-              </div><br style="clear:both;">
+                    <span class="status complete"><span class="status-inner">4</span></span><strong>Reported online</strong><span class="value">50%</span>
+                </div><div>
+                    <span class="status inprogress"><span class="status-inner">0</span></span><strong>Statistics in progress</strong><span class="value">0%</span>
+                </div><div>
+                    <span class="status notstarted"><span class="status-inner">2</span></span><strong>Not currently reported</strong><span class="value">25%</span>
+                </div><div>
+                    <span class="status notapplicable"><span class="status-inner">2</span></span><strong>Not applicable</strong><span class="value">25%</span>
+                </div><br style="clear:both;">
             </div>
-          </div>
-          <div class="goal-stats">
-          
-          
-            <span class="complete" style="width:50.0%" title="Reported online: 50%"></span>
-          
-          
-            <span class="inprogress" style="width:0.0%" title="Statistics in progress: 0%"></span>
-          
-          
-            <span class="notstarted" style="width:25.0%" title="Not currently reported: 25%"></span>
-          
-          
-            <span class="notapplicable" style="width:25.0%" title="Not applicable: 25%"></span></div>
-          <div class="divider">
-          </div>
         </div>
-      <br style="clear:both;">
-    </div><div class="goal">
-        <div class="frame">
-          <a href="/en/14">
-            <img src="https://sdg-kyrgyzstan.github.io/open-sdg-site-starter/assets/img/goals/en/14.png" alt="Life below water - Goal 14" width="100" height="100" />
-          </a>
-        </div>
-        <div class="details">
-          <h3 class="status-goal">
+        <div class="goal-stats">
+                
+                
+                <span class="complete" style="width:50.0%" title="Reported online: 50%"></span>
+                
+                
+                <span class="inprogress" style="width:0.0%" title="Statistics in progress: 0%"></span>
+                
+                
+                <span class="notstarted" style="width:25.0%" title="Not currently reported: 25%"></span>
+                
+                
+                <span class="notapplicable" style="width:25.0%" title="Not applicable: 25%"></span></div>
+        <div class="divider"></div>
+    </div>
+    <br style="clear:both;">
+</div><div class="goal reporting-status-item">
+    <div class="frame goal-tiles">
+        <a href="/en/14">
+        <img src="https://sdg-kyrgyzstan.github.io/open-sdg-site-starter/assets/img/goals/en/14.png" alt="Life below water - Goal 14" width="100" height="100" class="goal-icon-14"/>
+        </a>
+    </div>
+    <div class="details">
+        <h3 class="status-goal">
             <a href="/en/14">Life below water</a>
             <span class="total">10 indicators</span>
-          </h3>
-          <div class="summary">
+        </h3>
+        <div class="summary">
             <div class="statuses"><div>
-                <span class="status complete">0</span><strong>Reported online</strong><span class="value">0%</span>
-              </div><div>
-                <span class="status inprogress">0</span><strong>Statistics in progress</strong><span class="value">0%</span>
-              </div><div>
-                <span class="status notstarted">0</span><strong>Not currently reported</strong><span class="value">0%</span>
-              </div><div>
-                <span class="status notapplicable">10</span><strong>Not applicable</strong><span class="value">100%</span>
-              </div><br style="clear:both;">
+                    <span class="status complete"><span class="status-inner">0</span></span><strong>Reported online</strong><span class="value">0%</span>
+                </div><div>
+                    <span class="status inprogress"><span class="status-inner">0</span></span><strong>Statistics in progress</strong><span class="value">0%</span>
+                </div><div>
+                    <span class="status notstarted"><span class="status-inner">0</span></span><strong>Not currently reported</strong><span class="value">0%</span>
+                </div><div>
+                    <span class="status notapplicable"><span class="status-inner">10</span></span><strong>Not applicable</strong><span class="value">100%</span>
+                </div><br style="clear:both;">
             </div>
-          </div>
-          <div class="goal-stats">
-          
-          
-            <span class="complete" style="width:0.0%" title="Reported online: 0%"></span>
-          
-          
-            <span class="inprogress" style="width:0.0%" title="Statistics in progress: 0%"></span>
-          
-          
-            <span class="notstarted" style="width:0.0%" title="Not currently reported: 0%"></span>
-          
-          
-            <span class="notapplicable" style="width:100.0%" title="Not applicable: 100%"></span></div>
-          <div class="divider">
-          </div>
         </div>
-      <br style="clear:both;">
-    </div><div class="goal">
-        <div class="frame">
-          <a href="/en/15">
-            <img src="https://sdg-kyrgyzstan.github.io/open-sdg-site-starter/assets/img/goals/en/15.png" alt="Life on land - Goal 15" width="100" height="100" />
-          </a>
-        </div>
-        <div class="details">
-          <h3 class="status-goal">
+        <div class="goal-stats">
+                
+                
+                <span class="complete" style="width:0.0%" title="Reported online: 0%"></span>
+                
+                
+                <span class="inprogress" style="width:0.0%" title="Statistics in progress: 0%"></span>
+                
+                
+                <span class="notstarted" style="width:0.0%" title="Not currently reported: 0%"></span>
+                
+                
+                <span class="notapplicable" style="width:100.0%" title="Not applicable: 100%"></span></div>
+        <div class="divider"></div>
+    </div>
+    <br style="clear:both;">
+</div><div class="goal reporting-status-item">
+    <div class="frame goal-tiles">
+        <a href="/en/15">
+        <img src="https://sdg-kyrgyzstan.github.io/open-sdg-site-starter/assets/img/goals/en/15.png" alt="Life on land - Goal 15" width="100" height="100" class="goal-icon-15"/>
+        </a>
+    </div>
+    <div class="details">
+        <h3 class="status-goal">
             <a href="/en/15">Life on land</a>
             <span class="total">22 indicators</span>
-          </h3>
-          <div class="summary">
+        </h3>
+        <div class="summary">
             <div class="statuses"><div>
-                <span class="status complete">13</span><strong>Reported online</strong><span class="value">59%</span>
-              </div><div>
-                <span class="status inprogress">0</span><strong>Statistics in progress</strong><span class="value">0%</span>
-              </div><div>
-                <span class="status notstarted">9</span><strong>Not currently reported</strong><span class="value">41%</span>
-              </div><div>
-                <span class="status notapplicable">0</span><strong>Not applicable</strong><span class="value">0%</span>
-              </div><br style="clear:both;">
+                    <span class="status complete"><span class="status-inner">13</span></span><strong>Reported online</strong><span class="value">59%</span>
+                </div><div>
+                    <span class="status inprogress"><span class="status-inner">0</span></span><strong>Statistics in progress</strong><span class="value">0%</span>
+                </div><div>
+                    <span class="status notstarted"><span class="status-inner">9</span></span><strong>Not currently reported</strong><span class="value">41%</span>
+                </div><div>
+                    <span class="status notapplicable"><span class="status-inner">0</span></span><strong>Not applicable</strong><span class="value">0%</span>
+                </div><br style="clear:both;">
             </div>
-          </div>
-          <div class="goal-stats">
-          
-          
-            <span class="complete" style="width:59.09090909090909%" title="Reported online: 59%"></span>
-          
-          
-            <span class="inprogress" style="width:0.0%" title="Statistics in progress: 0%"></span>
-          
-          
-            <span class="notstarted" style="width:40.90909090909091%" title="Not currently reported: 41%"></span>
-          
-          
-            <span class="notapplicable" style="width:0.0%" title="Not applicable: 0%"></span></div>
-          <div class="divider">
-          </div>
         </div>
-      <br style="clear:both;">
-    </div><div class="goal">
-        <div class="frame">
-          <a href="/en/16">
-            <img src="https://sdg-kyrgyzstan.github.io/open-sdg-site-starter/assets/img/goals/en/16.png" alt="Peace and justice - strong institutions - Goal 16" width="100" height="100" />
-          </a>
-        </div>
-        <div class="details">
-          <h3 class="status-goal">
+        <div class="goal-stats">
+                
+                
+                <span class="complete" style="width:59.09090909090909%" title="Reported online: 59%"></span>
+                
+                
+                <span class="inprogress" style="width:0.0%" title="Statistics in progress: 0%"></span>
+                
+                
+                <span class="notstarted" style="width:40.90909090909091%" title="Not currently reported: 41%"></span>
+                
+                
+                <span class="notapplicable" style="width:0.0%" title="Not applicable: 0%"></span></div>
+        <div class="divider"></div>
+    </div>
+    <br style="clear:both;">
+</div><div class="goal reporting-status-item">
+    <div class="frame goal-tiles">
+        <a href="/en/16">
+        <img src="https://sdg-kyrgyzstan.github.io/open-sdg-site-starter/assets/img/goals/en/16.png" alt="Peace and justice - strong institutions - Goal 16" width="100" height="100" class="goal-icon-16"/>
+        </a>
+    </div>
+    <div class="details">
+        <h3 class="status-goal">
             <a href="/en/16">Peace and justice - strong institutions</a>
             <span class="total">30 indicators</span>
-          </h3>
-          <div class="summary">
+        </h3>
+        <div class="summary">
             <div class="statuses"><div>
-                <span class="status complete">17</span><strong>Reported online</strong><span class="value">57%</span>
-              </div><div>
-                <span class="status inprogress">0</span><strong>Statistics in progress</strong><span class="value">0%</span>
-              </div><div>
-                <span class="status notstarted">12</span><strong>Not currently reported</strong><span class="value">40%</span>
-              </div><div>
-                <span class="status notapplicable">1</span><strong>Not applicable</strong><span class="value">3%</span>
-              </div><br style="clear:both;">
+                    <span class="status complete"><span class="status-inner">17</span></span><strong>Reported online</strong><span class="value">57%</span>
+                </div><div>
+                    <span class="status inprogress"><span class="status-inner">0</span></span><strong>Statistics in progress</strong><span class="value">0%</span>
+                </div><div>
+                    <span class="status notstarted"><span class="status-inner">12</span></span><strong>Not currently reported</strong><span class="value">40%</span>
+                </div><div>
+                    <span class="status notapplicable"><span class="status-inner">1</span></span><strong>Not applicable</strong><span class="value">3%</span>
+                </div><br style="clear:both;">
             </div>
-          </div>
-          <div class="goal-stats">
-          
-          
-            <span class="complete" style="width:56.66666666666667%" title="Reported online: 57%"></span>
-          
-          
-            <span class="inprogress" style="width:0.0%" title="Statistics in progress: 0%"></span>
-          
-          
-            <span class="notstarted" style="width:40.0%" title="Not currently reported: 40%"></span>
-          
-          
-            <span class="notapplicable" style="width:3.333333333333333%" title="Not applicable: 3%"></span></div>
-          <div class="divider">
-          </div>
         </div>
-      <br style="clear:both;">
-    </div><div class="goal">
-        <div class="frame">
-          <a href="/en/17">
-            <img src="https://sdg-kyrgyzstan.github.io/open-sdg-site-starter/assets/img/goals/en/17.png" alt="Partnerships for the goals - Goal 17" width="100" height="100" />
-          </a>
-        </div>
-        <div class="details">
-          <h3 class="status-goal">
+        <div class="goal-stats">
+                
+                
+                <span class="complete" style="width:56.66666666666667%" title="Reported online: 57%"></span>
+                
+                
+                <span class="inprogress" style="width:0.0%" title="Statistics in progress: 0%"></span>
+                
+                
+                <span class="notstarted" style="width:40.0%" title="Not currently reported: 40%"></span>
+                
+                
+                <span class="notapplicable" style="width:3.333333333333333%" title="Not applicable: 3%"></span></div>
+        <div class="divider"></div>
+    </div>
+    <br style="clear:both;">
+</div><div class="goal reporting-status-item">
+    <div class="frame goal-tiles">
+        <a href="/en/17">
+        <img src="https://sdg-kyrgyzstan.github.io/open-sdg-site-starter/assets/img/goals/en/17.png" alt="Partnerships for the goals - Goal 17" width="100" height="100" class="goal-icon-17"/>
+        </a>
+    </div>
+    <div class="details">
+        <h3 class="status-goal">
             <a href="/en/17">Partnerships for the goals</a>
             <span class="total">28 indicators</span>
-          </h3>
-          <div class="summary">
+        </h3>
+        <div class="summary">
             <div class="statuses"><div>
-                <span class="status complete">9</span><strong>Reported online</strong><span class="value">32%</span>
-              </div><div>
-                <span class="status inprogress">0</span><strong>Statistics in progress</strong><span class="value">0%</span>
-              </div><div>
-                <span class="status notstarted">14</span><strong>Not currently reported</strong><span class="value">50%</span>
-              </div><div>
-                <span class="status notapplicable">5</span><strong>Not applicable</strong><span class="value">18%</span>
-              </div><br style="clear:both;">
+                    <span class="status complete"><span class="status-inner">9</span></span><strong>Reported online</strong><span class="value">32%</span>
+                </div><div>
+                    <span class="status inprogress"><span class="status-inner">0</span></span><strong>Statistics in progress</strong><span class="value">0%</span>
+                </div><div>
+                    <span class="status notstarted"><span class="status-inner">14</span></span><strong>Not currently reported</strong><span class="value">50%</span>
+                </div><div>
+                    <span class="status notapplicable"><span class="status-inner">5</span></span><strong>Not applicable</strong><span class="value">18%</span>
+                </div><br style="clear:both;">
             </div>
-          </div>
-          <div class="goal-stats">
-          
-          
-            <span class="complete" style="width:32.142857142857146%" title="Reported online: 32%"></span>
-          
-          
-            <span class="inprogress" style="width:0.0%" title="Statistics in progress: 0%"></span>
-          
-          
-            <span class="notstarted" style="width:50.0%" title="Not currently reported: 50%"></span>
-          
-          
-            <span class="notapplicable" style="width:17.857142857142858%" title="Not applicable: 18%"></span></div>
-          <div class="divider">
-          </div>
         </div>
-      <br style="clear:both;">
+        <div class="goal-stats">
+                
+                
+                <span class="complete" style="width:32.142857142857146%" title="Reported online: 32%"></span>
+                
+                
+                <span class="inprogress" style="width:0.0%" title="Statistics in progress: 0%"></span>
+                
+                
+                <span class="notstarted" style="width:50.0%" title="Not currently reported: 50%"></span>
+                
+                
+                <span class="notapplicable" style="width:17.857142857142858%" title="Not applicable: 18%"></span></div>
+        <div class="divider"></div>
     </div>
+    <br style="clear:both;">
+</div>
+  
+
+  
+
+  
+
+  
 
   <!---->
 
@@ -955,20 +974,18 @@ var translations = {
           <ul>
             <li><a href="https://open-sdg.org">Built using Open SDG</a></li>
             
-              
-                <li>
+              <li>
                 
                   <a href="mailto:sdg_nsc@stat.kg" target="_blank">Contact us</a>
                 
                 </li>
-              
-                <li>
+              <li>
                 <a href="/en/about/cookies-and-privacy">Cookies</a>
                 
                 </li>
               
             
-          </ul>
+            </ul>
         </div>
       </div>
     </div>
@@ -990,6 +1007,7 @@ var translations = {
 <script src="//cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.bundle.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/patternomaly@1.3.2/dist/patternomaly.js"></script>
 
+
 <script src="https://cdnjs.cloudflare.com/ajax/libs/autotrack/2.4.1/autotrack.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/html2canvas@1.0.0-rc.3/dist/html2canvas.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/file-saver@2.0.2/dist/FileSaver.min.js"></script>
@@ -999,7 +1017,12 @@ var translations = {
 <script>translations['search'] = translations['search'] || {};
     translations['search']['search'] = 'Search';</script>
 
-<script src='/assets/js/sdg.js?v=20201126032115'></script><script src="/assets/js/custom.js?v=20201126032115"></script><script>
+<script src='/assets/js/sdg.js?v=20210114151510'></script>
+
+
+    
+    
+    <script src="/assets/js/custom.js?v=20210114151510"></script><script>
 $(function() {
     if($('#indicatorData').length) {
       var domData = $('#indicatorData').data();
@@ -1032,15 +1055,13 @@ $(function() {
               chartTitle: domData.charttitle,
               chartTitles: domData.charttitles,
               measurementUnit: domData.measurementunit,
-              copyright: domData.copyright,
-              dataSource: domData.datasource,
-              geographicalArea: domData.geographicalarea,
               showData: domData.showdata,
-              footnote: domData.footnote,
               graphType: domData.graphtype,
               startValues: domData.startvalues,
               graphLimits: domData.graphlimits,
               stackedDisaggregation: domData.stackeddisaggregation,
+              graphAnnotations: domData.graphannotations,
+              indicatorDownloads: domData.indicatordownloads,
             }),
             view  = new indicatorView(model, {
               rootElement: '#indicatorData',

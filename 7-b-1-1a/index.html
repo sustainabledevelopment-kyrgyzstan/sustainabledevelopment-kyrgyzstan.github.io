@@ -3,7 +3,7 @@
     <head>
         <meta charset="utf-8">
         <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.min.js"></script>
-        <script crossorigin="anonymous" src="https://polyfill.io/v3/polyfill.min.js?features=Promise%2CArray.prototype.forEach%2CString.prototype.includes%2CURLSearchParams%2CCustomEvent%2CArray.prototype.includes%2CArray.prototype.filter%2CArray.prototype.some%2CArray.prototype.find%2CObject.assign%2CArray.isArray%2CObject.values"></script>
+        <script crossorigin="anonymous" src="https://polyfill.io/v3/polyfill.min.js?features=Promise%2CArray.prototype.forEach%2CString.prototype.includes%2CURLSearchParams%2CCustomEvent%2CArray.prototype.includes%2CArray.prototype.filter%2CArray.prototype.some%2CArray.prototype.find%2CObject.assign%2CArray.isArray%2CObject.values%2CArray.from%2CSet"></script>
 <script crossorigin="anonymous" src="https://cdnjs.cloudflare.com/ajax/libs/javascript-canvas-to-blob/3.15.0/js/canvas-to-blob.min.js"></script>
 
         <script>
@@ -90,11 +90,10 @@ var translations = {
         <!-- Title and meta description
         ================================================== -->
 
-        <title>
-          
-            показатель 7.b.1.1a - Цель 7
-          
-        </title>
+        
+    <title>показатель 7.b.1.1a - Поступление прямых иностранных инвестиций, поступающих на цели расширения энергетической инфраструктуры и модернизации технологий - Indicators For The Sustainable Development Goals</title>
+
+
 
         <meta name="description" content="">
         <meta property="og:description" content="">
@@ -120,7 +119,7 @@ var translations = {
         <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css" crossorigin="">
         <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" crossorigin="">
         <link rel="stylesheet" href="https://cdn.datatables.net/fixedcolumns/3.2.3/css/fixedColumns.dataTables.min.css" crossorigin="">
-        <link rel="stylesheet" href="/assets/css/style.css?v=20201126032115">
+        <link rel="stylesheet" href="/assets/css/style.css?v=20210114151510">
         <link href="https://fonts.googleapis.com/css?family=Open+Sans|Roboto" rel="stylesheet" crossorigin="">
         <link rel="stylesheet" href="https://unpkg.com/leaflet@1.3.4/dist/leaflet.css"
           integrity="sha512-puBpdR0798OZvTTbP4A8Ix/l+A4dHDD0DGqYW6RQ+9jxkRFclaxxQb/SJAWZfWAkuyeQUytO7+7N4QKrDh+drA=="
@@ -128,7 +127,7 @@ var translations = {
         <link rel="stylesheet" href="https://cdn.rawgit.com/socib/Leaflet.TimeDimension/master/dist/leaflet.timedimension.control.min.css"  crossorigin=""/>
         <link rel="stylesheet" href='https://api.mapbox.com/mapbox.js/plugins/leaflet-fullscreen/v1.0.1/leaflet.fullscreen.css'  crossorigin=""/>
         <link rel="stylesheet" href="https://bowercdn.net/c/leaflet.zoomhome-latest/dist/leaflet.zoomhome.css"  crossorigin=""/>
-        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet-search@2.9.7/dist/leaflet-search.min.css" crossorigin=""><link rel="stylesheet" href="/assets/css/custom.css?v=20201126032115"><!-- ShareThis BEGIN --><!-- ShareThis END -->
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet-search@2.9.7/dist/leaflet-search.min.css" crossorigin=""><link rel="stylesheet" href="/assets/css/custom.css?v=20210114151510"><!-- ShareThis BEGIN --><!-- ShareThis END -->
 
     </head>
 <body class="language-ru layout-indicator">
@@ -139,7 +138,7 @@ var translations = {
 <a class="sr-only sr-only-focusable" id="skiplink" href="#main-content" tabindex="0">Перейти к главному содержанию</a>
 <div id="disclaimer">
   <div class="container">
-  <div class="disclaimer-alert" role="alert">
+  <div class="disclaimer-alert">
     <strong class="phase-tag">Альфа</strong>
     
     Это сайт находится в разработке. Мы рады вашим отзывам.
@@ -158,14 +157,27 @@ var translations = {
     </a>
     <div class='hidden visible-xs float-right'>
       <ul id='accessibility-nav' class='contrast-switcher'></ul><div class="language-toggle-mobile">
-        <a class="language-toggle-button" onclick="$(this).next('.language-toggle').toggle(); return false;">
-  <i class="fa fa-globe"></i>
-  <span class="language-toggle-text">Pусский</span>
-  <i class="language-toggle fa fa-chevron-down"></i>
-  <i class="language-toggle fa fa-chevron-up" style="display:none;"></i>
-</a>
+        
 
-<ul class="language-options language-toggle"><li><a href="/en/7-b-1-1a/">English</a></li></ul>
+
+
+
+
+  <div class="language-toggle-container">
+  
+  <div class="btn-group language-toggle-dropdown ">
+    <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+      <span class="language-globe-in-dropdown"><i class="fa fa-globe language-toggle-globe-dropdown"></i></span><span class="language-name">Pусский</span>
+      <span class="language-abbreviation">ru</span><i class="language-toggle-caret fa fa-chevron-down"></i></button>
+    <ul class="dropdown-menu"><li>
+            <a href="/en/7-b-1-1a/">
+              English
+            </a>
+          </li></ul>
+  </div>
+</div>
+
+
 
       </div></div>
     <nav class="navbar navbar-default" id="main-nav">
@@ -180,10 +192,9 @@ var translations = {
       </ul>
       <div id="search" class="menu-target">
   <form action="/search">
-    <input name="q" id="indicator_search" title="Поиск" />
-    <label for="indicator_search">
-      <button aria-label="Поиск" id="search-btn" type="submit"><i class="fa fa-search" aria-hidden="false"></i></button><span>Поиск:</span>
-    </label>
+    <input type="text" name="q" id="indicator_search" title="Поиск" />
+    <label class="sr-only" for="indicator_search">Поиск</label>
+    <button aria-label="Поиск" id="search-btn" type="submit"><i class="fa fa-search" aria-hidden="false"></i></button>
   </form>
 </div>
 
@@ -198,14 +209,27 @@ var translations = {
         </li><li class="nav-link ">
           <a href="/faq">Часто задаваемые вопросы</a>
         </li><li>
-          <a class="language-toggle-button" onclick="$(this).next('.language-toggle').toggle(); return false;">
-  <i class="fa fa-globe"></i>
-  <span class="language-toggle-text">Pусский</span>
-  <i class="language-toggle fa fa-chevron-down"></i>
-  <i class="language-toggle fa fa-chevron-up" style="display:none;"></i>
-</a>
+          
 
-<ul class="language-options language-toggle"><li><a href="/en/7-b-1-1a/">English</a></li></ul>
+
+
+
+
+  <div class="language-toggle-container">
+  
+  <div class="btn-group language-toggle-dropdown ">
+    <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+      <span class="language-globe-in-dropdown"><i class="fa fa-globe language-toggle-globe-dropdown"></i></span><span class="language-name">Pусский</span>
+      <span class="language-abbreviation">ru</span><i class="language-toggle-caret fa fa-chevron-down"></i></button>
+    <ul class="dropdown-menu"><li>
+            <a href="/en/7-b-1-1a/">
+              English
+            </a>
+          </li></ul>
+  </div>
+</div>
+
+
 
         </li></ul>
     </nav>
@@ -216,26 +240,38 @@ var translations = {
 <script type="text/template" id="item_template">
   <% _.each(fields, function(fieldItem) { %>
     <div class="variable-selector<% if(allowedFields.indexOf(fieldItem.field) == -1) { %> disallowed child<% }%>" data-field="<%=fieldItem.field%>">
-      <button class='accessBtn' tabindex='0' aria-expanded='false'><h5><%=translations.t(fieldItem.field)%><i class="fa fa-chevron-down"></i></h5></button>
+      <button class='accessBtn' tabindex='0' aria-expanded='false'
+        <% if(allowedFields.indexOf(fieldItem.field) == -1) { %>
+        aria-describedby='variable-hint-<%=fieldItem.field.replace(/ /g, '-')%>'
+        <% }%>
+      >
+        <% if(allowedFields.indexOf(fieldItem.field) == -1) { %><h6><% } else { %><h5><% } %>
+          <span aria-hidden="true"><%=translations.t(fieldItem.field)%><i class="fa fa-chevron-down"></i></span>
+          <span class="sr-only"> <%=translations.t(fieldItem.field)%></span>
+        <% if(allowedFields.indexOf(fieldItem.field) == -1) { %></h6><% } else { %></h5><% } %>
+      </button>
       <div class="bar">
         <div class="selected"></div>
       </div>
       <div class="variable-options">
-        <div>
-          <button data-type="select">Выделить всё</button>
-          <button data-type="clear">Очистить всё</button>
-        </div>
-        <% _.each(fieldItem.values, function(item) { %>
-          <label>
-            <input type="checkbox" <%=item.checked ? 'checked' : ''%> value="<%=item.value%>" data-field="<%=fieldItem.field%>" /><%=translations.t(item.value)%>
-          </label>
-        <% }); %>
+        <fieldset>
+          <legend class="sr-only">Субкатегории - <%=translations.t(fieldItem.field)%></legend>
+          <div>
+            <button data-type="select">Выделить всё</button>
+            <button data-type="clear">Очистить всё</button>
+          </div>
+          <% _.each(fieldItem.values, function(item) { %>
+            <label>
+              <input type="checkbox" <%=item.checked ? 'checked' : ''%> value="<%=item.value%>" data-field="<%=fieldItem.field%>" /><%=translations.t(item.value)%>
+            </label>
+          <% }); %>
+        </fieldset>
       </div>
 
       <% if(allowedFields.indexOf(fieldItem.field) == -1) { %>
-        <div class="variable-hint">Доступно, когда выбрано
+        <div class="variable-hint" id="variable-hint-<%=fieldItem.field.replace(/ /g, '-')%>">Доступно, когда выбрано
         </div>
-        <div class="no-data-hint">
+        <div class="no-data-hint" id="no-data-hint-<%=fieldItem.field.replace(/ /g, '-')%>">
           Нет имеющихся вариантов из-за фильтров наверху.
         </div>
       <% }%>
@@ -247,20 +283,26 @@ var translations = {
 <script type="text/template" id="units_template">
   <% if(units.length) { %>
     <h4>Вид единиц</h4>
-    <% _.each(units, function(unitsItem, index) { %>
-      <% var checked = (selectedUnit) ? (selectedUnit==unitsItem) : (index==0); %>
-      <label><input type="radio" name="unit" value="<%=unitsItem%>" tabindex=0 <%=checked ? 'checked' : ''%> /> <%=translations.t(unitsItem)%></label>
-    <% }); %>
+    <fieldset>
+      <legend class="sr-only">Вид единиц</legend>
+      <% _.each(units, function(unitsItem, index) { %>
+        <% var checked = (selectedUnit) ? (selectedUnit==unitsItem) : (index==0); %>
+        <label><input type="radio" name="unit" value="<%=unitsItem%>" tabindex=0 <%=checked ? 'checked' : ''%> /> <%=translations.t(unitsItem)%></label>
+      <% }); %>
+    </fieldset>
   <% } %>
 </script>
 
 <script type="text/template" id="series_template">
   <% if(serieses.length) { %>
     <h4>Серии</h4>
-    <% _.each(serieses, function(seriesItem, index) { %>
-      <% var checked = (selectedSeries) ? (selectedSeries==seriesItem) : (index==0); %>
-      <label><input type="radio" name="series" value="<%=seriesItem%>" tabindex=0 <%=checked ? 'checked' : ''%> /> <%=translations.t(seriesItem)%></label>
-    <% }); %>
+    <fieldset>
+      <legend class="sr-only">Серии</legend>
+      <% _.each(serieses, function(seriesItem, index) { %>
+        <% var checked = (selectedSeries) ? (selectedSeries==seriesItem) : (index==0); %>
+        <label><input type="radio" name="series" value="<%=seriesItem%>" tabindex=0 <%=checked ? 'checked' : ''%> /> <%=translations.t(seriesItem)%></label>
+      <% }); %>
+    </fieldset>
   <% } %>
 </script>
 
@@ -269,32 +311,38 @@ var translations = {
 <script>translations['data'] = {"0 to 5 months old":" возраст от 0-5 месяцев","1 to 14 years old":"1-14 лет","1 to 2 years old":"1-2 года","1 year old":" в возрасте 1 года","10 to 14 years old":"10-14 лет","12 to 14 years old":"12-14 лет","12 to 17 months old":" возраст от 12-17  месяцев","15 to 17 years old":"15-17 лет","15 to 19 years old":"15-19 лет","18 to 23 months old":" возраст от 18-23  месяцев","18 to 25 years old":"18-25 лет","2 years old":"2 года и старше","20 to 24 years old":"20-24 лет","24 to 35 months old":" возраст от 24-35  месяцев","25 to 29 years old":"25-29 лет","26 to 34 years old":"26-34 лет","3 to 4 years old":"3-4 года","3 years old":"3 года","30 to 34 years old":"30-34 лет","35 to 39 years old":"35-39 лет","35 to 45 years old":"35-45 лет","36 to 47 months old":" возраст от 36-47  месяцев","4 years old":"4 года","40 to 44 years old":"40-44 лет","45 to 49 years old":"45-49 лет","46 to 54 years old":"46-54 лет","48 to 59 months old":" возраст от 48-59  месяцев","5 to 11 years old":"5-11 лет","5 to 17 years old":"5-17 лет","5 to 6 years old":"5-6 лет","55 to 59 years old":"55-59 лет","6 to 11 months old":" возраст от 6-11  месяцев","60 years old and over":"60 лет и старше","7 to 14 years old":"7-14 лет","8 to 9 years old":"8-9 лет","Age":"Возраст","At the time of departure cargo.":"В момент отправления груза.","Batken":"Баткенская область","Bishkek (city)":"г. Бишкек","Chui":"Чуйская область","Composite breakdown":"Композитная разбивка","Degree of urbanisation":"Степень урбанизации","Education level":"Уровень образования","Female":"женский","Income or wealth quantile":"Доход или квинтиль благосостояния","Internet speed: 10 Mbit/s or above":"Скорость интернета: 10 Мбит /с  или выше","Internet speed: 2 Mbit/s to less than 10 Mbit/s":"Скорость интернета: от 2 Мбит /с  до менее 10 Мбит / с","Internet speed: 256 kbit/s to less than 2 Mbit/s":"Скорость интернета: от 256 кбит /с  до менее 2 Мбит / с","Issyk-Kul":"Иссык-Кульская область","Jalal-Abad":"Жалал-Абад область","Local currency":"Местная валюта","Lower secondary education":"1- этап среднего образования","Male":"мужской","Medical doctors":"Врачи","Mode of Transport: Air":"Вид транспорта: воздушный","Mode of Transport: Pipeline":"Вид транспорта: трубопроводный","Mode of Transport: Rail":"Вид транспорта: железнодорожный","Mode of Transport: Road":"Вид транспорта: дорожный","Mode of Transport: Water":"Вид транспорта: водный","Naryn":"Нарынская область","Non-communicable disease: Cancer":"Неинфекционные заболевания: рак","Non-communicable disease: Cardiovascular disease":"Неинфекционные заболевания: сердечно-сосудистые заболевания","Non-communicable disease: Chronic respiratory disease":"Неинфекционные заболевания: хронические респираторные заболевания","Non-communicable disease: Diabetes":"Неинфекционные заболевания:диабет","Nursing and midwifery professionals":"Медсестры и акушеры","Occupation":"Род занятий (Профессия)","Osh":"Ошская область","Osh (city)":"г. Ош","Percent":"Процент","Post-secondary non-tertiary education":"Послесреднее нетретичное образование","Pre-primary education":"Дошкольное образование","Primary education":"Начальное образование (1-4 классы)","Quintile 1 (poorest)":"квинтиль 1 (самые бедные)","Quintile 2":"квинтиль 2","Quintile 3":"квинтиль 3","Quintile 4":"квинтиль 4","Quintile 5 (richest)":"квинтиль 5 (самые богатые)","Reference area":"Справочная зона (условная зона)","Rural":"сельская местность","Sex":"пол","Since 2014 excluding deparmental transport.":"С 2014 года исключая департационный транспорт.","Skill: Functional literacy":"Навыки: Функциональная грамотность","Skill: Functional numeracy":"Навыки: Функциональное счисление ","Some primary education, grades 2 or 3":"Неполное начальное образование","Talas":"Таласская область","Time series-level footnotes":"Сноски для временных рядов","Until 2013 - including Osh.":"До 2013 года - включая Ош.","Upper secondary education":"2- этап среднего образования","Urban":"городская местность","under 1 year old":"возрасте до 1 года","under 5 years old":"до 5 лет"};</script>
 
 
+<div class="container">
+  <ol class="breadcrumb">
+  
+  <li><a href="/">Главная</a></li>
+  <li><a href="/7" title="Обеспечение доступа к недорогим, надежным, устойчивым и современным источникам
+энергии для всех">Цель 7</a></li>
+  <li class="active">показатель 7.b.1.1a</li>
+  
+</ol>
+
+</div>
 <div class="heading goal-banner indicator goal-7">
   <div class="container">
     <div class="row">
-      <div class="col-xs-4 col-md-3 col-lg-2 goal-icon">
+      <div class="col-xs-4 col-md-3 col-lg-2 goal-icon goal-tiles">
         <a href="/7" title="Посмотреть список индикаторов этой цели">
-          <img src="https://sdg-kyrgyzstan.github.io/open-sdg-site-starter/assets/img/goals/ru/7.png" alt="Недорогостоящая и чистая энергия - Цель 7" />
+          <img src="https://sdg-kyrgyzstan.github.io/open-sdg-site-starter/assets/img/goals/ru/7.png" alt="Недорогостоящая и чистая энергия - Цель 7" id="goal-7"/>
         </a>
       </div>
       <div class="col-xs-8 col-md-9 col-lg-10 indicator-details">
         <div>
-          <h1>показатель 7.b.1.1a</h1>
-          <p class="lead-copy">Поступление прямых иностранных инвестиций, поступающих на цели расширения энергетической инфраструктуры и модернизации технологий</p>
+          <h1>
+            показатель 7.b.1.1a
+            <span class="lead-copy">Поступление прямых иностранных инвестиций, поступающих на цели расширения энергетической инфраструктуры и модернизации технологий</span>
+          </h1>
         </div>
       </div>
     </div>
   </div>
 </div>
 
-<div id="main-content" class="container goal-7">
-  <ol class="breadcrumb">
-  <li><a href="/">Главная</a></li>
-  <li><a href="/7" title="Обеспечение доступа к недорогим, надежным, устойчивым и современным источникам
-энергии для всех">Цель 7</a></li>
-  <li class="active">показатель 7.b.1.1a</li>
-</ol>
-
+<div id="main-content" class="container goal-7" role="main">
   
 
   
@@ -303,11 +351,6 @@ var translations = {
 
 
   
-
-
-
-
-
 
 
 <div class="row"
@@ -318,10 +361,6 @@ var translations = {
   data-charttitle="Поступление прямых иностранных инвестиций, поступающих на цели расширения энергетической инфраструктуры и модернизации технологий"
   data-charttitles="null"
   data-measurementunit=""
-  data-datasource=""
-  data-copyright=""
-  data-geographicalarea="Кыргызская Республика"
-  data-footnote=""
   data-showdata="true"
   data-graphtype="line"
   data-geocoderegex=""
@@ -329,8 +368,11 @@ var translations = {
   data-startvalues="null"
   data-graphlimits="null"
   data-stackeddisaggregation=""
+  data-graphannotations="null"
+  data-indicatordownloads="null"
 >
   
+  <span role="status" class="sr-only" id="indicator-data-view-status"></span>
   <div id="indicator-sidebar" class="indicator-sidebar col-md-3">
     <div id="serieses"></div>
 <div id="units"></div>
@@ -339,7 +381,6 @@ var translations = {
     <h4>Субкатегории</h4>
     <p>Выберите категории из выпадающего меню внизу, чтобы увидеть разные разбивки данных. Несколько не будет доступно, пока более высокий уровень не выбран. </p>
   </span>
-  <p id="legend-help">Нажмите на легенду, чтобы убрать линии из графика.</p>
   <div id="fields">
     <p class="async-loading" data-img="/assets/img/loading-small.gif"></p>
   </div>
@@ -528,52 +569,53 @@ var translations = {
 
   <div class="async-loaded spacer medium" style="display:none;">
 
-    <ul class="nav nav-tabs data-view" role="tablist">
+    <div style="display: none;">
+  <span id="table-alternative"></span>
+</div>
+<ul class="nav nav-tabs non-stacking-tabs data-view" role="tablist">
   <li role="presentation" class="nav-item active">
-    <a class="nav-link" data-toggle="tab" href="#chartview" aria-controls="chartview" role="tab" data-on="click"
+    <a class="nav-link" data-toggle="tab" id="tab-chartview" href="#chartview" aria-controls="chartview" role="tab" data-on="click"
 data-event-category="Tab change"
 data-event-action="Change data view"
 data-event-label="Change to Chart tab"
->График</a>
+ aria-describedby="table-alternative">График</a>
   </li>
   <li role="presentation" class="nav-item">
-    <a class="nav-link" data-toggle="tab" href="#tableview" aria-controls="tableview" role="tab" data-on="click"
+    <a class="nav-link" data-toggle="tab" id="tab-tableview" href="#tableview" aria-controls="tableview" role="tab" data-on="click"
 data-event-category="Tab change"
 data-event-action="Change data view"
 data-event-label="Change to Table tab"
 >Таблица</a>
-  </li>
-  <li role="presentation" class="nav-item map" style="display:none">
-    <a data-no-disagg="true" class="nav-link" data-toggle="tab" href="#mapview" aria-controls="mapview" role="tab" data-on="click"
-data-event-category="Tab change"
-data-event-action="Change data view"
-data-event-label="Change to Map tab"
->Карта</a>
   </li></ul>
 
     <div class="tab-content data-view">
   <div role="tabpanel" class="tab-pane active" id="chartview">
     
 
-    <div id="dataset-size-warning" style="display:none">
-      <i class="fa fa-bolt"></i> В таблице слишком много данных, чтобы показать в графике. Чтобы увидеть все, удалите выделенное.
+    <div id="dataset-size-warning" style="display:none" role="alert">
+      <i class="fa fa-bolt"><span class="sr-only"></span></i>
+      В таблице слишком много данных, чтобы показать в графике. Чтобы увидеть все, удалите выделенное.
     </div>
 
     
+    
     <div id="selectionsChart">
-      <div id="chart-canvas">
-        <h3 class="chart-title">
-          
-            Поступление прямых иностранных инвестиций, поступающих на цели расширения энергетической инфраструктуры и модернизации технологий
-          
-        </h3>
-        <div id="chart" class="plot-container">
-          
-<canvas></canvas>
+      <figure role="group">
+        <div id="chart-canvas">
+          <h4 id="chart-heading" class="chart-title">Поступление прямых иностранных инвестиций, поступающих на цели расширения энергетической инфраструктуры и модернизации технологий</h4>
+          <div id="chart" class="plot-container">
+            
+<canvas
+    role="img"
+    aria-labelledby="chart-heading"
+    aria-describedby="table-alternative chart-annotations"
+    tabindex="0"
+ ></canvas>
+
 <script>
 // Add a chart alteration to support the chart_graph_limits metadata field.
 opensdg.chartConfigAlter(function(config, info) {
-  if (info.graphLimits) {
+  if (info.graphLimits && info.graphLimits.length > 0) {
     var limit = _.findWhere(info.graphLimits, { unit: info.selectedUnit }) || info.graphLimits[0];
     var overrides = {
       options: {
@@ -593,30 +635,272 @@ opensdg.chartConfigAlter(function(config, info) {
 });
 </script>
 
+<span style="display: none;" id="chart-annotations" role="status"></span>
+<script>
+opensdg.annotationPresets = {
+    common: {
+        // This "common" preset is applied to all annotations automatically.
+        borderColor: '#505a5f',
+        type: 'line',
+        label: {
+            backgroundColor: 'black',
+            fontColor: 'white',
+        },
+        // This "highContrast" overrides colors when in high-contrast mode.
+        highContrast: {
+            label: {
+                backgroundColor: 'white',
+                fontColor: 'black'
+            }
+        },
+        // This callback is used to generate a generic description for screenreaders.
+        // This can be overridden to be a more specific string, eg:
+        //
+        //     description: 'Chart annotation showing a 2030 target of 15%'
+        //
+        description: function() {
+            var descriptionParts = [translations.indicator.chart_annotation];
+            if (this.label && this.label.content) {
+                descriptionParts.push(translations.t(this.label.content));
+            }
+            else {
+                // If there is no label, just specify whether it is a box or line.
+                if (this.type == 'line') {
+                    descriptionParts.push(this.mode + ' line');
+                }
+                if (this.type == 'box') {
+                    descriptionParts.push('box');
+                }
+            }
+            if (typeof this.value !== 'undefined') {
+                descriptionParts.push(this.value);
+            }
+            return descriptionParts.join(': ');
+        },
+    },
+    target_line: {
+        mode: 'horizontal',
+        borderDash: [5, 5],
+        label: {
+            position: 'right',
+            content: translations.indicator.annotation_2030_target,
+        },
+    },
+};
+
+// Add a chart alteration to support the chart_annotations metadata field.
+opensdg.chartConfigAlter(function(config, info) {
+    if (info.graphAnnotations && info.graphAnnotations.length > 0) {
+        var annotations = info.graphAnnotations.filter(function(annotation) {
+            var match = true;
+            if (match && info.selectedUnit) {
+                match = (info.selectedUnit === annotation.unit);
+            }
+            if (match && info.selectedSeries) {
+                match = (info.selectedSeries === annotation.series);
+            }
+            return match;
+        });
+        // Apply some helpers/fixes to the annotations.
+        annotations = annotations.map(function(annotation) {
+            // Apply the "common" preset.
+            if (opensdg.annotationPresets.common) {
+                annotation = $.extend(true, {}, opensdg.annotationPresets.common, annotation);
+            }
+            // Apply any specified presets.
+            if (annotation.preset) {
+                var preset = annotation.preset;
+                if (opensdg.annotationPresets[preset]) {
+                    annotation = $.extend(true, {}, opensdg.annotationPresets[preset], annotation);
+                }
+            }
+            // Default to horizontal lines.
+            if (!annotation.mode && annotation.type === 'line') {
+                annotation.mode = 'horizontal';
+            }
+            // Provide the obscure scaleID properties on user's behalf.
+            if (!annotation.scaleID && annotation.type === 'line') {
+                if (annotation.mode === 'horizontal') {
+                    annotation.scaleID = 'y-axis-0';
+                }
+                if (annotation.mode === 'vertical') {
+                    annotation.scaleID = 'x-axis-0';
+                }
+            }
+            if (!annotation.xScaleID && annotation.type === 'box') {
+                annotation.xScaleID = 'x-axis-0';
+            }
+            if (!annotation.yScaleID && annotation.type === 'box') {
+                annotation.yScaleID = 'y-axis-0';
+            }
+            // Provide the "enabled" label property on the user's behalf.
+            if (annotation.label && annotation.label.content) {
+                annotation.label.enabled = true;
+            }
+            // Translate any label content.
+            if (annotation.label && annotation.label.content) {
+                annotation.label.content = translations.t(annotation.label.content);
+            }
+            // Save some original values for later used when contrast mode is switched.
+            if (typeof annotation.defaultContrast === 'undefined') {
+                annotation.defaultContrast = {};
+                if (annotation.borderColor) {
+                    annotation.defaultContrast.borderColor = annotation.borderColor;
+                }
+                if (annotation.backgroundColor) {
+                    annotation.defaultContrast.backgroundColor = annotation.backgroundColor;
+                }
+                if (annotation.label) {
+                    annotation.defaultContrast.label = {};
+                    if (annotation.label.fontColor) {
+                        annotation.defaultContrast.label.fontColor = annotation.label.fontColor;
+                    }
+                    if (annotation.label.backgroundColor) {
+                        annotation.defaultContrast.label.backgroundColor = annotation.label.backgroundColor;
+                    }
+                }
+            }
+            return annotation;
+        });
+        if (annotations.length > 0) {
+            var overrides = {
+                options: {
+                    annotation: {
+                        drawTime: 'afterDatasetsDraw',
+                        annotations: annotations
+                    }
+                }
+            };
+            // Add these overrides onto the normal config.
+            $.extend(true, config, overrides);
+
+            // Update the chart annotations element.
+            var descriptions = annotations.map(function(annotation) {
+                var description = '';
+                if (annotation.description) {
+                    if (typeof annotation.description === 'function') {
+                        description = annotation.description.call(annotation);
+                    }
+                    else {
+                        description = translations.t(annotation.description);
+                    }
+                }
+                return description;
+            }).filter(function(description) { return description != ''; });
+
+            var currentDescription = $('#chart-annotations').text();
+            var newDescription = descriptions.join('. ');
+            if (currentDescription != newDescription) {
+                $('#chart-annotations').text(newDescription);
+            }
+        }
+    }
+});
+</script>
+
+<script>
+// For line charts, add the vertical line hover functionality.
+opensdg.chartConfigAlter(function(config, info) {
+    var overrides = {
+        options: {
+            tooltips: {
+                intersect: false,
+                axis: 'x'
+            },
+        },
+        plugins: [{
+            beforeDatasetsDraw: function(chart) {
+                if (chart.tooltip._active && chart.tooltip._active.length) {
+                    var activePoint = chart.tooltip._active[0],
+                        ctx = chart.ctx,
+                        x = activePoint.tooltipPosition().x,
+                        topY = chart.scales['y-axis-0'].top,
+                        bottomY = chart.scales['y-axis-0'].bottom;
+
+                    // draw line
+                    ctx.save();
+                    ctx.beginPath();
+                    ctx.moveTo(x, topY);
+                    ctx.lineTo(x, bottomY);
+                    ctx.lineWidth = 2;
+                    ctx.strokeStyle = '#07C';
+                    ctx.stroke();
+                    ctx.restore();
+                }
+            }
+        }],
+    };
+    // Add these overrides onto the normal config, and return it.
+    $.extend(true, config, overrides);
+});
+</script>
+
+          </div>
+          <div id="plotLegend"></div>
+          
+
+
+
+<div id="selectionChartFooter" class="table-footer-text">
+  <h5 class="sr-only">Chart details</h5>
+    <dl>
+        
+
+        
+        <dt>Географический район:</dt>
+        <dd>Кыргызская Республика</dd>
+        
+
+        
+
+        
+
+        
+    <dl>
+</div>
 
         </div>
-        <div id="plotLegend"></div>
+      </figure>
+      <div id="chartSelectionDownload" class="clearfix">
+        <button id="btnSave" title="Скачать диаграмму как изображение" class='btn btn-primary btn-download'>
+          Загрузить изображение диаграммы
+        </button>
       </div>
-      <button id="btnSave" title="Скачать диаграмму как изображение" class='btn btn-primary btn-download'>
-        Загрузить изображение диаграммы
-      </button>
     </div>
-    <div id="chartSelectionDownload"></div>
 
 
 
   </div>
   <div role="tabpanel" class="tab-pane" id="tableview">
+    <div style="display: none;">
+      <span id="column-sort-info"></span>
+    </div>
     <div id="selectionsTable"></div>
 
-  </div>
-  <div role="tabpanel" class="tab-pane" id="mapview" class="map">
-    <div id="map">
-  <img src="/assets/img/loading.gif" alt="Загрузка карты" />
+
+
+
+<div id="selectionTableFooter" class="table-footer-text">
+  <h5 class="sr-only">Chart details</h5>
+    <dl>
+        
+
+        
+        <dt>Географический район:</dt>
+        <dd>Кыргызская Республика</dd>
+        
+
+        
+
+        
+
+        
+    <dl>
 </div>
 
+<div id="tableSelectionDownload" class="clearfix"></div>
+
   </div>
-  
 </div>
 
 
@@ -632,8 +916,11 @@ opensdg.chartConfigAlter(function(config, info) {
   
   
   
+  
+  
+  
   <li role="presentation" class="nav-item active">
-    <a class="nav-link" data-toggle="tab" href="#indicator_information" aria-controls="indicator_information" role="tab" data-on="click"
+    <a class="nav-link" data-toggle="tab" id="tab-indicator_information" href="#indicator_information" aria-controls="indicator_information" role="tab" data-on="click"
 data-event-category="Tab change"
 data-event-action="Change metadata view"
 data-event-label="Change to custom.indicator_information tab"
@@ -644,8 +931,11 @@ data-event-label="Change to custom.indicator_information tab"
   
   
   
+  
+  
+  
   <li role="presentation" class="nav-item ">
-    <a class="nav-link" data-toggle="tab" href="#national" aria-controls="national" role="tab" data-on="click"
+    <a class="nav-link" data-toggle="tab" id="tab-national" href="#national" aria-controls="national" role="tab" data-on="click"
 data-event-category="Tab change"
 data-event-action="Change metadata view"
 data-event-label="Change to indicator.national_metadata tab"
@@ -656,8 +946,11 @@ data-event-label="Change to indicator.national_metadata tab"
   
   
   
+  
+  
+  
   <li role="presentation" class="nav-item ">
-    <a class="nav-link" data-toggle="tab" href="#data_reporter" aria-controls="data_reporter" role="tab" data-on="click"
+    <a class="nav-link" data-toggle="tab" id="tab-data_reporter" href="#data_reporter" aria-controls="data_reporter" role="tab" data-on="click"
 data-event-category="Tab change"
 data-event-action="Change metadata view"
 data-event-label="Change to custom.data_reporter tab"
@@ -675,9 +968,14 @@ data-event-label="Change to custom.data_reporter tab"
     
     
     
+    
+    
+    
+    
     <div role="tabpanel" class="tab-pane active" id="indicator_information">
       <article>
         <p>Данная таблица предоставляет информацию об индикаторе</p>
+
         <table class="table">
   
   
@@ -764,9 +1062,14 @@ data-event-label="Change to custom.data_reporter tab"
     
     
     
+    
+    
+    
+    
     <div role="tabpanel" class="tab-pane " id="national">
       <article>
         <p>В этой таблице представлены метаданные для фактического показателя, доступного из статистики ближайшей к соответствующему глобальному индикатору ЦУР. Обратите внимание, что даже если глобальный индикатор ЦУР полностью доступен из статистики, по этой таблице следует проконсультироваться для получения информации о национальной методологии и других специфичных метаданных.</p>
+
         <table class="table">
   
   
@@ -1017,9 +1320,14 @@ data-event-label="Change to custom.data_reporter tab"
     
     
     
+    
+    
+    
+    
     <div role="tabpanel" class="tab-pane " id="data_reporter">
       <article>
         <p>Данная таблица предоставляет информацию о поставщиках данных</p>
+
         <table class="table">
   
   
@@ -1146,20 +1454,18 @@ data-event-label="Change to custom.data_reporter tab"
           <ul>
             <li><a href="https://open-sdg.org">Построен с использованием Open SDG</a></li>
             
-              
-                <li>
+              <li>
                 
                   <a href="mailto:sdg_nsc@stat.kg" target="_blank">Свяжитесь с нами</a>
                 
                 </li>
-              
-                <li>
+              <li>
                 <a href="/about/cookies-and-privacy">Cookies</a>
                 
                 </li>
               
             
-          </ul>
+            </ul>
         </div>
       </div>
     </div>
@@ -1181,6 +1487,7 @@ data-event-label="Change to custom.data_reporter tab"
 <script src="//cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.bundle.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/patternomaly@1.3.2/dist/patternomaly.js"></script>
 
+
 <script src="https://cdnjs.cloudflare.com/ajax/libs/autotrack/2.4.1/autotrack.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/html2canvas@1.0.0-rc.3/dist/html2canvas.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/file-saver@2.0.2/dist/FileSaver.min.js"></script>
@@ -1190,7 +1497,12 @@ data-event-label="Change to custom.data_reporter tab"
 <script>translations['search'] = translations['search'] || {};
     translations['search']['search'] = 'Поиск';</script>
 
-<script src='/assets/js/sdg.js?v=20201126032115'></script><script src="/assets/js/custom.js?v=20201126032115"></script><script>
+<script src='/assets/js/sdg.js?v=20210114151510'></script>
+
+
+    
+    
+    <script src="/assets/js/custom.js?v=20210114151510"></script><script>
 $(function() {
     if($('#indicatorData').length) {
       var domData = $('#indicatorData').data();
@@ -1223,15 +1535,13 @@ $(function() {
               chartTitle: domData.charttitle,
               chartTitles: domData.charttitles,
               measurementUnit: domData.measurementunit,
-              copyright: domData.copyright,
-              dataSource: domData.datasource,
-              geographicalArea: domData.geographicalarea,
               showData: domData.showdata,
-              footnote: domData.footnote,
               graphType: domData.graphtype,
               startValues: domData.startvalues,
               graphLimits: domData.graphlimits,
               stackedDisaggregation: domData.stackeddisaggregation,
+              graphAnnotations: domData.graphannotations,
+              indicatorDownloads: domData.indicatordownloads,
             }),
             view  = new indicatorView(model, {
               rootElement: '#indicatorData',

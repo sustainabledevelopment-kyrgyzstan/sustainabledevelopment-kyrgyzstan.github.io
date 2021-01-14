@@ -3,7 +3,7 @@
     <head>
         <meta charset="utf-8">
         <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.min.js"></script>
-        <script crossorigin="anonymous" src="https://polyfill.io/v3/polyfill.min.js?features=Promise%2CArray.prototype.forEach%2CString.prototype.includes%2CURLSearchParams%2CCustomEvent%2CArray.prototype.includes%2CArray.prototype.filter%2CArray.prototype.some%2CArray.prototype.find%2CObject.assign%2CArray.isArray%2CObject.values"></script>
+        <script crossorigin="anonymous" src="https://polyfill.io/v3/polyfill.min.js?features=Promise%2CArray.prototype.forEach%2CString.prototype.includes%2CURLSearchParams%2CCustomEvent%2CArray.prototype.includes%2CArray.prototype.filter%2CArray.prototype.some%2CArray.prototype.find%2CObject.assign%2CArray.isArray%2CObject.values%2CArray.from%2CSet"></script>
 <script crossorigin="anonymous" src="https://cdnjs.cloudflare.com/ajax/libs/javascript-canvas-to-blob/3.15.0/js/canvas-to-blob.min.js"></script>
 
         <script>
@@ -90,11 +90,10 @@ var translations = {
         <!-- Title and meta description
         ================================================== -->
 
-        <title>
-          
-            Цель 15 - Сохранение экосистем суши
-          
-        </title>
+        
+    <title>Цель 15 - Сохранение экосистем суши - Indicators For The Sustainable Development Goals</title>
+
+
 
         <meta name="description" content="">
         <meta property="og:description" content="">
@@ -120,7 +119,7 @@ var translations = {
         <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css" crossorigin="">
         <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" crossorigin="">
         <link rel="stylesheet" href="https://cdn.datatables.net/fixedcolumns/3.2.3/css/fixedColumns.dataTables.min.css" crossorigin="">
-        <link rel="stylesheet" href="/assets/css/style.css?v=20201126032115">
+        <link rel="stylesheet" href="/assets/css/style.css?v=20210114151510">
         <link href="https://fonts.googleapis.com/css?family=Open+Sans|Roboto" rel="stylesheet" crossorigin="">
         <link rel="stylesheet" href="https://unpkg.com/leaflet@1.3.4/dist/leaflet.css"
           integrity="sha512-puBpdR0798OZvTTbP4A8Ix/l+A4dHDD0DGqYW6RQ+9jxkRFclaxxQb/SJAWZfWAkuyeQUytO7+7N4QKrDh+drA=="
@@ -128,7 +127,7 @@ var translations = {
         <link rel="stylesheet" href="https://cdn.rawgit.com/socib/Leaflet.TimeDimension/master/dist/leaflet.timedimension.control.min.css"  crossorigin=""/>
         <link rel="stylesheet" href='https://api.mapbox.com/mapbox.js/plugins/leaflet-fullscreen/v1.0.1/leaflet.fullscreen.css'  crossorigin=""/>
         <link rel="stylesheet" href="https://bowercdn.net/c/leaflet.zoomhome-latest/dist/leaflet.zoomhome.css"  crossorigin=""/>
-        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet-search@2.9.7/dist/leaflet-search.min.css" crossorigin=""><link rel="stylesheet" href="/assets/css/custom.css?v=20201126032115"><!-- ShareThis BEGIN --><!-- ShareThis END -->
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet-search@2.9.7/dist/leaflet-search.min.css" crossorigin=""><link rel="stylesheet" href="/assets/css/custom.css?v=20210114151510"><!-- ShareThis BEGIN --><!-- ShareThis END -->
 
     </head>
 <body class="language-ru layout-goal-by-target">
@@ -139,7 +138,7 @@ var translations = {
 <a class="sr-only sr-only-focusable" id="skiplink" href="#main-content" tabindex="0">Перейти к главному содержанию</a>
 <div id="disclaimer">
   <div class="container">
-  <div class="disclaimer-alert" role="alert">
+  <div class="disclaimer-alert">
     <strong class="phase-tag">Альфа</strong>
     
     Это сайт находится в разработке. Мы рады вашим отзывам.
@@ -158,14 +157,27 @@ var translations = {
     </a>
     <div class='hidden visible-xs float-right'>
       <ul id='accessibility-nav' class='contrast-switcher'></ul><div class="language-toggle-mobile">
-        <a class="language-toggle-button" onclick="$(this).next('.language-toggle').toggle(); return false;">
-  <i class="fa fa-globe"></i>
-  <span class="language-toggle-text">Pусский</span>
-  <i class="language-toggle fa fa-chevron-down"></i>
-  <i class="language-toggle fa fa-chevron-up" style="display:none;"></i>
-</a>
+        
 
-<ul class="language-options language-toggle"><li><a href="/en/15/">English</a></li></ul>
+
+
+
+
+  <div class="language-toggle-container">
+  
+  <div class="btn-group language-toggle-dropdown ">
+    <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+      <span class="language-globe-in-dropdown"><i class="fa fa-globe language-toggle-globe-dropdown"></i></span><span class="language-name">Pусский</span>
+      <span class="language-abbreviation">ru</span><i class="language-toggle-caret fa fa-chevron-down"></i></button>
+    <ul class="dropdown-menu"><li>
+            <a href="/en/15/">
+              English
+            </a>
+          </li></ul>
+  </div>
+</div>
+
+
 
       </div></div>
     <nav class="navbar navbar-default" id="main-nav">
@@ -180,10 +192,9 @@ var translations = {
       </ul>
       <div id="search" class="menu-target">
   <form action="/search">
-    <input name="q" id="indicator_search" title="Поиск" />
-    <label for="indicator_search">
-      <button aria-label="Поиск" id="search-btn" type="submit"><i class="fa fa-search" aria-hidden="false"></i></button><span>Поиск:</span>
-    </label>
+    <input type="text" name="q" id="indicator_search" title="Поиск" />
+    <label class="sr-only" for="indicator_search">Поиск</label>
+    <button aria-label="Поиск" id="search-btn" type="submit"><i class="fa fa-search" aria-hidden="false"></i></button>
   </form>
 </div>
 
@@ -198,14 +209,27 @@ var translations = {
         </li><li class="nav-link ">
           <a href="/faq">Часто задаваемые вопросы</a>
         </li><li>
-          <a class="language-toggle-button" onclick="$(this).next('.language-toggle').toggle(); return false;">
-  <i class="fa fa-globe"></i>
-  <span class="language-toggle-text">Pусский</span>
-  <i class="language-toggle fa fa-chevron-down"></i>
-  <i class="language-toggle fa fa-chevron-up" style="display:none;"></i>
-</a>
+          
 
-<ul class="language-options language-toggle"><li><a href="/en/15/">English</a></li></ul>
+
+
+
+
+  <div class="language-toggle-container">
+  
+  <div class="btn-group language-toggle-dropdown ">
+    <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+      <span class="language-globe-in-dropdown"><i class="fa fa-globe language-toggle-globe-dropdown"></i></span><span class="language-name">Pусский</span>
+      <span class="language-abbreviation">ru</span><i class="language-toggle-caret fa fa-chevron-down"></i></button>
+    <ul class="dropdown-menu"><li>
+            <a href="/en/15/">
+              English
+            </a>
+          </li></ul>
+  </div>
+</div>
+
+
 
         </li></ul>
     </nav>
@@ -213,11 +237,21 @@ var translations = {
 </header>
 
 
+<div class="container">
+  <ol class="breadcrumb">
+  
+  <li><a href="/">Главная</a></li>
+  <li class="active">Цель 15</li>
+  
+</ol>
+
+</div>
+
 <div class="heading goal-banner goal-15">
   <div class="container">
     <div class="row">
-      <div class="col-xs-4 col-md-3 col-lg-2">
-        <img src="https://sdg-kyrgyzstan.github.io/open-sdg-site-starter/assets/img/goals/ru/15.png" alt="Сохранение экосистем суши - Цель 15" />
+      <div class="col-xs-4 col-md-3 col-lg-2 goal-tiles">
+        <img src="https://sdg-kyrgyzstan.github.io/open-sdg-site-starter/assets/img/goals/ru/15.png" alt="Сохранение экосистем суши - Цель 15" id="goal-15" />
       </div>
       <div class="col-xs-8 col-md-9 col-lg-10">
         <h1>
@@ -232,14 +266,11 @@ var translations = {
   </div>
 </div>
 
-<div id="main-content" class="container goal-indicators goal-15 goal-by-target">
+<div id="main-content" class="container goal-indicators goal-15 goal-by-target" role="main">
 
   
 
-  <ol class="breadcrumb">
-    <li><a href="/">Главная</a></li>
-    <li class="active">Цель 15</li>
-  </ol>
+
 
   <div class="visible-md-block visible-lg-block">
     <div class="col-md-6">
@@ -277,17 +308,17 @@ var translations = {
       
 
       <div class="col-md-12  goal-indicator">
-        <a href="/15-1-1">
-          <span>
-            15.1.1
-            <span class="status notstarted">
-              В процессе разработки
-            </span>
+        <span>
+          15.1.1
+          <span class="status notstarted">
+            В процессе разработки
           </span>
+        </span>
+        <a href="/15-1-1">
           Площадь лесов в процентном отношении к
 общей площади суши
-          
         </a>
+        
       </div>
     
 
@@ -301,23 +332,23 @@ var translations = {
       
 
       <div class="col-md-12 indicator-национальный goal-indicator">
-        <a href="/15-1-1-1">
-          <span>
-            15.1.1.1
-            <span class="status complete">
-              Опубликован
-            </span>
+        <span>
+          15.1.1.1
+          <span class="status complete">
+            Опубликован
           </span>
+        </span>
+        <a href="/15-1-1-1">
           Площадь лесов в процентном отношении к общей площади страны
-          
-            <ul class="tags">
-            
-              
-              <li class="tag-национальный warning">национальный</li>
-            
-            </ul>
-          
         </a>
+        
+          <ul class="tags">
+          
+            
+            <li class="tag-национальный warning">национальный</li>
+          
+          </ul>
+        
       </div>
     
 
@@ -331,18 +362,18 @@ var translations = {
       
 
       <div class="col-md-12  goal-indicator">
-        <a href="/15-1-2">
-          <span>
-            15.1.2
-            <span class="status complete">
-              Опубликован
-            </span>
+        <span>
+          15.1.2
+          <span class="status complete">
+            Опубликован
           </span>
+        </span>
+        <a href="/15-1-2">
           Доля важных с точки зрения биологического разнообразия районов суши и пресноводных районов,
 находящихся под охраной, в разбивке по видам
 экосистем
-          
         </a>
+        
       </div>
     
 
@@ -356,23 +387,23 @@ var translations = {
       
 
       <div class="col-md-12 indicator-национальный goal-indicator">
-        <a href="/15-1-2-1">
-          <span>
-            15.1.2.1
-            <span class="status complete">
-              Опубликован
-            </span>
+        <span>
+          15.1.2.1
+          <span class="status complete">
+            Опубликован
           </span>
+        </span>
+        <a href="/15-1-2-1">
           Площадь ООПТ от всей площади страны
-          
-            <ul class="tags">
-            
-              
-              <li class="tag-национальный warning">национальный</li>
-            
-            </ul>
-          
         </a>
+        
+          <ul class="tags">
+          
+            
+            <li class="tag-национальный warning">национальный</li>
+          
+          </ul>
+        
       </div>
     
     </div>
@@ -402,17 +433,17 @@ var translations = {
       
 
       <div class="col-md-12  goal-indicator">
-        <a href="/15-2-1">
-          <span>
-            15.2.1
-            <span class="status complete">
-              Опубликован
-            </span>
+        <span>
+          15.2.1
+          <span class="status complete">
+            Опубликован
           </span>
+        </span>
+        <a href="/15-2-1">
           Прогресс в переходе на неистощительное ведение
 лесного хозяйства
-          
         </a>
+        
       </div>
     
     </div>
@@ -442,18 +473,18 @@ var translations = {
       
 
       <div class="col-md-12  goal-indicator">
-        <a href="/15-3-1">
-          <span>
-            15.3.1
-            <span class="status notstarted">
-              В процессе разработки
-            </span>
+        <span>
+          15.3.1
+          <span class="status notstarted">
+            В процессе разработки
           </span>
+        </span>
+        <a href="/15-3-1">
           Площадь деградировавших земель в процентном
 отношении к общей площади суши
 
-          
         </a>
+        
       </div>
     
 
@@ -467,23 +498,23 @@ var translations = {
       
 
       <div class="col-md-12 indicator-национальный goal-indicator">
-        <a href="/15-3-1-1">
-          <span>
-            15.3.1.1
-            <span class="status complete">
-              Опубликован
-            </span>
+        <span>
+          15.3.1.1
+          <span class="status complete">
+            Опубликован
           </span>
+        </span>
+        <a href="/15-3-1-1">
           Площадь пашни по причинам неиспользования
-          
-            <ul class="tags">
-            
-              
-              <li class="tag-национальный warning">национальный</li>
-            
-            </ul>
-          
         </a>
+        
+          <ul class="tags">
+          
+            
+            <li class="tag-национальный warning">национальный</li>
+          
+          </ul>
+        
       </div>
     
     </div>
@@ -512,17 +543,17 @@ var translations = {
       
 
       <div class="col-md-12  goal-indicator">
-        <a href="/15-4-1">
-          <span>
-            15.4.1
-            <span class="status complete">
-              Опубликован
-            </span>
+        <span>
+          15.4.1
+          <span class="status complete">
+            Опубликован
           </span>
+        </span>
+        <a href="/15-4-1">
           Доля охраняемых районов среди важных для
 горного биоразнообразия участков
-          
         </a>
+        
       </div>
     
 
@@ -536,16 +567,16 @@ var translations = {
       
 
       <div class="col-md-12  goal-indicator">
-        <a href="/15-4-2">
-          <span>
-            15.4.2
-            <span class="status notstarted">
-              В процессе разработки
-            </span>
+        <span>
+          15.4.2
+          <span class="status notstarted">
+            В процессе разработки
           </span>
+        </span>
+        <a href="/15-4-2">
           Индекс растительного покрова гор
-          
         </a>
+        
       </div>
     
     </div>
@@ -575,16 +606,16 @@ var translations = {
       
 
       <div class="col-md-12  goal-indicator">
-        <a href="/15-5-1">
-          <span>
-            15.5.1
-            <span class="status notstarted">
-              В процессе разработки
-            </span>
+        <span>
+          15.5.1
+          <span class="status notstarted">
+            В процессе разработки
           </span>
+        </span>
+        <a href="/15-5-1">
           Индекс Красного списка
-          
         </a>
+        
       </div>
     
 
@@ -598,23 +629,23 @@ var translations = {
       
 
       <div class="col-md-12 indicator-национальный goal-indicator">
-        <a href="/15-5-1-1">
-          <span>
-            15.5.1.1
-            <span class="status complete">
-              Опубликован
-            </span>
+        <span>
+          15.5.1.1
+          <span class="status complete">
+            Опубликован
           </span>
+        </span>
+        <a href="/15-5-1-1">
           Доля краснокнижных видов от всех видов соответствующего класса
-          
-            <ul class="tags">
-            
-              
-              <li class="tag-национальный warning">национальный</li>
-            
-            </ul>
-          
         </a>
+        
+          <ul class="tags">
+          
+            
+            <li class="tag-национальный warning">национальный</li>
+          
+          </ul>
+        
       </div>
     
     </div>
@@ -644,20 +675,20 @@ var translations = {
       
 
       <div class="col-md-12  goal-indicator">
-        <a href="/15-6-1">
-          <span>
-            15.6.1
-            <span class="status notstarted">
-              В процессе разработки
-            </span>
+        <span>
+          15.6.1
+          <span class="status notstarted">
+            В процессе разработки
           </span>
+        </span>
+        <a href="/15-6-1">
           Число стран, принявших комплексы законодательных,
 административных и директивных мер,
 обеспечивающих справедливое и недискриминационное
 распределение благ
 
-          
         </a>
+        
       </div>
     
     </div>
@@ -687,19 +718,19 @@ var translations = {
       
 
       <div class="col-md-12  goal-indicator">
-        <a href="/15-7-1">
-          <span>
-            15.7.1
-            <span class="status notstarted">
-              В процессе разработки
-            </span>
+        <span>
+          15.7.1
+          <span class="status notstarted">
+            В процессе разработки
           </span>
+        </span>
+        <a href="/15-7-1">
           Доля диких животных, являющихся объектом
 браконьерства или незаконного оборота, среди
 видов, которыми ведется торговля
 
-          
         </a>
+        
       </div>
     
 
@@ -713,23 +744,23 @@ var translations = {
       
 
       <div class="col-md-12 indicator-национальный goal-indicator">
+        <span>
+          15.7.1.1
+          <span class="status complete">
+            Опубликован
+          </span>
+        </span>
         <a href="/15-7-1-1">
-          <span>
-            15.7.1.1
-            <span class="status complete">
-              Опубликован
-            </span>
-          </span>
           Доля диких животных, являющихся объектом браконьерства или незаконного оборота от всех видов соответствующего класса
-          
-            <ul class="tags">
-            
-              
-              <li class="tag-национальный warning">национальный</li>
-            
-            </ul>
-          
         </a>
+        
+          <ul class="tags">
+          
+            
+            <li class="tag-национальный warning">национальный</li>
+          
+          </ul>
+        
       </div>
     
 
@@ -743,23 +774,23 @@ var translations = {
       
 
       <div class="col-md-12 indicator-национальный goal-indicator">
-        <a href="/15-7-1-2">
-          <span>
-            15.7.1.2
-            <span class="status complete">
-              Опубликован
-            </span>
+        <span>
+          15.7.1.2
+          <span class="status complete">
+            Опубликован
           </span>
+        </span>
+        <a href="/15-7-1-2">
           Количество выданных разрешений на вывоз и ввоз животных и растений, их частей и дериватов, попадающих под действие Конвенции CITES
-          
-            <ul class="tags">
-            
-              
-              <li class="tag-национальный warning">национальный</li>
-            
-            </ul>
-          
         </a>
+        
+          <ul class="tags">
+          
+            
+            <li class="tag-национальный warning">национальный</li>
+          
+          </ul>
+        
       </div>
     
     </div>
@@ -790,20 +821,20 @@ var translations = {
       
 
       <div class="col-md-12  goal-indicator">
-        <a href="/15-8-1">
-          <span>
-            15.8.1
-            <span class="status complete">
-              Опубликован
-            </span>
+        <span>
+          15.8.1
+          <span class="status complete">
+            Опубликован
           </span>
+        </span>
+        <a href="/15-8-1">
           Доля стран, принимающих соответствующее
 национальное законодательство и выделяющих достаточные
 ресурсы для предотвращения проникновения
 или регулирования численности чужеродных инвазивных
 видов
-          
         </a>
+        
       </div>
     
     </div>
@@ -834,20 +865,20 @@ var translations = {
       
 
       <div class="col-md-12  goal-indicator">
-        <a href="/15-9-1">
-          <span>
-            15.9.1
-            <span class="status complete">
-              Опубликован
-            </span>
+        <span>
+          15.9.1
+          <span class="status complete">
+            Опубликован
           </span>
+        </span>
+        <a href="/15-9-1">
           Прогресс в достижении национальных целевых
 показателей, установленных в соответствии с
 Айтинской целевой задачей 2 по биоразнообразию в
 рамках Стратегического плана по биоразнообразию
 на 2011–2020 годы
-          
         </a>
+        
       </div>
     
     </div>
@@ -876,19 +907,19 @@ var translations = {
       
 
       <div class="col-md-12  goal-indicator">
-        <a href="/15-a-1">
-          <span>
-            15.a.1
-            <span class="status notstarted">
-              В процессе разработки
-            </span>
+        <span>
+          15.a.1
+          <span class="status notstarted">
+            В процессе разработки
           </span>
+        </span>
+        <a href="/15-a-1">
           Объем официальной помощи в целях развития
 и государственных средств, выделяемых на сохранение
 и рациональное использование биоразнообразия
 и экосистем
-          
         </a>
+        
       </div>
     
     </div>
@@ -919,19 +950,19 @@ var translations = {
       
 
       <div class="col-md-12  goal-indicator">
-        <a href="/15-b-1">
-          <span>
-            15.b.1
-            <span class="status notstarted">
-              В процессе разработки
-            </span>
+        <span>
+          15.b.1
+          <span class="status notstarted">
+            В процессе разработки
           </span>
+        </span>
+        <a href="/15-b-1">
           Объем официальной помощи в целях развития
 и государственных средств, выделяемых на сохранение
 и рациональное использование биоразнообразия
 и экосистем
-          
         </a>
+        
       </div>
     
 
@@ -945,23 +976,23 @@ var translations = {
       
 
       <div class="col-md-12 indicator-национальный goal-indicator">
-        <a href="/15-b-1-1">
-          <span>
-            15.b.1.1
-            <span class="status complete">
-              Опубликован
-            </span>
+        <span>
+          15.b.1.1
+          <span class="status complete">
+            Опубликован
           </span>
+        </span>
+        <a href="/15-b-1-1">
           Объем государственных средств, выделяемых на охрану окружающей среды
-          
-            <ul class="tags">
-            
-              
-              <li class="tag-национальный warning">национальный</li>
-            
-            </ul>
-          
         </a>
+        
+          <ul class="tags">
+          
+            
+            <li class="tag-национальный warning">национальный</li>
+          
+          </ul>
+        
       </div>
     
     </div>
@@ -992,18 +1023,18 @@ var translations = {
       
 
       <div class="col-md-12  goal-indicator">
-        <a href="/15-c-1">
-          <span>
-            15.c.1
-            <span class="status notstarted">
-              В процессе разработки
-            </span>
+        <span>
+          15.c.1
+          <span class="status notstarted">
+            В процессе разработки
           </span>
+        </span>
+        <a href="/15-c-1">
           Доля диких животных, являющихся объектом
 браконьерства или незаконного оборота, среди
 видов, которыми ведется торговля
-          
         </a>
+        
       </div>
     
 
@@ -1017,23 +1048,23 @@ var translations = {
       
 
       <div class="col-md-12 indicator-национальный goal-indicator">
-        <a href="/15-c-1-1">
-          <span>
-            15.c.1.1
-            <span class="status complete">
-              Опубликован
-            </span>
+        <span>
+          15.c.1.1
+          <span class="status complete">
+            Опубликован
           </span>
+        </span>
+        <a href="/15-c-1-1">
           Доля диких животных, являющихся объектом браконьерства или незаконного оборота от всех видов соответствующего класса
-          
-            <ul class="tags">
-            
-              
-              <li class="tag-национальный warning">национальный</li>
-            
-            </ul>
-          
         </a>
+        
+          <ul class="tags">
+          
+            
+            <li class="tag-национальный warning">национальный</li>
+          
+          </ul>
+        
       </div>
     
     </div>
@@ -1048,20 +1079,18 @@ var translations = {
           <ul>
             <li><a href="https://open-sdg.org">Построен с использованием Open SDG</a></li>
             
-              
-                <li>
+              <li>
                 
                   <a href="mailto:sdg_nsc@stat.kg" target="_blank">Свяжитесь с нами</a>
                 
                 </li>
-              
-                <li>
+              <li>
                 <a href="/about/cookies-and-privacy">Cookies</a>
                 
                 </li>
               
             
-          </ul>
+            </ul>
         </div>
       </div>
     </div>
@@ -1083,6 +1112,7 @@ var translations = {
 <script src="//cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.bundle.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/patternomaly@1.3.2/dist/patternomaly.js"></script>
 
+
 <script src="https://cdnjs.cloudflare.com/ajax/libs/autotrack/2.4.1/autotrack.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/html2canvas@1.0.0-rc.3/dist/html2canvas.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/file-saver@2.0.2/dist/FileSaver.min.js"></script>
@@ -1092,7 +1122,12 @@ var translations = {
 <script>translations['search'] = translations['search'] || {};
     translations['search']['search'] = 'Поиск';</script>
 
-<script src='/assets/js/sdg.js?v=20201126032115'></script><script src="/assets/js/custom.js?v=20201126032115"></script><script>
+<script src='/assets/js/sdg.js?v=20210114151510'></script>
+
+
+    
+    
+    <script src="/assets/js/custom.js?v=20210114151510"></script><script>
 $(function() {
     if($('#indicatorData').length) {
       var domData = $('#indicatorData').data();
@@ -1125,15 +1160,13 @@ $(function() {
               chartTitle: domData.charttitle,
               chartTitles: domData.charttitles,
               measurementUnit: domData.measurementunit,
-              copyright: domData.copyright,
-              dataSource: domData.datasource,
-              geographicalArea: domData.geographicalarea,
               showData: domData.showdata,
-              footnote: domData.footnote,
               graphType: domData.graphtype,
               startValues: domData.startvalues,
               graphLimits: domData.graphlimits,
               stackedDisaggregation: domData.stackeddisaggregation,
+              graphAnnotations: domData.graphannotations,
+              indicatorDownloads: domData.indicatordownloads,
             }),
             view  = new indicatorView(model, {
               rootElement: '#indicatorData',
