@@ -119,7 +119,7 @@ var translations = {
         <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css" crossorigin="">
         <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" crossorigin="">
         <link rel="stylesheet" href="https://cdn.datatables.net/fixedcolumns/3.2.3/css/fixedColumns.dataTables.min.css" crossorigin="">
-        <link rel="stylesheet" href="/assets/css/style.css?v=20210114151510">
+        <link rel="stylesheet" href="/assets/css/style.css?v=20210114170303">
         <link href="https://fonts.googleapis.com/css?family=Open+Sans|Roboto" rel="stylesheet" crossorigin="">
         <link rel="stylesheet" href="https://unpkg.com/leaflet@1.3.4/dist/leaflet.css"
           integrity="sha512-puBpdR0798OZvTTbP4A8Ix/l+A4dHDD0DGqYW6RQ+9jxkRFclaxxQb/SJAWZfWAkuyeQUytO7+7N4QKrDh+drA=="
@@ -127,13 +127,13 @@ var translations = {
         <link rel="stylesheet" href="https://cdn.rawgit.com/socib/Leaflet.TimeDimension/master/dist/leaflet.timedimension.control.min.css"  crossorigin=""/>
         <link rel="stylesheet" href='https://api.mapbox.com/mapbox.js/plugins/leaflet-fullscreen/v1.0.1/leaflet.fullscreen.css'  crossorigin=""/>
         <link rel="stylesheet" href="https://bowercdn.net/c/leaflet.zoomhome-latest/dist/leaflet.zoomhome.css"  crossorigin=""/>
-        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet-search@2.9.7/dist/leaflet-search.min.css" crossorigin=""><link rel="stylesheet" href="/assets/css/custom.css?v=20210114151510"><!-- ShareThis BEGIN --><!-- ShareThis END -->
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet-search@2.9.7/dist/leaflet-search.min.css" crossorigin=""><link rel="stylesheet" href="/assets/css/custom.css?v=20210114170303"><!-- ShareThis BEGIN --><!-- ShareThis END -->
 
     </head>
 <body class="language-en layout-indicator">
 <!-- <div class="container"> -->
 
-<script>translations['header'] = {"alpha":"Alpha","default_contrast":"Default contrast","disable_high_contrast":"Disable high contrast","disclaimer":"This is a development website. We welcome your <a href=\"mailto:%email_address\">feedback</a>.","enable_high_contrast":"Enable high contrast","high_contrast":"High contrast","skip_link":"Skip to main content","tag_line":"17 Goals to Transform our World"};</script>
+<script>translations['header'] = {"alpha":"Alpha","default_contrast":"Default contrast","disable_high_contrast":"Disable high contrast","disclaimer":"This is a development website. We welcome your <a href=\"mailto:%email_address\">feedback</a>.","enable_high_contrast":"Enable high contrast","high_contrast":"High contrast","skip_link":"Skip to main content","tag_line":"17 Goals to Transform our World","toggle_menu":"Menu toggle. Click to expand or collapse the menu.","toggle_search":"Search toggle. Click to expand or collapse the search bar."};</script>
 
 <a class="sr-only sr-only-focusable" id="skiplink" href="#main-content" tabindex="0">Skip to main content</a>
 <div id="disclaimer">
@@ -247,7 +247,7 @@ var translations = {
       >
         <% if(allowedFields.indexOf(fieldItem.field) == -1) { %><h6><% } else { %><h5><% } %>
           <span aria-hidden="true"><%=translations.t(fieldItem.field)%><i class="fa fa-chevron-down"></i></span>
-          <span class="sr-only"> <%=translations.t(fieldItem.field)%></span>
+          <span class="sr-only">Show sub-categories: <%=translations.t(fieldItem.field)%></span>
         <% if(allowedFields.indexOf(fieldItem.field) == -1) { %></h6><% } else { %></h5><% } %>
       </button>
       <div class="bar">
@@ -306,7 +306,7 @@ var translations = {
   <% } %>
 </script>
 
-<script>translations['indicator'] = {"chart":"Chart","clear_all":"Clear all","clear_selections":"Clear selections","data_not_available":"This data is not available. Please choose alternative data to display.","dataset_size_warning":"There are too many datasets to show on the chart. Not all will be shown until you remove some selections.","download_chart":"Download Chart CSV","download_chart_image":"Download Chart Image","download_chart_image_title":"Download chart as image","download_csv":"Download CSV","download_csv_title":"Download as CSV","download_geojson":"Download GeoJSON","download_geojson_title":"Download as GeoJSON","download_headline":"Download Headline CSV","download_headline_title":"Download headline data as CSV","download_source":"Download Source CSV","download_source_sdmx":"Download Source SDMX","download_source_sdmx_title":"Download source data as SDMX","download_source_title":"Download source data as CSV","download_table":"Download Table CSV","edit":"Edit","edit_data":"Edit Data","edit_metadata":"Edit Metadata","footnote":"Footnote","geographical_area":"Geographical Area","global_metadata":"Global Metadata","global_metadata_blurb":"This table provides information on metadata for SDG indicators as defined by the UN Statistical Commission. <a href=\"https://unstats.un.org/sdgs/metadata/\">Complete global metadata</a> is provided by the UN Statistics Division.","legend_help":"Click on the legend to remove individual lines from the chart.","loading":"Loading","loading_map":"Loading map","map":"Map","national_metadata":"National Metadata","national_metadata_blurb":"This table provides metadata for the actual indicator available from %country_name statistics closest to the corresponding global SDG indicator. Please note that even when the global SDG indicator is fully available from %country_adjective statistics, this table should be consulted for information on national methodology and other %country_adjective-specific metadata information.","no_data_hint":"No options available because of filters above","select_all":"Select all","series":"Series","series_help":"Choose categories from the dropdowns below to see different breakdowns of the data. Some will not be available until a higher level is chosen.","source":"Source","sources":"Sources","sub_categories":"Sub-categories","table":"Table","unit_of_measurement":"Unit of Measurement","units_type":"Units type","variable_hint":"Available when '%field' is selected","view_indicator_list":"View this goal's indicator list"};</script>
+<script>translations['indicator'] = {"annotation_2030_target":"2030 Target","announce_data_added":"Chart and table updated to include data.","announce_data_not_available":"Chart and table shows no data.","announce_data_removed":"Chart and table updated to exclude data.","chart":"Chart","chart_annotation":"Chart annotation","clear_all":"Clear all","clear_selections":"Clear selections","data_keyboard_navigation":"Press enter to browse data points with left and right arrow keys.","data_not_available":"This data is not available. Please choose alternative data to display.","data_tabular_alternative":"For tabular data alternative see Table tab.","dataset_size_warning":"There are too many datasets to show on the chart. Not all will be shown until you remove some selections.","download_chart":"Download Chart CSV","download_chart_image":"Download Chart Image","download_chart_image_title":"Download chart as image","download_csv":"Download CSV","download_csv_title":"Download as CSV","download_geojson":"Download GeoJSON","download_geojson_title":"Download as GeoJSON","download_headline":"Download Headline CSV","download_headline_title":"Download headline data as CSV","download_source":"Download Source CSV","download_source_sdmx":"Download Source SDMX","download_source_sdmx_title":"Download source data as SDMX","download_source_title":"Download source data as CSV","download_table":"Download Table CSV","edit":"Edit","edit_data":"Edit Data","edit_metadata":"Edit Metadata","footnote":"Footnote","geographical_area":"Geographical Area","global_metadata":"Global Metadata","global_metadata_blurb":"This table provides information on metadata for SDG indicators as defined by the UN Statistical Commission. <a href=\"https://unstats.un.org/sdgs/metadata/\">Complete global metadata</a> is provided by the UN Statistics Division.","legend_help":"Click on the legend to remove individual lines from the chart.","loading":"Loading","loading_map":"Loading map","map":"Map","map_search":"Search","map_search_hide":"Hide search","map_search_show":"Show search","map_year_slider":"Year slider","national_metadata":"National Metadata","national_metadata_blurb":"This table provides metadata for the actual indicator available from %country_name statistics closest to the corresponding global SDG indicator. Please note that even when the global SDG indicator is fully available from %country_adjective statistics, this table should be consulted for information on national methodology and other %country_adjective-specific metadata information.","next":"Next indicator","no_data_hint":"No options available because of filters above","plot_legend_description":"Plot legend: list of lines included in chart","previous":"Previous indicator","select_all":"Select all","series":"Series","series_help":"Choose categories from the dropdowns below to see different breakdowns of the data. Some will not be available until a higher level is chosen.","source":"Source","sources":"Sources","status":"Indicator status","sub_categories":"Sub-categories","sub_categories_show":"Show sub-categories:","table":"Table","table_column_sort":"Click to sort by this column","tags":"Tags","unit_of_measurement":"Unit of Measurement","units_type":"Units type","variable_hint":"Available when '%field' is selected","view_indicator_list":"View this goal's indicator list"};</script>
 
 <script>translations['data'] = {"Баткенская область":"Batken Oblast","Бишкек":"Bishkek","Женщины":"Female","Мужчины":"Male","Пол":"Sex","Территория":"Geographical area"};</script>
 
@@ -368,7 +368,7 @@ var translations = {
   data-graphlimits="null"
   data-stackeddisaggregation=""
   data-graphannotations="null"
-  data-indicatordownloads="null"
+  data-indicatordownloads="{&quot;indicator.download_source_sdmx&quot;:{&quot;href&quot;:&quot;downloads/data-sdmx/1.1.1.xml&quot;}}"
 >
   
   <span role="status" class="sr-only" id="indicator-data-view-status"></span>
@@ -581,7 +581,7 @@ var translations = {
   <div class="async-loaded spacer medium" style="display:none;">
 
     <div style="display: none;">
-  <span id="table-alternative"></span>
+  <span id="table-alternative">For tabular data alternative see Table tab.</span>
 </div>
 <ul class="nav nav-tabs non-stacking-tabs data-view" role="tablist">
   <li role="presentation" class="nav-item active">
@@ -604,7 +604,7 @@ data-event-label="Change to Table tab"
     
 
     <div id="dataset-size-warning" style="display:none" role="alert">
-      <i class="fa fa-bolt"><span class="sr-only"></span></i>
+      <i class="fa fa-bolt"><span class="sr-only">Warning:</span></i>
       There are too many datasets to show on the chart. Not all will be shown until you remove some selections.
     </div>
 
@@ -884,7 +884,7 @@ opensdg.chartConfigAlter(function(config, info) {
   </div>
   <div role="tabpanel" class="tab-pane" id="tableview">
     <div style="display: none;">
-      <span id="column-sort-info"></span>
+      <span id="column-sort-info">Click to sort by this column</span>
     </div>
     <div id="selectionsTable"></div>
 
@@ -999,7 +999,7 @@ data-event-label="Change to custom.data_reporter tab"
         <th scope="row">Indicator name </th>
         <td>
           
-            <p>1.1.1 Доля населения, живущего за международной чертой бедности, в разбивке по полу, возрасту, статусу занятости и месту проживания (городское/сельское)</p>
+            <p>1.1.1 Proportion of the population living below the international poverty line by sex, age, employment status and geographic location (urban/rural)</p>
 
           
         </td>
@@ -1013,7 +1013,7 @@ data-event-label="Change to custom.data_reporter tab"
         <th scope="row">Target name </th>
         <td>
           
-            <p>1.1 К 2030 году ликвидировать крайнюю нищету для всех людей во всем мире (в настоящее время крайняя нищета определяется как проживание на сумму менее чем 1,25 долл. США в день)</p>
+            <p>1.1 By 2030, eradicate extreme poverty for all people everywhere, currently measured as people living on less than $1.25 a day</p>
 
           
         </td>
@@ -1028,7 +1028,7 @@ data-event-label="Change to custom.data_reporter tab"
         <td>
           
             <ol>
-  <li>Повсеместная ликвидация нищеты во всех её формах</li>
+  <li>End poverty in all its forms everywhere</li>
 </ol>
 
           
@@ -1126,7 +1126,7 @@ data-event-label="Change to custom.data_reporter tab"
         <th scope="row">Definitions </th>
         <td>
           
-            <p>Показатель Доля населения, живущего за международной чертой бедности определяется как процент населения, живущего менее чем на 1,90 долл. США в день. «Международная черта бедности» в настоящее время установлена в размере 1,90 долл. США в день по международным ценам в 2011 году.</p>
+            <p>The indicator Proportion of population below the international poverty line is defined as the percentage of the population living on less than $1.90 a day at 2011 international prices. The ‘international poverty line’ is currently set at $1.90 a day at 2011 international prices.</p>
 
           
         </td>
@@ -1140,7 +1140,8 @@ data-event-label="Change to custom.data_reporter tab"
         <th scope="row">Concepts </th>
         <td>
           
-            <p>Мониторинг бедности имеет важное значение для глобальной повестки дня в области развития, а также для национальной повестки дня в области развития многих стран. Всемирный банк подготовил первую глобальную оценку бедности развивающихся стран для Доклада о мировом развитии за 1990 год: «Бедность» (Всемирный банк, 1990 год), в котором использовались данные обследований домохозяйств 22 стран (Раваллион, Датт и Ван де Валле 1991 года). С тех пор значительно увеличилось число стран, которые проводят обследования доходов и расходов домашних хозяйств. Исследовательская группа Всемирного банка по вопросам развития ведет базу данных, которая обновляется ежегодно по мере поступления новых данных обследований (и, следовательно, может содержать более свежие данные или изменения) и проводит ежегодную переоценку прогресса в борьбе с нищетой. PovcalNet - это интерактивный вычислительный инструмент, который позволяет пользователям тиражировать сопоставимые на глобальном, региональном и страновом уровнях оценки уровня бедности относительно международной черты бедности 1,90 и 3,10 долл. США в день, а также рассчитывать меры по борьбе с нищетой для отдельных групп стран и для разных черт бедности.</p>
+            <p>Monitoring poverty is important on the global development agenda as well as on the national development agenda of many countries. The World Bank produced its first global poverty estimates for developing countries for World Development Report 1990: Poverty (World Bank 1990) using household survey data for 22 countries (Ravallion, Datt, and van de Walle 1991). Since then there has been considerable expansion in the number of countries that field household income and expenditure surveys.
+The World Bank’s Development Research Group maintains a database that is updated annually as new survey data become available (and thus may contain more recent data or revisions) and conducts a major reassessment of progress against poverty every year. PovcalNet is an interactive computational tool that allows users to replicate these internationally comparable $1.90 and $3.10 a day global, regional and country-level poverty estimates and to compute poverty measures for custom country groupings and for different poverty lines.</p>
 
           
         </td>
@@ -1154,7 +1155,7 @@ data-event-label="Change to custom.data_reporter tab"
         <th scope="row">Rationale and interpretation </th>
         <td>
           
-            <p>Оценивая бедность в стране и как лучше всего сокращать масштабы нищеты, естественно, основное внимание уделяется черте бедности, которая считается подходящей для страны. Но как мы можем говорить о «глобальной бедности»? Черта бедности в разных странах различается с точки зрения покупательной способности в этих странах, и он имеет сильный экономический градиент, так что более богатые страны, как правило, принимают более высокий уровень жизни при определении бедности. Но для того, чтобы последовательно измерять глобальную абсолютную бедность с точки зрения потребления, мы должны рассматривать два человека с той же покупательной способностью по товарам таким же образом - как бедным, так и не бедным - даже если они живут в разных странах. Начиная с Доклада о мировом развитии за 1990 год, Всемирный банк стремился применять единый стандарт в измерении крайней нищеты, привязанный к тому, что означает бедность в беднейших странах мира. Благосостояние людей, живущих в разных странах, можно измерять в общих масштабах путем корректировки различий в покупательной способности валют. Обычно используемый стандарт  в размере 1 долл. США в день, измеряемый в международных ценах 1985 года и скорректированный на местную валюту с использованием ППС, был выбран для отчета о мировом развитии за 1990 год, поскольку он был типичным для черты бедности в странах с низким доходом в то время. По мере развития различий в стоимости жизни во всем мире международная черта бедности должна периодически обновляться с использованием новых данных о ценах на ППС для отражения этих изменений. Последнее изменение было в октябре 2015 года, когда Всемирный банк принял 1,90 долл. США в качестве международной черты бедности, используя ППС 2011 года. До этого в обновлении 2008 года международная черта бедности составляла 1,25 долл. США с использованием ППС 2005 года. Меры по борьбе с бедностью, основанные на международных чертах бедности, пытаются сохранить реальную ценность бедности в разных странах, как это делается при проведении сопоставлений с течением времени. Ранние издания индикаторов мирового развития Всемирного банка (WDI) использовали ППС из Penn World Tables для конвертации значений в местной валюте в эквивалентную покупательную способность, измеренную в долларах США. В более поздних изданиях использовались оценки ППС потребления 1993, 2005 и 2011 годов, подготовленные Программой международных сопоставлений Всемирного банка (ICP).</p>
+            <p>In assessing poverty in a given country, and how best to reduce poverty, one naturally focuses on a poverty line that is considered appropriate for that country. But how do we talk meaningfully about “global poverty?” Poverty lines across countries vary in terms of their purchasing power, and they have a strong economic gradient, such that richer countries tend to adopt higher standards of living in defining poverty. But to consistently measure global absolute poverty in terms of consumption we need to treat two people with the same purchasing power over commodities the same way—both are either poor or not poor—even if they live in different countries. Since World Development Report 1990, the World Bank has aimed to apply a common standard in measuring extreme poverty, anchored to what poverty means in the world’s poorest countries. The welfare of people living in different countries can be measured on a common scale by adjusting for differences in the purchasing power of currencies. The commonly used $1 a day standard, measured in 1985 international prices and adjusted to local currency using PPPs, was chosen for World Development Report 1990 because it was typical of the poverty lines in low-income countries at the time. As differences in the cost of living across the world evolve, the international poverty line has to be periodically updated using new PPP price data to reflect these changes. The last change was in October 2015, when the World Bank adopted $1.90 as the international poverty line using the 2011 PPP. Prior to that, the 2008 update set the international poverty line at $1.25 using the 2005 PPP. Poverty measures based on international poverty lines attempt to hold the real value of the poverty line constant across countries, as is done when making comparisons over time. Early editions of the World Bank’s World Development Indicators (WDI) used PPPs from the Penn World Tables to convert values in local currency to equivalent purchasing power measured in U.S dollars. Later editions used 1993, 2005, and 2011 consumption PPP estimates produced by the World Bank’s International Comparison Program (ICP).</p>
 
           
         </td>
@@ -1168,7 +1169,7 @@ data-event-label="Change to custom.data_reporter tab"
         <th scope="row">Method of computation </th>
         <td>
           
-            <p>Для последовательного измерения масштабов нищеты в разных странах, международные меры Всемирного банка применяют общий стандарт, закрепленный за тем, что означает «бедность» в самых бедных странах мира. Первоначальная черта в «1 доллар в день» была основана на компиляции национальных черт бедности только для 22 развивающихся стран, в основном из академических исследований 1980-х годов (Ravallion, et al., 1991). В рамках Всемирного банка Глобальная группа по борьбе с нищетой (GPWG) отвечает за сбор, утверждение и оценку данных по бедности. GPWG архивирует данные, полученные из НСУ, а затем гармонизирует их, применяя общие методологии. Целью GPWG является обеспечение того, чтобы данные по бедности и неравенству, которые были созданы, отслежены и распространены Всемирным банком, обновлены, соответствуют высоким стандартам качества и хорошо документированы и согласованы во всех каналах распространения. Члены GPWG генерируют и обновляют оценки доли населения ниже международной черты бедности, используя необработанные данные, обычно предоставляемые правительствами стран, к которым применяется контроль качества данных. Исходными данными могут быть данные обследований единичных записей или сгруппированные данные, в зависимости от соглашений с правительствами стран. Нынешняя крайняя черта бедности установлена в размере 1,90 долл. США в день в условиях ППС в 2011 году, которая представляет собой среднее значение национальных черт бедности, обнаруженных в тех же самых беднейших 15 странах, что оценивается по потреблению на душу населения. Новая черта бедности поддерживает тот же стандарт для крайней нищеты - черты бедности, характерные для беднейших стран мира, - но обновляет ее, используя самую последнюю информацию о стоимости жизни в развивающихся странах. При измерении международной бедности в стране международная черта бедности в ППС конвертируется в местные валюты в 2011 году и затем преобразуется в цены, преобладающие во время соответствующего обследования домашних хозяйств, с использованием наилучшего доступного индекса потребительских цен (ИПЦ). (Эквивалентно, данные опроса о потреблении или доходах домохозяйства в отчетном году выражены в ценах базового года ICP, а затем конвертированы по ППС в долл. США). Затем уровень бедности рассчитывается на основе этого опроса. Все межвременные сопоставления являются реальными, так как оцениваются с использованием ИПЦ для конкретной страны. Методы интерполяции/экстраполяции используются для выравнивания оценок, основанных на исследованиях, с этими отчетными годами.</p>
+            <p>To measure poverty across countries consistently, the World Bank’s international measures apply a common standard, anchored to what “poverty” means in the world’s poorest countries. The original “$1- a-day” line was based on a compilation of national lines for only 22 developing countries, mostly from academic studies in the 1980s (Ravallion, et al., 1991). Within the World Bank, the Global Poverty Working Group (GPWG) is in charge of the collection, validation and estimation of poverty estimates. GPWG archives the datasets obtained from NSOs and then harmonizes them, applying common methodologies. The objective of the GPWG is to ensure that poverty and inequality data generated, curated, and disseminated by the World Bank are up to date, meet high-quality standards, and are well documented and consistent across dissemination channels. Members of GPWG generate and update the estimates for the proportion of population below the international poverty line using raw data typically provided by country governments. The raw data can be unit-record survey data, or grouped data, depending on the agreements with the country governments. The current extreme poverty line is set at $1.90 a day in 2011 PPP terms, which represents the mean of the national poverty lines found in the same poorest 15 countries ranked by per capita consumption. The new poverty line maintains the same standard for extreme poverty - the poverty line typical of the poorest countries in the world - but updates it using the latest information on the cost of living in developing countries. When measuring international poverty of a country, the international poverty line at PPP is converted to local currencies in 2011 price and is then converted to the prices prevailing at the time of the relevant household survey using the best available Consumer Price Index (CPI). (Equivalently, the survey data on household consumption or income for the survey year are expressed in the prices of the ICP base year, and then converted to PPP $’s.) Then the poverty rate is calculated from that survey. All inter-temporal comparisons are real, as assessed using the country-specific CPI. Interpolation/extrapolation methods are used to line up the survey-based estimates with these reference years.</p>
 
           
         </td>
@@ -1182,7 +1183,7 @@ data-event-label="Change to custom.data_reporter tab"
         <th scope="row">Comments and limitations </th>
         <td>
           
-            <p>Национальная бедность — это другая концепция, чем глобальная нищета. Национальный уровень бедности определяется по отдельным чертам бедности в местных валютах, которые в разных странах различны и отличаются от международной черты бедности в размере 1,90 долл. США в день. Таким образом, уровень национальной бедности нельзя сравнивать по странам или с уровнем бедности в 1,90 долл. в день.</p>
+            <p>National poverty is a different concept than global poverty. National poverty rate is defined at country-specific poverty lines in local currencies, which are different in real terms across countries and different from the $1.90-a-day international poverty line. Thus, national poverty rates cannot be compared across countries or with the $1.90-a-day poverty rate.</p>
 
           
         </td>
@@ -1196,7 +1197,7 @@ data-event-label="Change to custom.data_reporter tab"
         <th scope="row">Quality assurance </th>
         <td>
           
-            <p>Экономисты по бедности из Всемирного банка обычно взаимодействуют с НСУ в целом по измерению и анализу бедности в рамках деятельности по оказанию технической помощи. Исходные данные, предоставляемые НСУ проверяются на качество, прежде чем они будут использованы для дальнейшего анализа.</p>
+            <p>Poverty economists from the World Bank typically engage with NSOs broadly on poverty measurement and analysis as part of technical assistance activities. The raw data are obtained by poverty economists through their contacts in the NSOs, and checked for quality before being submitted for further analysis.</p>
 
           
         </td>
@@ -1210,7 +1211,7 @@ data-event-label="Change to custom.data_reporter tab"
         <th scope="row">Data availability and gaps </th>
         <td>
           
-            <p>Доступность данных (измеряется с точки зрения количества стран, имеющих по крайней мере 1 пункт данных по регионам). Данные по Кыргызстану публикуются ежегодно.</p>
+            <p>Data Availability (measured in terms of number of countries that have at least 1 data point by region) Data on Kyrgyzstan are published annually.</p>
 
           
         </td>
@@ -1224,7 +1225,7 @@ data-event-label="Change to custom.data_reporter tab"
         <th scope="row">Disaggregation </th>
         <td>
           
-            <p>Национальный и субнациональный уровень</p>
+            <p>National and subnational levels</p>
 
           
         </td>
@@ -1238,7 +1239,7 @@ data-event-label="Change to custom.data_reporter tab"
         <th scope="row">Comparability with international data/standards </th>
         <td>
           
-            <p>В международной базе Всемирного банка данные гармонизированы и являются сопоставимыми с другими странами. НСК рассчитывает этот показатель на основе показателя благосостояния для КР с использованием черты бедности 1,9$ по ППС.</p>
+            <p>Within the World Bank’s international database, data are harmonized and comparable with other countries. NSC calculates this indicator based on the KR welfare indicator using the $1.9 PPP poverty line.</p>
 
           
         </td>
@@ -1253,15 +1254,15 @@ data-event-label="Change to custom.data_reporter tab"
         <td>
           
             <p>www.worldbank.org
-Для получения дополнительной информации и методологии http://iresearch.worldbank.org/PovcalNet/home.aspx .
-Дополнительно: http://documents.worldbank.org/curated/en/2015/10/25114899/global-count-extremepoor-2012-data-issues-methodology-initial-results
-Краткий обзор: http://www.worldbank.org/en/topic/poverty/brief/global-poverty-line-faq
-Ссылки на справочные и рабочие документы, статьи и прочее: http://iresearch.worldbank.org/PovcalNet/publications.aspx
-Измеренный подход к прекращению бедности и усиление совместного процветания: концепции, данные и двойные цели. http://www.worldbank.org/en/research/publication/a-measured-approach-to-ending-povertyand-boosting-shared-prosperity</p>
+For more information and methodology: http://iresearch.worldbank.org/PovcalNet/home.aspx .
+Additionally: http://Documentation.worldbank.org/curated/en/2015/10/25114899/global-count-extremepoor-2012-data-issues-methodology-initial-results
+Summary: http://www.worldbank.org/en/topic/poverty/brief/global-poverty-line-faq
+Links to background and working papers, articles, etc.: http://iresearch.worldbank.org/PovcalNet/publications.aspx
+A Measured Approach to Ending Poverty and Boosting Shared Prosperity: Concepts, Data, and the Twin Goals http://www.worldbank.org/en/research/publication/a-measured-approach-to-ending-povertyand-boosting-shared-prosperity</p>
 
-<p>Публикуются в статистическом сборнике «Женщины и мужчины Кыргызской Республики»</p>
+<p>Published in the «Women and Men in the Kyrgyz Republic» Statistical Compendium</p>
 
-<p>Национальная платформа отчётности ЦУР КР: https://sustainabledevelopment-kyrgyzstan.github.io</p>
+<p>KR National SDG Reporting Platform: https://sustainabledevelopment-kyrgyzstan.github.io</p>
 
           
         </td>
@@ -1275,7 +1276,7 @@ data-event-label="Change to custom.data_reporter tab"
         <th scope="row">Data sources </th>
         <td>
           
-            <p>Интегрированное выборочное обследование бюджетов домашних хозяйств и рабочей силы (далее ИОДХ).</p>
+            <p>Integrated Household Budget and Labour Force Sample Survey (hereinafter IHBLFSS).</p>
 
           
         </td>
@@ -1289,8 +1290,8 @@ data-event-label="Change to custom.data_reporter tab"
         <th scope="row">Data collection methods </th>
         <td>
           
-            <p>Сбор данных осуществляется посредством вопросников ИОДХ с применением кластерной выборки, построенной на последней доступной Переписи населения и актуализированных списках жилых помещений. В опросах ИОДХ используется персональное интервью с использованием планшетных компьютеров (ComputerAssisted Personal Interview, CAPI).
-Сбор данных осуществляется на ежеквартальной основе, разработка индикатора производится по итогам года.</p>
+            <p>Data are obtained through the IHBLFSS questionnaires using a cluster sample built on the latest available Census and up-to-date housing lists. The IHBLFS surveys rely on personal interviews collected using tablet computers (ComputerAssisted Personal Interview, CAPI).
+Data are collected on a quarterly basis and an indicator is calculated using data for the past year.</p>
 
           
         </td>
@@ -1386,7 +1387,7 @@ data-event-label="Change to custom.data_reporter tab"
         <th scope="row">Organization </th>
         <td>
           
-            <p>Национальный статистический комитет КР (Отдел статистики домашних хозяйств)</p>
+            <p>National Statistical Committee of the Kyrgyz Republic (Household Statistics Division)</p>
 
           
         </td>
@@ -1400,7 +1401,7 @@ data-event-label="Change to custom.data_reporter tab"
         <th scope="row">Contact person(s)/focal point </th>
         <td>
           
-            <p>Керималиева Н.К</p>
+            <p>Kerimalieva N.K.</p>
 
           
         </td>
@@ -1524,12 +1525,12 @@ data-event-label="Change to custom.data_reporter tab"
 <script>translations['search'] = translations['search'] || {};
     translations['search']['search'] = 'Search';</script>
 
-<script src='/assets/js/sdg.js?v=20210114151510'></script>
+<script src='/assets/js/sdg.js?v=20210114170303'></script>
 
 
     
     
-    <script src="/assets/js/custom.js?v=20210114151510"></script><script>
+    <script src="/assets/js/custom.js?v=20210114170303"></script><script>
 $(function() {
     if($('#indicatorData').length) {
       var domData = $('#indicatorData').data();

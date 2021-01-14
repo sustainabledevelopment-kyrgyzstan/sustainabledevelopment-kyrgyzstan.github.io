@@ -119,7 +119,7 @@ var translations = {
         <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css" crossorigin="">
         <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" crossorigin="">
         <link rel="stylesheet" href="https://cdn.datatables.net/fixedcolumns/3.2.3/css/fixedColumns.dataTables.min.css" crossorigin="">
-        <link rel="stylesheet" href="/assets/css/style.css?v=20210114151510">
+        <link rel="stylesheet" href="/assets/css/style.css?v=20210114170303">
         <link href="https://fonts.googleapis.com/css?family=Open+Sans|Roboto" rel="stylesheet" crossorigin="">
         <link rel="stylesheet" href="https://unpkg.com/leaflet@1.3.4/dist/leaflet.css"
           integrity="sha512-puBpdR0798OZvTTbP4A8Ix/l+A4dHDD0DGqYW6RQ+9jxkRFclaxxQb/SJAWZfWAkuyeQUytO7+7N4QKrDh+drA=="
@@ -127,13 +127,13 @@ var translations = {
         <link rel="stylesheet" href="https://cdn.rawgit.com/socib/Leaflet.TimeDimension/master/dist/leaflet.timedimension.control.min.css"  crossorigin=""/>
         <link rel="stylesheet" href='https://api.mapbox.com/mapbox.js/plugins/leaflet-fullscreen/v1.0.1/leaflet.fullscreen.css'  crossorigin=""/>
         <link rel="stylesheet" href="https://bowercdn.net/c/leaflet.zoomhome-latest/dist/leaflet.zoomhome.css"  crossorigin=""/>
-        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet-search@2.9.7/dist/leaflet-search.min.css" crossorigin=""><link rel="stylesheet" href="/assets/css/custom.css?v=20210114151510"><!-- ShareThis BEGIN --><!-- ShareThis END -->
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet-search@2.9.7/dist/leaflet-search.min.css" crossorigin=""><link rel="stylesheet" href="/assets/css/custom.css?v=20210114170303"><!-- ShareThis BEGIN --><!-- ShareThis END -->
 
     </head>
 <body class="language-en layout-indicator">
 <!-- <div class="container"> -->
 
-<script>translations['header'] = {"alpha":"Alpha","default_contrast":"Default contrast","disable_high_contrast":"Disable high contrast","disclaimer":"This is a development website. We welcome your <a href=\"mailto:%email_address\">feedback</a>.","enable_high_contrast":"Enable high contrast","high_contrast":"High contrast","skip_link":"Skip to main content","tag_line":"17 Goals to Transform our World"};</script>
+<script>translations['header'] = {"alpha":"Alpha","default_contrast":"Default contrast","disable_high_contrast":"Disable high contrast","disclaimer":"This is a development website. We welcome your <a href=\"mailto:%email_address\">feedback</a>.","enable_high_contrast":"Enable high contrast","high_contrast":"High contrast","skip_link":"Skip to main content","tag_line":"17 Goals to Transform our World","toggle_menu":"Menu toggle. Click to expand or collapse the menu.","toggle_search":"Search toggle. Click to expand or collapse the search bar."};</script>
 
 <a class="sr-only sr-only-focusable" id="skiplink" href="#main-content" tabindex="0">Skip to main content</a>
 <div id="disclaimer">
@@ -247,7 +247,7 @@ var translations = {
       >
         <% if(allowedFields.indexOf(fieldItem.field) == -1) { %><h6><% } else { %><h5><% } %>
           <span aria-hidden="true"><%=translations.t(fieldItem.field)%><i class="fa fa-chevron-down"></i></span>
-          <span class="sr-only"> <%=translations.t(fieldItem.field)%></span>
+          <span class="sr-only">Show sub-categories: <%=translations.t(fieldItem.field)%></span>
         <% if(allowedFields.indexOf(fieldItem.field) == -1) { %></h6><% } else { %></h5><% } %>
       </button>
       <div class="bar">
@@ -306,7 +306,7 @@ var translations = {
   <% } %>
 </script>
 
-<script>translations['indicator'] = {"chart":"Chart","clear_all":"Clear all","clear_selections":"Clear selections","data_not_available":"This data is not available. Please choose alternative data to display.","dataset_size_warning":"There are too many datasets to show on the chart. Not all will be shown until you remove some selections.","download_chart":"Download Chart CSV","download_chart_image":"Download Chart Image","download_chart_image_title":"Download chart as image","download_csv":"Download CSV","download_csv_title":"Download as CSV","download_geojson":"Download GeoJSON","download_geojson_title":"Download as GeoJSON","download_headline":"Download Headline CSV","download_headline_title":"Download headline data as CSV","download_source":"Download Source CSV","download_source_sdmx":"Download Source SDMX","download_source_sdmx_title":"Download source data as SDMX","download_source_title":"Download source data as CSV","download_table":"Download Table CSV","edit":"Edit","edit_data":"Edit Data","edit_metadata":"Edit Metadata","footnote":"Footnote","geographical_area":"Geographical Area","global_metadata":"Global Metadata","global_metadata_blurb":"This table provides information on metadata for SDG indicators as defined by the UN Statistical Commission. <a href=\"https://unstats.un.org/sdgs/metadata/\">Complete global metadata</a> is provided by the UN Statistics Division.","legend_help":"Click on the legend to remove individual lines from the chart.","loading":"Loading","loading_map":"Loading map","map":"Map","national_metadata":"National Metadata","national_metadata_blurb":"This table provides metadata for the actual indicator available from %country_name statistics closest to the corresponding global SDG indicator. Please note that even when the global SDG indicator is fully available from %country_adjective statistics, this table should be consulted for information on national methodology and other %country_adjective-specific metadata information.","no_data_hint":"No options available because of filters above","select_all":"Select all","series":"Series","series_help":"Choose categories from the dropdowns below to see different breakdowns of the data. Some will not be available until a higher level is chosen.","source":"Source","sources":"Sources","sub_categories":"Sub-categories","table":"Table","unit_of_measurement":"Unit of Measurement","units_type":"Units type","variable_hint":"Available when '%field' is selected","view_indicator_list":"View this goal's indicator list"};</script>
+<script>translations['indicator'] = {"annotation_2030_target":"2030 Target","announce_data_added":"Chart and table updated to include data.","announce_data_not_available":"Chart and table shows no data.","announce_data_removed":"Chart and table updated to exclude data.","chart":"Chart","chart_annotation":"Chart annotation","clear_all":"Clear all","clear_selections":"Clear selections","data_keyboard_navigation":"Press enter to browse data points with left and right arrow keys.","data_not_available":"This data is not available. Please choose alternative data to display.","data_tabular_alternative":"For tabular data alternative see Table tab.","dataset_size_warning":"There are too many datasets to show on the chart. Not all will be shown until you remove some selections.","download_chart":"Download Chart CSV","download_chart_image":"Download Chart Image","download_chart_image_title":"Download chart as image","download_csv":"Download CSV","download_csv_title":"Download as CSV","download_geojson":"Download GeoJSON","download_geojson_title":"Download as GeoJSON","download_headline":"Download Headline CSV","download_headline_title":"Download headline data as CSV","download_source":"Download Source CSV","download_source_sdmx":"Download Source SDMX","download_source_sdmx_title":"Download source data as SDMX","download_source_title":"Download source data as CSV","download_table":"Download Table CSV","edit":"Edit","edit_data":"Edit Data","edit_metadata":"Edit Metadata","footnote":"Footnote","geographical_area":"Geographical Area","global_metadata":"Global Metadata","global_metadata_blurb":"This table provides information on metadata for SDG indicators as defined by the UN Statistical Commission. <a href=\"https://unstats.un.org/sdgs/metadata/\">Complete global metadata</a> is provided by the UN Statistics Division.","legend_help":"Click on the legend to remove individual lines from the chart.","loading":"Loading","loading_map":"Loading map","map":"Map","map_search":"Search","map_search_hide":"Hide search","map_search_show":"Show search","map_year_slider":"Year slider","national_metadata":"National Metadata","national_metadata_blurb":"This table provides metadata for the actual indicator available from %country_name statistics closest to the corresponding global SDG indicator. Please note that even when the global SDG indicator is fully available from %country_adjective statistics, this table should be consulted for information on national methodology and other %country_adjective-specific metadata information.","next":"Next indicator","no_data_hint":"No options available because of filters above","plot_legend_description":"Plot legend: list of lines included in chart","previous":"Previous indicator","select_all":"Select all","series":"Series","series_help":"Choose categories from the dropdowns below to see different breakdowns of the data. Some will not be available until a higher level is chosen.","source":"Source","sources":"Sources","status":"Indicator status","sub_categories":"Sub-categories","sub_categories_show":"Show sub-categories:","table":"Table","table_column_sort":"Click to sort by this column","tags":"Tags","unit_of_measurement":"Unit of Measurement","units_type":"Units type","variable_hint":"Available when '%field' is selected","view_indicator_list":"View this goal's indicator list"};</script>
 
 <script>translations['data'] = {"Баткенская область":"Batken Oblast","Бишкек":"Bishkek","Женщины":"Female","Мужчины":"Male","Пол":"Sex","Территория":"Geographical area"};</script>
 
@@ -408,11 +408,11 @@ var translations = {
         
         
         
-        <th scope="col">Series</th>
+        <th scope="col">Value</th>
         
         
         
-        <th scope="col" class="table-value">Value</th>
+        <th scope="col" class="table-value">Series</th>
         
         
       </thead>
@@ -425,11 +425,11 @@ var translations = {
           
           
           
-          <td>Number of women who contacted forensic medical units due to domestic violence</td>
+          <td>1308</td>
           
           
           
-          <td class="table-value">1308</td>
+          <td class="table-value">Number of women who contacted forensic medical units due to domestic violence</td>
           
           
         </tr>
@@ -441,11 +441,11 @@ var translations = {
           
           
           
-          <td>Number of women who contacted forensic medical units due to domestic violence</td>
+          <td>1453</td>
           
           
           
-          <td class="table-value">1453</td>
+          <td class="table-value">Number of women who contacted forensic medical units due to domestic violence</td>
           
           
         </tr>
@@ -457,11 +457,11 @@ var translations = {
           
           
           
-          <td>Number of women who contacted forensic medical units due to domestic violence</td>
+          <td>1900</td>
           
           
           
-          <td class="table-value">1900</td>
+          <td class="table-value">Number of women who contacted forensic medical units due to domestic violence</td>
           
           
         </tr>
@@ -473,11 +473,11 @@ var translations = {
           
           
           
-          <td>Number of women who contacted forensic medical units due to domestic violence</td>
+          <td>1589</td>
           
           
           
-          <td class="table-value">1589</td>
+          <td class="table-value">Number of women who contacted forensic medical units due to domestic violence</td>
           
           
         </tr>
@@ -489,11 +489,11 @@ var translations = {
           
           
           
-          <td>Number of women who contacted forensic medical units due to domestic violence</td>
+          <td>1988</td>
           
           
           
-          <td class="table-value">1988</td>
+          <td class="table-value">Number of women who contacted forensic medical units due to domestic violence</td>
           
           
         </tr>
@@ -505,11 +505,11 @@ var translations = {
           
           
           
-          <td>Number of women who contacted forensic medical units due to domestic violence</td>
+          <td>936</td>
           
           
           
-          <td class="table-value">936</td>
+          <td class="table-value">Number of women who contacted forensic medical units due to domestic violence</td>
           
           
         </tr>
@@ -521,11 +521,11 @@ var translations = {
           
           
           
-          <td>Number of women who contacted forensic medical units due to domestic violence</td>
+          <td>1172</td>
           
           
           
-          <td class="table-value">1172</td>
+          <td class="table-value">Number of women who contacted forensic medical units due to domestic violence</td>
           
           
         </tr>
@@ -537,11 +537,11 @@ var translations = {
           
           
           
-          <td>Number of women who contacted forensic medical units due to domestic violence</td>
+          <td>1382</td>
           
           
           
-          <td class="table-value">1382</td>
+          <td class="table-value">Number of women who contacted forensic medical units due to domestic violence</td>
           
           
         </tr>
@@ -553,11 +553,11 @@ var translations = {
           
           
           
-          <td>Number of women who contacted forensic medical units due to domestic violence</td>
+          <td>1305</td>
           
           
           
-          <td class="table-value">1305</td>
+          <td class="table-value">Number of women who contacted forensic medical units due to domestic violence</td>
           
           
         </tr>
@@ -569,11 +569,11 @@ var translations = {
           
           
           
-          <td>Number of women who contacted forensic medical units due to domestic violence</td>
+          <td>1764</td>
           
           
           
-          <td class="table-value">1764</td>
+          <td class="table-value">Number of women who contacted forensic medical units due to domestic violence</td>
           
           
         </tr>
@@ -585,11 +585,11 @@ var translations = {
           
           
           
-          <td>Number of women who contacted paramedic-midwifery units due to domestic violence</td>
+          <td>68</td>
           
           
           
-          <td class="table-value">68</td>
+          <td class="table-value">Number of women who contacted paramedic-midwifery units due to domestic violence</td>
           
           
         </tr>
@@ -601,11 +601,11 @@ var translations = {
           
           
           
-          <td>Number of women who contacted paramedic-midwifery units due to domestic violence</td>
+          <td>155</td>
           
           
           
-          <td class="table-value">155</td>
+          <td class="table-value">Number of women who contacted paramedic-midwifery units due to domestic violence</td>
           
           
         </tr>
@@ -617,11 +617,11 @@ var translations = {
           
           
           
-          <td>Number of women who contacted paramedic-midwifery units due to domestic violence</td>
+          <td>16</td>
           
           
           
-          <td class="table-value">16</td>
+          <td class="table-value">Number of women who contacted paramedic-midwifery units due to domestic violence</td>
           
           
         </tr>
@@ -633,11 +633,11 @@ var translations = {
           
           
           
-          <td>Number of women who contacted paramedic-midwifery units due to domestic violence</td>
+          <td>48</td>
           
           
           
-          <td class="table-value">48</td>
+          <td class="table-value">Number of women who contacted paramedic-midwifery units due to domestic violence</td>
           
           
         </tr>
@@ -649,11 +649,11 @@ var translations = {
           
           
           
-          <td>Number of women who contacted paramedic-midwifery units due to domestic violence</td>
+          <td>35</td>
           
           
           
-          <td class="table-value">35</td>
+          <td class="table-value">Number of women who contacted paramedic-midwifery units due to domestic violence</td>
           
           
         </tr>
@@ -665,11 +665,11 @@ var translations = {
           
           
           
-          <td>Number of women who contacted paramedic-midwifery units due to domestic violence</td>
+          <td>12</td>
           
           
           
-          <td class="table-value">12</td>
+          <td class="table-value">Number of women who contacted paramedic-midwifery units due to domestic violence</td>
           
           
         </tr>
@@ -681,11 +681,11 @@ var translations = {
           
           
           
-          <td>Number of women who contacted paramedic-midwifery units due to domestic violence</td>
+          <td>2</td>
           
           
           
-          <td class="table-value">2</td>
+          <td class="table-value">Number of women who contacted paramedic-midwifery units due to domestic violence</td>
           
           
         </tr>
@@ -697,11 +697,11 @@ var translations = {
           
           
           
-          <td>Number of women who contacted paramedic-midwifery units due to domestic violence</td>
+          <td>1</td>
           
           
           
-          <td class="table-value">1</td>
+          <td class="table-value">Number of women who contacted paramedic-midwifery units due to domestic violence</td>
           
           
         </tr>
@@ -713,11 +713,11 @@ var translations = {
           
           
           
-          <td>Number of women who contacted paramedic-midwifery units due to domestic violence</td>
+          <td>2</td>
           
           
           
-          <td class="table-value">2</td>
+          <td class="table-value">Number of women who contacted paramedic-midwifery units due to domestic violence</td>
           
           
         </tr>
@@ -729,12 +729,12 @@ var translations = {
           
           
           
-          <td>Number of women who contacted healthcare organizations that provide health
+          <td>401</td>
+          
+          
+          
+          <td class="table-value">Number of women who contacted healthcare organizations that provide health
 and preventive care, due to domestic violence</td>
-          
-          
-          
-          <td class="table-value">401</td>
           
           
         </tr>
@@ -746,12 +746,12 @@ and preventive care, due to domestic violence</td>
           
           
           
-          <td>Number of women who contacted healthcare organizations that provide health
+          <td>581</td>
+          
+          
+          
+          <td class="table-value">Number of women who contacted healthcare organizations that provide health
 and preventive care, due to domestic violence</td>
-          
-          
-          
-          <td class="table-value">581</td>
           
           
         </tr>
@@ -763,12 +763,12 @@ and preventive care, due to domestic violence</td>
           
           
           
-          <td>Number of women who contacted healthcare organizations that provide health
+          <td>509</td>
+          
+          
+          
+          <td class="table-value">Number of women who contacted healthcare organizations that provide health
 and preventive care, due to domestic violence</td>
-          
-          
-          
-          <td class="table-value">509</td>
           
           
         </tr>
@@ -780,12 +780,12 @@ and preventive care, due to domestic violence</td>
           
           
           
-          <td>Number of women who contacted healthcare organizations that provide health
+          <td>508</td>
+          
+          
+          
+          <td class="table-value">Number of women who contacted healthcare organizations that provide health
 and preventive care, due to domestic violence</td>
-          
-          
-          
-          <td class="table-value">508</td>
           
           
         </tr>
@@ -797,12 +797,12 @@ and preventive care, due to domestic violence</td>
           
           
           
-          <td>Number of women who contacted healthcare organizations that provide health
+          <td>495</td>
+          
+          
+          
+          <td class="table-value">Number of women who contacted healthcare organizations that provide health
 and preventive care, due to domestic violence</td>
-          
-          
-          
-          <td class="table-value">495</td>
           
           
         </tr>
@@ -814,12 +814,12 @@ and preventive care, due to domestic violence</td>
           
           
           
-          <td>Number of women who contacted healthcare organizations that provide health
+          <td>666</td>
+          
+          
+          
+          <td class="table-value">Number of women who contacted healthcare organizations that provide health
 and preventive care, due to domestic violence</td>
-          
-          
-          
-          <td class="table-value">666</td>
           
           
         </tr>
@@ -831,12 +831,12 @@ and preventive care, due to domestic violence</td>
           
           
           
-          <td>Number of women who contacted healthcare organizations that provide health
+          <td>657</td>
+          
+          
+          
+          <td class="table-value">Number of women who contacted healthcare organizations that provide health
 and preventive care, due to domestic violence</td>
-          
-          
-          
-          <td class="table-value">657</td>
           
           
         </tr>
@@ -848,12 +848,12 @@ and preventive care, due to domestic violence</td>
           
           
           
-          <td>Number of women who contacted healthcare organizations that provide health
+          <td>629</td>
+          
+          
+          
+          <td class="table-value">Number of women who contacted healthcare organizations that provide health
 and preventive care, due to domestic violence</td>
-          
-          
-          
-          <td class="table-value">629</td>
           
           
         </tr>
@@ -865,12 +865,12 @@ and preventive care, due to domestic violence</td>
           
           
           
-          <td>Number of women who contacted healthcare organizations that provide health
+          <td>555</td>
+          
+          
+          
+          <td class="table-value">Number of women who contacted healthcare organizations that provide health
 and preventive care, due to domestic violence</td>
-          
-          
-          
-          <td class="table-value">555</td>
           
           
         </tr>
@@ -882,12 +882,12 @@ and preventive care, due to domestic violence</td>
           
           
           
-          <td>Number of women who contacted healthcare organizations that provide health
+          <td>539</td>
+          
+          
+          
+          <td class="table-value">Number of women who contacted healthcare organizations that provide health
 and preventive care, due to domestic violence</td>
-          
-          
-          
-          <td class="table-value">539</td>
           
           
         </tr>
@@ -899,11 +899,11 @@ and preventive care, due to domestic violence</td>
           
           
           
-          <td>Number of women who contacted ambulance stations (units, hospitals) due to domestic violence</td>
+          <td>414</td>
           
           
           
-          <td class="table-value">414</td>
+          <td class="table-value">Number of women who contacted ambulance stations (units, hospitals) due to domestic violence</td>
           
           
         </tr>
@@ -915,11 +915,11 @@ and preventive care, due to domestic violence</td>
           
           
           
-          <td>Number of women who contacted ambulance stations (units, hospitals) due to domestic violence</td>
+          <td>320</td>
           
           
           
-          <td class="table-value">320</td>
+          <td class="table-value">Number of women who contacted ambulance stations (units, hospitals) due to domestic violence</td>
           
           
         </tr>
@@ -931,11 +931,11 @@ and preventive care, due to domestic violence</td>
           
           
           
-          <td>Number of women who contacted ambulance stations (units, hospitals) due to domestic violence</td>
+          <td>498</td>
           
           
           
-          <td class="table-value">498</td>
+          <td class="table-value">Number of women who contacted ambulance stations (units, hospitals) due to domestic violence</td>
           
           
         </tr>
@@ -947,11 +947,11 @@ and preventive care, due to domestic violence</td>
           
           
           
-          <td>Number of women who contacted ambulance stations (units, hospitals) due to domestic violence</td>
+          <td>822</td>
           
           
           
-          <td class="table-value">822</td>
+          <td class="table-value">Number of women who contacted ambulance stations (units, hospitals) due to domestic violence</td>
           
           
         </tr>
@@ -963,11 +963,11 @@ and preventive care, due to domestic violence</td>
           
           
           
-          <td>Number of women who contacted ambulance stations (units, hospitals) due to domestic violence</td>
+          <td>570</td>
           
           
           
-          <td class="table-value">570</td>
+          <td class="table-value">Number of women who contacted ambulance stations (units, hospitals) due to domestic violence</td>
           
           
         </tr>
@@ -979,11 +979,11 @@ and preventive care, due to domestic violence</td>
           
           
           
-          <td>Number of women who contacted ambulance stations (units, hospitals) due to domestic violence</td>
+          <td>485</td>
           
           
           
-          <td class="table-value">485</td>
+          <td class="table-value">Number of women who contacted ambulance stations (units, hospitals) due to domestic violence</td>
           
           
         </tr>
@@ -995,11 +995,11 @@ and preventive care, due to domestic violence</td>
           
           
           
-          <td>Number of women who contacted ambulance stations (units, hospitals) due to domestic violence</td>
+          <td>372</td>
           
           
           
-          <td class="table-value">372</td>
+          <td class="table-value">Number of women who contacted ambulance stations (units, hospitals) due to domestic violence</td>
           
           
         </tr>
@@ -1011,11 +1011,11 @@ and preventive care, due to domestic violence</td>
           
           
           
-          <td>Number of women who contacted ambulance stations (units, hospitals) due to domestic violence</td>
+          <td>176</td>
           
           
           
-          <td class="table-value">176</td>
+          <td class="table-value">Number of women who contacted ambulance stations (units, hospitals) due to domestic violence</td>
           
           
         </tr>
@@ -1027,11 +1027,11 @@ and preventive care, due to domestic violence</td>
           
           
           
-          <td>Number of women who contacted ambulance stations (units, hospitals) due to domestic violence</td>
+          <td>47</td>
           
           
           
-          <td class="table-value">47</td>
+          <td class="table-value">Number of women who contacted ambulance stations (units, hospitals) due to domestic violence</td>
           
           
         </tr>
@@ -1043,11 +1043,11 @@ and preventive care, due to domestic violence</td>
           
           
           
-          <td>Number of women who contacted ambulance stations (units, hospitals) due to domestic violence</td>
+          <td>211</td>
           
           
           
-          <td class="table-value">211</td>
+          <td class="table-value">Number of women who contacted ambulance stations (units, hospitals) due to domestic violence</td>
           
           
         </tr>
@@ -1059,11 +1059,11 @@ and preventive care, due to domestic violence</td>
           
           
           
-          <td>Number of women treated for injuries resulting from domestic violence</td>
+          <td>445</td>
           
           
           
-          <td class="table-value">445</td>
+          <td class="table-value">Number of women treated for injuries resulting from domestic violence</td>
           
           
         </tr>
@@ -1075,11 +1075,11 @@ and preventive care, due to domestic violence</td>
           
           
           
-          <td>Number of women treated for injuries resulting from domestic violence</td>
+          <td>491</td>
           
           
           
-          <td class="table-value">491</td>
+          <td class="table-value">Number of women treated for injuries resulting from domestic violence</td>
           
           
         </tr>
@@ -1091,11 +1091,11 @@ and preventive care, due to domestic violence</td>
           
           
           
-          <td>Number of women treated for injuries resulting from domestic violence</td>
+          <td>504</td>
           
           
           
-          <td class="table-value">504</td>
+          <td class="table-value">Number of women treated for injuries resulting from domestic violence</td>
           
           
         </tr>
@@ -1107,11 +1107,11 @@ and preventive care, due to domestic violence</td>
           
           
           
-          <td>Number of women treated for injuries resulting from domestic violence</td>
+          <td>600</td>
           
           
           
-          <td class="table-value">600</td>
+          <td class="table-value">Number of women treated for injuries resulting from domestic violence</td>
           
           
         </tr>
@@ -1123,11 +1123,11 @@ and preventive care, due to domestic violence</td>
           
           
           
-          <td>Number of women treated for injuries resulting from domestic violence</td>
+          <td>731</td>
           
           
           
-          <td class="table-value">731</td>
+          <td class="table-value">Number of women treated for injuries resulting from domestic violence</td>
           
           
         </tr>
@@ -1139,11 +1139,11 @@ and preventive care, due to domestic violence</td>
           
           
           
-          <td>Number of women treated for injuries resulting from domestic violence</td>
+          <td>1896</td>
           
           
           
-          <td class="table-value">1896</td>
+          <td class="table-value">Number of women treated for injuries resulting from domestic violence</td>
           
           
         </tr>
@@ -1155,11 +1155,11 @@ and preventive care, due to domestic violence</td>
           
           
           
-          <td>Number of women treated for injuries resulting from domestic violence</td>
+          <td>1404</td>
           
           
           
-          <td class="table-value">1404</td>
+          <td class="table-value">Number of women treated for injuries resulting from domestic violence</td>
           
           
         </tr>
@@ -1171,11 +1171,11 @@ and preventive care, due to domestic violence</td>
           
           
           
-          <td>Number of women treated for injuries resulting from domestic violence</td>
+          <td>1084</td>
           
           
           
-          <td class="table-value">1084</td>
+          <td class="table-value">Number of women treated for injuries resulting from domestic violence</td>
           
           
         </tr>
@@ -1187,11 +1187,11 @@ and preventive care, due to domestic violence</td>
           
           
           
-          <td>Number of women treated for injuries resulting from domestic violence</td>
+          <td>970</td>
           
           
           
-          <td class="table-value">970</td>
+          <td class="table-value">Number of women treated for injuries resulting from domestic violence</td>
           
           
         </tr>
@@ -1203,11 +1203,11 @@ and preventive care, due to domestic violence</td>
           
           
           
-          <td>Number of women treated for injuries resulting from domestic violence</td>
+          <td>939</td>
           
           
           
-          <td class="table-value">939</td>
+          <td class="table-value">Number of women treated for injuries resulting from domestic violence</td>
           
           
         </tr>
@@ -1235,7 +1235,7 @@ and preventive care, due to domestic violence</td>
   <div class="async-loaded spacer medium" style="display:none;">
 
     <div style="display: none;">
-  <span id="table-alternative"></span>
+  <span id="table-alternative">For tabular data alternative see Table tab.</span>
 </div>
 <ul class="nav nav-tabs non-stacking-tabs data-view" role="tablist">
   <li role="presentation" class="nav-item active">
@@ -1258,7 +1258,7 @@ data-event-label="Change to Table tab"
     
 
     <div id="dataset-size-warning" style="display:none" role="alert">
-      <i class="fa fa-bolt"><span class="sr-only"></span></i>
+      <i class="fa fa-bolt"><span class="sr-only">Warning:</span></i>
       There are too many datasets to show on the chart. Not all will be shown until you remove some selections.
     </div>
 
@@ -1538,7 +1538,7 @@ opensdg.chartConfigAlter(function(config, info) {
   </div>
   <div role="tabpanel" class="tab-pane" id="tableview">
     <div style="display: none;">
-      <span id="column-sort-info"></span>
+      <span id="column-sort-info">Click to sort by this column</span>
     </div>
     <div id="selectionsTable"></div>
 
@@ -2164,12 +2164,12 @@ data-event-label="Change to custom.data_reporter tab"
 <script>translations['search'] = translations['search'] || {};
     translations['search']['search'] = 'Search';</script>
 
-<script src='/assets/js/sdg.js?v=20210114151510'></script>
+<script src='/assets/js/sdg.js?v=20210114170303'></script>
 
 
     
     
-    <script src="/assets/js/custom.js?v=20210114151510"></script><script>
+    <script src="/assets/js/custom.js?v=20210114170303"></script><script>
 $(function() {
     if($('#indicatorData').length) {
       var domData = $('#indicatorData').data();

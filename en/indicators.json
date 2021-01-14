@@ -427,7 +427,7 @@
           "description": "",
           "keywords": "",
           "href": "/en/3-5-2-1",
-          "status": "complete"
+          "status": "notstarted"
         },
         {
           "id": "3-6-1",
@@ -611,14 +611,6 @@
           "description": "",
           "keywords": "",
           "href": "/en/4-3-1-1",
-          "status": "notstarted"
-        },
-        {
-          "id": "4-3-1-1a",
-          "title": ".  Proportion of young people, by sex, who are enrolled in the system of primary vocational education (including short-term courses), in the system of secondary vocational and higher education",
-          "description": "",
-          "keywords": "",
-          "href": "/en/4-3-1-1a",
           "status": "complete"
         },
         {
