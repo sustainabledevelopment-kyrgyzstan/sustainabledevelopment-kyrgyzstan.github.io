@@ -119,7 +119,7 @@ var translations = {
         <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css" crossorigin="">
         <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" crossorigin="">
         <link rel="stylesheet" href="https://cdn.datatables.net/fixedcolumns/3.2.3/css/fixedColumns.dataTables.min.css" crossorigin="">
-        <link rel="stylesheet" href="/assets/css/style.css?v=20210114170303">
+        <link rel="stylesheet" href="/assets/css/style.css?v=20210118110952">
         <link href="https://fonts.googleapis.com/css?family=Open+Sans|Roboto" rel="stylesheet" crossorigin="">
         <link rel="stylesheet" href="https://unpkg.com/leaflet@1.3.4/dist/leaflet.css"
           integrity="sha512-puBpdR0798OZvTTbP4A8Ix/l+A4dHDD0DGqYW6RQ+9jxkRFclaxxQb/SJAWZfWAkuyeQUytO7+7N4QKrDh+drA=="
@@ -127,7 +127,7 @@ var translations = {
         <link rel="stylesheet" href="https://cdn.rawgit.com/socib/Leaflet.TimeDimension/master/dist/leaflet.timedimension.control.min.css"  crossorigin=""/>
         <link rel="stylesheet" href='https://api.mapbox.com/mapbox.js/plugins/leaflet-fullscreen/v1.0.1/leaflet.fullscreen.css'  crossorigin=""/>
         <link rel="stylesheet" href="https://bowercdn.net/c/leaflet.zoomhome-latest/dist/leaflet.zoomhome.css"  crossorigin=""/>
-        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet-search@2.9.7/dist/leaflet-search.min.css" crossorigin=""><link rel="stylesheet" href="/assets/css/custom.css?v=20210114170303"><!-- ShareThis BEGIN --><!-- ShareThis END -->
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet-search@2.9.7/dist/leaflet-search.min.css" crossorigin=""><link rel="stylesheet" href="/assets/css/custom.css?v=20210118110952"><!-- ShareThis BEGIN --><!-- ShareThis END -->
 
     </head>
 <body class="language-en layout-indicator">
@@ -360,7 +360,7 @@ var translations = {
   data-charttitle="Доля женщин, сообщивших об испытанных ими лично в последние 12 месяцев проявлениях дискриминации или преследованиях на основании, дискриминация на котором запрещена международным правом прав человека"
   data-charttitles="null"
   data-measurementunit=""
-  data-showdata="true"
+  data-showdata="false"
   data-graphtype="bar"
   data-geocoderegex=""
   data-showmap=""
@@ -368,418 +368,10 @@ var translations = {
   data-graphlimits="null"
   data-stackeddisaggregation=""
   data-graphannotations="null"
-  data-indicatordownloads="null"
+  data-indicatordownloads="{&quot;indicator.download_source_sdmx&quot;:{&quot;href&quot;:&quot;downloads/data-sdmx/10.3.1.xml&quot;}}"
 >
   
-  <span role="status" class="sr-only" id="indicator-data-view-status"></span>
-  <div id="indicator-sidebar" class="indicator-sidebar col-md-3">
-    <div id="serieses"></div>
-<div id="units"></div>
-<div id="toolbar">
-  <span id="series-help">
-    <h4>Sub-categories</h4>
-    <p>Choose categories from the dropdowns below to see different breakdowns of the data. Some will not be available until a higher level is chosen.</p>
-  </span>
-  <div id="fields">
-    <p class="async-loading" data-img="/assets/img/loading-small.gif"></p>
-  </div>
-</div>
-
-  </div>
-  <div id="indicator-main" class="indicator-main col-md-9">
-    
-
-
-<div id="headlineTable">
-
-  <div id="datatables">
-
-    <a href="https://sustainabledevelopment-kyrgyzstan.github.io/sdg-data/en/headline/10-3-1.csv" class="btn btn-primary btn-download" download="indicator_10-3-1.csv" tabindex="0" role="button">Download Headline CSV</a>
-
-    <a href="https://sustainabledevelopment-kyrgyzstan.github.io/sdg-data/en/data/10-3-1.csv" class="btn btn-primary btn-download" style='float:left;margin-right:1em' download='indicator_10-3-1.csv' tabindex='0' role='button'>Download Source CSV</a>
-
-    <h3>Headline data</h3>
-    <table class="table-responsive table table-hover dataTable no-footer" role="grid">
-      <caption>Доля женщин, сообщивших об испытанных ими лично в последние 12 месяцев проявлениях дискриминации или преследованиях на основании, дискриминация на котором запрещена международным правом прав человека</caption>
-      <thead>
-        
-        
-        <th scope="col">Year</th>
-        
-        
-        
-        <th scope="col" class="table-value">Value</th>
-        
-        
-      </thead>
-      <tbody>
-        
-        <tr>
-          
-          
-          <td>2018</td>
-          
-          
-          
-          <td class="table-value">7.7</td>
-          
-          
-        </tr>
-        
-      </tbody>
-    </table>
-  </div>
-
-  <div id="datatableFooter">
-    
-    
-    <p>Geographical Area: Кыргызская Республика</p>
-    
-    
-    
-  </div>
-
-</div>
-
-
-<section>
-
-  <p class="async-loading" data-img="/assets/img/loading-small.gif"></p>
-
-  <div class="async-loaded spacer medium" style="display:none;">
-
-    <div style="display: none;">
-  <span id="table-alternative">For tabular data alternative see Table tab.</span>
-</div>
-<ul class="nav nav-tabs non-stacking-tabs data-view" role="tablist">
-  <li role="presentation" class="nav-item active">
-    <a class="nav-link" data-toggle="tab" id="tab-chartview" href="#chartview" aria-controls="chartview" role="tab" data-on="click"
-data-event-category="Tab change"
-data-event-action="Change data view"
-data-event-label="Change to Chart tab"
- aria-describedby="table-alternative">Chart</a>
-  </li>
-  <li role="presentation" class="nav-item">
-    <a class="nav-link" data-toggle="tab" id="tab-tableview" href="#tableview" aria-controls="tableview" role="tab" data-on="click"
-data-event-category="Tab change"
-data-event-action="Change data view"
-data-event-label="Change to Table tab"
->Table</a>
-  </li></ul>
-
-    <div class="tab-content data-view">
-  <div role="tabpanel" class="tab-pane active" id="chartview">
-    
-
-    <div id="dataset-size-warning" style="display:none" role="alert">
-      <i class="fa fa-bolt"><span class="sr-only">Warning:</span></i>
-      There are too many datasets to show on the chart. Not all will be shown until you remove some selections.
-    </div>
-
-    
-    
-    <div id="selectionsChart">
-      <figure role="group">
-        <div id="chart-canvas">
-          <h4 id="chart-heading" class="chart-title">Доля женщин, сообщивших об испытанных ими лично в последние 12 месяцев проявлениях дискриминации или преследованиях на основании, дискриминация на котором запрещена международным правом прав человека</h4>
-          <div id="chart" class="plot-container">
-            
-<canvas
-    role="img"
-    aria-labelledby="chart-heading"
-    aria-describedby="table-alternative chart-annotations"
-    tabindex="0"
- ></canvas>
-
-<script>
-// Add a chart alteration to support the chart_graph_limits metadata field.
-opensdg.chartConfigAlter(function(config, info) {
-  if (info.graphLimits && info.graphLimits.length > 0) {
-    var limit = _.findWhere(info.graphLimits, { unit: info.selectedUnit }) || info.graphLimits[0];
-    var overrides = {
-      options: {
-        scales: {
-          yAxes: [{
-            ticks: {
-              min: limit.minimum,
-              max: limit.maximum,
-            }
-          }]
-        }
-      }
-    }
-    // Add these overrides onto the normal config.
-    $.extend(true, config, overrides);
-  }
-});
-</script>
-
-<span style="display: none;" id="chart-annotations" role="status"></span>
-<script>
-opensdg.annotationPresets = {
-    common: {
-        // This "common" preset is applied to all annotations automatically.
-        borderColor: '#505a5f',
-        type: 'line',
-        label: {
-            backgroundColor: 'black',
-            fontColor: 'white',
-        },
-        // This "highContrast" overrides colors when in high-contrast mode.
-        highContrast: {
-            label: {
-                backgroundColor: 'white',
-                fontColor: 'black'
-            }
-        },
-        // This callback is used to generate a generic description for screenreaders.
-        // This can be overridden to be a more specific string, eg:
-        //
-        //     description: 'Chart annotation showing a 2030 target of 15%'
-        //
-        description: function() {
-            var descriptionParts = [translations.indicator.chart_annotation];
-            if (this.label && this.label.content) {
-                descriptionParts.push(translations.t(this.label.content));
-            }
-            else {
-                // If there is no label, just specify whether it is a box or line.
-                if (this.type == 'line') {
-                    descriptionParts.push(this.mode + ' line');
-                }
-                if (this.type == 'box') {
-                    descriptionParts.push('box');
-                }
-            }
-            if (typeof this.value !== 'undefined') {
-                descriptionParts.push(this.value);
-            }
-            return descriptionParts.join(': ');
-        },
-    },
-    target_line: {
-        mode: 'horizontal',
-        borderDash: [5, 5],
-        label: {
-            position: 'right',
-            content: translations.indicator.annotation_2030_target,
-        },
-    },
-};
-
-// Add a chart alteration to support the chart_annotations metadata field.
-opensdg.chartConfigAlter(function(config, info) {
-    if (info.graphAnnotations && info.graphAnnotations.length > 0) {
-        var annotations = info.graphAnnotations.filter(function(annotation) {
-            var match = true;
-            if (match && info.selectedUnit) {
-                match = (info.selectedUnit === annotation.unit);
-            }
-            if (match && info.selectedSeries) {
-                match = (info.selectedSeries === annotation.series);
-            }
-            return match;
-        });
-        // Apply some helpers/fixes to the annotations.
-        annotations = annotations.map(function(annotation) {
-            // Apply the "common" preset.
-            if (opensdg.annotationPresets.common) {
-                annotation = $.extend(true, {}, opensdg.annotationPresets.common, annotation);
-            }
-            // Apply any specified presets.
-            if (annotation.preset) {
-                var preset = annotation.preset;
-                if (opensdg.annotationPresets[preset]) {
-                    annotation = $.extend(true, {}, opensdg.annotationPresets[preset], annotation);
-                }
-            }
-            // Default to horizontal lines.
-            if (!annotation.mode && annotation.type === 'line') {
-                annotation.mode = 'horizontal';
-            }
-            // Provide the obscure scaleID properties on user's behalf.
-            if (!annotation.scaleID && annotation.type === 'line') {
-                if (annotation.mode === 'horizontal') {
-                    annotation.scaleID = 'y-axis-0';
-                }
-                if (annotation.mode === 'vertical') {
-                    annotation.scaleID = 'x-axis-0';
-                }
-            }
-            if (!annotation.xScaleID && annotation.type === 'box') {
-                annotation.xScaleID = 'x-axis-0';
-            }
-            if (!annotation.yScaleID && annotation.type === 'box') {
-                annotation.yScaleID = 'y-axis-0';
-            }
-            // Provide the "enabled" label property on the user's behalf.
-            if (annotation.label && annotation.label.content) {
-                annotation.label.enabled = true;
-            }
-            // Translate any label content.
-            if (annotation.label && annotation.label.content) {
-                annotation.label.content = translations.t(annotation.label.content);
-            }
-            // Save some original values for later used when contrast mode is switched.
-            if (typeof annotation.defaultContrast === 'undefined') {
-                annotation.defaultContrast = {};
-                if (annotation.borderColor) {
-                    annotation.defaultContrast.borderColor = annotation.borderColor;
-                }
-                if (annotation.backgroundColor) {
-                    annotation.defaultContrast.backgroundColor = annotation.backgroundColor;
-                }
-                if (annotation.label) {
-                    annotation.defaultContrast.label = {};
-                    if (annotation.label.fontColor) {
-                        annotation.defaultContrast.label.fontColor = annotation.label.fontColor;
-                    }
-                    if (annotation.label.backgroundColor) {
-                        annotation.defaultContrast.label.backgroundColor = annotation.label.backgroundColor;
-                    }
-                }
-            }
-            return annotation;
-        });
-        if (annotations.length > 0) {
-            var overrides = {
-                options: {
-                    annotation: {
-                        drawTime: 'afterDatasetsDraw',
-                        annotations: annotations
-                    }
-                }
-            };
-            // Add these overrides onto the normal config.
-            $.extend(true, config, overrides);
-
-            // Update the chart annotations element.
-            var descriptions = annotations.map(function(annotation) {
-                var description = '';
-                if (annotation.description) {
-                    if (typeof annotation.description === 'function') {
-                        description = annotation.description.call(annotation);
-                    }
-                    else {
-                        description = translations.t(annotation.description);
-                    }
-                }
-                return description;
-            }).filter(function(description) { return description != ''; });
-
-            var currentDescription = $('#chart-annotations').text();
-            var newDescription = descriptions.join('. ');
-            if (currentDescription != newDescription) {
-                $('#chart-annotations').text(newDescription);
-            }
-        }
-    }
-});
-</script>
-
-<script>
-opensdg.chartConfigAlter(function(config, info) {
-  if (info.stackedDisaggregation) {
-    var overrides = {
-      options: {
-        scales: {
-          xAxes: [{ stacked: true }],
-          yAxes: [{ stacked: true }],
-        }
-      }
-    };
-    // If we have stackedDisaggregation, we need to group datasets into stacks.
-    config.data.datasets.forEach(function(dataset) {
-      var disaggregation = $.extend({}, dataset.disaggregation);
-      // We're going to "stringify" each combination of disaggregations in order
-      // to place them in their own "stacks". To place "stacked" disaggregations
-      // into the same stack, we set them as "samestack" before stringifying.
-      // Note that the string "samestack" is completely arbitrary.
-      if (typeof disaggregation[info.stackedDisaggregation] !== 'undefined') {
-        disaggregation[info.stackedDisaggregation] = 'samestack';
-      }
-      // Use the disaggregation as a unique id for each stack.
-      dataset.stack = JSON.stringify(disaggregation);
-    });
-    // Add these overrides onto the normal config, and return it.
-    $.extend(true, config, overrides);
-  }
-});
-</script>
-
-          </div>
-          <div id="plotLegend"></div>
-          
-
-
-
-<div id="selectionChartFooter" class="table-footer-text">
-  <h5 class="sr-only">Chart details</h5>
-    <dl>
-        
-
-        
-        <dt>Geographical Area:</dt>
-        <dd>Кыргызская Республика</dd>
-        
-
-        
-
-        
-
-        
-    <dl>
-</div>
-
-        </div>
-      </figure>
-      <div id="chartSelectionDownload" class="clearfix">
-        <button id="btnSave" title="Download chart as image" class='btn btn-primary btn-download'>
-          Download Chart Image
-        </button>
-      </div>
-    </div>
-
-
-
-  </div>
-  <div role="tabpanel" class="tab-pane" id="tableview">
-    <div style="display: none;">
-      <span id="column-sort-info">Click to sort by this column</span>
-    </div>
-    <div id="selectionsTable"></div>
-
-
-
-
-<div id="selectionTableFooter" class="table-footer-text">
-  <h5 class="sr-only">Chart details</h5>
-    <dl>
-        
-
-        
-        <dt>Geographical Area:</dt>
-        <dd>Кыргызская Республика</dd>
-        
-
-        
-
-        
-
-        
-    <dl>
-</div>
-
-<div id="tableSelectionDownload" class="clearfix"></div>
-
-  </div>
-</div>
-
-
-  </div>
-
-</section>
-
+  <div id="indicator-main" class="indicator-main col-md-12">
   
   <ul class="nav nav-tabs spacer medium" role="tablist">
 
@@ -860,7 +452,7 @@ data-event-label="Change to custom.data_reporter tab"
         <th scope="row">Indicator name </th>
         <td>
           
-            <p>10.3.1. Доля людей, сообщивших об испытанных ими лично в последние 12 месяцев проявлениях дискриминации или преследованиях на основании дискриминации, которая запрещена международным правом</p>
+            <p>10.3.1. Proportion of population reporting having personally felt discriminated against or harassed in the previous 12 months on the basis of a ground of discrimination prohibited under international human rights law</p>
 
           
         </td>
@@ -874,7 +466,7 @@ data-event-label="Change to custom.data_reporter tab"
         <th scope="row">Target name </th>
         <td>
           
-            <p>10.3. Обеспечить равенство возможностей и уменьшить неравенство результатов, в том числе путем отмены дискриминационных законов, политики и практики и содействия принятию соответствующего законодательства, политики и мер в этом направлении</p>
+            <p>10.3. Ensure equal opportunity and reduce inequalities of outcome, including by eliminating discriminatory laws, policies and practices and promoting appropriate legislation, policies and action in this regard</p>
 
           
         </td>
@@ -888,7 +480,7 @@ data-event-label="Change to custom.data_reporter tab"
         <th scope="row">Goal </th>
         <td>
           
-            <p>Цель 10. Сокращение неравенства внутри стран и между ними</p>
+            <p>Goal 10. Reduce inequality within and among countries</p>
 
           
         </td>
@@ -985,7 +577,7 @@ data-event-label="Change to custom.data_reporter tab"
         <th scope="row">Definitions </th>
         <td>
           
-            <p>Под дискриминацией подразумевается негативное или предвзятое отношение к человеку, или лишение его определённых прав на основании наличия какого-то признака.</p>
+            <p>Discrimination means negative or biased treatment of a person, or deprivation of certain rights on any ground.</p>
 
           
         </td>
@@ -999,7 +591,7 @@ data-event-label="Change to custom.data_reporter tab"
         <th scope="row">Concepts </th>
         <td>
           
-            <p>В шестом раунде кластерного обследования по многим показателям к признакам дискриминации были отнесены следующие; этническая принадлежность /иммиграция, пол, сексуальная ориентация, возраст, вероисповедание/убеждения, инвалидность, какой-либо другой признак. Дискриминация состоит в обращении с отдельным лицом или группой на основе их фактического или предполагаемого членства в определённой группе или социальной категории «в каком-либо смысле хуже, чем с людьми обычно обращаются». Это включает в себя первоначальную реакцию или взаимодействие группы, которое продолжает влиять на фактическое поведение индивида по отношению к лидеру или группе, ограничивая членов одной группы возможностями или привилегиями, доступными для другой группы, что приводит к исключению индивида из организаций на основе нелогичных или нерациональных решений].</p>
+            <p>The sixth round of the Multiple Indicator Cluster Survey identified the following grounds of discrimination: ethnicity /immigration, gender, sexual orientation, age, religion/belief, disability, any other ground. Discrimination occurs when individuals or groups are treated “in a way which is worse than the way people are usually treated,” on the basis of their actual or perceived membership in certain groups or social categories. It involves the group’s initial reaction or interaction going on to influence the individual’s actual behavior towards the group’s leader or the group, restricting members of one group from opportunities or privileges that are available to members of another group, leading to the exclusion of the individual or entities based on illogical or irrational decision making].</p>
 
           
         </td>
@@ -1013,7 +605,7 @@ data-event-label="Change to custom.data_reporter tab"
         <th scope="row">Rationale and interpretation </th>
         <td>
           
-            <p>Дискриминация может препятствовать справедливому и равному доступу людей к возможностям и услугам. Данные вопросы предназначены для оценки случаев дискриминации и домогательств в отношении респондентов, произошедших в течение 12 месяцев до опроса. В вопросы входят специфические причины дискриминации и домогательств, которые могут помочь респондентам вспомнить события. Текущие вопросы основаны на рекомендованном наборе вопросов, доступных в начале реализации шестого раунда кластерного обследования по многим показателям.</p>
+            <p>Discrimination can impede individuals from getting a fair and equal access to opportunities and services. These questions are designed to assess cases of discrimination and harassment against respondents that occurred during the 12 months prior to the survey. The questions include specific causes of discrimination and harassment, which may help respondents to remember the events. The current questions are based on the recommended set of questions at the beginning of the sixth round of the Multiple Indicator Cluster Survey.</p>
 
           
         </td>
@@ -1027,7 +619,7 @@ data-event-label="Change to custom.data_reporter tab"
         <th scope="row">Method of computation </th>
         <td>
           
-            <p>Показатель рассчитывается отношением численности лиц, ответивших положительно хотя бы на один вид дискриминации, на общую численность лиц целевой группы.  Значение показателя предположительно дискриминируемой группы делится на значение показателя другой группы. Одновременно рассчитан показатель доли женщин в возрасте 15-49 лет, которые ощущали дискриминацию за последние 12 месяцев по каждому из семи признаков</p>
+            <p>This indicator means the proportion of persons who responded positively to the number of persons in the target group. The indicator value of the allegedly discriminated group is divided by the indicator value of another group. At the same time, the indicator calculates the proportion of women aged 15-49 years who have experienced at least one type of discrimination by the total discrimination cases based on each of the seven grounds over the last 12 months.</p>
 
           
         </td>
@@ -1041,7 +633,7 @@ data-event-label="Change to custom.data_reporter tab"
         <th scope="row">Comments and limitations </th>
         <td>
           
-            <p>Текущие вопросы основаны на рекомендованном наборе вопросов, доступных в начале реализации шестого раунда кластерного обследования по многим показателям. Вопросы могут измениться с учетом проходящей в настоящее время методологической работы по переносу показателя с Уровня III ЦУР на Уровень II.</p>
+            <p>The questions are based on the recommended set of questions available in the sixth round of the Multiple Indicator Cluster Survey. The questions may change based on the methodology developments to move the indicator from SDG Level III to SDG Level II.</p>
 
           
         </td>
@@ -1069,7 +661,7 @@ data-event-label="Change to custom.data_reporter tab"
         <th scope="row">Data availability and gaps </th>
         <td>
           
-            <p>Кластерное обследование по многим показателям в Кыргызской Республике, 2018 год</p>
+            <p>2018 Multiple Indicator Cluster Survey in the Kyrgyz Republic</p>
 
           
         </td>
@@ -1083,7 +675,7 @@ data-event-label="Change to custom.data_reporter tab"
         <th scope="row">Disaggregation </th>
         <td>
           
-            <p>По территории, городской/сельской местности, возрасту, образованию, функциональным трудностям, благосостоянию. </p>
+            <p>By area, urban/rural area, age, education, functional challenges, welfare.</p>
 
           
         </td>
@@ -1111,7 +703,7 @@ data-event-label="Change to custom.data_reporter tab"
         <th scope="row">References and documentation </th>
         <td>
           
-            <p>Национальная платформа отчетности ЦУР КР: https://sustainabledevelopment-kyrgyzstan.github.io
+            <p>The Kyrgyz Republic SDG National Reporting Platform: https://sustainabledevelopment-kyrgyzstan.github.io
  https://www.unicef.org</p>
 
           
@@ -1126,7 +718,7 @@ data-event-label="Change to custom.data_reporter tab"
         <th scope="row">Data sources </th>
         <td>
           
-            <p>Демографические исследования и обследования здоровья (DHS), Кластерные обследования по многим показателям (MICS).</p>
+            <p>Demographic and Health Surveys (DHS), Multiple Indicator Cluster Survey (MICS).</p>
 
           
         </td>
@@ -1140,7 +732,7 @@ data-event-label="Change to custom.data_reporter tab"
         <th scope="row">Data collection methods </th>
         <td>
           
-            <p>Этот показатель рассчитывается на основе данных кластерного обследования по многим показателям (MICS). Данные собраны для целевой группы - женщины в возрасте 15-49 лет.</p>
+            <p>This Indicator is based on the Multiple Indicator Cluster Survey (MICS) data. The data are collected for the target group - women aged 15-49 years.</p>
 
           
         </td>
@@ -1236,7 +828,7 @@ data-event-label="Change to custom.data_reporter tab"
         <th scope="row">Organization </th>
         <td>
           
-            <p>Национальный статистический комитет КР (Отдел статистики домашних хозяйств)</p>
+            <p>The National Statistical Committee of the Kyrgyz Republic (Household Statistics Division)</p>
 
           
         </td>
@@ -1250,7 +842,7 @@ data-event-label="Change to custom.data_reporter tab"
         <th scope="row">Contact person(s)/focal point </th>
         <td>
           
-            <p>Калымбетова Ы.И.</p>
+            <p>Y. I. Kalymbetova</p>
 
           
         </td>
@@ -1374,12 +966,12 @@ data-event-label="Change to custom.data_reporter tab"
 <script>translations['search'] = translations['search'] || {};
     translations['search']['search'] = 'Search';</script>
 
-<script src='/assets/js/sdg.js?v=20210114170303'></script>
+<script src='/assets/js/sdg.js?v=20210118110952'></script>
 
 
     
     
-    <script src="/assets/js/custom.js?v=20210114170303"></script><script>
+    <script src="/assets/js/custom.js?v=20210118110952"></script><script>
 $(function() {
     if($('#indicatorData').length) {
       var domData = $('#indicatorData').data();

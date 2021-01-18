@@ -119,7 +119,7 @@ var translations = {
         <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css" crossorigin="">
         <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" crossorigin="">
         <link rel="stylesheet" href="https://cdn.datatables.net/fixedcolumns/3.2.3/css/fixedColumns.dataTables.min.css" crossorigin="">
-        <link rel="stylesheet" href="/assets/css/style.css?v=20210114170303">
+        <link rel="stylesheet" href="/assets/css/style.css?v=20210118110952">
         <link href="https://fonts.googleapis.com/css?family=Open+Sans|Roboto" rel="stylesheet" crossorigin="">
         <link rel="stylesheet" href="https://unpkg.com/leaflet@1.3.4/dist/leaflet.css"
           integrity="sha512-puBpdR0798OZvTTbP4A8Ix/l+A4dHDD0DGqYW6RQ+9jxkRFclaxxQb/SJAWZfWAkuyeQUytO7+7N4QKrDh+drA=="
@@ -127,7 +127,7 @@ var translations = {
         <link rel="stylesheet" href="https://cdn.rawgit.com/socib/Leaflet.TimeDimension/master/dist/leaflet.timedimension.control.min.css"  crossorigin=""/>
         <link rel="stylesheet" href='https://api.mapbox.com/mapbox.js/plugins/leaflet-fullscreen/v1.0.1/leaflet.fullscreen.css'  crossorigin=""/>
         <link rel="stylesheet" href="https://bowercdn.net/c/leaflet.zoomhome-latest/dist/leaflet.zoomhome.css"  crossorigin=""/>
-        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet-search@2.9.7/dist/leaflet-search.min.css" crossorigin=""><link rel="stylesheet" href="/assets/css/custom.css?v=20210114170303"><!-- ShareThis BEGIN --><!-- ShareThis END -->
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet-search@2.9.7/dist/leaflet-search.min.css" crossorigin=""><link rel="stylesheet" href="/assets/css/custom.css?v=20210118110952"><!-- ShareThis BEGIN --><!-- ShareThis END -->
 
     </head>
 <body class="language-en layout-indicator">
@@ -360,7 +360,7 @@ var translations = {
   data-charttitle="Доля должностей (в разбивке по полу) в государственных учреждениях (национальных и местных законодательных собраниях, государственной службе и судебных органах) в сравнении с национальным распределением"
   data-charttitles="null"
   data-measurementunit=""
-  data-showdata="true"
+  data-showdata="false"
   data-graphtype="line"
   data-geocoderegex=""
   data-showmap=""
@@ -371,402 +371,7 @@ var translations = {
   data-indicatordownloads="null"
 >
   
-  <span role="status" class="sr-only" id="indicator-data-view-status"></span>
-  <div id="indicator-sidebar" class="indicator-sidebar col-md-3">
-    <div id="serieses"></div>
-<div id="units"></div>
-<div id="toolbar">
-  <span id="series-help">
-    <h4>Sub-categories</h4>
-    <p>Choose categories from the dropdowns below to see different breakdowns of the data. Some will not be available until a higher level is chosen.</p>
-  </span>
-  <div id="fields">
-    <p class="async-loading" data-img="/assets/img/loading-small.gif"></p>
-  </div>
-</div>
-
-  </div>
-  <div id="indicator-main" class="indicator-main col-md-9">
-    
-
-
-<div id="headlineTable">
-
-  <div id="datatables">
-
-    <a href="https://sustainabledevelopment-kyrgyzstan.github.io/sdg-data/en/headline/16-7-1.csv" class="btn btn-primary btn-download" download="indicator_16-7-1.csv" tabindex="0" role="button">Download Headline CSV</a>
-
-    <a href="https://sustainabledevelopment-kyrgyzstan.github.io/sdg-data/en/data/16-7-1.csv" class="btn btn-primary btn-download" style='float:left;margin-right:1em' download='indicator_16-7-1.csv' tabindex='0' role='button'>Download Source CSV</a>
-
-    <h3>Headline data</h3>
-    <table class="table-responsive table table-hover dataTable no-footer" role="grid">
-      <caption>Доля должностей (в разбивке по полу) в государственных учреждениях (национальных и местных законодательных собраниях, государственной службе и судебных органах) в сравнении с национальным распределением</caption>
-      <thead>
-        
-      </thead>
-      <tbody>
-        
-      </tbody>
-    </table>
-  </div>
-
-  <div id="datatableFooter">
-    
-    
-    <p>Geographical Area: Кыргызская Республика</p>
-    
-    
-    
-  </div>
-
-</div>
-
-
-<section>
-
-  <p class="async-loading" data-img="/assets/img/loading-small.gif"></p>
-
-  <div class="async-loaded spacer medium" style="display:none;">
-
-    <div style="display: none;">
-  <span id="table-alternative">For tabular data alternative see Table tab.</span>
-</div>
-<ul class="nav nav-tabs non-stacking-tabs data-view" role="tablist">
-  <li role="presentation" class="nav-item active">
-    <a class="nav-link" data-toggle="tab" id="tab-chartview" href="#chartview" aria-controls="chartview" role="tab" data-on="click"
-data-event-category="Tab change"
-data-event-action="Change data view"
-data-event-label="Change to Chart tab"
- aria-describedby="table-alternative">Chart</a>
-  </li>
-  <li role="presentation" class="nav-item">
-    <a class="nav-link" data-toggle="tab" id="tab-tableview" href="#tableview" aria-controls="tableview" role="tab" data-on="click"
-data-event-category="Tab change"
-data-event-action="Change data view"
-data-event-label="Change to Table tab"
->Table</a>
-  </li></ul>
-
-    <div class="tab-content data-view">
-  <div role="tabpanel" class="tab-pane active" id="chartview">
-    
-
-    <div id="dataset-size-warning" style="display:none" role="alert">
-      <i class="fa fa-bolt"><span class="sr-only">Warning:</span></i>
-      There are too many datasets to show on the chart. Not all will be shown until you remove some selections.
-    </div>
-
-    
-    
-    <div id="selectionsChart">
-      <figure role="group">
-        <div id="chart-canvas">
-          <h4 id="chart-heading" class="chart-title">Доля должностей (в разбивке по полу) в государственных учреждениях (национальных и местных законодательных собраниях, государственной службе и судебных органах) в сравнении с национальным распределением</h4>
-          <div id="chart" class="plot-container">
-            
-<canvas
-    role="img"
-    aria-labelledby="chart-heading"
-    aria-describedby="table-alternative chart-annotations"
-    tabindex="0"
- ></canvas>
-
-<script>
-// Add a chart alteration to support the chart_graph_limits metadata field.
-opensdg.chartConfigAlter(function(config, info) {
-  if (info.graphLimits && info.graphLimits.length > 0) {
-    var limit = _.findWhere(info.graphLimits, { unit: info.selectedUnit }) || info.graphLimits[0];
-    var overrides = {
-      options: {
-        scales: {
-          yAxes: [{
-            ticks: {
-              min: limit.minimum,
-              max: limit.maximum,
-            }
-          }]
-        }
-      }
-    }
-    // Add these overrides onto the normal config.
-    $.extend(true, config, overrides);
-  }
-});
-</script>
-
-<span style="display: none;" id="chart-annotations" role="status"></span>
-<script>
-opensdg.annotationPresets = {
-    common: {
-        // This "common" preset is applied to all annotations automatically.
-        borderColor: '#505a5f',
-        type: 'line',
-        label: {
-            backgroundColor: 'black',
-            fontColor: 'white',
-        },
-        // This "highContrast" overrides colors when in high-contrast mode.
-        highContrast: {
-            label: {
-                backgroundColor: 'white',
-                fontColor: 'black'
-            }
-        },
-        // This callback is used to generate a generic description for screenreaders.
-        // This can be overridden to be a more specific string, eg:
-        //
-        //     description: 'Chart annotation showing a 2030 target of 15%'
-        //
-        description: function() {
-            var descriptionParts = [translations.indicator.chart_annotation];
-            if (this.label && this.label.content) {
-                descriptionParts.push(translations.t(this.label.content));
-            }
-            else {
-                // If there is no label, just specify whether it is a box or line.
-                if (this.type == 'line') {
-                    descriptionParts.push(this.mode + ' line');
-                }
-                if (this.type == 'box') {
-                    descriptionParts.push('box');
-                }
-            }
-            if (typeof this.value !== 'undefined') {
-                descriptionParts.push(this.value);
-            }
-            return descriptionParts.join(': ');
-        },
-    },
-    target_line: {
-        mode: 'horizontal',
-        borderDash: [5, 5],
-        label: {
-            position: 'right',
-            content: translations.indicator.annotation_2030_target,
-        },
-    },
-};
-
-// Add a chart alteration to support the chart_annotations metadata field.
-opensdg.chartConfigAlter(function(config, info) {
-    if (info.graphAnnotations && info.graphAnnotations.length > 0) {
-        var annotations = info.graphAnnotations.filter(function(annotation) {
-            var match = true;
-            if (match && info.selectedUnit) {
-                match = (info.selectedUnit === annotation.unit);
-            }
-            if (match && info.selectedSeries) {
-                match = (info.selectedSeries === annotation.series);
-            }
-            return match;
-        });
-        // Apply some helpers/fixes to the annotations.
-        annotations = annotations.map(function(annotation) {
-            // Apply the "common" preset.
-            if (opensdg.annotationPresets.common) {
-                annotation = $.extend(true, {}, opensdg.annotationPresets.common, annotation);
-            }
-            // Apply any specified presets.
-            if (annotation.preset) {
-                var preset = annotation.preset;
-                if (opensdg.annotationPresets[preset]) {
-                    annotation = $.extend(true, {}, opensdg.annotationPresets[preset], annotation);
-                }
-            }
-            // Default to horizontal lines.
-            if (!annotation.mode && annotation.type === 'line') {
-                annotation.mode = 'horizontal';
-            }
-            // Provide the obscure scaleID properties on user's behalf.
-            if (!annotation.scaleID && annotation.type === 'line') {
-                if (annotation.mode === 'horizontal') {
-                    annotation.scaleID = 'y-axis-0';
-                }
-                if (annotation.mode === 'vertical') {
-                    annotation.scaleID = 'x-axis-0';
-                }
-            }
-            if (!annotation.xScaleID && annotation.type === 'box') {
-                annotation.xScaleID = 'x-axis-0';
-            }
-            if (!annotation.yScaleID && annotation.type === 'box') {
-                annotation.yScaleID = 'y-axis-0';
-            }
-            // Provide the "enabled" label property on the user's behalf.
-            if (annotation.label && annotation.label.content) {
-                annotation.label.enabled = true;
-            }
-            // Translate any label content.
-            if (annotation.label && annotation.label.content) {
-                annotation.label.content = translations.t(annotation.label.content);
-            }
-            // Save some original values for later used when contrast mode is switched.
-            if (typeof annotation.defaultContrast === 'undefined') {
-                annotation.defaultContrast = {};
-                if (annotation.borderColor) {
-                    annotation.defaultContrast.borderColor = annotation.borderColor;
-                }
-                if (annotation.backgroundColor) {
-                    annotation.defaultContrast.backgroundColor = annotation.backgroundColor;
-                }
-                if (annotation.label) {
-                    annotation.defaultContrast.label = {};
-                    if (annotation.label.fontColor) {
-                        annotation.defaultContrast.label.fontColor = annotation.label.fontColor;
-                    }
-                    if (annotation.label.backgroundColor) {
-                        annotation.defaultContrast.label.backgroundColor = annotation.label.backgroundColor;
-                    }
-                }
-            }
-            return annotation;
-        });
-        if (annotations.length > 0) {
-            var overrides = {
-                options: {
-                    annotation: {
-                        drawTime: 'afterDatasetsDraw',
-                        annotations: annotations
-                    }
-                }
-            };
-            // Add these overrides onto the normal config.
-            $.extend(true, config, overrides);
-
-            // Update the chart annotations element.
-            var descriptions = annotations.map(function(annotation) {
-                var description = '';
-                if (annotation.description) {
-                    if (typeof annotation.description === 'function') {
-                        description = annotation.description.call(annotation);
-                    }
-                    else {
-                        description = translations.t(annotation.description);
-                    }
-                }
-                return description;
-            }).filter(function(description) { return description != ''; });
-
-            var currentDescription = $('#chart-annotations').text();
-            var newDescription = descriptions.join('. ');
-            if (currentDescription != newDescription) {
-                $('#chart-annotations').text(newDescription);
-            }
-        }
-    }
-});
-</script>
-
-<script>
-// For line charts, add the vertical line hover functionality.
-opensdg.chartConfigAlter(function(config, info) {
-    var overrides = {
-        options: {
-            tooltips: {
-                intersect: false,
-                axis: 'x'
-            },
-        },
-        plugins: [{
-            beforeDatasetsDraw: function(chart) {
-                if (chart.tooltip._active && chart.tooltip._active.length) {
-                    var activePoint = chart.tooltip._active[0],
-                        ctx = chart.ctx,
-                        x = activePoint.tooltipPosition().x,
-                        topY = chart.scales['y-axis-0'].top,
-                        bottomY = chart.scales['y-axis-0'].bottom;
-
-                    // draw line
-                    ctx.save();
-                    ctx.beginPath();
-                    ctx.moveTo(x, topY);
-                    ctx.lineTo(x, bottomY);
-                    ctx.lineWidth = 2;
-                    ctx.strokeStyle = '#07C';
-                    ctx.stroke();
-                    ctx.restore();
-                }
-            }
-        }],
-    };
-    // Add these overrides onto the normal config, and return it.
-    $.extend(true, config, overrides);
-});
-</script>
-
-          </div>
-          <div id="plotLegend"></div>
-          
-
-
-
-<div id="selectionChartFooter" class="table-footer-text">
-  <h5 class="sr-only">Chart details</h5>
-    <dl>
-        
-
-        
-        <dt>Geographical Area:</dt>
-        <dd>Кыргызская Республика</dd>
-        
-
-        
-
-        
-
-        
-    <dl>
-</div>
-
-        </div>
-      </figure>
-      <div id="chartSelectionDownload" class="clearfix">
-        <button id="btnSave" title="Download chart as image" class='btn btn-primary btn-download'>
-          Download Chart Image
-        </button>
-      </div>
-    </div>
-
-
-
-  </div>
-  <div role="tabpanel" class="tab-pane" id="tableview">
-    <div style="display: none;">
-      <span id="column-sort-info">Click to sort by this column</span>
-    </div>
-    <div id="selectionsTable"></div>
-
-
-
-
-<div id="selectionTableFooter" class="table-footer-text">
-  <h5 class="sr-only">Chart details</h5>
-    <dl>
-        
-
-        
-        <dt>Geographical Area:</dt>
-        <dd>Кыргызская Республика</dd>
-        
-
-        
-
-        
-
-        
-    <dl>
-</div>
-
-<div id="tableSelectionDownload" class="clearfix"></div>
-
-  </div>
-</div>
-
-
-  </div>
-
-</section>
-
+  <div id="indicator-main" class="indicator-main col-md-12">
   
   <ul class="nav nav-tabs spacer medium" role="tablist">
 
@@ -847,7 +452,7 @@ data-event-label="Change to custom.data_reporter tab"
         <th scope="row">Indicator name </th>
         <td>
           
-            <p>16.7.1 Доля должностей (в разбивке по полу, возрасту, инвалидности и группе населения) в государственных учреждениях (национальных и местных законодательных собраниях, государственной службе и судебных органах) в сравнении с национальным распределением</p>
+            <p>16.7.1 Proportions of positions (by sex, age, persons with disabilities and population groups) in public institutions (national and local legislatures, public service, and judiciary) compared to national distributions</p>
 
           
         </td>
@@ -861,7 +466,7 @@ data-event-label="Change to custom.data_reporter tab"
         <th scope="row">Target name </th>
         <td>
           
-            <p>16.7 Обеспечить ответственное принятие решений репрезентативными органами на всех уровнях с участием всех слоев общества</p>
+            <p>16.7 Ensure responsive, inclusive, participatory and representative decision-making at all levels</p>
 
           
         </td>
@@ -875,7 +480,7 @@ data-event-label="Change to custom.data_reporter tab"
         <th scope="row">Goal </th>
         <td>
           
-            <p>Цель 16. Содействие построению миролюбивого и открытого общества в интересах устойчивого развития, обеспечение доступа к правосудию для всех и создание эффективных, подотчетных и основанных на широком участии учреждений на всех уровнях</p>
+            <p>Goal 16. Promote peaceful and inclusive societies for sustainable development, provide access to justice for all and build effective, accountable and inclusive institutions at all levels</p>
 
           
         </td>
@@ -972,7 +577,7 @@ data-event-label="Change to custom.data_reporter tab"
         <th scope="row">Definitions </th>
         <td>
           
-            <p>Доля занятых на политических, специальных и административных должностях в государственных учреждениях рассчитываются по отношению к численности государственных служащих в органах государственного управления</p>
+            <p>The proportion of persons employed in political, special and administrative positions in the public institution is calculated compared to to the number of civil servants in public/administrative authorities.</p>
 
           
         </td>
@@ -986,12 +591,12 @@ data-event-label="Change to custom.data_reporter tab"
         <th scope="row">Concepts </th>
         <td>
           
-            <p>Государственный гражданский служащий (далее - служащий) - гражданин Кыргызской Республики, занимающий административную должность в государственном органе, осуществляющий на постоянной основе за денежное вознаграждение из средств республиканского бюджета профессиональную служебную деятельность по реализации предоставленных по должности полномочий и несущий ответственность за их исполнение.         <br />
- Государственная должность - должность, предусмотренная Конституцией и иными нормативными правовыми актами, либо должность, учрежденная в установленном законодательством Кыргызской Республики (далее - законодательство) порядке как штатная единица государственного органа с определенным для занимающего ее лица кругом обязанностей по исполнению и обеспечению полномочий данного органа. Государственные должности подразделяются на политические, специальные и административные;</p>
+            <p>A civil servant (hereinafter referred to as an official) is a citizen of the Kyrgyz Republic, holding an administrative position in a public authority, who carries out professional service activities in the exercise of the powers vested in him or her by virtue of his or her office, and who is responsible for carrying out such activities on a regular basis, for remuneration from the national budget. 
+An official position is a position provided for in the Constitution or other normative legal acts, or a post established in the legislation of the Kyrgyz Republic (hereinafter referred to as ‘legislation’) as a full-time staff in a public authority with a range of duties to perform and enforce the powers of that authority. Official positions are divided into political, special and administrative ones:</p>
 <ul>
-  <li>политическая государственная должность - должность, в процессе замещения которой лицо осуществляет властные полномочия и принимает политикоопределяющие решения, ориентированные на проведение в жизнь политических программ и проектов, несет ответственность за реализацию поставленных политических целей и задач в рамках полномочий, установленных Конституцией и иными нормативными правовыми актами;</li>
-  <li>специальная государственная должность - должность, в процессе замещения которой лицо осуществляет властные полномочия по принятию решений и производству действий контрольно-надзорного, судебного или иного специального характера, не связанного с принятием политикоопределяющих решений;</li>
-  <li>административная государственная должность - должность, учрежденная как штатная единица государственного органа с установленным объемом полномочий и ответственности, созданная для реализации задач и функций государственного органа.</li>
+  <li>A political official position is a position when a person exercises authority and makes political decisions oriented towards the implementation of political programmes and projects, and responsible for implementing the political goals and objectives set within the framework of the powers established by the Constitution and other normative legal acts;</li>
+  <li>A special official position is a position when a person exercises the authority to make decisions and conduct actions of a supervisory, judicial or other special nature not related to political decision-making;</li>
+  <li>An administrative official position is a permanent staff position in a public authority with a defined scope of authorities and responsibilities required to implement the tasks and functions of a public authority.</li>
 </ul>
 
           
@@ -1020,7 +625,7 @@ data-event-label="Change to custom.data_reporter tab"
         <th scope="row">Method of computation </th>
         <td>
           
-            <p>Для расчета этого показателя необходимы данные по численности государственных служащих по государственным органам по всем должностям. Также нужна разбивка численности госслужащих по занимаемым государственным должностям (политические, специальные и административные).</p>
+            <p>Data on the number of civil servants in all positions by public bodies are required to calculate this indicator. Disaggregation of civil servants by position (political, special and administrative) is required.</p>
 
           
         </td>
@@ -1062,7 +667,7 @@ data-event-label="Change to custom.data_reporter tab"
         <th scope="row">Data availability and gaps </th>
         <td>
           
-            <p>Данные по возрасту, стажу и инвалидности имеются в Государственной кадровой службе КР</p>
+            <p>Disaggregated data by age, length of service and disability is available in the State Personnel Service of the Kyrgyz Republic.</p>
 
           
         </td>
@@ -1076,7 +681,7 @@ data-event-label="Change to custom.data_reporter tab"
         <th scope="row">Disaggregation </th>
         <td>
           
-            <p>По полу</p>
+            <p>By sex</p>
 
           
         </td>
@@ -1104,8 +709,8 @@ data-event-label="Change to custom.data_reporter tab"
         <th scope="row">References and documentation </th>
         <td>
           
-            <p>Национальная платформа отчетности ЦУР КР: https://sustainabledevelopment-kyrgyzstan.github.io
-Публикуются в статистическом сборнике “Женщины и мужчины Кыргызской Республики”</p>
+            <p>The Kyrgyz Republic SDG National Reporting Platform: https://sustainabledevelopment-kyrgyzstan.github.io
+Published in Women and Men in the Kyrgyz Republic Statistical Compendium</p>
 
           
         </td>
@@ -1119,7 +724,7 @@ data-event-label="Change to custom.data_reporter tab"
         <th scope="row">Data sources </th>
         <td>
           
-            <p>Государственная статистическая отчетность по форме №1-ГОС (краткая) Отчет о численности работников, занятых в органах государственного управления на 1 января</p>
+            <p>State statistical reporting Form No. 1-GOS (brief) - Report on the number of officials in public/administrative authorities as of January 1.</p>
 
           
         </td>
@@ -1133,9 +738,9 @@ data-event-label="Change to custom.data_reporter tab"
         <th scope="row">Data collection methods </th>
         <td>
           
-            <p>Сбор данных осуществляется по форме государственной статистической отчетности по № 1-ГОС (краткая). Форма представляется самостоятельными (обладающие правом юридического лица) учреждениями, организациями, зарегистрированные в ЕГРСЕ как органы государственного управления. 
-Органы государственного управления после отчетного года на бумажных носителях-территориальным органам статистики по месту нахождения или электронный формат - Нацстаткому Кыргызской Республики.
-Сбор данных осуществляется на ежегодной основе.</p>
+            <p>Data are collected based on the state statistical reporting Form No. 1-GOS (brief). Data are collected based on the form of state statistical reporting on № 1-GOS (brief). The form is submitted by independent (legal entity) institutions, organizations registered in the Single State Register of Statistical Units (EGRCE)
+Public administration bodies submit hard copies to territorial statistical bodies by location after the reporting year, or in electronic format to the National Statistical Office of the Kyrgyz Republic.
+Data are collected on an annual basis.</p>
 
           
         </td>
@@ -1231,8 +836,8 @@ data-event-label="Change to custom.data_reporter tab"
         <th scope="row">Organization </th>
         <td>
           
-            <p>Национальный статистический комитет КР
-(Отдел статистики труда и занятости)</p>
+            <p>The National Statistical Committee of the Kyrgyz Republic
+(Labour and Employment Statistics Unit)</p>
 
           
         </td>
@@ -1246,7 +851,7 @@ data-event-label="Change to custom.data_reporter tab"
         <th scope="row">Contact person(s)/focal point </th>
         <td>
           
-            <p>Джайлобаева Г.Ж.</p>
+            <p>G.J. Jailobaeva</p>
 
           
         </td>
@@ -1370,12 +975,12 @@ data-event-label="Change to custom.data_reporter tab"
 <script>translations['search'] = translations['search'] || {};
     translations['search']['search'] = 'Search';</script>
 
-<script src='/assets/js/sdg.js?v=20210114170303'></script>
+<script src='/assets/js/sdg.js?v=20210118110952'></script>
 
 
     
     
-    <script src="/assets/js/custom.js?v=20210114170303"></script><script>
+    <script src="/assets/js/custom.js?v=20210118110952"></script><script>
 $(function() {
     if($('#indicatorData').length) {
       var domData = $('#indicatorData').data();

@@ -119,7 +119,7 @@ var translations = {
         <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css" crossorigin="">
         <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" crossorigin="">
         <link rel="stylesheet" href="https://cdn.datatables.net/fixedcolumns/3.2.3/css/fixedColumns.dataTables.min.css" crossorigin="">
-        <link rel="stylesheet" href="/assets/css/style.css?v=20210114170303">
+        <link rel="stylesheet" href="/assets/css/style.css?v=20210118110952">
         <link href="https://fonts.googleapis.com/css?family=Open+Sans|Roboto" rel="stylesheet" crossorigin="">
         <link rel="stylesheet" href="https://unpkg.com/leaflet@1.3.4/dist/leaflet.css"
           integrity="sha512-puBpdR0798OZvTTbP4A8Ix/l+A4dHDD0DGqYW6RQ+9jxkRFclaxxQb/SJAWZfWAkuyeQUytO7+7N4QKrDh+drA=="
@@ -127,7 +127,7 @@ var translations = {
         <link rel="stylesheet" href="https://cdn.rawgit.com/socib/Leaflet.TimeDimension/master/dist/leaflet.timedimension.control.min.css"  crossorigin=""/>
         <link rel="stylesheet" href='https://api.mapbox.com/mapbox.js/plugins/leaflet-fullscreen/v1.0.1/leaflet.fullscreen.css'  crossorigin=""/>
         <link rel="stylesheet" href="https://bowercdn.net/c/leaflet.zoomhome-latest/dist/leaflet.zoomhome.css"  crossorigin=""/>
-        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet-search@2.9.7/dist/leaflet-search.min.css" crossorigin=""><link rel="stylesheet" href="/assets/css/custom.css?v=20210114170303"><!-- ShareThis BEGIN --><!-- ShareThis END -->
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet-search@2.9.7/dist/leaflet-search.min.css" crossorigin=""><link rel="stylesheet" href="/assets/css/custom.css?v=20210118110952"><!-- ShareThis BEGIN --><!-- ShareThis END -->
 
     </head>
 <body class="language-en layout-indicator">
@@ -368,7 +368,7 @@ var translations = {
   data-graphlimits="null"
   data-stackeddisaggregation=""
   data-graphannotations="null"
-  data-indicatordownloads="null"
+  data-indicatordownloads="{&quot;indicator.download_source_sdmx&quot;:{&quot;href&quot;:&quot;downloads/data-sdmx/8.10.2.xml&quot;}}"
 >
   
   <span role="status" class="sr-only" id="indicator-data-view-status"></span>
@@ -422,6 +422,18 @@ var translations = {
           
           
           <td class="table-value">24.4</td>
+          
+          
+        </tr>
+        
+        <tr>
+          
+          
+          <td>2019</td>
+          
+          
+          
+          <td class="table-value">32.172359</td>
           
           
         </tr>
@@ -860,7 +872,7 @@ data-event-label="Change to custom.data_reporter tab"
         <th scope="row">Indicator name </th>
         <td>
           
-            <p>8.10.2. Доля взрослых (от 15 лет), имеющих счет в банке или ином финансовом учреждении или пользующихся услугами операторов мобильных финансовых услуг</p>
+            <p>8.10.2. Proportion of adults (15 years and older) with an account at a bank or other financial institution or with a mobile-money-service provider</p>
 
           
         </td>
@@ -874,7 +886,7 @@ data-event-label="Change to custom.data_reporter tab"
         <th scope="row">Target name </th>
         <td>
           
-            <p>8.10. Укреплять способность национальных финансовых учреждений поощрять и расширять доступ к банковским, страховым и финансовым услугам для всех</p>
+            <p>8.10. Strengthen the capacity of domestic financial institutions to encourage and expand access to banking, insurance and financial services for all</p>
 
           
         </td>
@@ -888,7 +900,9 @@ data-event-label="Change to custom.data_reporter tab"
         <th scope="row">Goal </th>
         <td>
           
-            <p>Цель 8. Содействие поступательному, всеохватному и устойчивому экономическому росту, полной и производительной занятости и достойной работе для всех</p>
+            <ol>
+  <li>Promote sustained, inclusive and sustainable economic growth, full and productive employment and decent work for all</li>
+</ol>
 
           
         </td>
@@ -985,7 +999,7 @@ data-event-label="Change to custom.data_reporter tab"
         <th scope="row">Definitions </th>
         <td>
           
-            <p>Процент взрослых (в возрасте от 15 лет), которые сообщили о наличии счета (самостоятельно или вместе с кем-то еще) в банке или другом финансовом учреждении или личного счета в мобильной денежной службе в последние 12 месяцев.</p>
+            <p>The percentage of adults (ages 15+) who report having an account (by themselves or together with someone else) at a bank or another type of financial institution or personally using a mobile money service in the past 12 months.</p>
 
           
         </td>
@@ -999,7 +1013,7 @@ data-event-label="Change to custom.data_reporter tab"
         <th scope="row">Concepts </th>
         <td>
           
-            <p>Наличие счета в финансовой организации фиксируется у респондентов, которые сообщают о наличии учетной записи в банке или в другом типе финансовых учреждений, таких как кредитный союз, учреждение микрофинансирования, кооператив или почтовое отделение (если применимо) или имеющих дебетовую карту на свое имя. Кроме того, учитываются респонденты, которые сообщают о получении заработной платы, государственных трансфертов или платежей за сельскохозяйственную продукцию на счет в финансовом учреждении в последние 12 месяцев; оплачивали счет за коммунальные услуги или платили за образование со счета в финансовом учреждении в последние 12 месяцев; получали заработную плату или государственные переводы на карту финансового учреждения за последние 12 месяцев. Респонденты с наличием мобильных счетов учитываются также, если они в течение последних 12 месяцев лично сообщают об использовании мобильных услуг GSM Association (GSMA) для Unbanked (MMU) в целях оплаты счетов или отправки, или получении перевода. Кроме того, сюда включаются респонденты, которые за последние 12 месяцев сообщают о получении заработной платы, государственных трансфертов или платежей за сельскохозяйственную продукцию через мобильный счет.</p>
+            <p>Account at a financial institution includes respondents who report having an account at a bank or at another type of financial institution, such as a credit union, microfinance institution, cooperative, or the post office (if applicable), or having a debit card in their own name. In addition, it includes respondents who report receiving wages, government transfers, or payments for agricultural products into an account at a financial institution in the past 12 months; paying utility bills or school fees from an account at a financial institution in the past 12 months; or receiving wages or government transfers into a card in the past 12 months. Mobile money account includes respondents who report personally using GSM Association (GSMA) Mobile Money for the Unbanked (MMU) services in the past 12 months to pay bills or to send or receive money. In addition, it includes respondents who report receiving wages, government transfers, or payments for agricultural products through a mobile phone in the past 12 months.</p>
 
           
         </td>
@@ -1013,7 +1027,7 @@ data-event-label="Change to custom.data_reporter tab"
         <th scope="row">Rationale and interpretation </th>
         <td>
           
-            <p>Формальные финансовые услуги, таким как сбережение, страхование, платежи, кредиты и денежные переводы, важны для людей - независимо от уровня дохода, пола, возраста, образования или места жительства, они позволяют индивиду управлять жизнью, строить будущее и заниматься своим делом. Доступ к счету является важной отправной точкой для людей, которые могут получить доступ к финансовым услугам.</p>
+            <p>Access to formal financial services such as savings, insurance, payments, credit and remittances is essential to the ability of people regardless of income level, gender, age, education or where they live to manage their lives, build their futures, and grow their businesses. Having access to an account is an important starting point for people to access a range of financial services.</p>
 
           
         </td>
@@ -1027,7 +1041,7 @@ data-event-label="Change to custom.data_reporter tab"
         <th scope="row">Method of computation </th>
         <td>
           
-            <p>Отношение численности населения в возрасте 15 лет и старше, имеющих счет в финансовом учреждении к общей численности населения в соответствующей возрастной группе.</p>
+            <p>Proportion of population aged 15 and older with an account in a financial institution to the total population in the relevant age group.</p>
 
           
         </td>
@@ -1041,7 +1055,7 @@ data-event-label="Change to custom.data_reporter tab"
         <th scope="row">Comments and limitations </th>
         <td>
           
-            <p>Global Findex – это индивидуальный опрос, определяющий право собственности на счета. Поскольку финансовое включение является концепцией на индивидуальном уровне, данная процедура считается единственной подходящей. Другие обследования, которые проводятся на уровне домашних хозяйств, могут измерять доступ к финансированию через другого члена семьи, который может переоценить финансовое включение.</p>
+            <p>Global Findex is an individual level survey, measuring individual’s ownership of accounts. As financial inclusion is an individual-level concept, this is the appropriate measure. Other surveys that are done at household level may measure the access to finance through another member of the household which may overestimate financial inclusion.</p>
 
           
         </td>
@@ -1069,7 +1083,8 @@ data-event-label="Change to custom.data_reporter tab"
         <th scope="row">Data availability and gaps </th>
         <td>
           
-            <p>Показатели в базе данных Global Financial Inclusion (Global Findex) 2014 года основаны на данных опроса, охватившего почти 150 000 человек в более чем 140 странах, репрезентативная выборка была распространена на 97 процентов населения мира. Опрос проводился Gallup, Inc. в течение 2014 календарного года в рамках всемирного опроса Gallup, который с 2005 года постоянно проводил опросы примерно 1000 человек в более чем 160 странах и более чем на 140 языках, используя метод случайного отбора, формируя репрезентативную выборку. Целевое население включает все гражданское, неинституционализированное население в возрасте 15 лет и старше.</p>
+            <p>The indicators in the 2014 Global Financial Inclusion (Global Findex) database are drawn from survey data covering almost 150,000 people in more than 140 economies representing more than 97 percent of the world’s population. The survey was carried out over the 2014 calendar year by Gallup, Inc. as part of its
+Gallup World Poll, which since 2005 has continually conducted surveys of approximately 1,000 people in each of more than 160 economies and in over 140 languages, using randomly selected, nationally representative samples. The target population is the entire civilian, non-institutionalized population age 15 and older.</p>
 
           
         </td>
@@ -1083,7 +1098,7 @@ data-event-label="Change to custom.data_reporter tab"
         <th scope="row">Disaggregation </th>
         <td>
           
-            <p>Дезагрегирование осуществляется по полу, возрасту, уровню образования, городской/сельской местности.</p>
+            <p>Disaggregated by sex, age, educational level urban/rural area.</p>
 
           
         </td>
@@ -1097,8 +1112,7 @@ data-event-label="Change to custom.data_reporter tab"
         <th scope="row">Comparability with international data/standards </th>
         <td>
           
-            <p>Всемирная база данных Global Findex основана на исследованиях на индивидуальном уровне во всем мире, которые проводятся каждые три года. Первый раунд опроса был проведен в 2011 году, а второй - в 2014 году. Третий раунд будет проведен в 2017 году. База данных охватывает около 140 стран.
-Данные сопоставимы по странам.
+            <p>World Bank’s Global Findex database is based on individual level surveys worldwide, conducted every three years. The first round of the survey was done in 2011, and the second in 2014. The third round will be done in 2017. The database covers about 140 countries. Data comparable across countries.
 http://www.worldbank.org/content/dam/Worldbank/Research/GlobalFindex/PDF/Methodology.pdf</p>
 
           
@@ -1113,7 +1127,7 @@ http://www.worldbank.org/content/dam/Worldbank/Research/GlobalFindex/PDF/Methodo
         <th scope="row">References and documentation </th>
         <td>
           
-            <p>Национальная платформа отчетности ЦУР КР: https://sustainabledevelopment-kyrgyzstan.github.io</p>
+            <p>KR National SDG Reporting Platform: https://sustainabledevelopment-kyrgyzstan.github.io</p>
 
           
         </td>
@@ -1127,7 +1141,7 @@ http://www.worldbank.org/content/dam/Worldbank/Research/GlobalFindex/PDF/Methodo
         <th scope="row">Data sources </th>
         <td>
           
-            <p>Источниками информации для расчета показателя является квартальный вопросник №1 «Контрольная карточка домашнего хозяйства» и годовой вопросник №2 «Социально-демографические характеристики лиц в домашнем хозяйстве», раздел V «Доступ к услугам и ощущение безопасности» интегрированного выборочного обследования бюджетов домашних хозяйств и рабочей силы.</p>
+            <p>Data for calculating the indicator are obtained from the quarterly survey №1 «Household control card» and annual survey №2 «Socio-demographic characteristics of household residents», section V «Access to services and sense of security» of Integrated Household Budget and Labour  Force Sample Survey.</p>
 
           
         </td>
@@ -1141,7 +1155,7 @@ http://www.worldbank.org/content/dam/Worldbank/Research/GlobalFindex/PDF/Methodo
         <th scope="row">Data collection methods </th>
         <td>
           
-            <p>Репрезентативные индивидуальные опросы населения в возрасте 15 лет и старше.</p>
+            <p>Representative individual level surveys of respondents aged 15 and older.</p>
 
           
         </td>
@@ -1233,8 +1247,7 @@ http://www.worldbank.org/content/dam/Worldbank/Research/GlobalFindex/PDF/Methodo
         <th scope="row">Organization </th>
         <td>
           
-            <p>Национальный статистический комитет КР
-(Отдел статистики домашних хозяйств)</p>
+            <p>National Statistical Committee of the Kyrgyz Republic (Household Statistics Division)</p>
 
           
         </td>
@@ -1248,7 +1261,7 @@ http://www.worldbank.org/content/dam/Worldbank/Research/GlobalFindex/PDF/Methodo
         <th scope="row">Contact person(s)/focal point </th>
         <td>
           
-            <p>Керималиева Н.К</p>
+            <p>Kerimalieva N.K.</p>
 
           
         </td>
@@ -1372,12 +1385,12 @@ http://www.worldbank.org/content/dam/Worldbank/Research/GlobalFindex/PDF/Methodo
 <script>translations['search'] = translations['search'] || {};
     translations['search']['search'] = 'Search';</script>
 
-<script src='/assets/js/sdg.js?v=20210114170303'></script>
+<script src='/assets/js/sdg.js?v=20210118110952'></script>
 
 
     
     
-    <script src="/assets/js/custom.js?v=20210114170303"></script><script>
+    <script src="/assets/js/custom.js?v=20210118110952"></script><script>
 $(function() {
     if($('#indicatorData').length) {
       var domData = $('#indicatorData').data();
