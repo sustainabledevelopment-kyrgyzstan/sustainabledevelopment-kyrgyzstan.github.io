@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="en" class="no-js">
+<html lang="ru" class="no-js">
     <head>
         <meta charset="utf-8">
         <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.min.js"></script>
-        <script crossorigin="anonymous" src="https://polyfill.io/v3/polyfill.min.js?features=Promise%2CArray.prototype.forEach%2CString.prototype.includes%2CURLSearchParams%2CCustomEvent%2CArray.prototype.includes%2CArray.prototype.filter%2CArray.prototype.some%2CArray.prototype.find%2CObject.assign%2CArray.isArray%2CObject.values%2CArray.from%2CSet"></script>
+        <script crossorigin="anonymous" src="https://polyfill.io/v3/polyfill.min.js?features=Promise%2CArray.prototype.forEach%2CString.prototype.includes%2CURLSearchParams%2CCustomEvent%2CArray.prototype.includes%2CArray.prototype.filter%2CArray.prototype.some%2CArray.prototype.find%2CArray.prototype.reduce%2CObject.assign%2CArray.isArray%2CObject.values%2CArray.from%2CSet%2CArray.prototype.findIndex"></script>
 <script crossorigin="anonymous" src="https://cdnjs.cloudflare.com/ajax/libs/javascript-canvas-to-blob/3.15.0/js/canvas-to-blob.min.js"></script>
 
         <script>
@@ -19,11 +19,23 @@ var opensdg = {
     this.chartConfigAlterations.push(callback);
   },
 
+  tableConfigAlterations: [],
+  // A hook which can be used to modify the configuration for Datatables.
+  tableConfigAlter: function(callback) {
+    this.tableConfigAlterations.push(callback);
+  },
+
   // A hook which can be replaced to alter whether/how the values that are
   // displayed on indicator tables/graphs get rounded.
   dataRounding: function(value) {
     // Alterations go here.
     return value;
+  },
+
+  // A hook which can be used to alter the data before it is displayed on charts/tables.
+  dataDisplayAlterations: [],
+  dataDisplayAlter: function(callback) {
+    this.dataDisplayAlterations.push(callback);
   },
 
   language: 'ru',
@@ -100,8 +112,6 @@ var translations = {
         
         <link rel="canonical" href="/">
 
-        
-
         <!--[if IE 9]>
         <script src="/assets/js/lib/classList.js"></script>
         <![endif]-->
@@ -114,12 +124,10 @@ var translations = {
         -->
 
         
-
-        
         <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css" crossorigin="">
         <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" crossorigin="">
         <link rel="stylesheet" href="https://cdn.datatables.net/fixedcolumns/3.2.3/css/fixedColumns.dataTables.min.css" crossorigin="">
-        <link rel="stylesheet" href="/assets/css/style.css?v=20210312114827">
+        <link rel="stylesheet" href="/assets/css/style.css?v=20211013151158">
         <link href="https://fonts.googleapis.com/css?family=Open+Sans|Roboto" rel="stylesheet" crossorigin="">
         <link rel="stylesheet" href="https://unpkg.com/leaflet@1.3.4/dist/leaflet.css"
           integrity="sha512-puBpdR0798OZvTTbP4A8Ix/l+A4dHDD0DGqYW6RQ+9jxkRFclaxxQb/SJAWZfWAkuyeQUytO7+7N4QKrDh+drA=="
@@ -127,13 +135,17 @@ var translations = {
         <link rel="stylesheet" href="https://cdn.rawgit.com/socib/Leaflet.TimeDimension/master/dist/leaflet.timedimension.control.min.css"  crossorigin=""/>
         <link rel="stylesheet" href='https://api.mapbox.com/mapbox.js/plugins/leaflet-fullscreen/v1.0.1/leaflet.fullscreen.css'  crossorigin=""/>
         <link rel="stylesheet" href="https://bowercdn.net/c/leaflet.zoomhome-latest/dist/leaflet.zoomhome.css"  crossorigin=""/>
-        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet-search@2.9.7/dist/leaflet-search.min.css" crossorigin=""><link rel="stylesheet" href="/assets/css/custom.css?v=20210312114827"><!-- ShareThis BEGIN --><!-- ShareThis END -->
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet-search@2.9.7/dist/leaflet-search.min.css" crossorigin=""><link rel="stylesheet" href="/assets/css/custom.css?v=20211013151158"><!-- ShareThis BEGIN --><!-- ShareThis END -->
+
+        
 
     </head>
-<body class="language-ru layout-goal-by-target">
+<body class="language-ru
+layout-goal-by-target
+">
 <!-- <div class="container"> -->
 
-<script>translations['header'] = {"alpha":"Альфа","default_contrast":"стандартный контраст","disable_high_contrast":"Отключить высокую контрастность","disclaimer":"Это сайт находится в разработке. Мы рады вашим отзывам.","enable_high_contrast":"Включить высокую контрастность","high_contrast":"высокий контраст","skip_link":"Перейти к главному содержанию","tag_line":"17 Целей, чтобы преобразовать наш мир"};</script>
+<script>translations['header'] = {"alpha":"Альфа","default_contrast":"стандартный контраст","disable_high_contrast":"Отключить высокую контрастность","disclaimer":"Это сайт находится в разработке. Мы рады вашим отзывам.","enable_high_contrast":"Включить высокую контрастность","high_contrast":"высокий контраст","skip_link":"Перейти к главному содержанию","tag_line":"17 Целей, чтобы преобразовать наш мир","toggle_menu":"Переключайте меню. Нажмите, чтобы развернуть или свернуть меню.","toggle_search":"Поисковая переключатель. Нажмите, чтобы развернуть или свернуть панель поиска."};</script>
 
 <a class="sr-only sr-only-focusable" id="skiplink" href="#main-content" tabindex="0">Перейти к главному содержанию</a>
 <div id="disclaimer">
@@ -191,10 +203,10 @@ var translations = {
         <li><span data-target="search">Поиск</span></li>
       </ul>
       <div id="search" class="menu-target">
-  <form action="/search">
-    <input type="text" name="q" id="indicator_search" title="Поиск" />
+  <form action="/search/">
     <label class="sr-only" for="indicator_search">Поиск</label>
-    <button aria-label="Поиск" id="search-btn" type="submit"><i class="fa fa-search" aria-hidden="false"></i></button>
+    <input type="text" name="q" id="indicator_search" title="Поиск" /><!--
+    --><button aria-label="Поиск" id="search-btn" type="submit"><i class="fa fa-search" aria-hidden="false"></i></button>
   </form>
 </div>
 
@@ -245,23 +257,24 @@ var translations = {
   
 </ol>
 
+  
 </div>
 
 <div class="heading goal-banner goal-4">
   <div class="container">
     <div class="row">
       <div class="col-xs-4 col-md-3 col-lg-2 goal-tiles">
-        <img src="https://sdg-kyrgyzstan.github.io/open-sdg-site-starter/assets/img/goals/ru/4.png" alt="Качественное образование - Цель 4" id="goal-4" />
+        <img src="https://sdg-kyrgyzstan.github.io/open-sdg-site-starter/assets/img/goals/ru/4.png" alt="Качественное образование - Цель 4" id="goal-4" class="goal-icon-image goal-icon-image-" />
       </div>
       <div class="col-xs-8 col-md-9 col-lg-10">
         <h1>
-          <span class="hidden-sm hidden-md hidden-lg">Цель 4: </span>Обеспечение всеохватного и справедливого качественного образования и поощрение
-возможности обучения на протяжении всей жизни для всех
+          <span class="hidden-sm hidden-md hidden-lg">Цель 4: </span>Обеспечение всеохватного и справедливого качественного образования и поощрение возможности обучения на протяжении всей жизни для всех
         </h1>
       </div>
     </div>
   </div>
 </div>
+
 
 <div id="main-content" class="container goal-indicators goal-4 goal-by-target" role="main">
 
@@ -282,15 +295,11 @@ var translations = {
   
     
     <div class="indicator-cards target goal-target col-md-6">
-      <span>
+      <span class="indicator-card-number">
         <label class="hidden-md hidden-lg">Задача</label>
         4.1
       </span>
-      К 2030 году обеспечить, чтобы все девочки и
-мальчики завершали получение бесплатного, равноправного
-и качественного начального и среднего образования,
-позволяющего добиться востребованных
-и эффективных результатов обучения
+      К 2030 году обеспечить, чтобы все девочки и мальчики завершали получение бесплатного, равноправного и качественного начального и среднего образования, позволяющего добиться востребованных и эффективных результатов обучения
     </div>
     <div class="indicator-cards col-md-6 row no-gutters">
     
@@ -298,73 +307,65 @@ var translations = {
       
       
       
-      
-      
-      
-      
-      
 
       <div class="col-md-12  goal-indicator">
-        <span>
+        <span class="indicator-card-number">
           4.1.1
-          <span class="status complete">
-            Опубликован
-          </span>
+          
+
+
+<span class="status complete">
+    Сообщение
+</span>
+
         </span>
         <a href="/4-1-1">
-          Доля детей и молодежи, приходящаяся на
-a) учащихся 2/3 классов; b) выпускников начальной
-школы; и c) выпускников младшей средней школы,
-которые достигли по меньшей мере минимального
-уровня владения навыками i) чтения и ii) математики
+          Доля детей и молодежи, приходящаяся на a) учащихся 2 и 3 классов; b) выпускников начальной школы; и c) выпускников неполной средней школы, которые достигли по меньшей мере минимального уровня владения навыками i) чтения и ii) математики, в разбивке по полу
         </a>
         
+
       </div>
     
 
       
       
       
-      
-      
-      
-      
-      
 
       <div class="col-md-12 indicator-национальный goal-indicator">
-        <span>
+        <span class="indicator-card-number">
           4.1.1.1a
-          <span class="status complete">
-            Опубликован
-          </span>
+          
+
+
+<span class="status complete">
+    Сообщение
+</span>
+
         </span>
         <a href="/4-1-1-1a">
           Численность детей и подростков 7-17 лет (1-11классов), не приступивших  к занятиям  в общеобразовательные организации по причинам,  по полу
         </a>
         
-          <ul class="tags">
-          
-            
-            <li class="tag-национальный warning">национальный</li>
-          
-          </ul>
+    <span class="sr-only">Теги</span>
+    <span class="tags">
+    
         
+        <span class="tag tag-национальный">национальный</span>
+    
+    </span>
+
+
       </div>
     
     </div>
   
     
     <div class="indicator-cards target goal-target col-md-6">
-      <span>
+      <span class="indicator-card-number">
         <label class="hidden-md hidden-lg">Задача</label>
         4.2
       </span>
-      К 2030 году обеспечить всем девочкам и мальчикам
-доступ к качественным системам развития,
-ухода и дошкольного обучения детей младшего возраста,
-с тем чтобы они были готовы к получению
-начального образования
-
+      К 2030 году обеспечить всем девочкам и мальчикам доступ к качественным системам развития, ухода и дошкольного обучения детей младшего возраста, с тем чтобы они были готовы к получению начального образования
     </div>
     <div class="indicator-cards col-md-6 row no-gutters">
     
@@ -372,95 +373,88 @@ a) учащихся 2/3 классов; b) выпускников начальн
       
       
       
-      
-      
-      
-      
-      
 
       <div class="col-md-12  goal-indicator">
-        <span>
+        <span class="indicator-card-number">
           4.2.1
-          <span class="status complete">
-            Опубликован
-          </span>
+          
+
+
+<span class="status complete">
+    Сообщение
+</span>
+
         </span>
         <a href="/4-2-1">
-          Доля детей в возрасте до пяти лет, которые
-развиваются без отклонений в плане здоровья, обучения
-и психосоциального благополучия, в разбивке по
-полу 
+          Доля детей в возрасте от 24 до 59 месяцев, развивающихся без отклонений в плане здоровья, обучения и психосоциального благополучия, в разбивке по полу
         </a>
         
+
       </div>
     
 
-      
-      
-      
-      
-      
       
       
       
 
       <div class="col-md-12  goal-indicator">
-        <span>
+        <span class="indicator-card-number">
           4.2.2
-          <span class="status complete">
-            Опубликован
-          </span>
+          
+
+
+<span class="status complete">
+    Сообщение
+</span>
+
         </span>
         <a href="/4-2-2">
-          Уровень участия в организованных видах
-обучения (за один год до достижения официального
-возраста поступления в школу) в разбивке по полу
+          Уровень участия в организованных видах обучения (за один год до достижения официального возраста поступления в школу) в разбивке по полу
         </a>
         
+
       </div>
     
 
-      
-      
-      
-      
-      
       
       
       
 
       <div class="col-md-12 indicator-национальный goal-indicator">
-        <span>
+        <span class="indicator-card-number">
           4.2.2.1a
-          <span class="status complete">
-            Опубликован
-          </span>
+          
+
+
+<span class="status complete">
+    Сообщение
+</span>
+
         </span>
         <a href="/4-2-2-1a">
-          Охват детей дошкольным образованием
+          Доля детей в возрасте до пяти лет, которые получают дошкольное образование
         </a>
         
-          <ul class="tags">
-          
-            
-            <li class="tag-национальный warning">национальный</li>
-          
-          </ul>
+    <span class="sr-only">Теги</span>
+    <span class="tags">
+    
         
+        <span class="tag tag-национальный">национальный</span>
+    
+    </span>
+
+
       </div>
     
     </div>
   
     
     <div class="indicator-cards target goal-target col-md-6">
-      <span>
+      <span class="indicator-card-number">
         <label class="hidden-md hidden-lg">Задача</label>
         4.3
       </span>
-      К 2030 году обеспечить для всех женщин и
-мужчин равный доступ к недорогому и качественному
-профессионально-техническому и высшему
-образованию, в том числе университетскому образованию
+      К 2030 году обеспечить для всех женщин и мужчин равный доступ к недорогому и качественному профессионально-техническому и высшему образованию, в том числе университетскому образованию
     </div>
     <div class="indicator-cards col-md-6 row no-gutters">
     
@@ -468,72 +462,65 @@ a) учащихся 2/3 классов; b) выпускников начальн
       
       
       
-      
-      
-      
-      
-      
 
       <div class="col-md-12  goal-indicator">
-        <span>
+        <span class="indicator-card-number">
           4.3.1
-          <span class="status notstarted">
-            В процессе разработки
-          </span>
+          
+
+
+<span class="status notstarted">
+    В процессе разработки
+</span>
+
         </span>
         <a href="/4-3-1">
-          Уровень участия взрослых и молодежи в
-формальных и неформальных видах обучения и профессиональной
-подготовки в последние 12 месяцев в
-разбивке по полу
+          Уровень участия молодых и взрослых людей в формальных и неформальных видах обучения и профессиональной подготовки в последние 12 месяцев в разбивке по полу
         </a>
         
+
       </div>
     
 
       
       
       
-      
-      
-      
-      
-      
 
       <div class="col-md-12 indicator-национальный goal-indicator">
-        <span>
+        <span class="indicator-card-number">
           4.3.1.1
-          <span class="status complete">
-            Опубликован
-          </span>
+          
+
+
+<span class="status complete">
+    Сообщение
+</span>
+
         </span>
         <a href="/4-3-1-1">
-          Доля молодежи, получающая образование
+          Доля молодежи от 15 до 24 лет, обучающихся в системе начального профессионального образования, среднего профессионального и высшего профессионального образования к численности населения соответствующего возраста
         </a>
         
-          <ul class="tags">
-          
-            
-            <li class="tag-национальный warning">национальный</li>
-          
-          </ul>
+    <span class="sr-only">Теги</span>
+    <span class="tags">
+    
         
+        <span class="tag tag-национальный">национальный</span>
+    
+    </span>
+
+
       </div>
     
     </div>
   
     
     <div class="indicator-cards target goal-target col-md-6">
-      <span>
+      <span class="indicator-card-number">
         <label class="hidden-md hidden-lg">Задача</label>
         4.4
       </span>
-      К 2030 году существенно увеличить число молодых
-и взрослых людей, обладающих востребованными
-навыками, в том числе профессионально-техническими
-навыками, для трудоустройства, получения
-достойной работы и занятий предпринимательской
-деятельностью
+      К 2030 году существенно увеличить число молодых и взрослых людей, обладающих востребованными навыками, в том числе профессионально-техническими навыками, для трудоустройства, получения достойной работы и занятий предпринимательской деятельностью
     </div>
     <div class="indicator-cards col-md-6 row no-gutters">
     
@@ -541,73 +528,65 @@ a) учащихся 2/3 классов; b) выпускников начальн
       
       
       
-      
-      
-      
-      
-      
 
       <div class="col-md-12  goal-indicator">
-        <span>
+        <span class="indicator-card-number">
           4.4.1
-          <span class="status complete">
-            Опубликован
-          </span>
+          
+
+
+<span class="status complete">
+    Сообщение
+</span>
+
         </span>
         <a href="/4-4-1">
-          Доля молодежи/взрослых, обладающей/ обладающих
-навыками в области информационно-коммуникационных
-технологий, в разбивке по видам
-навыков
+          Доля молодых и взрослых людей, обладающих навыками в области информационно-коммуникационных технологий, в разбивке по видам навыков
         </a>
         
+
       </div>
     
 
       
       
       
-      
-      
-      
-      
-      
 
       <div class="col-md-12 indicator-национальный goal-indicator">
-        <span>
+        <span class="indicator-card-number">
           4.4.1.1a
-          <span class="status complete">
-            Опубликован
-          </span>
+          
+
+
+<span class="status complete">
+    Сообщение
+</span>
+
         </span>
         <a href="/4-4-1-1a">
-          Численность студентов, обучающихся по направлению ИКТ по полу
+          Численность студентов, обучающихся по направлению ИКТ в системе начального профессионального, среднего профессионального и высшего профессионального образования
         </a>
         
-          <ul class="tags">
-          
-            
-            <li class="tag-национальный warning">национальный</li>
-          
-          </ul>
+    <span class="sr-only">Теги</span>
+    <span class="tags">
+    
         
+        <span class="tag tag-национальный">национальный</span>
+    
+    </span>
+
+
       </div>
     
     </div>
   
     
     <div class="indicator-cards target goal-target col-md-6">
-      <span>
+      <span class="indicator-card-number">
         <label class="hidden-md hidden-lg">Задача</label>
         4.5
       </span>
-      К 2030 году ликвидировать гендерное неравенство
-в сфере образования и обеспечить равный
-доступ к образованию и профессионально-технической
-подготовке всех уровней для уязвимых групп
-населения, в том числе инвалидов, представителей
-коренных народов и детей, находящихся в уязвимом
-положении
+      К 2030 году ликвидировать гендерное неравенство в сфере образования и обеспечить равный доступ к образованию и профессионально-технической подготовке всех уровней для уязвимых групп населения, в том числе инвалидов, представителей коренных народов и детей, находящихся в уязвимом положении
     </div>
     <div class="indicator-cards col-md-6 row no-gutters">
     
@@ -615,43 +594,34 @@ a) учащихся 2/3 классов; b) выпускников начальн
       
       
       
-      
-      
-      
-      
-      
 
       <div class="col-md-12  goal-indicator">
-        <span>
+        <span class="indicator-card-number">
           4.5.1
-          <span class="status notstarted">
-            В процессе разработки
-          </span>
+          
+
+
+<span class="status notstarted">
+    В процессе разработки
+</span>
+
         </span>
         <a href="/4-5-1">
-          Индексы равенства (женщин и мужчин, городских
-и сельских жителей, нижней и верхней
-квинтили достатка и других групп, например инвалидов,
-коренных народов и людей, затронутых конфликтом,
-в зависимости от наличия данных) по всем
-касающимся образования показателям в настоящем
-перечне, которые могут быть дезагрегированы
+          Индексы равенства (женщин и мужчин, городских и сельских жителей, нижней и верхней квинтили достатка и других групп, например инвалидов, коренных народов и людей, затронутых конфликтами, в зависимости от наличия данных) по всем касающимся образования показателям в настоящем перечне, которые могут быть дезагрегированы
         </a>
         
+
       </div>
     
     </div>
   
     
     <div class="indicator-cards target goal-target col-md-6">
-      <span>
+      <span class="indicator-card-number">
         <label class="hidden-md hidden-lg">Задача</label>
         4.6
       </span>
-      К 2030 году обеспечить, чтобы все молодые
-люди и значительная доля взрослого населения, как
-мужчин, так и женщин, умели читать, писать и считать
-
+      К 2030 году обеспечить, чтобы все молодые люди и значительная доля взрослого населения, как мужчин, так и женщин, умели читать, писать и считать
     </div>
     <div class="indicator-cards col-md-6 row no-gutters">
     
@@ -659,46 +629,34 @@ a) учащихся 2/3 классов; b) выпускников начальн
       
       
       
-      
-      
-      
-      
-      
 
       <div class="col-md-12  goal-indicator">
-        <span>
+        <span class="indicator-card-number">
           4.6.1
-          <span class="status notstarted">
-            В процессе разработки
-          </span>
+          
+
+
+<span class="status notstarted">
+    В процессе разработки
+</span>
+
         </span>
         <a href="/4-6-1">
-          Доля населения в данной возрастной группе,
-достигшая, по меньшей мере, установленного уровня
-функциональной a) грамотности и b) математической
-грамотности, в разбивке по полу.
+          Доля населения  в данной возрастной группе, достигшая, по меньшей мере, установленного уровня функциональной способности a) писать и читать и b) считать, в разбивке по полу
         </a>
         
+
       </div>
     
     </div>
   
     
     <div class="indicator-cards target goal-target col-md-6">
-      <span>
+      <span class="indicator-card-number">
         <label class="hidden-md hidden-lg">Задача</label>
         4.7
       </span>
-      К 2030 году обеспечить, чтобы все учащиеся
-приобретали знания и навыки, необходимые для содействия
-устойчивому развитию, в том числе посредством
-обучения по вопросам устойчивого развития
-и устойчивого образа жизни, прав человека, гендерного
-равенства, пропаганды культуры мира и ненасилия,
-гражданства мира и осознания ценности
-культурного разнообразия и вклада культуры в
-устойчивое развитие
-
+      К 2030 году обеспечить, чтобы все учащиеся приобретали знания и навыки, необходимые для содействия устойчивому развитию, в том числе посредством обучения по вопросам устойчивого развития и устойчивого образа жизни, прав человека, гендерного равенства, пропаганды культуры мира и ненасилия, гражданства мира и осознания ценности культурного разнообразия и вклада культуры в устойчивое развитие
     </div>
     <div class="indicator-cards col-md-6 row no-gutters">
     
@@ -706,44 +664,34 @@ a) учащихся 2/3 классов; b) выпускников начальн
       
       
       
-      
-      
-      
-      
-      
 
       <div class="col-md-12  goal-indicator">
-        <span>
+        <span class="indicator-card-number">
           4.7.1
-          <span class="status complete">
-            Опубликован
-          </span>
+          
+
+
+<span class="status complete">
+    Сообщение
+</span>
+
         </span>
         <a href="/4-7-1">
-          Статус i) воспитания в духе всемирной гражданственности
-и ii) пропаганды устойчивого развития,
-включая гендерное равенство и права человека,
-на всех уровнях в a) национальной политике в сфере
-образования; b) учебных программах; c) программах
-подготовки учителей; и d) системе аттестации учащихся
-
+          Статус i) воспитания в духе всемирной гражданственности и ii) пропаганды устойчивого развития, включая гендерное равенство и права человека, на всех уровнях в a) национальной политике в сфере образования; b) учебных программах; c) программах подготовки учителей; и d) системе аттестации учащихся
         </a>
         
+
       </div>
     
     </div>
   
     
     <div class="indicator-cards target goal-target col-md-6">
-      <span>
+      <span class="indicator-card-number">
         <label class="hidden-md hidden-lg">Задача</label>
         4.a
       </span>
-      Создавать и совершенствовать учебные заведения,
-учитывающие интересы детей, особые нужды
-инвалидов и гендерные аспекты, и обеспечить безопасную,
-свободную от насилия и социальных барьеров
-и эффективную среду обучения для всех
+      Создавать и совершенствовать учебные заведения, учитывающие интересы детей, особые нужды инвалидов и гендерные аспекты, и обеспечить безопасную, свободную от насилия и социальных барьеров и эффективную среду обучения для всех
     </div>
     <div class="indicator-cards col-md-6 row no-gutters">
     
@@ -751,51 +699,34 @@ a) учащихся 2/3 классов; b) выпускников начальн
       
       
       
-      
-      
-      
-      
-      
 
       <div class="col-md-12  goal-indicator">
-        <span>
+        <span class="indicator-card-number">
           4.a.1
-          <span class="status notstarted">
-            В процессе разработки
-          </span>
+          
+
+
+<span class="status notstarted">
+    В процессе разработки
+</span>
+
         </span>
         <a href="/4-a-1">
-          Доля школ, обеспеченных a) электроэнергией;
-b) доступом к Интернету для учебных целей;
-c) компьютерами для учебных целей; d) адаптированной
-инфраструктурой и материалами для учащихсяинвалидов;
-e) базовыми источниками питьевой воды;
-f) раздельными минимально оборудованными туалетами;
-и g) базовыми средствами для мытья рук (согласно
-определениям показателей инициативы
-ВССГ)
+          Доля школ, обеспеченных a) электроэнер­гией; b) доступом к Интернету для учебных целей; c) компьютерами для учебных целей; d) адаптиро­ванной инфраструктурой и материалами для учащихся-инвалидов; e) базовыми источниками питьевой воды; f) раздельными минимально оборудованными туалетами; и g) базовыми средствами для мытья рук (согласно определениям показателей инициативы ВССГ)
         </a>
         
+
       </div>
     
     </div>
   
     
     <div class="indicator-cards target goal-target col-md-6">
-      <span>
+      <span class="indicator-card-number">
         <label class="hidden-md hidden-lg">Задача</label>
         4.b
       </span>
-      К 2020 году значительно увеличить во всем
-мире количество стипендий, предоставляемых развивающимся
-странам, особенно наименее развитым
-странам, малым островным развивающимся государствам
-и африканским странам, для получения
-высшего образования, включая профессионально-техническое
-образование и обучение по вопросам
-информационно-коммуникационных технологий,
-технические, инженерные и научные программы, в
-развитых странах и других развивающихся странах
+      К 2020 году значительно увеличить во всем мире количество стипендий, предоставляемых развивающимся странам, особенно наименее развитым странам, малым островным развивающимся государствам и африканским странам, для получения высшего образования, включая профессионально-техническое образование и обучение по вопросам информационно-коммуникационных технологий, технические, инженерные и научные программы, в развитых странах и других развивающихся странах
     </div>
     <div class="indicator-cards col-md-6 row no-gutters">
     
@@ -803,71 +734,65 @@ f) раздельными минимально оборудованными ту
       
       
       
-      
-      
-      
-      
-      
 
       <div class="col-md-12  goal-indicator">
-        <span>
+        <span class="indicator-card-number">
           4.b.1
-          <span class="status notstarted">
-            В процессе разработки
-          </span>
+          
+
+
+<span class="status notstarted">
+    В процессе разработки
+</span>
+
         </span>
         <a href="/4-b-1">
-          Объем официальной помощи в целях развития,
-направляемой на выплату стипендий, в разбивке
-по отраслям и видам обучения
+          Объем официальной помощи в целях развития, направляемой на выплату стипендий, в разбивке по отраслям и видам обучения
         </a>
         
+
       </div>
     
 
-      
-      
-      
-      
-      
       
       
       
 
       <div class="col-md-12 indicator-национальный goal-indicator">
-        <span>
+        <span class="indicator-card-number">
           4.b.1.1
-          <span class="status complete">
-            Опубликован
-          </span>
+          
+
+
+<span class="status complete">
+    Сообщение
+</span>
+
         </span>
         <a href="/4-b-1-1">
           Количество мест, предоставляемых Кыргызстану для подготовки кадров зарубежом за счет принимающей стороны в рамках официальных межправительственных и межгосударственных договоров и соглашений
         </a>
         
-          <ul class="tags">
-          
-            
-            <li class="tag-национальный warning">национальный</li>
-          
-          </ul>
+    <span class="sr-only">Теги</span>
+    <span class="tags">
+    
         
+        <span class="tag tag-национальный">национальный</span>
+    
+    </span>
+
+
       </div>
     
     </div>
   
     
     <div class="indicator-cards target goal-target col-md-6">
-      <span>
+      <span class="indicator-card-number">
         <label class="hidden-md hidden-lg">Задача</label>
         4.c
       </span>
-      К 2030 году значительно увеличить число квалифицированных
-учителей, в том числе посредством
-международного сотрудничества в подготовке
-учителей в развивающихся странах, особенно в
-наименее развитых странах и малых островных развивающихся
-государствах
+      К 2030 году значительно увеличить число квалифицированных учителей, в том числе посредством международного сотрудничества в подготовке учителей в развивающихся странах, особенно в наименее развитых странах и малых островных развивающихся государствах
     </div>
     <div class="indicator-cards col-md-6 row no-gutters">
     
@@ -875,59 +800,54 @@ f) раздельными минимально оборудованными ту
       
       
       
-      
-      
-      
-      
-      
 
       <div class="col-md-12  goal-indicator">
-        <span>
+        <span class="indicator-card-number">
           4.c.1
-          <span class="status notstarted">
-            В процессе разработки
-          </span>
+          
+
+
+<span class="status complete">
+    Сообщение
+</span>
+
         </span>
         <a href="/4-c-1">
-          Доля учителей в a) дошкольных учреждениях;
-b) начальной школе; c) младшей средней
-школе; и d) старшей средней школе, прошедших до
-начала или во время работы по меньшей мере минимальную
-организованную профессиональную учительскую
-подготовку (например, педагогическую) на
-соответствующем уровне в данной стране
+          Доля учителей, обладающих минимальными требуемыми квалификациями для преподавания, в разбивке по образовательному уровню учреждения
         </a>
         
+
       </div>
     
 
       
       
       
-      
-      
-      
-      
-      
 
       <div class="col-md-12 indicator-национальный goal-indicator">
-        <span>
+        <span class="indicator-card-number">
           4.c.1.1
-          <span class="status complete">
-            Опубликован
-          </span>
+          
+
+
+<span class="status notstarted">
+    В процессе разработки
+</span>
+
         </span>
         <a href="/4-c-1-1">
           Доля дипломированных учителей в образовательных учреждениях
         </a>
         
-          <ul class="tags">
-          
-            
-            <li class="tag-национальный warning">национальный</li>
-          
-          </ul>
+    <span class="sr-only">Теги</span>
+    <span class="tags">
+    
         
+        <span class="tag tag-национальный">национальный</span>
+    
+    </span>
+
+
       </div>
     
     </div>
@@ -960,18 +880,12 @@ b) начальной школе; c) младшей средней
   </div>
 </footer>
 
-<!-- Digital Analytics Program roll-up, see https://analytics.usa.gov for data -->
-<!-- <script id="_fed_an_ua_tag" src="https://dap.digitalgov.gov/Universal-Federated-Analytics-Min.js?agency=GSA"></script> -->
-<!-- Google Analytics -->
-
-<!-- /.container </div> -->
 <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
-<script src="//cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js"></script>
 <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 <script src="//cdn.datatables.net/1.10.16/js/jquery.dataTables.min.js"></script>
 <script src="//cdn.datatables.net/1.10.16/js/dataTables.bootstrap.min.js"></script>
 <script src="//cdn.datatables.net/fixedcolumns/3.2.3/js/dataTables.fixedColumns.min.js"></script>
-<script src="//cdnjs.cloudflare.com/ajax/libs/underscore.js/1.8.3/underscore-min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/4.17.20/lodash.min.js" integrity="sha512-90vH1Z83AJY9DmlWa8WkjkV79yfS2n2Oxhsi2dZbIv0nC4E6m5AbH8Nh156kkM7JePmqD6tcZsfad1ueoaovww==" crossorigin="anonymous"></script>
 <script src="//cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.bundle.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/patternomaly@1.3.2/dist/patternomaly.js"></script>
 
@@ -985,12 +899,12 @@ b) начальной школе; c) младшей средней
 <script>translations['search'] = translations['search'] || {};
     translations['search']['search'] = 'Поиск';</script>
 
-<script src='/assets/js/sdg.js?v=20210312114827'></script>
+<script src='/assets/js/sdg.js?v=20211013151158'></script>
 
 
     
     
-    <script src="/assets/js/custom.js?v=20210312114827"></script><script>
+    <script src="/assets/js/custom.js?v=20211013151158"></script><script>
 $(function() {
     if($('#indicatorData').length) {
       var domData = $('#indicatorData').data();
@@ -1030,10 +944,14 @@ $(function() {
               stackedDisaggregation: domData.stackeddisaggregation,
               graphAnnotations: domData.graphannotations,
               indicatorDownloads: domData.indicatordownloads,
+              dataSchema: domData.dataschema,
+              compositeBreakdownLabel: domData.compositebreakdownlabel,
+              precision: domData.precision,
             }),
             view  = new indicatorView(model, {
               rootElement: '#indicatorData',
               legendElement: '#plotLegend',
+              decimalSeparator: '',
               maxChartHeight: 420,
               tableColumnDefs: [
                 { maxCharCount: 25 }, // nowrap

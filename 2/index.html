@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="en" class="no-js">
+<html lang="ru" class="no-js">
     <head>
         <meta charset="utf-8">
         <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.min.js"></script>
-        <script crossorigin="anonymous" src="https://polyfill.io/v3/polyfill.min.js?features=Promise%2CArray.prototype.forEach%2CString.prototype.includes%2CURLSearchParams%2CCustomEvent%2CArray.prototype.includes%2CArray.prototype.filter%2CArray.prototype.some%2CArray.prototype.find%2CObject.assign%2CArray.isArray%2CObject.values%2CArray.from%2CSet"></script>
+        <script crossorigin="anonymous" src="https://polyfill.io/v3/polyfill.min.js?features=Promise%2CArray.prototype.forEach%2CString.prototype.includes%2CURLSearchParams%2CCustomEvent%2CArray.prototype.includes%2CArray.prototype.filter%2CArray.prototype.some%2CArray.prototype.find%2CArray.prototype.reduce%2CObject.assign%2CArray.isArray%2CObject.values%2CArray.from%2CSet%2CArray.prototype.findIndex"></script>
 <script crossorigin="anonymous" src="https://cdnjs.cloudflare.com/ajax/libs/javascript-canvas-to-blob/3.15.0/js/canvas-to-blob.min.js"></script>
 
         <script>
@@ -19,11 +19,23 @@ var opensdg = {
     this.chartConfigAlterations.push(callback);
   },
 
+  tableConfigAlterations: [],
+  // A hook which can be used to modify the configuration for Datatables.
+  tableConfigAlter: function(callback) {
+    this.tableConfigAlterations.push(callback);
+  },
+
   // A hook which can be replaced to alter whether/how the values that are
   // displayed on indicator tables/graphs get rounded.
   dataRounding: function(value) {
     // Alterations go here.
     return value;
+  },
+
+  // A hook which can be used to alter the data before it is displayed on charts/tables.
+  dataDisplayAlterations: [],
+  dataDisplayAlter: function(callback) {
+    this.dataDisplayAlterations.push(callback);
   },
 
   language: 'ru',
@@ -100,8 +112,6 @@ var translations = {
         
         <link rel="canonical" href="/">
 
-        
-
         <!--[if IE 9]>
         <script src="/assets/js/lib/classList.js"></script>
         <![endif]-->
@@ -114,12 +124,10 @@ var translations = {
         -->
 
         
-
-        
         <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css" crossorigin="">
         <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" crossorigin="">
         <link rel="stylesheet" href="https://cdn.datatables.net/fixedcolumns/3.2.3/css/fixedColumns.dataTables.min.css" crossorigin="">
-        <link rel="stylesheet" href="/assets/css/style.css?v=20210312114827">
+        <link rel="stylesheet" href="/assets/css/style.css?v=20211013151158">
         <link href="https://fonts.googleapis.com/css?family=Open+Sans|Roboto" rel="stylesheet" crossorigin="">
         <link rel="stylesheet" href="https://unpkg.com/leaflet@1.3.4/dist/leaflet.css"
           integrity="sha512-puBpdR0798OZvTTbP4A8Ix/l+A4dHDD0DGqYW6RQ+9jxkRFclaxxQb/SJAWZfWAkuyeQUytO7+7N4QKrDh+drA=="
@@ -127,13 +135,17 @@ var translations = {
         <link rel="stylesheet" href="https://cdn.rawgit.com/socib/Leaflet.TimeDimension/master/dist/leaflet.timedimension.control.min.css"  crossorigin=""/>
         <link rel="stylesheet" href='https://api.mapbox.com/mapbox.js/plugins/leaflet-fullscreen/v1.0.1/leaflet.fullscreen.css'  crossorigin=""/>
         <link rel="stylesheet" href="https://bowercdn.net/c/leaflet.zoomhome-latest/dist/leaflet.zoomhome.css"  crossorigin=""/>
-        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet-search@2.9.7/dist/leaflet-search.min.css" crossorigin=""><link rel="stylesheet" href="/assets/css/custom.css?v=20210312114827"><!-- ShareThis BEGIN --><!-- ShareThis END -->
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet-search@2.9.7/dist/leaflet-search.min.css" crossorigin=""><link rel="stylesheet" href="/assets/css/custom.css?v=20211013151158"><!-- ShareThis BEGIN --><!-- ShareThis END -->
+
+        
 
     </head>
-<body class="language-ru layout-goal-by-target">
+<body class="language-ru
+layout-goal-by-target
+">
 <!-- <div class="container"> -->
 
-<script>translations['header'] = {"alpha":"Альфа","default_contrast":"стандартный контраст","disable_high_contrast":"Отключить высокую контрастность","disclaimer":"Это сайт находится в разработке. Мы рады вашим отзывам.","enable_high_contrast":"Включить высокую контрастность","high_contrast":"высокий контраст","skip_link":"Перейти к главному содержанию","tag_line":"17 Целей, чтобы преобразовать наш мир"};</script>
+<script>translations['header'] = {"alpha":"Альфа","default_contrast":"стандартный контраст","disable_high_contrast":"Отключить высокую контрастность","disclaimer":"Это сайт находится в разработке. Мы рады вашим отзывам.","enable_high_contrast":"Включить высокую контрастность","high_contrast":"высокий контраст","skip_link":"Перейти к главному содержанию","tag_line":"17 Целей, чтобы преобразовать наш мир","toggle_menu":"Переключайте меню. Нажмите, чтобы развернуть или свернуть меню.","toggle_search":"Поисковая переключатель. Нажмите, чтобы развернуть или свернуть панель поиска."};</script>
 
 <a class="sr-only sr-only-focusable" id="skiplink" href="#main-content" tabindex="0">Перейти к главному содержанию</a>
 <div id="disclaimer">
@@ -191,10 +203,10 @@ var translations = {
         <li><span data-target="search">Поиск</span></li>
       </ul>
       <div id="search" class="menu-target">
-  <form action="/search">
-    <input type="text" name="q" id="indicator_search" title="Поиск" />
+  <form action="/search/">
     <label class="sr-only" for="indicator_search">Поиск</label>
-    <button aria-label="Поиск" id="search-btn" type="submit"><i class="fa fa-search" aria-hidden="false"></i></button>
+    <input type="text" name="q" id="indicator_search" title="Поиск" /><!--
+    --><button aria-label="Поиск" id="search-btn" type="submit"><i class="fa fa-search" aria-hidden="false"></i></button>
   </form>
 </div>
 
@@ -245,23 +257,24 @@ var translations = {
   
 </ol>
 
+  
 </div>
 
 <div class="heading goal-banner goal-2">
   <div class="container">
     <div class="row">
       <div class="col-xs-4 col-md-3 col-lg-2 goal-tiles">
-        <img src="https://sdg-kyrgyzstan.github.io/open-sdg-site-starter/assets/img/goals/ru/2.png" alt="Ликвидация голода - Цель 2" id="goal-2" />
+        <img src="https://sdg-kyrgyzstan.github.io/open-sdg-site-starter/assets/img/goals/ru/2.png" alt="Ликвидация голода - Цель 2" id="goal-2" class="goal-icon-image goal-icon-image-" />
       </div>
       <div class="col-xs-8 col-md-9 col-lg-10">
         <h1>
-          <span class="hidden-sm hidden-md hidden-lg">Цель 2: </span>Ликвидация голода, обеспечение продовольственной безопасности и улучшение питания
-и содействие устойчивому развитию сельского хозяйства
+          <span class="hidden-sm hidden-md hidden-lg">Цель 2: </span>Ликвидация голода, обеспечение продовольственной безопасности и улучшение питания и содействие устойчивому развитию сельского хозяйства
         </h1>
       </div>
     </div>
   </div>
 </div>
+
 
 <div id="main-content" class="container goal-indicators goal-2 goal-by-target" role="main">
 
@@ -282,14 +295,11 @@ var translations = {
   
     
     <div class="indicator-cards target goal-target col-md-6">
-      <span>
+      <span class="indicator-card-number">
         <label class="hidden-md hidden-lg">Задача</label>
         2.1
       </span>
-      К 2030 году покончить с голодом и обеспечить
-всем, особенно малоимущим и уязвимым группам
-населения, включая младенцев, круглогодичный доступ
-к безопасной, питательной и достаточной пище
+      К 2030 году покончить с голодом и обеспечить всем, особенно малоимущим и уязвимым группам населения, включая младенцев, круглогодичный доступ к безопасной, питательной и достаточной пище
     </div>
     <div class="indicator-cards col-md-6 row no-gutters">
     
@@ -297,97 +307,88 @@ var translations = {
       
       
       
-      
-      
-      
-      
-      
 
       <div class="col-md-12  goal-indicator">
-        <span>
+        <span class="indicator-card-number">
           2.1.1
-          <span class="status complete">
-            Опубликован
-          </span>
+          
+
+
+<span class="status complete">
+    Сообщение
+</span>
+
         </span>
         <a href="/2-1-1">
           Распространенность недоедания
         </a>
         
+
       </div>
     
 
       
       
       
-      
-      
-      
-      
-      
 
       <div class="col-md-12 indicator-национальный goal-indicator">
-        <span>
+        <span class="indicator-card-number">
           2.1.1.1e
-          <span class="status complete">
-            Опубликован
-          </span>
+          
+
+
+<span class="status complete">
+    Сообщение
+</span>
+
         </span>
         <a href="/2-1-1-1e">
           Среднедушевое потребление основных продуктов питания по отношению к среднефизиологическим нормам потребления
         </a>
         
-          <ul class="tags">
-          
-            
-            <li class="tag-национальный warning">национальный</li>
-          
-          </ul>
+    <span class="sr-only">Теги</span>
+    <span class="tags">
+    
         
+        <span class="tag tag-национальный">национальный</span>
+    
+    </span>
+
+
       </div>
     
 
       
       
       
-      
-      
-      
-      
-      
 
       <div class="col-md-12  goal-indicator">
-        <span>
+        <span class="indicator-card-number">
           2.1.2
-          <span class="status notstarted">
-            В процессе разработки
-          </span>
+          
+
+
+<span class="status notstarted">
+    В процессе разработки
+</span>
+
         </span>
         <a href="/2-1-2">
-          Уровень умеренного или острого отсутствия
-продовольственной безопасности населения (по
-«Шкале восприятия отсутствия продовольственной
-безопасности»)
+          Уровень умеренного или острого отсутствия продовольственной безопасности населения (по «Шкале восприятия отсутствия продовольственной безопасности»)
         </a>
         
+
       </div>
     
     </div>
   
     
     <div class="indicator-cards target goal-target col-md-6">
-      <span>
+      <span class="indicator-card-number">
         <label class="hidden-md hidden-lg">Задача</label>
         2.2
       </span>
-      К 2030 году покончить со всеми формами
-недоедания, в том числе достичь к 2025 году согласованных
-на международном уровне целевых показателей,
-касающихся борьбы с задержкой роста и
-истощением у детей в возрасте до пяти лет, и удовлетворять
-потребности в питании девочек подросткового
-возраста, беременных и кормящих женщин и
-пожилых людей
+      К 2030 году покончить со всеми формами недоедания, в том числе достичь к 2025 году согласованных на международном уровне целевых показателей, касающихся борьбы с задержкой роста и истощением у детей в возрасте до пяти лет, и удовлетворять потребности в питании девочек подросткового возраста, беременных и кормящих женщин и пожилых людей
     </div>
     <div class="indicator-cards col-md-6 row no-gutters">
     
@@ -395,78 +396,57 @@ var translations = {
       
       
       
-      
-      
-      
-      
-      
 
       <div class="col-md-12  goal-indicator">
-        <span>
+        <span class="indicator-card-number">
           2.2.1
-          <span class="status complete">
-            Опубликован
-          </span>
+          
+
+
+<span class="status complete">
+    Сообщение
+</span>
+
         </span>
         <a href="/2-2-1">
-          Распространенность задержки роста среди
-детей в возрасте до пяти лет (среднеквадратичное отклонение
-от медианного показателя роста к возрасту
-ребенка в соответствии с нормами роста детей, установленными
-Всемирной организацией здравоохранения
-(ВОЗ), <-2) 
+          Распространенность задержки роста среди детей в возрасте до пяти лет (среднеквадратичное отклонение от медианного показателя роста к возрасту ребенка в соответствии с нормами роста детей, установленными Всемирной организацией здравоохранения (ВОЗ), <-2)
         </a>
         
+
       </div>
     
 
       
       
       
-      
-      
-      
-      
-      
 
       <div class="col-md-12  goal-indicator">
-        <span>
+        <span class="indicator-card-number">
           2.2.2
-          <span class="status complete">
-            Опубликован
-          </span>
+          
+
+
+<span class="status complete">
+    Сообщение
+</span>
+
         </span>
         <a href="/2-2-2">
-          Распространенность неполноценного питания
-среди детей в возрасте до пяти лет в разбивке по
-виду (истощение или ожирение) (среднеквадратичное
-отклонение от медианного показателя веса к возрасту
-в соответствии с нормами роста детей, установленными
-ВОЗ, >+2 или <-2)
-
+          Распространенность неполноценного питания среди детей в возрасте до пяти лет в разбивке по виду (истощение или ожирение) (среднеквадратичное отклонение от медианного показателя веса к возрасту в соответствии с нормами роста детей, установленными ВОЗ, >+2 или <-2)
         </a>
         
+
       </div>
     
     </div>
   
     
     <div class="indicator-cards target goal-target col-md-6">
-      <span>
+      <span class="indicator-card-number">
         <label class="hidden-md hidden-lg">Задача</label>
         2.3
       </span>
-      К 2030 году удвоить продуктивность сельского
-хозяйства и доходы мелких производителей продовольствия,
-в частности женщин, представителей коренных
-народов, фермерских семейных хозяйств,
-скотоводов и рыбаков, в том числе посредством
-обеспечения гарантированного и равного доступа к
-земле, другим производственным ресурсам и факторам
-сельскохозяйственного производства, знаниям,
-финансовым услугам, рынкам и возможностям для
-увеличения добавленной стоимости и занятости в
-несельскохозяйственных секторах 
+      К 2030 году удвоить продуктивность сельского хозяйства и доходы мелких производителей продовольствия, в частности женщин, представителей коренных народов, фермерских семейных хозяйств, скотоводов и рыбаков, в том числе посредством обеспечения гарантированного и равного доступа к земле, другим производственным ресурсам и факторам сельскохозяйственного производства, знаниям, финансовым услугам, рынкам и возможностям для увеличения добавленной стоимости и занятости в несельскохозяйственных секторах
     </div>
     <div class="indicator-cards col-md-6 row no-gutters">
     
@@ -474,70 +454,57 @@ var translations = {
       
       
       
-      
-      
-      
-      
-      
 
       <div class="col-md-12  goal-indicator">
-        <span>
+        <span class="indicator-card-number">
           2.3.1
-          <span class="status notstarted">
-            В процессе разработки
-          </span>
+          
+
+
+<span class="status notstarted">
+    В процессе разработки
+</span>
+
         </span>
         <a href="/2-3-1">
-          Объем производства на производственную
-единицу в разбивке по классам размера предприятий фермерского хозяйства/скотоводства/лесного хозяйства
-
+          Объем производства на производственную единицу в разбивке по классам размера предприятий фермерского хозяйства/скотоводства/лесного хозяйства
         </a>
         
+
       </div>
     
 
       
       
       
-      
-      
-      
-      
-      
 
       <div class="col-md-12  goal-indicator">
-        <span>
+        <span class="indicator-card-number">
           2.3.2
-          <span class="status notstarted">
-            В процессе разработки
-          </span>
+          
+
+
+<span class="status notstarted">
+    В процессе разработки
+</span>
+
         </span>
         <a href="/2-3-2">
-          Средний доход мелких производителей продовольственной
-продукции в разбивке по полу и статусу
-принадлежности к коренным народам
+          Средний доход мелких производителей продовольственной продукции в разбивке по полу и статусу принадлежности к коренным народам
         </a>
         
+
       </div>
     
     </div>
   
     
     <div class="indicator-cards target goal-target col-md-6">
-      <span>
+      <span class="indicator-card-number">
         <label class="hidden-md hidden-lg">Задача</label>
         2.4
       </span>
-      К 2030 году обеспечить создание устойчивых
-систем производства продуктов питания и внедрить
-методы ведения сельского хозяйства, которые позволяют
-повысить жизнестойкость и продуктивность и
-увеличить объемы производства, способствуют сохранению
-экосистем, укрепляют способность адаптироваться
-к изменению климата, экстремальным
-погодным явлениям, засухам, наводнениям и другим
-бедствиям и постепенно улучшают качество земель
-и почв
+      К 2030 году обеспечить создание устойчивых систем производства продуктов питания и внедрить методы ведения сельского хозяйства, которые позволяют повысить жизнестойкость и продуктивность и увеличить объемы производства, способствуют сохранению экосистем, укрепляют способность адаптироваться к изменению климата, экстремальным погодным явлениям, засухам, наводнениям и другим бедствиям и постепенно улучшают качество земель и почв
     </div>
     <div class="indicator-cards col-md-6 row no-gutters">
     
@@ -545,47 +512,34 @@ var translations = {
       
       
       
-      
-      
-      
-      
-      
 
       <div class="col-md-12  goal-indicator">
-        <span>
+        <span class="indicator-card-number">
           2.4.1
-          <span class="status notstarted">
-            В процессе разработки
-          </span>
+          
+
+
+<span class="status notstarted">
+    В процессе разработки
+</span>
+
         </span>
         <a href="/2-4-1">
-          Доля площади сельскохозяйственных угодий,
-на которых применяются продуктивные и неистощительные
-методы ведения сельского хозяйства
+          Доля площади сельскохозяйственных угодий, на которых применяются продуктивные и неистощительные методы ведения сельского хозяйства
         </a>
         
+
       </div>
     
     </div>
   
     
     <div class="indicator-cards target goal-target col-md-6">
-      <span>
+      <span class="indicator-card-number">
         <label class="hidden-md hidden-lg">Задача</label>
         2.5
       </span>
-      К 2020 году обеспечить сохранение генетического
-разнообразия семян и культивируемых растений,
-а также сельскохозяйственных и домашних животных
-и их соответствующих диких видов, в том
-числе посредством надлежащего содержания разнообразных
-банков семян и растений на национальном,
-региональном и международном уровнях, и содействовать
-расширению доступа к генетическим
-ресурсам и связанным с ними традиционным знаниям
-и совместному использованию на справедливой
-и равной основе выгод от их применения на согласованных
-на международном уровне условиях
+      К 2020 году обеспечить сохранение генетического разнообразия семян и культивируемых растений, а также сельскохозяйственных и домашних животных и их соответствующих диких видов, в том числе посредством надлежащего содержания разнообразных банков семян и растений на национальном, региональном и международном уровнях, и содействовать расширению доступа к генетическим ресурсам и связанным с ними традиционным знаниям и совместному использованию на справедливой и равной основе выгод от их применения на согласованных на международном уровне условиях
     </div>
     <div class="indicator-cards col-md-6 row no-gutters">
     
@@ -593,73 +547,57 @@ var translations = {
       
       
       
-      
-      
-      
-      
-      
 
       <div class="col-md-12  goal-indicator">
-        <span>
+        <span class="indicator-card-number">
           2.5.1
-          <span class="status notstarted">
-            В процессе разработки
-          </span>
+          
+
+
+<span class="status notstarted">
+    В процессе разработки
+</span>
+
         </span>
         <a href="/2-5-1">
-          Количество генетических ресурсов растительного
-и зоологического происхождения, предназначенных
-для производства продовольствия и сельского
-хозяйства, которые хранятся на специальных
-объектах либо среднесрочного, либо долгосрочного
-хранения
+          Количество генетических ресурсов растительного и зоологического происхождения, предназначенных для производства продовольствия и сельского хозяйства, которые хранятся на специальных объектах либо среднесрочного, либо долгосрочного хранения
         </a>
         
+
       </div>
     
 
       
       
       
-      
-      
-      
-      
-      
 
       <div class="col-md-12  goal-indicator">
-        <span>
+        <span class="indicator-card-number">
           2.5.2
-          <span class="status notstarted">
-            В процессе разработки
-          </span>
+          
+
+
+<span class="status notstarted">
+    В процессе разработки
+</span>
+
         </span>
         <a href="/2-5-2">
-          Доля местных пород, относимых к следующим
-категориям: находящиеся под угрозой исчезновения;
-не находящиеся под угрозой исчезновения;
-уровень угрозы исчезновения не известен
-
+          Доля местных пород, относимых к категории находящихся под угрозой исчезновения
         </a>
         
+
       </div>
     
     </div>
   
     
     <div class="indicator-cards target goal-target col-md-6">
-      <span>
+      <span class="indicator-card-number">
         <label class="hidden-md hidden-lg">Задача</label>
         2.a
       </span>
-      Увеличить инвестирование, в том числе посредством
-активизации международного сотрудничества,
-в сельскую инфраструктуру, сельскохозяйственные
-исследования и агропропаганду, развитие
-технологий и создание генетических банков растений
-и животных в целях укрепления потенциала
-развивающихся стран, особенно наименее развитых
-стран, в области сельскохозяйственного производства
+      Увеличить инвестирование, в том числе посредством активизации международного сотрудничества, в сельскую инфраструктуру, сельскохозяйственные исследования и агропропаганду, развитие технологий и создание генетических банков растений и животных в целях укрепления потенциала развивающихся стран, особенно наименее развитых стран, в области сельскохозяйственного производства
     </div>
     <div class="indicator-cards col-md-6 row no-gutters">
     
@@ -667,69 +605,57 @@ var translations = {
       
       
       
-      
-      
-      
-      
-      
 
       <div class="col-md-12  goal-indicator">
-        <span>
+        <span class="indicator-card-number">
           2.a.1
-          <span class="status complete">
-            Опубликован
-          </span>
+          
+
+
+<span class="status complete">
+    Сообщение
+</span>
+
         </span>
         <a href="/2-a-1">
-          Индекс ориентированности на сельское хозяйство,
-определяемый по структуре государственных
-расходов 
+          Индекс ориентированности на сельское хозяйство, определяемый по структуре государственных расходов
         </a>
         
+
       </div>
     
 
       
       
       
-      
-      
-      
-      
-      
 
       <div class="col-md-12  goal-indicator">
-        <span>
+        <span class="indicator-card-number">
           2.a.2
-          <span class="status notapplicable">
-            Неприменимые
-          </span>
+          
+
+
+<span class="status notapplicable">
+    Неприменимые
+</span>
+
         </span>
         <a href="/2-a-2">
-          Совокупный приток официальных средств
-(официальная помощь в целях развития плюс прочие
-потоки официальных средств) в сельское хозяйство
-
+          Совокупный приток официальных средств (официальная помощь в целях развития плюс прочие потоки официальных средств) в сельское хозяйство
         </a>
         
+
       </div>
     
     </div>
   
     
     <div class="indicator-cards target goal-target col-md-6">
-      <span>
+      <span class="indicator-card-number">
         <label class="hidden-md hidden-lg">Задача</label>
         2.b
       </span>
-      Устранять и пресекать введение торговых
-ограничений и возникновение искажений на мировых
-рынках сельскохозяйственной продукции, в том
-числе посредством параллельной ликвидации всех
-форм субсидирования экспорта сельскохозяйственной
-продукции и всех экспортных мер, имеющих аналогичные последствия, в соответствии с мандатом
-Дохинского раунда переговоров по вопросам
-развития
+      Устранять и пресекать введение торговых ограничений и возникновение искажений на мировых рынках сельскохозяйственной продукции, в том числе посредством параллельной ликвидации всех форм субсидирования экспорта сельскохозяйственной продукции и всех экспортных мер, имеющих аналогичные последствия, в соответствии с мандатом Дохинского раунда переговоров по вопросам развития
     </div>
     <div class="indicator-cards col-md-6 row no-gutters">
     
@@ -737,40 +663,34 @@ var translations = {
       
       
       
-      
-      
-      
-      
-      
 
       <div class="col-md-12  goal-indicator">
-        <span>
+        <span class="indicator-card-number">
           2.b.1
-          <span class="status notstarted">
-            В процессе разработки
-          </span>
+          
+
+
+<span class="status notstarted">
+    В процессе разработки
+</span>
+
         </span>
         <a href="/2-b-1">
-          Субсидирование экспорта сельскохозяйственной продукции
+          Субсидирование экспорта сельскохозяйственной продукции
         </a>
         
+
       </div>
     
     </div>
   
     
     <div class="indicator-cards target goal-target col-md-6">
-      <span>
+      <span class="indicator-card-number">
         <label class="hidden-md hidden-lg">Задача</label>
         2.c
       </span>
-      Принять меры для обеспечения надлежащего
-функционирования рынков продовольственных товаров
-и продукции их переработки и содействовать
-своевременному доступу к рыночной информации, в
-том числе о продовольственных резервах, с целью
-помочь ограничить чрезмерную волатильность цен
-на продовольствие
+      Принять меры для обеспечения надлежащего функционирования рынков продовольственных товаров и продукции их переработки и содействовать своевременному доступу к рыночной информации, в том числе о продовольственных резервах, с целью помочь ограничить чрезмерную волатильность цен на продовольствие
     </div>
     <div class="indicator-cards col-md-6 row no-gutters">
     
@@ -778,53 +698,54 @@ var translations = {
       
       
       
-      
-      
-      
-      
-      
 
       <div class="col-md-12  goal-indicator">
-        <span>
+        <span class="indicator-card-number">
           2.c.1
-          <span class="status notstarted">
-            В процессе разработки
-          </span>
+          
+
+
+<span class="status notstarted">
+    В процессе разработки
+</span>
+
         </span>
         <a href="/2-c-1">
-          Показатель ценовых аномалий на рынке продовольствия
+          Показатель ценовых аномалий на рынке продовольствия
         </a>
         
+
       </div>
     
 
-      
-      
-      
-      
-      
       
       
       
 
       <div class="col-md-12 indicator-национальный goal-indicator">
-        <span>
+        <span class="indicator-card-number">
           2.c.1.1b
-          <span class="status complete">
-            Опубликован
-          </span>
+          
+
+
+<span class="status complete">
+    Сообщение
+</span>
+
         </span>
         <a href="/2-c-1-1b">
           Индекс потребительских цен на продовольственные товары
         </a>
         
-          <ul class="tags">
-          
-            
-            <li class="tag-национальный warning">национальный</li>
-          
-          </ul>
+    <span class="sr-only">Теги</span>
+    <span class="tags">
+    
         
+        <span class="tag tag-национальный">национальный</span>
+    
+    </span>
+
+
       </div>
     
     </div>
@@ -857,18 +778,12 @@ var translations = {
   </div>
 </footer>
 
-<!-- Digital Analytics Program roll-up, see https://analytics.usa.gov for data -->
-<!-- <script id="_fed_an_ua_tag" src="https://dap.digitalgov.gov/Universal-Federated-Analytics-Min.js?agency=GSA"></script> -->
-<!-- Google Analytics -->
-
-<!-- /.container </div> -->
 <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
-<script src="//cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js"></script>
 <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 <script src="//cdn.datatables.net/1.10.16/js/jquery.dataTables.min.js"></script>
 <script src="//cdn.datatables.net/1.10.16/js/dataTables.bootstrap.min.js"></script>
 <script src="//cdn.datatables.net/fixedcolumns/3.2.3/js/dataTables.fixedColumns.min.js"></script>
-<script src="//cdnjs.cloudflare.com/ajax/libs/underscore.js/1.8.3/underscore-min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/4.17.20/lodash.min.js" integrity="sha512-90vH1Z83AJY9DmlWa8WkjkV79yfS2n2Oxhsi2dZbIv0nC4E6m5AbH8Nh156kkM7JePmqD6tcZsfad1ueoaovww==" crossorigin="anonymous"></script>
 <script src="//cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.bundle.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/patternomaly@1.3.2/dist/patternomaly.js"></script>
 
@@ -882,12 +797,12 @@ var translations = {
 <script>translations['search'] = translations['search'] || {};
     translations['search']['search'] = 'Поиск';</script>
 
-<script src='/assets/js/sdg.js?v=20210312114827'></script>
+<script src='/assets/js/sdg.js?v=20211013151158'></script>
 
 
     
     
-    <script src="/assets/js/custom.js?v=20210312114827"></script><script>
+    <script src="/assets/js/custom.js?v=20211013151158"></script><script>
 $(function() {
     if($('#indicatorData').length) {
       var domData = $('#indicatorData').data();
@@ -927,10 +842,14 @@ $(function() {
               stackedDisaggregation: domData.stackeddisaggregation,
               graphAnnotations: domData.graphannotations,
               indicatorDownloads: domData.indicatordownloads,
+              dataSchema: domData.dataschema,
+              compositeBreakdownLabel: domData.compositebreakdownlabel,
+              precision: domData.precision,
             }),
             view  = new indicatorView(model, {
               rootElement: '#indicatorData',
               legendElement: '#plotLegend',
+              decimalSeparator: '',
               maxChartHeight: 420,
               tableColumnDefs: [
                 { maxCharCount: 25 }, // nowrap

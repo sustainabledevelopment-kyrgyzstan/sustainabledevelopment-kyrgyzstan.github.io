@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="en" class="no-js">
+<html lang="ru" class="no-js">
     <head>
         <meta charset="utf-8">
         <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.min.js"></script>
-        <script crossorigin="anonymous" src="https://polyfill.io/v3/polyfill.min.js?features=Promise%2CArray.prototype.forEach%2CString.prototype.includes%2CURLSearchParams%2CCustomEvent%2CArray.prototype.includes%2CArray.prototype.filter%2CArray.prototype.some%2CArray.prototype.find%2CObject.assign%2CArray.isArray%2CObject.values%2CArray.from%2CSet"></script>
+        <script crossorigin="anonymous" src="https://polyfill.io/v3/polyfill.min.js?features=Promise%2CArray.prototype.forEach%2CString.prototype.includes%2CURLSearchParams%2CCustomEvent%2CArray.prototype.includes%2CArray.prototype.filter%2CArray.prototype.some%2CArray.prototype.find%2CArray.prototype.reduce%2CObject.assign%2CArray.isArray%2CObject.values%2CArray.from%2CSet%2CArray.prototype.findIndex"></script>
 <script crossorigin="anonymous" src="https://cdnjs.cloudflare.com/ajax/libs/javascript-canvas-to-blob/3.15.0/js/canvas-to-blob.min.js"></script>
 
         <script>
@@ -19,11 +19,23 @@ var opensdg = {
     this.chartConfigAlterations.push(callback);
   },
 
+  tableConfigAlterations: [],
+  // A hook which can be used to modify the configuration for Datatables.
+  tableConfigAlter: function(callback) {
+    this.tableConfigAlterations.push(callback);
+  },
+
   // A hook which can be replaced to alter whether/how the values that are
   // displayed on indicator tables/graphs get rounded.
   dataRounding: function(value) {
     // Alterations go here.
     return value;
+  },
+
+  // A hook which can be used to alter the data before it is displayed on charts/tables.
+  dataDisplayAlterations: [],
+  dataDisplayAlter: function(callback) {
+    this.dataDisplayAlterations.push(callback);
   },
 
   language: 'ru',
@@ -100,8 +112,6 @@ var translations = {
         
         <link rel="canonical" href="/">
 
-        
-
         <!--[if IE 9]>
         <script src="/assets/js/lib/classList.js"></script>
         <![endif]-->
@@ -114,12 +124,10 @@ var translations = {
         -->
 
         
-
-        
         <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css" crossorigin="">
         <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" crossorigin="">
         <link rel="stylesheet" href="https://cdn.datatables.net/fixedcolumns/3.2.3/css/fixedColumns.dataTables.min.css" crossorigin="">
-        <link rel="stylesheet" href="/assets/css/style.css?v=20210312114827">
+        <link rel="stylesheet" href="/assets/css/style.css?v=20211013151158">
         <link href="https://fonts.googleapis.com/css?family=Open+Sans|Roboto" rel="stylesheet" crossorigin="">
         <link rel="stylesheet" href="https://unpkg.com/leaflet@1.3.4/dist/leaflet.css"
           integrity="sha512-puBpdR0798OZvTTbP4A8Ix/l+A4dHDD0DGqYW6RQ+9jxkRFclaxxQb/SJAWZfWAkuyeQUytO7+7N4QKrDh+drA=="
@@ -127,13 +135,17 @@ var translations = {
         <link rel="stylesheet" href="https://cdn.rawgit.com/socib/Leaflet.TimeDimension/master/dist/leaflet.timedimension.control.min.css"  crossorigin=""/>
         <link rel="stylesheet" href='https://api.mapbox.com/mapbox.js/plugins/leaflet-fullscreen/v1.0.1/leaflet.fullscreen.css'  crossorigin=""/>
         <link rel="stylesheet" href="https://bowercdn.net/c/leaflet.zoomhome-latest/dist/leaflet.zoomhome.css"  crossorigin=""/>
-        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet-search@2.9.7/dist/leaflet-search.min.css" crossorigin=""><link rel="stylesheet" href="/assets/css/custom.css?v=20210312114827"><!-- ShareThis BEGIN --><!-- ShareThis END -->
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet-search@2.9.7/dist/leaflet-search.min.css" crossorigin=""><link rel="stylesheet" href="/assets/css/custom.css?v=20211013151158"><!-- ShareThis BEGIN --><!-- ShareThis END -->
+
+        
 
     </head>
-<body class="language-ru layout-goal-by-target">
+<body class="language-ru
+layout-goal-by-target
+">
 <!-- <div class="container"> -->
 
-<script>translations['header'] = {"alpha":"Альфа","default_contrast":"стандартный контраст","disable_high_contrast":"Отключить высокую контрастность","disclaimer":"Это сайт находится в разработке. Мы рады вашим отзывам.","enable_high_contrast":"Включить высокую контрастность","high_contrast":"высокий контраст","skip_link":"Перейти к главному содержанию","tag_line":"17 Целей, чтобы преобразовать наш мир"};</script>
+<script>translations['header'] = {"alpha":"Альфа","default_contrast":"стандартный контраст","disable_high_contrast":"Отключить высокую контрастность","disclaimer":"Это сайт находится в разработке. Мы рады вашим отзывам.","enable_high_contrast":"Включить высокую контрастность","high_contrast":"высокий контраст","skip_link":"Перейти к главному содержанию","tag_line":"17 Целей, чтобы преобразовать наш мир","toggle_menu":"Переключайте меню. Нажмите, чтобы развернуть или свернуть меню.","toggle_search":"Поисковая переключатель. Нажмите, чтобы развернуть или свернуть панель поиска."};</script>
 
 <a class="sr-only sr-only-focusable" id="skiplink" href="#main-content" tabindex="0">Перейти к главному содержанию</a>
 <div id="disclaimer">
@@ -191,10 +203,10 @@ var translations = {
         <li><span data-target="search">Поиск</span></li>
       </ul>
       <div id="search" class="menu-target">
-  <form action="/search">
-    <input type="text" name="q" id="indicator_search" title="Поиск" />
+  <form action="/search/">
     <label class="sr-only" for="indicator_search">Поиск</label>
-    <button aria-label="Поиск" id="search-btn" type="submit"><i class="fa fa-search" aria-hidden="false"></i></button>
+    <input type="text" name="q" id="indicator_search" title="Поиск" /><!--
+    --><button aria-label="Поиск" id="search-btn" type="submit"><i class="fa fa-search" aria-hidden="false"></i></button>
   </form>
 </div>
 
@@ -245,23 +257,24 @@ var translations = {
   
 </ol>
 
+  
 </div>
 
 <div class="heading goal-banner goal-17">
   <div class="container">
     <div class="row">
       <div class="col-xs-4 col-md-3 col-lg-2 goal-tiles">
-        <img src="https://sdg-kyrgyzstan.github.io/open-sdg-site-starter/assets/img/goals/ru/17.png" alt="Партнерство в интересах устойчивого развития - Цель 17" id="goal-17" />
+        <img src="https://sdg-kyrgyzstan.github.io/open-sdg-site-starter/assets/img/goals/ru/17.png" alt="Партнерство в интересах устойчивого развития - Цель 17" id="goal-17" class="goal-icon-image goal-icon-image-" />
       </div>
       <div class="col-xs-8 col-md-9 col-lg-10">
         <h1>
-          <span class="hidden-sm hidden-md hidden-lg">Цель 17: </span>Укрепление средств осуществления и активизация работы в рамках Глобального
-партнерства в интересах устойчивого развития
+          <span class="hidden-sm hidden-md hidden-lg">Цель 17: </span>Укрепление средств осуществления и активизация работы в рамках Глобального партнерства в интересах устойчивого развития Финансирование
         </h1>
       </div>
     </div>
   </div>
 </div>
+
 
 <div id="main-content" class="container goal-indicators goal-17 goal-by-target" role="main">
 
@@ -282,11 +295,11 @@ var translations = {
   
     
     <div class="indicator-cards target goal-target col-md-6">
-      <span>
+      <span class="indicator-card-number">
         <label class="hidden-md hidden-lg">Задача</label>
         17.1
       </span>
-      Усилить мобилизацию ресурсов из внутренних источников, в том числе благодаря международной поддержке развивающихся стран, с тем чтобы повысить национальные возможности по сбору налогов и других доходов
+      Усилить мобилизацию ресурсов из внутренних источников, в том числе благодаря международной поддержке развивающихся стран, с тем чтобы повысить национальные возможности по сбору налогов и других доходов
     </div>
     <div class="indicator-cards col-md-6 row no-gutters">
     
@@ -294,71 +307,57 @@ var translations = {
       
       
       
-      
-      
-      
-      
-      
 
       <div class="col-md-12  goal-indicator">
-        <span>
+        <span class="indicator-card-number">
           17.1.1
-          <span class="status complete">
-            Опубликован
-          </span>
+          
+
+
+<span class="status complete">
+    Сообщение
+</span>
+
         </span>
         <a href="/17-1-1">
-          Общий объем государственных доходов в
-процентном отношении к ВВП в разбивке по источникам
+          Общий объем государственных доходов в процентном отношении к ВВП в разбивке по источникам
         </a>
         
+
       </div>
     
 
       
       
       
-      
-      
-      
-      
-      
 
       <div class="col-md-12  goal-indicator">
-        <span>
+        <span class="indicator-card-number">
           17.1.2
-          <span class="status complete">
-            Опубликован
-          </span>
+          
+
+
+<span class="status complete">
+    Сообщение
+</span>
+
         </span>
         <a href="/17-1-2">
-          Доля национального бюджета, финансируемая
-внутренними налогами
+          Доля  национального бюджета, финансируемая за счет внутренних налогов
         </a>
         
+
       </div>
     
     </div>
   
     
     <div class="indicator-cards target goal-target col-md-6">
-      <span>
+      <span class="indicator-card-number">
         <label class="hidden-md hidden-lg">Задача</label>
         17.2
       </span>
-      Обеспечить, чтобы развитые страны полностью
-выполнили свои обязательства по оказанию
-официальной помощи в целях развития (ОПР), в том
-числе взятое многими развитыми странами обязательство
-достичь целевого показателя выделения
-средств по линии ОПР развивающимся странам на
-уровне 0,7 процента своего валового национального
-дохода (ВНД) и выделения ОПР наименее развитым
-странам на уровне 0,15–0,20 процента своего ВНД;
-государствам, предоставляющим ОПР, предлагается
-рассмотреть вопрос о том, чтобы поставить перед
-собой цель выделять не менее 0,20 процента своего
-ВНД по линии ОПР наименее развитым странам
+      Обеспечить, чтобы развитые страны полностью выполнили свои обязательства по оказанию официальной помощи в целях развития (ОПР), в том числе взятое многими развитыми странами обязательство достичь целевого показателя выделения средств по линии ОПР развивающимся странам на уровне 0,7 процента своего валового национального дохода (ВНД) и выделения ОПР наименее развитым странам на уровне 0,15–0,20 процента своего ВНД; государствам, предоставляющим ОПР, предлагается рассмотреть вопрос о том, чтобы поставить перед собой цель выделять не менее 0,20 процента своего ВНД по линии ОПР наименее развитым странам
     </div>
     <div class="indicator-cards col-md-6 row no-gutters">
     
@@ -366,40 +365,34 @@ var translations = {
       
       
       
-      
-      
-      
-      
-      
 
       <div class="col-md-12  goal-indicator">
-        <span>
+        <span class="indicator-card-number">
           17.2.1
-          <span class="status notapplicable">
-            Неприменимые
-          </span>
+          
+
+
+<span class="status notapplicable">
+    Неприменимые
+</span>
+
         </span>
         <a href="/17-2-1">
-          Чистый объем официальной помощи в целях
-развития (как суммарной, так и выделяемой наименее
-развитым странам) в процентном отношении к
-валовому национальному доходу доноров — членов
-Комитета содействия развитию ОЭСР
+          Чистый  объем официальной помощи в целях развития (как суммарной, так и выделяемой наименее развитым странам) как доля валового национального дохода доноров из числа членов Комитета содействия развитию ОЭСР
         </a>
         
+
       </div>
     
     </div>
   
     
     <div class="indicator-cards target goal-target col-md-6">
-      <span>
+      <span class="indicator-card-number">
         <label class="hidden-md hidden-lg">Задача</label>
         17.3
       </span>
-      Мобилизовать дополнительные финансовые
-ресурсы из самых разных источников для развивающихся
-стран
+      Мобилизовать дополнительные финансовые ресурсы из самых разных источников для развивающихся стран
     </div>
     <div class="indicator-cards col-md-6 row no-gutters">
     
@@ -407,130 +400,119 @@ var translations = {
       
       
       
-      
-      
-      
-      
-      
 
       <div class="col-md-12  goal-indicator">
-        <span>
+        <span class="indicator-card-number">
           17.3.1
-          <span class="status notstarted">
-            В процессе разработки
-          </span>
+          
+
+
+<span class="status notstarted">
+    В процессе разработки
+</span>
+
         </span>
         <a href="/17-3-1">
-          Прямые иностранные инвестиции (ПИИ),
-официальная помощь в целях развития и сотрудничество
-Юг-Юг в процентном отношении к совокупному национальному бюджету
+          Доля средств, поступающих по линии прямых иностранных инвестиций, официальной помощи в целях развития и сотрудничества Юг — Юг, от валового национального дохода
         </a>
         
+
       </div>
     
 
       
       
       
-      
-      
-      
-      
-      
 
       <div class="col-md-12 indicator-национальный goal-indicator">
-        <span>
+        <span class="indicator-card-number">
           17.3.1.1a
-          <span class="status complete">
-            Опубликован
-          </span>
+          
+
+
+<span class="status complete">
+    Сообщение
+</span>
+
         </span>
         <a href="/17-3-1-1a">
-          Поступление прямых иностранных инвестиций по  видам экономической деятельности
+          Поступление прямых иностранных инвестиций из-за рубежа в разбивке по  видам экономической деятельности
         </a>
         
-          <ul class="tags">
-          
-            
-            <li class="tag-национальный warning">национальный</li>
-          
-          </ul>
+    <span class="sr-only">Теги</span>
+    <span class="tags">
+    
         
+        <span class="tag tag-национальный">национальный</span>
+    
+    </span>
+
+
       </div>
     
 
       
       
       
-      
-      
-      
-      
-      
 
       <div class="col-md-12 indicator-национальный goal-indicator">
-        <span>
+        <span class="indicator-card-number">
           17.3.1.1b
-          <span class="status notstarted">
-            В процессе разработки
-          </span>
+          
+
+
+<span class="status notstarted">
+    В процессе разработки
+</span>
+
         </span>
         <a href="/17-3-1-1b">
           Поступление прямых иностранных инвестиций по странам
         </a>
         
-          <ul class="tags">
-          
-            
-            <li class="tag-национальный warning">национальный</li>
-          
-          </ul>
+    <span class="sr-only">Теги</span>
+    <span class="tags">
+    
         
+        <span class="tag tag-национальный">национальный</span>
+    
+    </span>
+
+
       </div>
     
 
       
       
       
-      
-      
-      
-      
-      
 
       <div class="col-md-12  goal-indicator">
-        <span>
+        <span class="indicator-card-number">
           17.3.2
-          <span class="status notstarted">
-            В процессе разработки
-          </span>
+          
+
+
+<span class="status notstarted">
+    В процессе разработки
+</span>
+
         </span>
         <a href="/17-3-2">
-          Объем переводов (в долларах США) в процентном
-отношении к ВВП
+          Доля  денежных переводов (в долларах США) в совокупном ВВП
         </a>
         
+
       </div>
     
     </div>
   
     
     <div class="indicator-cards target goal-target col-md-6">
-      <span>
+      <span class="indicator-card-number">
         <label class="hidden-md hidden-lg">Задача</label>
         17.4
       </span>
-      Оказывать развивающимся странам помощь в
-целях обеспечения долгосрочной приемлемости
-уровня их задолженности благодаря проведению
-скоординированной политики, направленной на поощрение,
-в зависимости от обстоятельств, финансирования
-за счет заемных средств, облегчения долгового
-бремени и реструктуризации задолженности, и
-решить проблему внешней задолженности бедных
-стран с крупной задолженностью, с тем чтобы облегчить
-их долговое бремя
-
+      Оказывать развивающимся странам помощь в целях обеспечения долгосрочной приемлемости уровня их задолженности благодаря проведению скоординированной политики, направленной на поощрение, в зависимости от обстоятельств, финансирования за счет заемных средств, облегчения долгового бремени и реструктуризации задолженности, и решить проблему внешней задолженности бедных стран с крупной задолженностью, с тем чтобы облегчить их долговое бремя
     </div>
     <div class="indicator-cards col-md-6 row no-gutters">
     
@@ -538,36 +520,34 @@ var translations = {
       
       
       
-      
-      
-      
-      
-      
 
       <div class="col-md-12  goal-indicator">
-        <span>
+        <span class="indicator-card-number">
           17.4.1
-          <span class="status complete">
-            Опубликован
-          </span>
+          
+
+
+<span class="status complete">
+    Сообщение
+</span>
+
         </span>
         <a href="/17-4-1">
-          Расходы на обслуживание долга в процентном
-отношении к экспорту товаров и услуг
+          Доля  поступлений от экспорта товаров и услуг, расходуемая на обслуживание долга
         </a>
         
+
       </div>
     
     </div>
   
     
     <div class="indicator-cards target goal-target col-md-6">
-      <span>
+      <span class="indicator-card-number">
         <label class="hidden-md hidden-lg">Задача</label>
         17.5
       </span>
-      Принять и применять режимы поощрения инвестиций
-в интересах наименее развитых стран
+      Принять и применять режимы поощрения инвестиций в интересах наименее развитых стран
     </div>
     <div class="indicator-cards col-md-6 row no-gutters">
     
@@ -575,46 +555,34 @@ var translations = {
       
       
       
-      
-      
-      
-      
-      
 
       <div class="col-md-12  goal-indicator">
-        <span>
+        <span class="indicator-card-number">
           17.5.1
-          <span class="status complete">
-            Опубликован
-          </span>
+          
+
+
+<span class="status complete">
+    Сообщение
+</span>
+
         </span>
         <a href="/17-5-1">
-          Число стран, в которых приняты и действуют
-режимы поощрения инвестиций в интересах
-наименее развитых стран
+          Число стран, в которых приняты и действуют режимы поощрения инвестиций в интересах развивающихся стран, включая наименее развитые страны
         </a>
         
+
       </div>
     
     </div>
   
     
     <div class="indicator-cards target goal-target col-md-6">
-      <span>
+      <span class="indicator-card-number">
         <label class="hidden-md hidden-lg">Задача</label>
         17.6
       </span>
-      Расширять сотрудничество по линии Север —
-Юг и Юг — Юг, а также трехстороннее региональное
-и международное сотрудничество в областях
-науки, техники и инноваций и доступ к соответствующим
-достижениям; активизировать обмен знаниями
-на взаимно согласованных условиях, в том
-числе благодаря улучшению координации между существующими
-механизмами, в частности на уровне
-Организации Объединенных Наций, а также с помощью
-глобального механизма содействия передаче
-технологий
+      Расширять сотрудничество по линии Север — Юг и Юг — Юг, а также трехстороннее региональное и международное сотрудничество в областях науки, техники и инноваций и доступ к соответствующим достижениям; активизировать обмен знаниями на взаимно согласованных условиях, в том числе благодаря улучшению координации между существующими механизмами, в частности на уровне Организации Объединенных Наций, а также с помощью глобального механизма содействия передаче технологий
     </div>
     <div class="indicator-cards col-md-6 row no-gutters">
     
@@ -622,65 +590,58 @@ var translations = {
       
       
       
-      
-      
-      
-      
-      
 
       <div class="col-md-12  goal-indicator">
-        <span>
+        <span class="indicator-card-number">
           17.6.1
-          <span class="status notstarted">
-            В процессе разработки
-          </span>
+          
+
+
+<span class="status notstarted">
+    В процессе разработки
+</span>
+
         </span>
         <a href="/17-6-1">
-          Число соглашений и программ научного
-и/или технического сотрудничества между странами
-в разбивке по видам сотрудничества
+          Число стационарных абонентов широкополосного Интернета в разбивке по скорости
         </a>
         
+
       </div>
     
 
       
       
       
-      
-      
-      
-      
-      
 
       <div class="col-md-12  goal-indicator">
-        <span>
+        <span class="indicator-card-number">
           17.6.2
-          <span class="status complete">
-            Опубликован
-          </span>
+          
+
+
+<span class="status complete">
+    Сообщение
+</span>
+
         </span>
         <a href="/17-6-2">
           Число стационарных абонентов широкополосного
 Интернета в разбивке по скорости
         </a>
         
+
       </div>
     
     </div>
   
     
     <div class="indicator-cards target goal-target col-md-6">
-      <span>
+      <span class="indicator-card-number">
         <label class="hidden-md hidden-lg">Задача</label>
         17.7
       </span>
-      Содействовать разработке, передаче, распространению
-и освоению экологически безопасных
-технологий, так чтобы их получали развивающиеся
-страны на взаимно согласованных благоприятных
-условиях, в том числе на льготных и преференциальных
-условиях
+      Содействовать разработке, передаче, распространению и освоению экологически безопасных технологий, так чтобы их получали развивающиеся страны на взаимно согласованных благоприятных условиях, в том числе на льготных и преференциальных условиях
     </div>
     <div class="indicator-cards col-md-6 row no-gutters">
     
@@ -688,43 +649,34 @@ var translations = {
       
       
       
-      
-      
-      
-      
-      
 
       <div class="col-md-12  goal-indicator">
-        <span>
+        <span class="indicator-card-number">
           17.7.1
-          <span class="status notapplicable">
-            Неприменимые
-          </span>
+          
+
+
+<span class="status notapplicable">
+    Неприменимые
+</span>
+
         </span>
         <a href="/17-7-1">
-          Общая сумма утвержденного финансирования
-для развивающихся стран в целях содействия
-разработке, передаче, распространению и освоению
-экологически безопасных технологий
-
+          Общая сумма утвержденного финансирования для развивающихся стран в целях содействия разработке, передаче, распространению и освоению экологически безопасных технологий
         </a>
         
+
       </div>
     
     </div>
   
     
     <div class="indicator-cards target goal-target col-md-6">
-      <span>
+      <span class="indicator-card-number">
         <label class="hidden-md hidden-lg">Задача</label>
         17.8
       </span>
-      Обеспечить к 2017 году полномасштабное
-функционирование банка технологий и механизма
-развития науки, технологий и инноваций в интересах
-наименее развитых стран и расширить использование
-высокоэффективных технологий, в частности
-информационно-коммуникационных технологий
+      Обеспечить к 2017 году полномасштабное функционирование банка технологий и механизма развития науки, технологий и инноваций в интересах наименее развитых стран и расширить использование высокоэффективных технологий, в частности информационно-коммуникационных технологий
     </div>
     <div class="indicator-cards col-md-6 row no-gutters">
     
@@ -732,39 +684,34 @@ var translations = {
       
       
       
-      
-      
-      
-      
-      
 
       <div class="col-md-12  goal-indicator">
-        <span>
+        <span class="indicator-card-number">
           17.8.1
-          <span class="status complete">
-            Опубликован
-          </span>
+          
+
+
+<span class="status complete">
+    Сообщение
+</span>
+
         </span>
         <a href="/17-8-1">
           Доля населения, пользующегося Интернетом
         </a>
         
+
       </div>
     
     </div>
   
     
     <div class="indicator-cards target goal-target col-md-6">
-      <span>
+      <span class="indicator-card-number">
         <label class="hidden-md hidden-lg">Задача</label>
         17.9
       </span>
-      Усилить международную поддержку эффективного
-и целенаправленного наращивания потенциала
-развивающихся стран для содействия реализации
-национальных планов достижения всех целей в области устойчивого развития, в том числе благодаря
-сотрудничеству по линии Север — Юг и Юг —
-Юг и трехстороннему сотрудничеству
+      Усилить международную поддержку эффективного и целенаправленного наращивания потенциала развивающихся стран для содействия реализации национальных планов достижения всех целей в области устойчивого развития, в том числе благодаря сотрудничеству по линии Север — Юг и Юг — Юг и трехстороннему сотрудничеству
     </div>
     <div class="indicator-cards col-md-6 row no-gutters">
     
@@ -772,42 +719,34 @@ var translations = {
       
       
       
-      
-      
-      
-      
-      
 
       <div class="col-md-12  goal-indicator">
-        <span>
+        <span class="indicator-card-number">
           17.9.1
-          <span class="status notapplicable">
-            Неприменимые
-          </span>
+          
+
+
+<span class="status notapplicable">
+    Неприменимые
+</span>
+
         </span>
         <a href="/17-9-1">
-          Долларовый объем финансовой и технической
-помощи развивающимся странам(в том числе
-оказываемой по линии Север — Юг, Юг — Юг и в
-рамках трехстороннего сотрудничества)
+          Объем финансовой и технической помощи (в том числе по линии Север — Юг, Юг — Юг и в рамках трехстороннего сотрудничества), предоставляемой развивающимся странам (в долларах США)
         </a>
         
+
       </div>
     
     </div>
   
     
     <div class="indicator-cards target goal-target col-md-6">
-      <span>
+      <span class="indicator-card-number">
         <label class="hidden-md hidden-lg">Задача</label>
         17.10
       </span>
-      Поощрять универсальную, основанную на
-правилах, открытую, недискриминационную и справедливую
-многостороннюю торговую систему в
-рамках Всемирной торговой организации, в том
-числе благодаря завершению переговоров по ее Дохинской
-повестке дня в области развития
+      Поощрять универсальную, основанную на правилах, открытую, недискриминационную и справедливую многостороннюю торговую систему в рамках Всемирной торговой организации, в том числе благодаря завершению переговоров по ее Дохинской повестке дня в области развития
     </div>
     <div class="indicator-cards col-md-6 row no-gutters">
     
@@ -815,39 +754,34 @@ var translations = {
       
       
       
-      
-      
-      
-      
-      
 
       <div class="col-md-12  goal-indicator">
-        <span>
+        <span class="indicator-card-number">
           17.10.1
-          <span class="status notapplicable">
-            Неприменимые
-          </span>
+          
+
+
+<span class="status notapplicable">
+    Неприменимые
+</span>
+
         </span>
         <a href="/17-10-1">
-          Средневзвешенный мировой уровень тарифов
-
+          Средневзвешенный мировой уровень тарифов
         </a>
         
+
       </div>
     
     </div>
   
     
     <div class="indicator-cards target goal-target col-md-6">
-      <span>
+      <span class="indicator-card-number">
         <label class="hidden-md hidden-lg">Задача</label>
         17.11
       </span>
-      Значительно увеличить экспорт развивающихся
-стран, в частности в целях удвоения доли
-наименее развитых стран в мировом экспорте к
-2020 году
-
+      Значительно увеличить экспорт развивающихся стран, в частности в целях удвоения доли наименее развитых стран в мировом экспорте к 2020 году
     </div>
     <div class="indicator-cards col-md-6 row no-gutters">
     
@@ -855,43 +789,34 @@ var translations = {
       
       
       
-      
-      
-      
-      
-      
 
       <div class="col-md-12  goal-indicator">
-        <span>
+        <span class="indicator-card-number">
           17.11.1
-          <span class="status notstarted">
-            В процессе разработки
-          </span>
+          
+
+
+<span class="status notstarted">
+    В процессе разработки
+</span>
+
         </span>
         <a href="/17-11-1">
           Доля развивающихся стран и наименее развитых стран в мировом экспорте
         </a>
         
+
       </div>
     
     </div>
   
     
     <div class="indicator-cards target goal-target col-md-6">
-      <span>
+      <span class="indicator-card-number">
         <label class="hidden-md hidden-lg">Задача</label>
         17.12
       </span>
-      Обеспечить своевременное предоставление
-всем наименее развитым странам на долгосрочной
-основе беспошлинного и неквотируемого доступа на
-рынки в соответствии с решениями Всемирной торговой
-организации, в том числе путем обеспечения
-того, чтобы преференциальные правила происхождения,
-применяемые в отношении товаров, импортируемых
-из наименее развитых стран, были прозрачными
-и простыми и содействовали облегчению доступа
-на рынки
+      Обеспечить своевременное предоставление всем наименее развитым странам на долгосрочной основе беспошлинного и неквотируемого доступа на рынки в соответствии с решениями Всемирной торговой организации, в том числе путем обеспечения того, чтобы преференциальные правила происхождения, применяемые в отношении товаров, импортируемых из наименее развитых стран, были прозрачными и простыми и содействовали облегчению доступа на рынки
     </div>
     <div class="indicator-cards col-md-6 row no-gutters">
     
@@ -899,38 +824,34 @@ var translations = {
       
       
       
-      
-      
-      
-      
-      
 
       <div class="col-md-12  goal-indicator">
-        <span>
+        <span class="indicator-card-number">
           17.12.1
-          <span class="status notstarted">
-            В процессе разработки
-          </span>
+          
+
+
+<span class="status notstarted">
+    В процессе разработки
+</span>
+
         </span>
         <a href="/17-12-1">
-          Средний уровень тарифов, применяемых в
-отношении развивающихся стран, наименее развитых
-стран и малых островных развивающихся государств
+          Средний уровень тарифов, применяемых в отношении развивающихся стран, наименее развитых стран и малых островных развивающихся государств
         </a>
         
+
       </div>
     
     </div>
   
     
     <div class="indicator-cards target goal-target col-md-6">
-      <span>
+      <span class="indicator-card-number">
         <label class="hidden-md hidden-lg">Задача</label>
         17.13
       </span>
-      Повысить глобальную макроэкономическую
-стабильность, в том числе посредством координации
-политики и обеспечения последовательности политики
+      Повысить глобальную макроэкономическую стабильность, в том числе посредством координации политики и обеспечения последовательности политики
     </div>
     <div class="indicator-cards col-md-6 row no-gutters">
     
@@ -938,66 +859,65 @@ var translations = {
       
       
       
-      
-      
-      
-      
-      
 
       <div class="col-md-12  goal-indicator">
-        <span>
+        <span class="indicator-card-number">
           17.13.1
-          <span class="status notstarted">
-            В процессе разработки
-          </span>
+          
+
+
+<span class="status notstarted">
+    В процессе разработки
+</span>
+
         </span>
         <a href="/17-13-1">
-          Единый набор контрольных макроэкономических
-показателей
+          Единый набор контрольных макроэкономических показателей
         </a>
         
+
       </div>
     
 
-      
-      
-      
-      
-      
       
       
       
 
       <div class="col-md-12 indicator-национальный goal-indicator">
-        <span>
+        <span class="indicator-card-number">
           17.13.1.1
-          <span class="status complete">
-            Опубликован
-          </span>
+          
+
+
+<span class="status complete">
+    Сообщение
+</span>
+
         </span>
         <a href="/17-13-1-1">
           Панель макроэкономических показателей
         </a>
         
-          <ul class="tags">
-          
-            
-            <li class="tag-национальный warning">национальный</li>
-          
-          </ul>
+    <span class="sr-only">Теги</span>
+    <span class="tags">
+    
         
+        <span class="tag tag-национальный">национальный</span>
+    
+    </span>
+
+
       </div>
     
     </div>
   
     
     <div class="indicator-cards target goal-target col-md-6">
-      <span>
+      <span class="indicator-card-number">
         <label class="hidden-md hidden-lg">Задача</label>
         17.14
       </span>
-      Сделать более последовательной политику по
-обеспечению устойчивого развития
+      Сделать более последовательной политику по обеспечению устойчивого развития
     </div>
     <div class="indicator-cards col-md-6 row no-gutters">
     
@@ -1005,41 +925,34 @@ var translations = {
       
       
       
-      
-      
-      
-      
-      
 
       <div class="col-md-12  goal-indicator">
-        <span>
+        <span class="indicator-card-number">
           17.14.1
-          <span class="status notstarted">
-            В процессе разработки
-          </span>
+          
+
+
+<span class="status notstarted">
+    В процессе разработки
+</span>
+
         </span>
         <a href="/17-14-1">
-          Число стран, в которых созданы механизмы
-для повышения согласованности политики в области
-устойчивого развития
-
+          Число стран, в которых созданы механизмы для повышения согласованности политики в области устойчивого развития
         </a>
         
+
       </div>
     
     </div>
   
     
     <div class="indicator-cards target goal-target col-md-6">
-      <span>
+      <span class="indicator-card-number">
         <label class="hidden-md hidden-lg">Задача</label>
         17.15
       </span>
-       Уважать имеющееся у каждой страны пространство
-для стратегического маневра и ее ведущую
-роль в разработке и проведении в жизнь политики
-ликвидации нищеты и политики в области
-устойчивого развития
+      Уважать имеющееся у каждой страны пространство для стратегического маневра и ее ведущую роль в разработке и проведении в жизнь политики ликвидации нищеты и политики в области устойчивого развития
     </div>
     <div class="indicator-cards col-md-6 row no-gutters">
     
@@ -1047,45 +960,34 @@ var translations = {
       
       
       
-      
-      
-      
-      
-      
 
       <div class="col-md-12  goal-indicator">
-        <span>
+        <span class="indicator-card-number">
           17.15.1
-          <span class="status notapplicable">
-            Неприменимые
-          </span>
+          
+
+
+<span class="status notapplicable">
+    Неприменимые
+</span>
+
         </span>
         <a href="/17-15-1">
-          Масштабы использования подготовленных
-странами ориентировочных перечней результатов и
-инструментов планирования участниками процесса
-сотрудничества в целях развития
-
+          Степень  использования донорами из числа участников процесса развития схем результатов и инструментов планирования, разработанных самими странами
         </a>
         
+
       </div>
     
     </div>
   
     
     <div class="indicator-cards target goal-target col-md-6">
-      <span>
+      <span class="indicator-card-number">
         <label class="hidden-md hidden-lg">Задача</label>
         17.16
       </span>
-      Укреплять Глобальное партнерство в интересах
-устойчивого развития, дополняемое партнерствами
-с участием многих заинтересованных сторон,
-которые мобилизуют и распространяют знания,
-опыт, технологии и финансовые ресурсы, с тем
-чтобы поддерживать достижение целей в области
-устойчивого развития во всех странах, особенно в
-развивающихся странах
+      Укреплять Глобальное партнерство в интересах устойчивого развития, дополняемое партнерствами с участием многих заинтересованных сторон, которые мобилизуют и распространяют знания, опыт, технологии и финансовые ресурсы, с тем чтобы поддерживать достижение целей в области устойчивого развития во всех странах, особенно в развивающихся странах
     </div>
     <div class="indicator-cards col-md-6 row no-gutters">
     
@@ -1093,43 +995,34 @@ var translations = {
       
       
       
-      
-      
-      
-      
-      
 
       <div class="col-md-12  goal-indicator">
-        <span>
+        <span class="indicator-card-number">
           17.16.1
-          <span class="status notstarted">
-            В процессе разработки
-          </span>
+          
+
+
+<span class="status notstarted">
+    В процессе разработки
+</span>
+
         </span>
         <a href="/17-16-1">
-          Число стран, сообщающих о прогрессе в
-деле применения механизмов контроля за эффективностью
-развития с участием многих заинтересованных
-сторон, которые служат подспорьем в достижении
-целей устойчивого развития
+          Число стран, сообщающих о прогрессе в деле применения механизмов контроля за эффективностью развития с участием многих заинтересованных сторон, которые служат подспорьем в достижении целей устойчивого развития
         </a>
         
+
       </div>
     
     </div>
   
     
     <div class="indicator-cards target goal-target col-md-6">
-      <span>
+      <span class="indicator-card-number">
         <label class="hidden-md hidden-lg">Задача</label>
         17.17
       </span>
-      Стимулировать и поощрять эффективное партнерство
-между государственными организациями,
-между государственным и частным секторами и
-между организациями гражданского общества, опираясь
-на опыт и стратегии использования ресурсов
-партнеров
+      Стимулировать и поощрять эффективное партнерство между государственными организациями, между государственным и частным секторами и между организациями гражданского общества, опираясь на опыт и стратегии использования ресурсов партнеров
     </div>
     <div class="indicator-cards col-md-6 row no-gutters">
     
@@ -1137,46 +1030,34 @@ var translations = {
       
       
       
-      
-      
-      
-      
-      
 
       <div class="col-md-12  goal-indicator">
-        <span>
+        <span class="indicator-card-number">
           17.17.1
-          <span class="status notstarted">
-            В процессе разработки
-          </span>
+          
+
+
+<span class="status notstarted">
+    В процессе разработки
+</span>
+
         </span>
         <a href="/17-17-1">
-          Сумма (в долларах США), выделяемая на a)
-государственно-частные партнерства и b) партнерства
-организаций гражданского общества
+          Сумма (в долларах США), выделяемая на государственно-частные партнерства в области инфраструктуры
         </a>
         
+
       </div>
     
     </div>
   
     
     <div class="indicator-cards target goal-target col-md-6">
-      <span>
+      <span class="indicator-card-number">
         <label class="hidden-md hidden-lg">Задача</label>
         17.18
       </span>
-       К 2020 году усилить поддержку в целях наращивания
-потенциала развивающихся стран, в том
-числе наименее развитых стран и малых островных
-развивающихся государств, с тем чтобы значительно
-повысить доступность высококачественных, актуальных
-и достоверных данных, дезагрегированных
-по уровню доходов, гендерной принадлежности,
-возрасту, расе, национальности, миграционному статусу,
-инвалидности, географическому местонахождению
-и другим характеристикам, значимым с учетом
-национальных условий
+      К 2020 году усилить поддержку в целях наращивания потенциала развивающихся стран, в том числе наименее развитых стран и малых островных развивающихся государств, с тем чтобы значительно повысить доступность высококачественных, актуальных и достоверных данных, дезагрегированных по уровню доходов, гендерной принадлежности, возрасту, расе, национальности, миграционному статусу, инвалидности, географическому местонахождению и другим характеристикам, значимым с учетом национальных условий
     </div>
     <div class="indicator-cards col-md-6 row no-gutters">
     
@@ -1184,91 +1065,80 @@ var translations = {
       
       
       
-      
-      
-      
-      
-      
 
       <div class="col-md-12  goal-indicator">
-        <span>
+        <span class="indicator-card-number">
           17.18.1
-          <span class="status notstarted">
-            В процессе разработки
-          </span>
+          
+
+
+<span class="status notstarted">
+    В процессе разработки
+</span>
+
         </span>
         <a href="/17-18-1">
-          Доля показателей устойчивого развития, разработанных
-на национальном уровне с полной дезагрегацией
-по соответствующим признакам согласно
-Основополагающим принципам официальной статистики
+          Показатель потенциала в области статистики для отслеживания хода достижения целей в области устойчивого развития
         </a>
         
+
       </div>
     
 
       
       
       
-      
-      
-      
-      
-      
 
       <div class="col-md-12  goal-indicator">
-        <span>
+        <span class="indicator-card-number">
           17.18.2
-          <span class="status complete">
-            Опубликован
-          </span>
+          
+
+
+<span class="status complete">
+    Сообщение
+</span>
+
         </span>
         <a href="/17-18-2">
-          Число, стран, имеющих национальное статистическое законодательство, соответствующее Основополагающим принципам официальной статистики
+          Число, стран, имеющих национальное статистическое законодательство, соответствующее Основополагающим принципам официальной статистики
         </a>
         
+
       </div>
     
 
       
       
       
-      
-      
-      
-      
-      
 
       <div class="col-md-12  goal-indicator">
-        <span>
+        <span class="indicator-card-number">
           17.18.3
-          <span class="status notstarted">
-            В процессе разработки
-          </span>
+          
+
+
+<span class="status notstarted">
+    В процессе разработки
+</span>
+
         </span>
         <a href="/17-18-3">
-          Число стран, имеющих полностью финансированный
-и осуществляемый национальный статистический
-план, в разбивке по источникам финансирования
-
+          Число стран, имеющих полностью обеспеченный финансовыми ресурсами и осуществляющийся национальный статистический план, в разбивке по источникам финансирования
         </a>
         
+
       </div>
     
     </div>
   
     
     <div class="indicator-cards target goal-target col-md-6">
-      <span>
+      <span class="indicator-card-number">
         <label class="hidden-md hidden-lg">Задача</label>
         17.19
       </span>
-      К 2030 году, опираясь на нынешние инициативы,
-разработать, в дополнение к показателю валового
-внутреннего продукта, и другие показатели измерения
-прогресса в деле обеспечения устойчивого
-развития и содействовать наращиванию потенциала
-развивающихся стран в области статистики
+      К 2030 году, опираясь на нынешние инициативы, разработать, в дополнение к показателю валового внутреннего продукта, и другие показатели измерения прогресса в деле обеспечения устойчивого развития и содействовать наращиванию потенциала развивающихся стран в области статистики
     </div>
     <div class="indicator-cards col-md-6 row no-gutters">
     
@@ -1276,53 +1146,46 @@ var translations = {
       
       
       
-      
-      
-      
-      
-      
 
       <div class="col-md-12  goal-indicator">
-        <span>
+        <span class="indicator-card-number">
           17.19.1
-          <span class="status notstarted">
-            В процессе разработки
-          </span>
+          
+
+
+<span class="status notstarted">
+    В процессе разработки
+</span>
+
         </span>
         <a href="/17-19-1">
-          Долларовая стоимость всех ресурсов, выделенных
-на наращивание потенциала развивающихся
-стран в области статистики
-
+          Стоимость  всех ресурсов, выделенных на наращивание потенциала развивающихся стран в области статистики (в долларах США)
         </a>
         
+
       </div>
     
 
       
       
       
-      
-      
-      
-      
-      
 
       <div class="col-md-12  goal-indicator">
-        <span>
+        <span class="indicator-card-number">
           17.19.2
-          <span class="status notstarted">
-            В процессе разработки
-          </span>
+          
+
+
+<span class="status notstarted">
+    В процессе разработки
+</span>
+
         </span>
         <a href="/17-19-2">
-          Доля стран, которые a) провели хотя бы одну
-перепись населения и жилищного фонда в течение
-последних 10 лет; и b) достигли цели регистрации
-рождений в 100 процентах случаев и регистрации
-смерти в 80 процентах случаев
+          Доля стран, которые a) провели хотя бы одну перепись населения и жилищного фонда в течение последних 10 лет; и b) достигли цели регистрации рождений в 100 процентах случаев и регистрации смерти в 80 процентах случаев
         </a>
         
+
       </div>
     
     </div>
@@ -1355,18 +1218,12 @@ var translations = {
   </div>
 </footer>
 
-<!-- Digital Analytics Program roll-up, see https://analytics.usa.gov for data -->
-<!-- <script id="_fed_an_ua_tag" src="https://dap.digitalgov.gov/Universal-Federated-Analytics-Min.js?agency=GSA"></script> -->
-<!-- Google Analytics -->
-
-<!-- /.container </div> -->
 <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
-<script src="//cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js"></script>
 <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 <script src="//cdn.datatables.net/1.10.16/js/jquery.dataTables.min.js"></script>
 <script src="//cdn.datatables.net/1.10.16/js/dataTables.bootstrap.min.js"></script>
 <script src="//cdn.datatables.net/fixedcolumns/3.2.3/js/dataTables.fixedColumns.min.js"></script>
-<script src="//cdnjs.cloudflare.com/ajax/libs/underscore.js/1.8.3/underscore-min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/4.17.20/lodash.min.js" integrity="sha512-90vH1Z83AJY9DmlWa8WkjkV79yfS2n2Oxhsi2dZbIv0nC4E6m5AbH8Nh156kkM7JePmqD6tcZsfad1ueoaovww==" crossorigin="anonymous"></script>
 <script src="//cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.bundle.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/patternomaly@1.3.2/dist/patternomaly.js"></script>
 
@@ -1380,12 +1237,12 @@ var translations = {
 <script>translations['search'] = translations['search'] || {};
     translations['search']['search'] = 'Поиск';</script>
 
-<script src='/assets/js/sdg.js?v=20210312114827'></script>
+<script src='/assets/js/sdg.js?v=20211013151158'></script>
 
 
     
     
-    <script src="/assets/js/custom.js?v=20210312114827"></script><script>
+    <script src="/assets/js/custom.js?v=20211013151158"></script><script>
 $(function() {
     if($('#indicatorData').length) {
       var domData = $('#indicatorData').data();
@@ -1425,10 +1282,14 @@ $(function() {
               stackedDisaggregation: domData.stackeddisaggregation,
               graphAnnotations: domData.graphannotations,
               indicatorDownloads: domData.indicatordownloads,
+              dataSchema: domData.dataschema,
+              compositeBreakdownLabel: domData.compositebreakdownlabel,
+              precision: domData.precision,
             }),
             view  = new indicatorView(model, {
               rootElement: '#indicatorData',
               legendElement: '#plotLegend',
+              decimalSeparator: '',
               maxChartHeight: 420,
               tableColumnDefs: [
                 { maxCharCount: 25 }, // nowrap

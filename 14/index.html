@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="en" class="no-js">
+<html lang="ru" class="no-js">
     <head>
         <meta charset="utf-8">
         <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.min.js"></script>
-        <script crossorigin="anonymous" src="https://polyfill.io/v3/polyfill.min.js?features=Promise%2CArray.prototype.forEach%2CString.prototype.includes%2CURLSearchParams%2CCustomEvent%2CArray.prototype.includes%2CArray.prototype.filter%2CArray.prototype.some%2CArray.prototype.find%2CObject.assign%2CArray.isArray%2CObject.values%2CArray.from%2CSet"></script>
+        <script crossorigin="anonymous" src="https://polyfill.io/v3/polyfill.min.js?features=Promise%2CArray.prototype.forEach%2CString.prototype.includes%2CURLSearchParams%2CCustomEvent%2CArray.prototype.includes%2CArray.prototype.filter%2CArray.prototype.some%2CArray.prototype.find%2CArray.prototype.reduce%2CObject.assign%2CArray.isArray%2CObject.values%2CArray.from%2CSet%2CArray.prototype.findIndex"></script>
 <script crossorigin="anonymous" src="https://cdnjs.cloudflare.com/ajax/libs/javascript-canvas-to-blob/3.15.0/js/canvas-to-blob.min.js"></script>
 
         <script>
@@ -19,11 +19,23 @@ var opensdg = {
     this.chartConfigAlterations.push(callback);
   },
 
+  tableConfigAlterations: [],
+  // A hook which can be used to modify the configuration for Datatables.
+  tableConfigAlter: function(callback) {
+    this.tableConfigAlterations.push(callback);
+  },
+
   // A hook which can be replaced to alter whether/how the values that are
   // displayed on indicator tables/graphs get rounded.
   dataRounding: function(value) {
     // Alterations go here.
     return value;
+  },
+
+  // A hook which can be used to alter the data before it is displayed on charts/tables.
+  dataDisplayAlterations: [],
+  dataDisplayAlter: function(callback) {
+    this.dataDisplayAlterations.push(callback);
   },
 
   language: 'ru',
@@ -100,8 +112,6 @@ var translations = {
         
         <link rel="canonical" href="/">
 
-        
-
         <!--[if IE 9]>
         <script src="/assets/js/lib/classList.js"></script>
         <![endif]-->
@@ -114,12 +124,10 @@ var translations = {
         -->
 
         
-
-        
         <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css" crossorigin="">
         <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" crossorigin="">
         <link rel="stylesheet" href="https://cdn.datatables.net/fixedcolumns/3.2.3/css/fixedColumns.dataTables.min.css" crossorigin="">
-        <link rel="stylesheet" href="/assets/css/style.css?v=20210312114827">
+        <link rel="stylesheet" href="/assets/css/style.css?v=20211013151158">
         <link href="https://fonts.googleapis.com/css?family=Open+Sans|Roboto" rel="stylesheet" crossorigin="">
         <link rel="stylesheet" href="https://unpkg.com/leaflet@1.3.4/dist/leaflet.css"
           integrity="sha512-puBpdR0798OZvTTbP4A8Ix/l+A4dHDD0DGqYW6RQ+9jxkRFclaxxQb/SJAWZfWAkuyeQUytO7+7N4QKrDh+drA=="
@@ -127,13 +135,17 @@ var translations = {
         <link rel="stylesheet" href="https://cdn.rawgit.com/socib/Leaflet.TimeDimension/master/dist/leaflet.timedimension.control.min.css"  crossorigin=""/>
         <link rel="stylesheet" href='https://api.mapbox.com/mapbox.js/plugins/leaflet-fullscreen/v1.0.1/leaflet.fullscreen.css'  crossorigin=""/>
         <link rel="stylesheet" href="https://bowercdn.net/c/leaflet.zoomhome-latest/dist/leaflet.zoomhome.css"  crossorigin=""/>
-        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet-search@2.9.7/dist/leaflet-search.min.css" crossorigin=""><link rel="stylesheet" href="/assets/css/custom.css?v=20210312114827"><!-- ShareThis BEGIN --><!-- ShareThis END -->
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet-search@2.9.7/dist/leaflet-search.min.css" crossorigin=""><link rel="stylesheet" href="/assets/css/custom.css?v=20211013151158"><!-- ShareThis BEGIN --><!-- ShareThis END -->
+
+        
 
     </head>
-<body class="language-ru layout-goal-by-target">
+<body class="language-ru
+layout-goal-by-target
+">
 <!-- <div class="container"> -->
 
-<script>translations['header'] = {"alpha":"Альфа","default_contrast":"стандартный контраст","disable_high_contrast":"Отключить высокую контрастность","disclaimer":"Это сайт находится в разработке. Мы рады вашим отзывам.","enable_high_contrast":"Включить высокую контрастность","high_contrast":"высокий контраст","skip_link":"Перейти к главному содержанию","tag_line":"17 Целей, чтобы преобразовать наш мир"};</script>
+<script>translations['header'] = {"alpha":"Альфа","default_contrast":"стандартный контраст","disable_high_contrast":"Отключить высокую контрастность","disclaimer":"Это сайт находится в разработке. Мы рады вашим отзывам.","enable_high_contrast":"Включить высокую контрастность","high_contrast":"высокий контраст","skip_link":"Перейти к главному содержанию","tag_line":"17 Целей, чтобы преобразовать наш мир","toggle_menu":"Переключайте меню. Нажмите, чтобы развернуть или свернуть меню.","toggle_search":"Поисковая переключатель. Нажмите, чтобы развернуть или свернуть панель поиска."};</script>
 
 <a class="sr-only sr-only-focusable" id="skiplink" href="#main-content" tabindex="0">Перейти к главному содержанию</a>
 <div id="disclaimer">
@@ -191,10 +203,10 @@ var translations = {
         <li><span data-target="search">Поиск</span></li>
       </ul>
       <div id="search" class="menu-target">
-  <form action="/search">
-    <input type="text" name="q" id="indicator_search" title="Поиск" />
+  <form action="/search/">
     <label class="sr-only" for="indicator_search">Поиск</label>
-    <button aria-label="Поиск" id="search-btn" type="submit"><i class="fa fa-search" aria-hidden="false"></i></button>
+    <input type="text" name="q" id="indicator_search" title="Поиск" /><!--
+    --><button aria-label="Поиск" id="search-btn" type="submit"><i class="fa fa-search" aria-hidden="false"></i></button>
   </form>
 </div>
 
@@ -245,24 +257,24 @@ var translations = {
   
 </ol>
 
+  
 </div>
 
 <div class="heading goal-banner goal-14">
   <div class="container">
     <div class="row">
       <div class="col-xs-4 col-md-3 col-lg-2 goal-tiles">
-        <img src="https://sdg-kyrgyzstan.github.io/open-sdg-site-starter/assets/img/goals/ru/14.png" alt="Сохранение морских экосистем - Цель 14" id="goal-14" />
+        <img src="https://sdg-kyrgyzstan.github.io/open-sdg-site-starter/assets/img/goals/ru/14.png" alt="Сохранение морских экосистем - Цель 14" id="goal-14" class="goal-icon-image goal-icon-image-" />
       </div>
       <div class="col-xs-8 col-md-9 col-lg-10">
         <h1>
-          <span class="hidden-sm hidden-md hidden-lg">Цель 14: </span>Сохранение и рациональное использование океанов, морей и морских ресурсов
-в интересах устойчивого развития
-
+          <span class="hidden-sm hidden-md hidden-lg">Цель 14: </span>Сохранение и рациональное использование океанов, морей и морских ресурсов в интересах устойчивого развития
         </h1>
       </div>
     </div>
   </div>
 </div>
+
 
 <div id="main-content" class="container goal-indicators goal-14 goal-by-target" role="main">
 
@@ -283,15 +295,11 @@ var translations = {
   
     
     <div class="indicator-cards target goal-target col-md-6">
-      <span>
+      <span class="indicator-card-number">
         <label class="hidden-md hidden-lg">Задача</label>
         14.1
       </span>
-      К 2025 году обеспечить предотвращение и существенное
-сокращение любого загрязнения морской
-среды, в особенности вследствие деятельности
-на суше, включая загрязнение морским мусором и
-питательными веществами
+      К 2025 году обеспечить предотвращение и существенное сокращение любого загрязнения морской среды, в особенности вследствие деятельности на суше, включая загрязнение морским мусором и питательными веществами
     </div>
     <div class="indicator-cards col-md-6 row no-gutters">
     
@@ -299,41 +307,34 @@ var translations = {
       
       
       
-      
-      
-      
-      
-      
 
       <div class="col-md-12  goal-indicator">
-        <span>
+        <span class="indicator-card-number">
           14.1.1
-          <span class="status notapplicable">
-            Неприменимые
-          </span>
+          
+
+
+<span class="status notapplicable">
+    Неприменимые
+</span>
+
         </span>
         <a href="/14-1-1">
-          Индекс прибрежной эвтрофикации и плотность
-плавающего лома пластмасс
+          a) Индекс прибрежной эвтрофикации и b) плотность лома пластмасс+B246
         </a>
         
+
       </div>
     
     </div>
   
     
     <div class="indicator-cards target goal-target col-md-6">
-      <span>
+      <span class="indicator-card-number">
         <label class="hidden-md hidden-lg">Задача</label>
         14.2
       </span>
-      К 2020 году обеспечить рациональное использование
-и защиту морских и прибрежных экосистем
-с целью предотвратить значительное отрицательное
-воздействие, в том числе путем повышения стойкости
-этих экосистем, и принять меры по их восстановлению
-для обеспечения хорошего экологического
-состояния и продуктивности океанов
+      К 2020 году обеспечить рациональное использование и защиту морских и прибрежных экосистем с целью предотвратить значительное отрицательное воздействие, в том числе путем повышения стойкости этих экосистем, и принять меры по их восстановлению для обеспечения хорошего экологического состояния и продуктивности океанов
     </div>
     <div class="indicator-cards col-md-6 row no-gutters">
     
@@ -341,38 +342,34 @@ var translations = {
       
       
       
-      
-      
-      
-      
-      
 
       <div class="col-md-12  goal-indicator">
-        <span>
+        <span class="indicator-card-number">
           14.2.1
-          <span class="status notapplicable">
-            Неприменимые
-          </span>
+          
+
+
+<span class="status notapplicable">
+    Неприменимые
+</span>
+
         </span>
         <a href="/14-2-1">
-          Доля национальных исключительных экономических
-зон, в управлении которыми применяются
-экосистемные подходы
+          Доля национальных исключительных экономических зон, в управлении которыми применяются экосистемные подходы
         </a>
         
+
       </div>
     
     </div>
   
     
     <div class="indicator-cards target goal-target col-md-6">
-      <span>
+      <span class="indicator-card-number">
         <label class="hidden-md hidden-lg">Задача</label>
         14.3
       </span>
-      Минимизировать и ликвидировать последствия
-закисления океана, в том числе благодаря развитию
-научного сотрудничества на всех уровнях
+      Минимизировать и ликвидировать последствия закисления океана, в том числе благодаря развитию научного сотрудничества на всех уровнях
     </div>
     <div class="indicator-cards col-md-6 row no-gutters">
     
@@ -380,47 +377,34 @@ var translations = {
       
       
       
-      
-      
-      
-      
-      
 
       <div class="col-md-12  goal-indicator">
-        <span>
+        <span class="indicator-card-number">
           14.3.1
-          <span class="status notapplicable">
-            Неприменимые
-          </span>
+          
+
+
+<span class="status notapplicable">
+    Неприменимые
+</span>
+
         </span>
         <a href="/14-3-1">
-          Средняя кислотность (pH) морской воды, измеряемая
-в согласованной группе репрезентативных
-станций отбора проб
+          Средняя кислотность (pH) морской воды, измеряемая в согласованной группе репрезентативных станций отбора проб
         </a>
         
+
       </div>
     
     </div>
   
     
     <div class="indicator-cards target goal-target col-md-6">
-      <span>
+      <span class="indicator-card-number">
         <label class="hidden-md hidden-lg">Задача</label>
         14.4
       </span>
-      К 2020 году обеспечить эффективное регулирование
-добычи и положить конец перелову, незаконному,
-несообщаемому и нерегулируемому рыбному
-промыслу и губительной рыбопромысловой
-практике, а также выполнить научно обоснованные
-планы хозяйственной деятельности, для того чтобы
-восстановить рыбные запасы в кратчайшие возможные
-сроки, доведя их по крайней мере до таких
-уровней, которые способны обеспечивать максимальный
-экологически рациональный улов с учетом
-биологических характеристик этих запасов
-
+      К 2020 году обеспечить эффективное регулирование добычи и положить конец перелову, незаконному, несообщаемому и нерегулируемому рыбному промыслу и губительной рыбопромысловой практике, а также выполнить научно обоснованные планы хозяйственной деятельности, для того чтобы восстановить рыбные запасы в кратчайшие возможные сроки, доведя их по крайней мере до таких уровней, которые способны обеспечивать максимальный экологически рациональный улов с учетом биологических характеристик этих запасов
     </div>
     <div class="indicator-cards col-md-6 row no-gutters">
     
@@ -428,39 +412,34 @@ var translations = {
       
       
       
-      
-      
-      
-      
-      
 
       <div class="col-md-12  goal-indicator">
-        <span>
+        <span class="indicator-card-number">
           14.4.1
-          <span class="status notapplicable">
-            Неприменимые
-          </span>
+          
+
+
+<span class="status notapplicable">
+    Неприменимые
+</span>
+
         </span>
         <a href="/14-4-1">
-          Доля рыбных запасов, находящихся в биологически
-устойчивых пределах
+          Доля рыбных запасов, находящихся в биологически устойчивых пределах
         </a>
         
+
       </div>
     
     </div>
   
     
     <div class="indicator-cards target goal-target col-md-6">
-      <span>
+      <span class="indicator-card-number">
         <label class="hidden-md hidden-lg">Задача</label>
         14.5
       </span>
-      К 2020 году охватить природоохранными мерами
-по крайней мере 10 процентов прибрежных и
-морских районов в соответствии с национальным
-законодательством и международным правом и на
-основе наилучшей имеющейся научной информации
+      К 2020 году охватить природоохранными мерами по крайней мере 10 процентов прибрежных и морских районов в соответствии с национальным законодательством и международным правом и на основе наилучшей имеющейся научной информации
     </div>
     <div class="indicator-cards col-md-6 row no-gutters">
     
@@ -468,46 +447,34 @@ var translations = {
       
       
       
-      
-      
-      
-      
-      
 
       <div class="col-md-12  goal-indicator">
-        <span>
+        <span class="indicator-card-number">
           14.5.1
-          <span class="status notapplicable">
-            Неприменимые
-          </span>
+          
+
+
+<span class="status notapplicable">
+    Неприменимые
+</span>
+
         </span>
         <a href="/14-5-1">
-          Доля охраняемых морских районов
+          Отношение  площади охраняемых районов к общей площади морских районов
         </a>
         
+
       </div>
     
     </div>
   
     
     <div class="indicator-cards target goal-target col-md-6">
-      <span>
+      <span class="indicator-card-number">
         <label class="hidden-md hidden-lg">Задача</label>
         14.6
       </span>
-      К 2020 году запретить некоторые формы субсидий
-для рыбного промысла, содействующие созданию
-чрезмерных мощностей и перелову, отменить
-субсидии, содействующие незаконному, несообщаемому
-и нерегулируемому рыбному промыслу,
-и воздерживаться от введения новых таких субсидий,
-признавая, что надлежащее и эффективное применение
-особого и дифференцированного режима в
-отношении развивающихся и наименее развитых
-стран должно быть неотъемлемой частью переговоров по вопросу о субсидировании рыбного промысла,
-которые ведутся в рамках Всемирной торговой
-организации
-
+      К 2020 году запретить некоторые формы субсидий для рыбного промысла, содействующие созданию чрезмерных мощностей и перелову, отменить субсидии, содействующие незаконному, несообщаемому и нерегулируемому рыбному промыслу, и воздерживаться от введения новых таких субсидий, признавая, что надлежащее и эффективное применение особого и дифференцированного режима в отношении развивающихся и наименее развитых стран должно быть неотъемлемой частью переговоров по вопросу о субсидировании рыбного промысла, которые ведутся в рамках Всемирной торговой организации
     </div>
     <div class="indicator-cards col-md-6 row no-gutters">
     
@@ -515,43 +482,34 @@ var translations = {
       
       
       
-      
-      
-      
-      
-      
 
       <div class="col-md-12  goal-indicator">
-        <span>
+        <span class="indicator-card-number">
           14.6.1
-          <span class="status notapplicable">
-            Неприменимые
-          </span>
+          
+
+
+<span class="status notapplicable">
+    Неприменимые
+</span>
+
         </span>
         <a href="/14-6-1">
-          Достигнутый странами прогресс с точки зрения
-степени соблюдения международно-правовых
-документов по борьбе с незаконным, несообщаемым
-и нерегулируемым рыбным промыслом
+          Степень соблюдения международно-правовых документов по борьбе с незаконным, несообщаемым и нерегулируемым рыбным промыслом
         </a>
         
+
       </div>
     
     </div>
   
     
     <div class="indicator-cards target goal-target col-md-6">
-      <span>
+      <span class="indicator-card-number">
         <label class="hidden-md hidden-lg">Задача</label>
         14.7
       </span>
-      К 2030 году повысить экономические выгоды,
-получаемые малыми островными развивающимися
-государствами и наименее развитыми странами от
-экологически рационального использования морских
-ресурсов, в том числе благодаря экологически
-рациональной организации рыбного хозяйства, аквакультуры
-и туризма
+      К 2030 году повысить экономические выгоды, получаемые малыми островными развивающимися государствами и наименее развитыми странами от экологически рационального использования морских ресурсов, в том числе благодаря экологически рациональной организации рыбного хозяйства, аквакультуры и туризма
     </div>
     <div class="indicator-cards col-md-6 row no-gutters">
     
@@ -559,47 +517,34 @@ var translations = {
       
       
       
-      
-      
-      
-      
-      
 
       <div class="col-md-12  goal-indicator">
-        <span>
+        <span class="indicator-card-number">
           14.7.1
-          <span class="status notapplicable">
-            Неприменимые
-          </span>
+          
+
+
+<span class="status notapplicable">
+    Неприменимые
+</span>
+
         </span>
         <a href="/14-7-1">
-          Экологически рациональный рыбный промысел
-в процентах от ВВП в малых островных развивающихся
-государствах, в наименее развитых странах
-и во всех странах
+          Экологически рациональный рыбный промысел в процентах от ВВП в малых островных развивающихся государствах, в наименее развитых странах и во всех странах
         </a>
         
+
       </div>
     
     </div>
   
     
     <div class="indicator-cards target goal-target col-md-6">
-      <span>
+      <span class="indicator-card-number">
         <label class="hidden-md hidden-lg">Задача</label>
         14.a
       </span>
-      Увеличить объем научных знаний, расширить
-научные исследования и обеспечить передачу морских
-технологий, принимая во внимание Критерии и
-руководящие принципы в отношении передачи морских
-технологий, разработанные Межправительственной
-океанографической комиссией, с тем
-чтобы улучшить экологическое состояние океанской
-среды и повысить вклад морского биоразнообразия
-в развитие развивающихся стран, особенно малых
-островных развивающихся государств и наименее
-развитых стран
+      Увеличить объем научных знаний, расширить научные исследования и обеспечить передачу морских технологий, принимая во внимание Критерии и руководящие принципы в отношении передачи морских технологий, разработанные Межправительственной океанографической комиссией, с тем чтобы улучшить экологическое состояние океанской среды и повысить вклад морского биоразнообразия в развитие развивающихся стран, особенно малых островных развивающихся государств и наименее развитых стран
     </div>
     <div class="indicator-cards col-md-6 row no-gutters">
     
@@ -607,40 +552,34 @@ var translations = {
       
       
       
-      
-      
-      
-      
-      
 
       <div class="col-md-12  goal-indicator">
-        <span>
+        <span class="indicator-card-number">
           14.a.1
-          <span class="status notapplicable">
-            Неприменимые
-          </span>
+          
+
+
+<span class="status notapplicable">
+    Неприменимые
+</span>
+
         </span>
         <a href="/14-a-1">
-          Доля бюджетных ассигнований на научные
-исследования в области морских технологий в общем
-объеме бюджетных ассигнований на научные исследования
-
+          Доля бюджетных ассигнований на научные исследования в области морских технологий в общем объеме бюджетных ассигнований на научные исследования
         </a>
         
+
       </div>
     
     </div>
   
     
     <div class="indicator-cards target goal-target col-md-6">
-      <span>
+      <span class="indicator-card-number">
         <label class="hidden-md hidden-lg">Задача</label>
         14.b
       </span>
-      Обеспечить доступ мелких хозяйств, занимающихся
-кустарным рыбным промыслом, к морским
-ресурсам и рынкам
-
+      Обеспечить доступ мелких хозяйств, занимающихся кустарным рыбным промыслом, к морским ресурсам и рынкам
     </div>
     <div class="indicator-cards col-md-6 row no-gutters">
     
@@ -648,47 +587,34 @@ var translations = {
       
       
       
-      
-      
-      
-      
-      
 
       <div class="col-md-12  goal-indicator">
-        <span>
+        <span class="indicator-card-number">
           14.b.1
-          <span class="status notapplicable">
-            Неприменимые
-          </span>
+          
+
+
+<span class="status notapplicable">
+    Неприменимые
+</span>
+
         </span>
         <a href="/14-b-1">
-          Достигнутый странами прогресс с точки зрения
-степени применения нормативно-правовых/ стратегических/институциональных
-рамок, обеспечивающих
-признание и защиту прав доступа мелких рыбопромысловых
-предприятий
+          Степень применения нормативно-правовых/ стратегических/институциональных рамок, обеспечивающих признание и защиту прав доступа мелких рыбопромысловых предприятий
         </a>
         
+
       </div>
     
     </div>
   
     
     <div class="indicator-cards target goal-target col-md-6">
-      <span>
+      <span class="indicator-card-number">
         <label class="hidden-md hidden-lg">Задача</label>
         14.c
       </span>
-      Улучшить работу по сохранению и рациональному
-использованию океанов и их ресурсов путем
-соблюдения норм международного права, закрепленных
-в Конвенции Организации Объединенных
-Наций по морскому праву, которая, как отмечено в
-пункте 158 документа «Будущее, которого мы хотим»,
-закладывает юридическую базу для сохранения
-и рационального использования Мирового океана
-и его ресурсов
-
+      Улучшить работу по сохранению и рациональному использованию океанов и их ресурсов путем соблюдения норм международного права, закрепленных в Конвенции Организации Объединенных Наций по морскому праву, которая, как отмечено в пункте 158 документа «Будущее, которого мы хотим», закладывает юридическую базу для сохранения и рационального использования Мирового океана и его ресурсов
     </div>
     <div class="indicator-cards col-md-6 row no-gutters">
     
@@ -696,31 +622,23 @@ var translations = {
       
       
       
-      
-      
-      
-      
-      
 
       <div class="col-md-12  goal-indicator">
-        <span>
+        <span class="indicator-card-number">
           14.c.1
-          <span class="status notapplicable">
-            Неприменимые
-          </span>
+          
+
+
+<span class="status notapplicable">
+    Неприменимые
+</span>
+
         </span>
         <a href="/14-c-1">
-          Число стран, добившихся прогресса в ратификации,
-принятии и осуществлении, по линии правовых,
-стратегических и институциональных рамок,
-правовых документов по вопросам Мирового океана,
-направленных на осуществление закрепленных в
-Конвенции Организации Объединенных Наций по
-морскому праву норм международного права, касающихся
-сохранения и рационального использования
-Мирового океана и его ресурсов
+          Число  стран, добившихся прогресса в ратификации, принятии и осуществлении, с использованием правовых, стратегических и институциональных рамок, правовых документов по вопросам Мирового океана, направленных на осуществление закрепленных в Конвенции Организации Объединенных Наций по морскому праву норм международного права, касающихся сохранения и рационального использования Мирового океана и его ресурсов
         </a>
         
+
       </div>
     
     </div>
@@ -753,18 +671,12 @@ var translations = {
   </div>
 </footer>
 
-<!-- Digital Analytics Program roll-up, see https://analytics.usa.gov for data -->
-<!-- <script id="_fed_an_ua_tag" src="https://dap.digitalgov.gov/Universal-Federated-Analytics-Min.js?agency=GSA"></script> -->
-<!-- Google Analytics -->
-
-<!-- /.container </div> -->
 <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
-<script src="//cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js"></script>
 <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 <script src="//cdn.datatables.net/1.10.16/js/jquery.dataTables.min.js"></script>
 <script src="//cdn.datatables.net/1.10.16/js/dataTables.bootstrap.min.js"></script>
 <script src="//cdn.datatables.net/fixedcolumns/3.2.3/js/dataTables.fixedColumns.min.js"></script>
-<script src="//cdnjs.cloudflare.com/ajax/libs/underscore.js/1.8.3/underscore-min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/4.17.20/lodash.min.js" integrity="sha512-90vH1Z83AJY9DmlWa8WkjkV79yfS2n2Oxhsi2dZbIv0nC4E6m5AbH8Nh156kkM7JePmqD6tcZsfad1ueoaovww==" crossorigin="anonymous"></script>
 <script src="//cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.bundle.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/patternomaly@1.3.2/dist/patternomaly.js"></script>
 
@@ -778,12 +690,12 @@ var translations = {
 <script>translations['search'] = translations['search'] || {};
     translations['search']['search'] = 'Поиск';</script>
 
-<script src='/assets/js/sdg.js?v=20210312114827'></script>
+<script src='/assets/js/sdg.js?v=20211013151158'></script>
 
 
     
     
-    <script src="/assets/js/custom.js?v=20210312114827"></script><script>
+    <script src="/assets/js/custom.js?v=20211013151158"></script><script>
 $(function() {
     if($('#indicatorData').length) {
       var domData = $('#indicatorData').data();
@@ -823,10 +735,14 @@ $(function() {
               stackedDisaggregation: domData.stackeddisaggregation,
               graphAnnotations: domData.graphannotations,
               indicatorDownloads: domData.indicatordownloads,
+              dataSchema: domData.dataschema,
+              compositeBreakdownLabel: domData.compositebreakdownlabel,
+              precision: domData.precision,
             }),
             view  = new indicatorView(model, {
               rootElement: '#indicatorData',
               legendElement: '#plotLegend',
+              decimalSeparator: '',
               maxChartHeight: 420,
               tableColumnDefs: [
                 { maxCharCount: 25 }, // nowrap

@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="en" class="no-js">
+<html lang="ru" class="no-js">
     <head>
         <meta charset="utf-8">
         <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.min.js"></script>
-        <script crossorigin="anonymous" src="https://polyfill.io/v3/polyfill.min.js?features=Promise%2CArray.prototype.forEach%2CString.prototype.includes%2CURLSearchParams%2CCustomEvent%2CArray.prototype.includes%2CArray.prototype.filter%2CArray.prototype.some%2CArray.prototype.find%2CObject.assign%2CArray.isArray%2CObject.values%2CArray.from%2CSet"></script>
+        <script crossorigin="anonymous" src="https://polyfill.io/v3/polyfill.min.js?features=Promise%2CArray.prototype.forEach%2CString.prototype.includes%2CURLSearchParams%2CCustomEvent%2CArray.prototype.includes%2CArray.prototype.filter%2CArray.prototype.some%2CArray.prototype.find%2CArray.prototype.reduce%2CObject.assign%2CArray.isArray%2CObject.values%2CArray.from%2CSet%2CArray.prototype.findIndex"></script>
 <script crossorigin="anonymous" src="https://cdnjs.cloudflare.com/ajax/libs/javascript-canvas-to-blob/3.15.0/js/canvas-to-blob.min.js"></script>
 
         <script>
@@ -19,11 +19,23 @@ var opensdg = {
     this.chartConfigAlterations.push(callback);
   },
 
+  tableConfigAlterations: [],
+  // A hook which can be used to modify the configuration for Datatables.
+  tableConfigAlter: function(callback) {
+    this.tableConfigAlterations.push(callback);
+  },
+
   // A hook which can be replaced to alter whether/how the values that are
   // displayed on indicator tables/graphs get rounded.
   dataRounding: function(value) {
     // Alterations go here.
     return value;
+  },
+
+  // A hook which can be used to alter the data before it is displayed on charts/tables.
+  dataDisplayAlterations: [],
+  dataDisplayAlter: function(callback) {
+    this.dataDisplayAlterations.push(callback);
   },
 
   language: 'ru',
@@ -100,8 +112,6 @@ var translations = {
         
         <link rel="canonical" href="/">
 
-        
-
         <!--[if IE 9]>
         <script src="/assets/js/lib/classList.js"></script>
         <![endif]-->
@@ -114,12 +124,10 @@ var translations = {
         -->
 
         
-
-        
         <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css" crossorigin="">
         <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" crossorigin="">
         <link rel="stylesheet" href="https://cdn.datatables.net/fixedcolumns/3.2.3/css/fixedColumns.dataTables.min.css" crossorigin="">
-        <link rel="stylesheet" href="/assets/css/style.css?v=20210312114827">
+        <link rel="stylesheet" href="/assets/css/style.css?v=20211013151158">
         <link href="https://fonts.googleapis.com/css?family=Open+Sans|Roboto" rel="stylesheet" crossorigin="">
         <link rel="stylesheet" href="https://unpkg.com/leaflet@1.3.4/dist/leaflet.css"
           integrity="sha512-puBpdR0798OZvTTbP4A8Ix/l+A4dHDD0DGqYW6RQ+9jxkRFclaxxQb/SJAWZfWAkuyeQUytO7+7N4QKrDh+drA=="
@@ -127,13 +135,17 @@ var translations = {
         <link rel="stylesheet" href="https://cdn.rawgit.com/socib/Leaflet.TimeDimension/master/dist/leaflet.timedimension.control.min.css"  crossorigin=""/>
         <link rel="stylesheet" href='https://api.mapbox.com/mapbox.js/plugins/leaflet-fullscreen/v1.0.1/leaflet.fullscreen.css'  crossorigin=""/>
         <link rel="stylesheet" href="https://bowercdn.net/c/leaflet.zoomhome-latest/dist/leaflet.zoomhome.css"  crossorigin=""/>
-        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet-search@2.9.7/dist/leaflet-search.min.css" crossorigin=""><link rel="stylesheet" href="/assets/css/custom.css?v=20210312114827"><!-- ShareThis BEGIN --><!-- ShareThis END -->
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet-search@2.9.7/dist/leaflet-search.min.css" crossorigin=""><link rel="stylesheet" href="/assets/css/custom.css?v=20211013151158"><!-- ShareThis BEGIN --><!-- ShareThis END -->
+
+        
 
     </head>
-<body class="language-ru layout-frontpage">
+<body class="language-ru
+layout-frontpage
+">
 <!-- <div class="container"> -->
 
-<script>translations['header'] = {"alpha":"Альфа","default_contrast":"стандартный контраст","disable_high_contrast":"Отключить высокую контрастность","disclaimer":"Это сайт находится в разработке. Мы рады вашим отзывам.","enable_high_contrast":"Включить высокую контрастность","high_contrast":"высокий контраст","skip_link":"Перейти к главному содержанию","tag_line":"17 Целей, чтобы преобразовать наш мир"};</script>
+<script>translations['header'] = {"alpha":"Альфа","default_contrast":"стандартный контраст","disable_high_contrast":"Отключить высокую контрастность","disclaimer":"Это сайт находится в разработке. Мы рады вашим отзывам.","enable_high_contrast":"Включить высокую контрастность","high_contrast":"высокий контраст","skip_link":"Перейти к главному содержанию","tag_line":"17 Целей, чтобы преобразовать наш мир","toggle_menu":"Переключайте меню. Нажмите, чтобы развернуть или свернуть меню.","toggle_search":"Поисковая переключатель. Нажмите, чтобы развернуть или свернуть панель поиска."};</script>
 
 <a class="sr-only sr-only-focusable" id="skiplink" href="#main-content" tabindex="0">Перейти к главному содержанию</a>
 <div id="disclaimer">
@@ -191,10 +203,10 @@ var translations = {
         <li><span data-target="search">Поиск</span></li>
       </ul>
       <div id="search" class="menu-target">
-  <form action="/search">
-    <input type="text" name="q" id="indicator_search" title="Поиск" />
+  <form action="/search/">
     <label class="sr-only" for="indicator_search">Поиск</label>
-    <button aria-label="Поиск" id="search-btn" type="submit"><i class="fa fa-search" aria-hidden="false"></i></button>
+    <input type="text" name="q" id="indicator_search" title="Поиск" /><!--
+    --><button aria-label="Поиск" id="search-btn" type="submit"><i class="fa fa-search" aria-hidden="false"></i></button>
   </form>
 </div>
 
@@ -252,7 +264,7 @@ var translations = {
         <div class="row no-gutters">
             <div class="col-xs-4 col-md-2">
                 <a href="/1">
-                  <img src="https://sdg-kyrgyzstan.github.io/open-sdg-site-starter/assets/img/goals/ru/1.png" id="goal-1" alt="Ликвидация нищеты - Цель 1" />
+                  <img src="https://sdg-kyrgyzstan.github.io/open-sdg-site-starter/assets/img/goals/ru/1.png" id="goal-1" alt="Ликвидация нищеты - Цель 1" class="goal-icon-image goal-icon-image-" />
               </a>
             </div>
         
@@ -260,7 +272,7 @@ var translations = {
         
             <div class="col-xs-4 col-md-2">
                 <a href="/2">
-                  <img src="https://sdg-kyrgyzstan.github.io/open-sdg-site-starter/assets/img/goals/ru/2.png" id="goal-2" alt="Ликвидация голода - Цель 2" />
+                  <img src="https://sdg-kyrgyzstan.github.io/open-sdg-site-starter/assets/img/goals/ru/2.png" id="goal-2" alt="Ликвидация голода - Цель 2" class="goal-icon-image goal-icon-image-" />
               </a>
             </div>
         
@@ -268,7 +280,7 @@ var translations = {
         
             <div class="col-xs-4 col-md-2">
                 <a href="/3">
-                  <img src="https://sdg-kyrgyzstan.github.io/open-sdg-site-starter/assets/img/goals/ru/3.png" id="goal-3" alt="Хорошее здоровье и благополучие - Цель 3" />
+                  <img src="https://sdg-kyrgyzstan.github.io/open-sdg-site-starter/assets/img/goals/ru/3.png" id="goal-3" alt="Хорошее здоровье и благополучие - Цель 3" class="goal-icon-image goal-icon-image-" />
               </a>
             </div>
         
@@ -276,7 +288,7 @@ var translations = {
         
             <div class="col-xs-4 col-md-2">
                 <a href="/4">
-                  <img src="https://sdg-kyrgyzstan.github.io/open-sdg-site-starter/assets/img/goals/ru/4.png" id="goal-4" alt="Качественное образование - Цель 4" />
+                  <img src="https://sdg-kyrgyzstan.github.io/open-sdg-site-starter/assets/img/goals/ru/4.png" id="goal-4" alt="Качественное образование - Цель 4" class="goal-icon-image goal-icon-image-" />
               </a>
             </div>
         
@@ -284,7 +296,7 @@ var translations = {
         
             <div class="col-xs-4 col-md-2">
                 <a href="/5">
-                  <img src="https://sdg-kyrgyzstan.github.io/open-sdg-site-starter/assets/img/goals/ru/5.png" id="goal-5" alt="Гендерное равенство - Цель 5" />
+                  <img src="https://sdg-kyrgyzstan.github.io/open-sdg-site-starter/assets/img/goals/ru/5.png" id="goal-5" alt="Гендерное равенство - Цель 5" class="goal-icon-image goal-icon-image-" />
               </a>
             </div>
         
@@ -292,7 +304,7 @@ var translations = {
         
             <div class="col-xs-4 col-md-2">
                 <a href="/6">
-                  <img src="https://sdg-kyrgyzstan.github.io/open-sdg-site-starter/assets/img/goals/ru/6.png" id="goal-6" alt="Чистая вода и санитария - Цель 6" />
+                  <img src="https://sdg-kyrgyzstan.github.io/open-sdg-site-starter/assets/img/goals/ru/6.png" id="goal-6" alt="Чистая вода и санитария - Цель 6" class="goal-icon-image goal-icon-image-" />
               </a>
             </div>
         </div>
@@ -300,7 +312,7 @@ var translations = {
         <div class="row no-gutters">
             <div class="col-xs-4 col-md-2">
                 <a href="/7">
-                  <img src="https://sdg-kyrgyzstan.github.io/open-sdg-site-starter/assets/img/goals/ru/7.png" id="goal-7" alt="Недорогостоящая и чистая энергия - Цель 7" />
+                  <img src="https://sdg-kyrgyzstan.github.io/open-sdg-site-starter/assets/img/goals/ru/7.png" id="goal-7" alt="Недорогостоящая и чистая энергия - Цель 7" class="goal-icon-image goal-icon-image-" />
               </a>
             </div>
         
@@ -308,7 +320,7 @@ var translations = {
         
             <div class="col-xs-4 col-md-2">
                 <a href="/8">
-                  <img src="https://sdg-kyrgyzstan.github.io/open-sdg-site-starter/assets/img/goals/ru/8.png" id="goal-8" alt="Достойна работа и экономический рост - Цель 8" />
+                  <img src="https://sdg-kyrgyzstan.github.io/open-sdg-site-starter/assets/img/goals/ru/8.png" id="goal-8" alt="Достойна работа и экономический рост - Цель 8" class="goal-icon-image goal-icon-image-" />
               </a>
             </div>
         
@@ -316,7 +328,7 @@ var translations = {
         
             <div class="col-xs-4 col-md-2">
                 <a href="/9">
-                  <img src="https://sdg-kyrgyzstan.github.io/open-sdg-site-starter/assets/img/goals/ru/9.png" id="goal-9" alt="Индустриализация, инновации и инфраструктура - Цель 9" />
+                  <img src="https://sdg-kyrgyzstan.github.io/open-sdg-site-starter/assets/img/goals/ru/9.png" id="goal-9" alt="Индустриализация, инновации и инфраструктура - Цель 9" class="goal-icon-image goal-icon-image-" />
               </a>
             </div>
         
@@ -324,7 +336,7 @@ var translations = {
         
             <div class="col-xs-4 col-md-2">
                 <a href="/10">
-                  <img src="https://sdg-kyrgyzstan.github.io/open-sdg-site-starter/assets/img/goals/ru/10.png" id="goal-10" alt="Уменьшение неравенства - Цель 10" />
+                  <img src="https://sdg-kyrgyzstan.github.io/open-sdg-site-starter/assets/img/goals/ru/10.png" id="goal-10" alt="Уменьшение неравенства - Цель 10" class="goal-icon-image goal-icon-image-" />
               </a>
             </div>
         
@@ -332,7 +344,7 @@ var translations = {
         
             <div class="col-xs-4 col-md-2">
                 <a href="/11">
-                  <img src="https://sdg-kyrgyzstan.github.io/open-sdg-site-starter/assets/img/goals/ru/11.png" id="goal-11" alt="Устойчивые города и населенные пункты - Цель 11" />
+                  <img src="https://sdg-kyrgyzstan.github.io/open-sdg-site-starter/assets/img/goals/ru/11.png" id="goal-11" alt="Устойчивые города и населенные пункты - Цель 11" class="goal-icon-image goal-icon-image-" />
               </a>
             </div>
         
@@ -340,7 +352,7 @@ var translations = {
         
             <div class="col-xs-4 col-md-2">
                 <a href="/12">
-                  <img src="https://sdg-kyrgyzstan.github.io/open-sdg-site-starter/assets/img/goals/ru/12.png" id="goal-12" alt="Ответственное потребление и производство - Цель 12" />
+                  <img src="https://sdg-kyrgyzstan.github.io/open-sdg-site-starter/assets/img/goals/ru/12.png" id="goal-12" alt="Ответственное потребление и производство - Цель 12" class="goal-icon-image goal-icon-image-" />
               </a>
             </div>
         </div>
@@ -348,7 +360,7 @@ var translations = {
         <div class="row no-gutters">
             <div class="col-xs-4 col-md-2">
                 <a href="/13">
-                  <img src="https://sdg-kyrgyzstan.github.io/open-sdg-site-starter/assets/img/goals/ru/13.png" id="goal-13" alt="Борьба с изменением климата - Цель 13" />
+                  <img src="https://sdg-kyrgyzstan.github.io/open-sdg-site-starter/assets/img/goals/ru/13.png" id="goal-13" alt="Борьба с изменением климата - Цель 13" class="goal-icon-image goal-icon-image-" />
               </a>
             </div>
         
@@ -356,7 +368,7 @@ var translations = {
         
             <div class="col-xs-4 col-md-2">
                 <a href="/14">
-                  <img src="https://sdg-kyrgyzstan.github.io/open-sdg-site-starter/assets/img/goals/ru/14.png" id="goal-14" alt="Сохранение морских экосистем - Цель 14" />
+                  <img src="https://sdg-kyrgyzstan.github.io/open-sdg-site-starter/assets/img/goals/ru/14.png" id="goal-14" alt="Сохранение морских экосистем - Цель 14" class="goal-icon-image goal-icon-image-" />
               </a>
             </div>
         
@@ -364,7 +376,7 @@ var translations = {
         
             <div class="col-xs-4 col-md-2">
                 <a href="/15">
-                  <img src="https://sdg-kyrgyzstan.github.io/open-sdg-site-starter/assets/img/goals/ru/15.png" id="goal-15" alt="Сохранение экосистем суши - Цель 15" />
+                  <img src="https://sdg-kyrgyzstan.github.io/open-sdg-site-starter/assets/img/goals/ru/15.png" id="goal-15" alt="Сохранение экосистем суши - Цель 15" class="goal-icon-image goal-icon-image-" />
               </a>
             </div>
         
@@ -372,7 +384,7 @@ var translations = {
         
             <div class="col-xs-4 col-md-2">
                 <a href="/16">
-                  <img src="https://sdg-kyrgyzstan.github.io/open-sdg-site-starter/assets/img/goals/ru/16.png" id="goal-16" alt="Мир, правосудие и эффективные институты - Цель 16" />
+                  <img src="https://sdg-kyrgyzstan.github.io/open-sdg-site-starter/assets/img/goals/ru/16.png" id="goal-16" alt="Мир, правосудие и эффективные институты - Цель 16" class="goal-icon-image goal-icon-image-" />
               </a>
             </div>
         
@@ -380,7 +392,7 @@ var translations = {
         
             <div class="col-xs-4 col-md-2">
                 <a href="/17">
-                  <img src="https://sdg-kyrgyzstan.github.io/open-sdg-site-starter/assets/img/goals/ru/17.png" id="goal-17" alt="Партнерство в интересах устойчивого развития - Цель 17" />
+                  <img src="https://sdg-kyrgyzstan.github.io/open-sdg-site-starter/assets/img/goals/ru/17.png" id="goal-17" alt="Партнерство в интересах устойчивого развития - Цель 17" class="goal-icon-image goal-icon-image-" />
               </a>
             </div>
         
@@ -388,7 +400,7 @@ var translations = {
     
     
         <div class="col-xs-4 col-md-2">
-            <img src="https://sdg-kyrgyzstan.github.io/open-sdg-site-starter/assets/img/goals/ru/18.png" id="goal-18" alt="The Global Goals for Sustainable Development" />
+            <img src="https://sdg-kyrgyzstan.github.io/open-sdg-site-starter/assets/img/goals/ru/18.png" id="goal-18" alt="The Global Goals for Sustainable Development" class="goal-icon-image goal-icon-image-" />
         </div>
     
     </div>
@@ -399,10 +411,10 @@ var translations = {
         Скачать все данные
     </a>
     <div id="zip-download-info">
-        ZIP файл - 1.0 MB
+        ZIP файл - 1.4 MB
         
             <br>
-            Последний раз данные обновлялись - Mar 12, 2021
+            Последний раз данные обновлялись - Oct 13, 2021
         
     </div>
 </div>
@@ -434,18 +446,12 @@ var translations = {
   </div>
 </footer>
 
-<!-- Digital Analytics Program roll-up, see https://analytics.usa.gov for data -->
-<!-- <script id="_fed_an_ua_tag" src="https://dap.digitalgov.gov/Universal-Federated-Analytics-Min.js?agency=GSA"></script> -->
-<!-- Google Analytics -->
-
-<!-- /.container </div> -->
 <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
-<script src="//cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js"></script>
 <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 <script src="//cdn.datatables.net/1.10.16/js/jquery.dataTables.min.js"></script>
 <script src="//cdn.datatables.net/1.10.16/js/dataTables.bootstrap.min.js"></script>
 <script src="//cdn.datatables.net/fixedcolumns/3.2.3/js/dataTables.fixedColumns.min.js"></script>
-<script src="//cdnjs.cloudflare.com/ajax/libs/underscore.js/1.8.3/underscore-min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/4.17.20/lodash.min.js" integrity="sha512-90vH1Z83AJY9DmlWa8WkjkV79yfS2n2Oxhsi2dZbIv0nC4E6m5AbH8Nh156kkM7JePmqD6tcZsfad1ueoaovww==" crossorigin="anonymous"></script>
 <script src="//cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.bundle.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/patternomaly@1.3.2/dist/patternomaly.js"></script>
 
@@ -459,12 +465,12 @@ var translations = {
 <script>translations['search'] = translations['search'] || {};
     translations['search']['search'] = 'Поиск';</script>
 
-<script src='/assets/js/sdg.js?v=20210312114827'></script>
+<script src='/assets/js/sdg.js?v=20211013151158'></script>
 
 
     
     
-    <script src="/assets/js/custom.js?v=20210312114827"></script><script>
+    <script src="/assets/js/custom.js?v=20211013151158"></script><script>
 $(function() {
     if($('#indicatorData').length) {
       var domData = $('#indicatorData').data();
@@ -504,10 +510,14 @@ $(function() {
               stackedDisaggregation: domData.stackeddisaggregation,
               graphAnnotations: domData.graphannotations,
               indicatorDownloads: domData.indicatordownloads,
+              dataSchema: domData.dataschema,
+              compositeBreakdownLabel: domData.compositebreakdownlabel,
+              precision: domData.precision,
             }),
             view  = new indicatorView(model, {
               rootElement: '#indicatorData',
               legendElement: '#plotLegend',
+              decimalSeparator: '',
               maxChartHeight: 420,
               tableColumnDefs: [
                 { maxCharCount: 25 }, // nowrap
