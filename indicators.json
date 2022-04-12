@@ -203,7 +203,7 @@
           "description": "",
           "keywords": "",
           "href": "/2-1-2",
-          "status": "notstarted"
+          "status": "complete"
         },
         {
           "id": "2-2-1",
@@ -220,6 +220,14 @@
           "keywords": "",
           "href": "/2-2-2",
           "status": "complete"
+        },
+        {
+          "id": "2-2-3",
+          "title": "Распространенность анемии среди женщин в возрасте 15–49 лет в разбивке по статусу беременности (в процентах)",
+          "description": "",
+          "keywords": "",
+          "href": "/2-2-3",
+          "status": "notstarted"
         },
         {
           "id": "2-3-1",
@@ -507,7 +515,7 @@
           "description": "",
           "keywords": "",
           "href": "/3-a-1",
-          "status": "notstarted"
+          "status": "complete"
         },
         {
           "id": "3-b-1",
@@ -1291,7 +1299,7 @@
           "description": "",
           "keywords": "",
           "href": "/9-3-2",
-          "status": "notstarted"
+          "status": "complete"
         },
         {
           "id": "9-4-1",
