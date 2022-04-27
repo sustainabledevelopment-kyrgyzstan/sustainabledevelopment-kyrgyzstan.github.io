@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="ru" class="no-js">
+<html lang="en" class="no-js">
     <head>
         <meta charset="utf-8">
         <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.min.js"></script>
@@ -11,7 +11,7 @@
 var opensdg = {
 
   // A base URL for asynchronous calls to SDG data.
-  remoteDataBaseUrl: 'https://sustainabledevelopment-kyrgyzstan.github.io/sdg-data/ru',
+  remoteDataBaseUrl: 'https://sustainabledevelopment-kyrgyzstan.github.io/sdg-data/en',
 
   chartConfigAlterations: [],
   // A hook which can be used to modify the configuration for Chart.js.
@@ -38,7 +38,7 @@ var opensdg = {
     this.dataDisplayAlterations.push(callback);
   },
 
-  language: 'ru',
+  language: 'en',
 };
 
 // For backwards compatibility, some of these might need to be global.
@@ -103,7 +103,7 @@ var translations = {
         ================================================== -->
 
         
-    <title>Статистика Целей устойчивого развития в Кыргызской Республике - Indicators For The Sustainable Development Goals</title>
+    <title>Sustainable Development Goals Statistics in the Kyrgyz Republic - Indicators For The Sustainable Development Goals</title>
 
 
 
@@ -127,7 +127,7 @@ var translations = {
         <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css" crossorigin="">
         <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" crossorigin="">
         <link rel="stylesheet" href="https://cdn.datatables.net/fixedcolumns/3.2.3/css/fixedColumns.dataTables.min.css" crossorigin="">
-        <link rel="stylesheet" href="/assets/css/style.css?v=20220412115806">
+        <link rel="stylesheet" href="/assets/css/style.css?v=20220427055936">
         <link href="https://fonts.googleapis.com/css?family=Open+Sans|Roboto" rel="stylesheet" crossorigin="">
         <link rel="stylesheet" href="https://unpkg.com/leaflet@1.3.4/dist/leaflet.css"
           integrity="sha512-puBpdR0798OZvTTbP4A8Ix/l+A4dHDD0DGqYW6RQ+9jxkRFclaxxQb/SJAWZfWAkuyeQUytO7+7N4QKrDh+drA=="
@@ -135,25 +135,25 @@ var translations = {
         <link rel="stylesheet" href="https://cdn.rawgit.com/socib/Leaflet.TimeDimension/master/dist/leaflet.timedimension.control.min.css"  crossorigin=""/>
         <link rel="stylesheet" href='https://api.mapbox.com/mapbox.js/plugins/leaflet-fullscreen/v1.0.1/leaflet.fullscreen.css'  crossorigin=""/>
         <link rel="stylesheet" href="https://bowercdn.net/c/leaflet.zoomhome-latest/dist/leaflet.zoomhome.css"  crossorigin=""/>
-        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet-search@2.9.7/dist/leaflet-search.min.css" crossorigin=""><link rel="stylesheet" href="/assets/css/custom.css?v=20220412115806"><!-- ShareThis BEGIN --><!-- ShareThis END -->
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet-search@2.9.7/dist/leaflet-search.min.css" crossorigin=""><link rel="stylesheet" href="/assets/css/custom.css?v=20220427055936"><!-- ShareThis BEGIN --><!-- ShareThis END -->
 
         
 
     </head>
-<body class="language-ru
+<body class="language-en
 layout-publication
 ">
 <!-- <div class="container"> -->
 
-<script>translations['header'] = {"alpha":"Альфа","default_contrast":"стандартный контраст","disable_high_contrast":"Отключить высокую контрастность","disclaimer":"Это сайт находится в разработке. Мы рады вашим отзывам.","enable_high_contrast":"Включить высокую контрастность","high_contrast":"высокий контраст","skip_link":"Перейти к главному содержанию","tag_line":"17 Целей, чтобы преобразовать наш мир","toggle_menu":"Переключайте меню. Нажмите, чтобы развернуть или свернуть меню.","toggle_search":"Поисковая переключатель. Нажмите, чтобы развернуть или свернуть панель поиска."};</script>
+<script>translations['header'] = {"alpha":"Alpha","default_contrast":"Default contrast","disable_high_contrast":"Disable high contrast","disclaimer":"This is a development website. We welcome your <a href=\"mailto:%email_address\">feedback</a>.","enable_high_contrast":"Enable high contrast","high_contrast":"High contrast","skip_link":"Skip to main content","tag_line":"17 Goals to Transform our World","toggle_menu":"Menu toggle. Click to expand or collapse the menu.","toggle_search":"Search toggle. Click to expand or collapse the search bar."};</script>
 
-<a class="sr-only sr-only-focusable" id="skiplink" href="#main-content" tabindex="0">Перейти к главному содержанию</a>
+<a class="sr-only sr-only-focusable" id="skiplink" href="#main-content" tabindex="0">Skip to main content</a>
 <div id="disclaimer">
   <div class="container">
   <div class="disclaimer-alert">
-    <strong class="phase-tag">Альфа</strong>
+    <strong class="phase-tag">Alpha</strong>
     
-    Это сайт находится в разработке. Мы рады вашим отзывам.
+    This is a development website. We welcome your <a href="mailto:sdg_nsc@stat.kg">feedback</a>.
   </div>
 </div>
 
@@ -161,11 +161,11 @@ layout-publication
 <header role="banner">
   <div class="container">
     <a class="navbar-brand" style="max-width: 50px" target="_blank" href="http://www.stat.kg/">
-      <img alt="Цели в области устойчивого развития - 17 Целей, чтобы преобразовать наш мир" style="width: auto; height: 40px" src="/assets/img/favicons/android-chrome-192x192.png" />
+      <img alt="Sustainable Development Goals - 17 Goals to Transform our World" style="width: auto; height: 40px" src="/assets/img/favicons/android-chrome-192x192.png" />
     </a>
-    <a class="navbar-brand" href="/" id="home">
-      <img src="/assets/img/SDG_logo_ru.png"
-           alt="Цели в области устойчивого развития - 17 Целей, чтобы преобразовать наш мир"/>
+    <a class="navbar-brand" href="/en/" id="home">
+      <img src="/assets/img/SDG_logo_en.png"
+           alt="Sustainable Development Goals - 17 Goals to Transform our World"/>
     </a>
     <div class='hidden visible-xs float-right'>
       <ul id='accessibility-nav' class='contrast-switcher'></ul><div class="language-toggle-mobile">
@@ -179,11 +179,11 @@ layout-publication
   
   <div class="btn-group language-toggle-dropdown ">
     <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-      <span class="language-globe-in-dropdown"><i class="fa fa-globe language-toggle-globe-dropdown"></i></span><span class="language-name">Pусский</span>
-      <span class="language-abbreviation">ru</span><i class="language-toggle-caret fa fa-chevron-down"></i></button>
+      <span class="language-globe-in-dropdown"><i class="fa fa-globe language-toggle-globe-dropdown"></i></span><span class="language-name">English</span>
+      <span class="language-abbreviation">en</span><i class="language-toggle-caret fa fa-chevron-down"></i></button>
     <ul class="dropdown-menu"><li>
-            <a href="/en/ru/sbornik2/">
-              English
+            <a href="/sbornikB/">
+              Pусский
             </a>
           </li></ul>
   </div>
@@ -198,28 +198,28 @@ layout-publication
             aria-label="Menu toggle. Click to expand or collapse the menu."
             aria-haspopup="true"
             aria-expanded="false">
-          <span data-target="menu" tabindex="0" role="navigation">Меню</span>
+          <span data-target="menu" tabindex="0" role="navigation">Menu</span>
         </li>
-        <li><span data-target="search">Поиск</span></li>
+        <li><span data-target="search">Search</span></li>
       </ul>
       <div id="search" class="menu-target">
-  <form action="/search/">
-    <label class="sr-only" for="indicator_search">Поиск</label>
-    <input type="text" name="q" id="indicator_search" title="Поиск" /><!--
-    --><button aria-label="Поиск" id="search-btn" type="submit"><i class="fa fa-search" aria-hidden="false"></i></button>
+  <form action="/en/search/">
+    <label class="sr-only" for="indicator_search">Search</label>
+    <input type="text" name="q" id="indicator_search" title="Search" /><!--
+    --><button aria-label="Search" id="search-btn" type="submit"><i class="fa fa-search" aria-hidden="false"></i></button>
   </form>
 </div>
 
       <ul class="nav navbar-nav menu-target contrast-switcher" id="menu"><li class="nav-link ">
-          <a href="/reporting-status">Состояние отчётности</a>
+          <a href="/en/reporting-status">Reporting Status</a>
         </li><li class="nav-link ">
-          <a href="/news">Новости</a>
+          <a href="/en/news">News</a>
         </li><li class="nav-link ">
-          <a href="/publications">Публикации</a>
+          <a href="/en/publications">Publications</a>
         </li><li class="nav-link ">
-          <a href="/about">О нас</a>
+          <a href="/en/about">About</a>
         </li><li class="nav-link ">
-          <a href="/faq">Часто задаваемые вопросы</a>
+          <a href="/en/faq">FAQ</a>
         </li><li>
           
 
@@ -231,11 +231,11 @@ layout-publication
   
   <div class="btn-group language-toggle-dropdown ">
     <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-      <span class="language-globe-in-dropdown"><i class="fa fa-globe language-toggle-globe-dropdown"></i></span><span class="language-name">Pусский</span>
-      <span class="language-abbreviation">ru</span><i class="language-toggle-caret fa fa-chevron-down"></i></button>
+      <span class="language-globe-in-dropdown"><i class="fa fa-globe language-toggle-globe-dropdown"></i></span><span class="language-name">English</span>
+      <span class="language-abbreviation">en</span><i class="language-toggle-caret fa fa-chevron-down"></i></button>
     <ul class="dropdown-menu"><li>
-            <a href="/en/ru/sbornik2/">
-              English
+            <a href="/sbornikB/">
+              Pусский
             </a>
           </li></ul>
   </div>
@@ -252,27 +252,26 @@ layout-publication
   <div class="row">
     <div class="col-md-12 push-md-6">
       <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
-        <h2 class="post-title" itemprop="name headline">Статистика Целей устойчивого развития в Кыргызской Республике</h2>
+        <h2 class="post-title" itemprop="name headline">Sustainable Development Goals Statistics in the Kyrgyz Republic</h2>
         <div class="post-content" itemprop="articleBody">
           <div class="row">
             <div class="col-md-2">
               <div class="thumbnail" data-toggle="modal" data-target=".publication-modal-lg" style="cursor: pointer">
-                <img alt="Статистика Целей устойчивого развития в Кыргызской Республике" src="/upload/Обложка%202022.jpg"/>
+                <img alt="Sustainable Development Goals Statistics in the Kyrgyz Republic" src="/upload/Обложка_full_en_2022.jpg"/>
               </div>
             </div>
             <div class="col-md-10">
-              <p>Целью настоящего издания является информирование общественности о текущем состоянии и прогрессе устойчивого развития в нашей стране, а также содействие в определении дальнейших приоритетных шагов для достижения успеха в реализации ЦУР.</p>
+              <p>The purpose of this publication is to inform the public about the current state and progress of sustainable development in our country, as well as to assist in identifying further priority steps to achieve success in the implementation of the SDGs.</p>
 
-<p>В данном сборнике представлены данные о прогрессе достижения Целей устойчивого развития (ЦУР) по всем доступным показателям, включая временные ряды для 99 глобальных и национальных показателей, что позволит проводить углубленный анализ социально-экономических и экологических тенденций, происходящих в республике и ее регионах.</p>
+<p>This Compendium presents data on the progress in achieving the Sustainable Development Goals (SDGs) for all available indicators, including time series for 99 global and national indicators, which will allow an in-depth analysis of socio-economic and environmental trends taking place in the republic and its regions.</p>
 
-<p>Предлагаемая Вашему вниманию публикация содержит полную информацию о мониторинге ЦУР, характеристику отдельных показателей и краткий обзор прогресса с соответствующими метаданными и дезагрегированными данными.
-Разделы сборника дополнены данными о заболеваемости и смертности от пандемии коронавирусной инфекции (Covid-19), воздействии Covid-19 на домашние хозяйства, полученными по итогам специализированного обследования за март-октябрь 2020 года. Она будет весьма полезна работникам государственного управления для принятия обоснованных политических и управленческих решений, выявления основных направлений, на которых необходимо сосредоточить внимание для последующих действий.</p>
+<p>This publication contains complete information on monitoring the SDGs, a description of individual indicators and a brief overview of progress with the corresponding metadata and disaggregated data. It will be very useful for government officials to make informed political and managerial decisions, identify the main areas on which to focus on for subsequent actions.</p>
 
-<p>Данные в сборнике приведены за последние семь лет, а для анализа тенденций представлены также данные за 2010 год.</p>
+<p>Data in the compendium are for the last seven years, and data for 2010 are also presented for trend analysis.</p>
 
-              <a class="btn btn-success" href="/upload/SDG%20report%20RUS%202022.pdf">
+              <a class="btn btn-success" href="/upload/SDG_report_EN_2022_full.pdf">
                 <span class="glyphicon glyphicon-download-alt" aria-hidden="true"></span>
-                Скачать публикацию
+                Download publication
               </a>
             </div>
           </div>
@@ -283,7 +282,7 @@ layout-publication
     <div class="modal-dialog modal-lg" role="document">
       <div class="modal-content">
         <div class="thumbnail">
-          <img alt="Статистика Целей устойчивого развития в Кыргызской Республике" style="width: 100%" src="/upload/Обложка%202022.jpg"/>
+          <img alt="Sustainable Development Goals Statistics in the Kyrgyz Republic" style="width: 100%" src="/upload/Обложка_full_en_2022.jpg"/>
         </div>
       </div>
     </div>
@@ -296,15 +295,15 @@ layout-publication
       <div class="col-xs-12">
         <div id="footerLinks">
           <ul>
-            <li><a href="https://open-sdg.org">Построен с использованием Open SDG</a></li>
+            <li><a href="https://open-sdg.org">Built using Open SDG</a></li>
             
               <li>
                 
-                  <a href="mailto:sdg_nsc@stat.kg" target="_blank">Свяжитесь с нами</a>
+                  <a href="mailto:sdg_nsc@stat.kg" target="_blank">Contact us</a>
                 
                 </li>
               <li>
-                <a href="/about/cookies-and-privacy">Cookies</a>
+                <a href="/en/about/cookies-and-privacy">Cookies</a>
                 
                 </li>
               
@@ -330,17 +329,17 @@ layout-publication
 <script src="https://cdn.jsdelivr.net/npm/html2canvas@1.0.0-rc.3/dist/html2canvas.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/file-saver@2.0.2/dist/FileSaver.min.js"></script>
 <script>translations['general'] = translations['general'] || {};
-    translations['general']['hide'] = 'скрывать';</script>
+    translations['general']['hide'] = 'hide';</script>
 
 <script>translations['search'] = translations['search'] || {};
-    translations['search']['search'] = 'Поиск';</script>
+    translations['search']['search'] = 'Search';</script>
 
-<script src='/assets/js/sdg.js?v=20220412115806'></script>
+<script src='/assets/js/sdg.js?v=20220427055936'></script>
 
 
     
     
-    <script src="/assets/js/custom.js?v=20220412115806"></script><script>
+    <script src="/assets/js/custom.js?v=20220427055936"></script><script>
 $(function() {
     if($('#indicatorData').length) {
       var domData = $('#indicatorData').data();
