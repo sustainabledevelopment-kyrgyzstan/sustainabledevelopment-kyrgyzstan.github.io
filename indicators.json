@@ -1307,7 +1307,7 @@
           "description": "",
           "keywords": "",
           "href": "/9-4-1",
-          "status": "notstarted"
+          "status": "complete"
         },
         {
           "id": "9-4-1-1",
@@ -2307,7 +2307,7 @@
           "description": "",
           "keywords": "",
           "href": "/16-a-1",
-          "status": "notstarted"
+          "status": "complete"
         },
         {
           "id": "16-b-1",
@@ -2555,7 +2555,7 @@
           "description": "",
           "keywords": "",
           "href": "/17-19-2",
-          "status": "notstarted"
+          "status": "complete"
         }]
     }
   }]
