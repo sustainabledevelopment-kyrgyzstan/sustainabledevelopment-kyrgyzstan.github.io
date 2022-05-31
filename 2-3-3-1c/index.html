@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" class="no-js">
+<html lang="ru" class="no-js">
     <head>
         <meta charset="utf-8">
         <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.min.js"></script>
@@ -11,7 +11,7 @@
 var opensdg = {
 
   // A base URL for asynchronous calls to SDG data.
-  remoteDataBaseUrl: 'https://sustainabledevelopment-kyrgyzstan.github.io/sdg-data/en',
+  remoteDataBaseUrl: 'https://sustainabledevelopment-kyrgyzstan.github.io/sdg-data/ru',
 
   chartConfigAlterations: [],
   // A hook which can be used to modify the configuration for Chart.js.
@@ -38,7 +38,7 @@ var opensdg = {
     this.dataDisplayAlterations.push(callback);
   },
 
-  language: 'en',
+  language: 'ru',
 };
 
 // For backwards compatibility, some of these might need to be global.
@@ -105,9 +105,9 @@ var translations = {
         
     <title>
         
-        Indicator 9.4.1 -
+        показатель 2.3.3.1c -
         
-        CO2 emission per unit of value added - Indicators For The Sustainable Development Goals
+        Баланс потребления рыбной продукции на душу населения - Indicators For The Sustainable Development Goals
     </title>
 
 
@@ -132,7 +132,7 @@ var translations = {
         <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css" crossorigin="">
         <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" crossorigin="">
         <link rel="stylesheet" href="https://cdn.datatables.net/fixedcolumns/3.2.3/css/fixedColumns.dataTables.min.css" crossorigin="">
-        <link rel="stylesheet" href="/assets/css/style.css?v=20220514143739">
+        <link rel="stylesheet" href="/assets/css/style.css?v=20220531111706">
         <link href="https://fonts.googleapis.com/css?family=Open+Sans|Roboto" rel="stylesheet" crossorigin="">
         <link rel="stylesheet" href="https://unpkg.com/leaflet@1.3.4/dist/leaflet.css"
           integrity="sha512-puBpdR0798OZvTTbP4A8Ix/l+A4dHDD0DGqYW6RQ+9jxkRFclaxxQb/SJAWZfWAkuyeQUytO7+7N4QKrDh+drA=="
@@ -140,25 +140,25 @@ var translations = {
         <link rel="stylesheet" href="https://cdn.rawgit.com/socib/Leaflet.TimeDimension/master/dist/leaflet.timedimension.control.min.css"  crossorigin=""/>
         <link rel="stylesheet" href='https://api.mapbox.com/mapbox.js/plugins/leaflet-fullscreen/v1.0.1/leaflet.fullscreen.css'  crossorigin=""/>
         <link rel="stylesheet" href="https://bowercdn.net/c/leaflet.zoomhome-latest/dist/leaflet.zoomhome.css"  crossorigin=""/>
-        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet-search@2.9.7/dist/leaflet-search.min.css" crossorigin=""><link rel="stylesheet" href="/assets/css/custom.css?v=20220514143739"><!-- ShareThis BEGIN --><!-- ShareThis END -->
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet-search@2.9.7/dist/leaflet-search.min.css" crossorigin=""><link rel="stylesheet" href="/assets/css/custom.css?v=20220531111706"><!-- ShareThis BEGIN --><!-- ShareThis END -->
 
         
 
     </head>
-<body class="language-en
+<body class="language-ru
 layout-indicator
 ">
 <!-- <div class="container"> -->
 
-<script>translations['header'] = {"alpha":"Alpha","default_contrast":"Default contrast","disable_high_contrast":"Disable high contrast","disclaimer":"This is a development website. We welcome your <a href=\"mailto:%email_address\">feedback</a>.","enable_high_contrast":"Enable high contrast","high_contrast":"High contrast","skip_link":"Skip to main content","tag_line":"17 Goals to Transform our World","toggle_menu":"Menu toggle. Click to expand or collapse the menu.","toggle_search":"Search toggle. Click to expand or collapse the search bar."};</script>
+<script>translations['header'] = {"alpha":"Альфа","default_contrast":"стандартный контраст","disable_high_contrast":"Отключить высокую контрастность","disclaimer":"Это сайт находится в разработке. Мы рады вашим отзывам.","enable_high_contrast":"Включить высокую контрастность","high_contrast":"высокий контраст","skip_link":"Перейти к главному содержанию","tag_line":"17 Целей, чтобы преобразовать наш мир","toggle_menu":"Переключайте меню. Нажмите, чтобы развернуть или свернуть меню.","toggle_search":"Поисковая переключатель. Нажмите, чтобы развернуть или свернуть панель поиска."};</script>
 
-<a class="sr-only sr-only-focusable" id="skiplink" href="#main-content" tabindex="0">Skip to main content</a>
+<a class="sr-only sr-only-focusable" id="skiplink" href="#main-content" tabindex="0">Перейти к главному содержанию</a>
 <div id="disclaimer">
   <div class="container">
   <div class="disclaimer-alert">
-    <strong class="phase-tag">Alpha</strong>
+    <strong class="phase-tag">Альфа</strong>
     
-    This is a development website. We welcome your <a href="mailto:sdg_nsc@stat.kg">feedback</a>.
+    Это сайт находится в разработке. Мы рады вашим отзывам.
   </div>
 </div>
 
@@ -166,11 +166,11 @@ layout-indicator
 <header role="banner">
   <div class="container">
     <a class="navbar-brand" style="max-width: 50px" target="_blank" href="http://www.stat.kg/">
-      <img alt="Sustainable Development Goals - 17 Goals to Transform our World" style="width: auto; height: 40px" src="/assets/img/favicons/android-chrome-192x192.png" />
+      <img alt="Цели в области устойчивого развития - 17 Целей, чтобы преобразовать наш мир" style="width: auto; height: 40px" src="/assets/img/favicons/android-chrome-192x192.png" />
     </a>
-    <a class="navbar-brand" href="/en/" id="home">
-      <img src="/assets/img/SDG_logo_en.png"
-           alt="Sustainable Development Goals - 17 Goals to Transform our World"/>
+    <a class="navbar-brand" href="/" id="home">
+      <img src="/assets/img/SDG_logo_ru.png"
+           alt="Цели в области устойчивого развития - 17 Целей, чтобы преобразовать наш мир"/>
     </a>
     <div class='hidden visible-xs float-right'>
       <ul id='accessibility-nav' class='contrast-switcher'></ul><div class="language-toggle-mobile">
@@ -184,11 +184,11 @@ layout-indicator
   
   <div class="btn-group language-toggle-dropdown ">
     <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-      <span class="language-globe-in-dropdown"><i class="fa fa-globe language-toggle-globe-dropdown"></i></span><span class="language-name">English</span>
-      <span class="language-abbreviation">en</span><i class="language-toggle-caret fa fa-chevron-down"></i></button>
+      <span class="language-globe-in-dropdown"><i class="fa fa-globe language-toggle-globe-dropdown"></i></span><span class="language-name">Pусский</span>
+      <span class="language-abbreviation">ru</span><i class="language-toggle-caret fa fa-chevron-down"></i></button>
     <ul class="dropdown-menu"><li>
-            <a href="/9-4-1/">
-              Pусский
+            <a href="/en/2-3-3-1c/">
+              English
             </a>
           </li></ul>
   </div>
@@ -203,28 +203,28 @@ layout-indicator
             aria-label="Menu toggle. Click to expand or collapse the menu."
             aria-haspopup="true"
             aria-expanded="false">
-          <span data-target="menu" tabindex="0" role="navigation">Menu</span>
+          <span data-target="menu" tabindex="0" role="navigation">Меню</span>
         </li>
-        <li><span data-target="search">Search</span></li>
+        <li><span data-target="search">Поиск</span></li>
       </ul>
       <div id="search" class="menu-target">
-  <form action="/en/search/">
-    <label class="sr-only" for="indicator_search">Search</label>
-    <input type="text" name="q" id="indicator_search" title="Search" /><!--
-    --><button aria-label="Search" id="search-btn" type="submit"><i class="fa fa-search" aria-hidden="false"></i></button>
+  <form action="/search/">
+    <label class="sr-only" for="indicator_search">Поиск</label>
+    <input type="text" name="q" id="indicator_search" title="Поиск" /><!--
+    --><button aria-label="Поиск" id="search-btn" type="submit"><i class="fa fa-search" aria-hidden="false"></i></button>
   </form>
 </div>
 
       <ul class="nav navbar-nav menu-target contrast-switcher" id="menu"><li class="nav-link ">
-          <a href="/en/reporting-status">Reporting Status</a>
+          <a href="/reporting-status">Состояние отчётности</a>
         </li><li class="nav-link ">
-          <a href="/en/news">News</a>
+          <a href="/news">Новости</a>
         </li><li class="nav-link ">
-          <a href="/en/publications">Publications</a>
+          <a href="/publications">Публикации</a>
         </li><li class="nav-link ">
-          <a href="/en/about">About</a>
+          <a href="/about">О нас</a>
         </li><li class="nav-link ">
-          <a href="/en/faq">FAQ</a>
+          <a href="/faq">Часто задаваемые вопросы</a>
         </li><li>
           
 
@@ -236,11 +236,11 @@ layout-indicator
   
   <div class="btn-group language-toggle-dropdown ">
     <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-      <span class="language-globe-in-dropdown"><i class="fa fa-globe language-toggle-globe-dropdown"></i></span><span class="language-name">English</span>
-      <span class="language-abbreviation">en</span><i class="language-toggle-caret fa fa-chevron-down"></i></button>
+      <span class="language-globe-in-dropdown"><i class="fa fa-globe language-toggle-globe-dropdown"></i></span><span class="language-name">Pусский</span>
+      <span class="language-abbreviation">ru</span><i class="language-toggle-caret fa fa-chevron-down"></i></button>
     <ul class="dropdown-menu"><li>
-            <a href="/9-4-1/">
-              Pусский
+            <a href="/en/2-3-3-1c/">
+              English
             </a>
           </li></ul>
   </div>
@@ -264,15 +264,15 @@ layout-indicator
       >
         <% if(allowedFields.indexOf(fieldItem.field) == -1) { %><h6><% } else { %><h5><% } %>
           <span aria-hidden="true"><%=translations.t(fieldItem.label)%><i class="fa fa-chevron-down"></i></span>
-          <span class="sr-only">Show sub-categories: <%=translations.t(fieldItem.label)%></span>
+          <span class="sr-only">Показать подкатегории: <%=translations.t(fieldItem.label)%></span>
         <% if(allowedFields.indexOf(fieldItem.field) == -1) { %></h6><% } else { %></h5><% } %>
       </button>
       <div class="variable-options">
         <fieldset>
-          <legend class="sr-only">Sub-categories - <%=translations.t(fieldItem.field)%></legend>
+          <legend class="sr-only">Субкатегории - <%=translations.t(fieldItem.field)%></legend>
           <div>
-            <button data-type="select">Select all</button>
-            <button data-type="clear">Clear all</button>
+            <button data-type="select">Выделить всё</button>
+            <button data-type="clear">Очистить всё</button>
           </div>
           <% _.each(fieldItem.values, function(item) { %>
             <label>
@@ -283,10 +283,10 @@ layout-indicator
       </div>
 
       <% if(allowedFields.indexOf(fieldItem.field) == -1) { %>
-        <div class="variable-hint" id="variable-hint-<%=fieldItem.field.replace(/ /g, '-')%>">Available when '<%= translations.t(_.find(edges, { To: fieldItem.field }).From) %>' is selected
+        <div class="variable-hint" id="variable-hint-<%=fieldItem.field.replace(/ /g, '-')%>">Доступно, когда выбрано
         </div>
         <div class="no-data-hint" id="no-data-hint-<%=fieldItem.field.replace(/ /g, '-')%>">
-          No options available because of filters above
+          Нет имеющихся вариантов из-за фильтров наверху.
         </div>
       <% }%>
 
@@ -296,9 +296,9 @@ layout-indicator
 
 <script type="text/template" id="units_template">
   <% if(units.length) { %>
-    <h4>Unit of Measurement</h4>
+    <h4>Единица измерения</h4>
     <fieldset>
-      <legend class="sr-only">Unit of Measurement</legend>
+      <legend class="sr-only">Единица измерения</legend>
       <% _.each(units, function(unitsItem, index) { %>
         <% var checked = (selectedUnit) ? (selectedUnit==unitsItem) : (index==0); %>
         <label><input type="radio" name="unit" value="<%=unitsItem%>" tabindex=0 <%=checked ? 'checked' : ''%> /> <%=translations.t(unitsItem)%></label>
@@ -309,9 +309,9 @@ layout-indicator
 
 <script type="text/template" id="series_template">
   <% if(serieses.length) { %>
-    <h4>Series</h4>
+    <h4>Серии</h4>
     <fieldset>
-      <legend class="sr-only">Series</legend>
+      <legend class="sr-only">Серии</legend>
       <% _.each(serieses, function(seriesItem, index) { %>
         <% var checked = (selectedSeries) ? (selectedSeries==seriesItem) : (index==0); %>
         <label><input type="radio" name="series" value="<%=seriesItem%>" tabindex=0 <%=checked ? 'checked' : ''%> /> <%=translations.t(seriesItem)%></label>
@@ -320,7 +320,7 @@ layout-indicator
   <% } %>
 </script>
 
-<script>translations['indicator'] = {"annotation_2030_target":"2030 Target","announce_data_added":"Chart and table updated to include data.","announce_data_not_available":"Chart and table shows no data.","announce_data_removed":"Chart and table updated to exclude data.","chart":"Chart","chart_annotation":"Chart annotation","clear_all":"Clear all","clear_selections":"Clear selections","data_keyboard_navigation":"Press enter to browse data points with left and right arrow keys.","data_not_available":"This data is not available. Please choose alternative data to display.","data_tabular_alternative":"For tabular data alternative see Table tab.","dataset_size_warning":"There are too many datasets to show on the chart. Not all will be shown until you remove some selections.","download_chart":"Download Chart CSV","download_chart_image":"Download Chart Image","download_chart_image_title":"Download chart as image","download_csv":"Download CSV","download_csv_title":"Download as CSV","download_geojson":"Download GeoJSON","download_geojson_title":"Download as GeoJSON","download_headline":"Download Headline CSV","download_headline_title":"Download headline data as CSV","download_source":"Download Source CSV","download_source_excel":"Download Source Excel","download_source_sdmx":"Download Source SDMX","download_source_sdmx_title":"Download source data as SDMX","download_source_title":"Download source data as CSV","download_table":"Download Table CSV","edit":"Edit","edit_configuration":"Edit Configuration","edit_data":"Edit Data","edit_metadata":"Edit Metadata","footnote":"Footnote","geographical_area":"Geographical Area","global_metadata":"Global Metadata","global_metadata_blurb":"This table provides information on metadata for SDG indicators as defined by the UN Statistical Commission. <a href=\"https://unstats.un.org/sdgs/metadata/\">Complete global metadata</a> is provided by the UN Statistics Division.","legend_help":"Click on the legend to remove individual lines from the chart.","loading":"Loading","loading_map":"Loading map","map":"Map","map_search":"Search","map_search_hide":"Hide search","map_search_show":"Show search","map_year_slider":"Year slider","national_metadata":"National Metadata","national_metadata_blurb":"This table provides metadata for the actual indicator available from %country_name statistics closest to the corresponding global SDG indicator. Please note that even when the global SDG indicator is fully available from %country_adjective statistics, this table should be consulted for information on national methodology and other %country_adjective-specific metadata information.","next":"Next indicator","no_data_hint":"No options available because of filters above","plot_legend_description":"Plot legend: list of lines included in chart","previous":"Previous indicator","select_all":"Select all","series":"Series","series_help":"Choose categories from the dropdowns below to see different breakdowns of the data. Some will not be available until a higher level is chosen.","source":"Source","sources":"Sources","status":"Indicator status","sub_categories":"Sub-categories","sub_categories_show":"Show sub-categories:","table":"Table","table_column_sort":"Click to sort by this column","tags":"Tags","unit":"Unit","unit_of_measurement":"Unit of Measurement","units_type":"Units type","variable_hint":"Available when '%field' is selected","view_indicator_list":"View this goal's indicator list"};</script>
+<script>translations['indicator'] = {"annotation_2030_target":"2030 год Цель","announce_data_added":"Обновлены диаграмма и таблица для включения данных.","announce_data_not_available":"Диаграмма и таблица не содержат данных.","announce_data_removed":"Обновлены диаграмма и таблица для исключения данных.","chart":"График","chart_annotation":"Диаграмма аннотация","clear_all":"Очистить всё","clear_selections":"Очистить выделенное","data_keyboard_navigation":"Нажмите клавишу Enter для просмотра точек данных с помощью клавиш со стрелками вправо и влево.","data_not_available":"Эти данные не доступны. Пожалуйста, выберите альтернативные данные для отображения.","data_tabular_alternative":"Альтернативный вариант табличных данных см. в таблице табличных данных.","dataset_size_warning":"В таблице слишком много данных, чтобы показать в графике. Чтобы увидеть все, удалите выделенное.","download_chart":"Скачать график CSV","download_chart_image":"Загрузить изображение диаграммы","download_chart_image_title":"Скачать диаграмму как изображение","download_csv":"Скачать CSV","download_csv_title":"Скачать в формате CSV","download_geojson":"Скачать GeoJSON","download_geojson_title":"Скачать в формате GeoJSON","download_headline":"Скачать заголовки CSV","download_headline_title":"Скачать данные заголовков в формате CSV","download_source":"Скачать исходные CSV","download_source_excel":"Скачать исходные Excel","download_source_sdmx":"Скачать исходные SDMX","download_source_sdmx_title":"Скачать исходные данные в формате SDMX","download_source_title":"Скачать исходные данные в формате CSV","download_table":"Скачать табличные CSV","edit":"Редактировать","edit_configuration":"Редактировать Конфигурация","edit_data":"Редактировать данные","edit_metadata":"Редактировать метаданные","footnote":"Сноска","geographical_area":"Географический район","global_metadata":"Глобальные метаданные","global_metadata_blurb":"В этой таблице представлена информация для метаданных показателей ЦУР, определенных Статистической комиссией ООН. Полные глобальные метаданные представлены Статистическим отделом ООН.","legend_help":"Нажмите на легенду, чтобы убрать линии из графика.","loading":"Загрузка","loading_map":"Загрузка карты","map":"Карта","map_search":"Поиск","map_search_hide":"Скрыть поиск","map_search_show":"Показать поиск","map_year_slider":"Годовой слайдер","national_metadata":"Национальные метаданные","national_metadata_blurb":"В этой таблице представлены метаданные для фактического показателя, доступного из статистики ближайшей к соответствующему глобальному индикатору ЦУР. Обратите внимание, что даже если глобальный индикатор ЦУР полностью доступен из статистики, по этой таблице следует проконсультироваться для получения информации о национальной методологии и других специфичных метаданных.","next":"Следующий индикатор","no_data_hint":"Нет имеющихся вариантов из-за фильтров наверху.","plot_legend_description":"Легенда сюжета: список линий, включенных в график","previous":"Предыдущий показатель","select_all":"Выделить всё","series":"Серии","series_help":"Выберите категории из выпадающего меню внизу, чтобы увидеть разные разбивки данных. Несколько не будет доступно, пока более высокий уровень не выбран. ","source":"Источник","sources":"Источники","status":"Состояние индикатора","sub_categories":"Субкатегории","sub_categories_show":"Показать подкатегории:","table":"Таблица","table_column_sort":"Нажмите, чтобы отсортировать по этой колонке","tags":"Теги","unit":"Единица","unit_of_measurement":"Единица измерения","units_type":"Вид единиц","variable_hint":"Доступно, когда выбрано","view_indicator_list":"Посмотреть список индикаторов этой цели"};</script>
 
 <script>translations['data'] = null;</script>
 
@@ -329,22 +329,22 @@ layout-indicator
   
 <ol class="breadcrumb">
   
-  <li><a href="/en/">Home</a></li>
-  <li><a href="/en/9" title="Build resilient infrastructure, promote inclusive and sustainable industrialization and foster innovation">Goal 9</a></li>
-  <li class="active">Indicator 9.4.1</li>
+  <li><a href="/">Главная</a></li>
+  <li><a href="/2" title="Ликвидация голода, обеспечение продовольственной безопасности и улучшение питания и содействие устойчивому развитию сельского хозяйства">Цель 2</a></li>
+  <li class="active">показатель 2.3.3.1c</li>
   
 </ol>
 
 
   
 </div>
-<div class="heading goal-banner indicator goal-9">
+<div class="heading goal-banner indicator goal-2">
   <div class="container">
     <div class="row">
       
       <div class="col-xs-4 col-md-3 col-lg-2 goal-icon goal-tiles">
-        <a href="/en/9" title="View this goal's indicator list">
-          <img src="https://sdg-kyrgyzstan.github.io/open-sdg-site-starter/assets/img/goals/en/9.png" alt="Industry, innovation and infrastructure - Goal 9" id="goal-9" class="goal-icon-image goal-icon-image-"/>
+        <a href="/2" title="Посмотреть список индикаторов этой цели">
+          <img src="https://sdg-kyrgyzstan.github.io/open-sdg-site-starter/assets/img/goals/ru/2.png" alt="Ликвидация голода - Цель 2" id="goal-2" class="goal-icon-image goal-icon-image-"/>
         </a>
       </div>
       <div class="col-xs-8 col-md-9 col-lg-10 indicator-details">
@@ -352,9 +352,9 @@ layout-indicator
         <div>
           <h1>
             
-            Indicator 9.4.1
+            показатель 2.3.3.1c
             
-            <span class="lead-copy">CO2 emission per unit of value added</span>
+            <span class="lead-copy">Баланс потребления рыбной продукции на душу населения</span>
           </h1>
         </div>
       </div>
@@ -362,7 +362,7 @@ layout-indicator
   </div>
 </div>
 
-<div id="main-content" class="container goal-9" role="main">
+<div id="main-content" class="container goal-2" role="main">
   
 
   
@@ -376,22 +376,22 @@ layout-indicator
 
 <div class="row"
   id="indicatorData"
-  data-indicatorid='indicator_9-4-1'
-  data-id="9-4-1"
+  data-indicatorid='indicator_2-3-3-1c'
+  data-id="2-3-3-1c"
   data-country="Кыргызская Республика"
-  data-charttitle="CO2 emission per unit of value added"
+  data-charttitle="Баланс потребления рыбной продукции на душу населения"
   data-charttitles="null"
   data-measurementunit=""
   data-showdata="true"
-  data-graphtype="bar"
+  data-graphtype="line"
   data-geocoderegex=""
   data-showmap=""
   data-startvalues="null"
   data-graphlimits="null"
   data-stackeddisaggregation=""
   data-graphannotations="null"
-  data-indicatordownloads="{&quot;indicator.download_source_sdmx&quot;:{&quot;href&quot;:&quot;downloads/data-sdmx/9.4.1.xml&quot;}}"
-  data-dataschema="{&quot;fields&quot;:[{&quot;name&quot;:&quot;Year&quot;,&quot;type&quot;:&quot;string&quot;,&quot;title&quot;:&quot;Year&quot;},{&quot;name&quot;:&quot;Value&quot;,&quot;type&quot;:&quot;integer&quot;,&quot;title&quot;:&quot;Value&quot;}]}"
+  data-indicatordownloads="{&quot;indicator.download_source_sdmx&quot;:{&quot;href&quot;:&quot;downloads/data-sdmx/2.3.3.1c.xml&quot;}}"
+  data-dataschema="{&quot;fields&quot;:[{&quot;name&quot;:&quot;COMMENT_OBS&quot;,&quot;type&quot;:&quot;string&quot;,&quot;constraints&quot;:{&quot;enum&quot;:[&quot;&quot;,&quot;* Предварительные данные&quot;]},&quot;title&quot;:&quot;Сноски на уровне наблюдения&quot;},{&quot;name&quot;:&quot;Value&quot;,&quot;type&quot;:&quot;number&quot;,&quot;title&quot;:&quot;Value&quot;},{&quot;name&quot;:&quot;Year&quot;,&quot;type&quot;:&quot;string&quot;,&quot;title&quot;:&quot;Year&quot;}]}"
   data-compositebreakdownlabel=""
   data-precision="null"
 >
@@ -402,8 +402,8 @@ layout-indicator
 <div id="units"></div>
 <div id="toolbar">
   <span id="series-help">
-    <h4>Sub-categories</h4>
-    <p>Choose categories from the dropdowns below to see different breakdowns of the data. Some will not be available until a higher level is chosen.</p>
+    <h4>Субкатегории</h4>
+    <p>Выберите категории из выпадающего меню внизу, чтобы увидеть разные разбивки данных. Несколько не будет доступно, пока более высокий уровень не выбран. </p>
   </span>
   <div id="fields">
     <p class="async-loading" data-img="/assets/img/loading-small.gif"></p>
@@ -419,13 +419,13 @@ layout-indicator
 
   <div id="datatables">
 
-    <a href="https://sustainabledevelopment-kyrgyzstan.github.io/sdg-data/en/headline/9-4-1.csv" class="btn btn-primary btn-download" download="indicator_9-4-1.csv" tabindex="0" role="button">Download Headline CSV</a>
+    <a href="https://sustainabledevelopment-kyrgyzstan.github.io/sdg-data/ru/headline/2-3-3-1c.csv" class="btn btn-primary btn-download" download="indicator_2-3-3-1c.csv" tabindex="0" role="button">Скачать заголовки CSV</a>
 
-    <a href="https://sustainabledevelopment-kyrgyzstan.github.io/sdg-data/en/data/9-4-1.csv" class="btn btn-primary btn-download" style='float:left;margin-right:1em' download='indicator_9-4-1.csv' tabindex='0' role='button'>Download Source CSV</a>
+    <a href="https://sustainabledevelopment-kyrgyzstan.github.io/sdg-data/ru/data/2-3-3-1c.csv" class="btn btn-primary btn-download" style='float:left;margin-right:1em' download='indicator_2-3-3-1c.csv' tabindex='0' role='button'>Скачать исходные CSV</a>
 
     <h3>Headline data</h3>
     <table class="table-responsive table table-hover dataTable no-footer" role="grid">
-      <caption>CO2 emission per unit of value added</caption>
+      <caption>Баланс потребления рыбной продукции на душу населения</caption>
       <thead>
         
         
@@ -442,11 +442,71 @@ layout-indicator
         <tr>
           
           
+          <td>2010</td>
+          
+          
+          
+          <td class="table-value">1.5</td>
+          
+          
+        </tr>
+        
+        <tr>
+          
+          
+          <td>2011</td>
+          
+          
+          
+          <td class="table-value">1.9</td>
+          
+          
+        </tr>
+        
+        <tr>
+          
+          
+          <td>2012</td>
+          
+          
+          
+          <td class="table-value">1.9</td>
+          
+          
+        </tr>
+        
+        <tr>
+          
+          
+          <td>2013</td>
+          
+          
+          
+          <td class="table-value">1.9</td>
+          
+          
+        </tr>
+        
+        <tr>
+          
+          
+          <td>2014</td>
+          
+          
+          
+          <td class="table-value">1.9</td>
+          
+          
+        </tr>
+        
+        <tr>
+          
+          
           <td>2015</td>
           
           
           
-          <td class="table-value">102750</td>
+          <td class="table-value">1.9</td>
           
           
         </tr>
@@ -458,7 +518,7 @@ layout-indicator
           
           
           
-          <td class="table-value">88405</td>
+          <td class="table-value">0.9</td>
           
           
         </tr>
@@ -470,7 +530,43 @@ layout-indicator
           
           
           
-          <td class="table-value">94491</td>
+          <td class="table-value">0.9</td>
+          
+          
+        </tr>
+        
+        <tr>
+          
+          
+          <td>2018</td>
+          
+          
+          
+          <td class="table-value">1.1</td>
+          
+          
+        </tr>
+        
+        <tr>
+          
+          
+          <td>2019</td>
+          
+          
+          
+          <td class="table-value">0.6</td>
+          
+          
+        </tr>
+        
+        <tr>
+          
+          
+          <td>2020</td>
+          
+          
+          
+          <td class="table-value">1.0</td>
           
           
         </tr>
@@ -482,7 +578,7 @@ layout-indicator
   <div id="datatableFooter">
     
     
-    <p>Geographical Area: Кыргызская Республика</p>
+    <p>Географический район: Кыргызская Республика</p>
     
     
     
@@ -498,7 +594,7 @@ layout-indicator
   <div class="async-loaded spacer medium" style="display:none;">
 
     <div style="display: none;">
-  <span id="table-alternative">For tabular data alternative see Table tab.</span>
+  <span id="table-alternative">Альтернативный вариант табличных данных см. в таблице табличных данных.</span>
 </div>
 <ul class="nav nav-tabs non-stacking-tabs data-view" role="tablist">
   <li role="presentation" class="nav-item active">
@@ -506,14 +602,14 @@ layout-indicator
 data-event-category="Tab change"
 data-event-action="Change data view"
 data-event-label="Change to Chart tab"
- aria-describedby="table-alternative">Chart</a>
+ aria-describedby="table-alternative">График</a>
   </li>
   <li role="presentation" class="nav-item">
     <a class="nav-link" data-toggle="tab" id="tab-tableview" href="#tableview" aria-controls="tableview" role="tab" data-on="click"
 data-event-category="Tab change"
 data-event-action="Change data view"
 data-event-label="Change to Table tab"
->Table</a>
+>Таблица</a>
   </li></ul>
 
     <div class="tab-content data-view">
@@ -521,8 +617,8 @@ data-event-label="Change to Table tab"
     
 
     <div id="dataset-size-warning" style="display:none" role="alert">
-      <i class="fa fa-bolt"><span class="sr-only">Warning:</span></i>
-      There are too many datasets to show on the chart. Not all will be shown until you remove some selections.
+      <i class="fa fa-bolt"><span class="sr-only">Предупреждение:</span></i>
+      В таблице слишком много данных, чтобы показать в графике. Чтобы увидеть все, удалите выделенное.
     </div>
 
     
@@ -530,7 +626,7 @@ data-event-label="Change to Table tab"
     <div id="selectionsChart">
       <figure role="group">
         <div id="chart-canvas">
-          <h4 id="chart-heading" class="chart-title">CO2 emission per unit of value added</h4>
+          <h4 id="chart-heading" class="chart-title">Баланс потребления рыбной продукции на душу населения</h4>
           <div id="chart" class="plot-container">
             
 <canvas
@@ -719,32 +815,40 @@ opensdg.chartConfigAlter(function(config, info) {
 </script>
 
 <script>
+// For line charts, add the vertical line hover functionality.
 opensdg.chartConfigAlter(function(config, info) {
-  if (info.stackedDisaggregation) {
     var overrides = {
-      options: {
-        scales: {
-          xAxes: [{ stacked: true }],
-          yAxes: [{ stacked: true }],
-        }
-      }
+        options: {
+            tooltips: {
+                intersect: false,
+                axis: 'x'
+            },
+        },
+        plugins: [{
+            beforeDatasetsDraw: function(chart) {
+                if (chart.tooltip._active && chart.tooltip._active.length) {
+                    var activePoint = chart.tooltip._active[0],
+                        ctx = chart.ctx,
+                        x = activePoint.tooltipPosition().x,
+                        topY = chart.scales['y-axis-0'].top,
+                        bottomY = chart.scales['y-axis-0'].bottom;
+
+                    // draw line
+                    ctx.save();
+                    ctx.beginPath();
+                    ctx.moveTo(x, topY);
+                    ctx.lineTo(x, bottomY);
+                    ctx.lineWidth = 2;
+                    ctx.strokeStyle = '#757575';
+                    ctx.setLineDash([5, 2]);
+                    ctx.stroke();
+                    ctx.restore();
+                }
+            }
+        }],
     };
-    // If we have stackedDisaggregation, we need to group datasets into stacks.
-    config.data.datasets.forEach(function(dataset) {
-      var disaggregation = $.extend({}, dataset.disaggregation);
-      // We're going to "stringify" each combination of disaggregations in order
-      // to place them in their own "stacks". To place "stacked" disaggregations
-      // into the same stack, we set them as "samestack" before stringifying.
-      // Note that the string "samestack" is completely arbitrary.
-      if (typeof disaggregation[info.stackedDisaggregation] !== 'undefined') {
-        disaggregation[info.stackedDisaggregation] = 'samestack';
-      }
-      // Use the disaggregation as a unique id for each stack.
-      dataset.stack = JSON.stringify(disaggregation);
-    });
     // Add these overrides onto the normal config, and return it.
     $.extend(true, config, overrides);
-  }
 });
 </script>
 
@@ -760,7 +864,7 @@ opensdg.chartConfigAlter(function(config, info) {
         
 
         
-        <dt>Geographical Area:</dt>
+        <dt>Географический район:</dt>
         <dd>Кыргызская Республика</dd>
         
 
@@ -775,8 +879,8 @@ opensdg.chartConfigAlter(function(config, info) {
         </div>
       </figure>
       <div id="chartSelectionDownload" class="clearfix">
-        <button id="btnSave" title="Download chart as image" class='btn btn-primary btn-download'>
-          Download Chart Image
+        <button id="btnSave" title="Скачать диаграмму как изображение" class='btn btn-primary btn-download'>
+          Загрузить изображение диаграммы
         </button>
       </div>
     </div>
@@ -786,7 +890,7 @@ opensdg.chartConfigAlter(function(config, info) {
   </div>
   <div role="tabpanel" class="tab-pane" id="tableview">
     <div style="display: none;">
-      <span id="column-sort-info">Click to sort by this column</span>
+      <span id="column-sort-info">Нажмите, чтобы отсортировать по этой колонке</span>
     </div>
     <div id="selectionsTable"></div>
 
@@ -799,7 +903,7 @@ opensdg.chartConfigAlter(function(config, info) {
         
 
         
-        <dt>Geographical Area:</dt>
+        <dt>Географический район:</dt>
         <dd>Кыргызская Республика</dd>
         
 
@@ -838,7 +942,7 @@ opensdg.chartConfigAlter(function(config, info) {
 data-event-category="Tab change"
 data-event-action="Change metadata view"
 data-event-label="Change to custom.indicator_information tab"
->Indicator information</a>
+>Информация об индикаторе</a>
   </li>
 
   
@@ -854,7 +958,7 @@ data-event-label="Change to custom.indicator_information tab"
 data-event-category="Tab change"
 data-event-action="Change metadata view"
 data-event-label="Change to indicator.national_metadata tab"
->National Metadata</a>
+>Национальные метаданные</a>
   </li>
 
   
@@ -870,7 +974,7 @@ data-event-label="Change to indicator.national_metadata tab"
 data-event-category="Tab change"
 data-event-action="Change metadata view"
 data-event-label="Change to custom.data_reporter tab"
->Data supplier</a>
+>Поставщики данных</a>
   </li>
 
 
@@ -890,7 +994,7 @@ data-event-label="Change to custom.data_reporter tab"
     
     <div role="tabpanel" class="tab-pane active" id="indicator_information">
       <article>
-        <p>This table provides information about the indicator</p>
+        <p>Данная таблица предоставляет информацию об индикаторе</p>
 
         <table class="table">
   
@@ -901,7 +1005,7 @@ data-event-label="Change to custom.data_reporter tab"
       
       
       <tr>
-        <th scope="row">Indicator name </th>
+        <th scope="row">Название показателя </th>
         <td>
           
             
@@ -915,7 +1019,7 @@ data-event-label="Change to custom.data_reporter tab"
       
       
       <tr>
-        <th scope="row">Target name </th>
+        <th scope="row">Название задачи </th>
         <td>
           
             
@@ -929,7 +1033,7 @@ data-event-label="Change to custom.data_reporter tab"
       
       
       <tr>
-        <th scope="row">Goal </th>
+        <th scope="row">Цель </th>
         <td>
           
             
@@ -984,7 +1088,7 @@ data-event-label="Change to custom.data_reporter tab"
     
     <div role="tabpanel" class="tab-pane " id="national">
       <article>
-        <p>This table provides metadata for the actual indicator available from %country_name statistics closest to the corresponding global SDG indicator. Please note that even when the global SDG indicator is fully available from %country_adjective statistics, this table should be consulted for information on national methodology and other %country_adjective-specific metadata information.</p>
+        <p>В этой таблице представлены метаданные для фактического показателя, доступного из статистики ближайшей к соответствующему глобальному индикатору ЦУР. Обратите внимание, что даже если глобальный индикатор ЦУР полностью доступен из статистики, по этой таблице следует проконсультироваться для получения информации о национальной методологии и других специфичных метаданных.</p>
 
         <table class="table">
   
@@ -998,7 +1102,7 @@ data-event-label="Change to custom.data_reporter tab"
       
       
       <tr>
-        <th scope="row">Geographical coverage </th>
+        <th scope="row">Географический охват </th>
         <td>
           
             <p>Кыргызская Республика</p>
@@ -1012,10 +1116,10 @@ data-event-label="Change to custom.data_reporter tab"
       
       
       <tr>
-        <th scope="row">Unit of measurement </th>
+        <th scope="row">Единица измерения </th>
         <td>
           
-            <p>тыс. тонн</p>
+            <p>Процент</p>
 
           
         </td>
@@ -1026,21 +1130,7 @@ data-event-label="Change to custom.data_reporter tab"
       
       
       <tr>
-        <th scope="row">Definitions </th>
-        <td>
-          
-            
-
-          
-        </td>
-        </tr>
-        
-      
-  
-      
-      
-      <tr>
-        <th scope="row">Concepts </th>
+        <th scope="row">Определения </th>
         <td>
           
             
@@ -1054,7 +1144,7 @@ data-event-label="Change to custom.data_reporter tab"
       
       
       <tr>
-        <th scope="row">Rationale and interpretation </th>
+        <th scope="row">Основные понятия </th>
         <td>
           
             
@@ -1068,7 +1158,7 @@ data-event-label="Change to custom.data_reporter tab"
       
       
       <tr>
-        <th scope="row">Method of computation </th>
+        <th scope="row">Обоснование и толкование </th>
         <td>
           
             
@@ -1082,7 +1172,7 @@ data-event-label="Change to custom.data_reporter tab"
       
       
       <tr>
-        <th scope="row">Comments and limitations </th>
+        <th scope="row">Метод расчета </th>
         <td>
           
             
@@ -1096,7 +1186,7 @@ data-event-label="Change to custom.data_reporter tab"
       
       
       <tr>
-        <th scope="row">Quality assurance </th>
+        <th scope="row">Комментарий и ограничения </th>
         <td>
           
             
@@ -1110,7 +1200,7 @@ data-event-label="Change to custom.data_reporter tab"
       
       
       <tr>
-        <th scope="row">Data availability and gaps </th>
+        <th scope="row">Гарантия качества </th>
         <td>
           
             
@@ -1124,7 +1214,7 @@ data-event-label="Change to custom.data_reporter tab"
       
       
       <tr>
-        <th scope="row">Disaggregation </th>
+        <th scope="row">Доступность данных и пробелы </th>
         <td>
           
             
@@ -1138,7 +1228,7 @@ data-event-label="Change to custom.data_reporter tab"
       
       
       <tr>
-        <th scope="row">Comparability with international data/standards </th>
+        <th scope="row">Разбивка </th>
         <td>
           
             
@@ -1152,7 +1242,7 @@ data-event-label="Change to custom.data_reporter tab"
       
       
       <tr>
-        <th scope="row">References and documentation </th>
+        <th scope="row">Сопоставимость с международными данными/стандартами </th>
         <td>
           
             
@@ -1166,7 +1256,7 @@ data-event-label="Change to custom.data_reporter tab"
       
       
       <tr>
-        <th scope="row">Data sources </th>
+        <th scope="row">Ссылки и документация </th>
         <td>
           
             
@@ -1180,7 +1270,7 @@ data-event-label="Change to custom.data_reporter tab"
       
       
       <tr>
-        <th scope="row">Data collection methods </th>
+        <th scope="row">Источники данных </th>
         <td>
           
             
@@ -1194,7 +1284,21 @@ data-event-label="Change to custom.data_reporter tab"
       
       
       <tr>
-        <th scope="row">Link to UN metadata </th>
+        <th scope="row">Методы сбора данных </th>
+        <td>
+          
+            
+
+          
+        </td>
+        </tr>
+        
+      
+  
+      
+      
+      <tr>
+        <th scope="row">Ссылка на метаданные ООН </th>
         <td>
           
             
@@ -1202,10 +1306,6 @@ data-event-label="Change to custom.data_reporter tab"
             
             
 
-            
-              <a href="https://unstats.un.org/sdgs/metadata/files/Metadata-09-04-01.pdf " target="_blank">
-                United Nations Sustainable Development Goals Metadata <span class="visuallyhidden">opens in a new window</span>
-              </a>
             
 
           
@@ -1246,7 +1346,7 @@ data-event-label="Change to custom.data_reporter tab"
     
     <div role="tabpanel" class="tab-pane " id="data_reporter">
       <article>
-        <p>This table provides information about the supplier of the data</p>
+        <p>Данная таблица предоставляет информацию о поставщиках данных</p>
 
         <table class="table">
   
@@ -1276,7 +1376,7 @@ data-event-label="Change to custom.data_reporter tab"
       
       
       <tr>
-        <th scope="row">Organization </th>
+        <th scope="row">Организация </th>
         <td>
           
             
@@ -1290,7 +1390,7 @@ data-event-label="Change to custom.data_reporter tab"
       
       
       <tr>
-        <th scope="row">Contact person(s)/focal point </th>
+        <th scope="row">Контактное лицо (лица)/Координатор </th>
         <td>
           
             
@@ -1304,7 +1404,7 @@ data-event-label="Change to custom.data_reporter tab"
       
       
       <tr>
-        <th scope="row">Contact person's email </th>
+        <th scope="row">Электронная почта контактного лица </th>
         <td>
           
             
@@ -1318,7 +1418,7 @@ data-event-label="Change to custom.data_reporter tab"
       
       
       <tr>
-        <th scope="row">Contact person's phone </th>
+        <th scope="row">Телефон контактного лица </th>
         <td>
           
             
@@ -1332,7 +1432,7 @@ data-event-label="Change to custom.data_reporter tab"
       
       
       <tr>
-        <th scope="row">Organization website </th>
+        <th scope="row">Сайт организации </th>
         <td>
           
             
@@ -1372,15 +1472,15 @@ data-event-label="Change to custom.data_reporter tab"
       <div class="col-xs-12">
         <div id="footerLinks">
           <ul>
-            <li><a href="https://open-sdg.org">Built using Open SDG</a></li>
+            <li><a href="https://open-sdg.org">Построен с использованием Open SDG</a></li>
             
               <li>
                 
-                  <a href="mailto:sdg_nsc@stat.kg" target="_blank">Contact us</a>
+                  <a href="mailto:sdg_nsc@stat.kg" target="_blank">Свяжитесь с нами</a>
                 
                 </li>
               <li>
-                <a href="/en/about/cookies-and-privacy">Cookies</a>
+                <a href="/about/cookies-and-privacy">Cookies</a>
                 
                 </li>
               
@@ -1406,17 +1506,17 @@ data-event-label="Change to custom.data_reporter tab"
 <script src="https://cdn.jsdelivr.net/npm/html2canvas@1.0.0-rc.3/dist/html2canvas.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/file-saver@2.0.2/dist/FileSaver.min.js"></script>
 <script>translations['general'] = translations['general'] || {};
-    translations['general']['hide'] = 'hide';</script>
+    translations['general']['hide'] = 'скрывать';</script>
 
 <script>translations['search'] = translations['search'] || {};
-    translations['search']['search'] = 'Search';</script>
+    translations['search']['search'] = 'Поиск';</script>
 
-<script src='/assets/js/sdg.js?v=20220514143739'></script>
+<script src='/assets/js/sdg.js?v=20220531111706'></script>
 
 
     
     
-    <script src="/assets/js/custom.js?v=20220514143739"></script><script>
+    <script src="/assets/js/custom.js?v=20220531111706"></script><script>
 $(function() {
     if($('#indicatorData').length) {
       var domData = $('#indicatorData').data();
