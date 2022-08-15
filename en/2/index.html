@@ -3,7 +3,7 @@
     <head>
         <meta charset="utf-8">
         <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.min.js"></script>
-        <script crossorigin="anonymous" src="https://polyfill.io/v3/polyfill.min.js?features=Promise%2CArray.prototype.forEach%2CString.prototype.includes%2CURLSearchParams%2CCustomEvent%2CArray.prototype.includes%2CArray.prototype.filter%2CArray.prototype.some%2CArray.prototype.find%2CArray.prototype.reduce%2CObject.assign%2CArray.isArray%2CObject.values%2CArray.from%2CSet%2CArray.prototype.findIndex"></script>
+        <script crossorigin="anonymous" src="https://polyfill.io/v3/polyfill.min.js?features=Promise%2CArray.prototype.forEach%2CString.prototype.includes%2CURLSearchParams%2CCustomEvent%2CArray.prototype.includes%2CArray.prototype.filter%2CArray.prototype.some%2CArray.prototype.find%2CArray.prototype.reduce%2CObject.assign%2CArray.isArray%2CObject.values%2CObject.entries%2CArray.from%2CSet%2CArray.prototype.findIndex"></script>
 <script crossorigin="anonymous" src="https://cdnjs.cloudflare.com/ajax/libs/javascript-canvas-to-blob/3.15.0/js/canvas-to-blob.min.js"></script>
 
         <script>
@@ -40,10 +40,6 @@ var opensdg = {
 
   language: 'en',
 };
-
-// For backwards compatibility, some of these might need to be global.
-// @TODO: Remove these eventually.
-var remoteDataBaseUrl = opensdg.remoteDataBaseUrl;
 
 </script>
 
@@ -116,60 +112,103 @@ var translations = {
         <script src="/assets/js/lib/classList.js"></script>
         <![endif]-->
 
-        <!-- Favicons ================================================== -->
-        <!-- 128x128 -->
-        <link rel="shortcut icon" type="image/ico" href="/assets/img/favicons/favicon.ico">
-        <link rel="icon" type="image/png" href="/assets/img/favicons/favicon.png"><!-- 192x192, as recommended for Android
-        http://updates.html5rocks.com/2014/11/Support-for-theme-color-in-Chrome-39-for-Android
-        -->
+        <link rel="apple-touch-icon" sizes="180x180" href="/assets/img/favicons/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/assets/img/favicons/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/assets/img/favicons/favicon-16x16.png">
+<link rel="icon" type="image/x-icon" href="/assets/img/favicons/favicon.ico" />
+
 
         
-        <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css" crossorigin="">
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+        <link res="stylesheet" href="https://cdn.datatables.net/1.11.5/css/dataTables.bootstrap5.min.css">
         <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" crossorigin="">
         <link rel="stylesheet" href="https://cdn.datatables.net/fixedcolumns/3.2.3/css/fixedColumns.dataTables.min.css" crossorigin="">
-        <link rel="stylesheet" href="/assets/css/style.css?v=20220531111706">
-        <link href="https://fonts.googleapis.com/css?family=Open+Sans|Roboto" rel="stylesheet" crossorigin="">
+        <link rel="stylesheet" href="/assets/css/style.css?v=20220815134908">
         <link rel="stylesheet" href="https://unpkg.com/leaflet@1.3.4/dist/leaflet.css"
           integrity="sha512-puBpdR0798OZvTTbP4A8Ix/l+A4dHDD0DGqYW6RQ+9jxkRFclaxxQb/SJAWZfWAkuyeQUytO7+7N4QKrDh+drA=="
           crossorigin=""/>
         <link rel="stylesheet" href="https://cdn.rawgit.com/socib/Leaflet.TimeDimension/master/dist/leaflet.timedimension.control.min.css"  crossorigin=""/>
         <link rel="stylesheet" href='https://api.mapbox.com/mapbox.js/plugins/leaflet-fullscreen/v1.0.1/leaflet.fullscreen.css'  crossorigin=""/>
         <link rel="stylesheet" href="https://bowercdn.net/c/leaflet.zoomhome-latest/dist/leaflet.zoomhome.css"  crossorigin=""/>
-        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet-search@2.9.7/dist/leaflet-search.min.css" crossorigin=""><link rel="stylesheet" href="/assets/css/custom.css?v=20220531111706"><!-- ShareThis BEGIN --><!-- ShareThis END -->
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet-search@2.9.7/dist/leaflet-search.min.css" crossorigin="">
+        <link rel="stylesheet" href="https://cdn.kiprotect.com/klaro/v0.7/klaro.min.css" crossorigin=""/><link rel="stylesheet" href="/assets/css/custom.css?v=20220815134908">
+        
+
+        <!--[if IE]>
+        <link rel="stylesheet" href="/assets/css/ie.css">
+        <![endif]-->
 
         
 
     </head>
 <body class="language-en
-layout-goal-by-target
+layout-goal
 ">
 <!-- <div class="container"> -->
 
 <script>translations['header'] = {"alpha":"Alpha","default_contrast":"Default contrast","disable_high_contrast":"Disable high contrast","disclaimer":"This is a development website. We welcome your <a href=\"mailto:%email_address\">feedback</a>.","enable_high_contrast":"Enable high contrast","high_contrast":"High contrast","skip_link":"Skip to main content","tag_line":"17 Goals to Transform our World","toggle_menu":"Menu toggle. Click to expand or collapse the menu.","toggle_search":"Search toggle. Click to expand or collapse the search bar."};</script>
 
-<a class="sr-only sr-only-focusable" id="skiplink" href="#main-content" tabindex="0">Skip to main content</a>
+<a class="sr-only-focusable" id="skiplink" href="#main-content" tabindex="0">Skip to main content</a>
+<div class="container internet-explorer-message">
+    <h2 class="internet-explorer-message-title"></h2>
+    <p class="internet-explorer-message-body"></p>
+</div>
 <div id="disclaimer">
-  <div class="container">
+    
+<div class="container">
   <div class="disclaimer-alert">
     <strong class="phase-tag">Alpha</strong>
     
-    This is a development website. We welcome your <a href="mailto:sdg_nsc@stat.kg">feedback</a>.
+    This is a development website. We welcome your <a href="mailto:%email_address">feedback</a>.
+    
   </div>
 </div>
 
 </div>
-<header role="banner">
-  <div class="container">
-    <a class="navbar-brand" style="max-width: 50px" target="_blank" href="http://www.stat.kg/">
-      <img alt="Sustainable Development Goals - 17 Goals to Transform our World" style="width: auto; height: 40px" src="/assets/img/favicons/android-chrome-192x192.png" />
-    </a>
-    <a class="navbar-brand" href="/en/" id="home">
-      <img src="/assets/img/SDG_logo_en.png"
-           alt="Sustainable Development Goals - 17 Goals to Transform our World"/>
-    </a>
-    <div class='hidden visible-xs float-right'>
-      <ul id='accessibility-nav' class='contrast-switcher'></ul><div class="language-toggle-mobile">
-        
+
+<header role="banner" class="">
+    <div class="container">
+        <nav class="navbar navbar-expand-lg navbar-light flex-wrap align-items-start">
+            <a class="navbar-brand" style="max-width: 50px" target="_blank" href="http://www.stat.kg/">
+  <img alt="Sustainable Development Goals - 17 Goals to Transform our World" style="width: auto; height: 40px" src="/assets/img/favicons/android-chrome-192x192.png" />
+</a>
+<a class="navbar-brand" href="/en/" id="home">
+  <img src="/assets/img/SDG_logo.png" alt="Sustainable Development Goals - 17 Goals to Transform our World" />
+</a>
+
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="d-flex flex-wrap w-100 justify-content-between">
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav" id="menu"><li class="nav-item ">
+    <a class="nav-link" href="/en/reporting-status">Reporting Status</a>
+</li><li class="nav-item ">
+    <a class="nav-link" href="/en/news">News</a>
+</li><li class="nav-item ">
+    <a class="nav-link" href="/en/publications">Publications</a>
+</li><li class="nav-item ">
+    <a class="nav-link" href="/en/about">About</a>
+</li><li class="nav-item ">
+    <a class="nav-link" href="/en/faq">FAQ</a>
+</li></ul>
+    
+                </div>
+                <div class="header-search-bar">
+                    <form class="align-self-lg-end" id="search" action="/en/search/">
+    <div class="input-group">
+        <label class="visually-hidden" for="indicator_search">Search</label>
+        <input class="form-control" type="search" name="q" id="indicator_search" title="Search">
+        <span class="input-group-append">
+            <button class="btn btn-outline-secondary ms-n5" aria-label="Search" id="search-btn" type="submit">
+                <i class="fa fa-search"></i>
+            </button>
+        </span>
+    </div>
+</form>
+
+                </div>
+                <div class="header-toggles d-flex">
 
 
 
@@ -177,12 +216,13 @@ layout-goal-by-target
 
   <div class="language-toggle-container">
   
-  <div class="btn-group language-toggle-dropdown ">
-    <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-      <span class="language-globe-in-dropdown"><i class="fa fa-globe language-toggle-globe-dropdown"></i></span><span class="language-name">English</span>
-      <span class="language-abbreviation">en</span><i class="language-toggle-caret fa fa-chevron-down"></i></button>
+  <div class="btn-group language-toggle-dropdown  dropdown">
+    <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+      <i class="fa fa-globe"></i>
+      English
+    </button>
     <ul class="dropdown-menu"><li>
-            <a href="/2/">
+            <a class="dropdown-item" href="/2/">
               Pусский
             </a>
           </li></ul>
@@ -191,839 +231,1084 @@ layout-goal-by-target
 
 
 
-      </div></div>
-    <nav class="navbar navbar-default" id="main-nav">
-      <ul class="top-level">
-        <li id="menuToggle"
-            aria-label="Menu toggle. Click to expand or collapse the menu."
-            aria-haspopup="true"
-            aria-expanded="false">
-          <span data-target="menu" tabindex="0" role="navigation">Menu</span>
-        </li>
-        <li><span data-target="search">Search</span></li>
-      </ul>
-      <div id="search" class="menu-target">
-  <form action="/en/search/">
-    <label class="sr-only" for="indicator_search">Search</label>
-    <input type="text" name="q" id="indicator_search" title="Search" /><!--
-    --><button aria-label="Search" id="search-btn" type="submit"><i class="fa fa-search" aria-hidden="false"></i></button>
-  </form>
-</div>
-
-      <ul class="nav navbar-nav menu-target contrast-switcher" id="menu"><li class="nav-link ">
-          <a href="/en/reporting-status">Reporting Status</a>
-        </li><li class="nav-link ">
-          <a href="/en/news">News</a>
-        </li><li class="nav-link ">
-          <a href="/en/publications">Publications</a>
-        </li><li class="nav-link ">
-          <a href="/en/about">About</a>
-        </li><li class="nav-link ">
-          <a href="/en/faq">FAQ</a>
-        </li><li>
-          
-
-
-
-
-
-  <div class="language-toggle-container">
-  
-  <div class="btn-group language-toggle-dropdown ">
-    <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-      <span class="language-globe-in-dropdown"><i class="fa fa-globe language-toggle-globe-dropdown"></i></span><span class="language-name">English</span>
-      <span class="language-abbreviation">en</span><i class="language-toggle-caret fa fa-chevron-down"></i></button>
-    <ul class="dropdown-menu"><li>
-            <a href="/2/">
-              Pусский
+                    <span class="no-js-language-toggle"><div class="language-toggle-container d-flex">
+    <i class="fa fa-globe language-toggle-globe-links"></i>
+    <ul class="language-toggle-links list-unstyled list-inline"><li class="language-option-ru list-inline-item">
+            <a class="language-toggle-link" href="/2/">
+                Pусский
             </a>
-          </li></ul>
-  </div>
-</div>
-
-
-
         </li></ul>
-    </nav>
-  </div>
+</div></span><a title="Enable high contrast" aria-label="Enable high contrast"
+    data-contrast-switch-to="" href="javascript:void(0)" data-on="click"
+data-event-category="Accessibility"
+data-event-action="Change contrast setting"
+data-event-label="high"
+>A</a>
+                </div>
+            </div>
+        </nav>
+    </div>
 </header>
+<div id="top" tabindex=-1></div>
+
 
 
 <div class="container">
-  <ol class="breadcrumb">
-  
-  <li><a href="/en/">Home</a></li>
-  <li class="active">Goal 2</li>
-  
-</ol>
-
+  <nav>
+    <ol aria-label="breadcrumb" class="breadcrumb" style="--bs-breadcrumb-divider: '&rsaquo;';">
+        
+        <li class="breadcrumb-item" >
+            <a href="/en/">Home</a>
+        </li>
+        <li class="breadcrumb-item active">Goal 2</li>
+        
+    </ol>
+</nav>
   
 </div>
 
 <div class="heading goal-banner goal-2">
-  <div class="container">
-    <div class="row">
-      <div class="col-xs-4 col-md-3 col-lg-2 goal-tiles">
-        <img src="https://sdg-kyrgyzstan.github.io/open-sdg-site-starter/assets/img/goals/en/2.png" alt="Zero hunger - Goal 2" id="goal-2" class="goal-icon-image goal-icon-image-" />
-      </div>
-      <div class="col-xs-8 col-md-9 col-lg-10">
-        <h1>
-          <span class="hidden-sm hidden-md hidden-lg">Goal 2: </span>End hunger, achieve food security and improved nutrition and promote sustainable agriculture
-        </h1>
-      </div>
+    <div class="container">
+        <div class="row">
+            <div class="col-4 col-md-3 col-lg-2 goal-icon goal-tiles">
+                <img src="https://sdg-kyrgyzstan.github.io/open-sdg-site-starter/assets/img/goals/en/2.png" alt="Zero hunger - Goal 2" id="goal-2" class="goal-icon-image goal-icon-image-" />
+            </div>
+            <div class="col-8 col-md-9 col-lg-10 goal-details">
+                <h1>End hunger, achieve food security and improved nutrition and promote sustainable agriculture</h1>
+            </div>
+        </div>
     </div>
-  </div>
 </div>
 
 
-<div id="main-content" class="container goal-indicators goal-2 goal-by-target" role="main">
+<div id="main-content" class="container" role="main">
 
   
 
 
 
-  <div class="visible-md-block visible-lg-block">
-    <div class="col-md-6">
-      <h2>Targets</h2>
-    </div>
-    <div class="col-md-6">
-      <h2>Indicators</h2>
-    </div>
-  </div>
+  <div class="container g-0">
+    <h2 class="goal-page-heading">Targets and indicators</h2>
 
-  
-  
     
-    <div class="indicator-cards target goal-target col-md-6">
-      <span class="indicator-card-number">
-        <label class="hidden-md hidden-lg">Target</label>
-        2.1
-      </span>
-      By 2030, end hunger and ensure access by all people, in particular the poor and people in vulnerable situations, including infants, to safe, nutritious and sufficient food all year round
-    </div>
-    <div class="indicator-cards col-md-6 row no-gutters">
     
-
       
-      
-      
-
-      <div class="col-md-12  goal-indicator">
-        <span class="indicator-card-number">
-          2.1.1
-          
-
-
-<span class="status complete">
-    Reported
-</span>
-
-        </span>
-        <a href="/en/2-1-1">
-          Prevalence of undernourishment
-        </a>
-        
-
+      <div class="row align-items-start goal-target">
+          <div class="col-auto goal-page-target-number">
+            <h3 class="goal-target">
+              <span class="target-number"><span class="visually-hidden">Target</span> 2.1</span>
+            </h3>
+          </div>
+          <div class="col goal-page-target-name">
+            <span class="target-name">By 2030, end hunger and ensure access by all people, in particular the poor and people in vulnerable situations, including infants, to safe, nutritious and sufficient food all year round</span>
+          </div>
       </div>
-    
+        
 
-      
-      
-      
-
-      <div class="col-md-12 indicator-national goal-indicator">
-        <span class="indicator-card-number">
-          2.1.1.1e
           
+          
+          
+          
+
+          <div class="row align-items-start goal-indicator">
+          
+            <div class="col-auto goal-page-indicator-number">
+              <h4>
+                <span class="indicator-number"><span class="visually-hidden">Indicator</span> 2.1.1</span>
+              </h4>
+            </div>
+            <div class="col goal-page-indicator-name">
+              
+              <span class="indicator-name"><a href="/en/2-1-1">Prevalence of undernourishment</a></span>
+              
+
+
+
+
+    <ul class="tags list-unstyled list-inline" aria-label="Tags"><li class="list-inline-item">
+        <span class="visually-hidden">Indicator status</span>
+        
+
 
 
 <span class="status complete">
-    Reported
+    <span class="status-inner">Reported</span>
 </span>
 
-        </span>
-        <a href="/en/2-1-1-1e">
-          Average per capita consumption of basic food products in relation to the average physiological norms of consumption, in percent
-        </a>
+
+        </li></ul>
+
+
+            </div>
+            
+            
+          </div>
         
-    <span class="sr-only">Tags</span>
-    <span class="tags">
-    
+
+          
+          
+          
+          
+
+          <div class="row align-items-start goal-indicator">
+          
+            <div class="col-auto goal-page-indicator-number">
+              <h4>
+                <span class="indicator-number"><span class="visually-hidden">Indicator</span> 2.1.1.1e</span>
+              </h4>
+            </div>
+            <div class="col goal-page-indicator-name">
+              
+              <span class="indicator-name"><a href="/en/2-1-1-1e">Average per capita consumption of basic food products in relation to the average physiological norms of consumption, in percent</a></span>
+              
+
+
+
+
+    <ul class="tags list-unstyled list-inline" aria-label="Tags"><li class="list-inline-item">
+        <span class="visually-hidden">Indicator status</span>
+        
+
+
+
+<span class="status complete">
+    <span class="status-inner">Reported</span>
+</span>
+
+
+        </li><li class="list-inline-item">
         
         <span class="tag tag-national">National</span>
-    
-    </span>
+        </li></ul>
 
 
-      </div>
-    
+            </div>
+            
+            
+          </div>
+        
 
-      
-      
-      
-
-      <div class="col-md-12  goal-indicator">
-        <span class="indicator-card-number">
-          2.1.2
           
+          
+          
+          
+
+          <div class="row align-items-start goal-indicator">
+          
+            <div class="col-auto goal-page-indicator-number">
+              <h4>
+                <span class="indicator-number"><span class="visually-hidden">Indicator</span> 2.1.2</span>
+              </h4>
+            </div>
+            <div class="col goal-page-indicator-name">
+              
+              <span class="indicator-name"><a href="/en/2-1-2">Prevalence of moderate or severe food insecurity in the population, based on the Food Insecurity Experience Scale (FIES)</a></span>
+              
+
+
+
+
+    <ul class="tags list-unstyled list-inline" aria-label="Tags"><li class="list-inline-item">
+        <span class="visually-hidden">Indicator status</span>
+        
+
 
 
 <span class="status complete">
-    Reported
+    <span class="status-inner">Reported</span>
 </span>
 
-        </span>
-        <a href="/en/2-1-2">
-          Prevalence of moderate or severe food insecurity in the population, based on the Food Insecurity Experience Scale (FIES)
-        </a>
+
+        </li></ul>
+
+
+            </div>
+            
+            
+          </div>
         
 
-      </div>
-    
-
-      
-      
-      
-
-      <div class="col-md-12 indicator-national goal-indicator">
-        <span class="indicator-card-number">
-          2.1.2.1d
           
+          
+          
+          
+
+          <div class="row align-items-start goal-indicator">
+          
+            <div class="col-auto goal-page-indicator-number">
+              <h4>
+                <span class="indicator-number"><span class="visually-hidden">Indicator</span> 2.1.2.1d</span>
+              </h4>
+            </div>
+            <div class="col goal-page-indicator-name">
+              
+              <span class="indicator-name"><a href="/en/2-1-2-1d">Ratio of agricultural products  import  to total production in the country</a></span>
+              
+
+
+
+
+    <ul class="tags list-unstyled list-inline" aria-label="Tags"><li class="list-inline-item">
+        <span class="visually-hidden">Indicator status</span>
+        
+
 
 
 <span class="status complete">
-    Reported
+    <span class="status-inner">Reported</span>
 </span>
 
-        </span>
-        <a href="/en/2-1-2-1d">
-          Ratio of agricultural products  import  to total production in the country
-        </a>
-        
-    <span class="sr-only">Tags</span>
-    <span class="tags">
-    
+
+        </li><li class="list-inline-item">
         
         <span class="tag tag-national">National</span>
+        </li></ul>
+
+
+            </div>
+            
+            
+          </div>
+        
+        <hr class="goal-page-target-rule" />
     
-    </span>
-
-
+      
+      <div class="row align-items-start goal-target">
+          <div class="col-auto goal-page-target-number">
+            <h3 class="goal-target">
+              <span class="target-number"><span class="visually-hidden">Target</span> 2.2</span>
+            </h3>
+          </div>
+          <div class="col goal-page-target-name">
+            <span class="target-name">By 2030, end all forms of malnutrition, including achieving, by 2025, the internationally agreed targets on stunting and wasting in children under 5 years of age, and address the nutritional needs of adolescent girls, pregnant and lactating women and older persons</span>
+          </div>
       </div>
-    
-    </div>
-  
-    
-    <div class="indicator-cards target goal-target col-md-6">
-      <span class="indicator-card-number">
-        <label class="hidden-md hidden-lg">Target</label>
-        2.2
-      </span>
-      By 2030, end all forms of malnutrition, including achieving, by 2025, the internationally agreed targets on stunting and wasting in children under 5 years of age, and address the nutritional needs of adolescent girls, pregnant and lactating women and older persons
-    </div>
-    <div class="indicator-cards col-md-6 row no-gutters">
-    
+        
 
-      
-      
-      
-
-      <div class="col-md-12  goal-indicator">
-        <span class="indicator-card-number">
-          2.2.1
           
+          
+          
+          
+
+          <div class="row align-items-start goal-indicator">
+          
+            <div class="col-auto goal-page-indicator-number">
+              <h4>
+                <span class="indicator-number"><span class="visually-hidden">Indicator</span> 2.2.1</span>
+              </h4>
+            </div>
+            <div class="col goal-page-indicator-name">
+              
+              <span class="indicator-name"><a href="/en/2-2-1">Prevalence of stunting (height for age <-2 standard deviation from the median of the World Health Organization (WHO) Child Growth Standards) among children under 5 years of age</a></span>
+              
+
+
+
+
+    <ul class="tags list-unstyled list-inline" aria-label="Tags"><li class="list-inline-item">
+        <span class="visually-hidden">Indicator status</span>
+        
+
 
 
 <span class="status complete">
-    Reported
+    <span class="status-inner">Reported</span>
 </span>
 
-        </span>
-        <a href="/en/2-2-1">
-          Prevalence of stunting (height for age <-2 standard deviation from the median of the World Health Organization (WHO) Child Growth Standards) among children under 5 years of age
-        </a>
+
+        </li></ul>
+
+
+            </div>
+            
+            
+          </div>
         
 
-      </div>
-    
-
-      
-      
-      
-
-      <div class="col-md-12  goal-indicator">
-        <span class="indicator-card-number">
-          2.2.2
           
+          
+          
+          
+
+          <div class="row align-items-start goal-indicator">
+          
+            <div class="col-auto goal-page-indicator-number">
+              <h4>
+                <span class="indicator-number"><span class="visually-hidden">Indicator</span> 2.2.2</span>
+              </h4>
+            </div>
+            <div class="col goal-page-indicator-name">
+              
+              <span class="indicator-name"><a href="/en/2-2-2">Prevalence of malnutrition (weight for height >+2 or <-2 standard deviation from the median of the WHO Child Growth Standards) among children under 5 years of age, by type (wasting and overweight)</a></span>
+              
+
+
+
+
+    <ul class="tags list-unstyled list-inline" aria-label="Tags"><li class="list-inline-item">
+        <span class="visually-hidden">Indicator status</span>
+        
+
 
 
 <span class="status complete">
-    Reported
+    <span class="status-inner">Reported</span>
 </span>
 
-        </span>
-        <a href="/en/2-2-2">
-          Prevalence of malnutrition (weight for height >+2 or <-2 standard deviation from the median of the WHO Child Growth Standards) among children under 5 years of age, by type (wasting and overweight)
-        </a>
+
+        </li></ul>
+
+
+            </div>
+            
+            
+          </div>
         
 
-      </div>
-    
-
-      
-      
-      
-
-      <div class="col-md-12  goal-indicator">
-        <span class="indicator-card-number">
-          2.2.3
           
+          
+          
+          
+
+          <div class="row align-items-start goal-indicator">
+          
+            <div class="col-auto goal-page-indicator-number">
+              <h4>
+                <span class="indicator-number"><span class="visually-hidden">Indicator</span> 2.2.3</span>
+              </h4>
+            </div>
+            <div class="col goal-page-indicator-name">
+              
+              <span class="indicator-name"><a href="/en/2-2-3">Prevalence of anaemia in women aged 15 to 49 years, by pregnancy status (percentage)</a></span>
+              
+
+
+
+
+    <ul class="tags list-unstyled list-inline" aria-label="Tags"><li class="list-inline-item">
+        <span class="visually-hidden">Indicator status</span>
+        
+
 
 
 <span class="status complete">
-    Reported
+    <span class="status-inner">Reported</span>
 </span>
 
-        </span>
-        <a href="/en/2-2-3">
-          Prevalence of anaemia in women aged 15 to 49 years, by pregnancy status (percentage)
-        </a>
+
+        </li></ul>
+
+
+            </div>
+            
+            
+          </div>
+        
+        <hr class="goal-page-target-rule" />
+    
+      
+      <div class="row align-items-start goal-target">
+          <div class="col-auto goal-page-target-number">
+            <h3 class="goal-target">
+              <span class="target-number"><span class="visually-hidden">Target</span> 2.3</span>
+            </h3>
+          </div>
+          <div class="col goal-page-target-name">
+            <span class="target-name">By 2030, double the agricultural productivity and incomes of small-scale food producers, in particular women, indigenous peoples, family farmers, pastoralists and fishers, including through secure and equal access to land, other productive resources and inputs, knowledge, financial services, markets and opportunities for value addition and non-farm employment</span>
+          </div>
+      </div>
         
 
-      </div>
-    
-    </div>
-  
-    
-    <div class="indicator-cards target goal-target col-md-6">
-      <span class="indicator-card-number">
-        <label class="hidden-md hidden-lg">Target</label>
-        2.3
-      </span>
-      By 2030, double the agricultural productivity and incomes of small-scale food producers, in particular women, indigenous peoples, family farmers, pastoralists and fishers, including through secure and equal access to land, other productive resources and inputs, knowledge, financial services, markets and opportunities for value addition and non-farm employment
-    </div>
-    <div class="indicator-cards col-md-6 row no-gutters">
-    
-
-      
-      
-      
-
-      <div class="col-md-12  goal-indicator">
-        <span class="indicator-card-number">
-          2.3.1
           
+          
+          
+          
+
+          <div class="row align-items-start goal-indicator">
+          
+            <div class="col-auto goal-page-indicator-number">
+              <h4>
+                <span class="indicator-number"><span class="visually-hidden">Indicator</span> 2.3.1</span>
+              </h4>
+            </div>
+            <div class="col goal-page-indicator-name">
+              
+              <span class="indicator-name"><a href="/en/2-3-1">Volume of production per labour unit by classes of farming/pastoral/forestry enterprise size</a></span>
+              
+
+
+
+
+    <ul class="tags list-unstyled list-inline" aria-label="Tags"><li class="list-inline-item">
+        <span class="visually-hidden">Indicator status</span>
+        
+
 
 
 <span class="status notstarted">
-    Exploring data sources
+    <span class="status-inner">Exploring data sources</span>
 </span>
 
-        </span>
-        <a href="/en/2-3-1">
-          Volume of production per labour unit by classes of farming/pastoral/forestry enterprise size
-        </a>
+
+        </li></ul>
+
+
+            </div>
+            
+            
+          </div>
         
 
-      </div>
-    
-
-      
-      
-      
-
-      <div class="col-md-12  goal-indicator">
-        <span class="indicator-card-number">
-          2.3.2
           
+          
+          
+          
+
+          <div class="row align-items-start goal-indicator">
+          
+            <div class="col-auto goal-page-indicator-number">
+              <h4>
+                <span class="indicator-number"><span class="visually-hidden">Indicator</span> 2.3.2</span>
+              </h4>
+            </div>
+            <div class="col goal-page-indicator-name">
+              
+              <span class="indicator-name"><a href="/en/2-3-2">Average income of small-scale food producers, by sex and indigenous status</a></span>
+              
+
+
+
+
+    <ul class="tags list-unstyled list-inline" aria-label="Tags"><li class="list-inline-item">
+        <span class="visually-hidden">Indicator status</span>
+        
+
 
 
 <span class="status notstarted">
-    Exploring data sources
+    <span class="status-inner">Exploring data sources</span>
 </span>
 
-        </span>
-        <a href="/en/2-3-2">
-          Average income of small-scale food producers, by sex and indigenous status
-        </a>
+
+        </li></ul>
+
+
+            </div>
+            
+            
+          </div>
         
 
-      </div>
-    
-
-      
-      
-      
-
-      <div class="col-md-12 indicator-national goal-indicator">
-        <span class="indicator-card-number">
-          2.3.2.1
           
+          
+          
+          
+
+          <div class="row align-items-start goal-indicator">
+          
+            <div class="col-auto goal-page-indicator-number">
+              <h4>
+                <span class="indicator-number"><span class="visually-hidden">Indicator</span> 2.3.2.1</span>
+              </h4>
+            </div>
+            <div class="col goal-page-indicator-name">
+              
+              <span class="indicator-name"><a href="/en/2-3-2-1">Proportion of product produced by agricultural cooperatives to total volume of products produced in the country</a></span>
+              
+
+
+
+
+    <ul class="tags list-unstyled list-inline" aria-label="Tags"><li class="list-inline-item">
+        <span class="visually-hidden">Indicator status</span>
+        
+
 
 
 <span class="status complete">
-    Reported
+    <span class="status-inner">Reported</span>
 </span>
 
-        </span>
-        <a href="/en/2-3-2-1">
-          Proportion of product produced by agricultural cooperatives to total volume of products produced in the country
-        </a>
-        
-    <span class="sr-only">Tags</span>
-    <span class="tags">
-    
+
+        </li><li class="list-inline-item">
         
         <span class="tag tag-national">National</span>
-    
-    </span>
+        </li></ul>
 
 
-      </div>
-    
+            </div>
+            
+            
+          </div>
+        
 
-      
-      
-      
-
-      <div class="col-md-12 indicator-national goal-indicator">
-        <span class="indicator-card-number">
-          2.3.3.1c
           
+          
+          
+          
+
+          <div class="row align-items-start goal-indicator">
+          
+            <div class="col-auto goal-page-indicator-number">
+              <h4>
+                <span class="indicator-number"><span class="visually-hidden">Indicator</span> 2.3.3.1c</span>
+              </h4>
+            </div>
+            <div class="col goal-page-indicator-name">
+              
+              <span class="indicator-name"><a href="/en/2-3-3-1c">Баланс потребления рыбной продукции на душу населения</a></span>
+              
+
+
+
+
+    <ul class="tags list-unstyled list-inline" aria-label="Tags"><li class="list-inline-item">
+        <span class="visually-hidden">Indicator status</span>
+        
+
 
 
 <span class="status complete">
-    Reported
+    <span class="status-inner">Reported</span>
 </span>
 
-        </span>
-        <a href="/en/2-3-3-1c">
-          Баланс потребления рыбной продукции на душу населения
-        </a>
-        
-    <span class="sr-only">Tags</span>
-    <span class="tags">
-    
+
+        </li><li class="list-inline-item">
         
         <span class="tag tag-national">National</span>
+        </li></ul>
+
+
+            </div>
+            
+            
+          </div>
+        
+        <hr class="goal-page-target-rule" />
     
-    </span>
-
-
+      
+      <div class="row align-items-start goal-target">
+          <div class="col-auto goal-page-target-number">
+            <h3 class="goal-target">
+              <span class="target-number"><span class="visually-hidden">Target</span> 2.4</span>
+            </h3>
+          </div>
+          <div class="col goal-page-target-name">
+            <span class="target-name">By 2030, ensure sustainable food production systems and implement resilient agricultural practices that increase productivity and production, that help maintain ecosystems, that strengthen capacity for adaptation to climate change, extreme weather, drought, flooding and other disasters and that progressively improve land and soil quality</span>
+          </div>
       </div>
-    
-    </div>
-  
-    
-    <div class="indicator-cards target goal-target col-md-6">
-      <span class="indicator-card-number">
-        <label class="hidden-md hidden-lg">Target</label>
-        2.4
-      </span>
-      By 2030, ensure sustainable food production systems and implement resilient agricultural practices that increase productivity and production, that help maintain ecosystems, that strengthen capacity for adaptation to climate change, extreme weather, drought, flooding and other disasters and that progressively improve land and soil quality
-    </div>
-    <div class="indicator-cards col-md-6 row no-gutters">
-    
+        
 
-      
-      
-      
-
-      <div class="col-md-12  goal-indicator">
-        <span class="indicator-card-number">
-          2.4.1
           
+          
+          
+          
+
+          <div class="row align-items-start goal-indicator">
+          
+            <div class="col-auto goal-page-indicator-number">
+              <h4>
+                <span class="indicator-number"><span class="visually-hidden">Indicator</span> 2.4.1</span>
+              </h4>
+            </div>
+            <div class="col goal-page-indicator-name">
+              
+              <span class="indicator-name"><a href="/en/2-4-1">Proportion of agricultural area under productive and sustainable agriculture</a></span>
+              
+
+
+
+
+    <ul class="tags list-unstyled list-inline" aria-label="Tags"><li class="list-inline-item">
+        <span class="visually-hidden">Indicator status</span>
+        
+
 
 
 <span class="status notstarted">
-    Exploring data sources
+    <span class="status-inner">Exploring data sources</span>
 </span>
 
-        </span>
-        <a href="/en/2-4-1">
-          Proportion of agricultural area under productive and sustainable agriculture
-        </a>
+
+        </li></ul>
+
+
+            </div>
+            
+            
+          </div>
         
 
-      </div>
-    
-
-      
-      
-      
-
-      <div class="col-md-12 indicator-national goal-indicator">
-        <span class="indicator-card-number">
-          2.4.1.1
           
+          
+          
+          
+
+          <div class="row align-items-start goal-indicator">
+          
+            <div class="col-auto goal-page-indicator-number">
+              <h4>
+                <span class="indicator-number"><span class="visually-hidden">Indicator</span> 2.4.1.1</span>
+              </h4>
+            </div>
+            <div class="col goal-page-indicator-name">
+              
+              <span class="indicator-name"><a href="/en/2-4-1-1">Proportion of agricultural crop land fertilized with i) mineral fertilizers; ii) organic fertilizers</a></span>
+              
+
+
+
+
+    <ul class="tags list-unstyled list-inline" aria-label="Tags"><li class="list-inline-item">
+        <span class="visually-hidden">Indicator status</span>
+        
+
 
 
 <span class="status complete">
-    Reported
+    <span class="status-inner">Reported</span>
 </span>
 
-        </span>
-        <a href="/en/2-4-1-1">
-          Proportion of agricultural crop land fertilized with i) mineral fertilizers; ii) organic fertilizers
-        </a>
-        
-    <span class="sr-only">Tags</span>
-    <span class="tags">
-    
+
+        </li><li class="list-inline-item">
         
         <span class="tag tag-national">National</span>
+        </li></ul>
+
+
+            </div>
+            
+            
+          </div>
+        
+        <hr class="goal-page-target-rule" />
     
-    </span>
-
-
+      
+      <div class="row align-items-start goal-target">
+          <div class="col-auto goal-page-target-number">
+            <h3 class="goal-target">
+              <span class="target-number"><span class="visually-hidden">Target</span> 2.5</span>
+            </h3>
+          </div>
+          <div class="col goal-page-target-name">
+            <span class="target-name">By 2020, maintain the genetic diversity of seeds, cultivated plants and farmed and domesticated animals and their related wild species, including through soundly managed and diversified seed and plant banks at the national, regional and international levels, and promote access to and fair and equitable sharing of benefits arising from the utilization of genetic resources and associated traditional knowledge, as internationally agreed</span>
+          </div>
       </div>
-    
-    </div>
-  
-    
-    <div class="indicator-cards target goal-target col-md-6">
-      <span class="indicator-card-number">
-        <label class="hidden-md hidden-lg">Target</label>
-        2.5
-      </span>
-      By 2020, maintain the genetic diversity of seeds, cultivated plants and farmed and domesticated animals and their related wild species, including through soundly managed and diversified seed and plant banks at the national, regional and international levels, and promote access to and fair and equitable sharing of benefits arising from the utilization of genetic resources and associated traditional knowledge, as internationally agreed
-    </div>
-    <div class="indicator-cards col-md-6 row no-gutters">
-    
+        
 
-      
-      
-      
-
-      <div class="col-md-12  goal-indicator">
-        <span class="indicator-card-number">
-          2.5.1
           
+          
+          
+          
+
+          <div class="row align-items-start goal-indicator">
+          
+            <div class="col-auto goal-page-indicator-number">
+              <h4>
+                <span class="indicator-number"><span class="visually-hidden">Indicator</span> 2.5.1</span>
+              </h4>
+            </div>
+            <div class="col goal-page-indicator-name">
+              
+              <span class="indicator-name"><a href="/en/2-5-1">Number of plant and animal genetic resources for food and agriculture secured in either medium- or long-term conservation facilities</a></span>
+              
+
+
+
+
+    <ul class="tags list-unstyled list-inline" aria-label="Tags"><li class="list-inline-item">
+        <span class="visually-hidden">Indicator status</span>
+        
+
 
 
 <span class="status notstarted">
-    Exploring data sources
+    <span class="status-inner">Exploring data sources</span>
 </span>
 
-        </span>
-        <a href="/en/2-5-1">
-          Number of plant and animal genetic resources for food and agriculture secured in either medium- or long-term conservation facilities
-        </a>
+
+        </li></ul>
+
+
+            </div>
+            
+            
+          </div>
         
 
-      </div>
-    
-
-      
-      
-      
-
-      <div class="col-md-12  goal-indicator">
-        <span class="indicator-card-number">
-          2.5.2
           
+          
+          
+          
+
+          <div class="row align-items-start goal-indicator">
+          
+            <div class="col-auto goal-page-indicator-number">
+              <h4>
+                <span class="indicator-number"><span class="visually-hidden">Indicator</span> 2.5.2</span>
+              </h4>
+            </div>
+            <div class="col goal-page-indicator-name">
+              
+              <span class="indicator-name"><a href="/en/2-5-2">Proportion of local breeds classified as being at risk of extinction</a></span>
+              
+
+
+
+
+    <ul class="tags list-unstyled list-inline" aria-label="Tags"><li class="list-inline-item">
+        <span class="visually-hidden">Indicator status</span>
+        
+
 
 
 <span class="status notstarted">
-    Exploring data sources
+    <span class="status-inner">Exploring data sources</span>
 </span>
 
-        </span>
-        <a href="/en/2-5-2">
-          Proportion of local breeds classified as being at risk of extinction
-        </a>
+
+        </li></ul>
+
+
+            </div>
+            
+            
+          </div>
+        
+        <hr class="goal-page-target-rule" />
+    
+      
+      <div class="row align-items-start goal-target">
+          <div class="col-auto goal-page-target-number">
+            <h3 class="goal-target">
+              <span class="target-number"><span class="visually-hidden">Target</span> 2.a</span>
+            </h3>
+          </div>
+          <div class="col goal-page-target-name">
+            <span class="target-name">Increase investment, including through enhanced international cooperation, in rural infrastructure, agricultural research and extension services, technology development and plant and livestock gene banks in order to enhance agricultural productive capacity in developing countries, in particular least developed countries</span>
+          </div>
+      </div>
         
 
-      </div>
-    
-    </div>
-  
-    
-    <div class="indicator-cards target goal-target col-md-6">
-      <span class="indicator-card-number">
-        <label class="hidden-md hidden-lg">Target</label>
-        2.a
-      </span>
-      Increase investment, including through enhanced international cooperation, in rural infrastructure, agricultural research and extension services, technology development and plant and livestock gene banks in order to enhance agricultural productive capacity in developing countries, in particular least developed countries
-    </div>
-    <div class="indicator-cards col-md-6 row no-gutters">
-    
-
-      
-      
-      
-
-      <div class="col-md-12  goal-indicator">
-        <span class="indicator-card-number">
-          2.a.1
           
+          
+          
+          
+
+          <div class="row align-items-start goal-indicator">
+          
+            <div class="col-auto goal-page-indicator-number">
+              <h4>
+                <span class="indicator-number"><span class="visually-hidden">Indicator</span> 2.a.1</span>
+              </h4>
+            </div>
+            <div class="col goal-page-indicator-name">
+              
+              <span class="indicator-name"><a href="/en/2-a-1">The agriculture orientation index for government expenditures</a></span>
+              
+
+
+
+
+    <ul class="tags list-unstyled list-inline" aria-label="Tags"><li class="list-inline-item">
+        <span class="visually-hidden">Indicator status</span>
+        
+
 
 
 <span class="status complete">
-    Reported
+    <span class="status-inner">Reported</span>
 </span>
 
-        </span>
-        <a href="/en/2-a-1">
-          The agriculture orientation index for government expenditures
-        </a>
+
+        </li></ul>
+
+
+            </div>
+            
+            
+          </div>
         
 
-      </div>
-    
-
-      
-      
-      
-
-      <div class="col-md-12  goal-indicator">
-        <span class="indicator-card-number">
-          2.a.2
           
+          
+          
+          
+
+          <div class="row align-items-start goal-indicator">
+          
+            <div class="col-auto goal-page-indicator-number">
+              <h4>
+                <span class="indicator-number"><span class="visually-hidden">Indicator</span> 2.a.2</span>
+              </h4>
+            </div>
+            <div class="col goal-page-indicator-name">
+              
+              <span class="indicator-name"><a href="/en/2-a-2">Total official flows (official development assistance plus other official flows) to the agriculture sector</a></span>
+              
+
+
+
+
+    <ul class="tags list-unstyled list-inline" aria-label="Tags"><li class="list-inline-item">
+        <span class="visually-hidden">Indicator status</span>
+        
+
 
 
 <span class="status notapplicable">
-    Not applicable
+    <span class="status-inner">Not applicable</span>
 </span>
 
-        </span>
-        <a href="/en/2-a-2">
-          Total official flows (official development assistance plus other official flows) to the agriculture sector
-        </a>
+
+        </li></ul>
+
+
+            </div>
+            
+            
+          </div>
+        
+        <hr class="goal-page-target-rule" />
+    
+      
+      <div class="row align-items-start goal-target">
+          <div class="col-auto goal-page-target-number">
+            <h3 class="goal-target">
+              <span class="target-number"><span class="visually-hidden">Target</span> 2.b</span>
+            </h3>
+          </div>
+          <div class="col goal-page-target-name">
+            <span class="target-name">Correct and prevent trade restrictions and distortions in world agricultural markets, including through the parallel elimination of all forms of agricultural export subsidies and all export measures with equivalent effect, in accordance with the mandate of the Doha Development Round</span>
+          </div>
+      </div>
         
 
-      </div>
-    
-    </div>
-  
-    
-    <div class="indicator-cards target goal-target col-md-6">
-      <span class="indicator-card-number">
-        <label class="hidden-md hidden-lg">Target</label>
-        2.b
-      </span>
-      Correct and prevent trade restrictions and distortions in world agricultural markets, including through the parallel elimination of all forms of agricultural export subsidies and all export measures with equivalent effect, in accordance with the mandate of the Doha Development Round
-    </div>
-    <div class="indicator-cards col-md-6 row no-gutters">
-    
-
-      
-      
-      
-
-      <div class="col-md-12  goal-indicator">
-        <span class="indicator-card-number">
-          2.b.1
           
+          
+          
+          
+
+          <div class="row align-items-start goal-indicator">
+          
+            <div class="col-auto goal-page-indicator-number">
+              <h4>
+                <span class="indicator-number"><span class="visually-hidden">Indicator</span> 2.b.1</span>
+              </h4>
+            </div>
+            <div class="col goal-page-indicator-name">
+              
+              <span class="indicator-name"><a href="/en/2-b-1">Agricultural export subsidies</a></span>
+              
+
+
+
+
+    <ul class="tags list-unstyled list-inline" aria-label="Tags"><li class="list-inline-item">
+        <span class="visually-hidden">Indicator status</span>
+        
+
 
 
 <span class="status notstarted">
-    Exploring data sources
+    <span class="status-inner">Exploring data sources</span>
 </span>
 
-        </span>
-        <a href="/en/2-b-1">
-          Agricultural export subsidies
-        </a>
+
+        </li></ul>
+
+
+            </div>
+            
+            
+          </div>
+        
+        <hr class="goal-page-target-rule" />
+    
+      
+      <div class="row align-items-start goal-target">
+          <div class="col-auto goal-page-target-number">
+            <h3 class="goal-target">
+              <span class="target-number"><span class="visually-hidden">Target</span> 2.c</span>
+            </h3>
+          </div>
+          <div class="col goal-page-target-name">
+            <span class="target-name">Adopt measures to ensure the proper functioning of food commodity markets and their derivatives and facilitate timely access to market information, including on food reserves, in order to help limit extreme food price volatility</span>
+          </div>
+      </div>
         
 
-      </div>
-    
-    </div>
-  
-    
-    <div class="indicator-cards target goal-target col-md-6">
-      <span class="indicator-card-number">
-        <label class="hidden-md hidden-lg">Target</label>
-        2.c
-      </span>
-      Adopt measures to ensure the proper functioning of food commodity markets and their derivatives and facilitate timely access to market information, including on food reserves, in order to help limit extreme food price volatility
-    </div>
-    <div class="indicator-cards col-md-6 row no-gutters">
-    
-
-      
-      
-      
-
-      <div class="col-md-12  goal-indicator">
-        <span class="indicator-card-number">
-          2.c.1
           
+          
+          
+          
+
+          <div class="row align-items-start goal-indicator">
+          
+            <div class="col-auto goal-page-indicator-number">
+              <h4>
+                <span class="indicator-number"><span class="visually-hidden">Indicator</span> 2.c.1</span>
+              </h4>
+            </div>
+            <div class="col goal-page-indicator-name">
+              
+              <span class="indicator-name"><a href="/en/2-c-1">Indicator of food price anomalies</a></span>
+              
+
+
+
+
+    <ul class="tags list-unstyled list-inline" aria-label="Tags"><li class="list-inline-item">
+        <span class="visually-hidden">Indicator status</span>
+        
+
 
 
 <span class="status notstarted">
-    Exploring data sources
+    <span class="status-inner">Exploring data sources</span>
 </span>
 
-        </span>
-        <a href="/en/2-c-1">
-          Indicator of food price anomalies
-        </a>
+
+        </li></ul>
+
+
+            </div>
+            
+            
+          </div>
         
 
-      </div>
-    
-
-      
-      
-      
-
-      <div class="col-md-12 indicator-national goal-indicator">
-        <span class="indicator-card-number">
-          2.c.1.1b
           
+          
+          
+          
+
+          <div class="row align-items-start goal-indicator">
+          
+            <div class="col-auto goal-page-indicator-number">
+              <h4>
+                <span class="indicator-number"><span class="visually-hidden">Indicator</span> 2.c.1.1b</span>
+              </h4>
+            </div>
+            <div class="col goal-page-indicator-name">
+              
+              <span class="indicator-name"><a href="/en/2-c-1-1b">Consumer price index for food products</a></span>
+              
+
+
+
+
+    <ul class="tags list-unstyled list-inline" aria-label="Tags"><li class="list-inline-item">
+        <span class="visually-hidden">Indicator status</span>
+        
+
 
 
 <span class="status complete">
-    Reported
+    <span class="status-inner">Reported</span>
 </span>
 
-        </span>
-        <a href="/en/2-c-1-1b">
-          Consumer price index for food products
-        </a>
-        
-    <span class="sr-only">Tags</span>
-    <span class="tags">
-    
+
+        </li><li class="list-inline-item">
         
         <span class="tag tag-national">National</span>
-    
-    </span>
+        </li></ul>
 
 
-      </div>
+            </div>
+            
+            
+          </div>
+        
+        <hr class="goal-page-target-rule" />
     
-    </div>
-  
+  </div>
+  <a href="#top">Back to top</a>
 </div>
 
+
 <footer role="contentinfo">
-  <div class="container">
-    <div class="row">
-      <div class="col-xs-12">
-        <div id="footerLinks">
-          <ul>
-            <li><a href="https://open-sdg.org">Built using Open SDG</a></li>
-            
-              <li>
-                
-                  <a href="mailto:sdg_nsc@stat.kg" target="_blank">Contact us</a>
-                
-                </li>
-              <li>
-                <a href="/en/about/cookies-and-privacy">Cookies</a>
-                
-                </li>
-              
-            
-            </ul>
+    <div class="container">
+        <div class="row">
+            <div class="col">
+                <div id="footerLinks">
+                    <ul>
+                        <li>
+                            <a href="https://open-sdg.org">Built using Open SDG</a>
+                        </li>
+                        
+                        <li>
+                            
+                            <a href="mailto:sdg_nsc@stat.kg" target="_blank">Contact us</a>
+                            
+                        </li>
+                        <li>
+                            <a href="/en/about/cookies-and-privacy">Cookies</a>
+                            
+                        </li>
+                        
+                        
+                        </ul>
+                </div>
+            </div>
         </div>
-      </div>
+        
     </div>
-  </div>
 </footer>
 
 <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
-<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
-<script src="//cdn.datatables.net/1.10.16/js/jquery.dataTables.min.js"></script>
-<script src="//cdn.datatables.net/1.10.16/js/dataTables.bootstrap.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+<script src="https://cdn.datatables.net/1.11.5/js/jquery.dataTables.min.js"></script>
+<script src="https://cdn.datatables.net/1.11.5/js/dataTables.bootstrap5.min.js"></script>
 <script src="//cdn.datatables.net/fixedcolumns/3.2.3/js/dataTables.fixedColumns.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/4.17.20/lodash.min.js" integrity="sha512-90vH1Z83AJY9DmlWa8WkjkV79yfS2n2Oxhsi2dZbIv0nC4E6m5AbH8Nh156kkM7JePmqD6tcZsfad1ueoaovww==" crossorigin="anonymous"></script>
-<script src="//cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.bundle.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/chart.js@3.7.0/dist/chart.min.js" integrity="sha256-Y26AMvaIfrZ1EQU49pf6H4QzVTrOI8m9wQYKkftBt4s=" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/patternomaly@1.3.2/dist/patternomaly.js"></script>
 
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/autotrack/2.4.1/autotrack.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/html2canvas@1.0.0-rc.3/dist/html2canvas.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/file-saver@2.0.2/dist/FileSaver.min.js"></script>
+
+
+
+
+
+  <script >
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-155242465-1', 'auto');
+ga('require', 'eventTracker', {
+    attributePrefix: 'data-'
+});
+// anonymize user IPs (chops off the last IP triplet)
+ga('set', 'anonymizeIp', true);
+// forces SSL even if the page were somehow loaded over http://
+ga('set', 'forceSSL', true);
+ga('send', 'pageview');
+</script>
+
+
+
 <script>translations['general'] = translations['general'] || {};
     translations['general']['hide'] = 'hide';</script>
 
 <script>translations['search'] = translations['search'] || {};
     translations['search']['search'] = 'Search';</script>
 
-<script src='/assets/js/sdg.js?v=20220531111706'></script>
+<script src='/assets/js/sdg.js?v=20220815134908'></script>
 
 
     
     
-    <script src="/assets/js/custom.js?v=20220531111706"></script><script>
-$(function() {
-    if($('#indicatorData').length) {
-      var domData = $('#indicatorData').data();
-
-      if (domData.showdata) {
-
-        $('.async-loading').each(function(i, obj) {
-            $(obj).append($('<img />').attr('src', $(obj).data('img')).attr('alt', translations.indicator.loading));
-        });
-
-        var remoteUrl = '/comb/' + domData.id + '.json';
-        if (opensdg.remoteDataBaseUrl !== '/') {
-          remoteUrl = opensdg.remoteDataBaseUrl + remoteUrl;
-        }
-
-        $.ajax({
-          url: remoteUrl,
-          success: function(res) {
-
-            $('.async-loading').remove();
-            $('.async-loaded').show();
-
-            var model = new indicatorModel({
-              data: res.data,
-              edgesData: res.edges,
-              showMap: domData.showmap,
-              country: domData.country,
-              indicatorId: domData.indicatorid,
-              shortIndicatorId: domData.id,
-              chartTitle: domData.charttitle,
-              chartTitles: domData.charttitles,
-              measurementUnit: domData.measurementunit,
-              showData: domData.showdata,
-              graphType: domData.graphtype,
-              startValues: domData.startvalues,
-              graphLimits: domData.graphlimits,
-              stackedDisaggregation: domData.stackeddisaggregation,
-              graphAnnotations: domData.graphannotations,
-              indicatorDownloads: domData.indicatordownloads,
-              dataSchema: domData.dataschema,
-              compositeBreakdownLabel: domData.compositebreakdownlabel,
-              precision: domData.precision,
-            }),
-            view  = new indicatorView(model, {
-              rootElement: '#indicatorData',
-              legendElement: '#plotLegend',
-              decimalSeparator: '',
-              maxChartHeight: 420,
-              tableColumnDefs: [
-                { maxCharCount: 25 }, // nowrap
-                { maxCharCount: 35, width: 200 },
-                { maxCharCount: Infinity, width: 250 }
-              ]
-            }),
-            controller = new indicatorController(model, view);
-            controller.initialise();
-          }
-        });
-      }
-    }
-
-    var switcher = new accessibilitySwitcher();
-
-
-});
-</script>
-
-
-
-<script>
-  initialiseGoogleAnalytics();
+    <script src="/assets/js/custom.js?v=20220815134908"></script><script>
+    new indicatorInit();
+    new accessibilitySwitcher();
 </script>
 
 
 </body>
 </html>
-

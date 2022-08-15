@@ -3,7 +3,7 @@
     <head>
         <meta charset="utf-8">
         <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.min.js"></script>
-        <script crossorigin="anonymous" src="https://polyfill.io/v3/polyfill.min.js?features=Promise%2CArray.prototype.forEach%2CString.prototype.includes%2CURLSearchParams%2CCustomEvent%2CArray.prototype.includes%2CArray.prototype.filter%2CArray.prototype.some%2CArray.prototype.find%2CArray.prototype.reduce%2CObject.assign%2CArray.isArray%2CObject.values%2CArray.from%2CSet%2CArray.prototype.findIndex"></script>
+        <script crossorigin="anonymous" src="https://polyfill.io/v3/polyfill.min.js?features=Promise%2CArray.prototype.forEach%2CString.prototype.includes%2CURLSearchParams%2CCustomEvent%2CArray.prototype.includes%2CArray.prototype.filter%2CArray.prototype.some%2CArray.prototype.find%2CArray.prototype.reduce%2CObject.assign%2CArray.isArray%2CObject.values%2CObject.entries%2CArray.from%2CSet%2CArray.prototype.findIndex"></script>
 <script crossorigin="anonymous" src="https://cdnjs.cloudflare.com/ajax/libs/javascript-canvas-to-blob/3.15.0/js/canvas-to-blob.min.js"></script>
 
         <script>
@@ -40,10 +40,6 @@ var opensdg = {
 
   language: 'ru',
 };
-
-// For backwards compatibility, some of these might need to be global.
-// @TODO: Remove these eventually.
-var remoteDataBaseUrl = opensdg.remoteDataBaseUrl;
 
 </script>
 
@@ -121,26 +117,31 @@ var translations = {
         <script src="/assets/js/lib/classList.js"></script>
         <![endif]-->
 
-        <!-- Favicons ================================================== -->
-        <!-- 128x128 -->
-        <link rel="shortcut icon" type="image/ico" href="/assets/img/favicons/favicon.ico">
-        <link rel="icon" type="image/png" href="/assets/img/favicons/favicon.png"><!-- 192x192, as recommended for Android
-        http://updates.html5rocks.com/2014/11/Support-for-theme-color-in-Chrome-39-for-Android
-        -->
+        <link rel="apple-touch-icon" sizes="180x180" href="/assets/img/favicons/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/assets/img/favicons/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/assets/img/favicons/favicon-16x16.png">
+<link rel="icon" type="image/x-icon" href="/assets/img/favicons/favicon.ico" />
+
 
         
-        <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css" crossorigin="">
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+        <link res="stylesheet" href="https://cdn.datatables.net/1.11.5/css/dataTables.bootstrap5.min.css">
         <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" crossorigin="">
         <link rel="stylesheet" href="https://cdn.datatables.net/fixedcolumns/3.2.3/css/fixedColumns.dataTables.min.css" crossorigin="">
-        <link rel="stylesheet" href="/assets/css/style.css?v=20220531111706">
-        <link href="https://fonts.googleapis.com/css?family=Open+Sans|Roboto" rel="stylesheet" crossorigin="">
+        <link rel="stylesheet" href="/assets/css/style.css?v=20220815134908">
         <link rel="stylesheet" href="https://unpkg.com/leaflet@1.3.4/dist/leaflet.css"
           integrity="sha512-puBpdR0798OZvTTbP4A8Ix/l+A4dHDD0DGqYW6RQ+9jxkRFclaxxQb/SJAWZfWAkuyeQUytO7+7N4QKrDh+drA=="
           crossorigin=""/>
         <link rel="stylesheet" href="https://cdn.rawgit.com/socib/Leaflet.TimeDimension/master/dist/leaflet.timedimension.control.min.css"  crossorigin=""/>
         <link rel="stylesheet" href='https://api.mapbox.com/mapbox.js/plugins/leaflet-fullscreen/v1.0.1/leaflet.fullscreen.css'  crossorigin=""/>
         <link rel="stylesheet" href="https://bowercdn.net/c/leaflet.zoomhome-latest/dist/leaflet.zoomhome.css"  crossorigin=""/>
-        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet-search@2.9.7/dist/leaflet-search.min.css" crossorigin=""><link rel="stylesheet" href="/assets/css/custom.css?v=20220531111706"><!-- ShareThis BEGIN --><!-- ShareThis END -->
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet-search@2.9.7/dist/leaflet-search.min.css" crossorigin="">
+        <link rel="stylesheet" href="https://cdn.kiprotect.com/klaro/v0.7/klaro.min.css" crossorigin=""/><link rel="stylesheet" href="/assets/css/custom.css?v=20220815134908">
+        
+
+        <!--[if IE]>
+        <link rel="stylesheet" href="/assets/css/ie.css">
+        <![endif]-->
 
         
 
@@ -152,29 +153,67 @@ layout-indicator
 
 <script>translations['header'] = {"alpha":"Альфа","default_contrast":"стандартный контраст","disable_high_contrast":"Отключить высокую контрастность","disclaimer":"Это сайт находится в разработке. Мы рады вашим отзывам.","enable_high_contrast":"Включить высокую контрастность","high_contrast":"высокий контраст","skip_link":"Перейти к главному содержанию","tag_line":"17 Целей, чтобы преобразовать наш мир","toggle_menu":"Переключайте меню. Нажмите, чтобы развернуть или свернуть меню.","toggle_search":"Поисковая переключатель. Нажмите, чтобы развернуть или свернуть панель поиска."};</script>
 
-<a class="sr-only sr-only-focusable" id="skiplink" href="#main-content" tabindex="0">Перейти к главному содержанию</a>
+<a class="sr-only-focusable" id="skiplink" href="#main-content" tabindex="0">Перейти к главному содержанию</a>
+<div class="container internet-explorer-message">
+    <h2 class="internet-explorer-message-title"></h2>
+    <p class="internet-explorer-message-body"></p>
+</div>
 <div id="disclaimer">
-  <div class="container">
+    
+<div class="container">
   <div class="disclaimer-alert">
     <strong class="phase-tag">Альфа</strong>
     
     Это сайт находится в разработке. Мы рады вашим отзывам.
+    
   </div>
 </div>
 
 </div>
-<header role="banner">
-  <div class="container">
-    <a class="navbar-brand" style="max-width: 50px" target="_blank" href="http://www.stat.kg/">
-      <img alt="Цели в области устойчивого развития - 17 Целей, чтобы преобразовать наш мир" style="width: auto; height: 40px" src="/assets/img/favicons/android-chrome-192x192.png" />
-    </a>
-    <a class="navbar-brand" href="/" id="home">
-      <img src="/assets/img/SDG_logo_ru.png"
-           alt="Цели в области устойчивого развития - 17 Целей, чтобы преобразовать наш мир"/>
-    </a>
-    <div class='hidden visible-xs float-right'>
-      <ul id='accessibility-nav' class='contrast-switcher'></ul><div class="language-toggle-mobile">
-        
+
+<header role="banner" class="">
+    <div class="container">
+        <nav class="navbar navbar-expand-lg navbar-light flex-wrap align-items-start">
+            <a class="navbar-brand" style="max-width: 50px" target="_blank" href="http://www.stat.kg/">
+  <img alt="Цели в области устойчивого развития - 17 Целей, чтобы преобразовать наш мир" style="width: auto; height: 40px" src="/assets/img/favicons/android-chrome-192x192.png" />
+</a>
+<a class="navbar-brand" href="/" id="home">
+  <img src="/assets/img/SDG_logo.png" alt="Цели в области устойчивого развития - 17 Целей, чтобы преобразовать наш мир" />
+</a>
+
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="d-flex flex-wrap w-100 justify-content-between">
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav" id="menu"><li class="nav-item ">
+    <a class="nav-link" href="/reporting-status">Состояние отчётности</a>
+</li><li class="nav-item ">
+    <a class="nav-link" href="/news">Новости</a>
+</li><li class="nav-item ">
+    <a class="nav-link" href="/publications">Публикации</a>
+</li><li class="nav-item ">
+    <a class="nav-link" href="/about">О нас</a>
+</li><li class="nav-item ">
+    <a class="nav-link" href="/faq">Часто задаваемые вопросы</a>
+</li></ul>
+    
+                </div>
+                <div class="header-search-bar">
+                    <form class="align-self-lg-end" id="search" action="/search/">
+    <div class="input-group">
+        <label class="visually-hidden" for="indicator_search">Поиск</label>
+        <input class="form-control" type="search" name="q" id="indicator_search" title="Поиск">
+        <span class="input-group-append">
+            <button class="btn btn-outline-secondary ms-n5" aria-label="Поиск" id="search-btn" type="submit">
+                <i class="fa fa-search"></i>
+            </button>
+        </span>
+    </div>
+</form>
+
+                </div>
+                <div class="header-toggles d-flex">
 
 
 
@@ -182,12 +221,13 @@ layout-indicator
 
   <div class="language-toggle-container">
   
-  <div class="btn-group language-toggle-dropdown ">
-    <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-      <span class="language-globe-in-dropdown"><i class="fa fa-globe language-toggle-globe-dropdown"></i></span><span class="language-name">Pусский</span>
-      <span class="language-abbreviation">ru</span><i class="language-toggle-caret fa fa-chevron-down"></i></button>
+  <div class="btn-group language-toggle-dropdown  dropdown">
+    <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+      <i class="fa fa-globe"></i>
+      Pусский
+    </button>
     <ul class="dropdown-menu"><li>
-            <a href="/en/8-3-1-2/">
+            <a class="dropdown-item" href="/en/8-3-1-2/">
               English
             </a>
           </li></ul>
@@ -196,67 +236,36 @@ layout-indicator
 
 
 
-      </div></div>
-    <nav class="navbar navbar-default" id="main-nav">
-      <ul class="top-level">
-        <li id="menuToggle"
-            aria-label="Menu toggle. Click to expand or collapse the menu."
-            aria-haspopup="true"
-            aria-expanded="false">
-          <span data-target="menu" tabindex="0" role="navigation">Меню</span>
-        </li>
-        <li><span data-target="search">Поиск</span></li>
-      </ul>
-      <div id="search" class="menu-target">
-  <form action="/search/">
-    <label class="sr-only" for="indicator_search">Поиск</label>
-    <input type="text" name="q" id="indicator_search" title="Поиск" /><!--
-    --><button aria-label="Поиск" id="search-btn" type="submit"><i class="fa fa-search" aria-hidden="false"></i></button>
-  </form>
-</div>
-
-      <ul class="nav navbar-nav menu-target contrast-switcher" id="menu"><li class="nav-link ">
-          <a href="/reporting-status">Состояние отчётности</a>
-        </li><li class="nav-link ">
-          <a href="/news">Новости</a>
-        </li><li class="nav-link ">
-          <a href="/publications">Публикации</a>
-        </li><li class="nav-link ">
-          <a href="/about">О нас</a>
-        </li><li class="nav-link ">
-          <a href="/faq">Часто задаваемые вопросы</a>
-        </li><li>
-          
-
-
-
-
-
-  <div class="language-toggle-container">
-  
-  <div class="btn-group language-toggle-dropdown ">
-    <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-      <span class="language-globe-in-dropdown"><i class="fa fa-globe language-toggle-globe-dropdown"></i></span><span class="language-name">Pусский</span>
-      <span class="language-abbreviation">ru</span><i class="language-toggle-caret fa fa-chevron-down"></i></button>
-    <ul class="dropdown-menu"><li>
-            <a href="/en/8-3-1-2/">
-              English
+                    <span class="no-js-language-toggle"><div class="language-toggle-container d-flex">
+    <i class="fa fa-globe language-toggle-globe-links"></i>
+    <ul class="language-toggle-links list-unstyled list-inline"><li class="language-option-en list-inline-item">
+            <a class="language-toggle-link" href="/en/8-3-1-2/">
+                English
             </a>
-          </li></ul>
-  </div>
-</div>
-
-
-
         </li></ul>
-    </nav>
-  </div>
+</div></span><a title="Включить высокую контрастность" aria-label="Включить высокую контрастность"
+    data-contrast-switch-to="" href="javascript:void(0)" data-on="click"
+data-event-category="Accessibility"
+data-event-action="Change contrast setting"
+data-event-label="high"
+>A</a>
+                </div>
+            </div>
+        </nav>
+    </div>
 </header>
+<div id="top" tabindex=-1></div>
+
 
 
 <script type="text/template" id="item_template">
   <% _.each(fields, function(fieldItem) { %>
-    <div class="variable-selector<% if(allowedFields.indexOf(fieldItem.field) == -1) { %> disallowed child<% }%>" data-field="<%=fieldItem.field%>">
+    <div class="variable-selector
+      <% if(allowedFields.indexOf(fieldItem.field) == -1) { %> disallowed <% }%>
+      <% if (typeof childFields !== 'undefined' && childFields.indexOf(fieldItem.field) !== -1) { %> child <% }%>
+      "
+      data-field="<%=fieldItem.field%>"
+    >
       <button class='accessBtn' tabindex='0' aria-expanded='false'
         <% if(allowedFields.indexOf(fieldItem.field) == -1) { %>
         aria-describedby='variable-hint-<%=fieldItem.field.replace(/ /g, '-')%>'
@@ -295,7 +304,7 @@ layout-indicator
 </script>
 
 <script type="text/template" id="units_template">
-  <% if(units.length) { %>
+  
     <h4>Единица измерения</h4>
     <fieldset>
       <legend class="sr-only">Единица измерения</legend>
@@ -304,11 +313,11 @@ layout-indicator
         <label><input type="radio" name="unit" value="<%=unitsItem%>" tabindex=0 <%=checked ? 'checked' : ''%> /> <%=translations.t(unitsItem)%></label>
       <% }); %>
     </fieldset>
-  <% } %>
+  
 </script>
 
 <script type="text/template" id="series_template">
-  <% if(serieses.length) { %>
+  
     <h4>Серии</h4>
     <fieldset>
       <legend class="sr-only">Серии</legend>
@@ -317,7 +326,7 @@ layout-indicator
         <label><input type="radio" name="series" value="<%=seriesItem%>" tabindex=0 <%=checked ? 'checked' : ''%> /> <%=translations.t(seriesItem)%></label>
       <% }); %>
     </fieldset>
-  <% } %>
+  
 </script>
 
 <script>translations['indicator'] = {"annotation_2030_target":"2030 год Цель","announce_data_added":"Обновлены диаграмма и таблица для включения данных.","announce_data_not_available":"Диаграмма и таблица не содержат данных.","announce_data_removed":"Обновлены диаграмма и таблица для исключения данных.","chart":"График","chart_annotation":"Диаграмма аннотация","clear_all":"Очистить всё","clear_selections":"Очистить выделенное","data_keyboard_navigation":"Нажмите клавишу Enter для просмотра точек данных с помощью клавиш со стрелками вправо и влево.","data_not_available":"Эти данные не доступны. Пожалуйста, выберите альтернативные данные для отображения.","data_tabular_alternative":"Альтернативный вариант табличных данных см. в таблице табличных данных.","dataset_size_warning":"В таблице слишком много данных, чтобы показать в графике. Чтобы увидеть все, удалите выделенное.","download_chart":"Скачать график CSV","download_chart_image":"Загрузить изображение диаграммы","download_chart_image_title":"Скачать диаграмму как изображение","download_csv":"Скачать CSV","download_csv_title":"Скачать в формате CSV","download_geojson":"Скачать GeoJSON","download_geojson_title":"Скачать в формате GeoJSON","download_headline":"Скачать заголовки CSV","download_headline_title":"Скачать данные заголовков в формате CSV","download_source":"Скачать исходные CSV","download_source_excel":"Скачать исходные Excel","download_source_sdmx":"Скачать исходные SDMX","download_source_sdmx_title":"Скачать исходные данные в формате SDMX","download_source_title":"Скачать исходные данные в формате CSV","download_table":"Скачать табличные CSV","edit":"Редактировать","edit_configuration":"Редактировать Конфигурация","edit_data":"Редактировать данные","edit_metadata":"Редактировать метаданные","footnote":"Сноска","geographical_area":"Географический район","global_metadata":"Глобальные метаданные","global_metadata_blurb":"В этой таблице представлена информация для метаданных показателей ЦУР, определенных Статистической комиссией ООН. Полные глобальные метаданные представлены Статистическим отделом ООН.","legend_help":"Нажмите на легенду, чтобы убрать линии из графика.","loading":"Загрузка","loading_map":"Загрузка карты","map":"Карта","map_search":"Поиск","map_search_hide":"Скрыть поиск","map_search_show":"Показать поиск","map_year_slider":"Годовой слайдер","national_metadata":"Национальные метаданные","national_metadata_blurb":"В этой таблице представлены метаданные для фактического показателя, доступного из статистики ближайшей к соответствующему глобальному индикатору ЦУР. Обратите внимание, что даже если глобальный индикатор ЦУР полностью доступен из статистики, по этой таблице следует проконсультироваться для получения информации о национальной методологии и других специфичных метаданных.","next":"Следующий индикатор","no_data_hint":"Нет имеющихся вариантов из-за фильтров наверху.","plot_legend_description":"Легенда сюжета: список линий, включенных в график","previous":"Предыдущий показатель","select_all":"Выделить всё","series":"Серии","series_help":"Выберите категории из выпадающего меню внизу, чтобы увидеть разные разбивки данных. Несколько не будет доступно, пока более высокий уровень не выбран. ","source":"Источник","sources":"Источники","status":"Состояние индикатора","sub_categories":"Субкатегории","sub_categories_show":"Показать подкатегории:","table":"Таблица","table_column_sort":"Нажмите, чтобы отсортировать по этой колонке","tags":"Теги","unit":"Единица","unit_of_measurement":"Единица измерения","units_type":"Вид единиц","variable_hint":"Доступно, когда выбрано","view_indicator_list":"Посмотреть список индикаторов этой цели"};</script>
@@ -327,42 +336,52 @@ layout-indicator
 
 <div class="container">
   
-<ol class="breadcrumb">
-  
-  <li><a href="/">Главная</a></li>
-  <li><a href="/8" title="Содействие поступательному, всеохватному и устойчивому экономическому росту, полной и производительной занятости и достойной работе для всех">Цель 8</a></li>
-  <li class="active">показатель 8.3.1.2</li>
-  
-</ol>
+<nav>
+    <ol aria-label="breadcrumb" class="breadcrumb" style="--bs-breadcrumb-divider: '&rsaquo;';">
+        
+        <li class="breadcrumb-item">
+            <a href="/">Главная</a>
+        </li>
+        <li class="breadcrumb-item">
+            <a href="/8" title="Содействие поступательному, всеохватному и устойчивому экономическому росту, полной и производительной занятости и достойной работе для всех">Цель 8</a>
+        </li>
+        <li class="breadcrumb-item active">показатель 8.3.1.2</li>
+        
+    </ol>
+</nav>
 
 
   
 </div>
 <div class="heading goal-banner indicator goal-8">
-  <div class="container">
-    <div class="row">
-      
-      <div class="col-xs-4 col-md-3 col-lg-2 goal-icon goal-tiles">
-        <a href="/8" title="Посмотреть список индикаторов этой цели">
-          <img src="https://sdg-kyrgyzstan.github.io/open-sdg-site-starter/assets/img/goals/ru/8.png" alt="Достойна работа и экономический рост - Цель 8" id="goal-8" class="goal-icon-image goal-icon-image-"/>
-        </a>
-      </div>
-      <div class="col-xs-8 col-md-9 col-lg-10 indicator-details">
-      
-        <div>
-          <h1>
+    <div class="container">
+        <div class="row">
             
-            показатель 8.3.1.2
+            <div class="col-4 col-md-3 col-lg-2 goal-icon goal-tiles">
+                <a href="/8" title="Посмотреть список индикаторов этой цели">
+                    <img src="https://sdg-kyrgyzstan.github.io/open-sdg-site-starter/assets/img/goals/ru/8.png"
+                        alt="Достойна работа и экономический рост - Цель 8"
+                        id="goal-8"
+                        class="goal-icon-image goal-icon-image-" />
+                </a>
+            </div>
+            <div class="col-8 col-md-9 col-lg-10 indicator-details">
             
-            <span class="lead-copy">Доля занятых в малых и средних предприятиях от всего занятого населения в экономике</span>
-          </h1>
+                <div>
+                    <h1>
+                        
+                        показатель 8.3.1.2
+                        
+                        <span class="lead-copy">Доля занятых в малых и средних предприятиях от всего занятого населения в экономике</span>
+                    </h1>
+                </div>
+            </div>
         </div>
-      </div>
     </div>
-  </div>
 </div>
-
 <div id="main-content" class="container goal-8" role="main">
+  
+
   
 
   
@@ -382,21 +401,25 @@ layout-indicator
   data-charttitle="Доля занятых в малых и средних предприятиях от всего занятого населения в экономике"
   data-charttitles="null"
   data-measurementunit=""
+  data-xaxislabel=""
   data-showdata="true"
   data-graphtype="bar"
+  data-graphtypes="null"
   data-geocoderegex=""
   data-showmap=""
   data-startvalues="null"
   data-graphlimits="null"
   data-stackeddisaggregation=""
   data-graphannotations="null"
+  data-graphtargetlines="null"
+  data-graphseriesbreaks="null"
   data-indicatordownloads="{&quot;indicator.download_source_excel&quot;:{&quot;href&quot;:&quot;downloads/data-excel/8.3.1.2.xlsx&quot;},&quot;indicator.download_source_sdmx&quot;:{&quot;href&quot;:&quot;downloads/data-sdmx/8.3.1.2.xml&quot;}}"
   data-dataschema="{&quot;fields&quot;:[{&quot;name&quot;:&quot;SERIES&quot;,&quot;type&quot;:&quot;string&quot;,&quot;title&quot;:&quot;Ряды ЦУР&quot;},{&quot;name&quot;:&quot;Value&quot;,&quot;type&quot;:&quot;number&quot;,&quot;title&quot;:&quot;Value&quot;},{&quot;name&quot;:&quot;Year&quot;,&quot;type&quot;:&quot;string&quot;,&quot;title&quot;:&quot;Year&quot;}]}"
   data-compositebreakdownlabel=""
   data-precision="null"
 >
   
-  <span role="status" class="sr-only" id="indicator-data-view-status"></span>
+  <span role="status" class="visually-hidden" id="indicator-data-view-status"></span>
   <div id="indicator-sidebar" class="indicator-sidebar col-md-3">
     <div id="serieses"></div>
 <div id="units"></div>
@@ -415,15 +438,21 @@ layout-indicator
     
 
 
+
+
 <div id="headlineTable">
 
   <div id="datatables">
 
+    
     <a href="https://sustainabledevelopment-kyrgyzstan.github.io/sdg-data/ru/headline/8-3-1-2.csv" class="btn btn-primary btn-download" download="indicator_8-3-1-2.csv" tabindex="0" role="button">Скачать заголовки CSV</a>
+    
+    <a href="https://sustainabledevelopment-kyrgyzstan.github.io/sdg-data/ru/data/8-3-1-2.csv" class="btn btn-primary btn-download" download='indicator_8-3-1-2.csv' tabindex='0' role='button'>Скачать исходные CSV</a>
 
-    <a href="https://sustainabledevelopment-kyrgyzstan.github.io/sdg-data/ru/data/8-3-1-2.csv" class="btn btn-primary btn-download" style='float:left;margin-right:1em' download='indicator_8-3-1-2.csv' tabindex='0' role='button'>Скачать исходные CSV</a>
+    <p class="no-js-disaggregation-hint"></p>
 
-    <h3>Headline data</h3>
+    
+    <h3></h3>
     <table class="table-responsive table table-hover dataTable no-footer" role="grid">
       <caption>Доля занятых в малых и средних предприятиях от всего занятого населения в экономике</caption>
       <thead>
@@ -437,7 +466,7 @@ layout-indicator
         
         
         
-        <th scope="col" class="table-value">{"AG_FLS_IDX"=>"Глобальный индекс потерь продовольствия", "AG_FPA_CFPI"=>"Индекс потребительских цен на продукты питания", "AG_FPA_COMM"=>"Показатель ценовых аномалий на рынке продовольствия (IFPA)", "AG_LND_DGRD"=>"Площадь деградировавших земель в процентном отношении к общей площади суши", "AG_LND_FRST"=>"Площадь лесов в процентном отношении к общей площади суши", "AG_LND_FRSTBIOM"=>"Надземная биомасса в лесу (тонн)", "AG_LND_FRSTBIOPHA"=>"Надземная биомасса в лесу на гектар (тонн на гектар)", "AG_LND_FRSTCERT"=>"Лесная площадь, сертифицированная согласно независимой проверенной схеме сертификации (гектаров)", "AG_LND_FRSTCHG"=>"Чистый коэффициент изменения площади лесов (%)", "AG_LND_FRSTMGT"=>"Доля лесных площадей с долгосрочным планом управления", "AG_LND_FRSTN"=>"Площадь лесов (гектаров)", "AG_LND_FRSTPRCT"=>"Доля лесных площадей в установленных законом охраняемых районах", "AG_LND_FRSTPRCTN"=>"Лесные площади в установленных законом охраняемых районах", "AG_LND_SUST"=>"Доля площади сельскохозяйственных угодий, на которых применяются продуктивные и неистощительные методы ведения сельского хозяйства ", "AG_LND_TOTL"=>"Общая площадь суши (гектаров)", "AG_PRD_AGVAS"=>"Доля добавленной стоимости сельского хозяйства в ВВП", "AG_PRD_FIESMS"=>"Уровень умеренного или острого отсутствия продовольственной безопасности населения", "AG_PRD_FIESMSN"=>"Население в условиях умеренного или острого отсутствия продовольственной безопасности (число)", "AG_PRD_FIESMSTN"=>"Население, проживающее в домохозяйствах, где по крайней мере один взрослый находился в условиях умеренного или острого отсутствия продовольственной безопасности ", "AG_PRD_FIESS"=>"Распространенность острого отсутствия продовольственной безопасности населения", "AG_PRD_FIESSN"=>"Население, испытывающее острое отсутствие продовольственной безопасности  (число)", "AG_PRD_FIESSTN"=>"Население, проживающее в домохозяйствах, где по крайней мере один взрослый находился в условиях острого отсутствия продовольственной безопасности (число)", "AG_PRD_ORTIND"=>"Индекс ориентированности на сельское хозяйство, определяемый по структуре государственных расходов", "AG_PRD_XSUBDY"=>"Субсидирование экспорта сельскохозяйственной продукции ", "AG_XPD_AGSGB"=>"Доля сельского хозяйства в государственных расходах", "BX_TRF_PWKR"=>"Объем переводов (в долларах США) в процентном отношении к ВВП", "DC_CLC_100B"=>"Сумма (в долл. США), мобилизованная за год с 2020 по 2025 год в соответствии с обязательством по мобилизации 100 млрд. долл. США", "DC_CST_EFICP"=>"Доля финансовой поддержки наименее развитых стран, выделяемой на строительство экологичных, прочных и ресурсосберегающих зданий и переоборудование зданий для обеспечения их экологичности, прочности и экономии ресурсов с использованием местных материалов", "DC_FTA_TOTAL"=>"Общая официальная помощь в целях развития (валовые расходы) на техническое сотрудничество", "DC_ODA_BDVDL"=>"Общая официальная помощь в целях развития для сохранения биоразнообразия, по странам-донорам", "DC_ODA_BDVL"=>"Общая официальная помощь в целях развития для сохранения биоразнообразия, по странам-получателям", "DC_ODA_LDCG"=>"Чистый объем официальной помощи в целях развития, выделяемой наименее развитым странам, в процентном отношении к валовому национальному доходу доноров-членов Комитета содействия развитию Организации экономического сотрудничества и развития (ОЭСР), по странам-донорам", "DC_ODA_LDCS"=>"Чистый объем официальной помощи в целях развития, выделяемой наименее развитым странам, от доноров-членов Комитета содействия развитию Организации экономического сотрудничества и развития (ОЭСР), по странам-донорам", "DC_ODA_LLDC"=>"Чистый объем официальной помощи в целях развития, выделяемой не имеющим выхода к морю развивающимся странам, от доноров-членов Комитета содействия развитию Организации экономического сотрудничества и развития (ОЭСР), по странам-донорам", "DC_ODA_LLDCG"=>"Чистый объем официальной помощи в целях развития, выделяемой не имеющим выхода к морю развивающимся странам, в процентном отношении к валовому национальному доходу доноров-членов Комитета содействия развитию Организации экономического сотрудничества и развития (ОЭСР), по странам-донорам", "DC_ODA_SIDS"=>"Чистый объем официальной помощи в целях развития, выделяемой малым островным государствам, от доноров-членов Комитета содействия развитию Организации экономического сотрудничества и развития (ОЭСР), по странам-донорам", "DC_ODA_SIDSG"=>"Чистый объем официальной помощи в целях развития, выделяемой малым островным государствам, в процентном отношении к валовому национальному доходу доноров-членов Комитета содействия развитию Организации экономического сотрудничества и развития (ОЭСР), по странам-донорам", "DC_ODA_TOTG"=>"Чистый объем официальной помощи в целях развития в процентном отношении к валовому национальному доходу доноров-членов Комитета содействия развитию Организации экономического сотрудничества и развития (ОЭСР), по странам-донорам", "DC_ODA_TOTL"=>"Чистый объем официальной помощи в целях развития от доноров-членов Комитета содействия развитию Организации экономического сотрудничества и развития (ОЭСР), по странам-донорам", "DC_SCP_RANDN"=>"Объем помощи развивающимся странам в сфере научно-исследовательских и опытно-конструкторских разработок в интересах обеспечения рационального потребления и производства и внедрения экологически безопасных технологий", "DC_TOF_AGRL"=>"Совокупный приток официальных средств в сельское хозяйство, в разбивке по получателям ", "DC_TOF_ENVTECH"=>"Общая сумма утвержденного финансирования для развивающихся стран в целях содействия разработке, передаче, распространению и освоению экологически безопасных технологий", "DC_TOF_HLTHL"=>"Общие валовые официальные выплаты, направленные на медицинские исследования и в основные отрасли здравоохранения, по получателям ", "DC_TOF_HLTHNT"=>"Общий чистый объем официальных выплат, направленных на медицинские исследования и в основные отрасли здравоохранения, по получателям", "DC_TOF_INFRAL"=>"Совокупный объем потоков официального финансирования, направляемых на инфраструктуру, по получателям", "DC_TOF_SCHIPSL"=>"Общий объем официальной помощи, направляемой на выплату стипендий, в разбивке по получателям", "DC_TOF_TRDCMDL"=>"Обязательства по общим официальным потокам помощи для торговли, по странам донорам", "DC_TOF_TRDCML"=>"Обязательства по общим официальным потокам помощи для торговли, по странам получателям ", "DC_TOF_TRDDBMDL"=>"Общий объем официальных потоков, выделенных для помощи торговле, по странам донорам", "DC_TOF_TRDDBML"=>"Общий объем официальных потоков, выделенных для помощи торговле, по странам получателям", "DC_TOF_WASHL"=>"Общий объем официальных расходов на водоснабжение и санитарию, по получателям (6.a.1)", "DC_TRF_TFDV"=>"Совокупный объем потоков ресурсов в целях развития в разбивке по странам-получателям и странам-донорам ", "DC_TRF_TOTDL"=>"Совокупная помощь в целях развития, по странам-донорам", "DC_TRF_TOTL"=>"Совокупная помощь в целях развития, по странам-получателям", "DI_ILL_IN"=>"Общий объем входящих незаконных финансовых потоков", "DI_ILL_OUT"=>"Общий объем исходящих незаконных финансовых потоков", "DT_TDS_DECT"=>"Расходы на обслуживание долга в процентном отношении к экспорту товаров и услуг", "EG_ACS_ELEC"=>"Доля населения, имеющего доступ к электроэнергии", "EG_CFT_COOK"=>"Доля населения, использующего в основном чистые виды топлива и технологии для приготовления еды", "EG_CFT_LIGHT"=>"Доля населения, использующего в основном чистые виды топлива и технологии для освещения", "EG_EGY_CLEAN"=>"Доля населения, использующего в основном чистые виды топлива и технологии", "EG_EGY_PRIM"=>"Уровень энергоемкости первичной энергии (в мегаджоулях на постоянный ВВП по паритету покупательной способности)", "EG_FEC_RNEW"=>"Доля возобновляемых источников энергии в общем объеме конечного энергопотребления", "EG_IFF_RANDN"=>"Объем международных финансовых потоков, поступающих в развивающие страны для поддержки исследований и разработок в области «чистой» энергии и развития энергетики на возобновляемых источниках, включая комбинированные системы", "EG_TBA_H2CO"=>"Доля трансграничных водных бассейнов (речные и озерные бассейны и водоносные горизонты), охваченных действующими договоренностями о сотрудничестве в области водопользования ", "EG_TBA_H2COAQ"=>"Доля трансграничных водоносных горизонтов, охваченных действующими договоренностями о сотрудничестве в области водопользования ", "EG_TBA_H2CORL"=>"Доля трансграничных речных и озерных бассейнов, охваченных действующими договоренностями о сотрудничестве в области водопользования ", "EN_ATM_CO2"=>"Выбросы углекислого газа от сжигания топлива", "EN_ATM_CO2GDP"=>"Выбросы углекислого газа на единицу ВВП", "EN_ATM_CO2MVA"=>"Выбросы углекислого газа на единицу добавленной стоимости производства", "EN_ATM_PM25"=>"Среднегодовой уровень содержания мелких твердых частиц в атмосфере городов, городское население", "EN_H2O_GRAMBQ"=>"Доля подземных водных объектов с хорошим качеством воды", "EN_H2O_OPAMBQ"=>"Доля открытых водоемов с хорошим качеством  воды", "EN_H2O_RVAMBQ"=>"Доля речных водоемов с хорошим качеством воды", "EN_H2O_WBAMBQ"=>"Доля водоемов с хорошим качеством воды", "EN_HAZ_PCAP"=>"Образование опасных отходов на душу населения", "EN_HAZ_TREAT"=>"Доля перерабатываемых опасных отходов ", "EN_LND_CNSPOP"=>"Соотношение темпов застройки и темпов роста населения", "EN_LND_SLUM"=>"Доля городского населения, проживающего в трущобах", "EN_LND_SLUMN"=>"Население, проживающее в трущобах", "EN_MAT_DOMCMPC"=>"Внутреннее материальное потребление на душу населения, по типу сырьевого материала ", "EN_MAT_DOMCMPG"=>"Внутреннее материальное потребление на единицу ВВП", "EN_MAT_DOMCMPT"=>"Внутреннее материальное потребление", "EN_MAT_FTPRPC"=>"Ресурсозатраты на душу населения", "EN_MAT_FTPRPG"=>"Ресурсозатраты на единицу ВВП", "EN_MAT_FTPRTN"=>"Совокупные ресурсозатраты", "EN_REF_COLDIS"=>"Доля населения, обслуживаемого муниципальной системой сбора отходов", "EN_REF_WASCOL"=>"Охват муниципальной системой сбора твердых бытовых отходов, по городам (%)", "EN_SCP_EZECO"=>"Доля национальных исключительных экономических зон, в управлении которыми применяются экосистемные подходы ", "EN_SCP_FRMN"=>"Число компаний, публикующих отчеты о рациональном использовании ресурсов", "EN_SCP_FSHGDP"=>"Экологически рациональный рыбный промысел в виде доли ВВП ", "EN_URB_OPENSP"=>"Средняя доля застроенной городской территории, относящейся к открытым для всех общественным местам", "EN_WBE_NDETOT"=>"Полученная на национальном уровне общая протяженность (в квадратных километрах)", "EN_WBE_NDOPW"=>"Полученная на национальном уровне протяженность открытых водоемов (квадратные километры)", "EN_WBE_NDQLGRW"=>"Полученное на национальном уровне качество подземных вод (%)", "EN_WBE_NDQLOPW"=>"Полученное на национальном уровне качество открытых водоемов (%)", "EN_WBE_NDQLRVR"=>"Полученное на национальном уровне качество реки (%)", "EN_WBE_NDQLTOT"=>"Полученная на национальном уровне доля водоемов с хорошим качеством (%)", "EN_WBE_NDQTGRW"=>"Полученное на национальном уровне количество подземных вод (миллионы кубометров в год)", "EN_WBE_NDQTOPW"=>"Полученное на национальном уровне количество открытых водоемов (миллионы кубометров в год)", "EN_WBE_NDQTRVR"=>"Полученное на национальном уровне количество рек (миллионы кубометров в год)", "EN_WBE_NDQTTOT"=>"Полученное на национальном уровне общее количество (миллионы кубометров в год)", "EN_WBE_NDRV"=>"Полученная на национальном уровне протяженность рек (квадратных километров)", "EN_WBE_NDWTL"=>"Полученная на национальном уровне протяженность водно-болотных угодий (квадратных километров)", "EN_WBE_PMNR"=>"Площадь водоема (постоянная) (квадратные километры)", "EN_WBE_PMPN"=>"Площадь водоема (постоянная и, возможно, постоянная) (квадратные километры)", "EN_WBE_PMPP"=>"Площадь водоема (постоянная и, возможно, постоянная) (% от общей площади суши)", "EN_WBE_PMPR"=>"Площадь водоема (постоянная) (% от общей площади суши)", "EN_WWT_WWDS"=>"Доля  безопасно очищаемых бытовых сточных вод", "ER_CBD_ABSCLRHS"=>"Страны, имеющие комплексы законодательных, административных и директивных мер, представленных в Механизм посредничества для регулирования доступа к генетическим ресурсам и совместного использования выгод (1 = ДА; 0 = НЕТ)", "ER_CBD_NAGOYA"=>"Страны, являющиеся участниками Нагойского протокола (1 = ДА; 0 = НЕТ)", "ER_CBD_ORSPGRFA"=>"Страны, имеющие комплексы законодательных, административных и директивных мер, представленных через Систему онлайн-отчетности о соблюдении Международного договора о генетических ресурсах растений для производства продовольствия и ведения сельского хозяйства (ГРРПСХ) (1 = ДА; 0 = НЕТ)", "ER_CBD_PTYPGRFA"=>"Страны, являющиеся договаривающимися сторонами Международного договора о генетических ресурсах растений для производства продовольствия и ведения сельского хозяйства (ГРРПСХ) (1 = ДА; 0 = НЕТ)", "ER_CBD_SMTA"=>"Общее число зарегистрированных Стандартных соглашений о передаче материала (ССПМ), которые передают генетические ресурсы растений для производства продовольствия и ведения сельского хозяйства в страну", "ER_FFS_PRTSPC"=>"Субсидии на ископаемое топливо (потребление и производство) на душу населения", "ER_FFS_PRTSPR"=>"Субсидии на ископаемое топливо (потребление и производство) как доля от общего ВВП", "ER_FFS_PRTSST"=>"Субсидии на ископаемое топливо (потребление и производство)", "ER_GRF_ANIMKPT"=>"Число местных пород животных, хранящихся в стране", "ER_GRF_ANIMRCNT"=>"Доля местных пород животных, для которых хранятся достаточные генетические ресурсы для восстановления", "ER_GRF_ANIMRCNTN"=>"Число местных пород животных, для которых хранятся достаточные генетические ресурсы для восстановления", "ER_GRF_ANIMSTOR"=>"Доля местных пород животных, генетический материал которых хранится", "ER_GRF_ANIMSTORN"=>"Число местных пород животных, генетический материал которых хранится", "ER_GRF_GENEBNK"=>"Оперативный банк генов in vitro для генетических ресурсов животных", "ER_GRF_PLNTSTOR"=>"Сорта растений, для которых хранятся достаточные генетические ресурсы (число)", "ER_H20_LCMGM"=>"Доля местных административных единиц, в которых действуют правила и процедуры участия граждан в управлении водными ресурсами и санитарией", "ER_H2O_FISHFEXP"=>"Доля рыбных запасов, которые полностью используются", "ER_H2O_FISHNFEXP"=>"Доля рыбных запасов, которые не используются в полной мере", "ER_H2O_FISHOVEXP"=>"Доля рыбных запасов, которые чрезмерно используются", "ER_H2O_FWTL"=>"Доля рыбных запасов, находящихся в биологически устойчивых пределах (не чрезмерно используются)", "ER_H2O_IWRMD"=>"Степень внедрения комплексного управления водными ресурсами", "ER_H2O_IWRMP"=>"Доля стран по степени внедрения комплексного управления водными ресурсами", "ER_H2O_PARTIC"=>"Доля стран с высоким уровнем пользователей / сообществ, участвующих в программах планирования в сфере  сельского водоснабжения", "ER_H2O_PRDU"=>"Страны с юридическими или политическими процедурами для участия пользователей услуг / сообществ в программе планирования в сельском питьевом водоснабжении по уровню определения в процедурах (10 = четко определено; 5 = неясно определено; 0 = нет данных)", "ER_H2O_PROCED"=>"Доля стран с четко определенными в законодательстве или политике процедурами для участия пользователей / сообществ в программе планирования в сфере сельского водоснабжения", "ER_H2O_RURP"=>"Страны с пользователями / сообществами, участвующими в программах планирования в сфере сельского питьевого водоснабжения, по уровню участия (3 = высокий; 2 = умеренный; 1 = низкий; 0 = нет данных)", "ER_H2O_STRESS"=>"Уровень нагрузки на водные ресурсы: забор пресной воды в процентном отношении к имеющимся запасам пресной воды", "ER_H2O_WUEYST"=>"Эффективность использования воды (в долларах США за кубометр)", "ER_MRN_MARIN"=>"Охват охраняемых территорий по отношению к морским территориям (исключительные экономические зоны)", "ER_MRN_MARINT"=>"Охраняемая морская зона (исключительные экономические зоны) (квадратные километры)", "ER_MRN_MPA"=>"Средняя доля важных с точки зрения биологического разнообразия морских районов (КРБ), находящихся под охраной", "ER_MRN_TOTL"=>"Морской район (зоны экономического отчуждения)", "ER_MTN_GRNCOV"=>"Растительный покров гор (квадратные километры)", "ER_MTN_GRNCVI"=>"Индекс растительного покрова гор", "ER_MTN_TOTL"=>"Площадь горных районов (квадратные километры)", "ER_PTD_FRHWTR"=>"Средняя доля важных с точки зрения биологического разнообразия районов суши (КРБ), находящихся под охраной", "ER_PTD_MTN"=>"Средняя доля важных с точки зрения биологического разнообразия горных районов (КРБ), находящихся под охраной", "ER_PTD_TERR"=>"Средняя доля важных с точки зрения биологического разнообразия пресноводных районов (КРБ), находящихся под охраной", "ER_RDE_OSEX"=>"Национальные расходы на науку об океане как доля от общего финансирования исследований и разработок", "ER_REG_SSFRAR"=>"Степень применения нормативно-правовых/ стратегических/ институциональных рамок, обеспечивающих признание и защиту прав доступа мелких рыбопромысловых предприятий (уровень реализации: от 1 низший до 5 высший)", "ER_REG_UNFCIM"=>"Достигнутый странами прогресс с точки зрения степени соблюдения международно-правовых документов по борьбе с незаконным, несообщаемым и нерегулируемым рыбным промыслом (уровень реализации: от 1 низший до 5 высший)", "ER_RSK_LBREDS"=>"Доля местных пород, относимых к категории находящихся под угрозой исчезновения, в процентном отношении к местным породам с известным уровнем угрозы исчезновения", "ER_RSK_LST"=>"Индекс Красного списка", "ER_WAT_PART"=>"Страны с пользователями / сообществами, участвующими в программах планирования и управления водными ресурсами, по уровню участия (3 = высокий; 2 = умеренный; 1 = низкий; 0 = нет данных)", "ER_WAT_PARTIC"=>"Доля стран с высоким уровнем пользователей / сообществ, участвующих в программах планирования и управления водными ресурсами", "ER_WAT_PRDU"=>"Страны с юридическими или политическими процедурами для участия пользователей услуг / сообществ в программах планирования и управления водными ресурсами по уровню определения в процедурах (10 = четко определено; 5 = неясно определено; 0 = нет данных)", "ER_WAT_PROCED"=>"Доля стран с четко определенными в законодательстве или политике процедурами для участия пользователей / сообществ в программе планирования и управления водными ресурсами", "ER_WLD_TRPOACH"=>"Доля диких животных, являющихся объектом браконьерства или незаконного оборота, для видов, которыми ведется торговля", "FB_ATM_TOTL"=>"Число банкоматов на 100 000 взрослых", "FB_BNK_ACCSS"=>"Доля взрослых (от 15 лет), имеющих счет в банке или ином финансовом учреждении или пользующихся услугами операторов мобильных финансовых услуг (% взрослых в возрасте 15 лет и старше)", "FB_CBK_BRCH"=>"Число филиалов коммерческих банков на 100 000 взрослых", "FC_ACC_SSID"=>"Доля мелких предприятий, имеющих кредит или кредитную линию", "FI_FSI_FSANL"=>"Просроченные кредиты к общей сумме кредитов (%)", "FI_FSI_FSERA"=>"Рентабельность активов (%)", "FI_FSI_FSKA"=>"Нормативный капитал к активам (%)", "FI_FSI_FSKNL"=>"Просроченные кредиты за вычетом резервов на капитал (%)", "FI_FSI_FSKRTC"=>"Нормативный капитал первого уровня к активам, взвешенным по риску (%)", "FI_FSI_FSLS"=>"Ликвидные активы к краткосрочным обязательствам (%)", "FI_FSI_FSSNO"=>"Открытая валютная позиция к капиталу (%)", "GB_POP_SCIERD"=>"Количество исследователей (в эквиваленте полной занятости) на миллион жителей", "GB_XPD_RSDV"=>"Расходы на научно-исследовательские и опытно-конструкторские работы в процентном отношении к ВВП", "GC_GOB_TAXD"=>"Доля национального бюджета, финансируемая внутренними налогами", "GF_COM_CSP"=>"Сумма (в долларах США), выделяемая на партнерства организаций гражданского общества", "GF_COM_PPP"=>"Сумма (в долларах США), выделяемая на государственно-частные партнерства", "GF_FRN_FDIODASS"=>"Прямые иностранные инвестиции (ПИИ), официальная помощь в целях развития и сотрудничество Юг-Юг в процентном отношении к совокупному национальному бюджету", "GF_XPD_GBPC"=>"Первичные расходы правительства в процентном отношении к первоначальному утвержденному бюджету", "GR_G14_GDP"=>"Общий объем государственных доходов в процентном отношении к ВВП ", "GR_G14_XDC"=>"Общий объем государственных доходов, в местной валюте", "IC_FRM_BRIB"=>"Частота взяточничества (% фирм, испытавших хотя бы один запрос на выплату взятки)", "IC_GEN_MGTL"=>"Доля женщин на руководящих должностях", "IC_GEN_MGTN"=>"Доля женщин на руководящих и средних руководящих должностях", "IS_RDP_FRGVOL"=>"Объем грузовых перевозок (тонн-километров)", "IS_RDP_PFVOL"=>"Объем пассажирских перевозок (пассажиро-километры)", "IS_TRP_MAILTKM"=>"Объем почтовых перевозок (тонн-километров)", "IT_MOB_2GNTWK"=>"Доля населения, охваченного, как минимум, 2G мобильной сетью ", "IT_MOB_3GNTWK"=>"Доля населения, охваченного, как минимум, 3G мобильной сетью", "IT_MOB_4GNTWK"=>"Доля населения, охваченного, как минимум, 4G мобильной сетью", "IT_MOB_OWN"=>"Доля людей, имеющих мобильный телефон", "IT_NET_BBND"=>"Стационарные абоненты широкополосного Интернета на 100 человек ", "IT_NET_BBNDN"=>"Стационарные абоненты широкополосного Интернета (число)", "IT_USE_II99"=>"Пользователи интернета на 100 жителей", "IU_COR_BRIB"=>"Коэффициент распространенности взяточничества", "IU_DMK_ICRS"=>"Доля населения, считающего процесс принятия решений  всеохватывающим и оперативным", "NV_IND_MANF"=>"Добавленная стоимость отрасли Обрабатывающее производство к ВВП", "NV_IND_MANFPC"=>"Добавленная стоимость отрасли Обрабатывающее производство на душу населения", "NV_IND_SSIS"=>"Доля мелких предприятий в совокупном объеме чистой продукции промышленности", "NV_IND_TECH"=>"Доля добавленной стоимости продукции среднетехнологичных и высокотехнологичных отраслей в общем объеме добавленной стоимости", "NY_GDP_PCAP"=>"Ежегодный темп роста реального ВВП на душу населения", "PD_AGR_SSFP"=>"Производительность мелких производителей продовольственной продукции", "SD_SDG_AVLB"=>"Доля показателей устойчивого развития, разработанных на национальном уровне с полной дезагрегацией по соответствующим признакам согласно Основополагающим принципам официальной статистики", "SD_XPD_ESED"=>"Доля расходов на основные услуги, образование, в общей сумме государственных расходов", "SERIES"=>"Ряды ЦУР", "SE_ACC_HNDWSH"=>"Доля школ, обеспеченных базовыми средствами для мытья рук", "SE_ACS_CMPTR"=>"Доля школ, обеспеченных компьютерам для учебных целей", "SE_ACS_ELECT"=>"Доля школ, обеспеченных электроэнергией", "SE_ACS_H2O"=>"Доля школ, обеспеченных базовым источникам питьевой воды", "SE_ACS_INTNT"=>"Доля школ, обеспеченных услугами Интернета для учебных целей", "SE_ACS_SANIT"=>"Доля школ, обеспеченных раздельными минимально оборудованными туалетами", "SE_ADT_ACTS"=>"Доля молодежи/ взрослых, обладающей/ обладающих навыками в области информационно-коммуникационных технологий", "SE_ADT_EDUCTRN"=>"Уровень участия взрослых и молодежи в формальных и неформальных видах обучения и профессиональной подготовки", "SE_ADT_FUNS"=>"Доля населения в данной возрастной группе, достигшая, по меньшей мере, установленного уровня функциональной грамотности", "SE_DEV_ONTRK"=>"Доля детей в возрасте 36–59 месяцев, которые находятся в процессе развития, по крайней мере, в трех из следующих областей: грамотность и счет, физическое развитие, социально-эмоциональное развитие и обучение", "SE_GPI_ICTS"=>"Индекс гендерного равенства для молодежи/ взрослых с навыками работы с информационно-коммуникационными технологиями (ИКТ)", "SE_GPI_PART"=>"Индекс гендерного равенства для уровня участия в формальном и неформальном образовании и обучении", "SE_GPI_PTNPRE"=>"Индекс гендерного равенства для коэффициента участия в организованном обучении (за год до официального вступительного возраста)", "SE_GPI_TCAQ"=>"Индекс гендерного равенства подготовленных учителей", "SE_IMP_FPOF"=>"Индекс паритета иммиграционного статуса для достижения, по крайней мере, фиксированного уровня владения функциональными навыками с помощью навыков счета / грамотности", "SE_INF_DSBL"=>"Доля школ, обеспеченных адаптированной инфраструктурой и материалами для учащихся-инвалидов", "SE_LGP_ACHI"=>"Индекс паритета языкового теста для достижения", "SE_NAP_ACHI"=>"Индекс паритета родного языка для достижения", "SE_PRE_PARTN"=>"Уровень участия в организованных видах обучения (за один год до достижения официального возраста поступления в школу)", "SE_TOT_GPI"=>"Индекс гендерного равенства для достижения", "SE_TOT_PRFL"=>"Доля детей и молодежи, достигших минимального уровня грамотности и навыков счета", "SE_TOT_RUPI"=>"Индекс равенства городских и сельских жителей, для достижения", "SE_TOT_SESPI"=>"Индекс статуса социально-экономического равенства, от низкого до высокого, для достижения ", "SE_TRA_GRDL"=>"Доля учителей, которые получили как минимум минимальную организованную подготовку учителей (например, педагогическую подготовку) до или во время начала обучения, необходимую для обучения на соответствующем уровне в данной стране", "SG_CPA_INVPRMLDC"=>"Число стран, в которых приняты и действуют режимы поощрения инвестиций в интересах наименее развитых стран", "SG_CPA_MIGR"=>"Число стран, проводящих хорошо продуманную миграционную политику", "SG_CPA_SDEV"=>"Число стран, в которых созданы механизмы для повышения согласованности политики в области устойчивого развития", "SG_DSR_LEGREG"=>"Страны, принявшие законодательные и/или нормативные положения для управления риском бедствий (1 = ДА; 0 = НЕТ)", "SG_DSR_LGRGSR"=>"Оценка принятия и реализации национальных DRR стратегий снижения риска бедствий в соответствии с Сендайской рамочной программой", "SG_DSR_SILN"=>"Число местных органов власти, принявших и осуществляющих местные DRR стратегии по снижению риска бедствий в соответствии с национальными стратегиями", "SG_DSR_SILS"=>"Доля местных органов власти, принявших и осуществляющих местные стратегии снижения риска бедствий", "SG_GEN_EQPWN"=>"Доля стран, обладающих механизмами отслеживания государственных ассигнований на обеспечение гендерного равенства и расширение прав и возможностей женщин и обнародования данных о них", "SG_GEN_LOCG"=>"Доля мест, занимаемых женщинами в местных органах власти (% от общего числа мест)", "SG_GEN_LOCGELS"=>"Доля выборных мест, занимаемых женщинами в совещательных органах в местных органах власти", "SG_GEN_PARL"=>"Доля мест, занимаемых женщинами в национальных парламентах (% от общего числа мест)", "SG_GEN_PARLN"=>"Число мест, занимаемых женщинами в национальных парламентах", "SG_GEN_PARLNT"=>"Число мест в национальных парламентах", "SG_GOV_LOGV"=>"Число местных органов власти ", "SG_HAZ_CMRBASEL"=>"Соблюдение Базельской конвенции об опасных отходах и других химических веществах", "SG_HAZ_CMRMNTRL"=>"Соблюдение Монреальского протокола по опасным отходам и другим химическим веществам", "SG_HAZ_CMRROTDAM"=>"Соблюдение Роттердамской конвенции об опасных отходах и других химических веществах", "SG_HAZ_CMRSTHOLM"=>"Соблюдение Стокгольмской конвенции об опасных отходах и других химических веществах", "SG_INF_ACCSS"=>"Страны, в которых приняты и действуют конституционные, законодательные и/ или политические гарантии публичного доступа граждан к информации ", "SG_INT_MBRDEV"=>"Доля развивающихся стран в членском составе международных организаций, в разбивке по организациям", "SG_INT_VRTDEV"=>"Доля веса голосов развивающихся стран в членском составе международных организаций, в разбивке по организациям", "SG_LGL_GENEQEMP"=>"Нормативно-правовая база, которая поощряет, обеспечивает и контролирует гендерное равенство (процент достижения, 0 - 100) - Область 3: занятость и экономические выгоды.", "SG_LGL_GENEQLFP"=>"Нормативно-правовая база, которая поощряет, обеспечивает и контролирует гендерное равенство (процент достижения, 0 - 100) - Область 1: всеобъемлющие правовые рамки и общественная жизнь.", "SG_LGL_GENEQMAR"=>"Нормативно-правовая база, которая поощряет, обеспечивает и контролирует гендерное равенство (процент достижения, 0 - 100) - Область 4: брак и семья.", "SG_LGL_GENEQVAW"=>"Нормативно-правовая база, которая поощряет, обеспечивает и контролирует гендерное равенство (процент достижения, 0 - 100) - Область 2: насилие в отношении женщин.", "SG_LGL_LNDWMN"=>"Доля стран, в которых правовая база (в том числе обычное право) гарантирует женщинам равные права на владение и/или распоряжение землей", "SG_NHR_IMPL"=>"Доля стран с независимыми национальными правозащитными учреждениями в соответствии с Парижскими принципами (%)", "SG_NHR_IMPLN"=>"Страны с национальными правозащитными учреждениями в соответствии с Парижскими принципами, статус A (1 = ДА; 0 = НЕТ)", "SG_NHR_INTEXST"=>"Доля стран, подавших заявки на аккредитацию в качестве независимых национальных правозащитных учреждений в соответствии с Парижскими принципами", "SG_NHR_INTEXSTN"=>"Страны с национальными правозащитными учреждениями, не полностью соблюдающими Парижские принципы, статус B (1 = ДА; 0 = НЕТ)", "SG_NHR_NOAPPLN"=>"Страны без заявки на аккредитацию с Парижскими принципами, статус D (1 = ДА; 0 = НЕТ)", "SG_NHR_NOSTUSN"=>"Страны с национальными правозащитными учреждениями и отсутствием статуса Парижских принципов, статус C (1 = ДА; 0 = НЕТ)", "SG_PLN_MSTKSDG"=>"Прогресс в деле применения механизмов контроля за эффективностью развития с участием многих заинтересованных сторон, которые служат подспорьем в достижении целей устойчивого развития (1 = ДА; 0 = НЕТ)", "SG_PLN_PRPOLRES"=>"Масштабы использования подготовленных странами ориентировочных перечней результатов и инструментов планирования участниками процесса сотрудничества в целях развития - данные по поставщикам (%)", "SG_PLN_PRVNDI"=>"Доля новых мероприятий в области развития, взятых из страновых перечней результатов - данные по поставщикам (%)", "SG_PLN_PRVRICTRY"=>"Доля показателей результатов, взятых из страновых перечней результатов - данные по поставщикам (%)", "SG_PLN_PRVRIMON"=>"Доля показателей результатов, которые будут контролироваться с использованием государственных источников и систем мониторинга - данные по поставщикам (%)", "SG_PLN_RECNDI"=>"Доля новых мероприятий в области развития, полученных на основе страновых перечней результатов - данные по получателям (%)", "SG_PLN_RECRICTRY"=>"Доля показателей результатов, взятых из страновых перечней результатов - данные по получателям (%)", "SG_PLN_RECRIMON"=>"Доля показателей результатов, которые будут контролироваться с использованием государственных источников и систем мониторинга - данные по получателям (%)", "SG_PLN_REPOLRES"=>"Масштабы использования подготовленных странами ориентировочных перечней результатов и инструментов планирования участниками процесса сотрудничества в целях развития - данные по получателям (%)", "SG_POV_DOM"=>"Доля ресурсов, выделенных правительством непосредственно на программы по сокращению масштабов нищеты", "SG_POV_TOTL"=>"Суммарный объем субсидий и не образующего задолженности притока средств, непосредственно выделяемых на программы сокращения масштабов нищеты, в процентном отношении к ВВП", "SG_REG_BRTH"=>"Доля детей в возрасте до пяти лет, рождение которых было зарегистрировано в гражданских органах", "SG_REG_BRTH90"=>"Доля стран с данными регистрации рождений, которые завершены по крайней мере на 90 процентов", "SG_REG_BRTH90N"=>"Страны с данными регистрации рождений, которые завершены по крайней мере на 90 процентов (1 = ДА; 0 = НЕТ)", "SG_REG_CENSUS"=>"Доля стран, которые провели хотя бы одну перепись населения и жилищного фонда в течение последних 10 лет ", "SG_REG_CENSUSN"=>"Страны, которые провели хотя бы одну перепись населения и жилищного фонда в течение последних 10 лет (1 = ДА; 0 = НЕТ)", "SG_REG_DETH75"=>"Доля стран с данными регистрации смерти, которые завершены по крайней мере на 75 процентов", "SG_REG_DETH75N"=>"Страны с данными регистрации смерти, которые завершены по крайней мере на 75 процентов (1 = ДА; 0 = НЕТ)", "SG_RHC_ACCS"=>"Число стран, где действуют законы и нормативные акты, гарантирующие женщинам и мужчинам в возрасте от 15 лет полный и равный доступ к услугам по охране сексуального и репродуктивного здоровья и информации и просвещению в этой сфере", "SG_SCP_CNTRY"=>"Страны, имеющие национальный план действий по переходу к рациональным моделям потребления и производства или включивших рациональное потребление и производство в качестве приоритета или задачи в национальную стратегию  (1 = ДА; 0 = НЕТ)", "SG_SCP_CORMEC"=>"Страны, имеющие координационный механизм устойчивого потребления и производства (1 = ДА; 0 = НЕТ)", "SG_SCP_MACPOL"=>"Страны с макрополитикой для устойчивого потребления и производства (1 = ДА; 0 = НЕТ)", "SG_SCP_POLINS"=>"Страны с политическим инструментом для устойчивого потребления и производства (1 = ДА; 0 = НЕТ)", "SG_SCP_PROCN"=>"Число стран, осуществляющих стратегии и планы действий по обеспечению экологизации государственных закупок", "SG_STT_CAPTY"=>"Ресурсы, выделенные для укрепления статистического потенциала в развивающихся странах", "SG_STT_FPOS"=>"Страны, имеющие национальное статистическое законодательство, соответствующее Основополагающим принципам официальной статистики (1 = ДА; 0 = НЕТ)", "SG_STT_NSDSFDDNR"=>"Страны, имеющие национальный статистический план, с финансированием от доноров (1 = ДА; 0 = НЕТ)", "SG_STT_NSDSFDGVT"=>"Страны, имеющие национальный статистический план, с финансированием от Правительства (1 = ДА; 0 = НЕТ)", "SG_STT_NSDSFDOTHR"=>"Страны, имеющие национальный статистический план, с финансированием от других источников (1 = ДА; 0 = НЕТ)", "SG_STT_NSDSFND"=>"Страны, имеющие полностью финансированный национальный статистический план (1 = ДА; 0 = НЕТ)", "SG_STT_NSDSIMPL"=>"Страны имеющие национальные статистические планы, которые находятся в стадии реализации (1 = ДА; 0 = НЕТ)", "SG_URB_CSPART"=>"Доля городов, в которых регулярно и на демократической основе функционируют структуры, обеспечивающие прямое участие гражданского общества в градостроительном планировании и управлении городским хозяйством", "SG_URB_PLAN"=>"Доля населения, живущего в городах, осуществляющих городские и региональные планы застройки, в которых учитываются прогнозы роста населения и потребности в ресурсах", "SG_XPD_HLTH"=>"Доля расходов на здравоохранение в общей сумме государственных расходов", "SG_XPD_PROT"=>"Доля расходов на социальную защиту в общей сумме государственных расходов", "SG_XPD_VULN"=>"Доля текущих и капитальных государственных расходов в секторах, которые приносят преимущественную выгоду женщинам, бедным и уязвимым группам населения", "SH_AAP_ASMORT"=>"Стандартизированный по возрасту коэффициент смертности от загрязнения атмосферного воздуха ", "SH_AAP_MORT"=>"Общий коэффициент смертности, связанный с загрязнением атмосферного воздуха", "SH_ACS_DTP3"=>"Доля целевой группы населения с доступом к 3 дозам дифтерии-столбняка-коклюша (АКДС3)", "SH_ACS_MCV2"=>"Доля целевой группы населения, имеющей доступ ко второй дозе вакцины против кори (MCV2)", "SH_ACS_PCV3"=>"Доля целевой популяции с доступом к 3-й дозе пневмококкового конъюгата (PCV3)", "SH_ACS_UNHC"=>"Индекс охвата основными медико-санитарными услугами", "SH_ACS_VACN"=>"Доля целевой группы населения, охватываемой всеми вакцинами, включенными в их национальную программу", "SH_ALC_CONSPT"=>"Употребление алкоголя на душу населения (в возрасте от 15 лет) в календарный год", "SH_DTH_NCD"=>"Смертность от неинфекционных заболеваний (число)", "SH_DTH_NCOM"=>"Коэффициент смертности от сердечно-сосудистых заболеваний, рака, диабета, хронических респираторных заболеваний", "SH_DYN_IMRT"=>"Коэффициент младенческой смертности ", "SH_DYN_IMRTN"=>"Младенческая смертность (число)", "SH_DYN_MORT"=>"Коэффициент смертности детей в возрасте до пяти лет", "SH_DYN_MORTN"=>"Смертность детей в возрасте до пяти лет (число)", "SH_DYN_NMRT"=>"Коэффициент неонатальной смертности ", "SH_DYN_NMRTN"=>"Неонатальная смертность (число)", "SH_FPL_INFM"=>"Доля женщин, самостоятельно принимающих обдуманные решения о сексуальных отношениях, применении противозачаточных средств и обращении за услугами по охране репродуктивного здоровья (% женщин в возрасте от 15 до 49 лет)", "SH_FPL_INFMCU"=>"Доля женщин, самостоятельно принимающих обдуманные решения о применении противозачаточных средств (% женщин в возрасте от 15 до 49 лет)", "SH_FPL_INFMRH"=>"Доля женщин, самостоятельно принимающих обдуманные решения об охране репродуктивного здоровья (% женщин в возрасте от 15 до 49 лет)", "SH_FPL_INFMSR"=>"Доля женщин, самостоятельно принимающих обдуманные решения о сексуальных отношениях (% женщин в возрасте от 15 до 49 лет)", "SH_FPL_MTMM"=>"Доля женщин репродуктивного возраста (от 15 до 49 лет), чьи потребности по планированию семьи удовлетворяются современными методами", "SH_H2O_SAFE"=>"Доля населения, пользующегося услугами водоснабжения, организованного с соблюдением требований безопасности", "SH_HAP_ASMORT"=>"Стандартизированный по возрасту коэффициент смертности от загрязнения воздуха в жилых помещениях", "SH_HAP_HBSAG"=>"Распространенность поверхностного антигена гепатита В (HBsAg)", "SH_HAP_MORT"=>"Общий коэффициент смертности, связанный с загрязнением воздуха в жилых помещениях ", "SH_HIV_INCD"=>"Число новых заражений ВИЧ на 1000 неинфицированных", "SH_IHR_CAPPRD"=>"Среднее из 13 основных способностей соблюдать Международные медико-санитарные правила (ММСП)", "SH_IHR_CAPS"=>"Способность соблюдать Международные медико-санитарные правила (ММСП), по типу ММСП", "SH_MED_DEN"=>"Число медицинских работников на душу населения ", "SH_PRV_SMOK"=>"Стандартизированная по возрасту распространенность употребления табака лицами в возрасте от 15 лет", "SH_SAN_DEFECT"=>"Доля населения, практикующего открытую дефекацию", "SH_SAN_HNDWSH"=>"Доля населения, использующего основные устройства для мытья рук с мылом и водой в помещениях", "SH_SAN_SAFE"=>"Доля населения, использующего организованные с соблюдением требований безопасности услуги санитарии", "SH_STA_AIRP"=>"Общий коэффициент смертности, связанный с загрязнением воздуха в жилых помещениях и атмосферного воздуха ", "SH_STA_ANEM"=>"Распространенность анемии среди женщин в возрасте 15–49 лет ", "SH_STA_ANEM_NPRG"=>"Распространенность анемии среди женщин в возрасте 15–49 лет, небеременные (в процентах)", "SH_STA_ANEM_PREG"=>"Распространенность анемии среди женщин в возрасте 15–49 лет, беременные (в процентах)", "SH_STA_ASAIRP"=>"Стандартизированный по возрасту коэффициент смертности от загрязнения воздуха в жилых помещениях и атмосферного воздуха (3.9.1)", "SH_STA_BRTC"=>"Доля родов, принятых квалифицированными медицинскими работниками", "SH_STA_FGMS"=>"Доля девочек и женщин в возрасте от 15 до 49 лет, подвергшихся калечащим операциям на женских половых органах/обрезанию", "SH_STA_MALR"=>"Заболеваемость малярией на 1000 населения в группе риска", "SH_STA_MORT"=>"Коэффициент материнской смертности ", "SH_STA_POISN"=>"Коэффициент смертности от неумышленного отравления ", "SH_STA_SCIDE"=>"Коэффициент смертности от самоубийств ", "SH_STA_SCIDEN"=>"Число смертей, относящихся к самоубийствам", "SH_STA_STNT"=>"Доля детей с умеренной или сильной задержкой роста", "SH_STA_STNTN"=>"Дети с умеренной или сильной задержкой роста (число)", "SH_STA_TRAF"=>"Коэффициент смертности в результате дорожно-транспортных происшествий", "SH_STA_TRAFN"=>"Число смертей в результате дорожно-транспортных происшествий", "SH_STA_WASH"=>"Коэффициент смертности от отсутствия безопасной воды, безопасной санитарии и гигиены ", "SH_STA_WAST"=>"Доля детей умеренно или сильно истощенных", "SH_STA_WASTN"=>"Дети умеренно или сильно истощенные (число)", "SH_TBS_INCD"=>"Заболеваемость туберкулезом", "SH_TRP_INTVN"=>"Число людей, нуждающихся в лечении от \"забытых\" тропических болезней", "SH_XPD_EARN10"=>"Доля населения с большим удельным весом семейных расходов на медицинскую помощь (более 10%) в общем объеме расходов или доходов домохозяйств", "SH_XPD_EARN25"=>"Доля населения с большим удельным весом семейных расходов на медицинскую помощь (более 25%) в общем объеме расходов или доходов домохозяйств", "SI_AGR_SSFP"=>"Средний доход мелких производителей продовольственной продукции", "SI_COV_BENFTS"=>"Доля населения, охватываемого хотя бы одним уровнем/системой социальной защиты ", "SI_COV_CHLD"=>"Доля детей / домохозяйств, получающих денежное пособие на ребенка / семью", "SI_COV_DISAB"=>"Доля населения с тяжелыми формами инвалидности, получающего денежное пособие по инвалидности", "SI_COV_LMKT"=>"Доля населения, охватываемого программами рынка труда", "SI_COV_MATNL"=>"Доля матерей с новорожденными, получающими денежное пособие по беременности и родам", "SI_COV_PENSN"=>"Доля населения старше пенсионного возраста, получающего пенсию ", "SI_COV_POOR"=>"Доля бедного населения, получающего социальную помощь в виде денежного пособия", "SI_COV_SOCAST"=>"Доля населения, охватываемого программами социальной помощи ", "SI_COV_SOCINS"=>"Доля населения, охватываемого программами социального страхования", "SI_COV_UEMP"=>"Доля безработных, получающих денежное пособие по безработице", "SI_COV_VULN"=>"Доля уязвимого населения, получающего социальную помощь в виде денежного пособия", "SI_COV_WKINJRY"=>"Доля занятого населения, охватываемого в случае производственной травмы", "SI_HEI_TOTL"=>"Темпы роста расходов домохозяйств или доходов на душу населения", "SI_POV_50MI"=>"Доля людей с доходом ниже 50 процентов медианного дохода ", "SI_POV_DAY1"=>"Доля населения, живущего за международной чертой бедности", "SI_POV_EMP1"=>"Занятое население, живущее за международной чертой бедности", "SI_POV_NAHC"=>"Доля населения страны, живущего за национальной чертой бедности", "SI_POV_NMPI"=>"Доля населения, живущего в нищете во всех ее проявлениях, согласно национальным определениям", "SI_RMT_COST"=>"Стоимость перевода в процентном отношении к переводимой сумме", "SL_CPA_YEMP"=>"Наличие разработанной и осуществляемой национальной стратегии молодежной занятости в качестве отдельной стратегии или в рамках национальной стратегии в области занятости", "SL_DOM_TSPD"=>"Доля времени, затрачиваемого на неоплачиваемый труд по уходу и работу по дому", "SL_DOM_TSPDCW"=>"Доля времени, затрачиваемого на неоплачиваемый труд по уходу", "SL_DOM_TSPDDC"=>"Доля времени, затрачиваемого на неоплачиваемый труд по работе по дому", "SL_EMP_EARN"=>"Средний почасовой заработок", "SL_EMP_FTLINJUR"=>"Производственный травматизм со смертельным исходом среди работников (доля)", "SL_EMP_GTOTL"=>"Доля доходов трудящихся в ВВП, в том числе заработная плата и выплаты по линии социальной защиты", "SL_EMP_INJUR"=>"Производственный травматизм с не смертельным исходом среди работников (доля)", "SL_EMP_PCAP"=>"Ежегодный темп роста реального ВВП на каждого занятого", "SL_EMP_RCOST"=>"Затраты работника на трудоустройство в процентах от его годового дохода в стране назначения", "SL_ISV_IFRM"=>"Доля неформальной занятости в несельскохозяйственных секторах", "SL_TLF_CHLDEA"=>"Доля детей, занимающихся экономической деятельностью ", "SL_TLF_CHLDEAN"=>"Число детей, занимающихся экономической деятельностью ", "SL_TLF_CHLDEC"=>"Доля детей, занимающихся экономической деятельностью и работой по дому", "SL_TLF_CHLDECN"=>"Число детей, занимающихся экономической деятельностью и работой по дому", "SL_TLF_MANF"=>"Занятость в обрабатывающей промышленности в процентах от общей занятости", "SL_TLF_NEET"=>"Доля молодежи, которая не учится, не работает и не приобретает профессиональных навыков ", "SL_TLF_UEM"=>"Уровень безработицы", "SL_TLF_UEMDIS"=>"Уровень безработицы в разбивке признаку инвалидности", "SN_ITK_DEFC"=>"Распространенность недоедания", "SN_ITK_DEFCN"=>"Число недоедающих людей", "SN_STA_OVWGT"=>"Доля детей с умеренной или тяжелой формой ожирения", "SN_STA_OVWGTN"=>"Дети с умеренной или тяжелой формой ожирения (число)", "SP_ACS_BSRV"=>"Доля населения, живущего в домохозяйствах с доступом к базовым услугам", "SP_DYN_ADKL"=>"Рождаемость среди подростков (на 1000 женщин в возрасте от 15 до 19 лет) ", "SP_DYN_MRBF15"=>"Доля женщин в возрасте от 20 до 24 лет, вступивших в брак или союз до 15 лет", "SP_DYN_MRBF18"=>"Доля женщин в возрасте от 20 до 24 лет, вступивших в брак или союз до 18 лет", "SP_LGL_LNDAGSEC"=>"Доля людей, владеющих сельскохозяйственной землей или имеющих гарантированное право пользования ею", "SP_LGL_LNDDOC"=>"Доля совокупного взрослого населения, обладающего гарантированными правами землевладения, которые подтверждены признанными законом документами", "SP_LGL_LNDSEC"=>"Доля совокупного взрослого населения, обладающего гарантированными правами землевладения и считающего свои права на землю гарантированными", "SP_PSR_SATIS"=>"Доля населения, которое удовлетворено последним опытом использования государственных услуг", "SP_ROD_R2KM"=>"Доля сельского населения, проживающего в пределах 2 км от круглогодичной дороги", "SP_TRN_PUBL"=>"Доля населения, имеющего удобный доступ к общественному транспорту", "ST_EMP_SUST"=>"Доля занятых в индустрии устойчивого туризма в общем числе рабочих мест в отрасли", "ST_GDP_ZS"=>"Непосредственный вклад туризма в ВВП в процентном отношении к совокупному ВВП ", "TM_TAX_WM"=>"Средний уровень тарифов, применяемый развитыми странами", "TM_TAX_WMFN"=>"Средневзвешенный мировой уровень тарифов, статус наиболее благоприятствуемой нации", "TM_TAX_WMPS"=>"Средневзвешенный мировой уровень тарифов, предпочтительный статус", "TM_TRF_ZERO"=>"Доля товарных позиций наименее развитых стран и развивающихся стран, к которым применяются нулевые тарифы", "TX_EXP_GBMRCH"=>"Доля развивающихся стран и наименее развитых стран в мировом товарном экспорте", "TX_EXP_GBSVR"=>"Доля развивающихся стран и наименее развитых стран в мировом экспорте услуг", "TX_IMP_GBMRCH"=>"Доля развивающихся стран и наименее развитых стран в мировом импорте товаров", "TX_IMP_GBSVR"=>"Доля развивающихся стран и наименее развитых стран в мировом импорте услуг", "VC_ARM_SZTRACE"=>"Доля изъятого, обнаруженного или сданного оружия, незаконное происхождение или обстоятельства приобретения которого было отслежено или установлено компетентным органом в соответствии с международными документами", "VC_DSR_AFFCT"=>"Число пострадавших непосредственно в результате бедствий", "VC_DSR_AGLH"=>"Прямые потери сельского хозяйства от бедствий ", "VC_DSR_BSDN"=>"Число сбоев в основных услугах, обусловленных бедствиями", "VC_DSR_CDAN"=>"Число объектов критической инфраструктуры, поврежденной в результате бедствий", "VC_DSR_CDYN"=>"Число других критически важных объектов инфраструктуры и учреждений, разрушенных или поврежденных в результате бедствий", "VC_DSR_CHLN"=>"Прямой экономический ущерб культурному наследию, поврежденному или уничтоженному от бедствий", "VC_DSR_CILN"=>"Прямые экономические потери в результате поврежденной или разрушенной критической инфраструктуры от бедствий", "VC_DSR_DAFF"=>"Число пострадавших непосредственно в результате бедствий на 100 000 человек", "VC_DSR_DDHN"=>"Число жилищ, поврежденных непосредственно в результате бедствий", "VC_DSR_DDPA"=>"Прямой экономический ущерб другим поврежденным или разрушенным производственным активам от бедствий", "VC_DSR_DYDN"=>"Число жилищ, разрушенных непосредственно в результате бедствий", "VC_DSR_DYHN"=>"Число жилищ, разрушенных непосредственно в результате бедствий, по типу опасности", "VC_DSR_EFDN"=>"Число учебных заведений, разрушенных или поврежденных в результате бедствий", "VC_DSR_ESDN"=>"Число сбоев в образовательных услугах, обусловленных бедствиями", "VC_DSR_GDPLS"=>"Прямые экономические потери от бедствий ", "VC_DSR_HFDN"=>"Число медицинских учреждений, разрушенных или поврежденных в результате бедствий", "VC_DSR_HOLH"=>"Прямые экономические потери в жилищном секторе в результате бедствий, по типу опасности (в миллионах долларов США, в текущих ценах)", "VC_DSR_HSDN"=>"Число сбоев в медицинском обслуживании, обусловленных бедствиями", "VC_DSR_IJILN"=>"Число раненых или больных людей непосредственно в результате бедствий", "VC_DSR_LSGP"=>"Прямые экономические потери от бедствий в процентном отношении к ВВП", "VC_DSR_MISS"=>"Число пропавших без вести в результате бедствий", "VC_DSR_MMHN"=>"Число погибших и пропавших без вести непосредственно в результате бедствий", "VC_DSR_MORT"=>"Число погибших непосредственно в результате бедствий", "VC_DSR_MTMP"=>"Число погибших и пропавших без вести непосредственно в результате бедствий на 100 000 человек", "VC_DSR_OBDN"=>"Число сбоев в других основных услугах, обусловленных бедствиями", "VC_DSR_PDAN"=>"Число людей, чьи жилища были повреждены непосредственно в результате бедствий", "VC_DSR_PDLN"=>"Число людей, чьи средства к существованию были разрушены или уничтожены непосредственно в результате бедствий", "VC_DSR_PDYN"=>"Число людей, чьи жилища были разрушены непосредственно в результате бедствий", "VC_DTH_TOCV"=>"Число связанных с конфликтами смертей на 100 000 человек", "VC_HTF_DETV"=>"Выявленные жертвы торговли людьми (число)", "VC_HTF_DETVFL"=>"Выявленные жертвы торговли людьми для принудительного труда, подневольного состояния и рабства (число)", "VC_HTF_DETVOG"=>"Выявленные жертвы торговли людьми для извлечения органа (число)", "VC_HTF_DETVOP"=>"Выявленные жертвы торговли людьми для других целей (число)", "VC_HTF_DETVSX"=>"Выявленные жертвы торговли людьми для сексуальной эксплуатации (число)", "VC_IHR_PSRC"=>"Число жертв умышленных убийств на 100 000 человек", "VC_IHR_PSRCN"=>"Число жертв умышленных убийств", "VC_PRR_PHYV"=>"Доля полицейской отчетности по физическим нападениям, по полу (%)", "VC_PRR_ROBB"=>"Доля полицейской отчетности о грабеже, по полу (%)", "VC_PRR_SEXV"=>"Доля полицейской отчетности о сексуальном насилии, по полу (%)", "VC_PRS_UNSNT"=>"Задерживаемые до вынесения приговора в процентном отношении к общей численности лиц, содержащихся под стражей", "VC_PRS_UNSNTN"=>"Задерживаемые до вынесения приговора (число)", "VC_SNS_WALN"=>"Доля людей, чувствующих себя в безопасности, когда они идут одни по улице в своем районе", "VC_VAW_DIST"=>"Распределение выявленных жертв торговли людьми по возрасту и полу (%)", "VC_VAW_MARR"=>"Доля когда-либо имевших партнера женщин и девочек, подвергавшихся физическому и сексуальному насилию со стороны нынешнего или бывшего интимного партнера в последние 12 месяцев", "VC_VAW_MTUHRA"=>"Число случаев убийств правозащитников, журналистов и профсоюзных активистов", "VC_VAW_NONMARR"=>"Доля женщин и девочек в возрасте от 15 лет, подвергавшихся сексуальному насилию со стороны кого-либо, кроме интимных партнеров, в последние 12 месяцев", "VC_VAW_PHYPYV"=>"Доля детей в возрасте от 1 года до 14 лет, в последний месяц подвергшихся любому физическому наказанию и/ или психологической агрессии со стороны тех, кто обеспечивает уход за ними", "VC_VAW_PHYV"=>"Доля когда-либо имевших партнера женщин и девочек, подвергавшихся физическому насилию со стороны нынешнего или бывшего интимного партнера в последние 12 месяцев ", "VC_VAW_PSYV"=>"Доля когда-либо имевших партнера женщин и девочек, подвергавшихся психологическому насилию со стороны нынешнего или бывшего интимного партнера в последние 12 месяцев ", "VC_VAW_SEXV"=>"Доля когда-либо имевших партнера женщин и девочек, подвергавшихся сексуальному насилию со стороны нынешнего или бывшего интимного партнера в последние 12 месяцев", "VC_VAW_SXVLN"=>"Доля населения в возрасте от 18 до 29 лет, подвергшихся сексуальному насилию до достижения 18 лет", "VC_VOH_SXPH"=>"Доля лиц, подвергшихся физическим или сексуальным домогательствам за последние 12 месяцев", "VC_VOV_DCMN"=>"Доля населения, сообщившего о том, что в течение последних 12 месяцев они лично столкнулись с дискриминацией или преследованиями на основании, дискриминация на котором запрещена международным правом прав человека", "VC_VOV_PHYL"=>"Доля населения, в последние 12 месяцев подвергшегося физическому насилию", "VC_VOV_ROBB"=>"Доля населения, в последние 12 месяцев подвергшегося грабежу", "VC_VOV_SEXL"=>"Доля населения, в последние 12 месяцев подвергшегося сексуальному насилию", "_L_KG_010101_1A"=>"Уровень крайней бедности", "_L_KG_010201_1A"=>"Уровень бедности среди занятого населения", "_L_KG_010301_1C1"=>"Доля населения, получающего ЕПМС, к общей численности населения", "_L_KG_010301_1C2"=>"Доля населения, получающего социальные пособия, к общей численности населения", "_L_KG_010301_1C3"=>"Доля населения, получающих пенсии к общей численности населения", "_L_KG_010301_1E"=>"Уровень официально зарегистрированных безработных", "_L_KG_010301_1F1"=>"Доля лиц, получающих пенсии и пособия по инвалидности к общей численности населения", "_L_KG_010301_1F2"=>"Численность населения, получающих пенсии и пособия по инвалидности, человек", "_L_KG_010301_1G1"=>"Численность пенсионеров, получающих пенсии по возрасту ниже ПМП, человек", "_L_KG_010301_1G2"=>"Доля пенсионеров по возрасту, получающих пенсии ниже ПМП  к общей численности населения, процентов", "_L_KG_010301_1G3"=>"Доля пенсионеров по возрасту, получающих пенсии ниже ПМП к  общей численности пенсионеров, процентов", "_L_KG_010A02_1"=>"Доля расходов на основные услуги (образование, здравоохранение и социальную защиту) в общей сумме государственных расходов", "_L_KG_010B01_11"=>"Доля текущих государственных расходов в секторах", "_L_KG_010B01_12"=>"Доля  капитальных государственных расходов в секторах", "_L_KG_020101_1E"=>"Среднедушевое потребление основных продуктов питания по отношению к среднефизиологическим нормам, процентов", "_L_KG_020102_1D"=>"Отношение объема импорта продукции сельского хозяйства к объему производства в республике", "_L_KG_020302_1"=>"Доля произведенной продукции сельскохозяйственными кооперативами в общем объеме произведенной продукции в республике", "_L_KG_020303_1C"=>"Баланс потребления рыбной продукции на душу населения", "_L_KG_020401_1A"=>"Доля площади сельскохозяйственных культур удобренная минеральными удобрениями \n", "_L_KG_020401_1B"=>"Доля площади сельскохозяйственных культур удобренная органическими удобрениями", "_L_KG_020C01_1B"=>"Индекс потребительских цен на продовольственные товары", "_L_KG_030501_1"=>"Заболеваемость наркотической зависимостью на 100 000 населения", "_L_KG_030502_1"=>"Заболеваемость алкогольной зависимостью на 100 000 населения", "_L_KG_030901_1"=>"Смертность от токсического действия окиси углерода на 100 000 населения", "_L_KG_040101_1A"=>"Численность детей и подростков 7-17 лет (1-11классов), не приступивших  к занятиям  в общеобразовательные организации", "_L_KG_040101_1B"=>"Уровень завершения начального образования ", "_L_KG_040202_1A"=>"Охват детей дошкольным образованием", "_L_KG_040301_1"=>"Доля молодежи, получающая образование", "_L_KG_040401_1A"=>"Численность студентов, обучающихся по направлению ИКТ", "_L_KG_040B01_1"=>"Количество мест, предоставляемых Кыргызстану для подготовки кадров зарубежом за счет принимающей стороны в рамках официальных межправительственных и межгосударственных договоров и соглашений", "_L_KG_040C01_1"=>"Доля дипломированных учителей в образовательных учереждениях", "_L_KG_050201_1A1"=>"Число женщин, обратившихся по факту насилия в семье в отделы судебно-медицинской экспертизы", "_L_KG_050201_1A2"=>"Число женщин, обратившихся по факту насилия в семье в фельдшерско-акушерские пункты ", "_L_KG_050201_1A3"=>"Число женщин, обратившихся по факту насилия в семье в организации здравоохранения, оказывающие медицинскую и профилактическую помощь ЦСМ", "_L_KG_050201_1A4"=>"Число женщин, обратившихся по факту насилия в семьев станции (отделения, больницы) скорой медицинской помощи", "_L_KG_050201_1A5"=>"Число женщин, получивших лечение по поводу заболеваний (травм), возникших в результате насилия в семье ", "_L_KG_050201_1B"=>"Число пострадавших от семейного насилия", "_L_KG_050601_1"=>"Доля замужних женщин и сексуально активных незамужних женщин в возрасте 15-49 лет, которые были осведомлены о соврeменном методе контрацепции", "_L_KG_060101_2B1"=>"Доля проб воды, не отвечающих гигиеническим нормативам по санитарно-химическим показателям", "_L_KG_060101_2B2"=>"Доля проб воды, не отвечающих гигиеническим нормативам по микробиологическим показателям", "_L_KG_060201_1"=>"Доля населения, имеющего устойчивый доступ к санитарным сооружениям", "_L_KG_060401_2A"=>"Потери воды при транспортировке (объем)", "_L_KG_060401_2B"=>"Потери воды при транспортировке в процентах к общему объему забора воды", "_L_KG_060402_1"=>"Общий объем забора пресной воды ", "_L_KG_060A01_1"=>"Объем официальной помощи в целях развития, выделенной на водоснабжение и санитарию в рамках координируемой государственной программы расходов", "_L_KG_070201_1A"=>"Доля возобновляемых источников энергии в общем объеме энергопотребления", "_L_KG_070201_1B"=>"Производство электроэнергии гидроэлектростанциями", "_L_KG_070301_1"=>"Энергоемкость ВВП", "_L_KG_070301_2A"=>"Электроемкость ВВП", "_L_KG_070301_2B"=>"Производство электроэнергии на малых ГЭС", "_L_KG_070B01_1A"=>"Поступление прямых иностранных инвестиций, поступающих на цели расширения энергетической инфраструктуры и модернизации технологий", "_L_KG_080301_1"=>"Занятость в неформальном секторе, включая сельское хозяйство", "_L_KG_080301_21"=>"Доля занятых в малых предприятиях от всего занятого населения в экономике", "_L_KG_080301_22"=>"Доля занятых в средних предприятиях от всего занятого населения в экономике", "_L_KG_080501_1"=>"Среднемесячная заработная плата по видам экономической деятельности", "_L_KG_080901_01"=>"Доля туризма в ВВП", "_L_KG_081002_2A"=>"Количество отчитавшихся страховых компаний", "_L_KG_081002_2B"=>"Поступление страховых взносов", "_L_KG_090401_1"=>"Объем загрязняющих веществ, отходящих от стационарных источников на 1 кв.км", "_L_KG_100201_1"=>"Медианное значение, сомов в месяц на душу населения", "_L_KG_100301_1A1"=>"Количество письменных обращений к Омбудсмену", "_L_KG_100301_1A2"=>"Количество положительно-решенных обращений к Омбудсмену", "_L_KG_100501_11"=>"Активы к ВВП", "_L_KG_100501_12"=>"Депозиты к ВВП", "_L_KG_100501_13"=>"Кредиты к ВВП", "_L_KG_100B01_1"=>"Совокупный объем потоков ресурсов в целях развития в разбивке по донорам и секторам", "_L_KG_110601_1"=>"Объем вывезенных твердых бытовых отходов (в расчете на одного человека), кг", "_L_KG_110601_1A"=>"Избавление от твердых бытовых отходов домашними хозяйствами по видам", "_L_KG_110701_1A"=>"Площадь зеленых насаждений и массивов в населенных пунктах, в расчете на 1 000 чел.", "_L_KG_150101_1"=>"Площадь лесов в процентном отношении к общей площади страны", "_L_KG_150102_1"=>"Площадь ООПТ от всей площади страны", "_L_KG_150201_1"=>"Темпы чистого изменения площади лесов в год, га", "_L_KG_150301_1A"=>"Площадь пашни по причинам неиспользования", "_L_KG_150301_1B"=>"Площадь  пашни", "_L_KG_150501_1"=>"Доля краснокнижных видов от всех видов соответствующего класса", "_L_KG_150701_1"=>"Доля диких животных, являющихся объектом браконьерства или незаконного оборота от всех видов соответствующего класса", "_L_KG_150701_2"=>"Количество выданных разрешений на вывоз и ввоз животных и растений, их частей и дериватов, попадающих под действие Конвенции CITES", "_L_KG_150B01_1"=>"Объем государственных средств, выделяемых на охрану окружающей среды (леса)", "_L_KG_150C01_1"=>"Доля диких животных, являющихся объектом браконьерства или незаконного оборота от всех видов соответствующего класса", "_L_KG_160101_1"=>"Смертность от нападений на 100 000 населения", "_L_KG_160104_A1"=>"Число преступлений в общественных местах", "_L_KG_160104_A2"=>"Доля совершенных преступлений в общественных местах и на улицах от общего количества зарегистрированных преступлений", "_L_KG_160402_1A"=>"Количество добровольно сданного огнестрельного оружия", "_L_KG_160402_1B"=>"Количество изъятого огнестрельного оружия", "_L_KG_160501_1A"=>"Индекс \"Личное представление об уровне коррупции в государственных органах исполнительной власти и органах местного самоуправления''", "_L_KG_160501_1B1"=>"Число осужденных по факту должностных преступлений", "_L_KG_160501_1B2"=>"Число осужденных по факту коррупции и взяточничества", "_L_KG_160602_1A"=>"Индекс оценки деятельности к государственным органам исполнительной власти", "_L_KG_160701_1A"=>"Доля должностей в государственных учреждениях: на политических должностях ", "_L_KG_160701_1B"=>"Доля должностей в государственных учреждениях: на специальных должностях ", "_L_KG_160701_1C"=>"Доля должностей в государственных учреждениях: на административных должностях ", "_L_KG_160B01_1"=>"Доля женщин в возрасте 15–49 лет, сообщивших о личной дискриминации или преследованиях в последние 12 месяцев на основании, дискриминация на котором запрещена международным правом в области прав человека", "_L_KG_170102_1"=>"Доля внутрених налогов в общем объеме государственных доходов", "_L_KG_170301_1A"=>"Поступление прямых иностранных инвестиций по  видам экономической деятельности", "_L_KG_170301_1B"=>"Поступление прямых иностранных инвестиций по странам", "_L_KG_171101_1A"=>"Импорт товаров ИКТ в процентах от совокупного объема импорта товаров", "_L_KG_171101_1B"=>"Экспорт товаров ИКТ в процентах от совокупного объема экспорта товаров", "_L_KG_171301_1A"=>"Темп роста (снижения) ВВП, в процентах к  предыдущему году", "_L_KG_171301_1B"=>"Индекс потребительских цен, в поцентах к предыдущему году", "_L_KG_171301_1C"=>"Индекс цен производителей, в поцентах к предыдущему году", "_L_KG_171301_1D"=>"Дефицит государственного бюджета и источники его финансирования, млн сомов", "_L_KG_171301_1E"=>"Объем государственного долга, млн сомов", "_L_KG_171301_1F"=>"Внешеторговый оборот, в процентах к предыдущему году", "_L_KG_171301_1G"=>"Экспорт, млн. долларов США", "_L_KG_171301_1H"=>"Импорт, млн. долларов США"}</th>
+        <th scope="col" class="table-value">SERIES</th>
         
         
       </thead>
@@ -701,8 +730,10 @@ layout-indicator
         
       </tbody>
     </table>
+    
   </div>
 
+  
   <div id="datatableFooter">
     
     
@@ -711,6 +742,7 @@ layout-indicator
     
     
   </div>
+  
 
 </div>
 
@@ -719,30 +751,69 @@ layout-indicator
 
   <p class="async-loading" data-img="/assets/img/loading-small.gif"></p>
 
-  <div class="async-loaded spacer medium" style="display:none;">
+  <div class="async-loaded mt-4" style="display:none;">
 
     <div style="display: none;">
-  <span id="table-alternative">Альтернативный вариант табличных данных см. в таблице табличных данных.</span>
-</div>
-<ul class="nav nav-tabs non-stacking-tabs data-view" role="tablist">
-  <li role="presentation" class="nav-item active">
-    <a class="nav-link" data-toggle="tab" id="tab-chartview" href="#chartview" aria-controls="chartview" role="tab" data-on="click"
+    <span id="table-alternative">Альтернативный вариант табличных данных см. в таблице табличных данных.</span>
+  </div>
+  <ul class="nav nav-tabs non-stacking-tabs data-view" role="tablist">
+    
+    <li role="presentation"
+      class="
+        nav-item
+        
+        
+      ">
+      <button
+        class="nav-link active"
+        data-bs-toggle="tab"
+        role="tab"
+        type="button"
+        
+          id="tab-chartview"
+          data-bs-target="#chartview"
+          aria-controls="chartview"
+          aria-describedby="table-alternative"
+          data-on="click"
 data-event-category="Tab change"
 data-event-action="Change data view"
 data-event-label="Change to Chart tab"
- aria-describedby="table-alternative">График</a>
-  </li>
-  <li role="presentation" class="nav-item">
-    <a class="nav-link" data-toggle="tab" id="tab-tableview" href="#tableview" aria-controls="tableview" role="tab" data-on="click"
+
+        
+      >График</button>
+    </li>
+    
+    <li role="presentation"
+      class="
+        nav-item
+        
+        
+      ">
+      <button
+        class="nav-link "
+        data-bs-toggle="tab"
+        role="tab"
+        type="button"
+        
+          id="tab-tableview"
+          data-bs-target="#tableview"
+          aria-controls="tableview"
+          data-on="click"
 data-event-category="Tab change"
 data-event-action="Change data view"
 data-event-label="Change to Table tab"
->Таблица</a>
-  </li></ul>
 
-    <div class="tab-content data-view">
-  <div role="tabpanel" class="tab-pane active" id="chartview">
+        
+      >Таблица</button>
+    </li>
     
+  </ul>
+  
+    <div class="tab-content data-view">
+    
+      
+        <div role="tabpanel" class="tab-pane active" id="chartview">
+          
 
     <div id="dataset-size-warning" style="display:none" role="alert">
       <i class="fa fa-bolt"><span class="sr-only">Предупреждение:</span></i>
@@ -750,227 +821,17 @@ data-event-label="Change to Table tab"
     </div>
 
     
-    
     <div id="selectionsChart">
       <figure role="group">
         <div id="chart-canvas">
           <h4 id="chart-heading" class="chart-title">Доля занятых в малых и средних предприятиях от всего занятого населения в экономике</h4>
           <div id="chart" class="plot-container">
-            
-<canvas
+            <canvas
     role="img"
     aria-labelledby="chart-heading"
     aria-describedby="table-alternative chart-annotations"
     tabindex="0"
  ></canvas>
-
-<script>
-// Add a chart alteration to support the chart_graph_limits metadata field.
-opensdg.chartConfigAlter(function(config, info) {
-  if (info.graphLimits && Object.keys(info.graphLimits).length > 0) {
-    var overrides = {
-      options: {
-        scales: {
-          yAxes: [{
-            ticks: {
-              min: info.graphLimits.minimum,
-              max: info.graphLimits.maximum,
-            }
-          }]
-        }
-      }
-    }
-    // Add these overrides onto the normal config.
-    $.extend(true, config, overrides);
-  }
-});
-</script>
-
-<span style="display: none;" id="chart-annotations" role="status"></span>
-<script>
-opensdg.annotationPresets = {
-    common: {
-        // This "common" preset is applied to all annotations automatically.
-        borderColor: '#505a5f',
-        type: 'line',
-        label: {
-            backgroundColor: 'black',
-            fontColor: 'white',
-        },
-        // This "highContrast" overrides colors when in high-contrast mode.
-        highContrast: {
-            label: {
-                backgroundColor: 'white',
-                fontColor: 'black'
-            }
-        },
-        // This callback is used to generate a generic description for screenreaders.
-        // This can be overridden to be a more specific string, eg:
-        //
-        //     description: 'Chart annotation showing a 2030 target of 15%'
-        //
-        description: function() {
-            var descriptionParts = [translations.indicator.chart_annotation];
-            if (this.label && this.label.content) {
-                descriptionParts.push(translations.t(this.label.content));
-            }
-            else {
-                // If there is no label, just specify whether it is a box or line.
-                if (this.type == 'line') {
-                    descriptionParts.push(this.mode + ' line');
-                }
-                if (this.type == 'box') {
-                    descriptionParts.push('box');
-                }
-            }
-            if (typeof this.value !== 'undefined') {
-                descriptionParts.push(this.value);
-            }
-            return descriptionParts.join(': ');
-        },
-    },
-    target_line: {
-        mode: 'horizontal',
-        borderDash: [5, 5],
-        label: {
-            position: 'right',
-            content: translations.indicator.annotation_2030_target,
-        },
-    },
-};
-
-// Add a chart alteration to support the chart_annotations metadata field.
-opensdg.chartConfigAlter(function(config, info) {
-    if (info.graphAnnotations && info.graphAnnotations.length > 0) {
-        // Apply some helpers/fixes to the annotations.
-        var annotations = info.graphAnnotations.map(function(annotation) {
-            // Apply the "common" preset.
-            if (opensdg.annotationPresets.common) {
-                annotation = $.extend(true, {}, opensdg.annotationPresets.common, annotation);
-            }
-            // Apply any specified presets.
-            if (annotation.preset) {
-                var preset = annotation.preset;
-                if (opensdg.annotationPresets[preset]) {
-                    annotation = $.extend(true, {}, opensdg.annotationPresets[preset], annotation);
-                }
-            }
-            // Default to horizontal lines.
-            if (!annotation.mode && annotation.type === 'line') {
-                annotation.mode = 'horizontal';
-            }
-            // Provide the obscure scaleID properties on user's behalf.
-            if (!annotation.scaleID && annotation.type === 'line') {
-                if (annotation.mode === 'horizontal') {
-                    annotation.scaleID = 'y-axis-0';
-                }
-                if (annotation.mode === 'vertical') {
-                    annotation.scaleID = 'x-axis-0';
-                }
-            }
-            if (!annotation.xScaleID && annotation.type === 'box') {
-                annotation.xScaleID = 'x-axis-0';
-            }
-            if (!annotation.yScaleID && annotation.type === 'box') {
-                annotation.yScaleID = 'y-axis-0';
-            }
-            // Provide the "enabled" label property on the user's behalf.
-            if (annotation.label && annotation.label.content) {
-                annotation.label.enabled = true;
-            }
-            // Translate any label content.
-            if (annotation.label && annotation.label.content) {
-                annotation.label.content = translations.t(annotation.label.content);
-            }
-            // Save some original values for later used when contrast mode is switched.
-            if (typeof annotation.defaultContrast === 'undefined') {
-                annotation.defaultContrast = {};
-                if (annotation.borderColor) {
-                    annotation.defaultContrast.borderColor = annotation.borderColor;
-                }
-                if (annotation.backgroundColor) {
-                    annotation.defaultContrast.backgroundColor = annotation.backgroundColor;
-                }
-                if (annotation.label) {
-                    annotation.defaultContrast.label = {};
-                    if (annotation.label.fontColor) {
-                        annotation.defaultContrast.label.fontColor = annotation.label.fontColor;
-                    }
-                    if (annotation.label.backgroundColor) {
-                        annotation.defaultContrast.label.backgroundColor = annotation.label.backgroundColor;
-                    }
-                }
-            }
-            return annotation;
-        });
-        if (annotations.length > 0) {
-            var overrides = {
-                options: {
-                    annotation: {
-                        drawTime: 'afterDatasetsDraw',
-                        annotations: annotations
-                    }
-                }
-            };
-            // Add these overrides onto the normal config.
-            $.extend(true, config, overrides);
-
-            // Update the chart annotations element.
-            var descriptions = annotations.map(function(annotation) {
-                var description = '';
-                if (annotation.description) {
-                    if (typeof annotation.description === 'function') {
-                        description = annotation.description.call(annotation);
-                    }
-                    else {
-                        description = translations.t(annotation.description);
-                    }
-                }
-                return description;
-            }).filter(function(description) { return description != ''; });
-
-            var currentDescription = $('#chart-annotations').text();
-            var newDescription = descriptions.join('. ');
-            if (currentDescription != newDescription) {
-                $('#chart-annotations').text(newDescription);
-            }
-        }
-    }
-    else if (config.options && config.options.annotation) {
-        delete config.options.annotation;
-    }
-});
-</script>
-
-<script>
-opensdg.chartConfigAlter(function(config, info) {
-  if (info.stackedDisaggregation) {
-    var overrides = {
-      options: {
-        scales: {
-          xAxes: [{ stacked: true }],
-          yAxes: [{ stacked: true }],
-        }
-      }
-    };
-    // If we have stackedDisaggregation, we need to group datasets into stacks.
-    config.data.datasets.forEach(function(dataset) {
-      var disaggregation = $.extend({}, dataset.disaggregation);
-      // We're going to "stringify" each combination of disaggregations in order
-      // to place them in their own "stacks". To place "stacked" disaggregations
-      // into the same stack, we set them as "samestack" before stringifying.
-      // Note that the string "samestack" is completely arbitrary.
-      if (typeof disaggregation[info.stackedDisaggregation] !== 'undefined') {
-        disaggregation[info.stackedDisaggregation] = 'samestack';
-      }
-      // Use the disaggregation as a unique id for each stack.
-      dataset.stack = JSON.stringify(disaggregation);
-    });
-    // Add these overrides onto the normal config, and return it.
-    $.extend(true, config, overrides);
-  }
-});
-</script>
 
           </div>
           <div id="plotLegend"></div>
@@ -988,12 +849,37 @@ opensdg.chartConfigAlter(function(config, info) {
         <dd>Кыргызская Республика</dd>
         
 
+        <dt class="data-controlled-footer-field unit-from-data">Единица измерения:</dt>
+        <dd class="data-controlled-footer-field unit-from-data"></dd>
+
+        
+
         
 
         
 
         
-    <dl>
+        
+        <dt
+          class="data-controlled-footer-field"
+          data-ts-attribute="COMMENT_TS"
+        >Сноска:</dt>
+        <dd
+          class="data-controlled-footer-field"
+          data-ts-attribute="COMMENT_TS"
+        ></dd>
+        
+        <dt
+          class="data-controlled-footer-field"
+          data-ts-attribute="DATA_LAST_UPDATE"
+        >Последний раз данные обновлялись:</dt>
+        <dd
+          class="data-controlled-footer-field"
+          data-ts-attribute="DATA_LAST_UPDATE"
+        ></dd>
+        
+        
+    </dl>
 </div>
 
         </div>
@@ -1001,18 +887,22 @@ opensdg.chartConfigAlter(function(config, info) {
       <div id="chartSelectionDownload" class="clearfix">
         <button id="btnSave" title="Скачать диаграмму как изображение" class='btn btn-primary btn-download'>
           Загрузить изображение диаграммы
-        </button>
-      </div>
+        </button><!-- 
+   --></div>
     </div>
 
 
 
-  </div>
-  <div role="tabpanel" class="tab-pane" id="tableview">
-    <div style="display: none;">
-      <span id="column-sort-info">Нажмите, чтобы отсортировать по этой колонке</span>
-    </div>
-    <div id="selectionsTable"></div>
+        </div>
+      
+    
+      
+        <div role="tabpanel" class="tab-pane " id="tableview">
+          <div style="display: none;">
+            <span id="column-sort-info">Нажмите, чтобы отсортировать по этой колонке</span>
+          </div>
+          <div id="selectionsTable"></div>
+<dl id="tableTargetLines" class="clearfix"></dl>
 
 
 
@@ -1027,96 +917,135 @@ opensdg.chartConfigAlter(function(config, info) {
         <dd>Кыргызская Республика</dd>
         
 
+        <dt class="data-controlled-footer-field unit-from-data">Единица измерения:</dt>
+        <dd class="data-controlled-footer-field unit-from-data"></dd>
+
+        
+
         
 
         
 
         
-    <dl>
+        
+        <dt
+          class="data-controlled-footer-field"
+          data-ts-attribute="COMMENT_TS"
+        >Сноска:</dt>
+        <dd
+          class="data-controlled-footer-field"
+          data-ts-attribute="COMMENT_TS"
+        ></dd>
+        
+        <dt
+          class="data-controlled-footer-field"
+          data-ts-attribute="DATA_LAST_UPDATE"
+        >Последний раз данные обновлялись:</dt>
+        <dd
+          class="data-controlled-footer-field"
+          data-ts-attribute="DATA_LAST_UPDATE"
+        ></dd>
+        
+        
+    </dl>
 </div>
 
 <div id="tableSelectionDownload" class="clearfix"></div>
 
+        </div>
+      
+    
   </div>
-</div>
-
+  
 
   </div>
 
 </section>
 
   
-  <ul class="nav nav-tabs spacer medium" role="tablist">
-
-
-  
-  
-  
-  
-  
-  
-  
-  
-  <li role="presentation" class="nav-item active">
-    <a class="nav-link" data-toggle="tab" id="tab-indicator_information" href="#indicator_information" aria-controls="indicator_information" role="tab" data-on="click"
+  <div class="mt-4">
+<ul class="nav nav-tabs" role="tablist">
+    
+    
+        
+        
+        
+        
+        <li role="presentation" class="nav-item">
+            <button
+                type="button"
+                class="nav-link active"
+                data-bs-toggle="tab"
+                id="tab-indicator_information"
+                data-bs-target="#indicator_information"
+                aria-controls="indicator_information"
+                role="tab"
+                data-on="click"
 data-event-category="Tab change"
 data-event-action="Change metadata view"
 data-event-label="Change to custom.indicator_information tab"
->Информация об индикаторе</a>
-  </li>
 
-  
-  
-  
-  
-  
-  
-  
-  
-  <li role="presentation" class="nav-item ">
-    <a class="nav-link" data-toggle="tab" id="tab-national" href="#national" aria-controls="national" role="tab" data-on="click"
+            >Информация об индикаторе</button>
+        </li>
+    
+        
+        
+        
+        
+        <li role="presentation" class="nav-item">
+            <button
+                type="button"
+                class="nav-link "
+                data-bs-toggle="tab"
+                id="tab-national"
+                data-bs-target="#national"
+                aria-controls="national"
+                role="tab"
+                data-on="click"
 data-event-category="Tab change"
 data-event-action="Change metadata view"
 data-event-label="Change to indicator.national_metadata tab"
->Национальные метаданные</a>
-  </li>
 
-  
-  
-  
-  
-  
-  
-  
-  
-  <li role="presentation" class="nav-item ">
-    <a class="nav-link" data-toggle="tab" id="tab-data_reporter" href="#data_reporter" aria-controls="data_reporter" role="tab" data-on="click"
+            >Национальные метаданные</button>
+        </li>
+    
+        
+        
+        
+        
+        <li role="presentation" class="nav-item">
+            <button
+                type="button"
+                class="nav-link "
+                data-bs-toggle="tab"
+                id="tab-data_reporter"
+                data-bs-target="#data_reporter"
+                aria-controls="data_reporter"
+                role="tab"
+                data-on="click"
 data-event-category="Tab change"
 data-event-action="Change metadata view"
 data-event-label="Change to custom.data_reporter tab"
->Поставщики данных</a>
-  </li>
 
-
-  
+            >Поставщики данных</button>
+        </li>
+    
+    
+    
 </ul>
 
 <div class="tab-content">
-  
     
-    
-    
-    
-    
-    
-    
-    
-    
-    <div role="tabpanel" class="tab-pane active" id="indicator_information">
-      <article>
-        <p>Данная таблица предоставляет информацию об индикаторе</p>
+        
+        
+        
+        
+        
+        <div role="tabpanel" class="tab-pane active" id="indicator_information">
+            <article>
+                <p>Данная таблица предоставляет информацию об индикаторе</p>
 
-        <table class="table">
+                <table class="table">
   
   
   
@@ -1195,22 +1124,18 @@ data-event-label="Change to custom.data_reporter tab"
   
 </table>
 
-      </article>
-    </div>
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    <div role="tabpanel" class="tab-pane " id="national">
-      <article>
-        <p>В этой таблице представлены метаданные для фактического показателя, доступного из статистики ближайшей к соответствующему глобальному индикатору ЦУР. Обратите внимание, что даже если глобальный индикатор ЦУР полностью доступен из статистики, по этой таблице следует проконсультироваться для получения информации о национальной методологии и других специфичных метаданных.</p>
+            </article>
+        </div>
+        
+        
+        
+        
+        
+        <div role="tabpanel" class="tab-pane " id="national">
+            <article>
+                <p>В этой таблице представлены метаданные для фактического показателя, доступного из статистики ближайшей к соответствующему глобальному индикатору ЦУР. Обратите внимание, что даже если глобальный индикатор ЦУР полностью доступен из статистики, по этой таблице следует проконсультироваться для получения информации о национальной методологии и других специфичных метаданных.</p>
 
-        <table class="table">
+                <table class="table">
   
   
   
@@ -1457,22 +1382,18 @@ data-event-label="Change to custom.data_reporter tab"
   
 </table>
 
-      </article>
-    </div>
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    <div role="tabpanel" class="tab-pane " id="data_reporter">
-      <article>
-        <p>Данная таблица предоставляет информацию о поставщиках данных</p>
+            </article>
+        </div>
+        
+        
+        
+        
+        
+        <div role="tabpanel" class="tab-pane " id="data_reporter">
+            <article>
+                <p>Данная таблица предоставляет информацию о поставщиках данных</p>
 
-        <table class="table">
+                <table class="table">
   
   
   
@@ -1577,144 +1498,102 @@ data-event-label="Change to custom.data_reporter tab"
   
 </table>
 
-      </article>
-    </div>
+            </article>
+        </div>
+        
     
-  
+    
+</div>
   
 </div>
-
-
   </div>
 </div>
 
+  <a href="#top">Наверх</a>
 </div>
 
 <footer role="contentinfo">
-  <div class="container">
-    <div class="row">
-      <div class="col-xs-12">
-        <div id="footerLinks">
-          <ul>
-            <li><a href="https://open-sdg.org">Построен с использованием Open SDG</a></li>
-            
-              <li>
-                
-                  <a href="mailto:sdg_nsc@stat.kg" target="_blank">Свяжитесь с нами</a>
-                
-                </li>
-              <li>
-                <a href="/about/cookies-and-privacy">Cookies</a>
-                
-                </li>
-              
-            
-            </ul>
+    <div class="container">
+        <div class="row">
+            <div class="col">
+                <div id="footerLinks">
+                    <ul>
+                        <li>
+                            <a href="https://open-sdg.org">Построен с использованием Open SDG</a>
+                        </li>
+                        
+                        <li>
+                            
+                            <a href="mailto:sdg_nsc@stat.kg" target="_blank">Свяжитесь с нами</a>
+                            
+                        </li>
+                        <li>
+                            <a href="/about/cookies-and-privacy">Cookies</a>
+                            
+                        </li>
+                        
+                        
+                        </ul>
+                </div>
+            </div>
         </div>
-      </div>
+        
     </div>
-  </div>
 </footer>
 
 <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
-<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
-<script src="//cdn.datatables.net/1.10.16/js/jquery.dataTables.min.js"></script>
-<script src="//cdn.datatables.net/1.10.16/js/dataTables.bootstrap.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+<script src="https://cdn.datatables.net/1.11.5/js/jquery.dataTables.min.js"></script>
+<script src="https://cdn.datatables.net/1.11.5/js/dataTables.bootstrap5.min.js"></script>
 <script src="//cdn.datatables.net/fixedcolumns/3.2.3/js/dataTables.fixedColumns.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/4.17.20/lodash.min.js" integrity="sha512-90vH1Z83AJY9DmlWa8WkjkV79yfS2n2Oxhsi2dZbIv0nC4E6m5AbH8Nh156kkM7JePmqD6tcZsfad1ueoaovww==" crossorigin="anonymous"></script>
-<script src="//cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.bundle.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/chart.js@3.7.0/dist/chart.min.js" integrity="sha256-Y26AMvaIfrZ1EQU49pf6H4QzVTrOI8m9wQYKkftBt4s=" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/patternomaly@1.3.2/dist/patternomaly.js"></script>
 
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/autotrack/2.4.1/autotrack.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/html2canvas@1.0.0-rc.3/dist/html2canvas.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/file-saver@2.0.2/dist/FileSaver.min.js"></script>
+
+
+
+
+
+  <script >
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-155242465-1', 'auto');
+ga('require', 'eventTracker', {
+    attributePrefix: 'data-'
+});
+// anonymize user IPs (chops off the last IP triplet)
+ga('set', 'anonymizeIp', true);
+// forces SSL even if the page were somehow loaded over http://
+ga('set', 'forceSSL', true);
+ga('send', 'pageview');
+</script>
+
+
+
 <script>translations['general'] = translations['general'] || {};
     translations['general']['hide'] = 'скрывать';</script>
 
 <script>translations['search'] = translations['search'] || {};
     translations['search']['search'] = 'Поиск';</script>
 
-<script src='/assets/js/sdg.js?v=20220531111706'></script>
+<script src='/assets/js/sdg.js?v=20220815134908'></script>
 
 
     
     
-    <script src="/assets/js/custom.js?v=20220531111706"></script><script>
-$(function() {
-    if($('#indicatorData').length) {
-      var domData = $('#indicatorData').data();
-
-      if (domData.showdata) {
-
-        $('.async-loading').each(function(i, obj) {
-            $(obj).append($('<img />').attr('src', $(obj).data('img')).attr('alt', translations.indicator.loading));
-        });
-
-        var remoteUrl = '/comb/' + domData.id + '.json';
-        if (opensdg.remoteDataBaseUrl !== '/') {
-          remoteUrl = opensdg.remoteDataBaseUrl + remoteUrl;
-        }
-
-        $.ajax({
-          url: remoteUrl,
-          success: function(res) {
-
-            $('.async-loading').remove();
-            $('.async-loaded').show();
-
-            var model = new indicatorModel({
-              data: res.data,
-              edgesData: res.edges,
-              showMap: domData.showmap,
-              country: domData.country,
-              indicatorId: domData.indicatorid,
-              shortIndicatorId: domData.id,
-              chartTitle: domData.charttitle,
-              chartTitles: domData.charttitles,
-              measurementUnit: domData.measurementunit,
-              showData: domData.showdata,
-              graphType: domData.graphtype,
-              startValues: domData.startvalues,
-              graphLimits: domData.graphlimits,
-              stackedDisaggregation: domData.stackeddisaggregation,
-              graphAnnotations: domData.graphannotations,
-              indicatorDownloads: domData.indicatordownloads,
-              dataSchema: domData.dataschema,
-              compositeBreakdownLabel: domData.compositebreakdownlabel,
-              precision: domData.precision,
-            }),
-            view  = new indicatorView(model, {
-              rootElement: '#indicatorData',
-              legendElement: '#plotLegend',
-              decimalSeparator: '',
-              maxChartHeight: 420,
-              tableColumnDefs: [
-                { maxCharCount: 25 }, // nowrap
-                { maxCharCount: 35, width: 200 },
-                { maxCharCount: Infinity, width: 250 }
-              ]
-            }),
-            controller = new indicatorController(model, view);
-            controller.initialise();
-          }
-        });
-      }
-    }
-
-    var switcher = new accessibilitySwitcher();
-
-
-});
-</script>
-
-
-
-<script>
-  initialiseGoogleAnalytics();
+    <script src="/assets/js/custom.js?v=20220815134908"></script><script>
+    new indicatorInit();
+    new accessibilitySwitcher();
 </script>
 
 
 </body>
 </html>
-

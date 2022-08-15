@@ -3,7 +3,7 @@
     <head>
         <meta charset="utf-8">
         <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.min.js"></script>
-        <script crossorigin="anonymous" src="https://polyfill.io/v3/polyfill.min.js?features=Promise%2CArray.prototype.forEach%2CString.prototype.includes%2CURLSearchParams%2CCustomEvent%2CArray.prototype.includes%2CArray.prototype.filter%2CArray.prototype.some%2CArray.prototype.find%2CArray.prototype.reduce%2CObject.assign%2CArray.isArray%2CObject.values%2CArray.from%2CSet%2CArray.prototype.findIndex"></script>
+        <script crossorigin="anonymous" src="https://polyfill.io/v3/polyfill.min.js?features=Promise%2CArray.prototype.forEach%2CString.prototype.includes%2CURLSearchParams%2CCustomEvent%2CArray.prototype.includes%2CArray.prototype.filter%2CArray.prototype.some%2CArray.prototype.find%2CArray.prototype.reduce%2CObject.assign%2CArray.isArray%2CObject.values%2CObject.entries%2CArray.from%2CSet%2CArray.prototype.findIndex"></script>
 <script crossorigin="anonymous" src="https://cdnjs.cloudflare.com/ajax/libs/javascript-canvas-to-blob/3.15.0/js/canvas-to-blob.min.js"></script>
 
         <script>
@@ -40,10 +40,6 @@ var opensdg = {
 
   language: 'ru',
 };
-
-// For backwards compatibility, some of these might need to be global.
-// @TODO: Remove these eventually.
-var remoteDataBaseUrl = opensdg.remoteDataBaseUrl;
 
 </script>
 
@@ -116,60 +112,103 @@ var translations = {
         <script src="/assets/js/lib/classList.js"></script>
         <![endif]-->
 
-        <!-- Favicons ================================================== -->
-        <!-- 128x128 -->
-        <link rel="shortcut icon" type="image/ico" href="/assets/img/favicons/favicon.ico">
-        <link rel="icon" type="image/png" href="/assets/img/favicons/favicon.png"><!-- 192x192, as recommended for Android
-        http://updates.html5rocks.com/2014/11/Support-for-theme-color-in-Chrome-39-for-Android
-        -->
+        <link rel="apple-touch-icon" sizes="180x180" href="/assets/img/favicons/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/assets/img/favicons/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/assets/img/favicons/favicon-16x16.png">
+<link rel="icon" type="image/x-icon" href="/assets/img/favicons/favicon.ico" />
+
 
         
-        <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css" crossorigin="">
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+        <link res="stylesheet" href="https://cdn.datatables.net/1.11.5/css/dataTables.bootstrap5.min.css">
         <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" crossorigin="">
         <link rel="stylesheet" href="https://cdn.datatables.net/fixedcolumns/3.2.3/css/fixedColumns.dataTables.min.css" crossorigin="">
-        <link rel="stylesheet" href="/assets/css/style.css?v=20220531111706">
-        <link href="https://fonts.googleapis.com/css?family=Open+Sans|Roboto" rel="stylesheet" crossorigin="">
+        <link rel="stylesheet" href="/assets/css/style.css?v=20220815134908">
         <link rel="stylesheet" href="https://unpkg.com/leaflet@1.3.4/dist/leaflet.css"
           integrity="sha512-puBpdR0798OZvTTbP4A8Ix/l+A4dHDD0DGqYW6RQ+9jxkRFclaxxQb/SJAWZfWAkuyeQUytO7+7N4QKrDh+drA=="
           crossorigin=""/>
         <link rel="stylesheet" href="https://cdn.rawgit.com/socib/Leaflet.TimeDimension/master/dist/leaflet.timedimension.control.min.css"  crossorigin=""/>
         <link rel="stylesheet" href='https://api.mapbox.com/mapbox.js/plugins/leaflet-fullscreen/v1.0.1/leaflet.fullscreen.css'  crossorigin=""/>
         <link rel="stylesheet" href="https://bowercdn.net/c/leaflet.zoomhome-latest/dist/leaflet.zoomhome.css"  crossorigin=""/>
-        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet-search@2.9.7/dist/leaflet-search.min.css" crossorigin=""><link rel="stylesheet" href="/assets/css/custom.css?v=20220531111706"><!-- ShareThis BEGIN --><!-- ShareThis END -->
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet-search@2.9.7/dist/leaflet-search.min.css" crossorigin="">
+        <link rel="stylesheet" href="https://cdn.kiprotect.com/klaro/v0.7/klaro.min.css" crossorigin=""/><link rel="stylesheet" href="/assets/css/custom.css?v=20220815134908">
+        
+
+        <!--[if IE]>
+        <link rel="stylesheet" href="/assets/css/ie.css">
+        <![endif]-->
 
         
 
     </head>
 <body class="language-ru
-layout-goal-by-target
+layout-goal
 ">
 <!-- <div class="container"> -->
 
 <script>translations['header'] = {"alpha":"Альфа","default_contrast":"стандартный контраст","disable_high_contrast":"Отключить высокую контрастность","disclaimer":"Это сайт находится в разработке. Мы рады вашим отзывам.","enable_high_contrast":"Включить высокую контрастность","high_contrast":"высокий контраст","skip_link":"Перейти к главному содержанию","tag_line":"17 Целей, чтобы преобразовать наш мир","toggle_menu":"Переключайте меню. Нажмите, чтобы развернуть или свернуть меню.","toggle_search":"Поисковая переключатель. Нажмите, чтобы развернуть или свернуть панель поиска."};</script>
 
-<a class="sr-only sr-only-focusable" id="skiplink" href="#main-content" tabindex="0">Перейти к главному содержанию</a>
+<a class="sr-only-focusable" id="skiplink" href="#main-content" tabindex="0">Перейти к главному содержанию</a>
+<div class="container internet-explorer-message">
+    <h2 class="internet-explorer-message-title"></h2>
+    <p class="internet-explorer-message-body"></p>
+</div>
 <div id="disclaimer">
-  <div class="container">
+    
+<div class="container">
   <div class="disclaimer-alert">
     <strong class="phase-tag">Альфа</strong>
     
     Это сайт находится в разработке. Мы рады вашим отзывам.
+    
   </div>
 </div>
 
 </div>
-<header role="banner">
-  <div class="container">
-    <a class="navbar-brand" style="max-width: 50px" target="_blank" href="http://www.stat.kg/">
-      <img alt="Цели в области устойчивого развития - 17 Целей, чтобы преобразовать наш мир" style="width: auto; height: 40px" src="/assets/img/favicons/android-chrome-192x192.png" />
-    </a>
-    <a class="navbar-brand" href="/" id="home">
-      <img src="/assets/img/SDG_logo_ru.png"
-           alt="Цели в области устойчивого развития - 17 Целей, чтобы преобразовать наш мир"/>
-    </a>
-    <div class='hidden visible-xs float-right'>
-      <ul id='accessibility-nav' class='contrast-switcher'></ul><div class="language-toggle-mobile">
-        
+
+<header role="banner" class="">
+    <div class="container">
+        <nav class="navbar navbar-expand-lg navbar-light flex-wrap align-items-start">
+            <a class="navbar-brand" style="max-width: 50px" target="_blank" href="http://www.stat.kg/">
+  <img alt="Цели в области устойчивого развития - 17 Целей, чтобы преобразовать наш мир" style="width: auto; height: 40px" src="/assets/img/favicons/android-chrome-192x192.png" />
+</a>
+<a class="navbar-brand" href="/" id="home">
+  <img src="/assets/img/SDG_logo.png" alt="Цели в области устойчивого развития - 17 Целей, чтобы преобразовать наш мир" />
+</a>
+
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="d-flex flex-wrap w-100 justify-content-between">
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav" id="menu"><li class="nav-item ">
+    <a class="nav-link" href="/reporting-status">Состояние отчётности</a>
+</li><li class="nav-item ">
+    <a class="nav-link" href="/news">Новости</a>
+</li><li class="nav-item ">
+    <a class="nav-link" href="/publications">Публикации</a>
+</li><li class="nav-item ">
+    <a class="nav-link" href="/about">О нас</a>
+</li><li class="nav-item ">
+    <a class="nav-link" href="/faq">Часто задаваемые вопросы</a>
+</li></ul>
+    
+                </div>
+                <div class="header-search-bar">
+                    <form class="align-self-lg-end" id="search" action="/search/">
+    <div class="input-group">
+        <label class="visually-hidden" for="indicator_search">Поиск</label>
+        <input class="form-control" type="search" name="q" id="indicator_search" title="Поиск">
+        <span class="input-group-append">
+            <button class="btn btn-outline-secondary ms-n5" aria-label="Поиск" id="search-btn" type="submit">
+                <i class="fa fa-search"></i>
+            </button>
+        </span>
+    </div>
+</form>
+
+                </div>
+                <div class="header-toggles d-flex">
 
 
 
@@ -177,12 +216,13 @@ layout-goal-by-target
 
   <div class="language-toggle-container">
   
-  <div class="btn-group language-toggle-dropdown ">
-    <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-      <span class="language-globe-in-dropdown"><i class="fa fa-globe language-toggle-globe-dropdown"></i></span><span class="language-name">Pусский</span>
-      <span class="language-abbreviation">ru</span><i class="language-toggle-caret fa fa-chevron-down"></i></button>
+  <div class="btn-group language-toggle-dropdown  dropdown">
+    <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+      <i class="fa fa-globe"></i>
+      Pусский
+    </button>
     <ul class="dropdown-menu"><li>
-            <a href="/en/2/">
+            <a class="dropdown-item" href="/en/2/">
               English
             </a>
           </li></ul>
@@ -191,839 +231,1084 @@ layout-goal-by-target
 
 
 
-      </div></div>
-    <nav class="navbar navbar-default" id="main-nav">
-      <ul class="top-level">
-        <li id="menuToggle"
-            aria-label="Menu toggle. Click to expand or collapse the menu."
-            aria-haspopup="true"
-            aria-expanded="false">
-          <span data-target="menu" tabindex="0" role="navigation">Меню</span>
-        </li>
-        <li><span data-target="search">Поиск</span></li>
-      </ul>
-      <div id="search" class="menu-target">
-  <form action="/search/">
-    <label class="sr-only" for="indicator_search">Поиск</label>
-    <input type="text" name="q" id="indicator_search" title="Поиск" /><!--
-    --><button aria-label="Поиск" id="search-btn" type="submit"><i class="fa fa-search" aria-hidden="false"></i></button>
-  </form>
-</div>
-
-      <ul class="nav navbar-nav menu-target contrast-switcher" id="menu"><li class="nav-link ">
-          <a href="/reporting-status">Состояние отчётности</a>
-        </li><li class="nav-link ">
-          <a href="/news">Новости</a>
-        </li><li class="nav-link ">
-          <a href="/publications">Публикации</a>
-        </li><li class="nav-link ">
-          <a href="/about">О нас</a>
-        </li><li class="nav-link ">
-          <a href="/faq">Часто задаваемые вопросы</a>
-        </li><li>
-          
-
-
-
-
-
-  <div class="language-toggle-container">
-  
-  <div class="btn-group language-toggle-dropdown ">
-    <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-      <span class="language-globe-in-dropdown"><i class="fa fa-globe language-toggle-globe-dropdown"></i></span><span class="language-name">Pусский</span>
-      <span class="language-abbreviation">ru</span><i class="language-toggle-caret fa fa-chevron-down"></i></button>
-    <ul class="dropdown-menu"><li>
-            <a href="/en/2/">
-              English
+                    <span class="no-js-language-toggle"><div class="language-toggle-container d-flex">
+    <i class="fa fa-globe language-toggle-globe-links"></i>
+    <ul class="language-toggle-links list-unstyled list-inline"><li class="language-option-en list-inline-item">
+            <a class="language-toggle-link" href="/en/2/">
+                English
             </a>
-          </li></ul>
-  </div>
-</div>
-
-
-
         </li></ul>
-    </nav>
-  </div>
+</div></span><a title="Включить высокую контрастность" aria-label="Включить высокую контрастность"
+    data-contrast-switch-to="" href="javascript:void(0)" data-on="click"
+data-event-category="Accessibility"
+data-event-action="Change contrast setting"
+data-event-label="high"
+>A</a>
+                </div>
+            </div>
+        </nav>
+    </div>
 </header>
+<div id="top" tabindex=-1></div>
+
 
 
 <div class="container">
-  <ol class="breadcrumb">
-  
-  <li><a href="/">Главная</a></li>
-  <li class="active">Цель 2</li>
-  
-</ol>
-
+  <nav>
+    <ol aria-label="breadcrumb" class="breadcrumb" style="--bs-breadcrumb-divider: '&rsaquo;';">
+        
+        <li class="breadcrumb-item" >
+            <a href="/">Главная</a>
+        </li>
+        <li class="breadcrumb-item active">Цель 2</li>
+        
+    </ol>
+</nav>
   
 </div>
 
 <div class="heading goal-banner goal-2">
-  <div class="container">
-    <div class="row">
-      <div class="col-xs-4 col-md-3 col-lg-2 goal-tiles">
-        <img src="https://sdg-kyrgyzstan.github.io/open-sdg-site-starter/assets/img/goals/ru/2.png" alt="Ликвидация голода - Цель 2" id="goal-2" class="goal-icon-image goal-icon-image-" />
-      </div>
-      <div class="col-xs-8 col-md-9 col-lg-10">
-        <h1>
-          <span class="hidden-sm hidden-md hidden-lg">Цель 2: </span>Ликвидация голода, обеспечение продовольственной безопасности и улучшение питания и содействие устойчивому развитию сельского хозяйства
-        </h1>
-      </div>
+    <div class="container">
+        <div class="row">
+            <div class="col-4 col-md-3 col-lg-2 goal-icon goal-tiles">
+                <img src="https://sdg-kyrgyzstan.github.io/open-sdg-site-starter/assets/img/goals/ru/2.png" alt="Ликвидация голода - Цель 2" id="goal-2" class="goal-icon-image goal-icon-image-" />
+            </div>
+            <div class="col-8 col-md-9 col-lg-10 goal-details">
+                <h1>Ликвидация голода, обеспечение продовольственной безопасности и улучшение питания и содействие устойчивому развитию сельского хозяйства</h1>
+            </div>
+        </div>
     </div>
-  </div>
 </div>
 
 
-<div id="main-content" class="container goal-indicators goal-2 goal-by-target" role="main">
+<div id="main-content" class="container" role="main">
 
   
 
 
 
-  <div class="visible-md-block visible-lg-block">
-    <div class="col-md-6">
-      <h2>Задачи</h2>
-    </div>
-    <div class="col-md-6">
-      <h2>показатели</h2>
-    </div>
-  </div>
+  <div class="container g-0">
+    <h2 class="goal-page-heading">Цели и индикаторы</h2>
 
-  
-  
     
-    <div class="indicator-cards target goal-target col-md-6">
-      <span class="indicator-card-number">
-        <label class="hidden-md hidden-lg">Задача</label>
-        2.1
-      </span>
-      К 2030 году покончить с голодом и обеспечить всем, особенно малоимущим и уязвимым группам населения, включая младенцев, круглогодичный доступ к безопасной, питательной и достаточной пище
-    </div>
-    <div class="indicator-cards col-md-6 row no-gutters">
     
-
       
-      
-      
-
-      <div class="col-md-12  goal-indicator">
-        <span class="indicator-card-number">
-          2.1.1
-          
-
-
-<span class="status complete">
-    Сообщение
-</span>
-
-        </span>
-        <a href="/2-1-1">
-          Распространенность недоедания
-        </a>
-        
-
+      <div class="row align-items-start goal-target">
+          <div class="col-auto goal-page-target-number">
+            <h3 class="goal-target">
+              <span class="target-number"><span class="visually-hidden">Задача</span> 2.1</span>
+            </h3>
+          </div>
+          <div class="col goal-page-target-name">
+            <span class="target-name">К 2030 году покончить с голодом и обеспечить всем, особенно малоимущим и уязвимым группам населения, включая младенцев, круглогодичный доступ к безопасной, питательной и достаточной пище</span>
+          </div>
       </div>
-    
+        
 
-      
-      
-      
-
-      <div class="col-md-12 indicator-национальный goal-indicator">
-        <span class="indicator-card-number">
-          2.1.1.1e
           
+          
+          
+          
+
+          <div class="row align-items-start goal-indicator">
+          
+            <div class="col-auto goal-page-indicator-number">
+              <h4>
+                <span class="indicator-number"><span class="visually-hidden">показатель</span> 2.1.1</span>
+              </h4>
+            </div>
+            <div class="col goal-page-indicator-name">
+              
+              <span class="indicator-name"><a href="/2-1-1">Распространенность недоедания</a></span>
+              
+
+
+
+
+    <ul class="tags list-unstyled list-inline" aria-label="Теги"><li class="list-inline-item">
+        <span class="visually-hidden">Состояние индикатора</span>
+        
+
 
 
 <span class="status complete">
-    Сообщение
+    <span class="status-inner">Сообщение</span>
 </span>
 
-        </span>
-        <a href="/2-1-1-1e">
-          Среднедушевое потребление основных продуктов питания по отношению к среднефизиологическим нормам потребления
-        </a>
+
+        </li></ul>
+
+
+            </div>
+            
+            
+          </div>
         
-    <span class="sr-only">Теги</span>
-    <span class="tags">
-    
+
+          
+          
+          
+          
+
+          <div class="row align-items-start goal-indicator">
+          
+            <div class="col-auto goal-page-indicator-number">
+              <h4>
+                <span class="indicator-number"><span class="visually-hidden">показатель</span> 2.1.1.1e</span>
+              </h4>
+            </div>
+            <div class="col goal-page-indicator-name">
+              
+              <span class="indicator-name"><a href="/2-1-1-1e">Среднедушевое потребление основных продуктов питания по отношению к среднефизиологическим нормам потребления</a></span>
+              
+
+
+
+
+    <ul class="tags list-unstyled list-inline" aria-label="Теги"><li class="list-inline-item">
+        <span class="visually-hidden">Состояние индикатора</span>
+        
+
+
+
+<span class="status complete">
+    <span class="status-inner">Сообщение</span>
+</span>
+
+
+        </li><li class="list-inline-item">
         
         <span class="tag tag-национальный">национальный</span>
-    
-    </span>
+        </li></ul>
 
 
-      </div>
-    
+            </div>
+            
+            
+          </div>
+        
 
-      
-      
-      
-
-      <div class="col-md-12  goal-indicator">
-        <span class="indicator-card-number">
-          2.1.2
           
+          
+          
+          
+
+          <div class="row align-items-start goal-indicator">
+          
+            <div class="col-auto goal-page-indicator-number">
+              <h4>
+                <span class="indicator-number"><span class="visually-hidden">показатель</span> 2.1.2</span>
+              </h4>
+            </div>
+            <div class="col goal-page-indicator-name">
+              
+              <span class="indicator-name"><a href="/2-1-2">Уровень умеренного или острого отсутствия продовольственной безопасности населения (по «Шкале восприятия отсутствия продовольственной безопасности»)</a></span>
+              
+
+
+
+
+    <ul class="tags list-unstyled list-inline" aria-label="Теги"><li class="list-inline-item">
+        <span class="visually-hidden">Состояние индикатора</span>
+        
+
 
 
 <span class="status complete">
-    Сообщение
+    <span class="status-inner">Сообщение</span>
 </span>
 
-        </span>
-        <a href="/2-1-2">
-          Уровень умеренного или острого отсутствия продовольственной безопасности населения (по «Шкале восприятия отсутствия продовольственной безопасности»)
-        </a>
+
+        </li></ul>
+
+
+            </div>
+            
+            
+          </div>
         
 
-      </div>
-    
-
-      
-      
-      
-
-      <div class="col-md-12 indicator-национальный goal-indicator">
-        <span class="indicator-card-number">
-          2.1.2.1d
           
+          
+          
+          
+
+          <div class="row align-items-start goal-indicator">
+          
+            <div class="col-auto goal-page-indicator-number">
+              <h4>
+                <span class="indicator-number"><span class="visually-hidden">показатель</span> 2.1.2.1d</span>
+              </h4>
+            </div>
+            <div class="col goal-page-indicator-name">
+              
+              <span class="indicator-name"><a href="/2-1-2-1d">Отношение объема импорта продукции сельского хозяйства к объему производства в республике</a></span>
+              
+
+
+
+
+    <ul class="tags list-unstyled list-inline" aria-label="Теги"><li class="list-inline-item">
+        <span class="visually-hidden">Состояние индикатора</span>
+        
+
 
 
 <span class="status complete">
-    Сообщение
+    <span class="status-inner">Сообщение</span>
 </span>
 
-        </span>
-        <a href="/2-1-2-1d">
-          Отношение объема импорта продукции сельского хозяйства к объему производства в республике
-        </a>
-        
-    <span class="sr-only">Теги</span>
-    <span class="tags">
-    
+
+        </li><li class="list-inline-item">
         
         <span class="tag tag-национальный">национальный</span>
+        </li></ul>
+
+
+            </div>
+            
+            
+          </div>
+        
+        <hr class="goal-page-target-rule" />
     
-    </span>
-
-
+      
+      <div class="row align-items-start goal-target">
+          <div class="col-auto goal-page-target-number">
+            <h3 class="goal-target">
+              <span class="target-number"><span class="visually-hidden">Задача</span> 2.2</span>
+            </h3>
+          </div>
+          <div class="col goal-page-target-name">
+            <span class="target-name">К 2030 году покончить со всеми формами недоедания, в том числе достичь к 2025 году согласованных на международном уровне целевых показателей, касающихся борьбы с задержкой роста и истощением у детей в возрасте до пяти лет, и удовлетворять потребности в питании девочек подросткового возраста, беременных и кормящих женщин и пожилых людей</span>
+          </div>
       </div>
-    
-    </div>
-  
-    
-    <div class="indicator-cards target goal-target col-md-6">
-      <span class="indicator-card-number">
-        <label class="hidden-md hidden-lg">Задача</label>
-        2.2
-      </span>
-      К 2030 году покончить со всеми формами недоедания, в том числе достичь к 2025 году согласованных на международном уровне целевых показателей, касающихся борьбы с задержкой роста и истощением у детей в возрасте до пяти лет, и удовлетворять потребности в питании девочек подросткового возраста, беременных и кормящих женщин и пожилых людей
-    </div>
-    <div class="indicator-cards col-md-6 row no-gutters">
-    
+        
 
-      
-      
-      
-
-      <div class="col-md-12  goal-indicator">
-        <span class="indicator-card-number">
-          2.2.1
           
+          
+          
+          
+
+          <div class="row align-items-start goal-indicator">
+          
+            <div class="col-auto goal-page-indicator-number">
+              <h4>
+                <span class="indicator-number"><span class="visually-hidden">показатель</span> 2.2.1</span>
+              </h4>
+            </div>
+            <div class="col goal-page-indicator-name">
+              
+              <span class="indicator-name"><a href="/2-2-1">Распространенность задержки роста среди детей в возрасте до пяти лет (среднеквадратичное отклонение от медианного показателя роста к возрасту ребенка в соответствии с нормами роста детей, установленными Всемирной организацией здравоохранения (ВОЗ), <-2)</a></span>
+              
+
+
+
+
+    <ul class="tags list-unstyled list-inline" aria-label="Теги"><li class="list-inline-item">
+        <span class="visually-hidden">Состояние индикатора</span>
+        
+
 
 
 <span class="status complete">
-    Сообщение
+    <span class="status-inner">Сообщение</span>
 </span>
 
-        </span>
-        <a href="/2-2-1">
-          Распространенность задержки роста среди детей в возрасте до пяти лет (среднеквадратичное отклонение от медианного показателя роста к возрасту ребенка в соответствии с нормами роста детей, установленными Всемирной организацией здравоохранения (ВОЗ), <-2)
-        </a>
+
+        </li></ul>
+
+
+            </div>
+            
+            
+          </div>
         
 
-      </div>
-    
-
-      
-      
-      
-
-      <div class="col-md-12  goal-indicator">
-        <span class="indicator-card-number">
-          2.2.2
           
+          
+          
+          
+
+          <div class="row align-items-start goal-indicator">
+          
+            <div class="col-auto goal-page-indicator-number">
+              <h4>
+                <span class="indicator-number"><span class="visually-hidden">показатель</span> 2.2.2</span>
+              </h4>
+            </div>
+            <div class="col goal-page-indicator-name">
+              
+              <span class="indicator-name"><a href="/2-2-2">Распространенность неполноценного питания среди детей в возрасте до пяти лет в разбивке по виду (истощение или ожирение) (среднеквадратичное отклонение от медианного показателя веса к возрасту в соответствии с нормами роста детей, установленными ВОЗ, >+2 или <-2)</a></span>
+              
+
+
+
+
+    <ul class="tags list-unstyled list-inline" aria-label="Теги"><li class="list-inline-item">
+        <span class="visually-hidden">Состояние индикатора</span>
+        
+
 
 
 <span class="status complete">
-    Сообщение
+    <span class="status-inner">Сообщение</span>
 </span>
 
-        </span>
-        <a href="/2-2-2">
-          Распространенность неполноценного питания среди детей в возрасте до пяти лет в разбивке по виду (истощение или ожирение) (среднеквадратичное отклонение от медианного показателя веса к возрасту в соответствии с нормами роста детей, установленными ВОЗ, >+2 или <-2)
-        </a>
+
+        </li></ul>
+
+
+            </div>
+            
+            
+          </div>
         
 
-      </div>
-    
-
-      
-      
-      
-
-      <div class="col-md-12  goal-indicator">
-        <span class="indicator-card-number">
-          2.2.3
           
+          
+          
+          
+
+          <div class="row align-items-start goal-indicator">
+          
+            <div class="col-auto goal-page-indicator-number">
+              <h4>
+                <span class="indicator-number"><span class="visually-hidden">показатель</span> 2.2.3</span>
+              </h4>
+            </div>
+            <div class="col goal-page-indicator-name">
+              
+              <span class="indicator-name"><a href="/2-2-3">Распространенность анемии среди женщин в возрасте 15–49 лет в разбивке по статусу беременности (в процентах)</a></span>
+              
+
+
+
+
+    <ul class="tags list-unstyled list-inline" aria-label="Теги"><li class="list-inline-item">
+        <span class="visually-hidden">Состояние индикатора</span>
+        
+
 
 
 <span class="status complete">
-    Сообщение
+    <span class="status-inner">Сообщение</span>
 </span>
 
-        </span>
-        <a href="/2-2-3">
-          Распространенность анемии среди женщин в возрасте 15–49 лет в разбивке по статусу беременности (в процентах)
-        </a>
+
+        </li></ul>
+
+
+            </div>
+            
+            
+          </div>
+        
+        <hr class="goal-page-target-rule" />
+    
+      
+      <div class="row align-items-start goal-target">
+          <div class="col-auto goal-page-target-number">
+            <h3 class="goal-target">
+              <span class="target-number"><span class="visually-hidden">Задача</span> 2.3</span>
+            </h3>
+          </div>
+          <div class="col goal-page-target-name">
+            <span class="target-name">К 2030 году удвоить продуктивность сельского хозяйства и доходы мелких производителей продовольствия, в частности женщин, представителей коренных народов, фермерских семейных хозяйств, скотоводов и рыбаков, в том числе посредством обеспечения гарантированного и равного доступа к земле, другим производственным ресурсам и факторам сельскохозяйственного производства, знаниям, финансовым услугам, рынкам и возможностям для увеличения добавленной стоимости и занятости в несельскохозяйственных секторах</span>
+          </div>
+      </div>
         
 
-      </div>
-    
-    </div>
-  
-    
-    <div class="indicator-cards target goal-target col-md-6">
-      <span class="indicator-card-number">
-        <label class="hidden-md hidden-lg">Задача</label>
-        2.3
-      </span>
-      К 2030 году удвоить продуктивность сельского хозяйства и доходы мелких производителей продовольствия, в частности женщин, представителей коренных народов, фермерских семейных хозяйств, скотоводов и рыбаков, в том числе посредством обеспечения гарантированного и равного доступа к земле, другим производственным ресурсам и факторам сельскохозяйственного производства, знаниям, финансовым услугам, рынкам и возможностям для увеличения добавленной стоимости и занятости в несельскохозяйственных секторах
-    </div>
-    <div class="indicator-cards col-md-6 row no-gutters">
-    
-
-      
-      
-      
-
-      <div class="col-md-12  goal-indicator">
-        <span class="indicator-card-number">
-          2.3.1
           
+          
+          
+          
+
+          <div class="row align-items-start goal-indicator">
+          
+            <div class="col-auto goal-page-indicator-number">
+              <h4>
+                <span class="indicator-number"><span class="visually-hidden">показатель</span> 2.3.1</span>
+              </h4>
+            </div>
+            <div class="col goal-page-indicator-name">
+              
+              <span class="indicator-name"><a href="/2-3-1">Объем производства на производственную единицу в разбивке по классам размера предприятий фермерского хозяйства/скотоводства/лесного хозяйства</a></span>
+              
+
+
+
+
+    <ul class="tags list-unstyled list-inline" aria-label="Теги"><li class="list-inline-item">
+        <span class="visually-hidden">Состояние индикатора</span>
+        
+
 
 
 <span class="status notstarted">
-    В процессе разработки
+    <span class="status-inner">В процессе разработки</span>
 </span>
 
-        </span>
-        <a href="/2-3-1">
-          Объем производства на производственную единицу в разбивке по классам размера предприятий фермерского хозяйства/скотоводства/лесного хозяйства
-        </a>
+
+        </li></ul>
+
+
+            </div>
+            
+            
+          </div>
         
 
-      </div>
-    
-
-      
-      
-      
-
-      <div class="col-md-12  goal-indicator">
-        <span class="indicator-card-number">
-          2.3.2
           
+          
+          
+          
+
+          <div class="row align-items-start goal-indicator">
+          
+            <div class="col-auto goal-page-indicator-number">
+              <h4>
+                <span class="indicator-number"><span class="visually-hidden">показатель</span> 2.3.2</span>
+              </h4>
+            </div>
+            <div class="col goal-page-indicator-name">
+              
+              <span class="indicator-name"><a href="/2-3-2">Средний доход мелких производителей продовольственной продукции в разбивке по полу и статусу принадлежности к коренным народам</a></span>
+              
+
+
+
+
+    <ul class="tags list-unstyled list-inline" aria-label="Теги"><li class="list-inline-item">
+        <span class="visually-hidden">Состояние индикатора</span>
+        
+
 
 
 <span class="status notstarted">
-    В процессе разработки
+    <span class="status-inner">В процессе разработки</span>
 </span>
 
-        </span>
-        <a href="/2-3-2">
-          Средний доход мелких производителей продовольственной продукции в разбивке по полу и статусу принадлежности к коренным народам
-        </a>
+
+        </li></ul>
+
+
+            </div>
+            
+            
+          </div>
         
 
-      </div>
-    
-
-      
-      
-      
-
-      <div class="col-md-12 indicator-национальный goal-indicator">
-        <span class="indicator-card-number">
-          2.3.2.1
           
+          
+          
+          
+
+          <div class="row align-items-start goal-indicator">
+          
+            <div class="col-auto goal-page-indicator-number">
+              <h4>
+                <span class="indicator-number"><span class="visually-hidden">показатель</span> 2.3.2.1</span>
+              </h4>
+            </div>
+            <div class="col goal-page-indicator-name">
+              
+              <span class="indicator-name"><a href="/2-3-2-1">Доля произведенной продукции сельскохозяйственными кооперативами в общем объеме произведенной продукции в республике</a></span>
+              
+
+
+
+
+    <ul class="tags list-unstyled list-inline" aria-label="Теги"><li class="list-inline-item">
+        <span class="visually-hidden">Состояние индикатора</span>
+        
+
 
 
 <span class="status complete">
-    Сообщение
+    <span class="status-inner">Сообщение</span>
 </span>
 
-        </span>
-        <a href="/2-3-2-1">
-          Доля произведенной продукции сельскохозяйственными кооперативами в общем объеме произведенной продукции в республике
-        </a>
-        
-    <span class="sr-only">Теги</span>
-    <span class="tags">
-    
+
+        </li><li class="list-inline-item">
         
         <span class="tag tag-национальный">национальный</span>
-    
-    </span>
+        </li></ul>
 
 
-      </div>
-    
+            </div>
+            
+            
+          </div>
+        
 
-      
-      
-      
-
-      <div class="col-md-12 indicator-национальный goal-indicator">
-        <span class="indicator-card-number">
-          2.3.3.1c
           
+          
+          
+          
+
+          <div class="row align-items-start goal-indicator">
+          
+            <div class="col-auto goal-page-indicator-number">
+              <h4>
+                <span class="indicator-number"><span class="visually-hidden">показатель</span> 2.3.3.1c</span>
+              </h4>
+            </div>
+            <div class="col goal-page-indicator-name">
+              
+              <span class="indicator-name"><a href="/2-3-3-1c">Баланс потребления рыбной продукции на душу населения</a></span>
+              
+
+
+
+
+    <ul class="tags list-unstyled list-inline" aria-label="Теги"><li class="list-inline-item">
+        <span class="visually-hidden">Состояние индикатора</span>
+        
+
 
 
 <span class="status complete">
-    Сообщение
+    <span class="status-inner">Сообщение</span>
 </span>
 
-        </span>
-        <a href="/2-3-3-1c">
-          Баланс потребления рыбной продукции на душу населения
-        </a>
-        
-    <span class="sr-only">Теги</span>
-    <span class="tags">
-    
+
+        </li><li class="list-inline-item">
         
         <span class="tag tag-национальный">национальный</span>
+        </li></ul>
+
+
+            </div>
+            
+            
+          </div>
+        
+        <hr class="goal-page-target-rule" />
     
-    </span>
-
-
+      
+      <div class="row align-items-start goal-target">
+          <div class="col-auto goal-page-target-number">
+            <h3 class="goal-target">
+              <span class="target-number"><span class="visually-hidden">Задача</span> 2.4</span>
+            </h3>
+          </div>
+          <div class="col goal-page-target-name">
+            <span class="target-name">К 2030 году обеспечить создание устойчивых систем производства продуктов питания и внедрить методы ведения сельского хозяйства, которые позволяют повысить жизнестойкость и продуктивность и увеличить объемы производства, способствуют сохранению экосистем, укрепляют способность адаптироваться к изменению климата, экстремальным погодным явлениям, засухам, наводнениям и другим бедствиям и постепенно улучшают качество земель и почв</span>
+          </div>
       </div>
-    
-    </div>
-  
-    
-    <div class="indicator-cards target goal-target col-md-6">
-      <span class="indicator-card-number">
-        <label class="hidden-md hidden-lg">Задача</label>
-        2.4
-      </span>
-      К 2030 году обеспечить создание устойчивых систем производства продуктов питания и внедрить методы ведения сельского хозяйства, которые позволяют повысить жизнестойкость и продуктивность и увеличить объемы производства, способствуют сохранению экосистем, укрепляют способность адаптироваться к изменению климата, экстремальным погодным явлениям, засухам, наводнениям и другим бедствиям и постепенно улучшают качество земель и почв
-    </div>
-    <div class="indicator-cards col-md-6 row no-gutters">
-    
+        
 
-      
-      
-      
-
-      <div class="col-md-12  goal-indicator">
-        <span class="indicator-card-number">
-          2.4.1
           
+          
+          
+          
+
+          <div class="row align-items-start goal-indicator">
+          
+            <div class="col-auto goal-page-indicator-number">
+              <h4>
+                <span class="indicator-number"><span class="visually-hidden">показатель</span> 2.4.1</span>
+              </h4>
+            </div>
+            <div class="col goal-page-indicator-name">
+              
+              <span class="indicator-name"><a href="/2-4-1">Доля площади сельскохозяйственных угодий, на которых применяются продуктивные и неистощительные методы ведения сельского хозяйства</a></span>
+              
+
+
+
+
+    <ul class="tags list-unstyled list-inline" aria-label="Теги"><li class="list-inline-item">
+        <span class="visually-hidden">Состояние индикатора</span>
+        
+
 
 
 <span class="status notstarted">
-    В процессе разработки
+    <span class="status-inner">В процессе разработки</span>
 </span>
 
-        </span>
-        <a href="/2-4-1">
-          Доля площади сельскохозяйственных угодий, на которых применяются продуктивные и неистощительные методы ведения сельского хозяйства
-        </a>
+
+        </li></ul>
+
+
+            </div>
+            
+            
+          </div>
         
 
-      </div>
-    
-
-      
-      
-      
-
-      <div class="col-md-12 indicator-национальный goal-indicator">
-        <span class="indicator-card-number">
-          2.4.1.1
           
+          
+          
+          
+
+          <div class="row align-items-start goal-indicator">
+          
+            <div class="col-auto goal-page-indicator-number">
+              <h4>
+                <span class="indicator-number"><span class="visually-hidden">показатель</span> 2.4.1.1</span>
+              </h4>
+            </div>
+            <div class="col goal-page-indicator-name">
+              
+              <span class="indicator-name"><a href="/2-4-1-1">Доля площади сельскохозяйственных культур удобренная i) минеральными удобрениями; ii) органическими удобрениями</a></span>
+              
+
+
+
+
+    <ul class="tags list-unstyled list-inline" aria-label="Теги"><li class="list-inline-item">
+        <span class="visually-hidden">Состояние индикатора</span>
+        
+
 
 
 <span class="status complete">
-    Сообщение
+    <span class="status-inner">Сообщение</span>
 </span>
 
-        </span>
-        <a href="/2-4-1-1">
-          Доля площади сельскохозяйственных культур удобренная i) минеральными удобрениями; ii) органическими удобрениями
-        </a>
-        
-    <span class="sr-only">Теги</span>
-    <span class="tags">
-    
+
+        </li><li class="list-inline-item">
         
         <span class="tag tag-национальный">национальный</span>
+        </li></ul>
+
+
+            </div>
+            
+            
+          </div>
+        
+        <hr class="goal-page-target-rule" />
     
-    </span>
-
-
+      
+      <div class="row align-items-start goal-target">
+          <div class="col-auto goal-page-target-number">
+            <h3 class="goal-target">
+              <span class="target-number"><span class="visually-hidden">Задача</span> 2.5</span>
+            </h3>
+          </div>
+          <div class="col goal-page-target-name">
+            <span class="target-name">К 2020 году обеспечить сохранение генетического разнообразия семян и культивируемых растений, а также сельскохозяйственных и домашних животных и их соответствующих диких видов, в том числе посредством надлежащего содержания разнообразных банков семян и растений на национальном, региональном и международном уровнях, и содействовать расширению доступа к генетическим ресурсам и связанным с ними традиционным знаниям и совместному использованию на справедливой и равной основе выгод от их применения на согласованных на международном уровне условиях</span>
+          </div>
       </div>
-    
-    </div>
-  
-    
-    <div class="indicator-cards target goal-target col-md-6">
-      <span class="indicator-card-number">
-        <label class="hidden-md hidden-lg">Задача</label>
-        2.5
-      </span>
-      К 2020 году обеспечить сохранение генетического разнообразия семян и культивируемых растений, а также сельскохозяйственных и домашних животных и их соответствующих диких видов, в том числе посредством надлежащего содержания разнообразных банков семян и растений на национальном, региональном и международном уровнях, и содействовать расширению доступа к генетическим ресурсам и связанным с ними традиционным знаниям и совместному использованию на справедливой и равной основе выгод от их применения на согласованных на международном уровне условиях
-    </div>
-    <div class="indicator-cards col-md-6 row no-gutters">
-    
+        
 
-      
-      
-      
-
-      <div class="col-md-12  goal-indicator">
-        <span class="indicator-card-number">
-          2.5.1
           
+          
+          
+          
+
+          <div class="row align-items-start goal-indicator">
+          
+            <div class="col-auto goal-page-indicator-number">
+              <h4>
+                <span class="indicator-number"><span class="visually-hidden">показатель</span> 2.5.1</span>
+              </h4>
+            </div>
+            <div class="col goal-page-indicator-name">
+              
+              <span class="indicator-name"><a href="/2-5-1">Количество генетических ресурсов растительного и зоологического происхождения, предназначенных для производства продовольствия и сельского хозяйства, которые хранятся на специальных объектах либо среднесрочного, либо долгосрочного хранения</a></span>
+              
+
+
+
+
+    <ul class="tags list-unstyled list-inline" aria-label="Теги"><li class="list-inline-item">
+        <span class="visually-hidden">Состояние индикатора</span>
+        
+
 
 
 <span class="status notstarted">
-    В процессе разработки
+    <span class="status-inner">В процессе разработки</span>
 </span>
 
-        </span>
-        <a href="/2-5-1">
-          Количество генетических ресурсов растительного и зоологического происхождения, предназначенных для производства продовольствия и сельского хозяйства, которые хранятся на специальных объектах либо среднесрочного, либо долгосрочного хранения
-        </a>
+
+        </li></ul>
+
+
+            </div>
+            
+            
+          </div>
         
 
-      </div>
-    
-
-      
-      
-      
-
-      <div class="col-md-12  goal-indicator">
-        <span class="indicator-card-number">
-          2.5.2
           
+          
+          
+          
+
+          <div class="row align-items-start goal-indicator">
+          
+            <div class="col-auto goal-page-indicator-number">
+              <h4>
+                <span class="indicator-number"><span class="visually-hidden">показатель</span> 2.5.2</span>
+              </h4>
+            </div>
+            <div class="col goal-page-indicator-name">
+              
+              <span class="indicator-name"><a href="/2-5-2">Доля местных пород, относимых к категории находящихся под угрозой исчезновения</a></span>
+              
+
+
+
+
+    <ul class="tags list-unstyled list-inline" aria-label="Теги"><li class="list-inline-item">
+        <span class="visually-hidden">Состояние индикатора</span>
+        
+
 
 
 <span class="status notstarted">
-    В процессе разработки
+    <span class="status-inner">В процессе разработки</span>
 </span>
 
-        </span>
-        <a href="/2-5-2">
-          Доля местных пород, относимых к категории находящихся под угрозой исчезновения
-        </a>
+
+        </li></ul>
+
+
+            </div>
+            
+            
+          </div>
+        
+        <hr class="goal-page-target-rule" />
+    
+      
+      <div class="row align-items-start goal-target">
+          <div class="col-auto goal-page-target-number">
+            <h3 class="goal-target">
+              <span class="target-number"><span class="visually-hidden">Задача</span> 2.a</span>
+            </h3>
+          </div>
+          <div class="col goal-page-target-name">
+            <span class="target-name">Увеличить инвестирование, в том числе посредством активизации международного сотрудничества, в сельскую инфраструктуру, сельскохозяйственные исследования и агропропаганду, развитие технологий и создание генетических банков растений и животных в целях укрепления потенциала развивающихся стран, особенно наименее развитых стран, в области сельскохозяйственного производства</span>
+          </div>
+      </div>
         
 
-      </div>
-    
-    </div>
-  
-    
-    <div class="indicator-cards target goal-target col-md-6">
-      <span class="indicator-card-number">
-        <label class="hidden-md hidden-lg">Задача</label>
-        2.a
-      </span>
-      Увеличить инвестирование, в том числе посредством активизации международного сотрудничества, в сельскую инфраструктуру, сельскохозяйственные исследования и агропропаганду, развитие технологий и создание генетических банков растений и животных в целях укрепления потенциала развивающихся стран, особенно наименее развитых стран, в области сельскохозяйственного производства
-    </div>
-    <div class="indicator-cards col-md-6 row no-gutters">
-    
-
-      
-      
-      
-
-      <div class="col-md-12  goal-indicator">
-        <span class="indicator-card-number">
-          2.a.1
           
+          
+          
+          
+
+          <div class="row align-items-start goal-indicator">
+          
+            <div class="col-auto goal-page-indicator-number">
+              <h4>
+                <span class="indicator-number"><span class="visually-hidden">показатель</span> 2.a.1</span>
+              </h4>
+            </div>
+            <div class="col goal-page-indicator-name">
+              
+              <span class="indicator-name"><a href="/2-a-1">Индекс ориентированности на сельское хозяйство, определяемый по структуре государственных расходов</a></span>
+              
+
+
+
+
+    <ul class="tags list-unstyled list-inline" aria-label="Теги"><li class="list-inline-item">
+        <span class="visually-hidden">Состояние индикатора</span>
+        
+
 
 
 <span class="status complete">
-    Сообщение
+    <span class="status-inner">Сообщение</span>
 </span>
 
-        </span>
-        <a href="/2-a-1">
-          Индекс ориентированности на сельское хозяйство, определяемый по структуре государственных расходов
-        </a>
+
+        </li></ul>
+
+
+            </div>
+            
+            
+          </div>
         
 
-      </div>
-    
-
-      
-      
-      
-
-      <div class="col-md-12  goal-indicator">
-        <span class="indicator-card-number">
-          2.a.2
           
+          
+          
+          
+
+          <div class="row align-items-start goal-indicator">
+          
+            <div class="col-auto goal-page-indicator-number">
+              <h4>
+                <span class="indicator-number"><span class="visually-hidden">показатель</span> 2.a.2</span>
+              </h4>
+            </div>
+            <div class="col goal-page-indicator-name">
+              
+              <span class="indicator-name"><a href="/2-a-2">Совокупный приток официальных средств (официальная помощь в целях развития плюс прочие потоки официальных средств) в сельское хозяйство</a></span>
+              
+
+
+
+
+    <ul class="tags list-unstyled list-inline" aria-label="Теги"><li class="list-inline-item">
+        <span class="visually-hidden">Состояние индикатора</span>
+        
+
 
 
 <span class="status notapplicable">
-    Неприменимые
+    <span class="status-inner">Неприменимые</span>
 </span>
 
-        </span>
-        <a href="/2-a-2">
-          Совокупный приток официальных средств (официальная помощь в целях развития плюс прочие потоки официальных средств) в сельское хозяйство
-        </a>
+
+        </li></ul>
+
+
+            </div>
+            
+            
+          </div>
+        
+        <hr class="goal-page-target-rule" />
+    
+      
+      <div class="row align-items-start goal-target">
+          <div class="col-auto goal-page-target-number">
+            <h3 class="goal-target">
+              <span class="target-number"><span class="visually-hidden">Задача</span> 2.b</span>
+            </h3>
+          </div>
+          <div class="col goal-page-target-name">
+            <span class="target-name">Устранять и пресекать введение торговых ограничений и возникновение искажений на мировых рынках сельскохозяйственной продукции, в том числе посредством параллельной ликвидации всех форм субсидирования экспорта сельскохозяйственной продукции и всех экспортных мер, имеющих аналогичные последствия, в соответствии с мандатом Дохинского раунда переговоров по вопросам развития</span>
+          </div>
+      </div>
         
 
-      </div>
-    
-    </div>
-  
-    
-    <div class="indicator-cards target goal-target col-md-6">
-      <span class="indicator-card-number">
-        <label class="hidden-md hidden-lg">Задача</label>
-        2.b
-      </span>
-      Устранять и пресекать введение торговых ограничений и возникновение искажений на мировых рынках сельскохозяйственной продукции, в том числе посредством параллельной ликвидации всех форм субсидирования экспорта сельскохозяйственной продукции и всех экспортных мер, имеющих аналогичные последствия, в соответствии с мандатом Дохинского раунда переговоров по вопросам развития
-    </div>
-    <div class="indicator-cards col-md-6 row no-gutters">
-    
-
-      
-      
-      
-
-      <div class="col-md-12  goal-indicator">
-        <span class="indicator-card-number">
-          2.b.1
           
+          
+          
+          
+
+          <div class="row align-items-start goal-indicator">
+          
+            <div class="col-auto goal-page-indicator-number">
+              <h4>
+                <span class="indicator-number"><span class="visually-hidden">показатель</span> 2.b.1</span>
+              </h4>
+            </div>
+            <div class="col goal-page-indicator-name">
+              
+              <span class="indicator-name"><a href="/2-b-1">Субсидирование экспорта сельскохозяйственной продукции</a></span>
+              
+
+
+
+
+    <ul class="tags list-unstyled list-inline" aria-label="Теги"><li class="list-inline-item">
+        <span class="visually-hidden">Состояние индикатора</span>
+        
+
 
 
 <span class="status notstarted">
-    В процессе разработки
+    <span class="status-inner">В процессе разработки</span>
 </span>
 
-        </span>
-        <a href="/2-b-1">
-          Субсидирование экспорта сельскохозяйственной продукции
-        </a>
+
+        </li></ul>
+
+
+            </div>
+            
+            
+          </div>
+        
+        <hr class="goal-page-target-rule" />
+    
+      
+      <div class="row align-items-start goal-target">
+          <div class="col-auto goal-page-target-number">
+            <h3 class="goal-target">
+              <span class="target-number"><span class="visually-hidden">Задача</span> 2.c</span>
+            </h3>
+          </div>
+          <div class="col goal-page-target-name">
+            <span class="target-name">Принять меры для обеспечения надлежащего функционирования рынков продовольственных товаров и продукции их переработки и содействовать своевременному доступу к рыночной информации, в том числе о продовольственных резервах, с целью помочь ограничить чрезмерную волатильность цен на продовольствие</span>
+          </div>
+      </div>
         
 
-      </div>
-    
-    </div>
-  
-    
-    <div class="indicator-cards target goal-target col-md-6">
-      <span class="indicator-card-number">
-        <label class="hidden-md hidden-lg">Задача</label>
-        2.c
-      </span>
-      Принять меры для обеспечения надлежащего функционирования рынков продовольственных товаров и продукции их переработки и содействовать своевременному доступу к рыночной информации, в том числе о продовольственных резервах, с целью помочь ограничить чрезмерную волатильность цен на продовольствие
-    </div>
-    <div class="indicator-cards col-md-6 row no-gutters">
-    
-
-      
-      
-      
-
-      <div class="col-md-12  goal-indicator">
-        <span class="indicator-card-number">
-          2.c.1
           
+          
+          
+          
+
+          <div class="row align-items-start goal-indicator">
+          
+            <div class="col-auto goal-page-indicator-number">
+              <h4>
+                <span class="indicator-number"><span class="visually-hidden">показатель</span> 2.c.1</span>
+              </h4>
+            </div>
+            <div class="col goal-page-indicator-name">
+              
+              <span class="indicator-name"><a href="/2-c-1">Показатель ценовых аномалий на рынке продовольствия</a></span>
+              
+
+
+
+
+    <ul class="tags list-unstyled list-inline" aria-label="Теги"><li class="list-inline-item">
+        <span class="visually-hidden">Состояние индикатора</span>
+        
+
 
 
 <span class="status notstarted">
-    В процессе разработки
+    <span class="status-inner">В процессе разработки</span>
 </span>
 
-        </span>
-        <a href="/2-c-1">
-          Показатель ценовых аномалий на рынке продовольствия
-        </a>
+
+        </li></ul>
+
+
+            </div>
+            
+            
+          </div>
         
 
-      </div>
-    
-
-      
-      
-      
-
-      <div class="col-md-12 indicator-национальный goal-indicator">
-        <span class="indicator-card-number">
-          2.c.1.1b
           
+          
+          
+          
+
+          <div class="row align-items-start goal-indicator">
+          
+            <div class="col-auto goal-page-indicator-number">
+              <h4>
+                <span class="indicator-number"><span class="visually-hidden">показатель</span> 2.c.1.1b</span>
+              </h4>
+            </div>
+            <div class="col goal-page-indicator-name">
+              
+              <span class="indicator-name"><a href="/2-c-1-1b">Индекс потребительских цен на продовольственные товары</a></span>
+              
+
+
+
+
+    <ul class="tags list-unstyled list-inline" aria-label="Теги"><li class="list-inline-item">
+        <span class="visually-hidden">Состояние индикатора</span>
+        
+
 
 
 <span class="status complete">
-    Сообщение
+    <span class="status-inner">Сообщение</span>
 </span>
 
-        </span>
-        <a href="/2-c-1-1b">
-          Индекс потребительских цен на продовольственные товары
-        </a>
-        
-    <span class="sr-only">Теги</span>
-    <span class="tags">
-    
+
+        </li><li class="list-inline-item">
         
         <span class="tag tag-национальный">национальный</span>
-    
-    </span>
+        </li></ul>
 
 
-      </div>
+            </div>
+            
+            
+          </div>
+        
+        <hr class="goal-page-target-rule" />
     
-    </div>
-  
+  </div>
+  <a href="#top">Наверх</a>
 </div>
 
+
 <footer role="contentinfo">
-  <div class="container">
-    <div class="row">
-      <div class="col-xs-12">
-        <div id="footerLinks">
-          <ul>
-            <li><a href="https://open-sdg.org">Построен с использованием Open SDG</a></li>
-            
-              <li>
-                
-                  <a href="mailto:sdg_nsc@stat.kg" target="_blank">Свяжитесь с нами</a>
-                
-                </li>
-              <li>
-                <a href="/about/cookies-and-privacy">Cookies</a>
-                
-                </li>
-              
-            
-            </ul>
+    <div class="container">
+        <div class="row">
+            <div class="col">
+                <div id="footerLinks">
+                    <ul>
+                        <li>
+                            <a href="https://open-sdg.org">Построен с использованием Open SDG</a>
+                        </li>
+                        
+                        <li>
+                            
+                            <a href="mailto:sdg_nsc@stat.kg" target="_blank">Свяжитесь с нами</a>
+                            
+                        </li>
+                        <li>
+                            <a href="/about/cookies-and-privacy">Cookies</a>
+                            
+                        </li>
+                        
+                        
+                        </ul>
+                </div>
+            </div>
         </div>
-      </div>
+        
     </div>
-  </div>
 </footer>
 
 <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
-<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
-<script src="//cdn.datatables.net/1.10.16/js/jquery.dataTables.min.js"></script>
-<script src="//cdn.datatables.net/1.10.16/js/dataTables.bootstrap.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+<script src="https://cdn.datatables.net/1.11.5/js/jquery.dataTables.min.js"></script>
+<script src="https://cdn.datatables.net/1.11.5/js/dataTables.bootstrap5.min.js"></script>
 <script src="//cdn.datatables.net/fixedcolumns/3.2.3/js/dataTables.fixedColumns.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/4.17.20/lodash.min.js" integrity="sha512-90vH1Z83AJY9DmlWa8WkjkV79yfS2n2Oxhsi2dZbIv0nC4E6m5AbH8Nh156kkM7JePmqD6tcZsfad1ueoaovww==" crossorigin="anonymous"></script>
-<script src="//cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.bundle.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/chart.js@3.7.0/dist/chart.min.js" integrity="sha256-Y26AMvaIfrZ1EQU49pf6H4QzVTrOI8m9wQYKkftBt4s=" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/patternomaly@1.3.2/dist/patternomaly.js"></script>
 
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/autotrack/2.4.1/autotrack.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/html2canvas@1.0.0-rc.3/dist/html2canvas.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/file-saver@2.0.2/dist/FileSaver.min.js"></script>
+
+
+
+
+
+  <script >
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-155242465-1', 'auto');
+ga('require', 'eventTracker', {
+    attributePrefix: 'data-'
+});
+// anonymize user IPs (chops off the last IP triplet)
+ga('set', 'anonymizeIp', true);
+// forces SSL even if the page were somehow loaded over http://
+ga('set', 'forceSSL', true);
+ga('send', 'pageview');
+</script>
+
+
+
 <script>translations['general'] = translations['general'] || {};
     translations['general']['hide'] = 'скрывать';</script>
 
 <script>translations['search'] = translations['search'] || {};
     translations['search']['search'] = 'Поиск';</script>
 
-<script src='/assets/js/sdg.js?v=20220531111706'></script>
+<script src='/assets/js/sdg.js?v=20220815134908'></script>
 
 
     
     
-    <script src="/assets/js/custom.js?v=20220531111706"></script><script>
-$(function() {
-    if($('#indicatorData').length) {
-      var domData = $('#indicatorData').data();
-
-      if (domData.showdata) {
-
-        $('.async-loading').each(function(i, obj) {
-            $(obj).append($('<img />').attr('src', $(obj).data('img')).attr('alt', translations.indicator.loading));
-        });
-
-        var remoteUrl = '/comb/' + domData.id + '.json';
-        if (opensdg.remoteDataBaseUrl !== '/') {
-          remoteUrl = opensdg.remoteDataBaseUrl + remoteUrl;
-        }
-
-        $.ajax({
-          url: remoteUrl,
-          success: function(res) {
-
-            $('.async-loading').remove();
-            $('.async-loaded').show();
-
-            var model = new indicatorModel({
-              data: res.data,
-              edgesData: res.edges,
-              showMap: domData.showmap,
-              country: domData.country,
-              indicatorId: domData.indicatorid,
-              shortIndicatorId: domData.id,
-              chartTitle: domData.charttitle,
-              chartTitles: domData.charttitles,
-              measurementUnit: domData.measurementunit,
-              showData: domData.showdata,
-              graphType: domData.graphtype,
-              startValues: domData.startvalues,
-              graphLimits: domData.graphlimits,
-              stackedDisaggregation: domData.stackeddisaggregation,
-              graphAnnotations: domData.graphannotations,
-              indicatorDownloads: domData.indicatordownloads,
-              dataSchema: domData.dataschema,
-              compositeBreakdownLabel: domData.compositebreakdownlabel,
-              precision: domData.precision,
-            }),
-            view  = new indicatorView(model, {
-              rootElement: '#indicatorData',
-              legendElement: '#plotLegend',
-              decimalSeparator: '',
-              maxChartHeight: 420,
-              tableColumnDefs: [
-                { maxCharCount: 25 }, // nowrap
-                { maxCharCount: 35, width: 200 },
-                { maxCharCount: Infinity, width: 250 }
-              ]
-            }),
-            controller = new indicatorController(model, view);
-            controller.initialise();
-          }
-        });
-      }
-    }
-
-    var switcher = new accessibilitySwitcher();
-
-
-});
-</script>
-
-
-
-<script>
-  initialiseGoogleAnalytics();
+    <script src="/assets/js/custom.js?v=20220815134908"></script><script>
+    new indicatorInit();
+    new accessibilitySwitcher();
 </script>
 
 
 </body>
 </html>
-
