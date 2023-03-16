@@ -2993,8 +2993,8 @@ var mapView = function () {
     $('.map').show();
     $('#map').sdgMap({
       indicatorId: indicatorId,
-      mapOptions: {"tileURL":"https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={accessToken}","tileOptions":{"id":"mapbox.light","accessToken":"pk.eyJ1IjoiYnJvY2tmYW5uaW5nMSIsImEiOiJjaXplbmgzczgyMmRtMnZxbzlmbGJmdW9pIn0.LU-BYMX69uu3eGgk0Imibg","attribution":"<a href=\"https://www.mapbox.com\">Mapbox</a> | <a href=\"http://geoportal.statistics.gov.uk/\">ONS</a>"},"minZoom":6},
-      mapLayers: [{"min_zoom":6,"max_zoom":10,"serviceUrl":"https://opendata.arcgis.com/datasets/493025a10e2f41eda90f57a5a38d5af8_1.geojson","nameProperty":"ADM0_NAME","idProperty":"ADM0_CODE","staticBorders":true}],
+      mapOptions: {"disaggregation_controls":false,"minZoom":5,"maxZoom":10,"tileURL":"","tileOptions":{"id":"","accessToken":"","attribution":""},"colorRange":"chroma.brewer.BuGn","noValueColor":"#f0f0f0","styleNormal":{"weight":1,"opacity":1,"fillOpacity":0.7,"color":"#888888","dashArray":""},"styleHighlighted":{"weight":1,"opacity":1,"fillOpacity":0.7,"color":"#111111","dashArray":""},"styleStatic":{"weight":2,"opacity":1,"fillOpacity":0,"color":"#172d44","dashArray":"5,5"}},
+      mapLayers: [{"min_zoom":5,"max_zoom":10,"subfolder":"oblasts","label":"indicator.map","staticBorders":false}],
       precision: precision,
       decimalSeparator: decimalSeparator,
       dataSchema: dataSchema,
@@ -5487,7 +5487,7 @@ $(function() {
             this.displayedDisaggregation = 0;
             this.seriesColumn = 'SERIES';
             this.unitsColumn = 'UNIT_MEASURE';
-            this.displayForm = null;
+            this.displayForm = false;
             this.updateDisaggregations();
         },
 

@@ -128,7 +128,7 @@ var translations = {
         <link res="stylesheet" href="https://cdn.datatables.net/1.11.5/css/dataTables.bootstrap5.min.css">
         <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" crossorigin="">
         <link rel="stylesheet" href="https://cdn.datatables.net/fixedcolumns/3.2.3/css/fixedColumns.dataTables.min.css" crossorigin="">
-        <link rel="stylesheet" href="/assets/css/style.css?v=20220902101118">
+        <link rel="stylesheet" href="/assets/css/style.css?v=20230316104537">
         <link rel="stylesheet" href="https://unpkg.com/leaflet@1.3.4/dist/leaflet.css"
           integrity="sha512-puBpdR0798OZvTTbP4A8Ix/l+A4dHDD0DGqYW6RQ+9jxkRFclaxxQb/SJAWZfWAkuyeQUytO7+7N4QKrDh+drA=="
           crossorigin=""/>
@@ -136,7 +136,7 @@ var translations = {
         <link rel="stylesheet" href='https://api.mapbox.com/mapbox.js/plugins/leaflet-fullscreen/v1.0.1/leaflet.fullscreen.css'  crossorigin=""/>
         <link rel="stylesheet" href="https://bowercdn.net/c/leaflet.zoomhome-latest/dist/leaflet.zoomhome.css"  crossorigin=""/>
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet-search@2.9.7/dist/leaflet-search.min.css" crossorigin="">
-        <link rel="stylesheet" href="https://cdn.kiprotect.com/klaro/v0.7/klaro.min.css" crossorigin=""/><link rel="stylesheet" href="/assets/css/custom.css?v=20220902101118">
+        <link rel="stylesheet" href="https://cdn.kiprotect.com/klaro/v0.7/klaro.min.css" crossorigin=""/><link rel="stylesheet" href="/assets/css/custom.css?v=20230316104537">
         
 
         <!--[if IE]>
@@ -414,7 +414,7 @@ data-event-label="high"
   data-graphtargetlines="null"
   data-graphseriesbreaks="null"
   data-indicatordownloads="{&quot;indicator.download_source_excel&quot;:{&quot;href&quot;:&quot;downloads/data-excel/6.4.1.2.xlsx&quot;},&quot;indicator.download_source_sdmx&quot;:{&quot;href&quot;:&quot;downloads/data-sdmx/6.4.1.2.xml&quot;}}"
-  data-dataschema="{&quot;fields&quot;:[{&quot;name&quot;:&quot;Year&quot;,&quot;type&quot;:&quot;integer&quot;,&quot;title&quot;:&quot;Year&quot;},{&quot;name&quot;:&quot;SDG Series&quot;,&quot;type&quot;:&quot;string&quot;,&quot;constraints&quot;:{&quot;enum&quot;:[&quot;Water loss at transportation (volume)&quot;,&quot;Water loss at transportation as proportion of total water withdrawal&quot;,&quot;&quot;]},&quot;title&quot;:&quot;SDG Series&quot;},{&quot;name&quot;:&quot;Reference area&quot;,&quot;type&quot;:&quot;string&quot;,&quot;constraints&quot;:{&quot;enum&quot;:[&quot;Batken&quot;,&quot;Jalal-Abad&quot;,&quot;Issyk-Kul&quot;,&quot;Naryn&quot;,&quot;Osh&quot;,&quot;Talas&quot;,&quot;Chui&quot;,&quot;Bishkek (city)&quot;,&quot;Osh (city)&quot;,&quot;&quot;]},&quot;title&quot;:&quot;Reference area&quot;},{&quot;name&quot;:&quot;Unit of measure&quot;,&quot;type&quot;:&quot;string&quot;,&quot;constraints&quot;:{&quot;enum&quot;:[&quot;Million of cubic metres per annum&quot;,&quot;Percent&quot;,&quot;&quot;]},&quot;title&quot;:&quot;Unit of measure&quot;},{&quot;name&quot;:&quot;Value&quot;,&quot;type&quot;:&quot;number&quot;,&quot;title&quot;:&quot;Value&quot;}]}"
+  data-dataschema="{&quot;fields&quot;:[{&quot;name&quot;:&quot;Year&quot;,&quot;type&quot;:&quot;integer&quot;,&quot;title&quot;:&quot;Year&quot;},{&quot;name&quot;:&quot;SERIES&quot;,&quot;type&quot;:&quot;string&quot;,&quot;title&quot;:&quot;SDG Series&quot;},{&quot;name&quot;:&quot;REF_AREA&quot;,&quot;type&quot;:&quot;string&quot;,&quot;constraints&quot;:{&quot;enum&quot;:[&quot;Batken&quot;,&quot;Jalal-Abad&quot;,&quot;Issyk-Kul&quot;,&quot;Naryn&quot;,&quot;Osh&quot;,&quot;Talas&quot;,&quot;Chui&quot;,&quot;Bishkek (city)&quot;,&quot;Osh (city)&quot;,&quot;&quot;]},&quot;title&quot;:&quot;Reference area&quot;},{&quot;name&quot;:&quot;UNIT_MEASURE&quot;,&quot;type&quot;:&quot;string&quot;,&quot;title&quot;:&quot;Unit of measure&quot;},{&quot;name&quot;:&quot;GeoCode&quot;,&quot;type&quot;:&quot;string&quot;,&quot;title&quot;:&quot;GeoCode&quot;},{&quot;name&quot;:&quot;Value&quot;,&quot;type&quot;:&quot;number&quot;,&quot;title&quot;:&quot;Value&quot;}]}"
   data-compositebreakdownlabel=""
   data-precision="null"
 >
@@ -445,15 +445,631 @@ data-event-label="high"
   <div id="datatables">
 
     
+    <a href="https://sustainabledevelopment-kyrgyzstan.github.io/sdg-data/en/headline/6-4-1-2.csv" class="btn btn-primary btn-download" download="indicator_6-4-1-2.csv" tabindex="0" role="button">Download Headline CSV</a>
+    
     <a href="https://sustainabledevelopment-kyrgyzstan.github.io/sdg-data/en/data/6-4-1-2.csv" class="btn btn-primary btn-download" download='indicator_6-4-1-2.csv' tabindex='0' role='button'>Download Source CSV</a>
 
     <p class="no-js-disaggregation-hint">Download source CSV for disaggregations</p>
 
     
-    <h3>No headline data available</h3>
+    <h3>Headline data</h3>
+    <table class="table-responsive table table-hover dataTable no-footer" role="grid">
+      <caption>Loss of water during transportation</caption>
+      <thead>
+        
+        
+        <th scope="col">Year</th>
+        
+        
+        
+        <th scope="col">Value</th>
+        
+        
+        
+        <th scope="col">GeoCode</th>
+        
+        
+        
+        <th scope="col">UNIT_MEASURE</th>
+        
+        
+        
+        <th scope="col" class="table-value">SERIES</th>
+        
+        
+      </thead>
+      <tbody>
+        
+        <tr>
+          
+          
+          <td>2010</td>
+          
+          
+          
+          <td>1768.0</td>
+          
+          
+          
+          <td></td>
+          
+          
+          
+          <td>Million of cubic metres per annum</td>
+          
+          
+          
+          <td class="table-value">Water loss at transportation (volume)</td>
+          
+          
+        </tr>
+        
+        <tr>
+          
+          
+          <td>2011</td>
+          
+          
+          
+          <td>1877.1</td>
+          
+          
+          
+          <td></td>
+          
+          
+          
+          <td>Million of cubic metres per annum</td>
+          
+          
+          
+          <td class="table-value">Water loss at transportation (volume)</td>
+          
+          
+        </tr>
+        
+        <tr>
+          
+          
+          <td>2012</td>
+          
+          
+          
+          <td>1955.3</td>
+          
+          
+          
+          <td></td>
+          
+          
+          
+          <td>Million of cubic metres per annum</td>
+          
+          
+          
+          <td class="table-value">Water loss at transportation (volume)</td>
+          
+          
+        </tr>
+        
+        <tr>
+          
+          
+          <td>2013</td>
+          
+          
+          
+          <td>1873.3</td>
+          
+          
+          
+          <td></td>
+          
+          
+          
+          <td>Million of cubic metres per annum</td>
+          
+          
+          
+          <td class="table-value">Water loss at transportation (volume)</td>
+          
+          
+        </tr>
+        
+        <tr>
+          
+          
+          <td>2014</td>
+          
+          
+          
+          <td>2029.8</td>
+          
+          
+          
+          <td></td>
+          
+          
+          
+          <td>Million of cubic metres per annum</td>
+          
+          
+          
+          <td class="table-value">Water loss at transportation (volume)</td>
+          
+          
+        </tr>
+        
+        <tr>
+          
+          
+          <td>2015</td>
+          
+          
+          
+          <td>2092.3</td>
+          
+          
+          
+          <td></td>
+          
+          
+          
+          <td>Million of cubic metres per annum</td>
+          
+          
+          
+          <td class="table-value">Water loss at transportation (volume)</td>
+          
+          
+        </tr>
+        
+        <tr>
+          
+          
+          <td>2016</td>
+          
+          
+          
+          <td>1841.6</td>
+          
+          
+          
+          <td></td>
+          
+          
+          
+          <td>Million of cubic metres per annum</td>
+          
+          
+          
+          <td class="table-value">Water loss at transportation (volume)</td>
+          
+          
+        </tr>
+        
+        <tr>
+          
+          
+          <td>2017</td>
+          
+          
+          
+          <td>2128.3</td>
+          
+          
+          
+          <td></td>
+          
+          
+          
+          <td>Million of cubic metres per annum</td>
+          
+          
+          
+          <td class="table-value">Water loss at transportation (volume)</td>
+          
+          
+        </tr>
+        
+        <tr>
+          
+          
+          <td>2018</td>
+          
+          
+          
+          <td>2085.2</td>
+          
+          
+          
+          <td></td>
+          
+          
+          
+          <td>Million of cubic metres per annum</td>
+          
+          
+          
+          <td class="table-value">Water loss at transportation (volume)</td>
+          
+          
+        </tr>
+        
+        <tr>
+          
+          
+          <td>2019</td>
+          
+          
+          
+          <td>2242.8</td>
+          
+          
+          
+          <td></td>
+          
+          
+          
+          <td>Million of cubic metres per annum</td>
+          
+          
+          
+          <td class="table-value">Water loss at transportation (volume)</td>
+          
+          
+        </tr>
+        
+        <tr>
+          
+          
+          <td>2020</td>
+          
+          
+          
+          <td>2198.7</td>
+          
+          
+          
+          <td></td>
+          
+          
+          
+          <td>Million of cubic metres per annum</td>
+          
+          
+          
+          <td class="table-value">Water loss at transportation (volume)</td>
+          
+          
+        </tr>
+        
+        <tr>
+          
+          
+          <td>2021</td>
+          
+          
+          
+          <td>2148.2</td>
+          
+          
+          
+          <td></td>
+          
+          
+          
+          <td>Million of cubic metres per annum</td>
+          
+          
+          
+          <td class="table-value">Water loss at transportation (volume)</td>
+          
+          
+        </tr>
+        
+        <tr>
+          
+          
+          <td>2010</td>
+          
+          
+          
+          <td>23.4</td>
+          
+          
+          
+          <td></td>
+          
+          
+          
+          <td>Percent</td>
+          
+          
+          
+          <td class="table-value">Water loss at transportation as proportion of total water withdrawal</td>
+          
+          
+        </tr>
+        
+        <tr>
+          
+          
+          <td>2011</td>
+          
+          
+          
+          <td>21.7</td>
+          
+          
+          
+          <td></td>
+          
+          
+          
+          <td>Percent</td>
+          
+          
+          
+          <td class="table-value">Water loss at transportation as proportion of total water withdrawal</td>
+          
+          
+        </tr>
+        
+        <tr>
+          
+          
+          <td>2012</td>
+          
+          
+          
+          <td>21.7</td>
+          
+          
+          
+          <td></td>
+          
+          
+          
+          <td>Percent</td>
+          
+          
+          
+          <td class="table-value">Water loss at transportation as proportion of total water withdrawal</td>
+          
+          
+        </tr>
+        
+        <tr>
+          
+          
+          <td>2013</td>
+          
+          
+          
+          <td>22.5</td>
+          
+          
+          
+          <td></td>
+          
+          
+          
+          <td>Percent</td>
+          
+          
+          
+          <td class="table-value">Water loss at transportation as proportion of total water withdrawal</td>
+          
+          
+        </tr>
+        
+        <tr>
+          
+          
+          <td>2014</td>
+          
+          
+          
+          <td>26.5</td>
+          
+          
+          
+          <td></td>
+          
+          
+          
+          <td>Percent</td>
+          
+          
+          
+          <td class="table-value">Water loss at transportation as proportion of total water withdrawal</td>
+          
+          
+        </tr>
+        
+        <tr>
+          
+          
+          <td>2015</td>
+          
+          
+          
+          <td>27.6</td>
+          
+          
+          
+          <td></td>
+          
+          
+          
+          <td>Percent</td>
+          
+          
+          
+          <td class="table-value">Water loss at transportation as proportion of total water withdrawal</td>
+          
+          
+        </tr>
+        
+        <tr>
+          
+          
+          <td>2016</td>
+          
+          
+          
+          <td>25.1</td>
+          
+          
+          
+          <td></td>
+          
+          
+          
+          <td>Percent</td>
+          
+          
+          
+          <td class="table-value">Water loss at transportation as proportion of total water withdrawal</td>
+          
+          
+        </tr>
+        
+        <tr>
+          
+          
+          <td>2017</td>
+          
+          
+          
+          <td>27.8</td>
+          
+          
+          
+          <td></td>
+          
+          
+          
+          <td>Percent</td>
+          
+          
+          
+          <td class="table-value">Water loss at transportation as proportion of total water withdrawal</td>
+          
+          
+        </tr>
+        
+        <tr>
+          
+          
+          <td>2018</td>
+          
+          
+          
+          <td>26.9</td>
+          
+          
+          
+          <td></td>
+          
+          
+          
+          <td>Percent</td>
+          
+          
+          
+          <td class="table-value">Water loss at transportation as proportion of total water withdrawal</td>
+          
+          
+        </tr>
+        
+        <tr>
+          
+          
+          <td>2019</td>
+          
+          
+          
+          <td>27.8</td>
+          
+          
+          
+          <td></td>
+          
+          
+          
+          <td>Percent</td>
+          
+          
+          
+          <td class="table-value">Water loss at transportation as proportion of total water withdrawal</td>
+          
+          
+        </tr>
+        
+        <tr>
+          
+          
+          <td>2020</td>
+          
+          
+          
+          <td>27.4</td>
+          
+          
+          
+          <td></td>
+          
+          
+          
+          <td>Percent</td>
+          
+          
+          
+          <td class="table-value">Water loss at transportation as proportion of total water withdrawal</td>
+          
+          
+        </tr>
+        
+        <tr>
+          
+          
+          <td>2021</td>
+          
+          
+          
+          <td>26.9</td>
+          
+          
+          
+          <td></td>
+          
+          
+          
+          <td>Percent</td>
+          
+          
+          
+          <td class="table-value">Water loss at transportation as proportion of total water withdrawal</td>
+          
+          
+        </tr>
+        
+      </tbody>
+    </table>
     
   </div>
 
+  
+  <div id="datatableFooter">
+    
+    
+    <p>Geographical Area: Kyrgyz Republic</p>
+    
+    
+    
+  </div>
   
 
 </div>
@@ -1294,12 +1910,12 @@ ga('send', 'pageview');
 <script>translations['search'] = translations['search'] || {};
     translations['search']['search'] = 'Search';</script>
 
-<script src='/assets/js/sdg.js?v=20220902101118'></script>
+<script src='/assets/js/sdg.js?v=20230316104537'></script>
 
 
     
     
-    <script src="/assets/js/custom.js?v=20220902101118"></script><script>
+    <script src="/assets/js/custom.js?v=20230316104537"></script><script>
     new indicatorInit();
     new accessibilitySwitcher();
 </script>

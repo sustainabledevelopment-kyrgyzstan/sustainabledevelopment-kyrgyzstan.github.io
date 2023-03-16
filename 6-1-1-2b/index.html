@@ -128,7 +128,7 @@ var translations = {
         <link res="stylesheet" href="https://cdn.datatables.net/1.11.5/css/dataTables.bootstrap5.min.css">
         <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" crossorigin="">
         <link rel="stylesheet" href="https://cdn.datatables.net/fixedcolumns/3.2.3/css/fixedColumns.dataTables.min.css" crossorigin="">
-        <link rel="stylesheet" href="/assets/css/style.css?v=20220902101118">
+        <link rel="stylesheet" href="/assets/css/style.css?v=20230316104537">
         <link rel="stylesheet" href="https://unpkg.com/leaflet@1.3.4/dist/leaflet.css"
           integrity="sha512-puBpdR0798OZvTTbP4A8Ix/l+A4dHDD0DGqYW6RQ+9jxkRFclaxxQb/SJAWZfWAkuyeQUytO7+7N4QKrDh+drA=="
           crossorigin=""/>
@@ -136,7 +136,7 @@ var translations = {
         <link rel="stylesheet" href='https://api.mapbox.com/mapbox.js/plugins/leaflet-fullscreen/v1.0.1/leaflet.fullscreen.css'  crossorigin=""/>
         <link rel="stylesheet" href="https://bowercdn.net/c/leaflet.zoomhome-latest/dist/leaflet.zoomhome.css"  crossorigin=""/>
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet-search@2.9.7/dist/leaflet-search.min.css" crossorigin="">
-        <link rel="stylesheet" href="https://cdn.kiprotect.com/klaro/v0.7/klaro.min.css" crossorigin=""/><link rel="stylesheet" href="/assets/css/custom.css?v=20220902101118">
+        <link rel="stylesheet" href="https://cdn.kiprotect.com/klaro/v0.7/klaro.min.css" crossorigin=""/><link rel="stylesheet" href="/assets/css/custom.css?v=20230316104537">
         
 
         <!--[if IE]>
@@ -414,7 +414,7 @@ data-event-label="high"
   data-graphtargetlines="null"
   data-graphseriesbreaks="null"
   data-indicatordownloads="{&quot;indicator.download_source_excel&quot;:{&quot;href&quot;:&quot;downloads/data-excel/6.1.1.2b.xlsx&quot;},&quot;indicator.download_source_sdmx&quot;:{&quot;href&quot;:&quot;downloads/data-sdmx/6.1.1.2b.xml&quot;}}"
-  data-dataschema="{&quot;fields&quot;:[{&quot;name&quot;:&quot;Year&quot;,&quot;type&quot;:&quot;integer&quot;,&quot;title&quot;:&quot;Год&quot;},{&quot;name&quot;:&quot;SDG Series&quot;,&quot;type&quot;:&quot;string&quot;,&quot;constraints&quot;:{&quot;enum&quot;:[&quot;Proportion of drinking water samples that do not meet established sanitary-chemical standards&quot;,&quot;Proportion of drinking water samples that do not meet established microbiological standards&quot;,&quot;&quot;]},&quot;title&quot;:&quot;SDG Series&quot;},{&quot;name&quot;:&quot;Value&quot;,&quot;type&quot;:&quot;number&quot;,&quot;title&quot;:&quot;Value&quot;}]}"
+  data-dataschema="{&quot;fields&quot;:[{&quot;name&quot;:&quot;Year&quot;,&quot;type&quot;:&quot;integer&quot;,&quot;title&quot;:&quot;Год&quot;},{&quot;name&quot;:&quot;SERIES&quot;,&quot;type&quot;:&quot;string&quot;,&quot;title&quot;:&quot;Ряды ЦУР&quot;},{&quot;name&quot;:&quot;Value&quot;,&quot;type&quot;:&quot;number&quot;,&quot;title&quot;:&quot;Value&quot;}]}"
   data-compositebreakdownlabel=""
   data-precision="null"
 >
@@ -445,15 +445,527 @@ data-event-label="high"
   <div id="datatables">
 
     
+    <a href="https://sustainabledevelopment-kyrgyzstan.github.io/sdg-data/ru/headline/6-1-1-2b.csv" class="btn btn-primary btn-download" download="indicator_6-1-1-2b.csv" tabindex="0" role="button">Скачать заголовки CSV</a>
+    
     <a href="https://sustainabledevelopment-kyrgyzstan.github.io/sdg-data/ru/data/6-1-1-2b.csv" class="btn btn-primary btn-download" download='indicator_6-1-1-2b.csv' tabindex='0' role='button'>Скачать исходные CSV</a>
 
     <p class="no-js-disaggregation-hint">Загрузить исходный CSV для дезагрегации</p>
 
     
-    <h3>Данные по заголовкам отсутствуют</h3>
+    <h3>Данные заголовка</h3>
+    <table class="table-responsive table table-hover dataTable no-footer" role="grid">
+      <caption>Доля проб воды, не отвечающих гигиеническим нормативам по санитарно-химическим и микробиологическим показателям</caption>
+      <thead>
+        
+        
+        <th scope="col">Year</th>
+        
+        
+        
+        <th scope="col">Value</th>
+        
+        
+        
+        <th scope="col" class="table-value">SERIES</th>
+        
+        
+      </thead>
+      <tbody>
+        
+        <tr>
+          
+          
+          <td>2007</td>
+          
+          
+          
+          <td>2.1</td>
+          
+          
+          
+          <td class="table-value">Доля проб воды, не отвечающих гигиеническим нормативам по санитарно-химическим показателям</td>
+          
+          
+        </tr>
+        
+        <tr>
+          
+          
+          <td>2008</td>
+          
+          
+          
+          <td>2.4</td>
+          
+          
+          
+          <td class="table-value">Доля проб воды, не отвечающих гигиеническим нормативам по санитарно-химическим показателям</td>
+          
+          
+        </tr>
+        
+        <tr>
+          
+          
+          <td>2009</td>
+          
+          
+          
+          <td>2.0</td>
+          
+          
+          
+          <td class="table-value">Доля проб воды, не отвечающих гигиеническим нормативам по санитарно-химическим показателям</td>
+          
+          
+        </tr>
+        
+        <tr>
+          
+          
+          <td>2010</td>
+          
+          
+          
+          <td>2.9</td>
+          
+          
+          
+          <td class="table-value">Доля проб воды, не отвечающих гигиеническим нормативам по санитарно-химическим показателям</td>
+          
+          
+        </tr>
+        
+        <tr>
+          
+          
+          <td>2011</td>
+          
+          
+          
+          <td>2.0</td>
+          
+          
+          
+          <td class="table-value">Доля проб воды, не отвечающих гигиеническим нормативам по санитарно-химическим показателям</td>
+          
+          
+        </tr>
+        
+        <tr>
+          
+          
+          <td>2012</td>
+          
+          
+          
+          <td>2.5</td>
+          
+          
+          
+          <td class="table-value">Доля проб воды, не отвечающих гигиеническим нормативам по санитарно-химическим показателям</td>
+          
+          
+        </tr>
+        
+        <tr>
+          
+          
+          <td>2013</td>
+          
+          
+          
+          <td>2.5</td>
+          
+          
+          
+          <td class="table-value">Доля проб воды, не отвечающих гигиеническим нормативам по санитарно-химическим показателям</td>
+          
+          
+        </tr>
+        
+        <tr>
+          
+          
+          <td>2014</td>
+          
+          
+          
+          <td>1.3</td>
+          
+          
+          
+          <td class="table-value">Доля проб воды, не отвечающих гигиеническим нормативам по санитарно-химическим показателям</td>
+          
+          
+        </tr>
+        
+        <tr>
+          
+          
+          <td>2015</td>
+          
+          
+          
+          <td>1.6</td>
+          
+          
+          
+          <td class="table-value">Доля проб воды, не отвечающих гигиеническим нормативам по санитарно-химическим показателям</td>
+          
+          
+        </tr>
+        
+        <tr>
+          
+          
+          <td>2016</td>
+          
+          
+          
+          <td>2.1</td>
+          
+          
+          
+          <td class="table-value">Доля проб воды, не отвечающих гигиеническим нормативам по санитарно-химическим показателям</td>
+          
+          
+        </tr>
+        
+        <tr>
+          
+          
+          <td>2017</td>
+          
+          
+          
+          <td>2.0</td>
+          
+          
+          
+          <td class="table-value">Доля проб воды, не отвечающих гигиеническим нормативам по санитарно-химическим показателям</td>
+          
+          
+        </tr>
+        
+        <tr>
+          
+          
+          <td>2018</td>
+          
+          
+          
+          <td>1.7</td>
+          
+          
+          
+          <td class="table-value">Доля проб воды, не отвечающих гигиеническим нормативам по санитарно-химическим показателям</td>
+          
+          
+        </tr>
+        
+        <tr>
+          
+          
+          <td>2019</td>
+          
+          
+          
+          <td>1.4</td>
+          
+          
+          
+          <td class="table-value">Доля проб воды, не отвечающих гигиеническим нормативам по санитарно-химическим показателям</td>
+          
+          
+        </tr>
+        
+        <tr>
+          
+          
+          <td>2020</td>
+          
+          
+          
+          <td>1.1</td>
+          
+          
+          
+          <td class="table-value">Доля проб воды, не отвечающих гигиеническим нормативам по санитарно-химическим показателям</td>
+          
+          
+        </tr>
+        
+        <tr>
+          
+          
+          <td>2021</td>
+          
+          
+          
+          <td>0.9</td>
+          
+          
+          
+          <td class="table-value">Доля проб воды, не отвечающих гигиеническим нормативам по санитарно-химическим показателям</td>
+          
+          
+        </tr>
+        
+        <tr>
+          
+          
+          <td>2007</td>
+          
+          
+          
+          <td>10.6</td>
+          
+          
+          
+          <td class="table-value">Доля проб воды, не отвечающих гигиеническим нормативам по микробиологическим показателям</td>
+          
+          
+        </tr>
+        
+        <tr>
+          
+          
+          <td>2008</td>
+          
+          
+          
+          <td>10.7</td>
+          
+          
+          
+          <td class="table-value">Доля проб воды, не отвечающих гигиеническим нормативам по микробиологическим показателям</td>
+          
+          
+        </tr>
+        
+        <tr>
+          
+          
+          <td>2009</td>
+          
+          
+          
+          <td>9.5</td>
+          
+          
+          
+          <td class="table-value">Доля проб воды, не отвечающих гигиеническим нормативам по микробиологическим показателям</td>
+          
+          
+        </tr>
+        
+        <tr>
+          
+          
+          <td>2010</td>
+          
+          
+          
+          <td>11.3</td>
+          
+          
+          
+          <td class="table-value">Доля проб воды, не отвечающих гигиеническим нормативам по микробиологическим показателям</td>
+          
+          
+        </tr>
+        
+        <tr>
+          
+          
+          <td>2011</td>
+          
+          
+          
+          <td>12.7</td>
+          
+          
+          
+          <td class="table-value">Доля проб воды, не отвечающих гигиеническим нормативам по микробиологическим показателям</td>
+          
+          
+        </tr>
+        
+        <tr>
+          
+          
+          <td>2012</td>
+          
+          
+          
+          <td>10.7</td>
+          
+          
+          
+          <td class="table-value">Доля проб воды, не отвечающих гигиеническим нормативам по микробиологическим показателям</td>
+          
+          
+        </tr>
+        
+        <tr>
+          
+          
+          <td>2013</td>
+          
+          
+          
+          <td>8.4</td>
+          
+          
+          
+          <td class="table-value">Доля проб воды, не отвечающих гигиеническим нормативам по микробиологическим показателям</td>
+          
+          
+        </tr>
+        
+        <tr>
+          
+          
+          <td>2014</td>
+          
+          
+          
+          <td>6.5</td>
+          
+          
+          
+          <td class="table-value">Доля проб воды, не отвечающих гигиеническим нормативам по микробиологическим показателям</td>
+          
+          
+        </tr>
+        
+        <tr>
+          
+          
+          <td>2015</td>
+          
+          
+          
+          <td>7.7</td>
+          
+          
+          
+          <td class="table-value">Доля проб воды, не отвечающих гигиеническим нормативам по микробиологическим показателям</td>
+          
+          
+        </tr>
+        
+        <tr>
+          
+          
+          <td>2016</td>
+          
+          
+          
+          <td>8.4</td>
+          
+          
+          
+          <td class="table-value">Доля проб воды, не отвечающих гигиеническим нормативам по микробиологическим показателям</td>
+          
+          
+        </tr>
+        
+        <tr>
+          
+          
+          <td>2017</td>
+          
+          
+          
+          <td>8.1</td>
+          
+          
+          
+          <td class="table-value">Доля проб воды, не отвечающих гигиеническим нормативам по микробиологическим показателям</td>
+          
+          
+        </tr>
+        
+        <tr>
+          
+          
+          <td>2018</td>
+          
+          
+          
+          <td>8.2</td>
+          
+          
+          
+          <td class="table-value">Доля проб воды, не отвечающих гигиеническим нормативам по микробиологическим показателям</td>
+          
+          
+        </tr>
+        
+        <tr>
+          
+          
+          <td>2019</td>
+          
+          
+          
+          <td>8.6</td>
+          
+          
+          
+          <td class="table-value">Доля проб воды, не отвечающих гигиеническим нормативам по микробиологическим показателям</td>
+          
+          
+        </tr>
+        
+        <tr>
+          
+          
+          <td>2020</td>
+          
+          
+          
+          <td>7.0</td>
+          
+          
+          
+          <td class="table-value">Доля проб воды, не отвечающих гигиеническим нормативам по микробиологическим показателям</td>
+          
+          
+        </tr>
+        
+        <tr>
+          
+          
+          <td>2021</td>
+          
+          
+          
+          <td>6.5</td>
+          
+          
+          
+          <td class="table-value">Доля проб воды, не отвечающих гигиеническим нормативам по микробиологическим показателям</td>
+          
+          
+        </tr>
+        
+      </tbody>
+    </table>
     
   </div>
 
+  
+  <div id="datatableFooter">
+    
+    
+    <p>Географический район: Кыргызская Республика</p>
+    
+    
+    
+  </div>
   
 
 </div>
@@ -1295,12 +1807,12 @@ ga('send', 'pageview');
 <script>translations['search'] = translations['search'] || {};
     translations['search']['search'] = 'Поиск';</script>
 
-<script src='/assets/js/sdg.js?v=20220902101118'></script>
+<script src='/assets/js/sdg.js?v=20230316104537'></script>
 
 
     
     
-    <script src="/assets/js/custom.js?v=20220902101118"></script><script>
+    <script src="/assets/js/custom.js?v=20230316104537"></script><script>
     new indicatorInit();
     new accessibilitySwitcher();
 </script>

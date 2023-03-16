@@ -128,7 +128,7 @@ var translations = {
         <link res="stylesheet" href="https://cdn.datatables.net/1.11.5/css/dataTables.bootstrap5.min.css">
         <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" crossorigin="">
         <link rel="stylesheet" href="https://cdn.datatables.net/fixedcolumns/3.2.3/css/fixedColumns.dataTables.min.css" crossorigin="">
-        <link rel="stylesheet" href="/assets/css/style.css?v=20220902101118">
+        <link rel="stylesheet" href="/assets/css/style.css?v=20230316104537">
         <link rel="stylesheet" href="https://unpkg.com/leaflet@1.3.4/dist/leaflet.css"
           integrity="sha512-puBpdR0798OZvTTbP4A8Ix/l+A4dHDD0DGqYW6RQ+9jxkRFclaxxQb/SJAWZfWAkuyeQUytO7+7N4QKrDh+drA=="
           crossorigin=""/>
@@ -136,7 +136,7 @@ var translations = {
         <link rel="stylesheet" href='https://api.mapbox.com/mapbox.js/plugins/leaflet-fullscreen/v1.0.1/leaflet.fullscreen.css'  crossorigin=""/>
         <link rel="stylesheet" href="https://bowercdn.net/c/leaflet.zoomhome-latest/dist/leaflet.zoomhome.css"  crossorigin=""/>
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet-search@2.9.7/dist/leaflet-search.min.css" crossorigin="">
-        <link rel="stylesheet" href="https://cdn.kiprotect.com/klaro/v0.7/klaro.min.css" crossorigin=""/><link rel="stylesheet" href="/assets/css/custom.css?v=20220902101118">
+        <link rel="stylesheet" href="https://cdn.kiprotect.com/klaro/v0.7/klaro.min.css" crossorigin=""/><link rel="stylesheet" href="/assets/css/custom.css?v=20230316104537">
         
 
         <!--[if IE]>
@@ -414,7 +414,7 @@ data-event-label="high"
   data-graphtargetlines="null"
   data-graphseriesbreaks="null"
   data-indicatordownloads="{&quot;indicator.download_source_excel&quot;:{&quot;href&quot;:&quot;downloads/data-excel/1.3.1.1c.xlsx&quot;},&quot;indicator.download_source_sdmx&quot;:{&quot;href&quot;:&quot;downloads/data-sdmx/1.3.1.1c.xml&quot;}}"
-  data-dataschema="{&quot;fields&quot;:[{&quot;name&quot;:&quot;Year&quot;,&quot;type&quot;:&quot;integer&quot;,&quot;title&quot;:&quot;Year&quot;},{&quot;name&quot;:&quot;SDG Series&quot;,&quot;type&quot;:&quot;string&quot;,&quot;constraints&quot;:{&quot;enum&quot;:[&quot;Proportion of population receiving retirement benefits to total population&quot;,&quot;Proportion of population receiving Monthly Allowance for Low-Income Families to total population&quot;,&quot;Proportion of population receiving social assistance&quot;,&quot;&quot;]},&quot;title&quot;:&quot;SDG Series&quot;},{&quot;name&quot;:&quot;Value&quot;,&quot;type&quot;:&quot;number&quot;,&quot;title&quot;:&quot;Value&quot;}]}"
+  data-dataschema="{&quot;fields&quot;:[{&quot;name&quot;:&quot;Year&quot;,&quot;type&quot;:&quot;integer&quot;,&quot;title&quot;:&quot;Year&quot;},{&quot;name&quot;:&quot;SERIES&quot;,&quot;type&quot;:&quot;string&quot;,&quot;title&quot;:&quot;SDG Series&quot;},{&quot;name&quot;:&quot;Value&quot;,&quot;type&quot;:&quot;number&quot;,&quot;title&quot;:&quot;Value&quot;}]}"
   data-compositebreakdownlabel=""
   data-precision="null"
 >
@@ -445,15 +445,767 @@ data-event-label="high"
   <div id="datatables">
 
     
+    <a href="https://sustainabledevelopment-kyrgyzstan.github.io/sdg-data/en/headline/1-3-1-1c.csv" class="btn btn-primary btn-download" download="indicator_1-3-1-1c.csv" tabindex="0" role="button">Download Headline CSV</a>
+    
     <a href="https://sustainabledevelopment-kyrgyzstan.github.io/sdg-data/en/data/1-3-1-1c.csv" class="btn btn-primary btn-download" download='indicator_1-3-1-1c.csv' tabindex='0' role='button'>Download Source CSV</a>
 
     <p class="no-js-disaggregation-hint">Download source CSV for disaggregations</p>
 
     
-    <h3>No headline data available</h3>
+    <h3>Headline data</h3>
+    <table class="table-responsive table table-hover dataTable no-footer" role="grid">
+      <caption>Proportion of population receiving Monthly Allowance for Low-Income Families, social benefits and pensions</caption>
+      <thead>
+        
+        
+        <th scope="col">Year</th>
+        
+        
+        
+        <th scope="col">Value</th>
+        
+        
+        
+        <th scope="col" class="table-value">SERIES</th>
+        
+        
+      </thead>
+      <tbody>
+        
+        <tr>
+          
+          
+          <td>2007</td>
+          
+          
+          
+          <td>10.1</td>
+          
+          
+          
+          <td class="table-value">Proportion of population receiving retirement benefits to total population</td>
+          
+          
+        </tr>
+        
+        <tr>
+          
+          
+          <td>2008</td>
+          
+          
+          
+          <td>10.6</td>
+          
+          
+          
+          <td class="table-value">Proportion of population receiving retirement benefits to total population</td>
+          
+          
+        </tr>
+        
+        <tr>
+          
+          
+          <td>2009</td>
+          
+          
+          
+          <td>10.527481</td>
+          
+          
+          
+          <td class="table-value">Proportion of population receiving retirement benefits to total population</td>
+          
+          
+        </tr>
+        
+        <tr>
+          
+          
+          <td>2010</td>
+          
+          
+          
+          <td>10.608791</td>
+          
+          
+          
+          <td class="table-value">Proportion of population receiving retirement benefits to total population</td>
+          
+          
+        </tr>
+        
+        <tr>
+          
+          
+          <td>2011</td>
+          
+          
+          
+          <td>10.838101</td>
+          
+          
+          
+          <td class="table-value">Proportion of population receiving retirement benefits to total population</td>
+          
+          
+        </tr>
+        
+        <tr>
+          
+          
+          <td>2012</td>
+          
+          
+          
+          <td>11.043937</td>
+          
+          
+          
+          <td class="table-value">Proportion of population receiving retirement benefits to total population</td>
+          
+          
+        </tr>
+        
+        <tr>
+          
+          
+          <td>2013</td>
+          
+          
+          
+          <td>10.825698</td>
+          
+          
+          
+          <td class="table-value">Proportion of population receiving retirement benefits to total population</td>
+          
+          
+        </tr>
+        
+        <tr>
+          
+          
+          <td>2014</td>
+          
+          
+          
+          <td>10.759191</td>
+          
+          
+          
+          <td class="table-value">Proportion of population receiving retirement benefits to total population</td>
+          
+          
+        </tr>
+        
+        <tr>
+          
+          
+          <td>2015</td>
+          
+          
+          
+          <td>10.746011</td>
+          
+          
+          
+          <td class="table-value">Proportion of population receiving retirement benefits to total population</td>
+          
+          
+        </tr>
+        
+        <tr>
+          
+          
+          <td>2016</td>
+          
+          
+          
+          <td>10.768411</td>
+          
+          
+          
+          <td class="table-value">Proportion of population receiving retirement benefits to total population</td>
+          
+          
+        </tr>
+        
+        <tr>
+          
+          
+          <td>2017</td>
+          
+          
+          
+          <td>10.760094</td>
+          
+          
+          
+          <td class="table-value">Proportion of population receiving retirement benefits to total population</td>
+          
+          
+        </tr>
+        
+        <tr>
+          
+          
+          <td>2018</td>
+          
+          
+          
+          <td>10.874701</td>
+          
+          
+          
+          <td class="table-value">Proportion of population receiving retirement benefits to total population</td>
+          
+          
+        </tr>
+        
+        <tr>
+          
+          
+          <td>2019</td>
+          
+          
+          
+          <td>10.95936</td>
+          
+          
+          
+          <td class="table-value">Proportion of population receiving retirement benefits to total population</td>
+          
+          
+        </tr>
+        
+        <tr>
+          
+          
+          <td>2020</td>
+          
+          
+          
+          <td>11.086874</td>
+          
+          
+          
+          <td class="table-value">Proportion of population receiving retirement benefits to total population</td>
+          
+          
+        </tr>
+        
+        <tr>
+          
+          
+          <td>2021</td>
+          
+          
+          
+          <td>11.239761</td>
+          
+          
+          
+          <td class="table-value">Proportion of population receiving retirement benefits to total population</td>
+          
+          
+        </tr>
+        
+        <tr>
+          
+          
+          <td>2007</td>
+          
+          
+          
+          <td>8.277782</td>
+          
+          
+          
+          <td class="table-value">Proportion of population receiving Monthly Allowance for Low-Income Families to total population</td>
+          
+          
+        </tr>
+        
+        <tr>
+          
+          
+          <td>2008</td>
+          
+          
+          
+          <td>6.836681</td>
+          
+          
+          
+          <td class="table-value">Proportion of population receiving Monthly Allowance for Low-Income Families to total population</td>
+          
+          
+        </tr>
+        
+        <tr>
+          
+          
+          <td>2009</td>
+          
+          
+          
+          <td>6.915016</td>
+          
+          
+          
+          <td class="table-value">Proportion of population receiving Monthly Allowance for Low-Income Families to total population</td>
+          
+          
+        </tr>
+        
+        <tr>
+          
+          
+          <td>2010</td>
+          
+          
+          
+          <td>6.6</td>
+          
+          
+          
+          <td class="table-value">Proportion of population receiving Monthly Allowance for Low-Income Families to total population</td>
+          
+          
+        </tr>
+        
+        <tr>
+          
+          
+          <td>2011</td>
+          
+          
+          
+          <td>6.879721</td>
+          
+          
+          
+          <td class="table-value">Proportion of population receiving Monthly Allowance for Low-Income Families to total population</td>
+          
+          
+        </tr>
+        
+        <tr>
+          
+          
+          <td>2012</td>
+          
+          
+          
+          <td>6.187625</td>
+          
+          
+          
+          <td class="table-value">Proportion of population receiving Monthly Allowance for Low-Income Families to total population</td>
+          
+          
+        </tr>
+        
+        <tr>
+          
+          
+          <td>2013</td>
+          
+          
+          
+          <td>5.8</td>
+          
+          
+          
+          <td class="table-value">Proportion of population receiving Monthly Allowance for Low-Income Families to total population</td>
+          
+          
+        </tr>
+        
+        <tr>
+          
+          
+          <td>2014</td>
+          
+          
+          
+          <td>5.3</td>
+          
+          
+          
+          <td class="table-value">Proportion of population receiving Monthly Allowance for Low-Income Families to total population</td>
+          
+          
+        </tr>
+        
+        <tr>
+          
+          
+          <td>2015</td>
+          
+          
+          
+          <td>5.1</td>
+          
+          
+          
+          <td class="table-value">Proportion of population receiving Monthly Allowance for Low-Income Families to total population</td>
+          
+          
+        </tr>
+        
+        <tr>
+          
+          
+          <td>2016</td>
+          
+          
+          
+          <td>4.5</td>
+          
+          
+          
+          <td class="table-value">Proportion of population receiving Monthly Allowance for Low-Income Families to total population</td>
+          
+          
+        </tr>
+        
+        <tr>
+          
+          
+          <td>2017</td>
+          
+          
+          
+          <td>4.7</td>
+          
+          
+          
+          <td class="table-value">Proportion of population receiving Monthly Allowance for Low-Income Families to total population</td>
+          
+          
+        </tr>
+        
+        <tr>
+          
+          
+          <td>2018</td>
+          
+          
+          
+          <td>4.5</td>
+          
+          
+          
+          <td class="table-value">Proportion of population receiving Monthly Allowance for Low-Income Families to total population</td>
+          
+          
+        </tr>
+        
+        <tr>
+          
+          
+          <td>2019</td>
+          
+          
+          
+          <td>4.7</td>
+          
+          
+          
+          <td class="table-value">Proportion of population receiving Monthly Allowance for Low-Income Families to total population</td>
+          
+          
+        </tr>
+        
+        <tr>
+          
+          
+          <td>2020</td>
+          
+          
+          
+          <td>5.1</td>
+          
+          
+          
+          <td class="table-value">Proportion of population receiving Monthly Allowance for Low-Income Families to total population</td>
+          
+          
+        </tr>
+        
+        <tr>
+          
+          
+          <td>2021</td>
+          
+          
+          
+          <td>5.328736</td>
+          
+          
+          
+          <td class="table-value">Proportion of population receiving Monthly Allowance for Low-Income Families to total population</td>
+          
+          
+        </tr>
+        
+        <tr>
+          
+          
+          <td>2007</td>
+          
+          
+          
+          <td>1.124026</td>
+          
+          
+          
+          <td class="table-value">Proportion of population receiving social assistance</td>
+          
+          
+        </tr>
+        
+        <tr>
+          
+          
+          <td>2008</td>
+          
+          
+          
+          <td>1.150702</td>
+          
+          
+          
+          <td class="table-value">Proportion of population receiving social assistance</td>
+          
+          
+        </tr>
+        
+        <tr>
+          
+          
+          <td>2009</td>
+          
+          
+          
+          <td>1.176048</td>
+          
+          
+          
+          <td class="table-value">Proportion of population receiving social assistance</td>
+          
+          
+        </tr>
+        
+        <tr>
+          
+          
+          <td>2010</td>
+          
+          
+          
+          <td>1.2</td>
+          
+          
+          
+          <td class="table-value">Proportion of population receiving social assistance</td>
+          
+          
+        </tr>
+        
+        <tr>
+          
+          
+          <td>2011</td>
+          
+          
+          
+          <td>1.287183</td>
+          
+          
+          
+          <td class="table-value">Proportion of population receiving social assistance</td>
+          
+          
+        </tr>
+        
+        <tr>
+          
+          
+          <td>2012</td>
+          
+          
+          
+          <td>1.283635</td>
+          
+          
+          
+          <td class="table-value">Proportion of population receiving social assistance</td>
+          
+          
+        </tr>
+        
+        <tr>
+          
+          
+          <td>2013</td>
+          
+          
+          
+          <td>1.3</td>
+          
+          
+          
+          <td class="table-value">Proportion of population receiving social assistance</td>
+          
+          
+        </tr>
+        
+        <tr>
+          
+          
+          <td>2014</td>
+          
+          
+          
+          <td>1.3</td>
+          
+          
+          
+          <td class="table-value">Proportion of population receiving social assistance</td>
+          
+          
+        </tr>
+        
+        <tr>
+          
+          
+          <td>2015</td>
+          
+          
+          
+          <td>1.3</td>
+          
+          
+          
+          <td class="table-value">Proportion of population receiving social assistance</td>
+          
+          
+        </tr>
+        
+        <tr>
+          
+          
+          <td>2016</td>
+          
+          
+          
+          <td>1.4</td>
+          
+          
+          
+          <td class="table-value">Proportion of population receiving social assistance</td>
+          
+          
+        </tr>
+        
+        <tr>
+          
+          
+          <td>2017</td>
+          
+          
+          
+          <td>1.4</td>
+          
+          
+          
+          <td class="table-value">Proportion of population receiving social assistance</td>
+          
+          
+        </tr>
+        
+        <tr>
+          
+          
+          <td>2018</td>
+          
+          
+          
+          <td>1.4</td>
+          
+          
+          
+          <td class="table-value">Proportion of population receiving social assistance</td>
+          
+          
+        </tr>
+        
+        <tr>
+          
+          
+          <td>2019</td>
+          
+          
+          
+          <td>1.4</td>
+          
+          
+          
+          <td class="table-value">Proportion of population receiving social assistance</td>
+          
+          
+        </tr>
+        
+        <tr>
+          
+          
+          <td>2020</td>
+          
+          
+          
+          <td>1.4</td>
+          
+          
+          
+          <td class="table-value">Proportion of population receiving social assistance</td>
+          
+          
+        </tr>
+        
+        <tr>
+          
+          
+          <td>2021</td>
+          
+          
+          
+          <td>1.46836</td>
+          
+          
+          
+          <td class="table-value">Proportion of population receiving social assistance</td>
+          
+          
+        </tr>
+        
+      </tbody>
+    </table>
     
   </div>
 
+  
+  <div id="datatableFooter">
+    
+    
+    <p>Geographical Area: Kyrgyz Republic</p>
+    
+    
+    
+  </div>
   
 
 </div>
@@ -1298,12 +2050,12 @@ ga('send', 'pageview');
 <script>translations['search'] = translations['search'] || {};
     translations['search']['search'] = 'Search';</script>
 
-<script src='/assets/js/sdg.js?v=20220902101118'></script>
+<script src='/assets/js/sdg.js?v=20230316104537'></script>
 
 
     
     
-    <script src="/assets/js/custom.js?v=20220902101118"></script><script>
+    <script src="/assets/js/custom.js?v=20230316104537"></script><script>
     new indicatorInit();
     new accessibilitySwitcher();
 </script>
