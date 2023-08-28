@@ -128,7 +128,7 @@ var translations = {
         <link res="stylesheet" href="https://cdn.datatables.net/1.11.5/css/dataTables.bootstrap5.min.css">
         <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" crossorigin="">
         <link rel="stylesheet" href="https://cdn.datatables.net/fixedcolumns/3.2.3/css/fixedColumns.dataTables.min.css" crossorigin="">
-        <link rel="stylesheet" href="/assets/css/style.css?v=20230828171652">
+        <link rel="stylesheet" href="/assets/css/style.css?v=20230828172306">
         <link rel="stylesheet" href="https://unpkg.com/leaflet@1.3.4/dist/leaflet.css"
           integrity="sha512-puBpdR0798OZvTTbP4A8Ix/l+A4dHDD0DGqYW6RQ+9jxkRFclaxxQb/SJAWZfWAkuyeQUytO7+7N4QKrDh+drA=="
           crossorigin=""/>
@@ -136,7 +136,7 @@ var translations = {
         <link rel="stylesheet" href='https://api.mapbox.com/mapbox.js/plugins/leaflet-fullscreen/v1.0.1/leaflet.fullscreen.css'  crossorigin=""/>
         <link rel="stylesheet" href="https://bowercdn.net/c/leaflet.zoomhome-latest/dist/leaflet.zoomhome.css"  crossorigin=""/>
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet-search@2.9.7/dist/leaflet-search.min.css" crossorigin="">
-        <link rel="stylesheet" href="https://cdn.kiprotect.com/klaro/v0.7/klaro.min.css" crossorigin=""/><link rel="stylesheet" href="/assets/css/custom.css?v=20230828171652">
+        <link rel="stylesheet" href="https://cdn.kiprotect.com/klaro/v0.7/klaro.min.css" crossorigin=""/><link rel="stylesheet" href="/assets/css/custom.css?v=20230828172306">
         
 
         <!--[if IE]>
@@ -986,7 +986,7 @@ data-event-label="Change to custom.data_reporter tab"
         <th scope="row">Определения </th>
         <td>
           
-            
+            <p>Точное определение индикатора, включая ссылки на стандарты и классификации, предпочтительно опираясь на согласованные на международном уровне определения. Определение показателя должно быть однозначным и выражаться в универсально применимых терминах. Он должен четко выражать единицу измерения (пропорции, доллары, количество человек и т.д.)</p>
 
           
         </td>
@@ -1000,7 +1000,7 @@ data-event-label="Change to custom.data_reporter tab"
         <th scope="row">Основные понятия </th>
         <td>
           
-            
+            <p>Точное определение всех различных понятий, переменных и терминов, связанных с индикатором, включая ссылку на любые связанные классификации и международные стандарты</p>
 
           
         </td>
@@ -1014,7 +1014,7 @@ data-event-label="Change to custom.data_reporter tab"
         <th scope="row">Обоснование и толкование </th>
         <td>
           
-            
+            <p>Объясните, как этот показатель связан с целью, и каким-либо конкретным образом его следует интерпретировать, например, для определенных пороговых значений. Например, значение, превышающее 20 процентов, указывает на серьезное недоедание, а значение в диапазоне 10-20 указывает на умеренно высокое недоедание</p>
 
           
         </td>
@@ -1028,7 +1028,7 @@ data-event-label="Change to custom.data_reporter tab"
         <th scope="row">Метод расчета </th>
         <td>
           
-            
+            <p>Объяснение того, как рассчитывается показатель, включая математические формулы и описательную информацию о вычислениях, выполненных на исходных данных для получения показателя (включая корректировки и взвешивание).</p>
 
           
         </td>
@@ -1042,7 +1042,7 @@ data-event-label="Change to custom.data_reporter tab"
         <th scope="row">Комментарий и ограничения </th>
         <td>
           
-            
+            <p>Комментарии о целесообразности, пригодности, актуальности и ограничениях показателя.</p>
 
           
         </td>
@@ -1056,7 +1056,7 @@ data-event-label="Change to custom.data_reporter tab"
         <th scope="row">Гарантия качества </th>
         <td>
           
-            
+            <p>Информация о шагах, предпринятых для обеспечения качества. Например, информация о том, как обрабатываются пропущенные данные, о действующих системах валидации, конкретных рекомендациях или других механизмах, касающихся качества данных.</p>
 
           
         </td>
@@ -1070,7 +1070,7 @@ data-event-label="Change to custom.data_reporter tab"
         <th scope="row">Доступность данных и пробелы </th>
         <td>
           
-            
+            <p>Описание доступности данных, включая периоды времени, за которые данные (не) доступны</p>
 
           
         </td>
@@ -1084,7 +1084,7 @@ data-event-label="Change to custom.data_reporter tab"
         <th scope="row">Разбивка </th>
         <td>
           
-            
+            <p>Уточнение размеров и уровней, используемых для дезагрегации показателя (например, доход, пол, возрастная группа, географическое положение, статус инвалидности и т.д.).</p>
 
           
         </td>
@@ -1126,7 +1126,7 @@ data-event-label="Change to custom.data_reporter tab"
         <th scope="row">Источники данных </th>
         <td>
           
-            
+            <p>Описание типа источников (административных, выборочных обследований или переписей) и названия фактического источника данных для расчета этого показателя</p>
 
           
         </td>
@@ -1140,7 +1140,7 @@ data-event-label="Change to custom.data_reporter tab"
         <th scope="row">Методы сбора данных </th>
         <td>
           
-            
+            <p>Описание методов, используемых для сбора данных. Это описание должно включать, когда это применимо, используемый образец выборки, вопросы, используемые для сбора данных, тип интервью, даты / продолжительность полевых работ, размер выборки, частоту ответов и любые изменения источника данных с течением времени, детали знаменателя (если из другого источника) и любую другую соответствующую информацию, связанную с происхождением источника или индикатора.                                                  Описание механизма сбора данных: например, частота и периоды, когда данные собираются, а также частота и периоды, когда данные передаются в НСУ или национальную платформу отчетности.</p>
 
           
         </td>
@@ -1232,7 +1232,7 @@ data-event-label="Change to custom.data_reporter tab"
         <th scope="row">Организация </th>
         <td>
           
-            
+            <p>Пожалуйста, укажите название организации, которая предоставляет эти данные в НСК / национальную платформу данных</p>
 
           
         </td>
@@ -1246,7 +1246,7 @@ data-event-label="Change to custom.data_reporter tab"
         <th scope="row">Контактное лицо (лица)/Координатор </th>
         <td>
           
-            
+            <p>Пожалуйста, укажите имя координатора для этого индикатора</p>
 
           
         </td>
@@ -1260,7 +1260,7 @@ data-event-label="Change to custom.data_reporter tab"
         <th scope="row">Электронная почта контактного лица </th>
         <td>
           
-            
+            <p>Пожалуйста, укажите адрес электронной почты координатора</p>
 
           
         </td>
@@ -1274,7 +1274,7 @@ data-event-label="Change to custom.data_reporter tab"
         <th scope="row">Телефон контактного лица </th>
         <td>
           
-            
+            <p>Пожалуйста, укажите номер телефона координатора</p>
 
           
         </td>
@@ -1288,7 +1288,7 @@ data-event-label="Change to custom.data_reporter tab"
         <th scope="row">Сайт организации </th>
         <td>
           
-            
+            <p>Пожалуйста, предоставьте ссылку на сайт организации</p>
 
           
         </td>
@@ -1392,12 +1392,12 @@ ga('send', 'pageview');
 <script>translations['search'] = translations['search'] || {};
     translations['search']['search'] = 'Поиск';</script>
 
-<script src='/assets/js/sdg.js?v=20230828171652'></script>
+<script src='/assets/js/sdg.js?v=20230828172306'></script>
 
 
     
     
-    <script src="/assets/js/custom.js?v=20230828171652"></script><script>
+    <script src="/assets/js/custom.js?v=20230828172306"></script><script>
     new indicatorInit();
     new accessibilitySwitcher();
 </script>

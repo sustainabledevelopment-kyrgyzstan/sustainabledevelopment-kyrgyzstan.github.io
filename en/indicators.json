@@ -639,7 +639,7 @@
         },
         {
           "id": "4-2-2-1a",
-          "title": "Proportion of children under the age of five who receive preschool education",
+          "title": "Proportion of children under the age of six who receive preschool education",
           "description": "",
           "keywords": "",
           "href": "/en/4-2-2-1a",
@@ -1342,6 +1342,14 @@
           "status": "complete"
         },
         {
+          "id": "9-4-1",
+          "title": "CO2 emission per unit of value added",
+          "description": "",
+          "keywords": "",
+          "href": "/en/9-4-1",
+          "status": "complete"
+        },
+        {
           "id": "9-4-1-1",
           "title": "Pollutants emitted by stationary sources per km2",
           "description": "",
@@ -1795,7 +1803,7 @@
           "description": "",
           "keywords": "",
           "href": "/en/13-1-3",
-          "status": "notstarted"
+          "status": "complete"
         },
         {
           "id": "13-2-1",
@@ -2159,7 +2167,7 @@
         },
         {
           "id": "16-2-1",
-          "title": "Proportion of children aged 1–17 years who experienced any physical punishment and/or psychological aggression by caregivers in the past month",
+          "title": "Доля детей в возрасте от 1 года до 14 лет, в последний месяц подвергшихся любому физическому наказанию и/или психологической агрессии со стороны тех, кто обеспечивает уход за ними",
           "description": "",
           "keywords": "",
           "href": "/en/16-2-1",
