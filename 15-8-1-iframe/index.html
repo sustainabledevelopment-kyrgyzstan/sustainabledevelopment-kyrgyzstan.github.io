@@ -1,0 +1,1026 @@
+<!DOCTYPE html>
+<html lang="ru" class="no-js">
+    <head>
+        <meta charset="utf-8">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.min.js"></script>
+        <script crossorigin="anonymous" src="https://polyfill.io/v3/polyfill.min.js?features=Promise%2CArray.prototype.forEach%2CString.prototype.includes%2CURLSearchParams%2CCustomEvent%2CArray.prototype.includes%2CArray.prototype.filter%2CArray.prototype.some%2CArray.prototype.find%2CArray.prototype.reduce%2CObject.assign%2CArray.isArray%2CObject.values%2CObject.entries%2CArray.from%2CSet%2CArray.prototype.findIndex%2Cfetch"></script>
+<script crossorigin="anonymous" src="https://cdnjs.cloudflare.com/ajax/libs/javascript-canvas-to-blob/3.15.0/js/canvas-to-blob.min.js"></script>
+
+        <script>
+// This is where we initialise any global variables, namespaced in "opensdg".
+var opensdg = {
+
+  // A base URL for asynchronous calls to SDG data.
+  remoteDataBaseUrl: 'https://sustainabledevelopment-kyrgyzstan.github.io/sdg-data/ru',
+
+  chartConfigAlterations: [],
+  // A hook which can be used to modify the configuration for Chart.js.
+  chartConfigAlter: function(callback) {
+    this.chartConfigAlterations.push(callback);
+  },
+
+  tableConfigAlterations: [],
+  // A hook which can be used to modify the configuration for Datatables.
+  tableConfigAlter: function(callback) {
+    this.tableConfigAlterations.push(callback);
+  },
+
+  // A hook which can be replaced to alter whether/how the values that are
+  // displayed on indicator tables/graphs get rounded. A "context" parameter
+  // is also passed which contains additional information.
+  dataRounding: function(value, context) {
+    // Alterations go here.
+    return value;
+  },
+
+  // A hook which can be used to alter the data before it is displayed on charts/tables.
+  dataDisplayAlterations: [],
+  dataDisplayAlter: function(callback) {
+    this.dataDisplayAlterations.push(callback);
+  },
+
+  // Disaggregations which should be ignored on indicator pages.
+  ignoredDisaggregations: null,
+
+  language: 'ru',
+
+  mapColors: {
+    "default": [
+        "#c4e1c6",
+        "#b0d1b3",
+        "#9bc2a1",
+        "#87b28f",
+        "#74a37c",
+        "#60946b",
+        "#4d8559",
+        "#3a7747",
+        "#276836"
+    ]
+},
+};
+
+</script>
+
+        <script>
+// JavaScript container for translation data.
+var translations = {
+  //Javascript version of the "t" filter from jekyll-open-sdg-plugins.
+  t: function(key) {
+
+    if (!key || typeof key !== 'string') {
+      return '';
+    }
+
+    // The majority of uses of this function are to translate disaggregation
+    // data. To spare data providers of needing to enter "data." in front of
+    // their disaggregation data, we specifically look for that here.
+    if (typeof this.data === 'object' && this.data !== null && this.data[key]) {
+      return this.data[key];
+    }
+
+    var originalKey = key;
+    var drilled = this;
+    var levelsDrilled = 0;
+    var levels = key.split('.');
+
+    for (var level in levels) {
+      // If we have drilled down to soon, abort.
+      if (typeof drilled !== 'object') {
+        break;
+      }
+
+      if (levels[level] in drilled) {
+        drilled = drilled[levels[level]];
+        levelsDrilled += 1;
+      }
+    }
+
+    // If we didn't drill the right number of levels, return the original string.
+    if (levels.length != levelsDrilled) {
+      return originalKey;
+    }
+
+    // Otherwise we must have drilled all the way.
+    return drilled;
+  },
+};
+</script>
+
+        <!-- Basic Page Needs
+        ================================================== -->
+        <meta http-equiv="X-UA-Compatible" content="IE=edge"><!-- Mobile Specific Metas
+        ================================================== -->
+        <meta name="HandheldFriendly" content="True">
+        <meta name="MobileOptimized" content="320">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <!-- Title and meta description
+        ================================================== -->
+
+        
+    <title>
+        
+        показатель 15.8.1 -
+        
+        Доля стран, принимающих соответствующее национальное законодательство и выделяющих достаточные ресурсы для предотвращения проникновения или регулирования численности чужеродных инвазивных видов - Indicators For The Sustainable Development Goals
+    </title>
+
+
+
+        
+
+        <!--[if IE 9]>
+        <script src="/assets/js/lib/classList.js"></script>
+        <![endif]-->
+
+        <link rel="apple-touch-icon" sizes="180x180" href="/assets/img/favicons/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/assets/img/favicons/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/assets/img/favicons/favicon-16x16.png">
+<link rel="icon" type="image/x-icon" href="/assets/img/favicons/favicon.ico" />
+
+        
+
+        
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+        <link res="stylesheet" href="https://cdn.datatables.net/1.11.5/css/dataTables.bootstrap5.min.css">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" crossorigin="">
+        <link rel="stylesheet" href="/assets/css/style.css?v=20240403090325">
+        <link rel="stylesheet" href="https://unpkg.com/leaflet@1.3.4/dist/leaflet.css"
+          integrity="sha512-puBpdR0798OZvTTbP4A8Ix/l+A4dHDD0DGqYW6RQ+9jxkRFclaxxQb/SJAWZfWAkuyeQUytO7+7N4QKrDh+drA=="
+          crossorigin=""/>
+        <link rel="stylesheet" href="https://cdn.rawgit.com/socib/Leaflet.TimeDimension/master/dist/leaflet.timedimension.control.min.css"  crossorigin=""/>
+        <link rel="stylesheet" href='https://api.mapbox.com/mapbox.js/plugins/leaflet-fullscreen/v1.0.1/leaflet.fullscreen.css'  crossorigin=""/>
+        <link rel="stylesheet" href="https://bowercdn.net/c/leaflet.zoomhome-latest/dist/leaflet.zoomhome.css"  crossorigin=""/>
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet-search@2.9.7/dist/leaflet-search.min.css" crossorigin="">
+        <link rel="stylesheet" href="https://cdn.kiprotect.com/klaro/v0.7/klaro.min.css" crossorigin=""/><link rel="stylesheet" href="/assets/css/custom.css?v=20240403090325">
+        
+
+        
+
+
+        <!--[if IE]>
+        <link rel="stylesheet" href="/assets/css/ie.css">
+        <![endif]-->
+
+        
+
+    </head>
+<body class="language-ru
+layout-indicator-iframe
+">
+<!-- <div class="container"> -->
+
+<script>translations['header'] = {"alpha":"Альфа","default_contrast":"стандартный контраст","disable_high_contrast":"Отключить высокую контрастность","disclaimer":"Это сайт находится в разработке. Мы рады вашим отзывам.","enable_high_contrast":"Включить высокую контрастность","hide_menu":"Скрыть навигационное меню","high_contrast":"высокий контраст","internet_explorer_message":"Мы обнаружили, что для посещения этого сайта вы используете Internet Explorer. В настоящее время компания Microsoft постепенно отказывается от использования Internet Explorer. В результате этот сайт больше не поддерживает ни одну из версий Internet Explorer. Некоторые функции на этом сайте не будут работать. Вам следует использовать современный браузер, такой как Edge, Chrome, Firefox или Safari. Если у вас возникли трудности с установкой или доступом к другому браузеру, обратитесь в службу ИТ-поддержки.","internet_explorer_message_title":"Этот интернет-браузер больше не поддерживается","logo_title":"Перейти на главную страницу","show_menu":"Показать навигационное меню","skip_link":"Перейти к главному содержанию","tag_line":"17 Целей, чтобы преобразовать наш мир","toggle_menu":"Переключайте меню. Нажмите, чтобы развернуть или свернуть меню.","toggle_search":"Поисковая переключатель. Нажмите, чтобы развернуть или свернуть панель поиска."};</script>
+
+
+<script type="text/template" id="item_template">
+  <% _.each(fields, function(fieldItem) { %>
+    <div class="variable-selector
+      <% if(allowedFields.indexOf(fieldItem.field) == -1) { %> disallowed <% }%>
+      <% if (typeof childFields !== 'undefined' && childFields.indexOf(fieldItem.field) !== -1) { %> child <% }%>
+      "
+      data-field="<%=fieldItem.field%>"
+    >
+      <button class='accessBtn' tabindex='0' aria-expanded='false'
+        <% if(allowedFields.indexOf(fieldItem.field) == -1) { %>
+        aria-describedby='variable-hint-<%=fieldItem.field.replace(/ /g, '-')%>'
+        <% }%>
+      >
+        <% if(allowedFields.indexOf(fieldItem.field) == -1) { %><h6><% } else { %><h5><% } %>
+          <span aria-hidden="true"><%=translations.t(fieldItem.label)%><i class="fa fa-chevron-down"></i></span>
+          <span class="sr-only">Показать подкатегории: <%=translations.t(fieldItem.label)%></span>
+        <% if(allowedFields.indexOf(fieldItem.field) == -1) { %></h6><% } else { %></h5><% } %>
+      </button>
+      <div class="variable-options">
+        <fieldset>
+          <legend class="sr-only">Субкатегории - <%=translations.t(fieldItem.field)%></legend>
+          <div>
+            <button data-type="select">Выделить всё</button>
+            <button data-type="clear">Очистить всё</button>
+          </div>
+          <% _.each(fieldItem.values, function(item) { %>
+            <label>
+              <input type="checkbox" <%=item.checked ? 'checked' : ''%> value="<%=item.value%>" data-field="<%=fieldItem.field%>" /><%=translations.t(item.value)%>
+            </label>
+          <% }); %>
+        </fieldset>
+      </div>
+
+      <% if(allowedFields.indexOf(fieldItem.field) == -1) { %>
+        <div class="variable-hint" id="variable-hint-<%=fieldItem.field.replace(/ /g, '-')%>">Доступно, когда выбрано
+        </div>
+        <div class="no-data-hint" id="no-data-hint-<%=fieldItem.field.replace(/ /g, '-')%>">
+          Нет имеющихся вариантов из-за фильтров наверху.
+        </div>
+      <% }%>
+
+    </div>
+  <% }); %>
+</script>
+
+<script type="text/template" id="units_template">
+  
+    <h4>Единица измерения</h4>
+    <fieldset>
+      <legend class="sr-only">Единица измерения</legend>
+      <% _.each(units, function(unitsItem, index) { %>
+        <% var checked = (selectedUnit) ? (selectedUnit==unitsItem) : (index==0); %>
+        <label><input type="radio" name="unit" value="<%=unitsItem%>" tabindex=0 <%=checked ? 'checked' : ''%> /> <%=translations.t(unitsItem)%></label>
+      <% }); %>
+    </fieldset>
+  
+</script>
+
+<script type="text/template" id="series_template">
+  
+    <h4>Серии</h4>
+    <fieldset>
+      <legend class="sr-only">Серии</legend>
+      <% _.each(serieses, function(seriesItem, index) { %>
+        <% var isProxy = (proxySerieses.includes(seriesItem)) %>
+        <% var checked = (selectedSeries) ? (selectedSeries==seriesItem) : (index==0); %>
+        <label><input type="radio" name="series" value="<%=seriesItem%>" tabindex=0 <%=checked ? 'checked' : ''%> /> <%=translations.t(seriesItem)%> <%=isProxy ? proxyPill : ''%></label>
+      <% }); %>
+    </fieldset>
+  
+</script>
+
+<script>translations['indicator'] = {"annotation_2030_target":"2030 год Цель","announce_data_added":"Обновлены диаграмма и таблица для включения данных.","announce_data_not_available":"Диаграмма и таблица не содержат данных.","announce_data_removed":"Обновлены диаграмма и таблица для исключения данных.","announce_series_switched":"Диаграмма и таблица обновлены для отображения других рядов.","announce_unit_switched":"Диаграмма и таблица обновлены для отображения другой единицы измерения.","apply":"Применить","cancel":"Отмена","change_breakdowns":"Разбивка изменений","chart":"График","chart_annotation":"Диаграмма аннотация","clear_all":"Очистить всё","clear_selections":"Очистить выделенное","data_keyboard_navigation":"Нажмите клавишу Enter для просмотра точек данных с помощью клавиш со стрелками вправо и влево.","data_not_available":"Эти данные не доступны. Пожалуйста, выберите альтернативные данные для отображения.","data_tabular_alternative":"Альтернативный вариант табличных данных см. в таблице табличных данных.","dataset_size_warning":"В таблице слишком много данных, чтобы показать в графике. Чтобы увидеть все, удалите выделенное.","download_chart":"Скачать график CSV","download_chart_image":"Загрузить изображение диаграммы","download_chart_image_title":"Скачать диаграмму как изображение","download_csv":"Скачать CSV","download_csv_title":"Скачать в формате CSV","download_geojson":"Скачать GeoJSON","download_geojson_title":"Скачать в формате GeoJSON","download_headline":"Скачать заголовки CSV","download_headline_title":"Скачать данные заголовков в формате CSV","download_source":"Скачать исходные CSV","download_source_excel":"Скачать исходные Excel","download_source_for_disaggregations":"Загрузить исходный CSV для дезагрегации","download_source_sdmx":"Скачать исходные SDMX","download_source_sdmx_title":"Скачать исходные данные в формате SDMX","download_source_title":"Скачать исходные данные в формате CSV","download_table":"Скачать табличные CSV","edit":"Редактировать","edit_configuration":"Редактировать Конфигурация","edit_data":"Редактировать данные","edit_metadata":"Редактировать метаданные","empty_metadata_placeholder":"Недоступно для данного показателя","empty_metadata_placeholder_sources":"Недоступно для данного источника","footnote":"Сноска","geographical_area":"Географический район","global_metadata":"Глобальные метаданные","global_metadata_blurb":"В этой таблице представлена информация для метаданных показателей ЦУР, определенных Статистической комиссией ООН. Полные глобальные метаданные представлены Статистическим отделом ООН.","headline_data":"Данные заголовка","legend_help":"Нажмите на легенду, чтобы убрать линии из графика.","loading":"Загрузка","loading_map":"Загрузка карты","map":"Карта","map_fullscreen":"Просмотр карты в полноэкранном режиме","map_fullscreen_exit":"Выход из полноэкранной карты","map_search":"Поиск","map_search_cancel":"Наглядный поиск по карте","map_search_hide":"Скрыть поиск","map_search_show":"Показать поиск","map_slider_back":"Просмотр данных карты за предыдущий период времени","map_slider_forward":"Просмотр данных карты за следующий период времени","map_slider_keyboard":"Просматривайте данные карты в течение всего периода времени с помощью клавиш со стрелками влево и вправо","map_slider_mouse":"Навигация по данным карты по временному периоду","map_year_slider":"Годовой слайдер","map_zoom_home":"Сброс к масштабу карты по умолчанию","map_zoom_in":"Увеличить масштаб карты","map_zoom_out":"Уменьшить масштаб карты","national_metadata":"Национальные метаданные","national_metadata_blurb":"В этой таблице представлены метаданные для фактического показателя, доступного из статистики ближайшей к соответствующему глобальному индикатору ЦУР. Обратите внимание, что даже если глобальный индикатор ЦУР полностью доступен из статистики, по этой таблице следует проконсультироваться для получения информации о национальной методологии и других специфичных метаданных.","next":"Следующий индикатор","no_data_hint":"Нет имеющихся вариантов из-за фильтров наверху.","no_headline_data":"Данные по заголовкам отсутствуют","note":"заметка","plot_legend_description":"Легенда сюжета: список линий, включенных в график","previous":"Предыдущий показатель","proxy":"Прокси","proxy_description":"Этот показатель содержит некоторые данные, альтернативные тем, которые указаны Организацией Объединенных Наций (ООН). Этот индикатор является наиболее подходящим соответствием, доступным в настоящее время.","select_all":"Выделить всё","series":"Серии","series_help":"Выберите категории из выпадающего меню внизу, чтобы увидеть разные разбивки данных. Несколько не будет доступно, пока более высокий уровень не выбран. ","source":"Источник","sources":"Источники","status":"Состояние индикатора","sub_categories":"Субкатегории","sub_categories_show":"Показать подкатегории:","table":"Таблица","table_column_sort":"Нажмите, чтобы отсортировать по этой колонке","tags":"Теги","total":"Всего","unit":"Единица","unit_of_measurement":"Единица измерения","units_type":"Вид единиц","variable_hint":"Доступно, когда выбрано","view_indicator_list":"Посмотреть список индикаторов этой цели"};</script>
+
+<script>translations['data'] = {"Year":"Год"};</script>
+
+
+<div class="heading goal-banner indicator goal-15">
+    <div class="container">
+        <div class="row">
+            
+            <div class="col-4 col-md-3 col-lg-2 goal-icon goal-tiles">
+                <a href="/15/" aria-label="Просмотреть задачи и показатели для цели 15" title="Просмотреть задачи и показатели для цели 15">
+                    <img src="https://sdg-kyrgyzstan.github.io/open-sdg-site-starter/assets/img/goals/ru/15.png"
+                        alt="Сохранение экосистем суши - Цель 15"
+                        id="goal-15"
+                        class="goal-icon-image goal-icon-image-" />
+                </a>
+            </div>
+            <div class="col-8 col-md-9 col-lg-10 indicator-details">
+            
+                <div>
+                    <h1>
+                        
+                        показатель 15.8.1
+                        
+                        <span class="lead-copy">Доля стран, принимающих соответствующее национальное законодательство и выделяющих достаточные ресурсы для предотвращения проникновения или регулирования численности чужеродных инвазивных видов</span>
+                    </h1>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div id="main-content" class="container goal-15" role="main">
+  
+
+  
+
+  
+
+  
+
+  
+
+<div class="row" id="page-content">
+  <div class="col-xs-12">
+    <h3 id="--закон-кыргызской-республики-о-ветеринарии-от-30-декабря-2014-года-175">- <a href="http://extwprlegs1.fao.org/docs/pdf/kyr161509.pdf">Закон Кыргызской Республики “О ветеринарии” от 30 декабря 2014 года №175</a>;</h3>
+<h3 id="--решение-комиссии-таможенного-союза-евразэс-от-18-июня-2010-года-317-о-применении-ветеринарно-санитарных-мер-в-таможенном-союзе">- <a href="https://www.alta.ru/tamdoc/10sr0317/">Решение Комиссии таможенного союза ЕврАзЭС от 18 июня 2010 года №317 “О применении ветеринарно-санитарных мер в таможенном союзе”</a>;</h3>
+<h3 id="--кодекс-здоровья-наземных-животных-мэб-2019г">- <a href="https://www.fsvps.ru/fsvps-docs/ru/oie/oie_terrestrial_code_g_t1.pdf">Кодекс здоровья наземных животных (МЭБ 2019г.)</a></h3>
+
+  </div>
+</div>
+
+
+  
+
+
+
+<div class="row"
+  id="indicatorData"
+  data-indicatorid='indicator_15-8-1'
+  data-id="15-8-1"
+  data-country="Кыргызская Республика"
+  data-charttitle="Доля стран, принимающих соответствующее национальное законодательство и выделяющих достаточные ресурсы для предотвращения проникновения или регулирования численности чужеродных инвазивных видов"
+  data-charttitles="null"
+  data-measurementunit=""
+  data-xaxislabel=""
+  data-showdata="false"
+  data-graphtype="line"
+  data-graphtypes="null"
+  data-geocoderegex=""
+  data-showmap=""
+  data-startvalues="null"
+  data-graphlimits="null"
+  data-stackeddisaggregation=""
+  data-graphannotations="null"
+  data-graphtargetlines="null"
+  data-graphseriesbreaks="null"
+  data-indicatordownloads="null"
+  data-dataschema="{&quot;fields&quot;:[{&quot;name&quot;:&quot;Year&quot;,&quot;type&quot;:&quot;number&quot;,&quot;title&quot;:&quot;Год&quot;},{&quot;name&quot;:&quot;Value&quot;,&quot;type&quot;:&quot;number&quot;,&quot;title&quot;:&quot;Value&quot;}]}"
+  data-compositebreakdownlabel=""
+  data-precision="null"
+  data-proxy=""
+  data-proxyseries="null"
+>
+  
+  <div id="indicator-main" class="indicator-main col-md-12">
+  
+  <div class="mt-4">
+<ul class="nav nav-tabs" role="tablist">
+    
+    
+        
+        
+        
+        
+        <li role="presentation" class="nav-item">
+            <button
+                type="button"
+                class="nav-link active"
+                data-bs-toggle="tab"
+                id="tab-indicator_information"
+                data-bs-target="#indicator_information"
+                aria-controls="indicator_information"
+                role="tab"
+                data-on="click"
+data-event-category="Tab change"
+data-event-action="Change metadata view"
+data-event-label="Change to custom.indicator_information tab"
+
+            >Информация об индикаторе</button>
+        </li>
+    
+        
+        
+        
+        
+        <li role="presentation" class="nav-item">
+            <button
+                type="button"
+                class="nav-link "
+                data-bs-toggle="tab"
+                id="tab-national"
+                data-bs-target="#national"
+                aria-controls="national"
+                role="tab"
+                data-on="click"
+data-event-category="Tab change"
+data-event-action="Change metadata view"
+data-event-label="Change to indicator.national_metadata tab"
+
+            >Национальные метаданные</button>
+        </li>
+    
+        
+        
+        
+        
+        <li role="presentation" class="nav-item">
+            <button
+                type="button"
+                class="nav-link "
+                data-bs-toggle="tab"
+                id="tab-data_reporter"
+                data-bs-target="#data_reporter"
+                aria-controls="data_reporter"
+                role="tab"
+                data-on="click"
+data-event-category="Tab change"
+data-event-action="Change metadata view"
+data-event-label="Change to custom.data_reporter tab"
+
+            >Поставщики данных</button>
+        </li>
+    
+    
+    
+</ul>
+
+<div class="tab-content">
+    
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        <div role="tabpanel" class="tab-pane active" id="indicator_information">
+            <article>
+                <p>Данная таблица предоставляет информацию об индикаторе</p>
+
+                <table class="table metadata-content">
+  <tbody>
+  
+  
+  
+  
+  
+      
+      
+      
+      
+      <tr>
+        <th scope="row">Название показателя </th>
+        <td>
+          
+            <p>15.8.1 Доля стран, принимающих соответствующее национальное законодательство и выделяющих достаточные ресурсы для предотвращения проникновения или регулирования численности чужеродных инвазивных видов</p>
+
+          
+        </td>
+        </tr>
+        
+      
+  
+      
+      
+      
+      
+      <tr>
+        <th scope="row">Название задачи </th>
+        <td>
+          
+            <p>15.8 К 2020 году принять меры по предотвращению проникновения чужеродных инвазивных видов и по значительному уменьшению их воздействия на наземные и водные экосистемы, а также принять меры по предотвращению ограничения численности или уничтожения приоритетных видов</p>
+
+          
+        </td>
+        </tr>
+        
+      
+  
+      
+      
+      
+      
+      <tr>
+        <th scope="row">Цель </th>
+        <td>
+          
+            <p>Цель 15. Защита и восстановление экосистем суши и содействие их рациональному использованию, рациональное лесопользование, борьба с опустыниванием, прекращение и обращение вспять процесса деградации земель и прекращение процесса утраты биологического разнообразия</p>
+
+          
+        </td>
+        </tr>
+        
+      
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  </tbody>
+</table>
+
+            </article>
+        </div>
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        <div role="tabpanel" class="tab-pane " id="national">
+            <article>
+                <p>В этой таблице представлены метаданные для фактического показателя, доступного из статистики ближайшей к соответствующему глобальному индикатору ЦУР. Обратите внимание, что даже если глобальный индикатор ЦУР полностью доступен из статистики, по этой таблице следует проконсультироваться для получения информации о национальной методологии и других специфичных метаданных.</p>
+
+                <table class="table metadata-content">
+  <tbody>
+  
+  
+  
+  
+  
+  
+  
+  
+      
+      
+      
+      
+      <tr>
+        <th scope="row">Географический охват </th>
+        <td>
+          
+            <p>Кыргызская Республика</p>
+
+          
+        </td>
+        </tr>
+        
+      
+  
+      
+      
+      
+        
+          
+          
+          
+          
+        
+      
+      
+      <tr>
+        <th scope="row">Единица измерения </th>
+        <td>
+          
+            <p><span class="empty-metadata-placeholder">Недоступно для данного показателя</span></p>
+
+          
+        </td>
+        </tr>
+        
+      
+  
+      
+      
+      
+      
+      <tr>
+        <th scope="row">Определения </th>
+        <td>
+          
+            <p>Предотвращение проникновения чужеродных инвазивных видов и по значительному уменьшению их воздействия на наземные и водные экосистемы, а также принять меры по предотвращению ограничения численности или уничтожения приоритетных видов</p>
+
+          
+        </td>
+        </tr>
+        
+      
+  
+      
+      
+      
+      
+      <tr>
+        <th scope="row">Основные понятия </th>
+        <td>
+          
+            <p>Согласно информации МЭБ о регистрации болезней животных, которые она обнаруживает на своей территории. Каждая страна должна предпринять необходимые превентивные меры. Эта информация также включает в себя заболевания, передаваемые человеку, и преднамеренное введение патогенов. Информация отправляется немедленно или периодически в зависимости от серьезности заболевания. Эта цель относится к случаям заболеваний, как естественным, так и преднамеренным. Распространение осуществляется через электронную почту, информацию о болезнях и интерфейс Всемирной информационной системы по здоровью животных (интерфейс WAHIS).</p>
+
+          
+        </td>
+        </tr>
+        
+      
+  
+      
+      
+      
+      
+      <tr>
+        <th scope="row">Обоснование и толкование </th>
+        <td>
+          
+            <p>Основные задачи в данной пункт является, охрана здоровья населения от болезней, общих для животных и человека, охрана здоровья животных от болезней и обеспечение эпизоотического благополучия, охрана территории Кыргызской Республики от заноса и распространения заразных и экзотических болезней животных, контроль за безопасностью продуктов, сырья животного и растительного происхождения, ветеринарных лекарственных средств, кормов и кормовых добавок, а также принятие мер по охране окружающей среды и. др.</p>
+
+          
+        </td>
+        </tr>
+        
+      
+  
+      
+      
+      
+      
+      <tr>
+        <th scope="row">Метод расчета </th>
+        <td>
+          
+            <p>Выборка данных из имеющихся источников.</p>
+
+          
+        </td>
+        </tr>
+        
+      
+  
+      
+      
+      
+      
+      <tr>
+        <th scope="row">Комментарий и ограничения </th>
+        <td>
+          
+            <p>Из-за отсутствия систематических работ по отслеживанию наличия и состояния чужеродных инвазивных видов/ подвидов, редко обновляются данные об их количестве.</p>
+
+          
+        </td>
+        </tr>
+        
+      
+  
+      
+      
+      
+      
+      <tr>
+        <th scope="row">Гарантия качества </th>
+        <td>
+          
+            <p>Усиление контроля распространения и видового состава инвазивных чужеродных видов на территории республики</p>
+
+          
+        </td>
+        </tr>
+        
+      
+  
+      
+      
+      
+      
+      <tr>
+        <th scope="row">Доступность данных и пробелы </th>
+        <td>
+          
+            <p>Кадастры и публикации НАН КР, сайты уполномоченных государственных органов</p>
+
+          
+        </td>
+        </tr>
+        
+      
+  
+      
+      
+      
+        
+          
+          
+          
+          
+        
+      
+      
+      <tr>
+        <th scope="row">Разбивка </th>
+        <td>
+          
+            <p><span class="empty-metadata-placeholder">Недоступно для данного показателя</span></p>
+
+          
+        </td>
+        </tr>
+        
+      
+  
+      
+      
+      
+        
+          
+          
+          
+          
+        
+      
+      
+      <tr>
+        <th scope="row">Сопоставимость с международными данными/стандартами </th>
+        <td>
+          
+            <p><span class="empty-metadata-placeholder">Недоступно для данного показателя</span></p>
+
+          
+        </td>
+        </tr>
+        
+      
+  
+      
+      
+      
+      
+      <tr>
+        <th scope="row">Ссылки и документация </th>
+        <td>
+          
+            <p>Национальная платформа отчётности ЦУР КР: https://sustainabledevelopment-kyrgyzstan.github.io
+ Сайт ветеринарной инспекции. http://gvfi.gov.kg/o-gosinspekcii/veterinarnyjj-nadzor.html./ https://www.oie.int/ Международный эпизоотической бюро. МЭБ. http://www.eurasiancommission.org/ ЕАЭС</p>
+
+          
+        </td>
+        </tr>
+        
+      
+  
+      
+      
+      
+      
+      <tr>
+        <th scope="row">Источники данных </th>
+        <td>
+          
+            <p>Кадастры генетического фонда Кыргызстана, издаваемые НАН КР (Институт биологии), ведомственные и статистические отчеты уполномоченных государственных органов, Национальный доклад о состоянии окружающей среды КР.</p>
+
+          
+        </td>
+        </tr>
+        
+      
+  
+      
+      
+      
+      
+      <tr>
+        <th scope="row">Методы сбора данных </th>
+        <td>
+          
+            <p>В целях предотвращение проникновения чужеродных инвазивных болезней животных Госинспекция при экспорте и импорте живых животных и животноводческой продукции проводит регистрацию в электронной базе данных.</p>
+
+          
+        </td>
+        </tr>
+        
+      
+  
+      
+      
+      
+      
+      <tr>
+        <th scope="row">Ссылка на метаданные ООН </th>
+        <td>
+          
+            
+            
+            
+            
+            
+              <a href="http://unstats.un.org/sdgs/files/metadata-compilation/Metadata-Goal-15.pdf" target="_blank">
+                Метаданные Целей устойчивого развития Организации Объединённых Наций <span class="visuallyhidden">открывается в новой вкладке</span>
+              </a>
+            
+
+          
+        </td>
+        </tr>
+        
+      
+  
+      
+      
+      
+      
+      
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  </tbody>
+</table>
+
+            </article>
+        </div>
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        <div role="tabpanel" class="tab-pane " id="data_reporter">
+            <article>
+                <p>Данная таблица предоставляет информацию о поставщиках данных</p>
+
+                <table class="table metadata-content">
+  <tbody>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+      
+      
+      
+      
+      <tr>
+        <th scope="row">Организация </th>
+        <td>
+          
+            <p>Государственная инспекция по ветеринарной и фитосанитарной безопасности при Правительстве Кыргызской Республики при Правительстве Кыргызской Республики</p>
+
+          
+        </td>
+        </tr>
+        
+      
+  
+      
+      
+      
+      
+      <tr>
+        <th scope="row">Контактное лицо (лица)/Координатор </th>
+        <td>
+          
+            <p>Романов Ч. О</p>
+
+          
+        </td>
+        </tr>
+        
+      
+  
+      
+      
+      
+      
+      <tr>
+        <th scope="row">Электронная почта контактного лица </th>
+        <td>
+          
+            <p>ukzj@mail.ru</p>
+
+          
+        </td>
+        </tr>
+        
+      
+  
+      
+      
+      
+      
+      <tr>
+        <th scope="row">Телефон контактного лица </th>
+        <td>
+          
+            <p>(0312) 660 780</p>
+
+          
+        </td>
+        </tr>
+        
+      
+  
+      
+      
+      
+      
+      <tr>
+        <th scope="row">Сайт организации </th>
+        <td>
+          
+            <p>http://gvfi.gov.kg/</p>
+
+          
+        </td>
+        </tr>
+        
+      
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  </tbody>
+</table>
+
+            </article>
+        </div>
+        
+    
+    
+</div>
+
+</div>
+  </div>
+</div>
+
+</div>
+
+<script src="https://code.jquery.com/jquery-3.6.1.min.js" integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+<script src="https://cdn.datatables.net/1.11.5/js/jquery.dataTables.min.js"></script>
+<script src="https://cdn.datatables.net/1.11.5/js/dataTables.bootstrap5.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/4.17.21/lodash.min.js" integrity="sha512-WFN04846sdKMIP5LKNphMaWzU7YpMyCU245etK3g/2ARYbPK9Ub18eG+ljU96qKRCWh+quCY7yefSmlkQw1ANQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script src="https://cdn.jsdelivr.net/npm/chart.js@3.7.0/dist/chart.min.js" integrity="sha256-Y26AMvaIfrZ1EQU49pf6H4QzVTrOI8m9wQYKkftBt4s=" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/patternomaly@1.3.2/dist/patternomaly.js"></script>
+
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/autotrack/2.4.1/autotrack.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/html2canvas@1.0.0-rc.3/dist/html2canvas.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/file-saver@2.0.2/dist/FileSaver.min.js"></script>
+
+
+
+
+
+  <script >
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-155242465-1', 'auto');
+ga('require', 'eventTracker', {
+    attributePrefix: 'data-'
+});
+// anonymize user IPs (chops off the last IP triplet)
+ga('set', 'anonymizeIp', true);
+// forces SSL even if the page were somehow loaded over http://
+ga('set', 'forceSSL', true);
+ga('send', 'pageview');
+</script>
+
+
+
+<script>translations['general'] = translations['general'] || {};
+    translations['general']['hide'] = 'скрывать';</script>
+
+<script>translations['search'] = translations['search'] || {};
+    translations['search']['search'] = 'Поиск';</script>
+
+<script src='/assets/js/sdg.js?v=20240403090325'></script>
+
+
+    
+    
+    <script src="/assets/js/custom.js?v=20240403090325"></script><script>
+    new indicatorInit();
+    new accessibilitySwitcher();
+</script>
+
+<script type="text/javascript" src="https://pym.nprapps.org/pym.v1.min.js"></script>
+<script>
+    new pym.Child();
+</script>
+
+</body>
+</html>

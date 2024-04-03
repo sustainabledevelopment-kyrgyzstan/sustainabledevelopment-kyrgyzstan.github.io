@@ -3,7 +3,7 @@
     <head>
         <meta charset="utf-8">
         <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.min.js"></script>
-        <script crossorigin="anonymous" src="https://polyfill.io/v3/polyfill.min.js?features=Promise%2CArray.prototype.forEach%2CString.prototype.includes%2CURLSearchParams%2CCustomEvent%2CArray.prototype.includes%2CArray.prototype.filter%2CArray.prototype.some%2CArray.prototype.find%2CArray.prototype.reduce%2CObject.assign%2CArray.isArray%2CObject.values%2CObject.entries%2CArray.from%2CSet%2CArray.prototype.findIndex"></script>
+        <script crossorigin="anonymous" src="https://polyfill.io/v3/polyfill.min.js?features=Promise%2CArray.prototype.forEach%2CString.prototype.includes%2CURLSearchParams%2CCustomEvent%2CArray.prototype.includes%2CArray.prototype.filter%2CArray.prototype.some%2CArray.prototype.find%2CArray.prototype.reduce%2CObject.assign%2CArray.isArray%2CObject.values%2CObject.entries%2CArray.from%2CSet%2CArray.prototype.findIndex%2Cfetch"></script>
 <script crossorigin="anonymous" src="https://cdnjs.cloudflare.com/ajax/libs/javascript-canvas-to-blob/3.15.0/js/canvas-to-blob.min.js"></script>
 
         <script>
@@ -26,8 +26,9 @@ var opensdg = {
   },
 
   // A hook which can be replaced to alter whether/how the values that are
-  // displayed on indicator tables/graphs get rounded.
-  dataRounding: function(value) {
+  // displayed on indicator tables/graphs get rounded. A "context" parameter
+  // is also passed which contains additional information.
+  dataRounding: function(value, context) {
     // Alterations go here.
     return value;
   },
@@ -38,7 +39,24 @@ var opensdg = {
     this.dataDisplayAlterations.push(callback);
   },
 
+  // Disaggregations which should be ignored on indicator pages.
+  ignoredDisaggregations: null,
+
   language: 'ru',
+
+  mapColors: {
+    "default": [
+        "#c4e1c6",
+        "#b0d1b3",
+        "#9bc2a1",
+        "#87b28f",
+        "#74a37c",
+        "#60946b",
+        "#4d8559",
+        "#3a7747",
+        "#276836"
+    ]
+},
 };
 
 </script>
@@ -99,14 +117,13 @@ var translations = {
         ================================================== -->
 
         
+    
     <title>Цель 1 - Ликвидация нищеты - Indicators For The Sustainable Development Goals</title>
+    
 
 
 
-        <meta name="description" content="">
-        <meta property="og:description" content="">
         
-        <link rel="canonical" href="/">
 
         <!--[if IE 9]>
         <script src="/assets/js/lib/classList.js"></script>
@@ -117,13 +134,13 @@ var translations = {
 <link rel="icon" type="image/png" sizes="16x16" href="/assets/img/favicons/favicon-16x16.png">
 <link rel="icon" type="image/x-icon" href="/assets/img/favicons/favicon.ico" />
 
+        
 
         
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
         <link res="stylesheet" href="https://cdn.datatables.net/1.11.5/css/dataTables.bootstrap5.min.css">
-        <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" crossorigin="">
-        <link rel="stylesheet" href="https://cdn.datatables.net/fixedcolumns/3.2.3/css/fixedColumns.dataTables.min.css" crossorigin="">
-        <link rel="stylesheet" href="/assets/css/style.css?v=20240227121757">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" crossorigin="">
+        <link rel="stylesheet" href="/assets/css/style.css?v=20240403090325">
         <link rel="stylesheet" href="https://unpkg.com/leaflet@1.3.4/dist/leaflet.css"
           integrity="sha512-puBpdR0798OZvTTbP4A8Ix/l+A4dHDD0DGqYW6RQ+9jxkRFclaxxQb/SJAWZfWAkuyeQUytO7+7N4QKrDh+drA=="
           crossorigin=""/>
@@ -131,8 +148,11 @@ var translations = {
         <link rel="stylesheet" href='https://api.mapbox.com/mapbox.js/plugins/leaflet-fullscreen/v1.0.1/leaflet.fullscreen.css'  crossorigin=""/>
         <link rel="stylesheet" href="https://bowercdn.net/c/leaflet.zoomhome-latest/dist/leaflet.zoomhome.css"  crossorigin=""/>
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet-search@2.9.7/dist/leaflet-search.min.css" crossorigin="">
-        <link rel="stylesheet" href="https://cdn.kiprotect.com/klaro/v0.7/klaro.min.css" crossorigin=""/><link rel="stylesheet" href="/assets/css/custom.css?v=20240227121757">
+        <link rel="stylesheet" href="https://cdn.kiprotect.com/klaro/v0.7/klaro.min.css" crossorigin=""/><link rel="stylesheet" href="/assets/css/custom.css?v=20240403090325">
         
+
+        
+
 
         <!--[if IE]>
         <link rel="stylesheet" href="/assets/css/ie.css">
@@ -146,7 +166,7 @@ layout-goal
 ">
 <!-- <div class="container"> -->
 
-<script>translations['header'] = {"alpha":"Альфа","default_contrast":"стандартный контраст","disable_high_contrast":"Отключить высокую контрастность","disclaimer":"Это сайт находится в разработке. Мы рады вашим отзывам.","enable_high_contrast":"Включить высокую контрастность","high_contrast":"высокий контраст","internet_explorer_message":"Мы обнаружили, что для посещения этого сайта вы используете Internet Explorer. В настоящее время компания Microsoft постепенно отказывается от использования Internet Explorer. В результате этот сайт больше не поддерживает ни одну из версий Internet Explorer. Некоторые функции на этом сайте не будут работать. Вам следует использовать современный браузер, такой как Edge, Chrome, Firefox или Safari. Если у вас возникли трудности с установкой или доступом к другому браузеру, обратитесь в службу ИТ-поддержки.","internet_explorer_message_title":"Этот интернет-браузер больше не поддерживается","skip_link":"Перейти к главному содержанию","tag_line":"17 Целей, чтобы преобразовать наш мир","toggle_menu":"Переключайте меню. Нажмите, чтобы развернуть или свернуть меню.","toggle_search":"Поисковая переключатель. Нажмите, чтобы развернуть или свернуть панель поиска."};</script>
+<script>translations['header'] = {"alpha":"Альфа","default_contrast":"стандартный контраст","disable_high_contrast":"Отключить высокую контрастность","disclaimer":"Это сайт находится в разработке. Мы рады вашим отзывам.","enable_high_contrast":"Включить высокую контрастность","hide_menu":"Скрыть навигационное меню","high_contrast":"высокий контраст","internet_explorer_message":"Мы обнаружили, что для посещения этого сайта вы используете Internet Explorer. В настоящее время компания Microsoft постепенно отказывается от использования Internet Explorer. В результате этот сайт больше не поддерживает ни одну из версий Internet Explorer. Некоторые функции на этом сайте не будут работать. Вам следует использовать современный браузер, такой как Edge, Chrome, Firefox или Safari. Если у вас возникли трудности с установкой или доступом к другому браузеру, обратитесь в службу ИТ-поддержки.","internet_explorer_message_title":"Этот интернет-браузер больше не поддерживается","logo_title":"Перейти на главную страницу","show_menu":"Показать навигационное меню","skip_link":"Перейти к главному содержанию","tag_line":"17 Целей, чтобы преобразовать наш мир","toggle_menu":"Переключайте меню. Нажмите, чтобы развернуть или свернуть меню.","toggle_search":"Поисковая переключатель. Нажмите, чтобы развернуть или свернуть панель поиска."};</script>
 
 <a class="sr-only-focusable" id="skiplink" href="#main-content" tabindex="0">Перейти к главному содержанию</a>
 <div class="container internet-explorer-message">
@@ -176,7 +196,7 @@ layout-goal
   <img src="/assets/img/SDG_logo_ru.png" alt="Цели в области устойчивого развития - 17 Целей, чтобы преобразовать наш мир" />
 </a>
 
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Показать навигационное меню">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="d-flex flex-wrap w-100 justify-content-between">
@@ -200,7 +220,7 @@ layout-goal
         <label class="visually-hidden" for="indicator_search">Поиск</label>
         <input class="form-control" type="search" name="q" id="indicator_search" title="Поиск">
         <span class="input-group-append">
-            <button class="btn btn-outline-secondary ms-n5" aria-label="Поиск" id="search-btn" type="submit">
+            <button class="btn btn-outline-secondary ms-n5" aria-label="Поиск по сайту" id="search-btn" type="submit">
                 <i class="fa fa-search"></i>
             </button>
         </span>
@@ -239,7 +259,7 @@ layout-goal
             </a>
         </li></ul>
 </div></span><a title="Включить высокую контрастность" aria-label="Включить высокую контрастность"
-    data-contrast-switch-to="" href="javascript:void(0)" data-on="click"
+    data-contrast-switch-to="" role="button" href="javascript:void(0)" data-on="click"
 data-event-category="Accessibility"
 data-event-action="Change contrast setting"
 data-event-label="high"
@@ -274,11 +294,19 @@ data-event-label="high"
                 <img src="https://sdg-kyrgyzstan.github.io/open-sdg-site-starter/assets/img/goals/ru/1.png" alt="Ликвидация нищеты - Цель 1" id="goal-1" class="goal-icon-image goal-icon-image-" />
             </div>
             <div class="col-8 col-md-9 col-lg-10 goal-details">
-                <h1>Повсеместная ликвидация нищеты во всех ее формах</h1>
+                <h1>
+                    
+                        Повсеместная ликвидация нищеты во всех ее формах
+                    
+                </h1>
             </div>
         </div>
     </div>
 </div>
+
+
+
+
 
 
 <div id="main-content" class="container" role="main">
@@ -287,10 +315,14 @@ data-event-label="high"
 
 
 
-  <div class="container g-0">
-    <h2 class="goal-page-heading">Цели и индикаторы</h2>
-
-    
+  <div class="container g-0 ">
+    <div class="row align-items-end">
+      <div class="col">
+        <h2 class="goal-page-heading">Цели и индикаторы</h2>
+      </div>
+      
+    </div>
+    <hr class="goal-page-column-header-rule">
     
       
       <div class="row align-items-start goal-target">
@@ -302,6 +334,7 @@ data-event-label="high"
           <div class="col goal-page-target-name">
             <span class="target-name">К 2030 году ликвидировать крайнюю нищету для всех людей во всем мире (в настоящее время крайняя нищета определяется как проживание на сумму менее чем 1,25 долл. США в день)</span>
           </div>
+          
       </div>
         
 
@@ -319,7 +352,7 @@ data-event-label="high"
             </div>
             <div class="col goal-page-indicator-name">
               
-              <span class="indicator-name"><a href="/1-1-1">Доля населения, живущего за международной чертой бедности, в разбивке по полу, возрасту, статусу занятости и месту проживания (городское/сельское)</a></span>
+              <span class="indicator-name"><a href="/1-1-1/">Доля населения, живущего за международной чертой бедности, в разбивке по полу, возрасту, статусу занятости и месту проживания (городское/сельское)</a></span>
               
 
 
@@ -332,7 +365,7 @@ data-event-label="high"
 
 
 <span class="status complete">
-    <span class="status-inner">Сообщение</span>
+    <span class="status-inner">Опубликован</span>
 </span>
 
 
@@ -359,7 +392,7 @@ data-event-label="high"
             </div>
             <div class="col goal-page-indicator-name">
               
-              <span class="indicator-name"><a href="/1-1-1-1a">Уровень крайней бедности</a></span>
+              <span class="indicator-name"><a href="/1-1-1-1a/">Уровень крайней бедности</a></span>
               
 
 
@@ -372,7 +405,7 @@ data-event-label="high"
 
 
 <span class="status complete">
-    <span class="status-inner">Сообщение</span>
+    <span class="status-inner">Опубликован</span>
 </span>
 
 
@@ -399,6 +432,7 @@ data-event-label="high"
           <div class="col goal-page-target-name">
             <span class="target-name">К 2030 году сократить долю мужчин, женщин и детей всех возрастов, живущих в нищете во всех ее проявлениях, согласно национальным определениям, по крайней мере наполовину</span>
           </div>
+          
       </div>
         
 
@@ -416,7 +450,7 @@ data-event-label="high"
             </div>
             <div class="col goal-page-indicator-name">
               
-              <span class="indicator-name"><a href="/1-2-1">Доля населения страны, живущего за официальной чертой бедности, в разбивке по полу и возрасту</a></span>
+              <span class="indicator-name"><a href="/1-2-1/">Доля населения страны, живущего за официальной чертой бедности, в разбивке по полу и возрасту</a></span>
               
 
 
@@ -429,7 +463,7 @@ data-event-label="high"
 
 
 <span class="status complete">
-    <span class="status-inner">Сообщение</span>
+    <span class="status-inner">Опубликован</span>
 </span>
 
 
@@ -456,7 +490,7 @@ data-event-label="high"
             </div>
             <div class="col goal-page-indicator-name">
               
-              <span class="indicator-name"><a href="/1-2-1-1a">Уровень бедности среди занятого населения</a></span>
+              <span class="indicator-name"><a href="/1-2-1-1a/">Уровень бедности среди занятого населения</a></span>
               
 
 
@@ -469,7 +503,7 @@ data-event-label="high"
 
 
 <span class="status complete">
-    <span class="status-inner">Сообщение</span>
+    <span class="status-inner">Опубликован</span>
 </span>
 
 
@@ -499,7 +533,7 @@ data-event-label="high"
             </div>
             <div class="col goal-page-indicator-name">
               
-              <span class="indicator-name"><a href="/1-2-2">Доля мужчин, женщин и детей всех возрастов, живущих в нищете во всех ее проявлениях, согласно национальным определениям</a></span>
+              <span class="indicator-name"><a href="/1-2-2/">Доля мужчин, женщин и детей всех возрастов, живущих в нищете во всех ее проявлениях, согласно национальным определениям</a></span>
               
 
 
@@ -512,7 +546,7 @@ data-event-label="high"
 
 
 <span class="status complete">
-    <span class="status-inner">Сообщение</span>
+    <span class="status-inner">Опубликован</span>
 </span>
 
 
@@ -536,6 +570,7 @@ data-event-label="high"
           <div class="col goal-page-target-name">
             <span class="target-name">Внедрить на национальном уровне надлежащие системы и меры социальной защиты для всех, включая установление минимальных уровней, и к 2030 году достичь существенного охвата бедных и уязвимых слоев населения</span>
           </div>
+          
       </div>
         
 
@@ -553,7 +588,7 @@ data-event-label="high"
             </div>
             <div class="col goal-page-indicator-name">
               
-              <span class="indicator-name"><a href="/1-3-1">Доля населения, охватываемого минимальным уровнем/системами социальной защиты, в разбивке по полу, с выделением детей, безработных, пожилых, инвалидов, беременных, новорожденных, лиц, получивших трудовое увечье, и бедных и уязвимых</a></span>
+              <span class="indicator-name"><a href="/1-3-1/">Доля населения, охватываемого минимальным уровнем/системами социальной защиты, в разбивке по полу, с выделением детей, безработных, пожилых, инвалидов, беременных, новорожденных, лиц, получивших трудовое увечье, и бедных и уязвимых</a></span>
               
 
 
@@ -566,7 +601,7 @@ data-event-label="high"
 
 
 <span class="status complete">
-    <span class="status-inner">Сообщение</span>
+    <span class="status-inner">Опубликован</span>
 </span>
 
 
@@ -593,7 +628,7 @@ data-event-label="high"
             </div>
             <div class="col goal-page-indicator-name">
               
-              <span class="indicator-name"><a href="/1-3-1-1c">Доля населения, получающих ЕПМС, социальные пособия и пенсии</a></span>
+              <span class="indicator-name"><a href="/1-3-1-1c/">Доля населения, получающих ЕПМС, социальные пособия и пенсии</a></span>
               
 
 
@@ -606,7 +641,7 @@ data-event-label="high"
 
 
 <span class="status complete">
-    <span class="status-inner">Сообщение</span>
+    <span class="status-inner">Опубликован</span>
 </span>
 
 
@@ -636,7 +671,7 @@ data-event-label="high"
             </div>
             <div class="col goal-page-indicator-name">
               
-              <span class="indicator-name"><a href="/1-3-1-1e">Уровень официально зарегистрированных безработных</a></span>
+              <span class="indicator-name"><a href="/1-3-1-1e/">Уровень официально зарегистрированных безработных</a></span>
               
 
 
@@ -649,7 +684,7 @@ data-event-label="high"
 
 
 <span class="status complete">
-    <span class="status-inner">Сообщение</span>
+    <span class="status-inner">Опубликован</span>
 </span>
 
 
@@ -679,7 +714,7 @@ data-event-label="high"
             </div>
             <div class="col goal-page-indicator-name">
               
-              <span class="indicator-name"><a href="/1-3-1-1f">Доля населения, получающих пенсии и пособия по инвалидности к общей численности населения</a></span>
+              <span class="indicator-name"><a href="/1-3-1-1f/">Доля населения, получающих пенсии и пособия по инвалидности к общей численности населения</a></span>
               
 
 
@@ -692,7 +727,7 @@ data-event-label="high"
 
 
 <span class="status complete">
-    <span class="status-inner">Сообщение</span>
+    <span class="status-inner">Опубликован</span>
 </span>
 
 
@@ -722,7 +757,7 @@ data-event-label="high"
             </div>
             <div class="col goal-page-indicator-name">
               
-              <span class="indicator-name"><a href="/1-3-1-1g">Доля пенсионеров по возрасту, получающих пенсии ниже ПМП</a></span>
+              <span class="indicator-name"><a href="/1-3-1-1g/">Доля пенсионеров по возрасту, получающих пенсии ниже ПМП</a></span>
               
 
 
@@ -735,7 +770,7 @@ data-event-label="high"
 
 
 <span class="status complete">
-    <span class="status-inner">Сообщение</span>
+    <span class="status-inner">Опубликован</span>
 </span>
 
 
@@ -762,6 +797,7 @@ data-event-label="high"
           <div class="col goal-page-target-name">
             <span class="target-name">К 2030 году обеспечить, чтобы все мужчины и женщины, особенно малоимущие и уязвимые, имели равные права на экономические ресурсы, а также доступ к базовым услугам, владению и распоряжению землей и другими формами собственности, наследуемому имуществу, природным ресурсам, соответствующим новым технологиям и финансовым услугам, включая микрофинансирование</span>
           </div>
+          
       </div>
         
 
@@ -779,7 +815,7 @@ data-event-label="high"
             </div>
             <div class="col goal-page-indicator-name">
               
-              <span class="indicator-name"><a href="/1-4-1">Доля населения, живущего в домохозяйствах с доступом к базовым услугам</a></span>
+              <span class="indicator-name"><a href="/1-4-1/">Доля населения, живущего в домохозяйствах с доступом к базовым услугам</a></span>
               
 
 
@@ -792,7 +828,7 @@ data-event-label="high"
 
 
 <span class="status complete">
-    <span class="status-inner">Сообщение</span>
+    <span class="status-inner">Опубликован</span>
 </span>
 
 
@@ -819,7 +855,7 @@ data-event-label="high"
             </div>
             <div class="col goal-page-indicator-name">
               
-              <span class="indicator-name"><a href="/1-4-2">Доля совокупного взрослого населения, обладающего гарантированными правами землевладения, a) которые подтверждены признанными законом документами, и b) считающего свои права на землю гарантированными, в разбивке по полу и по формам землевладения</a></span>
+              <span class="indicator-name"><a href="/1-4-2/">Доля совокупного взрослого населения, обладающего гарантированными правами землевладения, a) которые подтверждены признанными законом документами, и b) считающего свои права на землю гарантированными, в разбивке по полу и по формам землевладения</a></span>
               
 
 
@@ -832,7 +868,7 @@ data-event-label="high"
 
 
 <span class="status notstarted">
-    <span class="status-inner">В процессе разработки</span>
+    <span class="status-inner">В настоящее время не разработан</span>
 </span>
 
 
@@ -856,6 +892,7 @@ data-event-label="high"
           <div class="col goal-page-target-name">
             <span class="target-name">К 2030 году повысить жизнестойкость малоимущих и лиц, находящихся в уязвимом положении, и уменьшить их незащищенность и уязвимость перед вызванными изменением климата экстремальными явлениями и другими экономическими, социальными и экологическими потрясениями и бедствиями</span>
           </div>
+          
       </div>
         
 
@@ -873,7 +910,7 @@ data-event-label="high"
             </div>
             <div class="col goal-page-indicator-name">
               
-              <span class="indicator-name"><a href="/1-5-1">Число погибших, пропавших без вести и пострадавших непосредственно в результате бедствий на 100 000 человек</a></span>
+              <span class="indicator-name"><a href="/1-5-1/">Число погибших, пропавших без вести и пострадавших непосредственно в результате бедствий на 100 000 человек</a></span>
               
 
 
@@ -886,7 +923,7 @@ data-event-label="high"
 
 
 <span class="status complete">
-    <span class="status-inner">Сообщение</span>
+    <span class="status-inner">Опубликован</span>
 </span>
 
 
@@ -913,7 +950,7 @@ data-event-label="high"
             </div>
             <div class="col goal-page-indicator-name">
               
-              <span class="indicator-name"><a href="/1-5-2">Прямые экономические потери от бедствий в процентном отношении к мировому валовому внутреннему продукту (ВВП)</a></span>
+              <span class="indicator-name"><a href="/1-5-2/">Прямые экономические потери от бедствий в процентном отношении к мировому валовому внутреннему продукту (ВВП)</a></span>
               
 
 
@@ -926,7 +963,7 @@ data-event-label="high"
 
 
 <span class="status complete">
-    <span class="status-inner">Сообщение</span>
+    <span class="status-inner">Опубликован</span>
 </span>
 
 
@@ -953,7 +990,7 @@ data-event-label="high"
             </div>
             <div class="col goal-page-indicator-name">
               
-              <span class="indicator-name"><a href="/1-5-3">Число стран, принявших и осуществляющих национальные стратегии снижения риска бедствий в соответствии с Сендайской рамочной программой по снижению риска бедствий на 2015–2030 годы</a></span>
+              <span class="indicator-name"><a href="/1-5-3/">Число стран, принявших и осуществляющих национальные стратегии снижения риска бедствий в соответствии с Сендайской рамочной программой по снижению риска бедствий на 2015–2030 годы</a></span>
               
 
 
@@ -966,7 +1003,7 @@ data-event-label="high"
 
 
 <span class="status complete">
-    <span class="status-inner">Сообщение</span>
+    <span class="status-inner">Опубликован</span>
 </span>
 
 
@@ -993,7 +1030,7 @@ data-event-label="high"
             </div>
             <div class="col goal-page-indicator-name">
               
-              <span class="indicator-name"><a href="/1-5-4">Доля местных органов власти, принявших и осуществляющих местные стратегии снижения риска бедствий в соответствии с национальными стратегиями снижения риска бедствий</a></span>
+              <span class="indicator-name"><a href="/1-5-4/">Доля местных органов власти, принявших и осуществляющих местные стратегии снижения риска бедствий в соответствии с национальными стратегиями снижения риска бедствий</a></span>
               
 
 
@@ -1006,7 +1043,7 @@ data-event-label="high"
 
 
 <span class="status notstarted">
-    <span class="status-inner">В процессе разработки</span>
+    <span class="status-inner">В настоящее время не разработан</span>
 </span>
 
 
@@ -1030,6 +1067,7 @@ data-event-label="high"
           <div class="col goal-page-target-name">
             <span class="target-name">Обеспечить мобилизацию значительных ресурсов из самых разных источников, в том числе на основе активизации сотрудничества в целях развития, с тем чтобы предоставить развивающимся странам, особенно наименее развитым странам, достаточные и предсказуемые средства для осуществления программ и стратегий по ликвидации нищеты во всех ее формах</span>
           </div>
+          
       </div>
         
 
@@ -1047,7 +1085,7 @@ data-event-label="high"
             </div>
             <div class="col goal-page-indicator-name">
               
-              <span class="indicator-name"><a href="/1-a-1">Суммарный объем субсидий на официальную помощь в целях развития, полученных от всех доноров и направляемых на искоренение нищеты, в качестве доли от валового национального дохода страны-получателя</a></span>
+              <span class="indicator-name"><a href="/1-a-1/">Суммарный объем субсидий на официальную помощь в целях развития, полученных от всех доноров и направляемых на искоренение нищеты, в качестве доли от валового национального дохода страны-получателя</a></span>
               
 
 
@@ -1060,7 +1098,7 @@ data-event-label="high"
 
 
 <span class="status notstarted">
-    <span class="status-inner">В процессе разработки</span>
+    <span class="status-inner">В настоящее время не разработан</span>
 </span>
 
 
@@ -1087,7 +1125,7 @@ data-event-label="high"
             </div>
             <div class="col goal-page-indicator-name">
               
-              <span class="indicator-name"><a href="/1-a-2">Доля расходов на основные услуги (образование, здравоохранение и социальную защиту) в общей сумме государственных расходов</a></span>
+              <span class="indicator-name"><a href="/1-a-2/">Доля расходов на основные услуги (образование, здравоохранение и социальную защиту) в общей сумме государственных расходов</a></span>
               
 
 
@@ -1100,7 +1138,7 @@ data-event-label="high"
 
 
 <span class="status complete">
-    <span class="status-inner">Сообщение</span>
+    <span class="status-inner">Опубликован</span>
 </span>
 
 
@@ -1127,7 +1165,7 @@ data-event-label="high"
             </div>
             <div class="col goal-page-indicator-name">
               
-              <span class="indicator-name"><a href="/1-a-3">Суммарный объем субсидий и не образующего
+              <span class="indicator-name"><a href="/1-a-3/">Суммарный объем субсидий и не образующего
 задолженности притока средств, непосредственно
 выделяемых на программы сокращения масштабов
 нищеты, в процентном отношении к ВВП
@@ -1144,7 +1182,7 @@ data-event-label="high"
 
 
 <span class="status notstarted">
-    <span class="status-inner">В процессе разработки</span>
+    <span class="status-inner">В настоящее время не разработан</span>
 </span>
 
 
@@ -1168,6 +1206,7 @@ data-event-label="high"
           <div class="col goal-page-target-name">
             <span class="target-name">Создать на национальном, региональном и международном уровнях надежные стратегические механизмы, в основе которых лежали бы стратегии развития, учитывающие интересы бедноты и гендерные аспекты, для содействия ускоренному инвестированию в мероприятия по ликвидации нищеты</span>
           </div>
+          
       </div>
         
 
@@ -1185,7 +1224,7 @@ data-event-label="high"
             </div>
             <div class="col goal-page-indicator-name">
               
-              <span class="indicator-name"><a href="/1-b-1">Государственные социальные расходы в интересах малоимущих слоев населения</a></span>
+              <span class="indicator-name"><a href="/1-b-1/">Государственные социальные расходы в интересах малоимущих слоев населения</a></span>
               
 
 
@@ -1198,7 +1237,7 @@ data-event-label="high"
 
 
 <span class="status notstarted">
-    <span class="status-inner">В процессе разработки</span>
+    <span class="status-inner">В настоящее время не разработан</span>
 </span>
 
 
@@ -1225,7 +1264,7 @@ data-event-label="high"
             </div>
             <div class="col goal-page-indicator-name">
               
-              <span class="indicator-name"><a href="/1-b-1-1">Доля текущих и капитальных государственных расходов в секторах</a></span>
+              <span class="indicator-name"><a href="/1-b-1-1/">Доля текущих и капитальных государственных расходов в секторах</a></span>
               
 
 
@@ -1238,7 +1277,7 @@ data-event-label="high"
 
 
 <span class="status complete">
-    <span class="status-inner">Сообщение</span>
+    <span class="status-inner">Опубликован</span>
 </span>
 
 
@@ -1289,12 +1328,11 @@ data-event-label="high"
     </div>
 </footer>
 
-<script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+<script src="https://code.jquery.com/jquery-3.6.1.min.js" integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
 <script src="https://cdn.datatables.net/1.11.5/js/jquery.dataTables.min.js"></script>
 <script src="https://cdn.datatables.net/1.11.5/js/dataTables.bootstrap5.min.js"></script>
-<script src="//cdn.datatables.net/fixedcolumns/3.2.3/js/dataTables.fixedColumns.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/4.17.20/lodash.min.js" integrity="sha512-90vH1Z83AJY9DmlWa8WkjkV79yfS2n2Oxhsi2dZbIv0nC4E6m5AbH8Nh156kkM7JePmqD6tcZsfad1ueoaovww==" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/4.17.21/lodash.min.js" integrity="sha512-WFN04846sdKMIP5LKNphMaWzU7YpMyCU245etK3g/2ARYbPK9Ub18eG+ljU96qKRCWh+quCY7yefSmlkQw1ANQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 <script src="https://cdn.jsdelivr.net/npm/chart.js@3.7.0/dist/chart.min.js" integrity="sha256-Y26AMvaIfrZ1EQU49pf6H4QzVTrOI8m9wQYKkftBt4s=" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/patternomaly@1.3.2/dist/patternomaly.js"></script>
 
@@ -1332,12 +1370,12 @@ ga('send', 'pageview');
 <script>translations['search'] = translations['search'] || {};
     translations['search']['search'] = 'Поиск';</script>
 
-<script src='/assets/js/sdg.js?v=20240227121757'></script>
+<script src='/assets/js/sdg.js?v=20240403090325'></script>
 
 
     
     
-    <script src="/assets/js/custom.js?v=20240227121757"></script><script>
+    <script src="/assets/js/custom.js?v=20240403090325"></script><script>
     new indicatorInit();
     new accessibilitySwitcher();
 </script>

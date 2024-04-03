@@ -3,7 +3,7 @@
     <head>
         <meta charset="utf-8">
         <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.min.js"></script>
-        <script crossorigin="anonymous" src="https://polyfill.io/v3/polyfill.min.js?features=Promise%2CArray.prototype.forEach%2CString.prototype.includes%2CURLSearchParams%2CCustomEvent%2CArray.prototype.includes%2CArray.prototype.filter%2CArray.prototype.some%2CArray.prototype.find%2CArray.prototype.reduce%2CObject.assign%2CArray.isArray%2CObject.values%2CObject.entries%2CArray.from%2CSet%2CArray.prototype.findIndex"></script>
+        <script crossorigin="anonymous" src="https://polyfill.io/v3/polyfill.min.js?features=Promise%2CArray.prototype.forEach%2CString.prototype.includes%2CURLSearchParams%2CCustomEvent%2CArray.prototype.includes%2CArray.prototype.filter%2CArray.prototype.some%2CArray.prototype.find%2CArray.prototype.reduce%2CObject.assign%2CArray.isArray%2CObject.values%2CObject.entries%2CArray.from%2CSet%2CArray.prototype.findIndex%2Cfetch"></script>
 <script crossorigin="anonymous" src="https://cdnjs.cloudflare.com/ajax/libs/javascript-canvas-to-blob/3.15.0/js/canvas-to-blob.min.js"></script>
 
         <script>
@@ -26,8 +26,9 @@ var opensdg = {
   },
 
   // A hook which can be replaced to alter whether/how the values that are
-  // displayed on indicator tables/graphs get rounded.
-  dataRounding: function(value) {
+  // displayed on indicator tables/graphs get rounded. A "context" parameter
+  // is also passed which contains additional information.
+  dataRounding: function(value, context) {
     // Alterations go here.
     return value;
   },
@@ -38,7 +39,24 @@ var opensdg = {
     this.dataDisplayAlterations.push(callback);
   },
 
+  // Disaggregations which should be ignored on indicator pages.
+  ignoredDisaggregations: null,
+
   language: 'ru',
+
+  mapColors: {
+    "default": [
+        "#c4e1c6",
+        "#b0d1b3",
+        "#9bc2a1",
+        "#87b28f",
+        "#74a37c",
+        "#60946b",
+        "#4d8559",
+        "#3a7747",
+        "#276836"
+    ]
+},
 };
 
 </script>
@@ -108,10 +126,7 @@ var translations = {
 
 
 
-        <meta name="description" content="">
-        <meta property="og:description" content="">
         
-        <link rel="canonical" href="/">
 
         <!--[if IE 9]>
         <script src="/assets/js/lib/classList.js"></script>
@@ -122,13 +137,13 @@ var translations = {
 <link rel="icon" type="image/png" sizes="16x16" href="/assets/img/favicons/favicon-16x16.png">
 <link rel="icon" type="image/x-icon" href="/assets/img/favicons/favicon.ico" />
 
+        
 
         
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
         <link res="stylesheet" href="https://cdn.datatables.net/1.11.5/css/dataTables.bootstrap5.min.css">
-        <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" crossorigin="">
-        <link rel="stylesheet" href="https://cdn.datatables.net/fixedcolumns/3.2.3/css/fixedColumns.dataTables.min.css" crossorigin="">
-        <link rel="stylesheet" href="/assets/css/style.css?v=20240227121757">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" crossorigin="">
+        <link rel="stylesheet" href="/assets/css/style.css?v=20240403090325">
         <link rel="stylesheet" href="https://unpkg.com/leaflet@1.3.4/dist/leaflet.css"
           integrity="sha512-puBpdR0798OZvTTbP4A8Ix/l+A4dHDD0DGqYW6RQ+9jxkRFclaxxQb/SJAWZfWAkuyeQUytO7+7N4QKrDh+drA=="
           crossorigin=""/>
@@ -136,8 +151,11 @@ var translations = {
         <link rel="stylesheet" href='https://api.mapbox.com/mapbox.js/plugins/leaflet-fullscreen/v1.0.1/leaflet.fullscreen.css'  crossorigin=""/>
         <link rel="stylesheet" href="https://bowercdn.net/c/leaflet.zoomhome-latest/dist/leaflet.zoomhome.css"  crossorigin=""/>
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet-search@2.9.7/dist/leaflet-search.min.css" crossorigin="">
-        <link rel="stylesheet" href="https://cdn.kiprotect.com/klaro/v0.7/klaro.min.css" crossorigin=""/><link rel="stylesheet" href="/assets/css/custom.css?v=20240227121757">
+        <link rel="stylesheet" href="https://cdn.kiprotect.com/klaro/v0.7/klaro.min.css" crossorigin=""/><link rel="stylesheet" href="/assets/css/custom.css?v=20240403090325">
         
+
+        
+
 
         <!--[if IE]>
         <link rel="stylesheet" href="/assets/css/ie.css">
@@ -151,7 +169,7 @@ layout-indicator
 ">
 <!-- <div class="container"> -->
 
-<script>translations['header'] = {"alpha":"Альфа","default_contrast":"стандартный контраст","disable_high_contrast":"Отключить высокую контрастность","disclaimer":"Это сайт находится в разработке. Мы рады вашим отзывам.","enable_high_contrast":"Включить высокую контрастность","high_contrast":"высокий контраст","internet_explorer_message":"Мы обнаружили, что для посещения этого сайта вы используете Internet Explorer. В настоящее время компания Microsoft постепенно отказывается от использования Internet Explorer. В результате этот сайт больше не поддерживает ни одну из версий Internet Explorer. Некоторые функции на этом сайте не будут работать. Вам следует использовать современный браузер, такой как Edge, Chrome, Firefox или Safari. Если у вас возникли трудности с установкой или доступом к другому браузеру, обратитесь в службу ИТ-поддержки.","internet_explorer_message_title":"Этот интернет-браузер больше не поддерживается","skip_link":"Перейти к главному содержанию","tag_line":"17 Целей, чтобы преобразовать наш мир","toggle_menu":"Переключайте меню. Нажмите, чтобы развернуть или свернуть меню.","toggle_search":"Поисковая переключатель. Нажмите, чтобы развернуть или свернуть панель поиска."};</script>
+<script>translations['header'] = {"alpha":"Альфа","default_contrast":"стандартный контраст","disable_high_contrast":"Отключить высокую контрастность","disclaimer":"Это сайт находится в разработке. Мы рады вашим отзывам.","enable_high_contrast":"Включить высокую контрастность","hide_menu":"Скрыть навигационное меню","high_contrast":"высокий контраст","internet_explorer_message":"Мы обнаружили, что для посещения этого сайта вы используете Internet Explorer. В настоящее время компания Microsoft постепенно отказывается от использования Internet Explorer. В результате этот сайт больше не поддерживает ни одну из версий Internet Explorer. Некоторые функции на этом сайте не будут работать. Вам следует использовать современный браузер, такой как Edge, Chrome, Firefox или Safari. Если у вас возникли трудности с установкой или доступом к другому браузеру, обратитесь в службу ИТ-поддержки.","internet_explorer_message_title":"Этот интернет-браузер больше не поддерживается","logo_title":"Перейти на главную страницу","show_menu":"Показать навигационное меню","skip_link":"Перейти к главному содержанию","tag_line":"17 Целей, чтобы преобразовать наш мир","toggle_menu":"Переключайте меню. Нажмите, чтобы развернуть или свернуть меню.","toggle_search":"Поисковая переключатель. Нажмите, чтобы развернуть или свернуть панель поиска."};</script>
 
 <a class="sr-only-focusable" id="skiplink" href="#main-content" tabindex="0">Перейти к главному содержанию</a>
 <div class="container internet-explorer-message">
@@ -181,7 +199,7 @@ layout-indicator
   <img src="/assets/img/SDG_logo_ru.png" alt="Цели в области устойчивого развития - 17 Целей, чтобы преобразовать наш мир" />
 </a>
 
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Показать навигационное меню">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="d-flex flex-wrap w-100 justify-content-between">
@@ -205,7 +223,7 @@ layout-indicator
         <label class="visually-hidden" for="indicator_search">Поиск</label>
         <input class="form-control" type="search" name="q" id="indicator_search" title="Поиск">
         <span class="input-group-append">
-            <button class="btn btn-outline-secondary ms-n5" aria-label="Поиск" id="search-btn" type="submit">
+            <button class="btn btn-outline-secondary ms-n5" aria-label="Поиск по сайту" id="search-btn" type="submit">
                 <i class="fa fa-search"></i>
             </button>
         </span>
@@ -244,7 +262,7 @@ layout-indicator
             </a>
         </li></ul>
 </div></span><a title="Включить высокую контрастность" aria-label="Включить высокую контрастность"
-    data-contrast-switch-to="" href="javascript:void(0)" data-on="click"
+    data-contrast-switch-to="" role="button" href="javascript:void(0)" data-on="click"
 data-event-category="Accessibility"
 data-event-action="Change contrast setting"
 data-event-label="high"
@@ -322,14 +340,15 @@ data-event-label="high"
     <fieldset>
       <legend class="sr-only">Серии</legend>
       <% _.each(serieses, function(seriesItem, index) { %>
+        <% var isProxy = (proxySerieses.includes(seriesItem)) %>
         <% var checked = (selectedSeries) ? (selectedSeries==seriesItem) : (index==0); %>
-        <label><input type="radio" name="series" value="<%=seriesItem%>" tabindex=0 <%=checked ? 'checked' : ''%> /> <%=translations.t(seriesItem)%></label>
+        <label><input type="radio" name="series" value="<%=seriesItem%>" tabindex=0 <%=checked ? 'checked' : ''%> /> <%=translations.t(seriesItem)%> <%=isProxy ? proxyPill : ''%></label>
       <% }); %>
     </fieldset>
   
 </script>
 
-<script>translations['indicator'] = {"annotation_2030_target":"2030 год Цель","announce_data_added":"Обновлены диаграмма и таблица для включения данных.","announce_data_not_available":"Диаграмма и таблица не содержат данных.","announce_data_removed":"Обновлены диаграмма и таблица для исключения данных.","apply":"Применить","cancel":"Отмена","change_breakdowns":"Разбивка изменений","chart":"График","chart_annotation":"Диаграмма аннотация","clear_all":"Очистить всё","clear_selections":"Очистить выделенное","data_keyboard_navigation":"Нажмите клавишу Enter для просмотра точек данных с помощью клавиш со стрелками вправо и влево.","data_not_available":"Эти данные не доступны. Пожалуйста, выберите альтернативные данные для отображения.","data_tabular_alternative":"Альтернативный вариант табличных данных см. в таблице табличных данных.","dataset_size_warning":"В таблице слишком много данных, чтобы показать в графике. Чтобы увидеть все, удалите выделенное.","download_chart":"Скачать график CSV","download_chart_image":"Загрузить изображение диаграммы","download_chart_image_title":"Скачать диаграмму как изображение","download_csv":"Скачать CSV","download_csv_title":"Скачать в формате CSV","download_geojson":"Скачать GeoJSON","download_geojson_title":"Скачать в формате GeoJSON","download_headline":"Скачать заголовки CSV","download_headline_title":"Скачать данные заголовков в формате CSV","download_source":"Скачать исходные CSV","download_source_excel":"Скачать исходные Excel","download_source_for_disaggregations":"Загрузить исходный CSV для дезагрегации","download_source_sdmx":"Скачать исходные SDMX","download_source_sdmx_title":"Скачать исходные данные в формате SDMX","download_source_title":"Скачать исходные данные в формате CSV","download_table":"Скачать табличные CSV","edit":"Редактировать","edit_configuration":"Редактировать Конфигурация","edit_data":"Редактировать данные","edit_metadata":"Редактировать метаданные","footnote":"Сноска","geographical_area":"Географический район","global_metadata":"Глобальные метаданные","global_metadata_blurb":"В этой таблице представлена информация для метаданных показателей ЦУР, определенных Статистической комиссией ООН. Полные глобальные метаданные представлены Статистическим отделом ООН.","headline_data":"Данные заголовка","legend_help":"Нажмите на легенду, чтобы убрать линии из графика.","loading":"Загрузка","loading_map":"Загрузка карты","map":"Карта","map_search":"Поиск","map_search_hide":"Скрыть поиск","map_search_show":"Показать поиск","map_year_slider":"Годовой слайдер","national_metadata":"Национальные метаданные","national_metadata_blurb":"В этой таблице представлены метаданные для фактического показателя, доступного из статистики ближайшей к соответствующему глобальному индикатору ЦУР. Обратите внимание, что даже если глобальный индикатор ЦУР полностью доступен из статистики, по этой таблице следует проконсультироваться для получения информации о национальной методологии и других специфичных метаданных.","next":"Следующий индикатор","no_data_hint":"Нет имеющихся вариантов из-за фильтров наверху.","no_headline_data":"Данные по заголовкам отсутствуют","plot_legend_description":"Легенда сюжета: список линий, включенных в график","previous":"Предыдущий показатель","select_all":"Выделить всё","series":"Серии","series_help":"Выберите категории из выпадающего меню внизу, чтобы увидеть разные разбивки данных. Несколько не будет доступно, пока более высокий уровень не выбран. ","source":"Источник","sources":"Источники","status":"Состояние индикатора","sub_categories":"Субкатегории","sub_categories_show":"Показать подкатегории:","table":"Таблица","table_column_sort":"Нажмите, чтобы отсортировать по этой колонке","tags":"Теги","unit":"Единица","unit_of_measurement":"Единица измерения","units_type":"Вид единиц","variable_hint":"Доступно, когда выбрано","view_indicator_list":"Посмотреть список индикаторов этой цели"};</script>
+<script>translations['indicator'] = {"annotation_2030_target":"2030 год Цель","announce_data_added":"Обновлены диаграмма и таблица для включения данных.","announce_data_not_available":"Диаграмма и таблица не содержат данных.","announce_data_removed":"Обновлены диаграмма и таблица для исключения данных.","announce_series_switched":"Диаграмма и таблица обновлены для отображения других рядов.","announce_unit_switched":"Диаграмма и таблица обновлены для отображения другой единицы измерения.","apply":"Применить","cancel":"Отмена","change_breakdowns":"Разбивка изменений","chart":"График","chart_annotation":"Диаграмма аннотация","clear_all":"Очистить всё","clear_selections":"Очистить выделенное","data_keyboard_navigation":"Нажмите клавишу Enter для просмотра точек данных с помощью клавиш со стрелками вправо и влево.","data_not_available":"Эти данные не доступны. Пожалуйста, выберите альтернативные данные для отображения.","data_tabular_alternative":"Альтернативный вариант табличных данных см. в таблице табличных данных.","dataset_size_warning":"В таблице слишком много данных, чтобы показать в графике. Чтобы увидеть все, удалите выделенное.","download_chart":"Скачать график CSV","download_chart_image":"Загрузить изображение диаграммы","download_chart_image_title":"Скачать диаграмму как изображение","download_csv":"Скачать CSV","download_csv_title":"Скачать в формате CSV","download_geojson":"Скачать GeoJSON","download_geojson_title":"Скачать в формате GeoJSON","download_headline":"Скачать заголовки CSV","download_headline_title":"Скачать данные заголовков в формате CSV","download_source":"Скачать исходные CSV","download_source_excel":"Скачать исходные Excel","download_source_for_disaggregations":"Загрузить исходный CSV для дезагрегации","download_source_sdmx":"Скачать исходные SDMX","download_source_sdmx_title":"Скачать исходные данные в формате SDMX","download_source_title":"Скачать исходные данные в формате CSV","download_table":"Скачать табличные CSV","edit":"Редактировать","edit_configuration":"Редактировать Конфигурация","edit_data":"Редактировать данные","edit_metadata":"Редактировать метаданные","empty_metadata_placeholder":"Недоступно для данного показателя","empty_metadata_placeholder_sources":"Недоступно для данного источника","footnote":"Сноска","geographical_area":"Географический район","global_metadata":"Глобальные метаданные","global_metadata_blurb":"В этой таблице представлена информация для метаданных показателей ЦУР, определенных Статистической комиссией ООН. Полные глобальные метаданные представлены Статистическим отделом ООН.","headline_data":"Данные заголовка","legend_help":"Нажмите на легенду, чтобы убрать линии из графика.","loading":"Загрузка","loading_map":"Загрузка карты","map":"Карта","map_fullscreen":"Просмотр карты в полноэкранном режиме","map_fullscreen_exit":"Выход из полноэкранной карты","map_search":"Поиск","map_search_cancel":"Наглядный поиск по карте","map_search_hide":"Скрыть поиск","map_search_show":"Показать поиск","map_slider_back":"Просмотр данных карты за предыдущий период времени","map_slider_forward":"Просмотр данных карты за следующий период времени","map_slider_keyboard":"Просматривайте данные карты в течение всего периода времени с помощью клавиш со стрелками влево и вправо","map_slider_mouse":"Навигация по данным карты по временному периоду","map_year_slider":"Годовой слайдер","map_zoom_home":"Сброс к масштабу карты по умолчанию","map_zoom_in":"Увеличить масштаб карты","map_zoom_out":"Уменьшить масштаб карты","national_metadata":"Национальные метаданные","national_metadata_blurb":"В этой таблице представлены метаданные для фактического показателя, доступного из статистики ближайшей к соответствующему глобальному индикатору ЦУР. Обратите внимание, что даже если глобальный индикатор ЦУР полностью доступен из статистики, по этой таблице следует проконсультироваться для получения информации о национальной методологии и других специфичных метаданных.","next":"Следующий индикатор","no_data_hint":"Нет имеющихся вариантов из-за фильтров наверху.","no_headline_data":"Данные по заголовкам отсутствуют","note":"заметка","plot_legend_description":"Легенда сюжета: список линий, включенных в график","previous":"Предыдущий показатель","proxy":"Прокси","proxy_description":"Этот показатель содержит некоторые данные, альтернативные тем, которые указаны Организацией Объединенных Наций (ООН). Этот индикатор является наиболее подходящим соответствием, доступным в настоящее время.","select_all":"Выделить всё","series":"Серии","series_help":"Выберите категории из выпадающего меню внизу, чтобы увидеть разные разбивки данных. Несколько не будет доступно, пока более высокий уровень не выбран. ","source":"Источник","sources":"Источники","status":"Состояние индикатора","sub_categories":"Субкатегории","sub_categories_show":"Показать подкатегории:","table":"Таблица","table_column_sort":"Нажмите, чтобы отсортировать по этой колонке","tags":"Теги","total":"Всего","unit":"Единица","unit_of_measurement":"Единица измерения","units_type":"Вид единиц","variable_hint":"Доступно, когда выбрано","view_indicator_list":"Посмотреть список индикаторов этой цели"};</script>
 
 <script>translations['data'] = {"Year":"Год"};</script>
 
@@ -343,7 +362,11 @@ data-event-label="high"
             <a href="/">Главная</a>
         </li>
         <li class="breadcrumb-item">
-            <a href="/1" title="Повсеместная ликвидация нищеты во всех ее формах">Цель 1</a>
+            <a href="/1/"
+               title="Цель 1 - Ликвидация нищеты"
+               aria-label="Цель  - ">
+               Цель 1
+            </a>
         </li>
         <li class="breadcrumb-item active">показатель 1.3.1.1e</li>
         
@@ -358,7 +381,7 @@ data-event-label="high"
         <div class="row">
             
             <div class="col-4 col-md-3 col-lg-2 goal-icon goal-tiles">
-                <a href="/1" title="Посмотреть список индикаторов этой цели">
+                <a href="/1/" aria-label="Просмотреть задачи и показатели для цели 1" title="Просмотреть задачи и показатели для цели 1">
                     <img src="https://sdg-kyrgyzstan.github.io/open-sdg-site-starter/assets/img/goals/ru/1.png"
                         alt="Ликвидация нищеты - Цель 1"
                         id="goal-1"
@@ -380,6 +403,8 @@ data-event-label="high"
     </div>
 </div>
 <div id="main-content" class="container goal-1" role="main">
+  
+
   
 
   
@@ -417,9 +442,13 @@ data-event-label="high"
   data-dataschema="{&quot;fields&quot;:[{&quot;name&quot;:&quot;Year&quot;,&quot;type&quot;:&quot;integer&quot;,&quot;title&quot;:&quot;Год&quot;},{&quot;name&quot;:&quot;SEX&quot;,&quot;type&quot;:&quot;string&quot;,&quot;constraints&quot;:{&quot;enum&quot;:[&quot;Женщины&quot;,&quot;Мужчины&quot;,&quot;&quot;]},&quot;title&quot;:&quot;Пол&quot;},{&quot;name&quot;:&quot;Value&quot;,&quot;type&quot;:&quot;number&quot;,&quot;title&quot;:&quot;Value&quot;}]}"
   data-compositebreakdownlabel=""
   data-precision="null"
+  data-proxy=""
+  data-proxyseries="null"
 >
   
   <span role="status" class="visually-hidden" id="indicator-data-view-status"></span>
+  <span role="status" class="visually-hidden" id="indicator-data-unit-status"></span>
+  <span role="status" class="visually-hidden" id="indicator-data-series-status"></span>
   <div id="indicator-sidebar" class="indicator-sidebar col-md-3">
     <div id="serieses"></div>
 <div id="units"></div>
@@ -445,9 +474,9 @@ data-event-label="high"
   <div id="datatables">
 
     
-    <a href="https://sustainabledevelopment-kyrgyzstan.github.io/sdg-data/ru/headline/1-3-1-1e.csv" class="btn btn-primary btn-download" download="indicator_1-3-1-1e.csv" tabindex="0" role="button">Скачать заголовки CSV</a>
+    <a role="button" href="https://sustainabledevelopment-kyrgyzstan.github.io/sdg-data/ru/headline/1-3-1-1e.csv" class="btn btn-primary btn-download" download="indicator_1-3-1-1e.csv" tabindex="0" role="button">Скачать заголовки CSV</a>
     
-    <a href="https://sustainabledevelopment-kyrgyzstan.github.io/sdg-data/ru/data/1-3-1-1e.csv" class="btn btn-primary btn-download" download='indicator_1-3-1-1e.csv' tabindex='0' role='button'>Скачать исходные CSV</a>
+    <a role="button" href="https://sustainabledevelopment-kyrgyzstan.github.io/sdg-data/ru/data/1-3-1-1e.csv" class="btn btn-primary btn-download" download='indicator_1-3-1-1e.csv' tabindex='0' role='button'>Скачать исходные CSV</a>
 
     <p class="no-js-disaggregation-hint">Загрузить исходный CSV для дезагрегации</p>
 
@@ -756,7 +785,9 @@ data-event-label="Change to Table tab"
     <div id="selectionsChart">
       <figure role="group">
         <div id="chart-canvas">
-          <h4 id="chart-heading" class="chart-title">Уровень официально зарегистрированных безработных</h4>
+          <h4 id="chart-heading" class="chart-title">
+            Уровень официально зарегистрированных безработных
+          </h4>
           <div id="chart" class="plot-container">
             <canvas
     role="img"
@@ -812,14 +843,19 @@ data-event-label="Change to Table tab"
         
         
     </dl>
+    
 </div>
 
         </div>
       </figure>
       <div id="chartSelectionDownload" class="clearfix">
-        <button id="btnSave" title="Скачать диаграмму как изображение" class='btn btn-primary btn-download'>
+        <button
+          id="btnSave"
+          title="Скачать диаграмму как изображение"
+          aria-label="Скачать диаграмму как изображение"
+          class='btn btn-primary btn-download'>
           Загрузить изображение диаграммы
-        </button><!-- 
+        </button><!--
    --></div>
     </div>
 
@@ -880,6 +916,7 @@ data-event-label="Change to Table tab"
         
         
     </dl>
+    
 </div>
 
 <div id="tableSelectionDownload" class="clearfix"></div>
@@ -973,16 +1010,23 @@ data-event-label="Change to custom.data_reporter tab"
         
         
         
+        
+        
+        
+        
         <div role="tabpanel" class="tab-pane active" id="indicator_information">
             <article>
                 <p>Данная таблица предоставляет информацию об индикаторе</p>
 
-                <table class="table">
+                <table class="table metadata-content">
+  <tbody>
   
   
   
   
   
+      
+      
       
       
       <tr>
@@ -999,6 +1043,8 @@ data-event-label="Change to custom.data_reporter tab"
   
       
       
+      
+      
       <tr>
         <th scope="row">Название задачи </th>
         <td>
@@ -1011,6 +1057,8 @@ data-event-label="Change to custom.data_reporter tab"
         
       
   
+      
+      
       
       
       <tr>
@@ -1056,6 +1104,7 @@ data-event-label="Change to custom.data_reporter tab"
   
   
   
+  </tbody>
 </table>
 
             </article>
@@ -1065,11 +1114,16 @@ data-event-label="Change to custom.data_reporter tab"
         
         
         
+        
+        
+        
+        
         <div role="tabpanel" class="tab-pane " id="national">
             <article>
                 <p>В этой таблице представлены метаданные для фактического показателя, доступного из статистики ближайшей к соответствующему глобальному индикатору ЦУР. Обратите внимание, что даже если глобальный индикатор ЦУР полностью доступен из статистики, по этой таблице следует проконсультироваться для получения информации о национальной методологии и других специфичных метаданных.</p>
 
-                <table class="table">
+                <table class="table metadata-content">
+  <tbody>
   
   
   
@@ -1078,6 +1132,8 @@ data-event-label="Change to custom.data_reporter tab"
   
   
   
+      
+      
       
       
       <tr>
@@ -1094,6 +1150,8 @@ data-event-label="Change to custom.data_reporter tab"
   
       
       
+      
+      
       <tr>
         <th scope="row">Единица измерения </th>
         <td>
@@ -1108,6 +1166,8 @@ data-event-label="Change to custom.data_reporter tab"
   
       
       
+      
+      
       <tr>
         <th scope="row">Определения </th>
         <td>
@@ -1120,6 +1180,8 @@ data-event-label="Change to custom.data_reporter tab"
         
       
   
+      
+      
       
       
       <tr>
@@ -1137,6 +1199,8 @@ data-event-label="Change to custom.data_reporter tab"
   
       
       
+      
+      
       <tr>
         <th scope="row">Обоснование и толкование </th>
         <td>
@@ -1151,6 +1215,8 @@ data-event-label="Change to custom.data_reporter tab"
   
       
       
+      
+      
       <tr>
         <th scope="row">Метод расчета </th>
         <td>
@@ -1163,6 +1229,8 @@ data-event-label="Change to custom.data_reporter tab"
         
       
   
+      
+      
       
       
       <tr>
@@ -1180,6 +1248,8 @@ data-event-label="Change to custom.data_reporter tab"
   
       
       
+      
+      
       <tr>
         <th scope="row">Гарантия качества </th>
         <td>
@@ -1192,6 +1262,8 @@ data-event-label="Change to custom.data_reporter tab"
         
       
   
+      
+      
       
       
       <tr>
@@ -1208,6 +1280,8 @@ data-event-label="Change to custom.data_reporter tab"
   
       
       
+      
+      
       <tr>
         <th scope="row">Разбивка </th>
         <td>
@@ -1222,11 +1296,20 @@ data-event-label="Change to custom.data_reporter tab"
   
       
       
+      
+        
+          
+          
+          
+          
+        
+      
+      
       <tr>
         <th scope="row">Сопоставимость с международными данными/стандартами </th>
         <td>
           
-            
+            <p><span class="empty-metadata-placeholder">Недоступно для данного показателя</span></p>
 
           
         </td>
@@ -1234,6 +1317,8 @@ data-event-label="Change to custom.data_reporter tab"
         
       
   
+      
+      
       
       
       <tr>
@@ -1250,6 +1335,8 @@ data-event-label="Change to custom.data_reporter tab"
   
       
       
+      
+      
       <tr>
         <th scope="row">Источники данных </th>
         <td>
@@ -1262,6 +1349,8 @@ data-event-label="Change to custom.data_reporter tab"
         
       
   
+      
+      
       
       
       <tr>
@@ -1278,6 +1367,15 @@ data-event-label="Change to custom.data_reporter tab"
   
       
       
+      
+        
+          
+          
+          
+          
+        
+      
+      
       <tr>
         <th scope="row">Ссылка на метаданные ООН </th>
         <td>
@@ -1286,7 +1384,8 @@ data-event-label="Change to custom.data_reporter tab"
             
             
             
-
+            
+              <span class="empty-metadata-placeholder">Недоступно для данного показателя</span>
             
 
           
@@ -1298,6 +1397,8 @@ data-event-label="Change to custom.data_reporter tab"
       
       
       
+      
+      
   
   
   
@@ -1312,6 +1413,7 @@ data-event-label="Change to custom.data_reporter tab"
   
   
   
+  </tbody>
 </table>
 
             </article>
@@ -1321,11 +1423,16 @@ data-event-label="Change to custom.data_reporter tab"
         
         
         
+        
+        
+        
+        
         <div role="tabpanel" class="tab-pane " id="data_reporter">
             <article>
                 <p>Данная таблица предоставляет информацию о поставщиках данных</p>
 
-                <table class="table">
+                <table class="table metadata-content">
+  <tbody>
   
   
   
@@ -1350,6 +1457,8 @@ data-event-label="Change to custom.data_reporter tab"
   
   
   
+      
+      
       
       
       <tr>
@@ -1366,6 +1475,8 @@ data-event-label="Change to custom.data_reporter tab"
   
       
       
+      
+      
       <tr>
         <th scope="row">Контактное лицо (лица)/Координатор </th>
         <td>
@@ -1378,6 +1489,8 @@ data-event-label="Change to custom.data_reporter tab"
         
       
   
+      
+      
       
       
       <tr>
@@ -1394,6 +1507,8 @@ data-event-label="Change to custom.data_reporter tab"
   
       
       
+      
+      
       <tr>
         <th scope="row">Телефон контактного лица </th>
         <td>
@@ -1406,6 +1521,8 @@ data-event-label="Change to custom.data_reporter tab"
         
       
   
+      
+      
       
       
       <tr>
@@ -1428,6 +1545,7 @@ data-event-label="Change to custom.data_reporter tab"
   
   
   
+  </tbody>
 </table>
 
             </article>
@@ -1436,7 +1554,7 @@ data-event-label="Change to custom.data_reporter tab"
     
     
 </div>
-  
+
 </div>
   </div>
 </div>
@@ -1473,12 +1591,11 @@ data-event-label="Change to custom.data_reporter tab"
     </div>
 </footer>
 
-<script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+<script src="https://code.jquery.com/jquery-3.6.1.min.js" integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
 <script src="https://cdn.datatables.net/1.11.5/js/jquery.dataTables.min.js"></script>
 <script src="https://cdn.datatables.net/1.11.5/js/dataTables.bootstrap5.min.js"></script>
-<script src="//cdn.datatables.net/fixedcolumns/3.2.3/js/dataTables.fixedColumns.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/4.17.20/lodash.min.js" integrity="sha512-90vH1Z83AJY9DmlWa8WkjkV79yfS2n2Oxhsi2dZbIv0nC4E6m5AbH8Nh156kkM7JePmqD6tcZsfad1ueoaovww==" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/4.17.21/lodash.min.js" integrity="sha512-WFN04846sdKMIP5LKNphMaWzU7YpMyCU245etK3g/2ARYbPK9Ub18eG+ljU96qKRCWh+quCY7yefSmlkQw1ANQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 <script src="https://cdn.jsdelivr.net/npm/chart.js@3.7.0/dist/chart.min.js" integrity="sha256-Y26AMvaIfrZ1EQU49pf6H4QzVTrOI8m9wQYKkftBt4s=" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/patternomaly@1.3.2/dist/patternomaly.js"></script>
 
@@ -1516,12 +1633,12 @@ ga('send', 'pageview');
 <script>translations['search'] = translations['search'] || {};
     translations['search']['search'] = 'Поиск';</script>
 
-<script src='/assets/js/sdg.js?v=20240227121757'></script>
+<script src='/assets/js/sdg.js?v=20240403090325'></script>
 
 
     
     
-    <script src="/assets/js/custom.js?v=20240227121757"></script><script>
+    <script src="/assets/js/custom.js?v=20240403090325"></script><script>
     new indicatorInit();
     new accessibilitySwitcher();
 </script>

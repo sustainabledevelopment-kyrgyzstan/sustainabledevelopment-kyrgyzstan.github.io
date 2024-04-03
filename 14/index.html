@@ -3,7 +3,7 @@
     <head>
         <meta charset="utf-8">
         <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.min.js"></script>
-        <script crossorigin="anonymous" src="https://polyfill.io/v3/polyfill.min.js?features=Promise%2CArray.prototype.forEach%2CString.prototype.includes%2CURLSearchParams%2CCustomEvent%2CArray.prototype.includes%2CArray.prototype.filter%2CArray.prototype.some%2CArray.prototype.find%2CArray.prototype.reduce%2CObject.assign%2CArray.isArray%2CObject.values%2CObject.entries%2CArray.from%2CSet%2CArray.prototype.findIndex"></script>
+        <script crossorigin="anonymous" src="https://polyfill.io/v3/polyfill.min.js?features=Promise%2CArray.prototype.forEach%2CString.prototype.includes%2CURLSearchParams%2CCustomEvent%2CArray.prototype.includes%2CArray.prototype.filter%2CArray.prototype.some%2CArray.prototype.find%2CArray.prototype.reduce%2CObject.assign%2CArray.isArray%2CObject.values%2CObject.entries%2CArray.from%2CSet%2CArray.prototype.findIndex%2Cfetch"></script>
 <script crossorigin="anonymous" src="https://cdnjs.cloudflare.com/ajax/libs/javascript-canvas-to-blob/3.15.0/js/canvas-to-blob.min.js"></script>
 
         <script>
@@ -26,8 +26,9 @@ var opensdg = {
   },
 
   // A hook which can be replaced to alter whether/how the values that are
-  // displayed on indicator tables/graphs get rounded.
-  dataRounding: function(value) {
+  // displayed on indicator tables/graphs get rounded. A "context" parameter
+  // is also passed which contains additional information.
+  dataRounding: function(value, context) {
     // Alterations go here.
     return value;
   },
@@ -38,7 +39,24 @@ var opensdg = {
     this.dataDisplayAlterations.push(callback);
   },
 
+  // Disaggregations which should be ignored on indicator pages.
+  ignoredDisaggregations: null,
+
   language: 'ru',
+
+  mapColors: {
+    "default": [
+        "#c4e1c6",
+        "#b0d1b3",
+        "#9bc2a1",
+        "#87b28f",
+        "#74a37c",
+        "#60946b",
+        "#4d8559",
+        "#3a7747",
+        "#276836"
+    ]
+},
 };
 
 </script>
@@ -99,14 +117,13 @@ var translations = {
         ================================================== -->
 
         
+    
     <title>Цель 14 - Сохранение морских экосистем - Indicators For The Sustainable Development Goals</title>
+    
 
 
 
-        <meta name="description" content="">
-        <meta property="og:description" content="">
         
-        <link rel="canonical" href="/">
 
         <!--[if IE 9]>
         <script src="/assets/js/lib/classList.js"></script>
@@ -117,13 +134,13 @@ var translations = {
 <link rel="icon" type="image/png" sizes="16x16" href="/assets/img/favicons/favicon-16x16.png">
 <link rel="icon" type="image/x-icon" href="/assets/img/favicons/favicon.ico" />
 
+        
 
         
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
         <link res="stylesheet" href="https://cdn.datatables.net/1.11.5/css/dataTables.bootstrap5.min.css">
-        <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" crossorigin="">
-        <link rel="stylesheet" href="https://cdn.datatables.net/fixedcolumns/3.2.3/css/fixedColumns.dataTables.min.css" crossorigin="">
-        <link rel="stylesheet" href="/assets/css/style.css?v=20240227121757">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" crossorigin="">
+        <link rel="stylesheet" href="/assets/css/style.css?v=20240403090325">
         <link rel="stylesheet" href="https://unpkg.com/leaflet@1.3.4/dist/leaflet.css"
           integrity="sha512-puBpdR0798OZvTTbP4A8Ix/l+A4dHDD0DGqYW6RQ+9jxkRFclaxxQb/SJAWZfWAkuyeQUytO7+7N4QKrDh+drA=="
           crossorigin=""/>
@@ -131,8 +148,11 @@ var translations = {
         <link rel="stylesheet" href='https://api.mapbox.com/mapbox.js/plugins/leaflet-fullscreen/v1.0.1/leaflet.fullscreen.css'  crossorigin=""/>
         <link rel="stylesheet" href="https://bowercdn.net/c/leaflet.zoomhome-latest/dist/leaflet.zoomhome.css"  crossorigin=""/>
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet-search@2.9.7/dist/leaflet-search.min.css" crossorigin="">
-        <link rel="stylesheet" href="https://cdn.kiprotect.com/klaro/v0.7/klaro.min.css" crossorigin=""/><link rel="stylesheet" href="/assets/css/custom.css?v=20240227121757">
+        <link rel="stylesheet" href="https://cdn.kiprotect.com/klaro/v0.7/klaro.min.css" crossorigin=""/><link rel="stylesheet" href="/assets/css/custom.css?v=20240403090325">
         
+
+        
+
 
         <!--[if IE]>
         <link rel="stylesheet" href="/assets/css/ie.css">
@@ -146,7 +166,7 @@ layout-goal
 ">
 <!-- <div class="container"> -->
 
-<script>translations['header'] = {"alpha":"Альфа","default_contrast":"стандартный контраст","disable_high_contrast":"Отключить высокую контрастность","disclaimer":"Это сайт находится в разработке. Мы рады вашим отзывам.","enable_high_contrast":"Включить высокую контрастность","high_contrast":"высокий контраст","internet_explorer_message":"Мы обнаружили, что для посещения этого сайта вы используете Internet Explorer. В настоящее время компания Microsoft постепенно отказывается от использования Internet Explorer. В результате этот сайт больше не поддерживает ни одну из версий Internet Explorer. Некоторые функции на этом сайте не будут работать. Вам следует использовать современный браузер, такой как Edge, Chrome, Firefox или Safari. Если у вас возникли трудности с установкой или доступом к другому браузеру, обратитесь в службу ИТ-поддержки.","internet_explorer_message_title":"Этот интернет-браузер больше не поддерживается","skip_link":"Перейти к главному содержанию","tag_line":"17 Целей, чтобы преобразовать наш мир","toggle_menu":"Переключайте меню. Нажмите, чтобы развернуть или свернуть меню.","toggle_search":"Поисковая переключатель. Нажмите, чтобы развернуть или свернуть панель поиска."};</script>
+<script>translations['header'] = {"alpha":"Альфа","default_contrast":"стандартный контраст","disable_high_contrast":"Отключить высокую контрастность","disclaimer":"Это сайт находится в разработке. Мы рады вашим отзывам.","enable_high_contrast":"Включить высокую контрастность","hide_menu":"Скрыть навигационное меню","high_contrast":"высокий контраст","internet_explorer_message":"Мы обнаружили, что для посещения этого сайта вы используете Internet Explorer. В настоящее время компания Microsoft постепенно отказывается от использования Internet Explorer. В результате этот сайт больше не поддерживает ни одну из версий Internet Explorer. Некоторые функции на этом сайте не будут работать. Вам следует использовать современный браузер, такой как Edge, Chrome, Firefox или Safari. Если у вас возникли трудности с установкой или доступом к другому браузеру, обратитесь в службу ИТ-поддержки.","internet_explorer_message_title":"Этот интернет-браузер больше не поддерживается","logo_title":"Перейти на главную страницу","show_menu":"Показать навигационное меню","skip_link":"Перейти к главному содержанию","tag_line":"17 Целей, чтобы преобразовать наш мир","toggle_menu":"Переключайте меню. Нажмите, чтобы развернуть или свернуть меню.","toggle_search":"Поисковая переключатель. Нажмите, чтобы развернуть или свернуть панель поиска."};</script>
 
 <a class="sr-only-focusable" id="skiplink" href="#main-content" tabindex="0">Перейти к главному содержанию</a>
 <div class="container internet-explorer-message">
@@ -176,7 +196,7 @@ layout-goal
   <img src="/assets/img/SDG_logo_ru.png" alt="Цели в области устойчивого развития - 17 Целей, чтобы преобразовать наш мир" />
 </a>
 
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Показать навигационное меню">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="d-flex flex-wrap w-100 justify-content-between">
@@ -200,7 +220,7 @@ layout-goal
         <label class="visually-hidden" for="indicator_search">Поиск</label>
         <input class="form-control" type="search" name="q" id="indicator_search" title="Поиск">
         <span class="input-group-append">
-            <button class="btn btn-outline-secondary ms-n5" aria-label="Поиск" id="search-btn" type="submit">
+            <button class="btn btn-outline-secondary ms-n5" aria-label="Поиск по сайту" id="search-btn" type="submit">
                 <i class="fa fa-search"></i>
             </button>
         </span>
@@ -239,7 +259,7 @@ layout-goal
             </a>
         </li></ul>
 </div></span><a title="Включить высокую контрастность" aria-label="Включить высокую контрастность"
-    data-contrast-switch-to="" href="javascript:void(0)" data-on="click"
+    data-contrast-switch-to="" role="button" href="javascript:void(0)" data-on="click"
 data-event-category="Accessibility"
 data-event-action="Change contrast setting"
 data-event-label="high"
@@ -274,11 +294,19 @@ data-event-label="high"
                 <img src="https://sdg-kyrgyzstan.github.io/open-sdg-site-starter/assets/img/goals/ru/14.png" alt="Сохранение морских экосистем - Цель 14" id="goal-14" class="goal-icon-image goal-icon-image-" />
             </div>
             <div class="col-8 col-md-9 col-lg-10 goal-details">
-                <h1>Сохранение и рациональное использование океанов, морей и морских ресурсов в интересах устойчивого развития</h1>
+                <h1>
+                    
+                        Сохранение и рациональное использование океанов, морей и морских ресурсов в интересах устойчивого развития
+                    
+                </h1>
             </div>
         </div>
     </div>
 </div>
+
+
+
+
 
 
 <div id="main-content" class="container" role="main">
@@ -287,10 +315,14 @@ data-event-label="high"
 
 
 
-  <div class="container g-0">
-    <h2 class="goal-page-heading">Цели и индикаторы</h2>
-
-    
+  <div class="container g-0 ">
+    <div class="row align-items-end">
+      <div class="col">
+        <h2 class="goal-page-heading">Цели и индикаторы</h2>
+      </div>
+      
+    </div>
+    <hr class="goal-page-column-header-rule">
     
       
       <div class="row align-items-start goal-target">
@@ -302,6 +334,7 @@ data-event-label="high"
           <div class="col goal-page-target-name">
             <span class="target-name">К 2025 году обеспечить предотвращение и существенное сокращение любого загрязнения морской среды, в особенности вследствие деятельности на суше, включая загрязнение морским мусором и питательными веществами</span>
           </div>
+          
       </div>
         
 
@@ -319,7 +352,7 @@ data-event-label="high"
             </div>
             <div class="col goal-page-indicator-name">
               
-              <span class="indicator-name"><a href="/14-1-1">a) Индекс прибрежной эвтрофикации и b) плотность лома пластмасс+B246</a></span>
+              <span class="indicator-name"><a href="/14-1-1/">a) Индекс прибрежной эвтрофикации и b) плотность лома пластмасс+B246</a></span>
               
 
 
@@ -356,6 +389,7 @@ data-event-label="high"
           <div class="col goal-page-target-name">
             <span class="target-name">К 2020 году обеспечить рациональное использование и защиту морских и прибрежных экосистем с целью предотвратить значительное отрицательное воздействие, в том числе путем повышения стойкости этих экосистем, и принять меры по их восстановлению для обеспечения хорошего экологического состояния и продуктивности океанов</span>
           </div>
+          
       </div>
         
 
@@ -373,7 +407,7 @@ data-event-label="high"
             </div>
             <div class="col goal-page-indicator-name">
               
-              <span class="indicator-name"><a href="/14-2-1">Доля национальных исключительных экономических зон, в управлении которыми применяются экосистемные подходы</a></span>
+              <span class="indicator-name"><a href="/14-2-1/">Доля национальных исключительных экономических зон, в управлении которыми применяются экосистемные подходы</a></span>
               
 
 
@@ -410,6 +444,7 @@ data-event-label="high"
           <div class="col goal-page-target-name">
             <span class="target-name">Минимизировать и ликвидировать последствия закисления океана, в том числе благодаря развитию научного сотрудничества на всех уровнях</span>
           </div>
+          
       </div>
         
 
@@ -427,7 +462,7 @@ data-event-label="high"
             </div>
             <div class="col goal-page-indicator-name">
               
-              <span class="indicator-name"><a href="/14-3-1">Средняя кислотность (pH) морской воды, измеряемая в согласованной группе репрезентативных станций отбора проб</a></span>
+              <span class="indicator-name"><a href="/14-3-1/">Средняя кислотность (pH) морской воды, измеряемая в согласованной группе репрезентативных станций отбора проб</a></span>
               
 
 
@@ -464,6 +499,7 @@ data-event-label="high"
           <div class="col goal-page-target-name">
             <span class="target-name">К 2020 году обеспечить эффективное регулирование добычи и положить конец перелову, незаконному, несообщаемому и нерегулируемому рыбному промыслу и губительной рыбопромысловой практике, а также выполнить научно обоснованные планы хозяйственной деятельности, для того чтобы восстановить рыбные запасы в кратчайшие возможные сроки, доведя их по крайней мере до таких уровней, которые способны обеспечивать максимальный экологически рациональный улов с учетом биологических характеристик этих запасов</span>
           </div>
+          
       </div>
         
 
@@ -481,7 +517,7 @@ data-event-label="high"
             </div>
             <div class="col goal-page-indicator-name">
               
-              <span class="indicator-name"><a href="/14-4-1">Доля рыбных запасов, находящихся в биологически устойчивых пределах</a></span>
+              <span class="indicator-name"><a href="/14-4-1/">Доля рыбных запасов, находящихся в биологически устойчивых пределах</a></span>
               
 
 
@@ -518,6 +554,7 @@ data-event-label="high"
           <div class="col goal-page-target-name">
             <span class="target-name">К 2020 году охватить природоохранными мерами по крайней мере 10 процентов прибрежных и морских районов в соответствии с национальным законодательством и международным правом и на основе наилучшей имеющейся научной информации</span>
           </div>
+          
       </div>
         
 
@@ -535,7 +572,7 @@ data-event-label="high"
             </div>
             <div class="col goal-page-indicator-name">
               
-              <span class="indicator-name"><a href="/14-5-1">Отношение  площади охраняемых районов к общей площади морских районов</a></span>
+              <span class="indicator-name"><a href="/14-5-1/">Отношение  площади охраняемых районов к общей площади морских районов</a></span>
               
 
 
@@ -572,6 +609,7 @@ data-event-label="high"
           <div class="col goal-page-target-name">
             <span class="target-name">К 2020 году запретить некоторые формы субсидий для рыбного промысла, содействующие созданию чрезмерных мощностей и перелову, отменить субсидии, содействующие незаконному, несообщаемому и нерегулируемому рыбному промыслу, и воздерживаться от введения новых таких субсидий, признавая, что надлежащее и эффективное применение особого и дифференцированного режима в отношении развивающихся и наименее развитых стран должно быть неотъемлемой частью переговоров по вопросу о субсидировании рыбного промысла, которые ведутся в рамках Всемирной торговой организации</span>
           </div>
+          
       </div>
         
 
@@ -589,7 +627,7 @@ data-event-label="high"
             </div>
             <div class="col goal-page-indicator-name">
               
-              <span class="indicator-name"><a href="/14-6-1">Степень соблюдения международно-правовых документов по борьбе с незаконным, несообщаемым и нерегулируемым рыбным промыслом</a></span>
+              <span class="indicator-name"><a href="/14-6-1/">Степень соблюдения международно-правовых документов по борьбе с незаконным, несообщаемым и нерегулируемым рыбным промыслом</a></span>
               
 
 
@@ -626,6 +664,7 @@ data-event-label="high"
           <div class="col goal-page-target-name">
             <span class="target-name">К 2030 году повысить экономические выгоды, получаемые малыми островными развивающимися государствами и наименее развитыми странами от экологически рационального использования морских ресурсов, в том числе благодаря экологически рациональной организации рыбного хозяйства, аквакультуры и туризма</span>
           </div>
+          
       </div>
         
 
@@ -643,7 +682,7 @@ data-event-label="high"
             </div>
             <div class="col goal-page-indicator-name">
               
-              <span class="indicator-name"><a href="/14-7-1">Экологически рациональный рыбный промысел в процентах от ВВП в малых островных развивающихся государствах, в наименее развитых странах и во всех странах</a></span>
+              <span class="indicator-name"><a href="/14-7-1/">Экологически рациональный рыбный промысел в процентах от ВВП в малых островных развивающихся государствах, в наименее развитых странах и во всех странах</a></span>
               
 
 
@@ -680,6 +719,7 @@ data-event-label="high"
           <div class="col goal-page-target-name">
             <span class="target-name">Увеличить объем научных знаний, расширить научные исследования и обеспечить передачу морских технологий, принимая во внимание Критерии и руководящие принципы в отношении передачи морских технологий, разработанные Межправительственной океанографической комиссией, с тем чтобы улучшить экологическое состояние океанской среды и повысить вклад морского биоразнообразия в развитие развивающихся стран, особенно малых островных развивающихся государств и наименее развитых стран</span>
           </div>
+          
       </div>
         
 
@@ -697,7 +737,7 @@ data-event-label="high"
             </div>
             <div class="col goal-page-indicator-name">
               
-              <span class="indicator-name"><a href="/14-a-1">Доля бюджетных ассигнований на научные исследования в области морских технологий в общем объеме бюджетных ассигнований на научные исследования</a></span>
+              <span class="indicator-name"><a href="/14-a-1/">Доля бюджетных ассигнований на научные исследования в области морских технологий в общем объеме бюджетных ассигнований на научные исследования</a></span>
               
 
 
@@ -734,6 +774,7 @@ data-event-label="high"
           <div class="col goal-page-target-name">
             <span class="target-name">Обеспечить доступ мелких хозяйств, занимающихся кустарным рыбным промыслом, к морским ресурсам и рынкам</span>
           </div>
+          
       </div>
         
 
@@ -751,7 +792,7 @@ data-event-label="high"
             </div>
             <div class="col goal-page-indicator-name">
               
-              <span class="indicator-name"><a href="/14-b-1">Степень применения нормативно-правовых/ стратегических/институциональных рамок, обеспечивающих признание и защиту прав доступа мелких рыбопромысловых предприятий</a></span>
+              <span class="indicator-name"><a href="/14-b-1/">Степень применения нормативно-правовых/ стратегических/институциональных рамок, обеспечивающих признание и защиту прав доступа мелких рыбопромысловых предприятий</a></span>
               
 
 
@@ -788,6 +829,7 @@ data-event-label="high"
           <div class="col goal-page-target-name">
             <span class="target-name">Улучшить работу по сохранению и рациональному использованию океанов и их ресурсов путем соблюдения норм международного права, закрепленных в Конвенции Организации Объединенных Наций по морскому праву, которая, как отмечено в пункте 158 документа «Будущее, которого мы хотим», закладывает юридическую базу для сохранения и рационального использования Мирового океана и его ресурсов</span>
           </div>
+          
       </div>
         
 
@@ -805,7 +847,7 @@ data-event-label="high"
             </div>
             <div class="col goal-page-indicator-name">
               
-              <span class="indicator-name"><a href="/14-c-1">Число  стран, добившихся прогресса в ратификации, принятии и осуществлении, с использованием правовых, стратегических и институциональных рамок, правовых документов по вопросам Мирового океана, направленных на осуществление закрепленных в Конвенции Организации Объединенных Наций по морскому праву норм международного права, касающихся сохранения и рационального использования Мирового океана и его ресурсов</a></span>
+              <span class="indicator-name"><a href="/14-c-1/">Число  стран, добившихся прогресса в ратификации, принятии и осуществлении, с использованием правовых, стратегических и институциональных рамок, правовых документов по вопросам Мирового океана, направленных на осуществление закрепленных в Конвенции Организации Объединенных Наций по морскому праву норм международного права, касающихся сохранения и рационального использования Мирового океана и его ресурсов</a></span>
               
 
 
@@ -866,12 +908,11 @@ data-event-label="high"
     </div>
 </footer>
 
-<script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+<script src="https://code.jquery.com/jquery-3.6.1.min.js" integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
 <script src="https://cdn.datatables.net/1.11.5/js/jquery.dataTables.min.js"></script>
 <script src="https://cdn.datatables.net/1.11.5/js/dataTables.bootstrap5.min.js"></script>
-<script src="//cdn.datatables.net/fixedcolumns/3.2.3/js/dataTables.fixedColumns.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/4.17.20/lodash.min.js" integrity="sha512-90vH1Z83AJY9DmlWa8WkjkV79yfS2n2Oxhsi2dZbIv0nC4E6m5AbH8Nh156kkM7JePmqD6tcZsfad1ueoaovww==" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/4.17.21/lodash.min.js" integrity="sha512-WFN04846sdKMIP5LKNphMaWzU7YpMyCU245etK3g/2ARYbPK9Ub18eG+ljU96qKRCWh+quCY7yefSmlkQw1ANQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 <script src="https://cdn.jsdelivr.net/npm/chart.js@3.7.0/dist/chart.min.js" integrity="sha256-Y26AMvaIfrZ1EQU49pf6H4QzVTrOI8m9wQYKkftBt4s=" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/patternomaly@1.3.2/dist/patternomaly.js"></script>
 
@@ -909,12 +950,12 @@ ga('send', 'pageview');
 <script>translations['search'] = translations['search'] || {};
     translations['search']['search'] = 'Поиск';</script>
 
-<script src='/assets/js/sdg.js?v=20240227121757'></script>
+<script src='/assets/js/sdg.js?v=20240403090325'></script>
 
 
     
     
-    <script src="/assets/js/custom.js?v=20240227121757"></script><script>
+    <script src="/assets/js/custom.js?v=20240403090325"></script><script>
     new indicatorInit();
     new accessibilitySwitcher();
 </script>

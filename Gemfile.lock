@@ -44,7 +44,7 @@ GEM
     jekyll-get-json (0.0.1)
       deep_merge (~> 1.2)
       jekyll (~> 3.0)
-    jekyll-open-sdg-plugins (2.0.0)
+    jekyll-open-sdg-plugins (2.3.0)
       deep_merge (~> 1.2)
       jekyll (~> 3.0)
       json_schemer (~> 0.2)
@@ -74,7 +74,7 @@ GEM
     parallel (1.24.0)
     pathutil (0.16.2)
       forwardable-extended (~> 2.6)
-    public_suffix (5.0.4)
+    public_suffix (5.0.5)
     racc (1.7.3)
     rainbow (3.1.1)
     rb-fsevent (0.11.2)
@@ -107,7 +107,7 @@ DEPENDENCIES
   html-proofer (= 3.19.4)
   jekyll (= 3.8.5)
   jekyll-get-json (= 0.0.1)
-  jekyll-open-sdg-plugins (= 2.0.0)
+  jekyll-open-sdg-plugins (= 2.3.0)
   jekyll-remote-theme
 
 BUNDLED WITH

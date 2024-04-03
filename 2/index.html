@@ -3,7 +3,7 @@
     <head>
         <meta charset="utf-8">
         <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.min.js"></script>
-        <script crossorigin="anonymous" src="https://polyfill.io/v3/polyfill.min.js?features=Promise%2CArray.prototype.forEach%2CString.prototype.includes%2CURLSearchParams%2CCustomEvent%2CArray.prototype.includes%2CArray.prototype.filter%2CArray.prototype.some%2CArray.prototype.find%2CArray.prototype.reduce%2CObject.assign%2CArray.isArray%2CObject.values%2CObject.entries%2CArray.from%2CSet%2CArray.prototype.findIndex"></script>
+        <script crossorigin="anonymous" src="https://polyfill.io/v3/polyfill.min.js?features=Promise%2CArray.prototype.forEach%2CString.prototype.includes%2CURLSearchParams%2CCustomEvent%2CArray.prototype.includes%2CArray.prototype.filter%2CArray.prototype.some%2CArray.prototype.find%2CArray.prototype.reduce%2CObject.assign%2CArray.isArray%2CObject.values%2CObject.entries%2CArray.from%2CSet%2CArray.prototype.findIndex%2Cfetch"></script>
 <script crossorigin="anonymous" src="https://cdnjs.cloudflare.com/ajax/libs/javascript-canvas-to-blob/3.15.0/js/canvas-to-blob.min.js"></script>
 
         <script>
@@ -26,8 +26,9 @@ var opensdg = {
   },
 
   // A hook which can be replaced to alter whether/how the values that are
-  // displayed on indicator tables/graphs get rounded.
-  dataRounding: function(value) {
+  // displayed on indicator tables/graphs get rounded. A "context" parameter
+  // is also passed which contains additional information.
+  dataRounding: function(value, context) {
     // Alterations go here.
     return value;
   },
@@ -38,7 +39,24 @@ var opensdg = {
     this.dataDisplayAlterations.push(callback);
   },
 
+  // Disaggregations which should be ignored on indicator pages.
+  ignoredDisaggregations: null,
+
   language: 'ru',
+
+  mapColors: {
+    "default": [
+        "#c4e1c6",
+        "#b0d1b3",
+        "#9bc2a1",
+        "#87b28f",
+        "#74a37c",
+        "#60946b",
+        "#4d8559",
+        "#3a7747",
+        "#276836"
+    ]
+},
 };
 
 </script>
@@ -99,14 +117,13 @@ var translations = {
         ================================================== -->
 
         
+    
     <title>Цель 2 - Ликвидация голода - Indicators For The Sustainable Development Goals</title>
+    
 
 
 
-        <meta name="description" content="">
-        <meta property="og:description" content="">
         
-        <link rel="canonical" href="/">
 
         <!--[if IE 9]>
         <script src="/assets/js/lib/classList.js"></script>
@@ -117,13 +134,13 @@ var translations = {
 <link rel="icon" type="image/png" sizes="16x16" href="/assets/img/favicons/favicon-16x16.png">
 <link rel="icon" type="image/x-icon" href="/assets/img/favicons/favicon.ico" />
 
+        
 
         
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
         <link res="stylesheet" href="https://cdn.datatables.net/1.11.5/css/dataTables.bootstrap5.min.css">
-        <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" crossorigin="">
-        <link rel="stylesheet" href="https://cdn.datatables.net/fixedcolumns/3.2.3/css/fixedColumns.dataTables.min.css" crossorigin="">
-        <link rel="stylesheet" href="/assets/css/style.css?v=20240227121757">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" crossorigin="">
+        <link rel="stylesheet" href="/assets/css/style.css?v=20240403090325">
         <link rel="stylesheet" href="https://unpkg.com/leaflet@1.3.4/dist/leaflet.css"
           integrity="sha512-puBpdR0798OZvTTbP4A8Ix/l+A4dHDD0DGqYW6RQ+9jxkRFclaxxQb/SJAWZfWAkuyeQUytO7+7N4QKrDh+drA=="
           crossorigin=""/>
@@ -131,8 +148,11 @@ var translations = {
         <link rel="stylesheet" href='https://api.mapbox.com/mapbox.js/plugins/leaflet-fullscreen/v1.0.1/leaflet.fullscreen.css'  crossorigin=""/>
         <link rel="stylesheet" href="https://bowercdn.net/c/leaflet.zoomhome-latest/dist/leaflet.zoomhome.css"  crossorigin=""/>
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet-search@2.9.7/dist/leaflet-search.min.css" crossorigin="">
-        <link rel="stylesheet" href="https://cdn.kiprotect.com/klaro/v0.7/klaro.min.css" crossorigin=""/><link rel="stylesheet" href="/assets/css/custom.css?v=20240227121757">
+        <link rel="stylesheet" href="https://cdn.kiprotect.com/klaro/v0.7/klaro.min.css" crossorigin=""/><link rel="stylesheet" href="/assets/css/custom.css?v=20240403090325">
         
+
+        
+
 
         <!--[if IE]>
         <link rel="stylesheet" href="/assets/css/ie.css">
@@ -146,7 +166,7 @@ layout-goal
 ">
 <!-- <div class="container"> -->
 
-<script>translations['header'] = {"alpha":"Альфа","default_contrast":"стандартный контраст","disable_high_contrast":"Отключить высокую контрастность","disclaimer":"Это сайт находится в разработке. Мы рады вашим отзывам.","enable_high_contrast":"Включить высокую контрастность","high_contrast":"высокий контраст","internet_explorer_message":"Мы обнаружили, что для посещения этого сайта вы используете Internet Explorer. В настоящее время компания Microsoft постепенно отказывается от использования Internet Explorer. В результате этот сайт больше не поддерживает ни одну из версий Internet Explorer. Некоторые функции на этом сайте не будут работать. Вам следует использовать современный браузер, такой как Edge, Chrome, Firefox или Safari. Если у вас возникли трудности с установкой или доступом к другому браузеру, обратитесь в службу ИТ-поддержки.","internet_explorer_message_title":"Этот интернет-браузер больше не поддерживается","skip_link":"Перейти к главному содержанию","tag_line":"17 Целей, чтобы преобразовать наш мир","toggle_menu":"Переключайте меню. Нажмите, чтобы развернуть или свернуть меню.","toggle_search":"Поисковая переключатель. Нажмите, чтобы развернуть или свернуть панель поиска."};</script>
+<script>translations['header'] = {"alpha":"Альфа","default_contrast":"стандартный контраст","disable_high_contrast":"Отключить высокую контрастность","disclaimer":"Это сайт находится в разработке. Мы рады вашим отзывам.","enable_high_contrast":"Включить высокую контрастность","hide_menu":"Скрыть навигационное меню","high_contrast":"высокий контраст","internet_explorer_message":"Мы обнаружили, что для посещения этого сайта вы используете Internet Explorer. В настоящее время компания Microsoft постепенно отказывается от использования Internet Explorer. В результате этот сайт больше не поддерживает ни одну из версий Internet Explorer. Некоторые функции на этом сайте не будут работать. Вам следует использовать современный браузер, такой как Edge, Chrome, Firefox или Safari. Если у вас возникли трудности с установкой или доступом к другому браузеру, обратитесь в службу ИТ-поддержки.","internet_explorer_message_title":"Этот интернет-браузер больше не поддерживается","logo_title":"Перейти на главную страницу","show_menu":"Показать навигационное меню","skip_link":"Перейти к главному содержанию","tag_line":"17 Целей, чтобы преобразовать наш мир","toggle_menu":"Переключайте меню. Нажмите, чтобы развернуть или свернуть меню.","toggle_search":"Поисковая переключатель. Нажмите, чтобы развернуть или свернуть панель поиска."};</script>
 
 <a class="sr-only-focusable" id="skiplink" href="#main-content" tabindex="0">Перейти к главному содержанию</a>
 <div class="container internet-explorer-message">
@@ -176,7 +196,7 @@ layout-goal
   <img src="/assets/img/SDG_logo_ru.png" alt="Цели в области устойчивого развития - 17 Целей, чтобы преобразовать наш мир" />
 </a>
 
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Показать навигационное меню">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="d-flex flex-wrap w-100 justify-content-between">
@@ -200,7 +220,7 @@ layout-goal
         <label class="visually-hidden" for="indicator_search">Поиск</label>
         <input class="form-control" type="search" name="q" id="indicator_search" title="Поиск">
         <span class="input-group-append">
-            <button class="btn btn-outline-secondary ms-n5" aria-label="Поиск" id="search-btn" type="submit">
+            <button class="btn btn-outline-secondary ms-n5" aria-label="Поиск по сайту" id="search-btn" type="submit">
                 <i class="fa fa-search"></i>
             </button>
         </span>
@@ -239,7 +259,7 @@ layout-goal
             </a>
         </li></ul>
 </div></span><a title="Включить высокую контрастность" aria-label="Включить высокую контрастность"
-    data-contrast-switch-to="" href="javascript:void(0)" data-on="click"
+    data-contrast-switch-to="" role="button" href="javascript:void(0)" data-on="click"
 data-event-category="Accessibility"
 data-event-action="Change contrast setting"
 data-event-label="high"
@@ -274,11 +294,19 @@ data-event-label="high"
                 <img src="https://sdg-kyrgyzstan.github.io/open-sdg-site-starter/assets/img/goals/ru/2.png" alt="Ликвидация голода - Цель 2" id="goal-2" class="goal-icon-image goal-icon-image-" />
             </div>
             <div class="col-8 col-md-9 col-lg-10 goal-details">
-                <h1>Ликвидация голода, обеспечение продовольственной безопасности и улучшение питания и содействие устойчивому развитию сельского хозяйства</h1>
+                <h1>
+                    
+                        Ликвидация голода, обеспечение продовольственной безопасности и улучшение питания и содействие устойчивому развитию сельского хозяйства
+                    
+                </h1>
             </div>
         </div>
     </div>
 </div>
+
+
+
+
 
 
 <div id="main-content" class="container" role="main">
@@ -287,10 +315,14 @@ data-event-label="high"
 
 
 
-  <div class="container g-0">
-    <h2 class="goal-page-heading">Цели и индикаторы</h2>
-
-    
+  <div class="container g-0 ">
+    <div class="row align-items-end">
+      <div class="col">
+        <h2 class="goal-page-heading">Цели и индикаторы</h2>
+      </div>
+      
+    </div>
+    <hr class="goal-page-column-header-rule">
     
       
       <div class="row align-items-start goal-target">
@@ -302,6 +334,7 @@ data-event-label="high"
           <div class="col goal-page-target-name">
             <span class="target-name">К 2030 году покончить с голодом и обеспечить всем, особенно малоимущим и уязвимым группам населения, включая младенцев, круглогодичный доступ к безопасной, питательной и достаточной пище</span>
           </div>
+          
       </div>
         
 
@@ -319,7 +352,7 @@ data-event-label="high"
             </div>
             <div class="col goal-page-indicator-name">
               
-              <span class="indicator-name"><a href="/2-1-1">Распространенность недоедания</a></span>
+              <span class="indicator-name"><a href="/2-1-1/">Распространенность недоедания</a></span>
               
 
 
@@ -332,7 +365,7 @@ data-event-label="high"
 
 
 <span class="status complete">
-    <span class="status-inner">Сообщение</span>
+    <span class="status-inner">Опубликован</span>
 </span>
 
 
@@ -359,7 +392,7 @@ data-event-label="high"
             </div>
             <div class="col goal-page-indicator-name">
               
-              <span class="indicator-name"><a href="/2-1-1-1e">Среднедушевое потребление основных продуктов питания по отношению к среднефизиологическим нормам потребления</a></span>
+              <span class="indicator-name"><a href="/2-1-1-1e/">Среднедушевое потребление основных продуктов питания по отношению к среднефизиологическим нормам потребления</a></span>
               
 
 
@@ -372,7 +405,7 @@ data-event-label="high"
 
 
 <span class="status complete">
-    <span class="status-inner">Сообщение</span>
+    <span class="status-inner">Опубликован</span>
 </span>
 
 
@@ -402,7 +435,7 @@ data-event-label="high"
             </div>
             <div class="col goal-page-indicator-name">
               
-              <span class="indicator-name"><a href="/2-1-2">Уровень умеренного или острого отсутствия продовольственной безопасности населения (по «Шкале восприятия отсутствия продовольственной безопасности»)</a></span>
+              <span class="indicator-name"><a href="/2-1-2/">Уровень умеренного или острого отсутствия продовольственной безопасности населения (по «Шкале восприятия отсутствия продовольственной безопасности»)</a></span>
               
 
 
@@ -415,7 +448,7 @@ data-event-label="high"
 
 
 <span class="status complete">
-    <span class="status-inner">Сообщение</span>
+    <span class="status-inner">Опубликован</span>
 </span>
 
 
@@ -442,7 +475,7 @@ data-event-label="high"
             </div>
             <div class="col goal-page-indicator-name">
               
-              <span class="indicator-name"><a href="/2-1-2-1d">Отношение объема импорта продукции сельского хозяйства к объему производства в республике</a></span>
+              <span class="indicator-name"><a href="/2-1-2-1d/">Отношение объема импорта продукции сельского хозяйства к объему производства в республике</a></span>
               
 
 
@@ -455,7 +488,7 @@ data-event-label="high"
 
 
 <span class="status complete">
-    <span class="status-inner">Сообщение</span>
+    <span class="status-inner">Опубликован</span>
 </span>
 
 
@@ -482,6 +515,7 @@ data-event-label="high"
           <div class="col goal-page-target-name">
             <span class="target-name">К 2030 году покончить со всеми формами недоедания, в том числе достичь к 2025 году согласованных на международном уровне целевых показателей, касающихся борьбы с задержкой роста и истощением у детей в возрасте до пяти лет, и удовлетворять потребности в питании девочек подросткового возраста, беременных и кормящих женщин и пожилых людей</span>
           </div>
+          
       </div>
         
 
@@ -499,7 +533,7 @@ data-event-label="high"
             </div>
             <div class="col goal-page-indicator-name">
               
-              <span class="indicator-name"><a href="/2-2-1">Распространенность задержки роста среди детей в возрасте до пяти лет (среднеквадратичное отклонение от медианного показателя роста к возрасту ребенка в соответствии с нормами роста детей, установленными Всемирной организацией здравоохранения (ВОЗ), <-2)</a></span>
+              <span class="indicator-name"><a href="/2-2-1/">Распространенность задержки роста среди детей в возрасте до пяти лет (среднеквадратичное отклонение от медианного показателя роста к возрасту ребенка в соответствии с нормами роста детей, установленными Всемирной организацией здравоохранения (ВОЗ), <-2)</a></span>
               
 
 
@@ -512,7 +546,7 @@ data-event-label="high"
 
 
 <span class="status complete">
-    <span class="status-inner">Сообщение</span>
+    <span class="status-inner">Опубликован</span>
 </span>
 
 
@@ -539,7 +573,7 @@ data-event-label="high"
             </div>
             <div class="col goal-page-indicator-name">
               
-              <span class="indicator-name"><a href="/2-2-2">Распространенность неполноценного питания среди детей в возрасте до пяти лет в разбивке по виду (истощение или ожирение) (среднеквадратичное отклонение от медианного показателя веса к возрасту в соответствии с нормами роста детей, установленными ВОЗ, >+2 или <-2)</a></span>
+              <span class="indicator-name"><a href="/2-2-2/">Распространенность неполноценного питания среди детей в возрасте до пяти лет в разбивке по виду (истощение или ожирение) (среднеквадратичное отклонение от медианного показателя веса к возрасту в соответствии с нормами роста детей, установленными ВОЗ, >+2 или <-2)</a></span>
               
 
 
@@ -552,7 +586,7 @@ data-event-label="high"
 
 
 <span class="status complete">
-    <span class="status-inner">Сообщение</span>
+    <span class="status-inner">Опубликован</span>
 </span>
 
 
@@ -579,7 +613,7 @@ data-event-label="high"
             </div>
             <div class="col goal-page-indicator-name">
               
-              <span class="indicator-name"><a href="/2-2-3">Распространенность анемии среди женщин в возрасте 15–49 лет в разбивке по статусу беременности (в процентах)</a></span>
+              <span class="indicator-name"><a href="/2-2-3/">Распространенность анемии среди женщин в возрасте 15–49 лет в разбивке по статусу беременности (в процентах)</a></span>
               
 
 
@@ -592,7 +626,7 @@ data-event-label="high"
 
 
 <span class="status complete">
-    <span class="status-inner">Сообщение</span>
+    <span class="status-inner">Опубликован</span>
 </span>
 
 
@@ -616,6 +650,7 @@ data-event-label="high"
           <div class="col goal-page-target-name">
             <span class="target-name">К 2030 году удвоить продуктивность сельского хозяйства и доходы мелких производителей продовольствия, в частности женщин, представителей коренных народов, фермерских семейных хозяйств, скотоводов и рыбаков, в том числе посредством обеспечения гарантированного и равного доступа к земле, другим производственным ресурсам и факторам сельскохозяйственного производства, знаниям, финансовым услугам, рынкам и возможностям для увеличения добавленной стоимости и занятости в несельскохозяйственных секторах</span>
           </div>
+          
       </div>
         
 
@@ -633,7 +668,7 @@ data-event-label="high"
             </div>
             <div class="col goal-page-indicator-name">
               
-              <span class="indicator-name"><a href="/2-3-1">Объем производства на производственную единицу в разбивке по классам размера предприятий фермерского хозяйства/скотоводства/лесного хозяйства</a></span>
+              <span class="indicator-name"><a href="/2-3-1/">Объем производства на производственную единицу в разбивке по классам размера предприятий фермерского хозяйства/скотоводства/лесного хозяйства</a></span>
               
 
 
@@ -646,7 +681,7 @@ data-event-label="high"
 
 
 <span class="status notstarted">
-    <span class="status-inner">В процессе разработки</span>
+    <span class="status-inner">В настоящее время не разработан</span>
 </span>
 
 
@@ -673,7 +708,7 @@ data-event-label="high"
             </div>
             <div class="col goal-page-indicator-name">
               
-              <span class="indicator-name"><a href="/2-3-2">Средний доход мелких производителей продовольственной продукции в разбивке по полу и статусу принадлежности к коренным народам</a></span>
+              <span class="indicator-name"><a href="/2-3-2/">Средний доход мелких производителей продовольственной продукции в разбивке по полу и статусу принадлежности к коренным народам</a></span>
               
 
 
@@ -686,7 +721,7 @@ data-event-label="high"
 
 
 <span class="status notstarted">
-    <span class="status-inner">В процессе разработки</span>
+    <span class="status-inner">В настоящее время не разработан</span>
 </span>
 
 
@@ -713,7 +748,7 @@ data-event-label="high"
             </div>
             <div class="col goal-page-indicator-name">
               
-              <span class="indicator-name"><a href="/2-3-2-1">Доля произведенной продукции сельскохозяйственными кооперативами в общем объеме произведенной продукции в республике</a></span>
+              <span class="indicator-name"><a href="/2-3-2-1/">Доля произведенной продукции сельскохозяйственными кооперативами в общем объеме произведенной продукции в республике</a></span>
               
 
 
@@ -726,7 +761,7 @@ data-event-label="high"
 
 
 <span class="status complete">
-    <span class="status-inner">Сообщение</span>
+    <span class="status-inner">Опубликован</span>
 </span>
 
 
@@ -756,7 +791,7 @@ data-event-label="high"
             </div>
             <div class="col goal-page-indicator-name">
               
-              <span class="indicator-name"><a href="/2-3-3-1c">Баланс потребления рыбной продукции на душу населения</a></span>
+              <span class="indicator-name"><a href="/2-3-3-1c/">Баланс потребления рыбной продукции на душу населения</a></span>
               
 
 
@@ -769,7 +804,7 @@ data-event-label="high"
 
 
 <span class="status complete">
-    <span class="status-inner">Сообщение</span>
+    <span class="status-inner">Опубликован</span>
 </span>
 
 
@@ -796,6 +831,7 @@ data-event-label="high"
           <div class="col goal-page-target-name">
             <span class="target-name">К 2030 году обеспечить создание устойчивых систем производства продуктов питания и внедрить методы ведения сельского хозяйства, которые позволяют повысить жизнестойкость и продуктивность и увеличить объемы производства, способствуют сохранению экосистем, укрепляют способность адаптироваться к изменению климата, экстремальным погодным явлениям, засухам, наводнениям и другим бедствиям и постепенно улучшают качество земель и почв</span>
           </div>
+          
       </div>
         
 
@@ -813,7 +849,7 @@ data-event-label="high"
             </div>
             <div class="col goal-page-indicator-name">
               
-              <span class="indicator-name"><a href="/2-4-1">Доля площади сельскохозяйственных угодий, на которых применяются продуктивные и неистощительные методы ведения сельского хозяйства</a></span>
+              <span class="indicator-name"><a href="/2-4-1/">Доля площади сельскохозяйственных угодий, на которых применяются продуктивные и неистощительные методы ведения сельского хозяйства</a></span>
               
 
 
@@ -826,7 +862,7 @@ data-event-label="high"
 
 
 <span class="status notstarted">
-    <span class="status-inner">В процессе разработки</span>
+    <span class="status-inner">В настоящее время не разработан</span>
 </span>
 
 
@@ -853,7 +889,7 @@ data-event-label="high"
             </div>
             <div class="col goal-page-indicator-name">
               
-              <span class="indicator-name"><a href="/2-4-1-1">Доля площади сельскохозяйственных культур удобренная i) минеральными удобрениями; ii) органическими удобрениями</a></span>
+              <span class="indicator-name"><a href="/2-4-1-1/">Доля площади сельскохозяйственных культур удобренная i) минеральными удобрениями; ii) органическими удобрениями</a></span>
               
 
 
@@ -866,7 +902,7 @@ data-event-label="high"
 
 
 <span class="status complete">
-    <span class="status-inner">Сообщение</span>
+    <span class="status-inner">Опубликован</span>
 </span>
 
 
@@ -893,6 +929,7 @@ data-event-label="high"
           <div class="col goal-page-target-name">
             <span class="target-name">К 2020 году обеспечить сохранение генетического разнообразия семян и культивируемых растений, а также сельскохозяйственных и домашних животных и их соответствующих диких видов, в том числе посредством надлежащего содержания разнообразных банков семян и растений на национальном, региональном и международном уровнях, и содействовать расширению доступа к генетическим ресурсам и связанным с ними традиционным знаниям и совместному использованию на справедливой и равной основе выгод от их применения на согласованных на международном уровне условиях</span>
           </div>
+          
       </div>
         
 
@@ -910,7 +947,7 @@ data-event-label="high"
             </div>
             <div class="col goal-page-indicator-name">
               
-              <span class="indicator-name"><a href="/2-5-1">Количество генетических ресурсов растительного и зоологического происхождения, предназначенных для производства продовольствия и сельского хозяйства, которые хранятся на специальных объектах либо среднесрочного, либо долгосрочного хранения</a></span>
+              <span class="indicator-name"><a href="/2-5-1/">Количество генетических ресурсов растительного и зоологического происхождения, предназначенных для производства продовольствия и сельского хозяйства, которые хранятся на специальных объектах либо среднесрочного, либо долгосрочного хранения</a></span>
               
 
 
@@ -923,7 +960,7 @@ data-event-label="high"
 
 
 <span class="status notstarted">
-    <span class="status-inner">В процессе разработки</span>
+    <span class="status-inner">В настоящее время не разработан</span>
 </span>
 
 
@@ -950,7 +987,7 @@ data-event-label="high"
             </div>
             <div class="col goal-page-indicator-name">
               
-              <span class="indicator-name"><a href="/2-5-2">Доля местных пород, относимых к категории находящихся под угрозой исчезновения</a></span>
+              <span class="indicator-name"><a href="/2-5-2/">Доля местных пород, относимых к категории находящихся под угрозой исчезновения</a></span>
               
 
 
@@ -963,7 +1000,7 @@ data-event-label="high"
 
 
 <span class="status notstarted">
-    <span class="status-inner">В процессе разработки</span>
+    <span class="status-inner">В настоящее время не разработан</span>
 </span>
 
 
@@ -987,6 +1024,7 @@ data-event-label="high"
           <div class="col goal-page-target-name">
             <span class="target-name">Увеличить инвестирование, в том числе посредством активизации международного сотрудничества, в сельскую инфраструктуру, сельскохозяйственные исследования и агропропаганду, развитие технологий и создание генетических банков растений и животных в целях укрепления потенциала развивающихся стран, особенно наименее развитых стран, в области сельскохозяйственного производства</span>
           </div>
+          
       </div>
         
 
@@ -1004,7 +1042,7 @@ data-event-label="high"
             </div>
             <div class="col goal-page-indicator-name">
               
-              <span class="indicator-name"><a href="/2-a-1">Индекс ориентированности на сельское хозяйство, определяемый по структуре государственных расходов</a></span>
+              <span class="indicator-name"><a href="/2-a-1/">Индекс ориентированности на сельское хозяйство, определяемый по структуре государственных расходов</a></span>
               
 
 
@@ -1017,7 +1055,7 @@ data-event-label="high"
 
 
 <span class="status complete">
-    <span class="status-inner">Сообщение</span>
+    <span class="status-inner">Опубликован</span>
 </span>
 
 
@@ -1044,7 +1082,7 @@ data-event-label="high"
             </div>
             <div class="col goal-page-indicator-name">
               
-              <span class="indicator-name"><a href="/2-a-2">Совокупный приток официальных средств (официальная помощь в целях развития плюс прочие потоки официальных средств) в сельское хозяйство</a></span>
+              <span class="indicator-name"><a href="/2-a-2/">Совокупный приток официальных средств (официальная помощь в целях развития плюс прочие потоки официальных средств) в сельское хозяйство</a></span>
               
 
 
@@ -1081,6 +1119,7 @@ data-event-label="high"
           <div class="col goal-page-target-name">
             <span class="target-name">Устранять и пресекать введение торговых ограничений и возникновение искажений на мировых рынках сельскохозяйственной продукции, в том числе посредством параллельной ликвидации всех форм субсидирования экспорта сельскохозяйственной продукции и всех экспортных мер, имеющих аналогичные последствия, в соответствии с мандатом Дохинского раунда переговоров по вопросам развития</span>
           </div>
+          
       </div>
         
 
@@ -1098,7 +1137,7 @@ data-event-label="high"
             </div>
             <div class="col goal-page-indicator-name">
               
-              <span class="indicator-name"><a href="/2-b-1">Субсидирование экспорта сельскохозяйственной продукции</a></span>
+              <span class="indicator-name"><a href="/2-b-1/">Субсидирование экспорта сельскохозяйственной продукции</a></span>
               
 
 
@@ -1111,7 +1150,7 @@ data-event-label="high"
 
 
 <span class="status notstarted">
-    <span class="status-inner">В процессе разработки</span>
+    <span class="status-inner">В настоящее время не разработан</span>
 </span>
 
 
@@ -1135,6 +1174,7 @@ data-event-label="high"
           <div class="col goal-page-target-name">
             <span class="target-name">Принять меры для обеспечения надлежащего функционирования рынков продовольственных товаров и продукции их переработки и содействовать своевременному доступу к рыночной информации, в том числе о продовольственных резервах, с целью помочь ограничить чрезмерную волатильность цен на продовольствие</span>
           </div>
+          
       </div>
         
 
@@ -1152,7 +1192,7 @@ data-event-label="high"
             </div>
             <div class="col goal-page-indicator-name">
               
-              <span class="indicator-name"><a href="/2-c-1">Показатель ценовых аномалий на рынке продовольствия</a></span>
+              <span class="indicator-name"><a href="/2-c-1/">Показатель ценовых аномалий на рынке продовольствия</a></span>
               
 
 
@@ -1165,7 +1205,7 @@ data-event-label="high"
 
 
 <span class="status notstarted">
-    <span class="status-inner">В процессе разработки</span>
+    <span class="status-inner">В настоящее время не разработан</span>
 </span>
 
 
@@ -1192,7 +1232,7 @@ data-event-label="high"
             </div>
             <div class="col goal-page-indicator-name">
               
-              <span class="indicator-name"><a href="/2-c-1-1b">Индекс потребительских цен на продовольственные товары</a></span>
+              <span class="indicator-name"><a href="/2-c-1-1b/">Индекс потребительских цен на продовольственные товары</a></span>
               
 
 
@@ -1205,7 +1245,7 @@ data-event-label="high"
 
 
 <span class="status complete">
-    <span class="status-inner">Сообщение</span>
+    <span class="status-inner">Опубликован</span>
 </span>
 
 
@@ -1256,12 +1296,11 @@ data-event-label="high"
     </div>
 </footer>
 
-<script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+<script src="https://code.jquery.com/jquery-3.6.1.min.js" integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
 <script src="https://cdn.datatables.net/1.11.5/js/jquery.dataTables.min.js"></script>
 <script src="https://cdn.datatables.net/1.11.5/js/dataTables.bootstrap5.min.js"></script>
-<script src="//cdn.datatables.net/fixedcolumns/3.2.3/js/dataTables.fixedColumns.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/4.17.20/lodash.min.js" integrity="sha512-90vH1Z83AJY9DmlWa8WkjkV79yfS2n2Oxhsi2dZbIv0nC4E6m5AbH8Nh156kkM7JePmqD6tcZsfad1ueoaovww==" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/4.17.21/lodash.min.js" integrity="sha512-WFN04846sdKMIP5LKNphMaWzU7YpMyCU245etK3g/2ARYbPK9Ub18eG+ljU96qKRCWh+quCY7yefSmlkQw1ANQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 <script src="https://cdn.jsdelivr.net/npm/chart.js@3.7.0/dist/chart.min.js" integrity="sha256-Y26AMvaIfrZ1EQU49pf6H4QzVTrOI8m9wQYKkftBt4s=" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/patternomaly@1.3.2/dist/patternomaly.js"></script>
 
@@ -1299,12 +1338,12 @@ ga('send', 'pageview');
 <script>translations['search'] = translations['search'] || {};
     translations['search']['search'] = 'Поиск';</script>
 
-<script src='/assets/js/sdg.js?v=20240227121757'></script>
+<script src='/assets/js/sdg.js?v=20240403090325'></script>
 
 
     
     
-    <script src="/assets/js/custom.js?v=20240227121757"></script><script>
+    <script src="/assets/js/custom.js?v=20240403090325"></script><script>
     new indicatorInit();
     new accessibilitySwitcher();
 </script>

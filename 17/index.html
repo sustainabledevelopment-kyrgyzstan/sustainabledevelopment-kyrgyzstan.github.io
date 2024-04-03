@@ -3,7 +3,7 @@
     <head>
         <meta charset="utf-8">
         <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.min.js"></script>
-        <script crossorigin="anonymous" src="https://polyfill.io/v3/polyfill.min.js?features=Promise%2CArray.prototype.forEach%2CString.prototype.includes%2CURLSearchParams%2CCustomEvent%2CArray.prototype.includes%2CArray.prototype.filter%2CArray.prototype.some%2CArray.prototype.find%2CArray.prototype.reduce%2CObject.assign%2CArray.isArray%2CObject.values%2CObject.entries%2CArray.from%2CSet%2CArray.prototype.findIndex"></script>
+        <script crossorigin="anonymous" src="https://polyfill.io/v3/polyfill.min.js?features=Promise%2CArray.prototype.forEach%2CString.prototype.includes%2CURLSearchParams%2CCustomEvent%2CArray.prototype.includes%2CArray.prototype.filter%2CArray.prototype.some%2CArray.prototype.find%2CArray.prototype.reduce%2CObject.assign%2CArray.isArray%2CObject.values%2CObject.entries%2CArray.from%2CSet%2CArray.prototype.findIndex%2Cfetch"></script>
 <script crossorigin="anonymous" src="https://cdnjs.cloudflare.com/ajax/libs/javascript-canvas-to-blob/3.15.0/js/canvas-to-blob.min.js"></script>
 
         <script>
@@ -26,8 +26,9 @@ var opensdg = {
   },
 
   // A hook which can be replaced to alter whether/how the values that are
-  // displayed on indicator tables/graphs get rounded.
-  dataRounding: function(value) {
+  // displayed on indicator tables/graphs get rounded. A "context" parameter
+  // is also passed which contains additional information.
+  dataRounding: function(value, context) {
     // Alterations go here.
     return value;
   },
@@ -38,7 +39,24 @@ var opensdg = {
     this.dataDisplayAlterations.push(callback);
   },
 
+  // Disaggregations which should be ignored on indicator pages.
+  ignoredDisaggregations: null,
+
   language: 'ru',
+
+  mapColors: {
+    "default": [
+        "#c4e1c6",
+        "#b0d1b3",
+        "#9bc2a1",
+        "#87b28f",
+        "#74a37c",
+        "#60946b",
+        "#4d8559",
+        "#3a7747",
+        "#276836"
+    ]
+},
 };
 
 </script>
@@ -99,14 +117,13 @@ var translations = {
         ================================================== -->
 
         
+    
     <title>Цель 17 - Партнерство в интересах устойчивого развития - Indicators For The Sustainable Development Goals</title>
+    
 
 
 
-        <meta name="description" content="">
-        <meta property="og:description" content="">
         
-        <link rel="canonical" href="/">
 
         <!--[if IE 9]>
         <script src="/assets/js/lib/classList.js"></script>
@@ -117,13 +134,13 @@ var translations = {
 <link rel="icon" type="image/png" sizes="16x16" href="/assets/img/favicons/favicon-16x16.png">
 <link rel="icon" type="image/x-icon" href="/assets/img/favicons/favicon.ico" />
 
+        
 
         
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
         <link res="stylesheet" href="https://cdn.datatables.net/1.11.5/css/dataTables.bootstrap5.min.css">
-        <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" crossorigin="">
-        <link rel="stylesheet" href="https://cdn.datatables.net/fixedcolumns/3.2.3/css/fixedColumns.dataTables.min.css" crossorigin="">
-        <link rel="stylesheet" href="/assets/css/style.css?v=20240227121757">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" crossorigin="">
+        <link rel="stylesheet" href="/assets/css/style.css?v=20240403090325">
         <link rel="stylesheet" href="https://unpkg.com/leaflet@1.3.4/dist/leaflet.css"
           integrity="sha512-puBpdR0798OZvTTbP4A8Ix/l+A4dHDD0DGqYW6RQ+9jxkRFclaxxQb/SJAWZfWAkuyeQUytO7+7N4QKrDh+drA=="
           crossorigin=""/>
@@ -131,8 +148,11 @@ var translations = {
         <link rel="stylesheet" href='https://api.mapbox.com/mapbox.js/plugins/leaflet-fullscreen/v1.0.1/leaflet.fullscreen.css'  crossorigin=""/>
         <link rel="stylesheet" href="https://bowercdn.net/c/leaflet.zoomhome-latest/dist/leaflet.zoomhome.css"  crossorigin=""/>
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet-search@2.9.7/dist/leaflet-search.min.css" crossorigin="">
-        <link rel="stylesheet" href="https://cdn.kiprotect.com/klaro/v0.7/klaro.min.css" crossorigin=""/><link rel="stylesheet" href="/assets/css/custom.css?v=20240227121757">
+        <link rel="stylesheet" href="https://cdn.kiprotect.com/klaro/v0.7/klaro.min.css" crossorigin=""/><link rel="stylesheet" href="/assets/css/custom.css?v=20240403090325">
         
+
+        
+
 
         <!--[if IE]>
         <link rel="stylesheet" href="/assets/css/ie.css">
@@ -146,7 +166,7 @@ layout-goal
 ">
 <!-- <div class="container"> -->
 
-<script>translations['header'] = {"alpha":"Альфа","default_contrast":"стандартный контраст","disable_high_contrast":"Отключить высокую контрастность","disclaimer":"Это сайт находится в разработке. Мы рады вашим отзывам.","enable_high_contrast":"Включить высокую контрастность","high_contrast":"высокий контраст","internet_explorer_message":"Мы обнаружили, что для посещения этого сайта вы используете Internet Explorer. В настоящее время компания Microsoft постепенно отказывается от использования Internet Explorer. В результате этот сайт больше не поддерживает ни одну из версий Internet Explorer. Некоторые функции на этом сайте не будут работать. Вам следует использовать современный браузер, такой как Edge, Chrome, Firefox или Safari. Если у вас возникли трудности с установкой или доступом к другому браузеру, обратитесь в службу ИТ-поддержки.","internet_explorer_message_title":"Этот интернет-браузер больше не поддерживается","skip_link":"Перейти к главному содержанию","tag_line":"17 Целей, чтобы преобразовать наш мир","toggle_menu":"Переключайте меню. Нажмите, чтобы развернуть или свернуть меню.","toggle_search":"Поисковая переключатель. Нажмите, чтобы развернуть или свернуть панель поиска."};</script>
+<script>translations['header'] = {"alpha":"Альфа","default_contrast":"стандартный контраст","disable_high_contrast":"Отключить высокую контрастность","disclaimer":"Это сайт находится в разработке. Мы рады вашим отзывам.","enable_high_contrast":"Включить высокую контрастность","hide_menu":"Скрыть навигационное меню","high_contrast":"высокий контраст","internet_explorer_message":"Мы обнаружили, что для посещения этого сайта вы используете Internet Explorer. В настоящее время компания Microsoft постепенно отказывается от использования Internet Explorer. В результате этот сайт больше не поддерживает ни одну из версий Internet Explorer. Некоторые функции на этом сайте не будут работать. Вам следует использовать современный браузер, такой как Edge, Chrome, Firefox или Safari. Если у вас возникли трудности с установкой или доступом к другому браузеру, обратитесь в службу ИТ-поддержки.","internet_explorer_message_title":"Этот интернет-браузер больше не поддерживается","logo_title":"Перейти на главную страницу","show_menu":"Показать навигационное меню","skip_link":"Перейти к главному содержанию","tag_line":"17 Целей, чтобы преобразовать наш мир","toggle_menu":"Переключайте меню. Нажмите, чтобы развернуть или свернуть меню.","toggle_search":"Поисковая переключатель. Нажмите, чтобы развернуть или свернуть панель поиска."};</script>
 
 <a class="sr-only-focusable" id="skiplink" href="#main-content" tabindex="0">Перейти к главному содержанию</a>
 <div class="container internet-explorer-message">
@@ -176,7 +196,7 @@ layout-goal
   <img src="/assets/img/SDG_logo_ru.png" alt="Цели в области устойчивого развития - 17 Целей, чтобы преобразовать наш мир" />
 </a>
 
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Показать навигационное меню">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="d-flex flex-wrap w-100 justify-content-between">
@@ -200,7 +220,7 @@ layout-goal
         <label class="visually-hidden" for="indicator_search">Поиск</label>
         <input class="form-control" type="search" name="q" id="indicator_search" title="Поиск">
         <span class="input-group-append">
-            <button class="btn btn-outline-secondary ms-n5" aria-label="Поиск" id="search-btn" type="submit">
+            <button class="btn btn-outline-secondary ms-n5" aria-label="Поиск по сайту" id="search-btn" type="submit">
                 <i class="fa fa-search"></i>
             </button>
         </span>
@@ -239,7 +259,7 @@ layout-goal
             </a>
         </li></ul>
 </div></span><a title="Включить высокую контрастность" aria-label="Включить высокую контрастность"
-    data-contrast-switch-to="" href="javascript:void(0)" data-on="click"
+    data-contrast-switch-to="" role="button" href="javascript:void(0)" data-on="click"
 data-event-category="Accessibility"
 data-event-action="Change contrast setting"
 data-event-label="high"
@@ -274,11 +294,19 @@ data-event-label="high"
                 <img src="https://sdg-kyrgyzstan.github.io/open-sdg-site-starter/assets/img/goals/ru/17.png" alt="Партнерство в интересах устойчивого развития - Цель 17" id="goal-17" class="goal-icon-image goal-icon-image-" />
             </div>
             <div class="col-8 col-md-9 col-lg-10 goal-details">
-                <h1>Укрепление средств осуществления и активизация работы в рамках Глобального партнерства в интересах устойчивого развития Финансирование</h1>
+                <h1>
+                    
+                        Укрепление средств осуществления и активизация работы в рамках Глобального партнерства в интересах устойчивого развития Финансирование
+                    
+                </h1>
             </div>
         </div>
     </div>
 </div>
+
+
+
+
 
 
 <div id="main-content" class="container" role="main">
@@ -287,10 +315,14 @@ data-event-label="high"
 
 
 
-  <div class="container g-0">
-    <h2 class="goal-page-heading">Цели и индикаторы</h2>
-
-    
+  <div class="container g-0 ">
+    <div class="row align-items-end">
+      <div class="col">
+        <h2 class="goal-page-heading">Цели и индикаторы</h2>
+      </div>
+      
+    </div>
+    <hr class="goal-page-column-header-rule">
     
       
       <div class="row align-items-start goal-target">
@@ -302,6 +334,7 @@ data-event-label="high"
           <div class="col goal-page-target-name">
             <span class="target-name">Усилить мобилизацию ресурсов из внутренних источников, в том числе благодаря международной поддержке развивающихся стран, с тем чтобы повысить национальные возможности по сбору налогов и других доходов</span>
           </div>
+          
       </div>
         
 
@@ -319,7 +352,7 @@ data-event-label="high"
             </div>
             <div class="col goal-page-indicator-name">
               
-              <span class="indicator-name"><a href="/17-1-1">Общий объем государственных доходов в процентном отношении к ВВП в разбивке по источникам</a></span>
+              <span class="indicator-name"><a href="/17-1-1/">Общий объем государственных доходов в процентном отношении к ВВП в разбивке по источникам</a></span>
               
 
 
@@ -332,7 +365,7 @@ data-event-label="high"
 
 
 <span class="status complete">
-    <span class="status-inner">Сообщение</span>
+    <span class="status-inner">Опубликован</span>
 </span>
 
 
@@ -359,7 +392,7 @@ data-event-label="high"
             </div>
             <div class="col goal-page-indicator-name">
               
-              <span class="indicator-name"><a href="/17-1-2">Доля  национального бюджета, финансируемая за счет внутренних налогов</a></span>
+              <span class="indicator-name"><a href="/17-1-2/">Доля  национального бюджета, финансируемая за счет внутренних налогов</a></span>
               
 
 
@@ -372,7 +405,7 @@ data-event-label="high"
 
 
 <span class="status complete">
-    <span class="status-inner">Сообщение</span>
+    <span class="status-inner">Опубликован</span>
 </span>
 
 
@@ -396,6 +429,7 @@ data-event-label="high"
           <div class="col goal-page-target-name">
             <span class="target-name">Обеспечить, чтобы развитые страны полностью выполнили свои обязательства по оказанию официальной помощи в целях развития (ОПР), в том числе взятое многими развитыми странами обязательство достичь целевого показателя выделения средств по линии ОПР развивающимся странам на уровне 0,7 процента своего валового национального дохода (ВНД) и выделения ОПР наименее развитым странам на уровне 0,15–0,20 процента своего ВНД; государствам, предоставляющим ОПР, предлагается рассмотреть вопрос о том, чтобы поставить перед собой цель выделять не менее 0,20 процента своего ВНД по линии ОПР наименее развитым странам</span>
           </div>
+          
       </div>
         
 
@@ -413,7 +447,7 @@ data-event-label="high"
             </div>
             <div class="col goal-page-indicator-name">
               
-              <span class="indicator-name"><a href="/17-2-1">Чистый  объем официальной помощи в целях развития (как суммарной, так и выделяемой наименее развитым странам) как доля валового национального дохода доноров из числа членов Комитета содействия развитию ОЭСР</a></span>
+              <span class="indicator-name"><a href="/17-2-1/">Чистый  объем официальной помощи в целях развития (как суммарной, так и выделяемой наименее развитым странам) как доля валового национального дохода доноров из числа членов Комитета содействия развитию ОЭСР</a></span>
               
 
 
@@ -450,6 +484,7 @@ data-event-label="high"
           <div class="col goal-page-target-name">
             <span class="target-name">Мобилизовать дополнительные финансовые ресурсы из самых разных источников для развивающихся стран</span>
           </div>
+          
       </div>
         
 
@@ -467,7 +502,7 @@ data-event-label="high"
             </div>
             <div class="col goal-page-indicator-name">
               
-              <span class="indicator-name"><a href="/17-3-1">Доля средств, поступающих по линии прямых иностранных инвестиций, официальной помощи в целях развития и сотрудничества Юг — Юг, от валового национального дохода</a></span>
+              <span class="indicator-name"><a href="/17-3-1/">Доля средств, поступающих по линии прямых иностранных инвестиций, официальной помощи в целях развития и сотрудничества Юг — Юг, от валового национального дохода</a></span>
               
 
 
@@ -480,7 +515,7 @@ data-event-label="high"
 
 
 <span class="status notstarted">
-    <span class="status-inner">В процессе разработки</span>
+    <span class="status-inner">В настоящее время не разработан</span>
 </span>
 
 
@@ -507,7 +542,7 @@ data-event-label="high"
             </div>
             <div class="col goal-page-indicator-name">
               
-              <span class="indicator-name"><a href="/17-3-1-1a">Поступление прямых иностранных инвестиций из-за рубежа в разбивке по  видам экономической деятельности</a></span>
+              <span class="indicator-name"><a href="/17-3-1-1a/">Поступление прямых иностранных инвестиций из-за рубежа в разбивке по  видам экономической деятельности</a></span>
               
 
 
@@ -520,7 +555,7 @@ data-event-label="high"
 
 
 <span class="status complete">
-    <span class="status-inner">Сообщение</span>
+    <span class="status-inner">Опубликован</span>
 </span>
 
 
@@ -550,7 +585,7 @@ data-event-label="high"
             </div>
             <div class="col goal-page-indicator-name">
               
-              <span class="indicator-name"><a href="/17-3-1-1b">Поступление прямых иностранных инвестиций по странам</a></span>
+              <span class="indicator-name"><a href="/17-3-1-1b/">Поступление прямых иностранных инвестиций по странам</a></span>
               
 
 
@@ -563,7 +598,7 @@ data-event-label="high"
 
 
 <span class="status notstarted">
-    <span class="status-inner">В процессе разработки</span>
+    <span class="status-inner">В настоящее время не разработан</span>
 </span>
 
 
@@ -593,7 +628,7 @@ data-event-label="high"
             </div>
             <div class="col goal-page-indicator-name">
               
-              <span class="indicator-name"><a href="/17-3-2">Доля  денежных переводов (в долларах США) в совокупном ВВП</a></span>
+              <span class="indicator-name"><a href="/17-3-2/">Доля  денежных переводов (в долларах США) в совокупном ВВП</a></span>
               
 
 
@@ -606,7 +641,7 @@ data-event-label="high"
 
 
 <span class="status notstarted">
-    <span class="status-inner">В процессе разработки</span>
+    <span class="status-inner">В настоящее время не разработан</span>
 </span>
 
 
@@ -630,6 +665,7 @@ data-event-label="high"
           <div class="col goal-page-target-name">
             <span class="target-name">Оказывать развивающимся странам помощь в целях обеспечения долгосрочной приемлемости уровня их задолженности благодаря проведению скоординированной политики, направленной на поощрение, в зависимости от обстоятельств, финансирования за счет заемных средств, облегчения долгового бремени и реструктуризации задолженности, и решить проблему внешней задолженности бедных стран с крупной задолженностью, с тем чтобы облегчить их долговое бремя</span>
           </div>
+          
       </div>
         
 
@@ -647,7 +683,7 @@ data-event-label="high"
             </div>
             <div class="col goal-page-indicator-name">
               
-              <span class="indicator-name"><a href="/17-4-1">Доля  поступлений от экспорта товаров и услуг, расходуемая на обслуживание долга</a></span>
+              <span class="indicator-name"><a href="/17-4-1/">Доля  поступлений от экспорта товаров и услуг, расходуемая на обслуживание долга</a></span>
               
 
 
@@ -660,7 +696,7 @@ data-event-label="high"
 
 
 <span class="status complete">
-    <span class="status-inner">Сообщение</span>
+    <span class="status-inner">Опубликован</span>
 </span>
 
 
@@ -684,6 +720,7 @@ data-event-label="high"
           <div class="col goal-page-target-name">
             <span class="target-name">Принять и применять режимы поощрения инвестиций в интересах наименее развитых стран</span>
           </div>
+          
       </div>
         
 
@@ -701,7 +738,7 @@ data-event-label="high"
             </div>
             <div class="col goal-page-indicator-name">
               
-              <span class="indicator-name"><a href="/17-5-1">Число стран, в которых приняты и действуют режимы поощрения инвестиций в интересах развивающихся стран, включая наименее развитые страны</a></span>
+              <span class="indicator-name"><a href="/17-5-1/">Число стран, в которых приняты и действуют режимы поощрения инвестиций в интересах развивающихся стран, включая наименее развитые страны</a></span>
               
 
 
@@ -714,7 +751,7 @@ data-event-label="high"
 
 
 <span class="status complete">
-    <span class="status-inner">Сообщение</span>
+    <span class="status-inner">Опубликован</span>
 </span>
 
 
@@ -738,6 +775,7 @@ data-event-label="high"
           <div class="col goal-page-target-name">
             <span class="target-name">Расширять сотрудничество по линии Север — Юг и Юг — Юг, а также трехстороннее региональное и международное сотрудничество в областях науки, техники и инноваций и доступ к соответствующим достижениям; активизировать обмен знаниями на взаимно согласованных условиях, в том числе благодаря улучшению координации между существующими механизмами, в частности на уровне Организации Объединенных Наций, а также с помощью глобального механизма содействия передаче технологий</span>
           </div>
+          
       </div>
         
 
@@ -755,7 +793,7 @@ data-event-label="high"
             </div>
             <div class="col goal-page-indicator-name">
               
-              <span class="indicator-name"><a href="/17-6-1">Число стационарных абонентов широкополосного Интернета в разбивке по скорости</a></span>
+              <span class="indicator-name"><a href="/17-6-1/">Число стационарных абонентов широкополосного Интернета в разбивке по скорости</a></span>
               
 
 
@@ -768,7 +806,7 @@ data-event-label="high"
 
 
 <span class="status notstarted">
-    <span class="status-inner">В процессе разработки</span>
+    <span class="status-inner">В настоящее время не разработан</span>
 </span>
 
 
@@ -795,7 +833,7 @@ data-event-label="high"
             </div>
             <div class="col goal-page-indicator-name">
               
-              <span class="indicator-name"><a href="/17-6-2">Fixed Internet broadband subscriptions per 100 inhabitants, by speed</a></span>
+              <span class="indicator-name"><a href="/17-6-2/">Fixed Internet broadband subscriptions per 100 inhabitants, by speed</a></span>
               
 
 
@@ -808,7 +846,7 @@ data-event-label="high"
 
 
 <span class="status complete">
-    <span class="status-inner">Сообщение</span>
+    <span class="status-inner">Опубликован</span>
 </span>
 
 
@@ -832,6 +870,7 @@ data-event-label="high"
           <div class="col goal-page-target-name">
             <span class="target-name">Содействовать разработке, передаче, распространению и освоению экологически безопасных технологий, так чтобы их получали развивающиеся страны на взаимно согласованных благоприятных условиях, в том числе на льготных и преференциальных условиях</span>
           </div>
+          
       </div>
         
 
@@ -849,7 +888,7 @@ data-event-label="high"
             </div>
             <div class="col goal-page-indicator-name">
               
-              <span class="indicator-name"><a href="/17-7-1">Общая сумма утвержденного финансирования для развивающихся стран в целях содействия разработке, передаче, распространению и освоению экологически безопасных технологий</a></span>
+              <span class="indicator-name"><a href="/17-7-1/">Общая сумма утвержденного финансирования для развивающихся стран в целях содействия разработке, передаче, распространению и освоению экологически безопасных технологий</a></span>
               
 
 
@@ -886,6 +925,7 @@ data-event-label="high"
           <div class="col goal-page-target-name">
             <span class="target-name">Обеспечить к 2017 году полномасштабное функционирование банка технологий и механизма развития науки, технологий и инноваций в интересах наименее развитых стран и расширить использование высокоэффективных технологий, в частности информационно-коммуникационных технологий</span>
           </div>
+          
       </div>
         
 
@@ -903,7 +943,7 @@ data-event-label="high"
             </div>
             <div class="col goal-page-indicator-name">
               
-              <span class="indicator-name"><a href="/17-8-1">Доля населения, пользующегося Интернетом</a></span>
+              <span class="indicator-name"><a href="/17-8-1/">Доля населения, пользующегося Интернетом</a></span>
               
 
 
@@ -916,7 +956,7 @@ data-event-label="high"
 
 
 <span class="status complete">
-    <span class="status-inner">Сообщение</span>
+    <span class="status-inner">Опубликован</span>
 </span>
 
 
@@ -940,6 +980,7 @@ data-event-label="high"
           <div class="col goal-page-target-name">
             <span class="target-name">Усилить международную поддержку эффективного и целенаправленного наращивания потенциала развивающихся стран для содействия реализации национальных планов достижения всех целей в области устойчивого развития, в том числе благодаря сотрудничеству по линии Север — Юг и Юг — Юг и трехстороннему сотрудничеству</span>
           </div>
+          
       </div>
         
 
@@ -957,7 +998,7 @@ data-event-label="high"
             </div>
             <div class="col goal-page-indicator-name">
               
-              <span class="indicator-name"><a href="/17-9-1">Объем финансовой и технической помощи (в том числе по линии Север — Юг, Юг — Юг и в рамках трехстороннего сотрудничества), предоставляемой развивающимся странам (в долларах США)</a></span>
+              <span class="indicator-name"><a href="/17-9-1/">Объем финансовой и технической помощи (в том числе по линии Север — Юг, Юг — Юг и в рамках трехстороннего сотрудничества), предоставляемой развивающимся странам (в долларах США)</a></span>
               
 
 
@@ -994,6 +1035,7 @@ data-event-label="high"
           <div class="col goal-page-target-name">
             <span class="target-name">Поощрять универсальную, основанную на правилах, открытую, недискриминационную и справедливую многостороннюю торговую систему в рамках Всемирной торговой организации, в том числе благодаря завершению переговоров по ее Дохинской повестке дня в области развития</span>
           </div>
+          
       </div>
         
 
@@ -1011,7 +1053,7 @@ data-event-label="high"
             </div>
             <div class="col goal-page-indicator-name">
               
-              <span class="indicator-name"><a href="/17-10-1">Средневзвешенный мировой уровень тарифов</a></span>
+              <span class="indicator-name"><a href="/17-10-1/">Средневзвешенный мировой уровень тарифов</a></span>
               
 
 
@@ -1048,6 +1090,7 @@ data-event-label="high"
           <div class="col goal-page-target-name">
             <span class="target-name">Значительно увеличить экспорт развивающихся стран, в частности в целях удвоения доли наименее развитых стран в мировом экспорте к 2020 году</span>
           </div>
+          
       </div>
         
 
@@ -1065,7 +1108,7 @@ data-event-label="high"
             </div>
             <div class="col goal-page-indicator-name">
               
-              <span class="indicator-name"><a href="/17-11-1">Доля развивающихся стран и наименее развитых стран в мировом экспорте</a></span>
+              <span class="indicator-name"><a href="/17-11-1/">Доля развивающихся стран и наименее развитых стран в мировом экспорте</a></span>
               
 
 
@@ -1078,7 +1121,7 @@ data-event-label="high"
 
 
 <span class="status notstarted">
-    <span class="status-inner">В процессе разработки</span>
+    <span class="status-inner">В настоящее время не разработан</span>
 </span>
 
 
@@ -1105,7 +1148,7 @@ data-event-label="high"
             </div>
             <div class="col goal-page-indicator-name">
               
-              <span class="indicator-name"><a href="/17-11-1-1">Импорт и экспорт товаров ИКТ в процентах к совокупному объему импорта/экспорта товаров</a></span>
+              <span class="indicator-name"><a href="/17-11-1-1/">Импорт и экспорт товаров ИКТ в процентах к совокупному объему импорта/экспорта товаров</a></span>
               
 
 
@@ -1118,7 +1161,7 @@ data-event-label="high"
 
 
 <span class="status complete">
-    <span class="status-inner">Сообщение</span>
+    <span class="status-inner">Опубликован</span>
 </span>
 
 
@@ -1145,6 +1188,7 @@ data-event-label="high"
           <div class="col goal-page-target-name">
             <span class="target-name">Обеспечить своевременное предоставление всем наименее развитым странам на долгосрочной основе беспошлинного и неквотируемого доступа на рынки в соответствии с решениями Всемирной торговой организации, в том числе путем обеспечения того, чтобы преференциальные правила происхождения, применяемые в отношении товаров, импортируемых из наименее развитых стран, были прозрачными и простыми и содействовали облегчению доступа на рынки</span>
           </div>
+          
       </div>
         
 
@@ -1162,7 +1206,7 @@ data-event-label="high"
             </div>
             <div class="col goal-page-indicator-name">
               
-              <span class="indicator-name"><a href="/17-12-1">Средний уровень тарифов, применяемых в отношении развивающихся стран, наименее развитых стран и малых островных развивающихся государств</a></span>
+              <span class="indicator-name"><a href="/17-12-1/">Средний уровень тарифов, применяемых в отношении развивающихся стран, наименее развитых стран и малых островных развивающихся государств</a></span>
               
 
 
@@ -1175,7 +1219,7 @@ data-event-label="high"
 
 
 <span class="status notstarted">
-    <span class="status-inner">В процессе разработки</span>
+    <span class="status-inner">В настоящее время не разработан</span>
 </span>
 
 
@@ -1199,6 +1243,7 @@ data-event-label="high"
           <div class="col goal-page-target-name">
             <span class="target-name">Повысить глобальную макроэкономическую стабильность, в том числе посредством координации политики и обеспечения последовательности политики</span>
           </div>
+          
       </div>
         
 
@@ -1216,7 +1261,7 @@ data-event-label="high"
             </div>
             <div class="col goal-page-indicator-name">
               
-              <span class="indicator-name"><a href="/17-13-1">Единый набор контрольных макроэкономических показателей</a></span>
+              <span class="indicator-name"><a href="/17-13-1/">Единый набор контрольных макроэкономических показателей</a></span>
               
 
 
@@ -1229,7 +1274,7 @@ data-event-label="high"
 
 
 <span class="status notstarted">
-    <span class="status-inner">В процессе разработки</span>
+    <span class="status-inner">В настоящее время не разработан</span>
 </span>
 
 
@@ -1256,7 +1301,7 @@ data-event-label="high"
             </div>
             <div class="col goal-page-indicator-name">
               
-              <span class="indicator-name"><a href="/17-13-1-1">Панель макроэкономических показателей</a></span>
+              <span class="indicator-name"><a href="/17-13-1-1/">Панель макроэкономических показателей</a></span>
               
 
 
@@ -1269,7 +1314,7 @@ data-event-label="high"
 
 
 <span class="status complete">
-    <span class="status-inner">Сообщение</span>
+    <span class="status-inner">Опубликован</span>
 </span>
 
 
@@ -1296,6 +1341,7 @@ data-event-label="high"
           <div class="col goal-page-target-name">
             <span class="target-name">Сделать более последовательной политику по обеспечению устойчивого развития</span>
           </div>
+          
       </div>
         
 
@@ -1313,7 +1359,7 @@ data-event-label="high"
             </div>
             <div class="col goal-page-indicator-name">
               
-              <span class="indicator-name"><a href="/17-14-1">Число стран, в которых созданы механизмы для повышения согласованности политики в области устойчивого развития</a></span>
+              <span class="indicator-name"><a href="/17-14-1/">Число стран, в которых созданы механизмы для повышения согласованности политики в области устойчивого развития</a></span>
               
 
 
@@ -1326,7 +1372,7 @@ data-event-label="high"
 
 
 <span class="status notstarted">
-    <span class="status-inner">В процессе разработки</span>
+    <span class="status-inner">В настоящее время не разработан</span>
 </span>
 
 
@@ -1350,6 +1396,7 @@ data-event-label="high"
           <div class="col goal-page-target-name">
             <span class="target-name">Уважать имеющееся у каждой страны пространство для стратегического маневра и ее ведущую роль в разработке и проведении в жизнь политики ликвидации нищеты и политики в области устойчивого развития</span>
           </div>
+          
       </div>
         
 
@@ -1367,7 +1414,7 @@ data-event-label="high"
             </div>
             <div class="col goal-page-indicator-name">
               
-              <span class="indicator-name"><a href="/17-15-1">Степень  использования донорами из числа участников процесса развития схем результатов и инструментов планирования, разработанных самими странами</a></span>
+              <span class="indicator-name"><a href="/17-15-1/">Степень  использования донорами из числа участников процесса развития схем результатов и инструментов планирования, разработанных самими странами</a></span>
               
 
 
@@ -1404,6 +1451,7 @@ data-event-label="high"
           <div class="col goal-page-target-name">
             <span class="target-name">Укреплять Глобальное партнерство в интересах устойчивого развития, дополняемое партнерствами с участием многих заинтересованных сторон, которые мобилизуют и распространяют знания, опыт, технологии и финансовые ресурсы, с тем чтобы поддерживать достижение целей в области устойчивого развития во всех странах, особенно в развивающихся странах</span>
           </div>
+          
       </div>
         
 
@@ -1421,7 +1469,7 @@ data-event-label="high"
             </div>
             <div class="col goal-page-indicator-name">
               
-              <span class="indicator-name"><a href="/17-16-1">Число стран, сообщающих о прогрессе в деле применения механизмов контроля за эффективностью развития с участием многих заинтересованных сторон, которые служат подспорьем в достижении целей устойчивого развития</a></span>
+              <span class="indicator-name"><a href="/17-16-1/">Число стран, сообщающих о прогрессе в деле применения механизмов контроля за эффективностью развития с участием многих заинтересованных сторон, которые служат подспорьем в достижении целей устойчивого развития</a></span>
               
 
 
@@ -1434,7 +1482,7 @@ data-event-label="high"
 
 
 <span class="status notstarted">
-    <span class="status-inner">В процессе разработки</span>
+    <span class="status-inner">В настоящее время не разработан</span>
 </span>
 
 
@@ -1458,6 +1506,7 @@ data-event-label="high"
           <div class="col goal-page-target-name">
             <span class="target-name">Стимулировать и поощрять эффективное партнерство между государственными организациями, между государственным и частным секторами и между организациями гражданского общества, опираясь на опыт и стратегии использования ресурсов партнеров</span>
           </div>
+          
       </div>
         
 
@@ -1475,7 +1524,7 @@ data-event-label="high"
             </div>
             <div class="col goal-page-indicator-name">
               
-              <span class="indicator-name"><a href="/17-17-1">Сумма (в долларах США), выделяемая на государственно-частные партнерства в области инфраструктуры</a></span>
+              <span class="indicator-name"><a href="/17-17-1/">Сумма (в долларах США), выделяемая на государственно-частные партнерства в области инфраструктуры</a></span>
               
 
 
@@ -1488,7 +1537,7 @@ data-event-label="high"
 
 
 <span class="status notstarted">
-    <span class="status-inner">В процессе разработки</span>
+    <span class="status-inner">В настоящее время не разработан</span>
 </span>
 
 
@@ -1512,6 +1561,7 @@ data-event-label="high"
           <div class="col goal-page-target-name">
             <span class="target-name">К 2020 году усилить поддержку в целях наращивания потенциала развивающихся стран, в том числе наименее развитых стран и малых островных развивающихся государств, с тем чтобы значительно повысить доступность высококачественных, актуальных и достоверных данных, дезагрегированных по уровню доходов, гендерной принадлежности, возрасту, расе, национальности, миграционному статусу, инвалидности, географическому местонахождению и другим характеристикам, значимым с учетом национальных условий</span>
           </div>
+          
       </div>
         
 
@@ -1529,7 +1579,7 @@ data-event-label="high"
             </div>
             <div class="col goal-page-indicator-name">
               
-              <span class="indicator-name"><a href="/17-18-1">Показатель потенциала в области статистики для отслеживания хода достижения целей в области устойчивого развития</a></span>
+              <span class="indicator-name"><a href="/17-18-1/">Показатель потенциала в области статистики для отслеживания хода достижения целей в области устойчивого развития</a></span>
               
 
 
@@ -1542,7 +1592,7 @@ data-event-label="high"
 
 
 <span class="status complete">
-    <span class="status-inner">Сообщение</span>
+    <span class="status-inner">Опубликован</span>
 </span>
 
 
@@ -1569,7 +1619,7 @@ data-event-label="high"
             </div>
             <div class="col goal-page-indicator-name">
               
-              <span class="indicator-name"><a href="/17-18-2">Число, стран, имеющих национальное статистическое законодательство, соответствующее Основополагающим принципам официальной статистики</a></span>
+              <span class="indicator-name"><a href="/17-18-2/">Число, стран, имеющих национальное статистическое законодательство, соответствующее Основополагающим принципам официальной статистики</a></span>
               
 
 
@@ -1582,7 +1632,7 @@ data-event-label="high"
 
 
 <span class="status complete">
-    <span class="status-inner">Сообщение</span>
+    <span class="status-inner">Опубликован</span>
 </span>
 
 
@@ -1609,7 +1659,7 @@ data-event-label="high"
             </div>
             <div class="col goal-page-indicator-name">
               
-              <span class="indicator-name"><a href="/17-18-3">Число стран, имеющих полностью обеспеченный финансовыми ресурсами и осуществляющийся национальный статистический план, в разбивке по источникам финансирования</a></span>
+              <span class="indicator-name"><a href="/17-18-3/">Число стран, имеющих полностью обеспеченный финансовыми ресурсами и осуществляющийся национальный статистический план, в разбивке по источникам финансирования</a></span>
               
 
 
@@ -1622,7 +1672,7 @@ data-event-label="high"
 
 
 <span class="status notstarted">
-    <span class="status-inner">В процессе разработки</span>
+    <span class="status-inner">В настоящее время не разработан</span>
 </span>
 
 
@@ -1646,6 +1696,7 @@ data-event-label="high"
           <div class="col goal-page-target-name">
             <span class="target-name">К 2030 году, опираясь на нынешние инициативы, разработать, в дополнение к показателю валового внутреннего продукта, и другие показатели измерения прогресса в деле обеспечения устойчивого развития и содействовать наращиванию потенциала развивающихся стран в области статистики</span>
           </div>
+          
       </div>
         
 
@@ -1663,7 +1714,7 @@ data-event-label="high"
             </div>
             <div class="col goal-page-indicator-name">
               
-              <span class="indicator-name"><a href="/17-19-1">Стоимость  всех ресурсов, выделенных на наращивание потенциала развивающихся стран в области статистики (в долларах США)</a></span>
+              <span class="indicator-name"><a href="/17-19-1/">Стоимость  всех ресурсов, выделенных на наращивание потенциала развивающихся стран в области статистики (в долларах США)</a></span>
               
 
 
@@ -1676,7 +1727,7 @@ data-event-label="high"
 
 
 <span class="status notstarted">
-    <span class="status-inner">В процессе разработки</span>
+    <span class="status-inner">В настоящее время не разработан</span>
 </span>
 
 
@@ -1703,7 +1754,7 @@ data-event-label="high"
             </div>
             <div class="col goal-page-indicator-name">
               
-              <span class="indicator-name"><a href="/17-19-2">Доля стран, которые a) провели хотя бы одну перепись населения и жилищного фонда в течение последних 10 лет; и b) достигли цели регистрации рождений в 100 процентах случаев и регистрации смерти в 80 процентах случаев</a></span>
+              <span class="indicator-name"><a href="/17-19-2/">Доля стран, которые a) провели хотя бы одну перепись населения и жилищного фонда в течение последних 10 лет; и b) достигли цели регистрации рождений в 100 процентах случаев и регистрации смерти в 80 процентах случаев</a></span>
               
 
 
@@ -1716,7 +1767,7 @@ data-event-label="high"
 
 
 <span class="status complete">
-    <span class="status-inner">Сообщение</span>
+    <span class="status-inner">Опубликован</span>
 </span>
 
 
@@ -1764,12 +1815,11 @@ data-event-label="high"
     </div>
 </footer>
 
-<script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+<script src="https://code.jquery.com/jquery-3.6.1.min.js" integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
 <script src="https://cdn.datatables.net/1.11.5/js/jquery.dataTables.min.js"></script>
 <script src="https://cdn.datatables.net/1.11.5/js/dataTables.bootstrap5.min.js"></script>
-<script src="//cdn.datatables.net/fixedcolumns/3.2.3/js/dataTables.fixedColumns.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/4.17.20/lodash.min.js" integrity="sha512-90vH1Z83AJY9DmlWa8WkjkV79yfS2n2Oxhsi2dZbIv0nC4E6m5AbH8Nh156kkM7JePmqD6tcZsfad1ueoaovww==" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/4.17.21/lodash.min.js" integrity="sha512-WFN04846sdKMIP5LKNphMaWzU7YpMyCU245etK3g/2ARYbPK9Ub18eG+ljU96qKRCWh+quCY7yefSmlkQw1ANQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 <script src="https://cdn.jsdelivr.net/npm/chart.js@3.7.0/dist/chart.min.js" integrity="sha256-Y26AMvaIfrZ1EQU49pf6H4QzVTrOI8m9wQYKkftBt4s=" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/patternomaly@1.3.2/dist/patternomaly.js"></script>
 
@@ -1807,12 +1857,12 @@ ga('send', 'pageview');
 <script>translations['search'] = translations['search'] || {};
     translations['search']['search'] = 'Поиск';</script>
 
-<script src='/assets/js/sdg.js?v=20240227121757'></script>
+<script src='/assets/js/sdg.js?v=20240403090325'></script>
 
 
     
     
-    <script src="/assets/js/custom.js?v=20240227121757"></script><script>
+    <script src="/assets/js/custom.js?v=20240403090325"></script><script>
     new indicatorInit();
     new accessibilitySwitcher();
 </script>
