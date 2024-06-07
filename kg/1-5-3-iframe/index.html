@@ -1,0 +1,1033 @@
+<!DOCTYPE html>
+<html lang="kg" class="no-js">
+    <head>
+        <meta charset="utf-8">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.min.js"></script>
+        <script crossorigin="anonymous" src="https://polyfill.io/v3/polyfill.min.js?features=Promise%2CArray.prototype.forEach%2CString.prototype.includes%2CURLSearchParams%2CCustomEvent%2CArray.prototype.includes%2CArray.prototype.filter%2CArray.prototype.some%2CArray.prototype.find%2CArray.prototype.reduce%2CObject.assign%2CArray.isArray%2CObject.values%2CObject.entries%2CArray.from%2CSet%2CArray.prototype.findIndex%2Cfetch"></script>
+<script crossorigin="anonymous" src="https://cdnjs.cloudflare.com/ajax/libs/javascript-canvas-to-blob/3.15.0/js/canvas-to-blob.min.js"></script>
+
+        <script>
+// This is where we initialise any global variables, namespaced in "opensdg".
+var opensdg = {
+
+  // A base URL for asynchronous calls to SDG data.
+  remoteDataBaseUrl: 'https://sustainabledevelopment-kyrgyzstan.github.io/sdg-data/kg',
+
+  chartConfigAlterations: [],
+  // A hook which can be used to modify the configuration for Chart.js.
+  chartConfigAlter: function(callback) {
+    this.chartConfigAlterations.push(callback);
+  },
+
+  tableConfigAlterations: [],
+  // A hook which can be used to modify the configuration for Datatables.
+  tableConfigAlter: function(callback) {
+    this.tableConfigAlterations.push(callback);
+  },
+
+  // A hook which can be replaced to alter whether/how the values that are
+  // displayed on indicator tables/graphs get rounded. A "context" parameter
+  // is also passed which contains additional information.
+  dataRounding: function(value, context) {
+    // Alterations go here.
+    return value;
+  },
+
+  // A hook which can be used to alter the data before it is displayed on charts/tables.
+  dataDisplayAlterations: [],
+  dataDisplayAlter: function(callback) {
+    this.dataDisplayAlterations.push(callback);
+  },
+
+  // Disaggregations which should be ignored on indicator pages.
+  ignoredDisaggregations: null,
+
+  language: 'kg',
+
+  mapColors: {
+    "default": [
+        "#c4e1c6",
+        "#b0d1b3",
+        "#9bc2a1",
+        "#87b28f",
+        "#74a37c",
+        "#60946b",
+        "#4d8559",
+        "#3a7747",
+        "#276836"
+    ]
+},
+};
+
+</script>
+
+        <script>
+// JavaScript container for translation data.
+var translations = {
+  //Javascript version of the "t" filter from jekyll-open-sdg-plugins.
+  t: function(key) {
+
+    if (!key || typeof key !== 'string') {
+      return '';
+    }
+
+    // The majority of uses of this function are to translate disaggregation
+    // data. To spare data providers of needing to enter "data." in front of
+    // their disaggregation data, we specifically look for that here.
+    if (typeof this.data === 'object' && this.data !== null && this.data[key]) {
+      return this.data[key];
+    }
+
+    var originalKey = key;
+    var drilled = this;
+    var levelsDrilled = 0;
+    var levels = key.split('.');
+
+    for (var level in levels) {
+      // If we have drilled down to soon, abort.
+      if (typeof drilled !== 'object') {
+        break;
+      }
+
+      if (levels[level] in drilled) {
+        drilled = drilled[levels[level]];
+        levelsDrilled += 1;
+      }
+    }
+
+    // If we didn't drill the right number of levels, return the original string.
+    if (levels.length != levelsDrilled) {
+      return originalKey;
+    }
+
+    // Otherwise we must have drilled all the way.
+    return drilled;
+  },
+};
+</script>
+
+        <!-- Basic Page Needs
+        ================================================== -->
+        <meta http-equiv="X-UA-Compatible" content="IE=edge"><!-- Mobile Specific Metas
+        ================================================== -->
+        <meta name="HandheldFriendly" content="True">
+        <meta name="MobileOptimized" content="320">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <!-- Title and meta description
+        ================================================== -->
+
+        
+    <title>
+        
+        көрсөткүч 1.5.3 -
+        
+        global_indicators.1-5-3-title - Indicators For The Sustainable Development Goals
+    </title>
+
+
+
+        
+
+        <!--[if IE 9]>
+        <script src="/assets/js/lib/classList.js"></script>
+        <![endif]-->
+
+        <link rel="apple-touch-icon" sizes="180x180" href="/assets/img/favicons/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/assets/img/favicons/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/assets/img/favicons/favicon-16x16.png">
+<link rel="icon" type="image/x-icon" href="/assets/img/favicons/favicon.ico" />
+
+        
+
+        
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+        <link res="stylesheet" href="https://cdn.datatables.net/1.11.5/css/dataTables.bootstrap5.min.css">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" crossorigin="">
+        <link rel="stylesheet" href="/assets/css/style.css?v=20240607121916">
+        <link rel="stylesheet" href="https://unpkg.com/leaflet@1.3.4/dist/leaflet.css"
+          integrity="sha512-puBpdR0798OZvTTbP4A8Ix/l+A4dHDD0DGqYW6RQ+9jxkRFclaxxQb/SJAWZfWAkuyeQUytO7+7N4QKrDh+drA=="
+          crossorigin=""/>
+        <link rel="stylesheet" href="https://cdn.rawgit.com/socib/Leaflet.TimeDimension/master/dist/leaflet.timedimension.control.min.css"  crossorigin=""/>
+        <link rel="stylesheet" href='https://api.mapbox.com/mapbox.js/plugins/leaflet-fullscreen/v1.0.1/leaflet.fullscreen.css'  crossorigin=""/>
+        <link rel="stylesheet" href="https://bowercdn.net/c/leaflet.zoomhome-latest/dist/leaflet.zoomhome.css"  crossorigin=""/>
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet-search@2.9.7/dist/leaflet-search.min.css" crossorigin="">
+        <link rel="stylesheet" href="https://cdn.kiprotect.com/klaro/v0.7/klaro.min.css" crossorigin=""/><link rel="stylesheet" href="/assets/css/custom.css?v=20240607121916">
+        
+
+        
+
+
+        <!--[if IE]>
+        <link rel="stylesheet" href="/assets/css/ie.css">
+        <![endif]-->
+
+        
+
+    </head>
+<body class="language-kg
+layout-indicator-iframe
+">
+<!-- <div class="container"> -->
+
+<script>translations['header'] = null;</script>
+
+
+<script type="text/template" id="item_template">
+  <% _.each(fields, function(fieldItem) { %>
+    <div class="variable-selector
+      <% if(allowedFields.indexOf(fieldItem.field) == -1) { %> disallowed <% }%>
+      <% if (typeof childFields !== 'undefined' && childFields.indexOf(fieldItem.field) !== -1) { %> child <% }%>
+      "
+      data-field="<%=fieldItem.field%>"
+    >
+      <button class='accessBtn' tabindex='0' aria-expanded='false'
+        <% if(allowedFields.indexOf(fieldItem.field) == -1) { %>
+        aria-describedby='variable-hint-<%=fieldItem.field.replace(/ /g, '-')%>'
+        <% }%>
+      >
+        <% if(allowedFields.indexOf(fieldItem.field) == -1) { %><h6><% } else { %><h5><% } %>
+          <span aria-hidden="true"><%=translations.t(fieldItem.label)%><i class="fa fa-chevron-down"></i></span>
+          <span class="sr-only"> <%=translations.t(fieldItem.label)%></span>
+        <% if(allowedFields.indexOf(fieldItem.field) == -1) { %></h6><% } else { %></h5><% } %>
+      </button>
+      <div class="variable-options">
+        <fieldset>
+          <legend class="sr-only"> - <%=translations.t(fieldItem.field)%></legend>
+          <div>
+            <button data-type="select"></button>
+            <button data-type="clear"></button>
+          </div>
+          <% _.each(fieldItem.values, function(item) { %>
+            <label>
+              <input type="checkbox" <%=item.checked ? 'checked' : ''%> value="<%=item.value%>" data-field="<%=fieldItem.field%>" /><%=translations.t(item.value)%>
+            </label>
+          <% }); %>
+        </fieldset>
+      </div>
+
+      <% if(allowedFields.indexOf(fieldItem.field) == -1) { %>
+        <div class="variable-hint" id="variable-hint-<%=fieldItem.field.replace(/ /g, '-')%>">
+        </div>
+        <div class="no-data-hint" id="no-data-hint-<%=fieldItem.field.replace(/ /g, '-')%>">
+          
+        </div>
+      <% }%>
+
+    </div>
+  <% }); %>
+</script>
+
+<script type="text/template" id="units_template">
+  
+    <h4></h4>
+    <fieldset>
+      <legend class="sr-only"></legend>
+      <% _.each(units, function(unitsItem, index) { %>
+        <% var checked = (selectedUnit) ? (selectedUnit==unitsItem) : (index==0); %>
+        <label><input type="radio" name="unit" value="<%=unitsItem%>" tabindex=0 <%=checked ? 'checked' : ''%> /> <%=translations.t(unitsItem)%></label>
+      <% }); %>
+    </fieldset>
+  
+</script>
+
+<script type="text/template" id="series_template">
+  
+    <h4></h4>
+    <fieldset>
+      <legend class="sr-only"></legend>
+      <% _.each(serieses, function(seriesItem, index) { %>
+        <% var isProxy = (proxySerieses.includes(seriesItem)) %>
+        <% var checked = (selectedSeries) ? (selectedSeries==seriesItem) : (index==0); %>
+        <label><input type="radio" name="series" value="<%=seriesItem%>" tabindex=0 <%=checked ? 'checked' : ''%> /> <%=translations.t(seriesItem)%> <%=isProxy ? proxyPill : ''%></label>
+      <% }); %>
+    </fieldset>
+  
+</script>
+
+<script>translations['indicator'] = null;</script>
+
+<script>translations['data'] = null;</script>
+
+
+<div class="heading goal-banner indicator goal-1">
+    <div class="container">
+        <div class="row">
+            
+            <div class="col-4 col-md-3 col-lg-2 goal-icon goal-tiles">
+                <a href="/kg/1/" aria-label=" 1" title=" 1">
+                    <img src="https://sdg-kyrgyzstan.github.io/open-sdg-site-starter/assets/img/goals/kg/1.png"
+                        alt="global_goals.1-short -  1"
+                        id="goal-1"
+                        class="goal-icon-image goal-icon-image-" />
+                </a>
+            </div>
+            <div class="col-8 col-md-9 col-lg-10 indicator-details">
+            
+                <div>
+                    <h1>
+                        
+                        көрсөткүч 1.5.3
+                        
+                        <span class="lead-copy">global_indicators.1-5-3-title</span>
+                    </h1>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div id="main-content" class="container goal-1" role="main">
+  
+
+  
+
+  
+
+  
+
+  
+
+<div class="row" id="page-content">
+  <div class="col-xs-12">
+    <h3 id="в-марте-2015-года-кыргызская-республика-приняла-на-себя-обязательства-по-следованию-основным-приоритетам-сендайской-рамочной-программы-по-снижению-риска-бедствий-в-рамках-которой-принята-концепция-комплексной-защиты-населения-и-территорий-кыргызской-республики-от-чрезвычайных-ситуаций-на-2018-2030-годы-утвержден-постановлением-правительства-кыргызской-республики-от-29-января-2018-года--58-и-разработан-план-ее-реализации-на-2018-2022-годы">В марте 2015 года Кыргызская Республика приняла на себя обязательства по следованию основным приоритетам Сендайской рамочной программы по снижению риска бедствий, в рамках которой принята <a href="http://ru.mes.kg/category/other/koncepciya-zashhity-naseleniya-i-territorii-kr-ot-cs-2018-2030/">Концепция комплексной защиты населения и территорий Кыргызской Республики от чрезвычайных ситуаций на 2018-2030 годы</a>, утвержден Постановлением Правительства Кыргызской Республики от 29 января 2018 года № 58 и разработан План ее реализации на 2018-2022 годы.</h3>
+
+  </div>
+</div>
+
+
+  
+
+
+
+<div class="row"
+  id="indicatorData"
+  data-indicatorid='indicator_1-5-3'
+  data-id="1-5-3"
+  data-country="Кыргызская Республика"
+  data-charttitle="global_indicators.1-5-3-title"
+  data-charttitles="null"
+  data-measurementunit=""
+  data-xaxislabel=""
+  data-showdata="false"
+  data-graphtype="line"
+  data-graphtypes="null"
+  data-geocoderegex=""
+  data-showmap=""
+  data-startvalues="null"
+  data-graphlimits="null"
+  data-stackeddisaggregation=""
+  data-graphannotations="null"
+  data-graphtargetlines="null"
+  data-graphseriesbreaks="null"
+  data-indicatordownloads="null"
+  data-dataschema="{&quot;fields&quot;:[{&quot;name&quot;:&quot;Year&quot;,&quot;type&quot;:&quot;number&quot;,&quot;title&quot;:&quot;Year&quot;},{&quot;name&quot;:&quot;Value&quot;,&quot;type&quot;:&quot;number&quot;,&quot;title&quot;:&quot;Value&quot;}]}"
+  data-compositebreakdownlabel=""
+  data-precision="null"
+  data-proxy=""
+  data-proxyseries="null"
+>
+  
+  <div id="indicator-main" class="indicator-main col-md-12">
+  
+  <div class="mt-4">
+<ul class="nav nav-tabs" role="tablist">
+    
+    
+        
+        
+        
+        
+        <li role="presentation" class="nav-item">
+            <button
+                type="button"
+                class="nav-link active"
+                data-bs-toggle="tab"
+                id="tab-indicator_information"
+                data-bs-target="#indicator_information"
+                aria-controls="indicator_information"
+                role="tab"
+                data-on="click"
+data-event-category="Tab change"
+data-event-action="Change metadata view"
+data-event-label="Change to custom.indicator_information tab"
+
+            >Көрсөткүч жөнүндө маалымат</button>
+        </li>
+    
+        
+        
+        
+        
+        <li role="presentation" class="nav-item">
+            <button
+                type="button"
+                class="nav-link "
+                data-bs-toggle="tab"
+                id="tab-national"
+                data-bs-target="#national"
+                aria-controls="national"
+                role="tab"
+                data-on="click"
+data-event-category="Tab change"
+data-event-action="Change metadata view"
+data-event-label="Change to indicator.national_metadata tab"
+
+            >indicator.national_metadata</button>
+        </li>
+    
+        
+        
+        
+        
+        <li role="presentation" class="nav-item">
+            <button
+                type="button"
+                class="nav-link "
+                data-bs-toggle="tab"
+                id="tab-data_reporter"
+                data-bs-target="#data_reporter"
+                aria-controls="data_reporter"
+                role="tab"
+                data-on="click"
+data-event-category="Tab change"
+data-event-action="Change metadata view"
+data-event-label="Change to custom.data_reporter tab"
+
+            >Маалымат жеткирүүчүлөр</button>
+        </li>
+    
+    
+    
+</ul>
+
+<div class="tab-content">
+    
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        <div role="tabpanel" class="tab-pane active" id="indicator_information">
+            <article>
+                <p>Бул таблица көрсөткүч жөнүндө маалымат берет</p>
+
+                <table class="table metadata-content">
+  <tbody>
+  
+  
+  
+  
+  
+      
+      
+      
+      
+      <tr>
+        <th scope="row">metadata_fields.indicator_name </th>
+        <td>
+          
+            <p>1.5.3: Число стран, принявших и осуществляющих стратегии снижения риска бедствий в соответствии с Сендайской рамочной программой по снижению риска бедствий на 2015–2030 годы</p>
+
+          
+        </td>
+        </tr>
+        
+      
+  
+      
+      
+      
+      
+      <tr>
+        <th scope="row">metadata_fields.target </th>
+        <td>
+          
+            <p>1.5: К 2030 году повысить жизнестойкость малоимущих и лиц, находящихся в уязвимом положении, и уменьшить их незащищенность и уязвимость перед вызванными изменением климата экстремальными явлениями и другими экономическими, социальными и экологическими потрясениями и бедствиями</p>
+
+          
+        </td>
+        </tr>
+        
+      
+  
+      
+      
+      
+      
+      <tr>
+        <th scope="row">Максат </th>
+        <td>
+          
+            <ol>
+  <li>Повсеместная ликвидация нищеты во всех её формах</li>
+</ol>
+
+          
+        </td>
+        </tr>
+        
+      
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  </tbody>
+</table>
+
+            </article>
+        </div>
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        <div role="tabpanel" class="tab-pane " id="national">
+            <article>
+                <p>indicator.national_metadata_blurb</p>
+
+                <table class="table metadata-content">
+  <tbody>
+  
+  
+  
+  
+  
+  
+  
+  
+      
+      
+      
+      
+      <tr>
+        <th scope="row">Geographical coverage </th>
+        <td>
+          
+            <p>Кыргызская Республика</p>
+
+          
+        </td>
+        </tr>
+        
+      
+  
+      
+      
+      
+        
+          
+          
+          
+          
+        
+      
+      
+      <tr>
+        <th scope="row">metadata_fields.computation_units </th>
+        <td>
+          
+            <p><span class="empty-metadata-placeholder"></span></p>
+
+          
+        </td>
+        </tr>
+        
+      
+  
+      
+      
+      
+      
+      <tr>
+        <th scope="row">metadata_fields.computation_definitions </th>
+        <td>
+          
+            <p>Сендайская рамочная программа по снижению риска бедствий на 2015-2030 г. (принята на Третьей всемирной конференции ООН по СРБ в марте 2015 г., г.Сендай, Япония), предусматривает 7 целевых задач (A, D, C, D, E, F, G).
+Сендайская рамочная программа это расширенный инструмент-преемник Хиогской рамочной программы действий, в которой уделяется большее внимание предотвращению новых рисков, снижению существующей опасности и укреплению устойчивости, в отличие от управления бедствиями.
+Задача Е - существенное увеличение количества стран с национальными и местными стратегиями по сокращению риска бедствий в соответствии с Сендайской рамочной программой по снижению риска бедствий на 2015-2030 г.
+Стратегии и политики в области снижения риска бедствий: определение целей и задач на различные временные периоды с конкретными целями, показателями и сроками. В соответствии с Сендайской Рамочной Программой по снижению риска бедствий на 2015-2030 годы, данные меры должны быть направлены на предотвращение появления риска бедствий, снижение
+существующих рисков и укрепление экономической, социальной, экологической устойчивости и устойчивости здравоохранения. 
+Местные органы власти: Форма административно-территориального
+государственного управления, в которой ответственность за снижение риска бедствий определятся страной в рамках мониторинга Задачи Е.
+ Определения взяты из «Технического руководства по мониторингу и представлению отчетности о прогрессе в области достижения глобальных целевых задач в рамках Сендайской рамочной программы по снижению риска бедствий», разработанного межправительственной рабочей группы экспертов открытого состава по работе с показателями и терминологией о снижении риска бедствий (МРГОС) и одобренного Генеральной Ассамблеей Организации Объединенных Наций в резолюции A/RES/71/276, БСРБ ООН.</p>
+
+          
+        </td>
+        </tr>
+        
+      
+  
+      
+      
+      
+      
+      <tr>
+        <th scope="row">Негизги түшүнүктөр </th>
+        <td>
+          
+            <p>Ожидаемые показатели в рамках Сендайской рамочной программы за 15 лет: “Существенное снижение риска бедствий и гибели людей, жизнедеятельность и здоровье, а также в экономические, материальные, социальные, культурные и экологические активы лиц, предприятий, общин и стран”. В Рамочной программе утверждается, что “Для достижения ожидаемых показателей необходимо стремиться к достижению следующей цели: Предотвращение новых и снижение существующих рисков бедствий путем осуществления комплексных и всеобъемлющих экономических, структурных, правовых, социальных, медицинских, культурных, образовательных, экологических, технологических, политических и институциональных мер, которые препятствуют и понижают подверженность риску и уязвимость к бедствиям, повышают готовности к реагированию и восстановлению и, таким образом, укрепляют устойчивость “.
+Национальные и местные стратегии СРБ должны основываться на и согласовываться с объемом, результатом, целью, руководящими принципами и приоритетами действий Сендайской рамочной программы, как-то упоминалось выше.</p>
+
+          
+        </td>
+        </tr>
+        
+      
+  
+      
+      
+      
+      
+      <tr>
+        <th scope="row">Негиздөө жана чечмелөө </th>
+        <td>
+          
+            <p>Увеличение числа национальных правительств, которые принимают и реализуют национальные и местные стратегии УОБ, которые, согласно Сендайской рамочной программе, будут способствовать устойчивому развитию с экономической, экологической и социальной точек зрения.
+В случае Задачи Е, методом расчета является простая средняя арифметическая уровня осуществления каждого из ключевых элементов, информацию о статусе которых государства-члены будут сообщать через онлайн-систему для мониторинга осуществления Сендайской рамочной программы. Система будет вычислять результат для страны отчетность по следующей методологии.</p>
+
+          
+        </td>
+        </tr>
+        
+      
+  
+      
+      
+      
+      
+      <tr>
+        <th scope="row">Эсептөө ыкмасы </th>
+        <td>
+          
+            <p>Для проведения простого и единообразного глобального мониторинга Задачи Е, предложено суммирование национальных данных для показателя E-1 и среднее арифметическое национальных данных для показателя E-2. Десять ключевых элементов предлагается оценивать равно, назначая 10% (или 0,1) для каждого элемента. Так как каждый элемент сам по себе может состоять из нескольких составных элементов, страны будут проводить сравнительный анализ, согласно следующего взвешивания показателей:
+I. Полное выполнение (полный результат): 1.0,
+II. Значительное выполнение, требуется дополнительный прогресс: 0.75,
+III. Среднее выполнение, не полное, не значительное: 0.50,
+IV. Небольшое выполнение: 0.25,
+Невыполнение или отсутствие выполнения означают 0.
+Последняя версия этой методологии можно получить по адресу:
+http://www.preventionweb.net/documents/oiewg/Technical%20Collection%20of%20Concept%20Notes%20on%20Indicators.pdf</p>
+
+          
+        </td>
+        </tr>
+        
+      
+  
+      
+      
+      
+      
+      <tr>
+        <th scope="row">Түшүндүрмөлөр жана чектөөлөр </th>
+        <td>
+          
+            <p>Инструмент мониторинга Хиогской рамочной программы действий (HFA) начал действие в 2007 году и с течением времени увеличилось число стран, подотчетных МСУОБ ООН, от 60 в 2007 году до 140 стран, которые в настоящее время проводят добровольную самооценку прогресса внедрения Хиогской рамочной программы действий. В течение четырех циклов отчетности до 2015 года инструмент мониторинга Хиогской рамочной программы действий создал крупнейший в мире репозиторий информации о национальной политике в области УОБ, в частности. Преемственная программа, условно названная Сендайским инструментом мониторинга, находится в разработке и будет проинформирован рекомендациями МРГОС (OEIWG). Предполагается, что базовый уровень по состоянию на 2015 год будет создан в 2016-2017 годах, что соответствует прогрессу в достижении целей как Сендайской рамочной программы, так и ЦУР.
+Члены как МРГОС и Межправительственная рабочая группа по Целям устойчивого развития (IAEG-SDG) обратили внимание на то, что индикаторы, которые просто подсчитывают количество стран, не рекомендуются, вместо этого поощряются показатели для оценки прогресса с течением времени. В дополнение к обсуждениям МРГОС, а также Межведомственной экспертной группы, МСУОБ ООН предложила методологию расчета, которая позволит осуществлять мониторинг улучшения национальных и местных стратегий УОБ с течением времени. Эти методологии варьируются от простой количественной оценки этих стратегий до качественной меры согласования с Сендайской рамочной программой, а также охвата населения местными стратегиями.</p>
+
+          
+        </td>
+        </tr>
+        
+      
+  
+      
+      
+      
+      
+      <tr>
+        <th scope="row">Сапат кепилдиги </th>
+        <td>
+          
+            <p>Страны представляют отчетные данные в систему онлайн мониторинга Сендайской рамочной программы. Заполнение данных проходит 3 уровня (автор, валидатор, национальный координатор), все данные отображаются в онлайн режиме на сайте мониторинга Сендая.
+МЧС КР как государственный орган представляет в Нацстатком КР по Матрице инвентаризации и адаптации задач и показателей Целей устойчивого развития</p>
+
+          
+        </td>
+        </tr>
+        
+      
+  
+      
+      
+      
+      
+      <tr>
+        <th scope="row">Маалыматтардын жеткиликтүүлүгү жана боштуктар </th>
+        <td>
+          
+            <p>В онлайн режиме на сайте мониторинга Сендая. https://sendaicommitments.unisdr.org 
+Отчетность по показателю представляется МЧС КР в Нацстатком КР по Матрице инвентаризации и адаптации задач и показателей Целей устойчивого развития</p>
+
+          
+        </td>
+        </tr>
+        
+      
+  
+      
+      
+      
+      
+      <tr>
+        <th scope="row">Бөлүү </th>
+        <td>
+          
+            <p>Национальный уровень.</p>
+
+          
+        </td>
+        </tr>
+        
+      
+  
+      
+      
+      
+      
+      <tr>
+        <th scope="row">Эл аралык маалыматтар/стандарттар менен салыштыруу </th>
+        <td>
+          
+            <p>Концепция комплексной защиты населения и территории Кыргызской Республики от чрезвычайных ситуаций на 2018-2030 годы, утверждена постановлением Правительства Кыргызской Республики от 29.01.2018 года №58. Концепция включает в себя все 4 приоритета Сендайской рамочной программы СРБ. Имеется связь Целей ЦУР с Сендайской рамочной программой СРБ по целям 1.5, 11.5 и 13.1.
+Данные сопоставимы и представляются данные в систему онлайн мониторинга Сендайской рамочной программы.</p>
+
+          
+        </td>
+        </tr>
+        
+      
+  
+      
+      
+      
+      
+      <tr>
+        <th scope="row">Шилтемелер жана документтер </th>
+        <td>
+          
+            <p>Сайт МЧС КР, http://ru.mes.kg/
+Сайт НСК КР, http://www.stat.kg/ru/, раздел ЦУР, Матрица инвентаризации и адаптации задач и показателей Целей устойчивого развития 
+Национальная платформа отчётности ЦУР КР: https://sustainabledevelopment-kyrgyzstan.github.io</p>
+
+          
+        </td>
+        </tr>
+        
+      
+  
+      
+      
+      
+      
+      <tr>
+        <th scope="row">Маалымат булагы </th>
+        <td>
+          
+            <p>МЧС КР, система онлайн мониторинга Сендайской рамочной программы https://sendaicommitments.unisdr.org</p>
+
+          
+        </td>
+        </tr>
+        
+      
+  
+      
+      
+      
+      
+      <tr>
+        <th scope="row">Маалыматтарды чогултуу ыкмалары </th>
+        <td>
+          
+            <p>Официальный партнер(ы) на уровне страны предоставляют национальный отчет о прогрессе в Мониторинге Сендайской рамочной программы.</p>
+
+          
+        </td>
+        </tr>
+        
+      
+  
+      
+      
+      
+      
+      <tr>
+        <th scope="row">Link to UN metadata </th>
+        <td>
+          
+            
+            
+            
+            
+            
+              <a href="https://unstats.un.org/sdgs/metadata/files/Metadata-01-05-03.pdf" target="_blank">
+                Бириккен Улуттар Уюмунун Туруктуу өнүгүү максаттарынын метамаалыматтары <span class="visuallyhidden"></span>
+              </a>
+            
+
+          
+        </td>
+        </tr>
+        
+      
+  
+      
+      
+      
+      
+      
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  </tbody>
+</table>
+
+            </article>
+        </div>
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        <div role="tabpanel" class="tab-pane " id="data_reporter">
+            <article>
+                <p>Бул таблица маалымат жеткирүүчүлөр жөнүндө маалымат берет</p>
+
+                <table class="table metadata-content">
+  <tbody>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+      
+      
+      
+      
+      <tr>
+        <th scope="row">Уюм </th>
+        <td>
+          
+            <p>Министерство чрезвычайных ситуаций КР</p>
+
+          
+        </td>
+        </tr>
+        
+      
+  
+      
+      
+      
+      
+      <tr>
+        <th scope="row">Байланыш адамы(дары)/координатор </th>
+        <td>
+          
+            <p>Кадырова Г.Б./ Мамбетов А.М.</p>
+
+          
+        </td>
+        </tr>
+        
+      
+  
+      
+      
+      
+      
+      <tr>
+        <th scope="row">Байланыш адамынын электрондук почтасы </th>
+        <td>
+          
+            <p>k-gulshat-b@mail.ru</p>
+
+          
+        </td>
+        </tr>
+        
+      
+  
+      
+      
+      
+      
+      <tr>
+        <th scope="row">Байланыш телефон номери </th>
+        <td>
+          
+            <p>(0312) 56-86-32</p>
+
+          
+        </td>
+        </tr>
+        
+      
+  
+      
+      
+      
+      
+      <tr>
+        <th scope="row">Уюмдун сайты </th>
+        <td>
+          
+            <p>http://ru.mes.kg/</p>
+
+          
+        </td>
+        </tr>
+        
+      
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  </tbody>
+</table>
+
+            </article>
+        </div>
+        
+    
+    
+</div>
+
+</div>
+  </div>
+</div>
+
+</div>
+
+<script src="https://code.jquery.com/jquery-3.6.1.min.js" integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+<script src="https://cdn.datatables.net/1.11.5/js/jquery.dataTables.min.js"></script>
+<script src="https://cdn.datatables.net/1.11.5/js/dataTables.bootstrap5.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/4.17.21/lodash.min.js" integrity="sha512-WFN04846sdKMIP5LKNphMaWzU7YpMyCU245etK3g/2ARYbPK9Ub18eG+ljU96qKRCWh+quCY7yefSmlkQw1ANQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script src="https://cdn.jsdelivr.net/npm/chart.js@3.7.0/dist/chart.min.js" integrity="sha256-Y26AMvaIfrZ1EQU49pf6H4QzVTrOI8m9wQYKkftBt4s=" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/patternomaly@1.3.2/dist/patternomaly.js"></script>
+
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/autotrack/2.4.1/autotrack.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/html2canvas@1.0.0-rc.3/dist/html2canvas.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/file-saver@2.0.2/dist/FileSaver.min.js"></script>
+
+
+
+
+
+  <script >
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-155242465-1', 'auto');
+ga('require', 'eventTracker', {
+    attributePrefix: 'data-'
+});
+// anonymize user IPs (chops off the last IP triplet)
+ga('set', 'anonymizeIp', true);
+// forces SSL even if the page were somehow loaded over http://
+ga('set', 'forceSSL', true);
+ga('send', 'pageview');
+</script>
+
+
+
+<script>translations['general'] = translations['general'] || {};
+    translations['general']['hide'] = '';</script>
+
+<script>translations['search'] = translations['search'] || {};
+    translations['search']['search'] = '';</script>
+
+<script src='/assets/js/sdg.js?v=20240607121916'></script>
+
+
+    
+    
+    <script src="/assets/js/custom.js?v=20240607121916"></script><script>
+    new indicatorInit();
+    new accessibilitySwitcher();
+</script>
+
+<script type="text/javascript" src="https://pym.nprapps.org/pym.v1.min.js"></script>
+<script>
+    new pym.Child();
+</script>
+
+</body>
+</html>
