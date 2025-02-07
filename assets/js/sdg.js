@@ -2785,6 +2785,17 @@ function inputEdges(edges) {
       return true;
     });
   }
+  var configuredObservationAttributes = [{"field":"COMMENT_OBS","label":""}];
+  if (configuredObservationAttributes && configuredObservationAttributes.length > 0) {
+    configuredObservationAttributesFlat = configuredObservationAttributes.map(function(att) { return att.field; });
+    edgesData = edgesData.filter(function(edge) {
+      if (configuredObservationAttributesFlat.includes(edge.To) || configuredObservationAttributesFlat.includes(edge.From)) {
+        return false;
+      }
+      return true;
+    });
+  }
+
   return edgesData;
 }
 

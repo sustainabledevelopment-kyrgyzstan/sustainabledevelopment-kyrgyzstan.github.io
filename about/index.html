@@ -3,7 +3,7 @@
     <head>
         <meta charset="utf-8">
         <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.min.js"></script>
-        <script crossorigin="anonymous" src="https://polyfill.io/v3/polyfill.min.js?features=Promise%2CArray.prototype.forEach%2CString.prototype.includes%2CURLSearchParams%2CCustomEvent%2CArray.prototype.includes%2CArray.prototype.filter%2CArray.prototype.some%2CArray.prototype.find%2CArray.prototype.reduce%2CObject.assign%2CArray.isArray%2CObject.values%2CObject.entries%2CArray.from%2CSet%2CArray.prototype.findIndex%2Cfetch"></script>
+        <script crossorigin="anonymous" src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?version=4.8.0&features=Promise%2CString.prototype.includes%2CCustomEvent%2CArray.prototype.includes%2CArray.prototype.find%2CObject.assign%2CObject.values%2CObject.entries%2CArray.from%2CSet%2CArray.prototype.findIndex%2Cfetch"></script>
 <script crossorigin="anonymous" src="https://cdnjs.cloudflare.com/ajax/libs/javascript-canvas-to-blob/3.15.0/js/canvas-to-blob.min.js"></script>
 
         <script>
@@ -117,7 +117,7 @@ var translations = {
         ================================================== -->
 
         
-    <title>About - Indicators For The Sustainable Development Goals</title>
+    <title>О нас - Indicators For The Sustainable Development Goals</title>
 
 
 
@@ -138,7 +138,7 @@ var translations = {
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
         <link res="stylesheet" href="https://cdn.datatables.net/1.11.5/css/dataTables.bootstrap5.min.css">
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" crossorigin="">
-        <link rel="stylesheet" href="/assets/css/style.css?v=20240927100008">
+        <link rel="stylesheet" href="/assets/css/style.css?v=20250207131257">
         <link rel="stylesheet" href="https://unpkg.com/leaflet@1.3.4/dist/leaflet.css"
           integrity="sha512-puBpdR0798OZvTTbP4A8Ix/l+A4dHDD0DGqYW6RQ+9jxkRFclaxxQb/SJAWZfWAkuyeQUytO7+7N4QKrDh+drA=="
           crossorigin=""/>
@@ -146,7 +146,7 @@ var translations = {
         <link rel="stylesheet" href='https://api.mapbox.com/mapbox.js/plugins/leaflet-fullscreen/v1.0.1/leaflet.fullscreen.css'  crossorigin=""/>
         <link rel="stylesheet" href="https://bowercdn.net/c/leaflet.zoomhome-latest/dist/leaflet.zoomhome.css"  crossorigin=""/>
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet-search@2.9.7/dist/leaflet-search.min.css" crossorigin="">
-        <link rel="stylesheet" href="https://cdn.kiprotect.com/klaro/v0.7/klaro.min.css" crossorigin=""/><link rel="stylesheet" href="/assets/css/custom.css?v=20240927100008">
+        <link rel="stylesheet" href="https://cdn.kiprotect.com/klaro/v0.7/klaro.min.css" crossorigin=""/><link rel="stylesheet" href="/assets/css/custom.css?v=20250207131257">
         
 
         
@@ -178,7 +178,7 @@ layout-page
 <header role="banner" class="">
     <div class="container">
         <nav class="navbar navbar-expand-lg navbar-light flex-wrap align-items-start">
-            <a class="navbar-brand" style="max-width: 50px" target="_blank" href="http://www.stat.kg/">
+            <a class="navbar-brand" style="max-width: 50px" target="_blank" href="http://www.stat.gov.kg/">
   <img alt="Цели в области устойчивого развития - 17 Целей, чтобы преобразовать наш мир" style="width: auto; height: 40px" src="/assets/img/favicons/android-chrome-192x192.png" />
 </a>
 <a class="navbar-brand" href="/" id="home">
@@ -192,6 +192,8 @@ layout-page
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class="navbar-nav" id="menu"><li class="nav-item ">
     <a class="nav-link" href="/reporting-status">Состояние отчётности</a>
+</li><li class="nav-item ">
+    <a class="nav-link" href="/dashboard">Информационная панель</a>
 </li><li class="nav-item ">
     <a class="nav-link" href="/news">Новости</a>
 </li><li class="nav-item ">
@@ -235,7 +237,7 @@ layout-page
               English
             </a>
           </li><li>
-            <a class="dropdown-item" href="/kg/about/">
+            <a class="dropdown-item" href="/ky/about/">
               
             </a>
           </li></ul>
@@ -254,8 +256,8 @@ layout-page
             <a class="language-toggle-link" href="/en/about/">
                 English
             </a>
-        </li><li class="language-option-kg list-inline-item">
-            <a class="language-toggle-link" href="/kg/about/">
+        </li><li class="language-option-ky list-inline-item">
+            <a class="language-toggle-link" href="/ky/about/">
                 
             </a>
         </li></ul>
@@ -279,21 +281,21 @@ data-event-label="high"
         <li class="breadcrumb-item" >
             <a href="/">Главная</a>
         </li>
-        <li class="breadcrumb-item active">About</li>
+        <li class="breadcrumb-item active">О нас</li>
     </ol>
 </nav>
 </div>
 <div id="main-content" class="container" role="main">
     <div>
-        <h1>About</h1>
+        <h1>О нас</h1>
         
 
 
-    <p>This website is for disseminating SDG indicator data. We are at an Alpha stage in development, so the site is still ‘work in progress’.</p>
+    <p>Этот сайт предназначен для распространения данных по индикаторам ЦУР.</p>
 
-<p>Other countries wishing to reuse this site’s underlying platform are welcome to do so for free. Our <a href="/guidance/">Guidance page</a> highlights key information on how to do this, linking to detailed technical instructions available in the platform’s <a href="https://open-sdg.readthedocs.io">documentation</a>. The <a href="http://www.opendataenterprise.org/">Center for Open Data Enterprise (CODE)</a> can also provide guidance and support through their <a href="https://www.sdgreporting.org/">SDG National Reporting Initiative</a>.</p>
+<p>Другие страны, желающие использовать основную платформу этого сайта, могут сделать это бесплатно. Наша <a href="/guidance/">страница с рекомендациями</a> содержит ключевую информацию о том, как это сделать, с ссылками на подробные технические инструкции, доступные в документации платформы. Центр открытых данных (CODE) также может предоставить рекомендации и поддержку через свою Инициативу по национальной отчетности по ЦУР.</p>
 
-<p>If you have any feedback on this website or SDG data then please contact us at <a href="mailto:sdg_nsc@stat.kg">sdg_nsc@stat.kg</a>. The answers to some frequently asked questions are also available in our <a href="/faq/">FAQ</a>.</p>
+<p>Если у вас есть какие-либо комментарии по этому сайту или данным ЦУР, пожалуйста, свяжитесь с нами по адресу <a href="mailto:sdg_nsc@stat.kg">sdg_nsc@stat.kg</a>. Ответы на некоторые часто задаваемые вопросы также доступны в наших <a href="/faq/">ЧАВО</a>.</p>
 
 
 
@@ -371,12 +373,12 @@ ga('send', 'pageview');
 <script>translations['search'] = translations['search'] || {};
     translations['search']['search'] = 'Поиск';</script>
 
-<script src='/assets/js/sdg.js?v=20240927100008'></script>
+<script src='/assets/js/sdg.js?v=20250207131257'></script>
 
 
     
     
-    <script src="/assets/js/custom.js?v=20240927100008"></script><script>
+    <script src="/assets/js/custom.js?v=20250207131257"></script><script>
     new indicatorInit();
     new accessibilitySwitcher();
 </script>

@@ -3,7 +3,7 @@
     <head>
         <meta charset="utf-8">
         <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.min.js"></script>
-        <script crossorigin="anonymous" src="https://polyfill.io/v3/polyfill.min.js?features=Promise%2CArray.prototype.forEach%2CString.prototype.includes%2CURLSearchParams%2CCustomEvent%2CArray.prototype.includes%2CArray.prototype.filter%2CArray.prototype.some%2CArray.prototype.find%2CArray.prototype.reduce%2CObject.assign%2CArray.isArray%2CObject.values%2CObject.entries%2CArray.from%2CSet%2CArray.prototype.findIndex%2Cfetch"></script>
+        <script crossorigin="anonymous" src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?version=4.8.0&features=Promise%2CString.prototype.includes%2CCustomEvent%2CArray.prototype.includes%2CArray.prototype.find%2CObject.assign%2CObject.values%2CObject.entries%2CArray.from%2CSet%2CArray.prototype.findIndex%2Cfetch"></script>
 <script crossorigin="anonymous" src="https://cdnjs.cloudflare.com/ajax/libs/javascript-canvas-to-blob/3.15.0/js/canvas-to-blob.min.js"></script>
 
         <script>
@@ -117,7 +117,7 @@ var translations = {
         ================================================== -->
 
         
-    <title>Frequently Asked Questions (FAQ) - Indicators For The Sustainable Development Goals</title>
+    <title>Часто задаваемые вопросы (ЧАВО) - Indicators For The Sustainable Development Goals</title>
 
 
 
@@ -138,7 +138,7 @@ var translations = {
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
         <link res="stylesheet" href="https://cdn.datatables.net/1.11.5/css/dataTables.bootstrap5.min.css">
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" crossorigin="">
-        <link rel="stylesheet" href="/assets/css/style.css?v=20240927100008">
+        <link rel="stylesheet" href="/assets/css/style.css?v=20250207131257">
         <link rel="stylesheet" href="https://unpkg.com/leaflet@1.3.4/dist/leaflet.css"
           integrity="sha512-puBpdR0798OZvTTbP4A8Ix/l+A4dHDD0DGqYW6RQ+9jxkRFclaxxQb/SJAWZfWAkuyeQUytO7+7N4QKrDh+drA=="
           crossorigin=""/>
@@ -146,7 +146,7 @@ var translations = {
         <link rel="stylesheet" href='https://api.mapbox.com/mapbox.js/plugins/leaflet-fullscreen/v1.0.1/leaflet.fullscreen.css'  crossorigin=""/>
         <link rel="stylesheet" href="https://bowercdn.net/c/leaflet.zoomhome-latest/dist/leaflet.zoomhome.css"  crossorigin=""/>
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet-search@2.9.7/dist/leaflet-search.min.css" crossorigin="">
-        <link rel="stylesheet" href="https://cdn.kiprotect.com/klaro/v0.7/klaro.min.css" crossorigin=""/><link rel="stylesheet" href="/assets/css/custom.css?v=20240927100008">
+        <link rel="stylesheet" href="https://cdn.kiprotect.com/klaro/v0.7/klaro.min.css" crossorigin=""/><link rel="stylesheet" href="/assets/css/custom.css?v=20250207131257">
         
 
         
@@ -178,7 +178,7 @@ layout-page
 <header role="banner" class="">
     <div class="container">
         <nav class="navbar navbar-expand-lg navbar-light flex-wrap align-items-start">
-            <a class="navbar-brand" style="max-width: 50px" target="_blank" href="http://www.stat.kg/">
+            <a class="navbar-brand" style="max-width: 50px" target="_blank" href="http://www.stat.gov.kg/">
   <img alt="Цели в области устойчивого развития - 17 Целей, чтобы преобразовать наш мир" style="width: auto; height: 40px" src="/assets/img/favicons/android-chrome-192x192.png" />
 </a>
 <a class="navbar-brand" href="/" id="home">
@@ -192,6 +192,8 @@ layout-page
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class="navbar-nav" id="menu"><li class="nav-item ">
     <a class="nav-link" href="/reporting-status">Состояние отчётности</a>
+</li><li class="nav-item ">
+    <a class="nav-link" href="/dashboard">Информационная панель</a>
 </li><li class="nav-item ">
     <a class="nav-link" href="/news">Новости</a>
 </li><li class="nav-item ">
@@ -235,7 +237,7 @@ layout-page
               English
             </a>
           </li><li>
-            <a class="dropdown-item" href="/kg/faq/">
+            <a class="dropdown-item" href="/ky/faq/">
               
             </a>
           </li></ul>
@@ -254,8 +256,8 @@ layout-page
             <a class="language-toggle-link" href="/en/faq/">
                 English
             </a>
-        </li><li class="language-option-kg list-inline-item">
-            <a class="language-toggle-link" href="/kg/faq/">
+        </li><li class="language-option-ky list-inline-item">
+            <a class="language-toggle-link" href="/ky/faq/">
                 
             </a>
         </li></ul>
@@ -279,54 +281,53 @@ data-event-label="high"
         <li class="breadcrumb-item" >
             <a href="/">Главная</a>
         </li>
-        <li class="breadcrumb-item active">Frequently Asked Questions (FAQ)</li>
+        <li class="breadcrumb-item active">Часто задаваемые вопросы (ЧАВО)</li>
     </ol>
 </nav>
 </div>
 <div id="main-content" class="container" role="main">
     <div>
-        <h1>Frequently Asked Questions (FAQ)</h1>
+        <h1>Часто задаваемые вопросы (ЧАВО)</h1>
         
 
 
-    <h2 id="what-do-the-different-tiers-mean">What do the different tiers mean?</h2>
+    <h2 id="что-означают-различные-уровни">Что означают различные уровни?</h2>
 
-<p>Tier 1: Indicator is conceptually clear, has an internationally established methodology and standards are available, and data are regularly produced by countries for at least 50 per cent of countries and of the population in every region where the indicator is relevant.</p>
+<p>Уровень 1: Индикатор концептуально ясен, существует международно установленная методология и доступные стандарты, и данные регулярно производятся странами для не менее чем 50% стран и населения в каждом регионе, где индикатор актуален.</p>
 
-<p>Tier 2: Indicator is conceptually clear, has an internationally established methodology and standards are available, but data are not regularly produced by countries.</p>
+<p>Уровень 2: Индикатор концептуально ясен, существует международно установленная методология и доступные стандарты, но данные не производятся странами регулярно.</p>
 
-<p>Tier 3: No internationally established methodology or standards are yet available for the indicator, but methodology/standards are being (or will be) developed or tested</p>
+<p>Уровень 3: Методология или стандарты для индикатора еще не установлены, но они разрабатываются или тестируются.</p>
 
-<h2 id="how-do-i-suggest-new-or-different-data-sources">How do I suggest new or different data sources?</h2>
-<p>If you have feedback on the data sources we have used or have suggestions for new data sources then please email us at <a href="mailto:sdg_nsc@stat.kg">sdg_nsc@stat.kg</a>.</p>
+<p>Как я могу предложить новые или другие источники данных?
+Если у вас есть отзывы о использованных источниках данных или предложения по новым источникам, пожалуйста, напишите нам на <a href="mailto:sdg_nsc@stat.kg">sdg_nsc@stat.kg</a>.</p>
 
-<h2 id="what-does-the-reporting-status-mean">What does the reporting status mean?</h2>
-<p>We have used three different types of reporting status for an indicator, which are also colour coded:</p>
+<h2 id="что-означает-статус-отчетности">Что означает статус отчетности?</h2>
+<p>Мы используем три типа статуса отчетности для индикатора, которые также кодируются цветом:</p>
 
 <ul>
-  <li>Reported online (green) – as a minimum the headline national data for this indicator is available on this website but the data might not be fully disaggregated yet. We are continuing to source additional disaggregations.</li>
-  <li>Statistics in progress (amber) – we have found a suitable source of data for this indicator or relevant proxy at national level. We are currently quality assuring the data and preparing it for publication.</li>
-  <li>Exploring data sources (red) – we are still looking for a suitable data source for this indicator.</li>
+  <li>Отчет представлен онлайн (зеленый) – как минимум, основные национальные данные по этому индикатору доступны на этом сайте, но данные могут быть не полностью разбиты по категориям. Мы продолжаем искать дополнительные разбиения.</li>
+  <li>Статистика в процессе (январь) – мы нашли подходящий источник данных для этого индикатора или соответствующего прокси на национальном уровне. Мы в настоящее время контролируем качество данных и подготавливаем их к публикации.</li>
+  <li>Изучение источников данных (красный) – мы все еще ищем подходящий источник данных для этого индикатора.</li>
+  <li>Дополнительная информация о статусе сбора и отчетности данных индикатора будет отображаться в верхней части страницы индикатора.</li>
 </ul>
 
-<p>Where there is additional information about the status of indicator data collection and reporting, this will be displayed at the top of the indicator page.</p>
+<h2 id="как-часто-будут-добавляться-новые-данные-на-этот-сайт">Как часто будут добавляться новые данные на этот сайт?</h2>
+<p>Мы будем добавлять данные, как только они будут собраны и проверены. Это включает в себя новые данные, а также обновления уже опубликованных данных. Мы будем продолжать собирать данные из существующих источников, где это возможно, в сотрудничестве с тематическими экспертами.</p>
 
-<h2 id="how-often-will-new-data-be-added-to-this-site">How often will new data be added to this site?</h2>
-<p>We will add data as soon as it has been sourced and checked. This includes new data as well as updates to data we have already published. We will continue to collect data from existing sources where possible, in cooperation with topic experts.</p>
+<h2 id="что-вы-делаете-для-заполнения-пробелов-в-данных">Что вы делаете для заполнения пробелов в данных?</h2>
+<p>Для некоторых индикаторов, хотя у нас могут быть данные на национальном уровне, наши существующие источники данных не всегда позволяют разбивать данные по всем основным группам.</p>
 
-<h2 id="what-are-you-doing-to-fill-data-gaps">What are you doing to fill data gaps?</h2>
-<p>For some indicators, although we may have data at the national level, our existing data sources don’t always allow us to disaggregate by all main groups.</p>
+<p>Это означает, что нам нужно искать новые источники данных, связывать существующие или моделировать данные.</p>
 
-<p>This means we need to look for new data sources, link existing ones, or model data.</p>
+<h2 id="насколько-доступен-этот-сайт">Насколько доступен этот сайт?</h2>
+<p>Наша цель – сделать этот сайт как можно более доступным и удобным для всех пользователей. Мы работаем над достижением уровня AA по <a href="https://www.gov.uk/service-manual/helping-people-to-use-your-service/understanding-wcag-20">Руководству по доступности веб-контента (WCAG 2.0)</a>.</p>
 
-<h2 id="how-accessible-is-this-website">How accessible is this website?</h2>
-<p>Our aim is to make this website as accessible and usable as possible for every user. We are working towards meeting AA level of the <a href="https://www.gov.uk/service-manual/helping-people-to-use-your-service/understanding-wcag-20">Web Content Accessibility Guidelines (WCAG 2.0)</a>.</p>
+<h2 id="в-каких-браузерах-я-могу-просматривать-этот-сайт">В каких браузерах я могу просматривать этот сайт?</h2>
+<p>Наш сайт работает с большинством последних версий популярных браузеров. Существуют некоторые проблемы с использованием сайта на старых версиях браузеров, например, IE8, и мы работаем над их устранением.</p>
 
-<h2 id="what-browsers-can-i-use-to-view-this-website">What browsers can I use to view this website?</h2>
-<p>Our website works with most of the latest versions of the commonly used browsers. There are some issues with using the site on older versions of browsers eg IE8 and we are working to fix these.</p>
-
-<h2 id="can-other-countries-copy-this-website">Can other countries copy this website?</h2>
-<p>Yes. This site is built and hosted using 100% free software and services, so other countries and localities can freely and easily reuse our code. Technical guidance on implementing this platform is available <a href="https://open-sdg.readthedocs.io">here</a>. Countries and localities exploring how to report their own SDGs data can also get support from the <a href="http://www.opendataenterprise.org/">Center for Open Data Enterprise (CODE)</a> through their <a href="https://www.sdgreporting.org/">SDG National Reporting Initiative</a>.</p>
+<h2 id="могут-ли-другие-страны-копировать-этот-сайт">Могут ли другие страны копировать этот сайт?</h2>
+<p>Да. Этот сайт построен и размещен с использованием 100% бесплатного программного обеспечения и услуг, поэтому другие страны и местные сообщества могут свободно и легко повторно использовать наш код. Технические рекомендации по реализации этой платформы доступны <a href="https://open-sdg.readthedocs.io">здесь</a>. Страны и местные сообщества, изучающие, как сообщать о своих собственных данных по ЦУР, также могут получить поддержку от <a href="http://www.opendataenterprise.org/">Центра открытых данных (CODE)</a>  через их <a href="https://www.sdgreporting.org/">Инициативу по национальной отчетности по ЦУР</a>..</p>
 
 
 
@@ -404,12 +405,12 @@ ga('send', 'pageview');
 <script>translations['search'] = translations['search'] || {};
     translations['search']['search'] = 'Поиск';</script>
 
-<script src='/assets/js/sdg.js?v=20240927100008'></script>
+<script src='/assets/js/sdg.js?v=20250207131257'></script>
 
 
     
     
-    <script src="/assets/js/custom.js?v=20240927100008"></script><script>
+    <script src="/assets/js/custom.js?v=20250207131257"></script><script>
     new indicatorInit();
     new accessibilitySwitcher();
 </script>
