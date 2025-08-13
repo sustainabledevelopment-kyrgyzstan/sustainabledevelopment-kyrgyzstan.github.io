@@ -143,7 +143,7 @@ var translations = {
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
         <link res="stylesheet" href="https://cdn.datatables.net/1.11.5/css/dataTables.bootstrap5.min.css">
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" crossorigin="">
-        <link rel="stylesheet" href="/assets/css/style.css?v=20250306033305">
+        <link rel="stylesheet" href="/assets/css/style.css?v=20250813015559">
         <link rel="stylesheet" href="https://unpkg.com/leaflet@1.3.4/dist/leaflet.css"
           integrity="sha512-puBpdR0798OZvTTbP4A8Ix/l+A4dHDD0DGqYW6RQ+9jxkRFclaxxQb/SJAWZfWAkuyeQUytO7+7N4QKrDh+drA=="
           crossorigin=""/>
@@ -151,7 +151,7 @@ var translations = {
         <link rel="stylesheet" href='https://api.mapbox.com/mapbox.js/plugins/leaflet-fullscreen/v1.0.1/leaflet.fullscreen.css'  crossorigin=""/>
         <link rel="stylesheet" href="https://bowercdn.net/c/leaflet.zoomhome-latest/dist/leaflet.zoomhome.css"  crossorigin=""/>
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet-search@2.9.7/dist/leaflet-search.min.css" crossorigin="">
-        <link rel="stylesheet" href="https://cdn.kiprotect.com/klaro/v0.7/klaro.min.css" crossorigin=""/><link rel="stylesheet" href="/assets/css/custom.css?v=20250306033305">
+        <link rel="stylesheet" href="https://cdn.kiprotect.com/klaro/v0.7/klaro.min.css" crossorigin=""/><link rel="stylesheet" href="/assets/css/custom.css?v=20250813015559">
         
 
         
@@ -432,7 +432,7 @@ data-event-label="high"
   data-charttitles="null"
   data-measurementunit=""
   data-xaxislabel=""
-  data-showdata="true"
+  data-showdata="false"
   data-graphtype="line"
   data-graphtypes="null"
   data-geocoderegex=""
@@ -443,679 +443,15 @@ data-event-label="high"
   data-graphannotations="null"
   data-graphtargetlines="null"
   data-graphseriesbreaks="null"
-  data-indicatordownloads="{&quot;indicator.download_source_excel&quot;:{&quot;href&quot;:&quot;downloads/data-excel/2.2.3.xlsx&quot;},&quot;indicator.download_source_sdmx&quot;:{&quot;href&quot;:&quot;downloads/data-sdmx/2.2.3.xml&quot;}}"
-  data-dataschema="{&quot;fields&quot;:[{&quot;name&quot;:&quot;Year&quot;,&quot;type&quot;:&quot;integer&quot;,&quot;title&quot;:&quot;Год&quot;},{&quot;name&quot;:&quot;SERIES&quot;,&quot;type&quot;:&quot;string&quot;,&quot;title&quot;:&quot;Ряды ЦУР&quot;},{&quot;name&quot;:&quot;REF_AREA&quot;,&quot;type&quot;:&quot;string&quot;,&quot;constraints&quot;:{&quot;enum&quot;:[&quot;Баткенская область&quot;,&quot;Джалал-Абадская область&quot;,&quot;Иссык-Кульская область&quot;,&quot;Нарынская область&quot;,&quot;Ошская область&quot;,&quot;Таласская область&quot;,&quot;Чуйская область&quot;,&quot;г. Бишкек&quot;,&quot;г. Ош&quot;,&quot;&quot;]},&quot;title&quot;:&quot;Территория&quot;},{&quot;name&quot;:&quot;AGE&quot;,&quot;type&quot;:&quot;string&quot;,&quot;constraints&quot;:{&quot;enum&quot;:[&quot;до 14 лет&quot;,&quot;15 лет и старше&quot;,&quot;&quot;]},&quot;title&quot;:&quot;Возраст&quot;},{&quot;name&quot;:&quot;GeoCode&quot;,&quot;type&quot;:&quot;string&quot;,&quot;title&quot;:&quot;GeoCode&quot;},{&quot;name&quot;:&quot;Value&quot;,&quot;type&quot;:&quot;number&quot;,&quot;title&quot;:&quot;Value&quot;}]}"
+  data-indicatordownloads="null"
+  data-dataschema="{&quot;fields&quot;:[{&quot;name&quot;:&quot;Year&quot;,&quot;type&quot;:&quot;number&quot;,&quot;title&quot;:&quot;Год&quot;},{&quot;name&quot;:&quot;Value&quot;,&quot;type&quot;:&quot;number&quot;,&quot;title&quot;:&quot;Value&quot;}]}"
   data-compositebreakdownlabel=""
   data-precision="null"
   data-proxy=""
   data-proxyseries="null"
 >
   
-  <span role="status" class="visually-hidden" id="indicator-data-view-status"></span>
-  <span role="status" class="visually-hidden" id="indicator-data-unit-status"></span>
-  <span role="status" class="visually-hidden" id="indicator-data-series-status"></span>
-  <div id="indicator-sidebar" class="indicator-sidebar col-md-3">
-    <div id="serieses"></div>
-<div id="units"></div>
-<div id="toolbar">
-  <span id="series-help">
-    <h4>Субкатегории</h4>
-    <p>Выберите категории из выпадающего меню внизу, чтобы увидеть разные разбивки данных. Несколько не будет доступно, пока более высокий уровень не выбран. </p>
-  </span>
-  <div id="fields">
-    <p class="async-loading" data-img="/assets/img/loading-small.gif"></p>
-  </div>
-</div>
-
-  </div>
-  <div id="indicator-main" class="indicator-main col-md-9">
-    
-
-
-
-
-<div id="headlineTable">
-
-  <div id="datatables">
-
-    
-    <a role="button" href="https://sustainabledevelopment-kyrgyzstan.github.io/sdg-data/ru/headline/2-2-3.csv" class="btn btn-primary btn-download" download="indicator_2-2-3.csv" tabindex="0" role="button">Скачать заголовки CSV</a>
-    
-    <a role="button" href="https://sustainabledevelopment-kyrgyzstan.github.io/sdg-data/ru/data/2-2-3.csv" class="btn btn-primary btn-download" download='indicator_2-2-3.csv' tabindex='0' role='button'>Скачать исходные CSV</a>
-
-    <p class="no-js-disaggregation-hint">Загрузить исходный CSV для дезагрегации</p>
-
-    
-    <h3>Данные заголовка</h3>
-    <table class="table-responsive table table-hover dataTable no-footer" role="grid">
-      <caption>Распространенность анемии среди женщин в возрасте 15–49 лет в разбивке по статусу беременности (в процентах)</caption>
-      <thead>
-        
-        
-        <th scope="col">Year</th>
-        
-        
-        
-        <th scope="col">Value</th>
-        
-        
-        
-        <th scope="col">GeoCode</th>
-        
-        
-        
-        <th scope="col" class="table-value">SERIES</th>
-        
-        
-      </thead>
-      <tbody>
-        
-        <tr>
-          
-          
-          <td>2015</td>
-          
-          
-          
-          <td>3.4</td>
-          
-          
-          
-          <td></td>
-          
-          
-          
-          <td class="table-value">Распространенность анемии среди женщин в возрасте 15–49 лет</td>
-          
-          
-        </tr>
-        
-        <tr>
-          
-          
-          <td>2016</td>
-          
-          
-          
-          <td>2.8</td>
-          
-          
-          
-          <td></td>
-          
-          
-          
-          <td class="table-value">Распространенность анемии среди женщин в возрасте 15–49 лет</td>
-          
-          
-        </tr>
-        
-        <tr>
-          
-          
-          <td>2017</td>
-          
-          
-          
-          <td>2.8</td>
-          
-          
-          
-          <td></td>
-          
-          
-          
-          <td class="table-value">Распространенность анемии среди женщин в возрасте 15–49 лет</td>
-          
-          
-        </tr>
-        
-        <tr>
-          
-          
-          <td>2018</td>
-          
-          
-          
-          <td>2.5</td>
-          
-          
-          
-          <td></td>
-          
-          
-          
-          <td class="table-value">Распространенность анемии среди женщин в возрасте 15–49 лет</td>
-          
-          
-        </tr>
-        
-        <tr>
-          
-          
-          <td>2019</td>
-          
-          
-          
-          <td>2.0</td>
-          
-          
-          
-          <td></td>
-          
-          
-          
-          <td class="table-value">Распространенность анемии среди женщин в возрасте 15–49 лет</td>
-          
-          
-        </tr>
-        
-        <tr>
-          
-          
-          <td>2020</td>
-          
-          
-          
-          <td>1.156022</td>
-          
-          
-          
-          <td></td>
-          
-          
-          
-          <td class="table-value">Распространенность анемии среди женщин в возрасте 15–49 лет</td>
-          
-          
-        </tr>
-        
-        <tr>
-          
-          
-          <td>2021</td>
-          
-          
-          
-          <td>1.3</td>
-          
-          
-          
-          <td></td>
-          
-          
-          
-          <td class="table-value">Распространенность анемии среди женщин в возрасте 15–49 лет</td>
-          
-          
-        </tr>
-        
-        <tr>
-          
-          
-          <td>2022</td>
-          
-          
-          
-          <td>1.7</td>
-          
-          
-          
-          <td></td>
-          
-          
-          
-          <td class="table-value">Распространенность анемии среди женщин в возрасте 15–49 лет</td>
-          
-          
-        </tr>
-        
-        <tr>
-          
-          
-          <td>2023</td>
-          
-          
-          
-          <td>1.5</td>
-          
-          
-          
-          <td></td>
-          
-          
-          
-          <td class="table-value">Распространенность анемии среди женщин в возрасте 15–49 лет</td>
-          
-          
-        </tr>
-        
-        <tr>
-          
-          
-          <td>2015</td>
-          
-          
-          
-          <td>52.846005</td>
-          
-          
-          
-          <td></td>
-          
-          
-          
-          <td class="table-value">Распространенность анемии среди женщин в возрасте 15–49 лет, беременные (в процентах)</td>
-          
-          
-        </tr>
-        
-        <tr>
-          
-          
-          <td>2016</td>
-          
-          
-          
-          <td>47.502069</td>
-          
-          
-          
-          <td></td>
-          
-          
-          
-          <td class="table-value">Распространенность анемии среди женщин в возрасте 15–49 лет, беременные (в процентах)</td>
-          
-          
-        </tr>
-        
-        <tr>
-          
-          
-          <td>2017</td>
-          
-          
-          
-          <td>52.792095</td>
-          
-          
-          
-          <td></td>
-          
-          
-          
-          <td class="table-value">Распространенность анемии среди женщин в возрасте 15–49 лет, беременные (в процентах)</td>
-          
-          
-        </tr>
-        
-        <tr>
-          
-          
-          <td>2018</td>
-          
-          
-          
-          <td>58.958873</td>
-          
-          
-          
-          <td></td>
-          
-          
-          
-          <td class="table-value">Распространенность анемии среди женщин в возрасте 15–49 лет, беременные (в процентах)</td>
-          
-          
-        </tr>
-        
-        <tr>
-          
-          
-          <td>2019</td>
-          
-          
-          
-          <td>55.240237</td>
-          
-          
-          
-          <td></td>
-          
-          
-          
-          <td class="table-value">Распространенность анемии среди женщин в возрасте 15–49 лет, беременные (в процентах)</td>
-          
-          
-        </tr>
-        
-        <tr>
-          
-          
-          <td>2020</td>
-          
-          
-          
-          <td>40.422043</td>
-          
-          
-          
-          <td></td>
-          
-          
-          
-          <td class="table-value">Распространенность анемии среди женщин в возрасте 15–49 лет, беременные (в процентах)</td>
-          
-          
-        </tr>
-        
-        <tr>
-          
-          
-          <td>2021</td>
-          
-          
-          
-          <td>35.440295</td>
-          
-          
-          
-          <td></td>
-          
-          
-          
-          <td class="table-value">Распространенность анемии среди женщин в возрасте 15–49 лет, беременные (в процентах)</td>
-          
-          
-        </tr>
-        
-        <tr>
-          
-          
-          <td>2022</td>
-          
-          
-          
-          <td>41.1</td>
-          
-          
-          
-          <td></td>
-          
-          
-          
-          <td class="table-value">Распространенность анемии среди женщин в возрасте 15–49 лет, беременные (в процентах)</td>
-          
-          
-        </tr>
-        
-        <tr>
-          
-          
-          <td>2023</td>
-          
-          
-          
-          <td>39.0</td>
-          
-          
-          
-          <td></td>
-          
-          
-          
-          <td class="table-value">Распространенность анемии среди женщин в возрасте 15–49 лет, беременные (в процентах)</td>
-          
-          
-        </tr>
-        
-      </tbody>
-    </table>
-    
-  </div>
-
-  
-  <div id="datatableFooter">
-    
-    
-    <p>Географический район: Кыргызская Республика</p>
-    
-    
-    
-  </div>
-  
-
-</div>
-
-
-<section>
-
-  <p class="async-loading" data-img="/assets/img/loading-small.gif"></p>
-
-  <div class="async-loaded mt-4" style="display:none;">
-
-    <div style="display: none;">
-    <span id="table-alternative">Альтернативный вариант табличных данных см. в таблице табличных данных.</span>
-  </div>
-  <ul class="nav nav-tabs non-stacking-tabs data-view" role="tablist">
-    
-    <li role="presentation"
-      class="
-        nav-item
-        
-        
-      ">
-      <button
-        class="nav-link active"
-        data-bs-toggle="tab"
-        role="tab"
-        type="button"
-        
-          id="tab-chartview"
-          data-bs-target="#chartview"
-          aria-controls="chartview"
-          aria-describedby="table-alternative"
-          data-on="click"
-data-event-category="Tab change"
-data-event-action="Change data view"
-data-event-label="Change to Chart tab"
-
-        
-      >График</button>
-    </li>
-    
-    <li role="presentation"
-      class="
-        nav-item
-        
-        
-      ">
-      <button
-        class="nav-link "
-        data-bs-toggle="tab"
-        role="tab"
-        type="button"
-        
-          id="tab-tableview"
-          data-bs-target="#tableview"
-          aria-controls="tableview"
-          data-on="click"
-data-event-category="Tab change"
-data-event-action="Change data view"
-data-event-label="Change to Table tab"
-
-        
-      >Таблица</button>
-    </li>
-    
-  </ul>
-  
-    <div class="tab-content data-view">
-    
-      
-        <div role="tabpanel" class="tab-pane active" id="chartview">
-          
-
-    <div id="dataset-size-warning" style="display:none" role="alert">
-      <i class="fa fa-bolt"><span class="sr-only">Предупреждение:</span></i>
-      В таблице слишком много данных, чтобы показать в графике. Чтобы увидеть все, удалите выделенное.
-    </div>
-
-    
-    <div id="selectionsChart">
-      <figure role="group">
-        <div id="chart-canvas">
-          <h4 id="chart-heading" class="chart-title">
-            Распространенность анемии среди женщин в возрасте 15–49 лет в разбивке по статусу беременности (в процентах)
-          </h4>
-          <div id="chart" class="plot-container">
-            <canvas
-    role="img"
-    aria-labelledby="chart-heading"
-    aria-describedby="table-alternative chart-annotations"
-    tabindex="0"
- ></canvas>
-
-          </div>
-          <div id="plotLegend"></div>
-          
-
-
-
-<div id="selectionChartFooter" class="table-footer-text">
-  <h5 class="sr-only">Chart details</h5>
-    <dl>
-        
-
-        
-        <dt>Географический район:</dt>
-        <dd>Кыргызская Республика</dd>
-        
-
-        <dt class="data-controlled-footer-field unit-from-data">Единица измерения:</dt>
-        <dd class="data-controlled-footer-field unit-from-data"></dd>
-
-        
-
-        
-
-        
-
-        
-        
-        <dt
-          class="data-controlled-footer-field"
-          data-ts-attribute="COMMENT_TS"
-        >Сноска:</dt>
-        <dd
-          class="data-controlled-footer-field"
-          data-ts-attribute="COMMENT_TS"
-        ></dd>
-        
-        <dt
-          class="data-controlled-footer-field"
-          data-ts-attribute="DATA_LAST_UPDATE"
-        >Последний раз данные обновлялись:</dt>
-        <dd
-          class="data-controlled-footer-field"
-          data-ts-attribute="DATA_LAST_UPDATE"
-        ></dd>
-        
-        
-    </dl>
-    
-    <dl class="observation-attribute-list"></dl>
-    
-</div>
-
-        </div>
-      </figure>
-      <div id="chartSelectionDownload" class="clearfix">
-        <button
-          id="btnSave"
-          title="Скачать диаграмму как изображение"
-          aria-label="Скачать диаграмму как изображение"
-          class='btn btn-primary btn-download'>
-          Загрузить изображение диаграммы
-        </button><!--
-   --></div>
-    </div>
-
-
-
-        </div>
-      
-    
-      
-        <div role="tabpanel" class="tab-pane " id="tableview">
-          <div style="display: none;">
-            <span id="column-sort-info">Нажмите, чтобы отсортировать по этой колонке</span>
-          </div>
-          <div id="selectionsTable"></div>
-<dl id="tableTargetLines" class="clearfix"></dl>
-
-
-
-
-<div id="selectionTableFooter" class="table-footer-text">
-  <h5 class="sr-only">Chart details</h5>
-    <dl>
-        
-
-        
-        <dt>Географический район:</dt>
-        <dd>Кыргызская Республика</dd>
-        
-
-        <dt class="data-controlled-footer-field unit-from-data">Единица измерения:</dt>
-        <dd class="data-controlled-footer-field unit-from-data"></dd>
-
-        
-
-        
-
-        
-
-        
-        
-        <dt
-          class="data-controlled-footer-field"
-          data-ts-attribute="COMMENT_TS"
-        >Сноска:</dt>
-        <dd
-          class="data-controlled-footer-field"
-          data-ts-attribute="COMMENT_TS"
-        ></dd>
-        
-        <dt
-          class="data-controlled-footer-field"
-          data-ts-attribute="DATA_LAST_UPDATE"
-        >Последний раз данные обновлялись:</dt>
-        <dd
-          class="data-controlled-footer-field"
-          data-ts-attribute="DATA_LAST_UPDATE"
-        ></dd>
-        
-        
-    </dl>
-    
-    <dl class="observation-attribute-list"></dl>
-    
-</div>
-
-<div id="tableSelectionDownload" class="clearfix"></div>
-
-        </div>
-      
-    
-  </div>
-  
-
-  </div>
-
-</section>
-
+  <div id="indicator-main" class="indicator-main col-md-12">
   
   <div class="mt-4">
 <ul class="nav nav-tabs" role="tablist">
@@ -1355,12 +691,19 @@ data-event-label="Change to custom.data_reporter tab"
       
       
       
+        
+          
+          
+          
+          
+        
+      
       
       <tr>
         <th scope="row">Единица измерения </th>
         <td>
           
-            <p>Процент</p>
+            <p><span class="empty-metadata-placeholder">Недоступно для данного показателя</span></p>
 
           
         </td>
@@ -1657,7 +1000,7 @@ data-event-label="Change to custom.data_reporter tab"
             
             
             
-              <a href="https://unstats.un.org/sdgs/metadata/files/Metadata-02-02-03.pdf" target="_blank">
+              <a href="http://unstats.un.org/sdgs/files/metadata-compilation/Metadata-02-02-03.pdf" target="_blank">
                 Метаданные Целей устойчивого развития Организации Объединённых Наций <span class="visuallyhidden">открывается в новой вкладке</span>
               </a>
             
@@ -1942,12 +1285,12 @@ ga('send', 'pageview');
 <script>translations['search'] = translations['search'] || {};
     translations['search']['search'] = 'Поиск';</script>
 
-<script src='/assets/js/sdg.js?v=20250306033305'></script>
+<script src='/assets/js/sdg.js?v=20250813015559'></script>
 
 
     
     
-    <script src="/assets/js/custom.js?v=20250306033305"></script><script>
+    <script src="/assets/js/custom.js?v=20250813015559"></script><script>
     new indicatorInit();
     new accessibilitySwitcher();
 </script>

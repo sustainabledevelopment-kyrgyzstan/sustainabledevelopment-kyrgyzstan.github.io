@@ -143,7 +143,7 @@ var translations = {
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
         <link res="stylesheet" href="https://cdn.datatables.net/1.11.5/css/dataTables.bootstrap5.min.css">
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" crossorigin="">
-        <link rel="stylesheet" href="/assets/css/style.css?v=20250306033305">
+        <link rel="stylesheet" href="/assets/css/style.css?v=20250813015559">
         <link rel="stylesheet" href="https://unpkg.com/leaflet@1.3.4/dist/leaflet.css"
           integrity="sha512-puBpdR0798OZvTTbP4A8Ix/l+A4dHDD0DGqYW6RQ+9jxkRFclaxxQb/SJAWZfWAkuyeQUytO7+7N4QKrDh+drA=="
           crossorigin=""/>
@@ -151,7 +151,7 @@ var translations = {
         <link rel="stylesheet" href='https://api.mapbox.com/mapbox.js/plugins/leaflet-fullscreen/v1.0.1/leaflet.fullscreen.css'  crossorigin=""/>
         <link rel="stylesheet" href="https://bowercdn.net/c/leaflet.zoomhome-latest/dist/leaflet.zoomhome.css"  crossorigin=""/>
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet-search@2.9.7/dist/leaflet-search.min.css" crossorigin="">
-        <link rel="stylesheet" href="https://cdn.kiprotect.com/klaro/v0.7/klaro.min.css" crossorigin=""/><link rel="stylesheet" href="/assets/css/custom.css?v=20250306033305">
+        <link rel="stylesheet" href="https://cdn.kiprotect.com/klaro/v0.7/klaro.min.css" crossorigin=""/><link rel="stylesheet" href="/assets/css/custom.css?v=20250813015559">
         
 
         
@@ -432,7 +432,7 @@ data-event-label="high"
   data-charttitles="null"
   data-measurementunit=""
   data-xaxislabel=""
-  data-showdata="false"
+  data-showdata="true"
   data-graphtype="line"
   data-graphtypes="null"
   data-geocoderegex=""
@@ -444,14 +444,282 @@ data-event-label="high"
   data-graphtargetlines="null"
   data-graphseriesbreaks="null"
   data-indicatordownloads="{&quot;indicator.download_source_excel&quot;:{&quot;href&quot;:&quot;downloads/data-excel/17.6.1.xlsx&quot;},&quot;indicator.download_source_sdmx&quot;:{&quot;href&quot;:&quot;downloads/data-sdmx/17.6.1.xml&quot;}}"
-  data-dataschema="{&quot;fields&quot;:[{&quot;name&quot;:&quot;Year&quot;,&quot;type&quot;:&quot;number&quot;,&quot;title&quot;:&quot;Year&quot;},{&quot;name&quot;:&quot;Value&quot;,&quot;type&quot;:&quot;number&quot;,&quot;title&quot;:&quot;Value&quot;}]}"
-  data-compositebreakdownlabel=""
+  data-dataschema="{&quot;fields&quot;:[{&quot;name&quot;:&quot;Year&quot;,&quot;type&quot;:&quot;integer&quot;,&quot;title&quot;:&quot;Year&quot;},{&quot;name&quot;:&quot;COMPOSITE_BREAKDOWN&quot;,&quot;type&quot;:&quot;string&quot;,&quot;constraints&quot;:{&quot;enum&quot;:[&quot;Internet speed: 256 kbit/s to less than 2 Mbit/s&quot;,&quot;Internet speed: 2 Mbit/s to less than 10 Mbit/s&quot;,&quot;Internet speed: 10 Mbit/s or above&quot;,&quot;&quot;]},&quot;title&quot;:&quot;Composite breakdown&quot;},{&quot;name&quot;:&quot;Value&quot;,&quot;type&quot;:&quot;integer&quot;,&quot;title&quot;:&quot;Value&quot;}]}"
+  data-compositebreakdownlabel="По скоростям"
   data-precision="null"
   data-proxy=""
   data-proxyseries="null"
 >
   
-  <div id="indicator-main" class="indicator-main col-md-12">
+  <span role="status" class="visually-hidden" id="indicator-data-view-status"></span>
+  <span role="status" class="visually-hidden" id="indicator-data-unit-status"></span>
+  <span role="status" class="visually-hidden" id="indicator-data-series-status"></span>
+  <div id="indicator-sidebar" class="indicator-sidebar col-md-3">
+    <div id="serieses"></div>
+<div id="units"></div>
+<div id="toolbar">
+  <span id="series-help">
+    <h4>Sub-categories</h4>
+    <p>Choose categories from the dropdowns below to see different breakdowns of the data. Some will not be available until a higher level is chosen.</p>
+  </span>
+  <div id="fields">
+    <p class="async-loading" data-img="/assets/img/loading-small.gif"></p>
+  </div>
+</div>
+
+  </div>
+  <div id="indicator-main" class="indicator-main col-md-9">
+    
+
+
+
+
+<div id="headlineTable">
+
+  <div id="datatables">
+
+    
+    <a role="button" href="https://sustainabledevelopment-kyrgyzstan.github.io/sdg-data/en/data/17-6-1.csv" class="btn btn-primary btn-download" download='indicator_17-6-1.csv' tabindex='0' role='button'>Download source data (.csv)</a>
+
+    <p class="no-js-disaggregation-hint">Download source data for disaggregations (.csv)</p>
+
+    
+    <h3>No headline data available</h3>
+    
+  </div>
+
+  
+
+</div>
+
+
+<section>
+
+  <p class="async-loading" data-img="/assets/img/loading-small.gif"></p>
+
+  <div class="async-loaded mt-4" style="display:none;">
+
+    <div style="display: none;">
+    <span id="table-alternative">For tabular data alternative see Table tab.</span>
+  </div>
+  <ul class="nav nav-tabs non-stacking-tabs data-view" role="tablist">
+    
+    <li role="presentation"
+      class="
+        nav-item
+        
+        
+      ">
+      <button
+        class="nav-link active"
+        data-bs-toggle="tab"
+        role="tab"
+        type="button"
+        
+          id="tab-chartview"
+          data-bs-target="#chartview"
+          aria-controls="chartview"
+          aria-describedby="table-alternative"
+          data-on="click"
+data-event-category="Tab change"
+data-event-action="Change data view"
+data-event-label="Change to Chart tab"
+
+        
+      >Chart</button>
+    </li>
+    
+    <li role="presentation"
+      class="
+        nav-item
+        
+        
+      ">
+      <button
+        class="nav-link "
+        data-bs-toggle="tab"
+        role="tab"
+        type="button"
+        
+          id="tab-tableview"
+          data-bs-target="#tableview"
+          aria-controls="tableview"
+          data-on="click"
+data-event-category="Tab change"
+data-event-action="Change data view"
+data-event-label="Change to Table tab"
+
+        
+      >Table</button>
+    </li>
+    
+  </ul>
+  
+    <div class="tab-content data-view">
+    
+      
+        <div role="tabpanel" class="tab-pane active" id="chartview">
+          
+
+    <div id="dataset-size-warning" style="display:none" role="alert">
+      <i class="fa fa-bolt"><span class="sr-only">Warning:</span></i>
+      There are too many datasets to show on the chart. Not all will be shown until you remove some selections.
+    </div>
+
+    
+    <div id="selectionsChart">
+      <figure role="group">
+        <div id="chart-canvas">
+          <h4 id="chart-heading" class="chart-title">
+            Fixed Internet broadband subscriptions per 100 inhabitants, by speed
+          </h4>
+          <div id="chart" class="plot-container">
+            <canvas
+    role="img"
+    aria-labelledby="chart-heading"
+    aria-describedby="table-alternative chart-annotations"
+    tabindex="0"
+ ></canvas>
+
+          </div>
+          <div id="plotLegend"></div>
+          
+
+
+
+<div id="selectionChartFooter" class="table-footer-text">
+  <h5 class="sr-only">Chart details</h5>
+    <dl>
+        
+
+        
+        <dt>Geographical Area:</dt>
+        <dd>Кыргызская Республика</dd>
+        
+
+        <dt class="data-controlled-footer-field unit-from-data">Unit of Measurement:</dt>
+        <dd class="data-controlled-footer-field unit-from-data"></dd>
+
+        
+
+        
+
+        
+
+        
+        
+        <dt
+          class="data-controlled-footer-field"
+          data-ts-attribute="COMMENT_TS"
+        >Footnote:</dt>
+        <dd
+          class="data-controlled-footer-field"
+          data-ts-attribute="COMMENT_TS"
+        ></dd>
+        
+        <dt
+          class="data-controlled-footer-field"
+          data-ts-attribute="DATA_LAST_UPDATE"
+        >Data last updated:</dt>
+        <dd
+          class="data-controlled-footer-field"
+          data-ts-attribute="DATA_LAST_UPDATE"
+        ></dd>
+        
+        
+    </dl>
+    
+    <dl class="observation-attribute-list"></dl>
+    
+</div>
+
+        </div>
+      </figure>
+      <div id="chartSelectionDownload" class="clearfix">
+        <button
+          id="btnSave"
+          title="Download chart image as PNG"
+          aria-label="Download chart image as PNG"
+          class='btn btn-primary btn-download'>
+          Download chart image (.png)
+        </button><!--
+   --></div>
+    </div>
+
+
+
+        </div>
+      
+    
+      
+        <div role="tabpanel" class="tab-pane " id="tableview">
+          <div style="display: none;">
+            <span id="column-sort-info">Click to sort by this column</span>
+          </div>
+          <div id="selectionsTable"></div>
+<dl id="tableTargetLines" class="clearfix"></dl>
+
+
+
+
+<div id="selectionTableFooter" class="table-footer-text">
+  <h5 class="sr-only">Chart details</h5>
+    <dl>
+        
+
+        
+        <dt>Geographical Area:</dt>
+        <dd>Кыргызская Республика</dd>
+        
+
+        <dt class="data-controlled-footer-field unit-from-data">Unit of Measurement:</dt>
+        <dd class="data-controlled-footer-field unit-from-data"></dd>
+
+        
+
+        
+
+        
+
+        
+        
+        <dt
+          class="data-controlled-footer-field"
+          data-ts-attribute="COMMENT_TS"
+        >Footnote:</dt>
+        <dd
+          class="data-controlled-footer-field"
+          data-ts-attribute="COMMENT_TS"
+        ></dd>
+        
+        <dt
+          class="data-controlled-footer-field"
+          data-ts-attribute="DATA_LAST_UPDATE"
+        >Data last updated:</dt>
+        <dd
+          class="data-controlled-footer-field"
+          data-ts-attribute="DATA_LAST_UPDATE"
+        ></dd>
+        
+        
+    </dl>
+    
+    <dl class="observation-attribute-list"></dl>
+    
+</div>
+
+<div id="tableSelectionDownload" class="clearfix"></div>
+
+        </div>
+      
+    
+  </div>
+  
+
+  </div>
+
+</section>
+
   
   <div class="mt-4">
 <ul class="nav nav-tabs" role="tablist">
@@ -554,7 +822,7 @@ data-event-label="Change to custom.data_reporter tab"
         <th scope="row">Indicator name </th>
         <td>
           
-            <p>17.6.1 Число стационарных абонентов широкополосного Интернета в разбивке по скорости</p>
+            <p>17.6.1: Fixed broadband subscriptions per 100 inhabitants, by speed</p>
 
           
         </td>
@@ -570,7 +838,7 @@ data-event-label="Change to custom.data_reporter tab"
         <th scope="row">Target name </th>
         <td>
           
-            <p>17.6 Расширять сотрудничество по линии Север — Юг и Юг — Юг, а также трехстороннее региональное и международное сотрудничество в областях науки, техники и инноваций и доступ к соответствующим достижениям; активизировать обмен знаниями на взаимно согласованных условиях, в том числе благодаря улучшению координации между существующими механизмами, в частности на уровне Организации Объединенных Наций, а также с помощью глобального механизма содействия передаче технологий</p>
+            <p>17.6 Enhance North-South, South-South and triangular regional and international cooperation on and access to science, technology and innovation and enhance knowledge-sharing on mutually agreed terms, including through improved coordination among existing mechanisms, in particular at the United Nations level, and through a global technology facilitation mechanism</p>
 
           
         </td>
@@ -586,7 +854,7 @@ data-event-label="Change to custom.data_reporter tab"
         <th scope="row">Goal </th>
         <td>
           
-            <p>Цель 17. Укрепление средств осуществления и активизация работы в рамках Глобального партнерства в интересах устойчивого развития</p>
+            <p>Goal 17. Strengthen the means of implementation and revitalize the global partnership for sustainable development</p>
 
           
         </td>
@@ -691,7 +959,9 @@ data-event-label="Change to custom.data_reporter tab"
         <th scope="row">Definitions </th>
         <td>
           
-            <p>Показатель числа стационарных абонентов широкополосной сети Интернет по скорости относится к числу стационарных абонентов широкополосной сети в общедоступном Интернете, разделенных объявляемой скорости загрузки</p>
+            <p>The indicator defines fixed Internet broadband subscriptions, by speed, refers to the number of fixed-broadband subscriptions to the public Internet, split by advertised download speed (In March 2023, the series description was updated from “Fixed Internet broadband subscriptions per 100
+inhabitants, by speed” to “Fixed broadband subscriptions per 100 inhabitants, by speed”; content in the
+series is the same.)</p>
 
           
         </td>
@@ -707,11 +977,11 @@ data-event-label="Change to custom.data_reporter tab"
         <th scope="row">Concepts </th>
         <td>
           
-            <p>Показатель в настоящее время разбивается на следующие скорости подписки:</p>
+            <p>The indicator is currently broken down by the following subscription speeds:</p>
 <ul>
-  <li>256 кбит/с до менее 2 Мбит/с: относится ко всем стационарным широкополосным интернет-подпискам с объявляемыми скоростями ниже по потоку, равными или превышающими 256 кбит/с и менее 2 Мбит/с.</li>
-  <li>2 Мбит/с до менее 10 Мбит/с: Относится ко всем стационарным широкополосным интернет-подпискам с объявляемыми скоростями ниже по потоку, равными или превышающими 2 Мбит/с и менее 10 Мбит/с.</li>
-  <li>Равны или превышают 10 Мбит/с (4213_G10). Относится ко всем стационарным широкополосным интернет-подпискам с объявляемыми скоростями на низком уровне, равными или превышающими 10 Мбит/с.</li>
+  <li>256 kbit/s to less than 2 Mbit/s subscriptions: Refers to all fixed broadband Internet subscriptions with advertised downstream speeds equal to, or greater than, 256 kbit/s and less than 2 Mbit/s.</li>
+  <li>2 Mbit/s to less than 10 Mbit/s subscriptions: Refers to all fixed -broadband Internet subscriptions with advertised downstream speeds equal to, or greater than, 2 Mbit/s and less than 10 Mbit/s.</li>
+  <li>Equal to or above 10 Mbit/s subscriptions (4213_G10). Refers to all fixed -broadband Internet subscriptions with advertised downstream speeds equal to, or greater than, 10 Mbit/s.</li>
 </ul>
 
           
@@ -728,7 +998,7 @@ data-event-label="Change to custom.data_reporter tab"
         <th scope="row">Rationale and interpretation </th>
         <td>
           
-            <p>Интернет стал все более важным инструментом обеспечения доступа к информации и может способствовать развитию и расширению регионального и международного сотрудничества в области науки и технологий, инноваций и доступа к ним, а также расширению обмена знаниями. Высокоскоростной доступ в Интернет имеет важное значение для обеспечения того, чтобы пользователи Интернета имели качественный доступ к Интернету и могли использовать растущее количество интернет-контента, включая контент, созданный пользователями, услуги и информацию.</p>
+            <p>The Internet has become an increasingly important tool to provide access to information, and can help foster and enhance regional and international cooperation on, and access to, science, technology and innovations, and enhance knowledge sharing. High-speed Internet access is important to ensure that Internet users have quality access to the Internet and can take advantage of the growing amount of Internet content – including user-generated content –, services and information.</p>
 
           
         </td>
@@ -744,7 +1014,7 @@ data-event-label="Change to custom.data_reporter tab"
         <th scope="row">Method of computation </th>
         <td>
           
-            <p>Согласно определения и методу в Справочнике МСЭ по сбору административных данных в области электросвязи/ИКТ.</p>
+            <p>According to the definition and methodology in the ITU Handbook on Telecommunications/ICT Administrative Data Collection Administrative Data Handbook.</p>
 
           
         </td>
@@ -760,7 +1030,7 @@ data-event-label="Change to custom.data_reporter tab"
         <th scope="row">Comments and limitations </th>
         <td>
           
-            <p>Данный показатель относиться к фиксированным (проводным) широкополосным технологиям и не включает технологии беспроводного широкополосного доступа.</p>
+            <p>This Indicator refers to fixed (wired) broadband technologies and does not include wireless broadband access technologies. Unit of measure: Per 100 inhabitants</p>
 
           
         </td>
@@ -799,7 +1069,7 @@ data-event-label="Change to custom.data_reporter tab"
         <th scope="row">Data availability and gaps </th>
         <td>
           
-            <p>Агентством связи на ежегодной основе разрабатываются годовые отчеты о деятельности Агентства связи, в которые находятся в свободном доступе и размещены на официальном сайте Агентства связи, в котором отражается общее количество пользователей Интернет, включая беспроводной и мобильный.</p>
+            <p>The Agency develops annual reports on the Agency’s activities, which are freely available at the Agency’s official website and reflect the total number of Internet users, including wireless and mobile users.</p>
 
           
         </td>
@@ -815,7 +1085,7 @@ data-event-label="Change to custom.data_reporter tab"
         <th scope="row">Disaggregation </th>
         <td>
           
-            <p>По скорости интернета: 256 кбит/с до менее 2 Мбит/с, 2 Мбит/с до менее 10 Мбит/с, равны или превышают 10 Мбит/с.</p>
+            <p>By Internet speed: 256 kbps to less than 2 Mbps, 2 Mbps to less than 10 Mbps, equal to or exceed 10 Mbps.</p>
 
           
         </td>
@@ -831,7 +1101,7 @@ data-event-label="Change to custom.data_reporter tab"
         <th scope="row">Comparability with international data/standards </th>
         <td>
           
-            <p>МСЭ разрабатывает международные определения, стандарты и методики для измерения информационного общества и информационной экономики и в тесном сотрудничестве с другими региональными и международными организациями и через свои тематические группы экспертов МСЭ является одним из основателей и ключевым партнером в Партнёрстве по измерению ИКТ в целях развития, помогает отслеживать целевые показатели ЦУР, а также является членом Комитета ООН по координации статистической деятельности.</p>
+            <p>The ITU develops international definitions, standards and methodologies for measuring information society and information economy and, in close cooperation with other regional and international organizations and through thematic expert groups; the ITU is a founder and a key partner in the Partnership on Measuring ICT for Development, assisting to keep track of SDG targets, and a member of the UN Committee for the Coordination of Statistical Activities (CCSA).</p>
 
           
         </td>
@@ -847,7 +1117,14 @@ data-event-label="Change to custom.data_reporter tab"
         <th scope="row">References and documentation </th>
         <td>
           
-            <p>Национальная платформа отчетности ЦУР КР: https://sustainabledevelopment-kyrgyzstan.github.io</p>
+            <p>The Kyrgyz Republic SDG National Reporting Platform: https://sustainabledevelopment-kyrgyzstan.github.io Data are released twice a year, In July and December, in the Wor​ld Telecommun​ic​ation/ICT Indicators
+Database​​ and the ITU DataHub, see https://datahub.itu.int/.  International Telecommunication Union (ITU) Handbook for the Collection of Administrative Data on
+Telecommunications/ICT 2020: https://www.itu.int/en/ITU-
+D/Statistics/Pages/publications/handbook.aspx  . URL:
+http://www.itu.int/en/ITU-D/Statistics/Pages/default.aspx
+References:
+ITU Handbook for the Collection of Administrative Data on Telecommunications/ICT 2020:
+https://www.itu.int/en/ITU-D/Statistics/Pages/publications/handbook.aspx</p>
 
           
         </td>
@@ -863,8 +1140,8 @@ data-event-label="Change to custom.data_reporter tab"
         <th scope="row">Data sources </th>
         <td>
           
-            <p>Данные о количестве стационарных абонентов широкополосного Интернета в разбивке по скорости предоставляется Государственным комитет информационных технологий и связи КР Нацстаткому на основе дополнительного запроса.
-Сбор данных по количеству фиксированных (проводных) абонентов широкополосного Интернета осуществляется в соответсвии с формами административной статистической отчетности по лицензируемым видам деятельности в области электрической и почтовой связи, утвержденными ГАС при ГКИТиС КР по согласованию с НСК КР. Данные формы отчетности заполняются лицензиатами -операторами электросвязи ежеквартально.</p>
+            <p>Based on an additional request, the State Committee of Information Technologies and Communications of the Kyrgyz Republic submits the data on the number of stationary Internet broadband subscriptions disaggregated by speed to the National Statistical Committee. 
+Data on the number of fixed (wired) broadband Internet subscribers are collected according to administrative statistical reporting forms on licensed types of activities in the field of electric and postal communication, approved by SAC under SCITC KR and the NSC KR. Licensed electric communication operators fill in these reporting forms on a quarterly basis.</p>
 
           
         </td>
@@ -990,7 +1267,7 @@ data-event-label="Change to custom.data_reporter tab"
         <th scope="row">Organization </th>
         <td>
           
-            <p>Министерство цифрового развития Кыргызской Республики</p>
+            <p>National Statistical Committee of the Kyrgyz Republic (Department of Trade and Services Statistics, Information and Communication Technologies, and Tourism)</p>
 
           
         </td>
@@ -1006,7 +1283,7 @@ data-event-label="Change to custom.data_reporter tab"
         <th scope="row">Contact person(s)/focal point </th>
         <td>
           
-            <p>Ланговая А.А.</p>
+            <p>Tekeeva L.A.</p>
 
           
         </td>
@@ -1022,7 +1299,7 @@ data-event-label="Change to custom.data_reporter tab"
         <th scope="row">Contact person's email </th>
         <td>
           
-            <p>a.langovaya@nas.gov.kg</p>
+            <p>Ltekeeva@stat.kg</p>
 
           
         </td>
@@ -1038,7 +1315,7 @@ data-event-label="Change to custom.data_reporter tab"
         <th scope="row">Contact person's phone </th>
         <td>
           
-            <p>(0312) 560109</p>
+            <p>0 (312) 32-47-25</p>
 
           
         </td>
@@ -1054,7 +1331,7 @@ data-event-label="Change to custom.data_reporter tab"
         <th scope="row">Organization website </th>
         <td>
           
-            <p>www.nas.gov.kg</p>
+            <p>www.stat.gov.kg</p>
 
           
         </td>
@@ -1158,12 +1435,12 @@ ga('send', 'pageview');
 <script>translations['search'] = translations['search'] || {};
     translations['search']['search'] = 'Search';</script>
 
-<script src='/assets/js/sdg.js?v=20250306033305'></script>
+<script src='/assets/js/sdg.js?v=20250813015559'></script>
 
 
     
     
-    <script src="/assets/js/custom.js?v=20250306033305"></script><script>
+    <script src="/assets/js/custom.js?v=20250813015559"></script><script>
     new indicatorInit();
     new accessibilitySwitcher();
 </script>

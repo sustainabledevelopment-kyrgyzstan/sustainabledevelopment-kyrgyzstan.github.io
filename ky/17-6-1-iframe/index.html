@@ -143,7 +143,7 @@ var translations = {
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
         <link res="stylesheet" href="https://cdn.datatables.net/1.11.5/css/dataTables.bootstrap5.min.css">
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" crossorigin="">
-        <link rel="stylesheet" href="/assets/css/style.css?v=20250306033305">
+        <link rel="stylesheet" href="/assets/css/style.css?v=20250813015559">
         <link rel="stylesheet" href="https://unpkg.com/leaflet@1.3.4/dist/leaflet.css"
           integrity="sha512-puBpdR0798OZvTTbP4A8Ix/l+A4dHDD0DGqYW6RQ+9jxkRFclaxxQb/SJAWZfWAkuyeQUytO7+7N4QKrDh+drA=="
           crossorigin=""/>
@@ -151,7 +151,7 @@ var translations = {
         <link rel="stylesheet" href='https://api.mapbox.com/mapbox.js/plugins/leaflet-fullscreen/v1.0.1/leaflet.fullscreen.css'  crossorigin=""/>
         <link rel="stylesheet" href="https://bowercdn.net/c/leaflet.zoomhome-latest/dist/leaflet.zoomhome.css"  crossorigin=""/>
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet-search@2.9.7/dist/leaflet-search.min.css" crossorigin="">
-        <link rel="stylesheet" href="https://cdn.kiprotect.com/klaro/v0.7/klaro.min.css" crossorigin=""/><link rel="stylesheet" href="/assets/css/custom.css?v=20250306033305">
+        <link rel="stylesheet" href="https://cdn.kiprotect.com/klaro/v0.7/klaro.min.css" crossorigin=""/><link rel="stylesheet" href="/assets/css/custom.css?v=20250813015559">
         
 
         
@@ -300,7 +300,7 @@ layout-indicator-iframe
   data-charttitles="null"
   data-measurementunit=""
   data-xaxislabel=""
-  data-showdata="false"
+  data-showdata="true"
   data-graphtype="line"
   data-graphtypes="null"
   data-geocoderegex=""
@@ -312,14 +312,282 @@ layout-indicator-iframe
   data-graphtargetlines="null"
   data-graphseriesbreaks="null"
   data-indicatordownloads="{&quot;indicator.download_source_excel&quot;:{&quot;href&quot;:&quot;downloads/data-excel/17.6.1.xlsx&quot;},&quot;indicator.download_source_sdmx&quot;:{&quot;href&quot;:&quot;downloads/data-sdmx/17.6.1.xml&quot;}}"
-  data-dataschema="{&quot;fields&quot;:[{&quot;name&quot;:&quot;Year&quot;,&quot;type&quot;:&quot;number&quot;,&quot;title&quot;:&quot;Жыл&quot;},{&quot;name&quot;:&quot;Value&quot;,&quot;type&quot;:&quot;number&quot;,&quot;title&quot;:&quot;Value&quot;}]}"
-  data-compositebreakdownlabel=""
+  data-dataschema="{&quot;fields&quot;:[{&quot;name&quot;:&quot;Year&quot;,&quot;type&quot;:&quot;integer&quot;,&quot;title&quot;:&quot;Жыл&quot;},{&quot;name&quot;:&quot;COMPOSITE_BREAKDOWN&quot;,&quot;type&quot;:&quot;string&quot;,&quot;constraints&quot;:{&quot;enum&quot;:[&quot;IS_256KT2M&quot;,&quot;IS_2MT10M&quot;,&quot;IS_GE10M&quot;,&quot;&quot;]},&quot;title&quot;:&quot;COMPOSITE_BREAKDOWN&quot;},{&quot;name&quot;:&quot;Value&quot;,&quot;type&quot;:&quot;integer&quot;,&quot;title&quot;:&quot;Value&quot;}]}"
+  data-compositebreakdownlabel="По скоростям"
   data-precision="null"
   data-proxy=""
   data-proxyseries="null"
 >
   
-  <div id="indicator-main" class="indicator-main col-md-12">
+  <span role="status" class="visually-hidden" id="indicator-data-view-status"></span>
+  <span role="status" class="visually-hidden" id="indicator-data-unit-status"></span>
+  <span role="status" class="visually-hidden" id="indicator-data-series-status"></span>
+  <div id="indicator-sidebar" class="indicator-sidebar col-md-3">
+    <div id="serieses"></div>
+<div id="units"></div>
+<div id="toolbar">
+  <span id="series-help">
+    <h4>Суб-категориялар</h4>
+    <p>Маалыматтардын ар кандай сынууларын көрүү үчүн төмөндөгү тамчылардан категорияларды тандаңыз. Кээ бирлери жогорку деңгээл тандалганга чейин жеткиликтүү болбойт.</p>
+  </span>
+  <div id="fields">
+    <p class="async-loading" data-img="/assets/img/loading-small.gif"></p>
+  </div>
+</div>
+
+  </div>
+  <div id="indicator-main" class="indicator-main col-md-9">
+    
+
+
+
+
+<div id="headlineTable">
+
+  <div id="datatables">
+
+    
+    <a role="button" href="https://sustainabledevelopment-kyrgyzstan.github.io/sdg-data/ky/data/17-6-1.csv" class="btn btn-primary btn-download" download='indicator_17-6-1.csv' tabindex='0' role='button'>Булак тууралуу маалыматтарды жүктөө (.csv)</a>
+
+    <p class="no-js-disaggregation-hint">Дисгрегациялар үчүн булак маалыматтарын жүктөп алуу (.csv)</p>
+
+    
+    <h3>Башкы маалымат жок</h3>
+    
+  </div>
+
+  
+
+</div>
+
+
+<section>
+
+  <p class="async-loading" data-img="/assets/img/loading-small.gif"></p>
+
+  <div class="async-loaded mt-4" style="display:none;">
+
+    <div style="display: none;">
+    <span id="table-alternative">Таблицалык маалыматтардын альтернативасы үчүн Таблицанын таблицасын караңыз.</span>
+  </div>
+  <ul class="nav nav-tabs non-stacking-tabs data-view" role="tablist">
+    
+    <li role="presentation"
+      class="
+        nav-item
+        
+        
+      ">
+      <button
+        class="nav-link active"
+        data-bs-toggle="tab"
+        role="tab"
+        type="button"
+        
+          id="tab-chartview"
+          data-bs-target="#chartview"
+          aria-controls="chartview"
+          aria-describedby="table-alternative"
+          data-on="click"
+data-event-category="Tab change"
+data-event-action="Change data view"
+data-event-label="Change to Chart tab"
+
+        
+      >Диаграмма</button>
+    </li>
+    
+    <li role="presentation"
+      class="
+        nav-item
+        
+        
+      ">
+      <button
+        class="nav-link "
+        data-bs-toggle="tab"
+        role="tab"
+        type="button"
+        
+          id="tab-tableview"
+          data-bs-target="#tableview"
+          aria-controls="tableview"
+          data-on="click"
+data-event-category="Tab change"
+data-event-action="Change data view"
+data-event-label="Change to Table tab"
+
+        
+      >Таблица</button>
+    </li>
+    
+  </ul>
+  
+    <div class="tab-content data-view">
+    
+      
+        <div role="tabpanel" class="tab-pane active" id="chartview">
+          
+
+    <div id="dataset-size-warning" style="display:none" role="alert">
+      <i class="fa fa-bolt"><span class="sr-only">Эскертүү:</span></i>
+      Диаграммада көрсөтүү үчүн маалыматтар топурагы өтө көп. Кээ бир тандоолорду алып салууга чейин баары эле көрсөтүлбөйт.
+    </div>
+
+    
+    <div id="selectionsChart">
+      <figure role="group">
+        <div id="chart-canvas">
+          <h4 id="chart-heading" class="chart-title">
+            100 тургунга белгиленген Интернет кең жолақты жазылуулар, ылдамдыгы менен
+          </h4>
+          <div id="chart" class="plot-container">
+            <canvas
+    role="img"
+    aria-labelledby="chart-heading"
+    aria-describedby="table-alternative chart-annotations"
+    tabindex="0"
+ ></canvas>
+
+          </div>
+          <div id="plotLegend"></div>
+          
+
+
+
+<div id="selectionChartFooter" class="table-footer-text">
+  <h5 class="sr-only">Chart details</h5>
+    <dl>
+        
+
+        
+        <dt>Географиялык аймак:</dt>
+        <dd>Кыргызская Республика</dd>
+        
+
+        <dt class="data-controlled-footer-field unit-from-data">Өлчөө бирдиги:</dt>
+        <dd class="data-controlled-footer-field unit-from-data"></dd>
+
+        
+
+        
+
+        
+
+        
+        
+        <dt
+          class="data-controlled-footer-field"
+          data-ts-attribute="COMMENT_TS"
+        >Шилтеме:</dt>
+        <dd
+          class="data-controlled-footer-field"
+          data-ts-attribute="COMMENT_TS"
+        ></dd>
+        
+        <dt
+          class="data-controlled-footer-field"
+          data-ts-attribute="DATA_LAST_UPDATE"
+        >Маалыматтар акыркы жаңыланды:</dt>
+        <dd
+          class="data-controlled-footer-field"
+          data-ts-attribute="DATA_LAST_UPDATE"
+        ></dd>
+        
+        
+    </dl>
+    
+    <dl class="observation-attribute-list"></dl>
+    
+</div>
+
+        </div>
+      </figure>
+      <div id="chartSelectionDownload" class="clearfix">
+        <button
+          id="btnSave"
+          title="Диаграмманы PNG катары жүктөп алуу"
+          aria-label="Диаграмманы PNG катары жүктөп алуу"
+          class='btn btn-primary btn-download'>
+          Диаграмманы жүктөп алуу (.png)
+        </button><!--
+   --></div>
+    </div>
+
+
+
+        </div>
+      
+    
+      
+        <div role="tabpanel" class="tab-pane " id="tableview">
+          <div style="display: none;">
+            <span id="column-sort-info">Бул колонна менен сорттоо үчүн чертиңиз</span>
+          </div>
+          <div id="selectionsTable"></div>
+<dl id="tableTargetLines" class="clearfix"></dl>
+
+
+
+
+<div id="selectionTableFooter" class="table-footer-text">
+  <h5 class="sr-only">Chart details</h5>
+    <dl>
+        
+
+        
+        <dt>Географиялык аймак:</dt>
+        <dd>Кыргызская Республика</dd>
+        
+
+        <dt class="data-controlled-footer-field unit-from-data">Өлчөө бирдиги:</dt>
+        <dd class="data-controlled-footer-field unit-from-data"></dd>
+
+        
+
+        
+
+        
+
+        
+        
+        <dt
+          class="data-controlled-footer-field"
+          data-ts-attribute="COMMENT_TS"
+        >Шилтеме:</dt>
+        <dd
+          class="data-controlled-footer-field"
+          data-ts-attribute="COMMENT_TS"
+        ></dd>
+        
+        <dt
+          class="data-controlled-footer-field"
+          data-ts-attribute="DATA_LAST_UPDATE"
+        >Маалыматтар акыркы жаңыланды:</dt>
+        <dd
+          class="data-controlled-footer-field"
+          data-ts-attribute="DATA_LAST_UPDATE"
+        ></dd>
+        
+        
+    </dl>
+    
+    <dl class="observation-attribute-list"></dl>
+    
+</div>
+
+<div id="tableSelectionDownload" class="clearfix"></div>
+
+        </div>
+      
+    
+  </div>
+  
+
+  </div>
+
+</section>
+
   
   <div class="mt-4">
 <ul class="nav nav-tabs" role="tablist">
@@ -422,7 +690,7 @@ data-event-label="Change to custom.data_reporter tab"
         <th scope="row">Индикатордун аты </th>
         <td>
           
-            <p>17.6.1 Число стационарных абонентов широкополосного Интернета в разбивке по скорости</p>
+            <p>17.6.1 Число  абонентов стационарного широкополосного доступа на 100 жителей в разбивке по скорости</p>
 
           
         </td>
@@ -559,7 +827,9 @@ data-event-label="Change to custom.data_reporter tab"
         <th scope="row">Аныктамалар </th>
         <td>
           
-            <p>Показатель числа стационарных абонентов широкополосной сети Интернет по скорости относится к числу стационарных абонентов широкополосной сети в общедоступном Интернете, разделенных объявляемой скорости загрузки</p>
+            <p>Показатель числа стационарных абонентов широкополосной сети Интернет по скорости относится к числу стационарных абонентов широкополосной сети в общедоступном Интернете, разделенных объявляемой скорости загрузки (В марте 2023 года описание сериала было обновлено с «Число абонентов фиксированного
+широкополосного Интернета на 100 жителей, по скорости" к "Число абонентов фиксированного
+широкополосного доступа на 100 жителей, по скорости”; содержание в серии то же самое.)</p>
 
           
         </td>
@@ -612,7 +882,7 @@ data-event-label="Change to custom.data_reporter tab"
         <th scope="row">Эсептөө ыкмасы </th>
         <td>
           
-            <p>Согласно определения и методу в Справочнике МСЭ по сбору административных данных в области электросвязи/ИКТ.</p>
+            <p>Согласно определения и методу в Справочнике МСЭ по сбору административных данных в области электросвязи/ИКТ. Было взято абонентские подключения со скоростями и разделено на численность постоянного населения на 1 января и умножено на 100.</p>
 
           
         </td>
@@ -628,7 +898,7 @@ data-event-label="Change to custom.data_reporter tab"
         <th scope="row">Түшүндүрмөлөр жана чектөөлөр </th>
         <td>
           
-            <p>Данный показатель относиться к фиксированным (проводным) широкополосным технологиям и не включает технологии беспроводного широкополосного доступа.</p>
+            <p>Данный показатель относиться к фиксированным (проводным) широкополосным технологиям и не включает технологии беспроводного широкополосного доступа. Единица измерения: На 100 жителей</p>
 
           
         </td>
@@ -715,7 +985,13 @@ data-event-label="Change to custom.data_reporter tab"
         <th scope="row">Шилтемелер жана документтер </th>
         <td>
           
-            <p>Национальная платформа отчетности ЦУР КР: https://sustainabledevelopment-kyrgyzstan.github.io</p>
+            <p>Национальная платформа отчетности ЦУР КР: https://sustainabledevelopment-kyrgyzstan.github.io  Справочник Международного союза электросвязи (МСЭ) по сбору административных данных в
+области телекоммуникаций/ИКТ 2020 г.:https://www.itu.int/en/ITU-
+D/Statistics/Pages/publications/handbook.aspx                                  URL-адрес:
+http://www.itu.int/en/ITU-D/Statistics/Pages/default.aspx
+Ссылки:
+Справочник МСЭ по сбору административных данных по электросвязи/ИКТ
+2020:https://www.itu.int/en/ITU-D/Statistics/Pages/publications/handbook.aspx</p>
 
           
         </td>
@@ -858,7 +1134,9 @@ data-event-label="Change to custom.data_reporter tab"
         <th scope="row">Уюм </th>
         <td>
           
-            <p>Министерство цифрового развития Кыргызской Республики</p>
+            <p>Национальный статистический комитет Кыргызской Республики,
+Управление статистики торговли и услуг, информационно-коммуникационных технологий и туризма</p>
+
 
           
         </td>
@@ -874,7 +1152,7 @@ data-event-label="Change to custom.data_reporter tab"
         <th scope="row">Байланыш адамы(дары)/координатор </th>
         <td>
           
-            <p>Ланговая А.А.</p>
+            <p>Текеева Люксина Айгуфовна</p>
 
           
         </td>
@@ -890,7 +1168,7 @@ data-event-label="Change to custom.data_reporter tab"
         <th scope="row">Байланыш адамынын электрондук почтасы </th>
         <td>
           
-            <p>a.langovaya@nas.gov.kg</p>
+            <p>Ltekeeva@stat.kg</p>
 
           
         </td>
@@ -906,7 +1184,7 @@ data-event-label="Change to custom.data_reporter tab"
         <th scope="row">Байланыш телефон номери </th>
         <td>
           
-            <p>(0312) 560109</p>
+            <p>(0312) 32-47-25</p>
 
           
         </td>
@@ -922,7 +1200,7 @@ data-event-label="Change to custom.data_reporter tab"
         <th scope="row">Уюмдун сайты </th>
         <td>
           
-            <p>www.nas.gov.kg</p>
+            <p>www.stat.gov.kg</p>
 
           
         </td>
@@ -996,12 +1274,12 @@ ga('send', 'pageview');
 <script>translations['search'] = translations['search'] || {};
     translations['search']['search'] = 'Издөө';</script>
 
-<script src='/assets/js/sdg.js?v=20250306033305'></script>
+<script src='/assets/js/sdg.js?v=20250813015559'></script>
 
 
     
     
-    <script src="/assets/js/custom.js?v=20250306033305"></script><script>
+    <script src="/assets/js/custom.js?v=20250813015559"></script><script>
     new indicatorInit();
     new accessibilitySwitcher();
 </script>

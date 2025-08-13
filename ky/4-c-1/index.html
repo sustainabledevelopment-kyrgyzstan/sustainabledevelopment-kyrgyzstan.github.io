@@ -143,7 +143,7 @@ var translations = {
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
         <link res="stylesheet" href="https://cdn.datatables.net/1.11.5/css/dataTables.bootstrap5.min.css">
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" crossorigin="">
-        <link rel="stylesheet" href="/assets/css/style.css?v=20250306033305">
+        <link rel="stylesheet" href="/assets/css/style.css?v=20250813015559">
         <link rel="stylesheet" href="https://unpkg.com/leaflet@1.3.4/dist/leaflet.css"
           integrity="sha512-puBpdR0798OZvTTbP4A8Ix/l+A4dHDD0DGqYW6RQ+9jxkRFclaxxQb/SJAWZfWAkuyeQUytO7+7N4QKrDh+drA=="
           crossorigin=""/>
@@ -151,7 +151,7 @@ var translations = {
         <link rel="stylesheet" href='https://api.mapbox.com/mapbox.js/plugins/leaflet-fullscreen/v1.0.1/leaflet.fullscreen.css'  crossorigin=""/>
         <link rel="stylesheet" href="https://bowercdn.net/c/leaflet.zoomhome-latest/dist/leaflet.zoomhome.css"  crossorigin=""/>
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet-search@2.9.7/dist/leaflet-search.min.css" crossorigin="">
-        <link rel="stylesheet" href="https://cdn.kiprotect.com/klaro/v0.7/klaro.min.css" crossorigin=""/><link rel="stylesheet" href="/assets/css/custom.css?v=20250306033305">
+        <link rel="stylesheet" href="https://cdn.kiprotect.com/klaro/v0.7/klaro.min.css" crossorigin=""/><link rel="stylesheet" href="/assets/css/custom.css?v=20250813015559">
         
 
         
@@ -445,7 +445,7 @@ data-event-label="high"
   data-graphseriesbreaks="null"
   data-indicatordownloads="{&quot;indicator.download_source_excel&quot;:{&quot;href&quot;:&quot;downloads/data-excel/4.c.1.xlsx&quot;},&quot;indicator.download_source_sdmx&quot;:{&quot;href&quot;:&quot;downloads/data-sdmx/4.c.1.xml&quot;}}"
   data-dataschema="{&quot;fields&quot;:[{&quot;name&quot;:&quot;Year&quot;,&quot;type&quot;:&quot;integer&quot;,&quot;title&quot;:&quot;Жыл&quot;},{&quot;name&quot;:&quot;COMPOSITE_BREAKDOWN&quot;,&quot;type&quot;:&quot;string&quot;,&quot;constraints&quot;:{&quot;enum&quot;:[&quot;_L_TCH_PR_SCH_EDU&quot;,&quot;_L_TCH_PR_SCH_1_4&quot;,&quot;_L_TCH_PR_SEC_SCH_5_11&quot;,&quot;&quot;]},&quot;title&quot;:&quot;COMPOSITE_BREAKDOWN&quot;},{&quot;name&quot;:&quot;Value&quot;,&quot;type&quot;:&quot;number&quot;,&quot;title&quot;:&quot;Value&quot;}]}"
-  data-compositebreakdownlabel=""
+  data-compositebreakdownlabel="Учителя в:"
   data-precision="null"
   data-proxy=""
   data-proxyseries="null"
@@ -822,7 +822,12 @@ data-event-label="Change to custom.data_reporter tab"
         <th scope="row">Индикатордун аты </th>
         <td>
           
-            <p>4.c.1. Доля учителей в: a) дошкольных учреждениях, b) начальной школе, c) младшей средней школе и d) старшей средней школе, прошедших до начала или во время работы, по меньшей мере, минимальную организованную профессиональную учительскую подготовку (например, педагогическую) на соответствующем уровне в данной стране</p>
+            <p>4.c.1 Доля учителей, обладающих минимальными
+требуемыми квалификациями для преподавания, в
+разбивке по образовательному уровню учреждения
+a) в дошкольных образовательных организациях
+b) в начальной школе (1-4 класс), 
+c) в основной школе (5-9 класс) и d) средней школе (10-11 класс)</p>
 
           
         </td>
@@ -1139,7 +1144,7 @@ N =общее численность учителей в данном учебн
           
             <p>https://sustainabledevelopment-kyrgyzstan.github.io
 www.uis.unesco.org 
-Закон Кыргызской Республики от 30 апреля 2003 года №92 «Об образовании»</p>
+Закон Кыргызской Республики от августа 2023 года №179 «Об образовании»</p>
 
           
         </td>
@@ -1155,7 +1160,7 @@ www.uis.unesco.org
         <th scope="row">Маалымат булагы </th>
         <td>
           
-            <p>Источниками информации для расчета показателя является ежегодные данные государственной статистической отчетности, представляемой дошкольными организациями республики по форме «Отчет дошкольной организации», а также общеобразовательными организациями республики по форме ОШ-1 «Отчет дневной общеобразовательной школы на начало учебного года».</p>
+            <p>Источниками информации для расчета показателя является ежегодные данные официальной статистической отчетности, представляемой дошкольными организациями республики по форме «Отчет дошкольной организации», а также общеобразовательными организациями республики по форме ОШ-1 «Отчет дневной общеобразовательной школы на начало учебного года».</p>
 
           
         </td>
@@ -1341,7 +1346,7 @@ www.uis.unesco.org
         <th scope="row">Уюмдун сайты </th>
         <td>
           
-            <p>www.stat.kg</p>
+            <p>www.stat.gov.kg</p>
 
           
         </td>
@@ -1445,12 +1450,12 @@ ga('send', 'pageview');
 <script>translations['search'] = translations['search'] || {};
     translations['search']['search'] = 'Издөө';</script>
 
-<script src='/assets/js/sdg.js?v=20250306033305'></script>
+<script src='/assets/js/sdg.js?v=20250813015559'></script>
 
 
     
     
-    <script src="/assets/js/custom.js?v=20250306033305"></script><script>
+    <script src="/assets/js/custom.js?v=20250813015559"></script><script>
     new indicatorInit();
     new accessibilitySwitcher();
 </script>

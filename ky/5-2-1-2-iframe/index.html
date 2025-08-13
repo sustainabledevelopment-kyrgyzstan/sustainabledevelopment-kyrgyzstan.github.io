@@ -1,0 +1,2409 @@
+<!DOCTYPE html>
+<html lang="ky" class="no-js">
+    <head>
+        <meta charset="utf-8">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.min.js"></script>
+        <script crossorigin="anonymous" src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?version=4.8.0&features=Promise%2CString.prototype.includes%2CCustomEvent%2CArray.prototype.includes%2CArray.prototype.find%2CObject.assign%2CObject.values%2CObject.entries%2CArray.from%2CSet%2CArray.prototype.findIndex%2Cfetch"></script>
+<script crossorigin="anonymous" src="https://cdnjs.cloudflare.com/ajax/libs/javascript-canvas-to-blob/3.15.0/js/canvas-to-blob.min.js"></script>
+
+        <script>
+// This is where we initialise any global variables, namespaced in "opensdg".
+var opensdg = {
+
+  // A base URL for asynchronous calls to SDG data.
+  remoteDataBaseUrl: 'https://sustainabledevelopment-kyrgyzstan.github.io/sdg-data/ky',
+
+  chartConfigAlterations: [],
+  // A hook which can be used to modify the configuration for Chart.js.
+  chartConfigAlter: function(callback) {
+    this.chartConfigAlterations.push(callback);
+  },
+
+  tableConfigAlterations: [],
+  // A hook which can be used to modify the configuration for Datatables.
+  tableConfigAlter: function(callback) {
+    this.tableConfigAlterations.push(callback);
+  },
+
+  // A hook which can be replaced to alter whether/how the values that are
+  // displayed on indicator tables/graphs get rounded. A "context" parameter
+  // is also passed which contains additional information.
+  dataRounding: function(value, context) {
+    // Alterations go here.
+    return value;
+  },
+
+  // A hook which can be used to alter the data before it is displayed on charts/tables.
+  dataDisplayAlterations: [],
+  dataDisplayAlter: function(callback) {
+    this.dataDisplayAlterations.push(callback);
+  },
+
+  // Disaggregations which should be ignored on indicator pages.
+  ignoredDisaggregations: null,
+
+  language: 'ky',
+
+  mapColors: {
+    "default": [
+        "#c4e1c6",
+        "#b0d1b3",
+        "#9bc2a1",
+        "#87b28f",
+        "#74a37c",
+        "#60946b",
+        "#4d8559",
+        "#3a7747",
+        "#276836"
+    ]
+},
+};
+
+</script>
+
+        <script>
+// JavaScript container for translation data.
+var translations = {
+  //Javascript version of the "t" filter from jekyll-open-sdg-plugins.
+  t: function(key) {
+
+    if (!key || typeof key !== 'string') {
+      return '';
+    }
+
+    // The majority of uses of this function are to translate disaggregation
+    // data. To spare data providers of needing to enter "data." in front of
+    // their disaggregation data, we specifically look for that here.
+    if (typeof this.data === 'object' && this.data !== null && this.data[key]) {
+      return this.data[key];
+    }
+
+    var originalKey = key;
+    var drilled = this;
+    var levelsDrilled = 0;
+    var levels = key.split('.');
+
+    for (var level in levels) {
+      // If we have drilled down to soon, abort.
+      if (typeof drilled !== 'object') {
+        break;
+      }
+
+      if (levels[level] in drilled) {
+        drilled = drilled[levels[level]];
+        levelsDrilled += 1;
+      }
+    }
+
+    // If we didn't drill the right number of levels, return the original string.
+    if (levels.length != levelsDrilled) {
+      return originalKey;
+    }
+
+    // Otherwise we must have drilled all the way.
+    return drilled;
+  },
+};
+</script>
+
+        <!-- Basic Page Needs
+        ================================================== -->
+        <meta http-equiv="X-UA-Compatible" content="IE=edge"><!-- Mobile Specific Metas
+        ================================================== -->
+        <meta name="HandheldFriendly" content="True">
+        <meta name="MobileOptimized" content="320">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <!-- Title and meta description
+        ================================================== -->
+
+        
+    <title>
+        
+        көрсөткүч 5.2.1.2 -
+        
+        Число женщин, обратившихся в органы здравоохранения от семейного насилия - Indicators For The Sustainable Development Goals
+    </title>
+
+
+
+        
+
+        <!--[if IE 9]>
+        <script src="/assets/js/lib/classList.js"></script>
+        <![endif]-->
+
+        <link rel="apple-touch-icon" sizes="180x180" href="/assets/img/favicons/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/assets/img/favicons/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/assets/img/favicons/favicon-16x16.png">
+<link rel="icon" type="image/x-icon" href="/assets/img/favicons/favicon.ico" />
+
+        
+
+        
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+        <link res="stylesheet" href="https://cdn.datatables.net/1.11.5/css/dataTables.bootstrap5.min.css">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" crossorigin="">
+        <link rel="stylesheet" href="/assets/css/style.css?v=20250813015559">
+        <link rel="stylesheet" href="https://unpkg.com/leaflet@1.3.4/dist/leaflet.css"
+          integrity="sha512-puBpdR0798OZvTTbP4A8Ix/l+A4dHDD0DGqYW6RQ+9jxkRFclaxxQb/SJAWZfWAkuyeQUytO7+7N4QKrDh+drA=="
+          crossorigin=""/>
+        <link rel="stylesheet" href="https://cdn.rawgit.com/socib/Leaflet.TimeDimension/master/dist/leaflet.timedimension.control.min.css"  crossorigin=""/>
+        <link rel="stylesheet" href='https://api.mapbox.com/mapbox.js/plugins/leaflet-fullscreen/v1.0.1/leaflet.fullscreen.css'  crossorigin=""/>
+        <link rel="stylesheet" href="https://bowercdn.net/c/leaflet.zoomhome-latest/dist/leaflet.zoomhome.css"  crossorigin=""/>
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet-search@2.9.7/dist/leaflet-search.min.css" crossorigin="">
+        <link rel="stylesheet" href="https://cdn.kiprotect.com/klaro/v0.7/klaro.min.css" crossorigin=""/><link rel="stylesheet" href="/assets/css/custom.css?v=20250813015559">
+        
+
+        
+
+
+        <!--[if IE]>
+        <link rel="stylesheet" href="/assets/css/ie.css">
+        <![endif]-->
+
+        
+
+    </head>
+<body class="language-ky
+layout-indicator-iframe
+">
+<!-- <div class="container"> -->
+
+<script>translations['header'] = {"alpha":"Альфа","default_contrast":"Дефолт карама-каршы","disable_high_contrast":"Жогорку карама - каршылыкты өчүрүү","disclaimer":"Бул иштеп чыгуу сайты. Биз силердин <a href=\"mailto:%email_contacts.suggestions\">пикирлериңизди</a>кабыл алабыз .","enable_high_contrast":"Карама - каршылыкты жогорулатуу","hide_menu":"Навигациялык менюну жашыруу","high_contrast":"Жогорку карама-каршылык","internet_explorer_message":"Биз бул сайтка кирүү үчүн Internet Explorer колдонуп жатканыңызды аныктадык. Internet Explorer азыр Microsoft тарабынан акырындык менен өчүрүлүп жатат. Натыйжада, бул сайт мындан ары Internet Explorer эч кандай версиясын колдобойт. Бул сайттагы кээ бир өзгөчөлүктөр иштебейт. Эдж, Chrome, Firefox, же Safari сыяктуу заманбап браузерди колдонуу керек. Эгерде башка браузерди орнотууда же кирүүдө кыйынчылык туудурса, ат-колдоо командасына кайрылыңыздар.","internet_explorer_message_title":"Бул интернет-браузер мындан ары колдолбойт","logo_title":"Башкы бетке өтүү","show_menu":"Навигациялык менюну көрсөтүү","skip_link":"Негизги мазмунга өтүү","tag_line":"17 Дүйнөбүздү өзгөртө турган максаттар","toggle_menu":"Меню тогле. Менюну кеңейтүү же кулатуу үчүн чыкылдатуу.","toggle_search":"Издөө плитасы. Издөө тилкесин кеңейтүү же кулатуу үчүн чыкылдатуу."};</script>
+
+
+<script type="text/template" id="item_template">
+  <% _.each(fields, function(fieldItem) { %>
+    <div class="variable-selector
+      <% if(allowedFields.indexOf(fieldItem.field) == -1) { %> disallowed <% }%>
+      <% if (typeof childFields !== 'undefined' && childFields.indexOf(fieldItem.field) !== -1) { %> child <% }%>
+      "
+      data-field="<%=fieldItem.field%>"
+    >
+      <button class='accessBtn' tabindex='0' aria-expanded='false'
+        <% if(allowedFields.indexOf(fieldItem.field) == -1) { %>
+        aria-describedby='variable-hint-<%=fieldItem.field.replace(/ /g, '-')%>'
+        <% }%>
+      >
+        <% if(allowedFields.indexOf(fieldItem.field) == -1) { %><h6><% } else { %><h5><% } %>
+          <span aria-hidden="true"><%=translations.t(fieldItem.label)%><i class="fa fa-chevron-down"></i></span>
+          <span class="sr-only">Суб-категорияларды көрсөтүү: <%=translations.t(fieldItem.label)%></span>
+        <% if(allowedFields.indexOf(fieldItem.field) == -1) { %></h6><% } else { %></h5><% } %>
+      </button>
+      <div class="variable-options">
+        <fieldset>
+          <legend class="sr-only">Суб-категориялар - <%=translations.t(fieldItem.field)%></legend>
+          <div>
+            <button data-type="select">Бардыгын тандоо</button>
+            <button data-type="clear">Баарын тазалоо</button>
+          </div>
+          <% _.each(fieldItem.values, function(item) { %>
+            <label>
+              <input type="checkbox" <%=item.checked ? 'checked' : ''%> value="<%=item.value%>" data-field="<%=fieldItem.field%>" /><%=translations.t(item.value)%>
+            </label>
+          <% }); %>
+        </fieldset>
+      </div>
+
+      <% if(allowedFields.indexOf(fieldItem.field) == -1) { %>
+        <div class="variable-hint" id="variable-hint-<%=fieldItem.field.replace(/ /g, '-')%>">«<%= translations.t(_.find(edges, { To: fieldItem.field }).From) %>» тандалган учурда жеткиликтүү
+        </div>
+        <div class="no-data-hint" id="no-data-hint-<%=fieldItem.field.replace(/ /g, '-')%>">
+          Жогорудагы чыпкалар улам эч кандай параметрлер жеткиликтүү эмес
+        </div>
+      <% }%>
+
+    </div>
+  <% }); %>
+</script>
+
+<script type="text/template" id="units_template">
+  
+    <h4>Өлчөө бирдиги</h4>
+    <fieldset>
+      <legend class="sr-only">Өлчөө бирдиги</legend>
+      <% _.each(units, function(unitsItem, index) { %>
+        <% var checked = (selectedUnit) ? (selectedUnit==unitsItem) : (index==0); %>
+        <label><input type="radio" name="unit" value="<%=unitsItem%>" tabindex=0 <%=checked ? 'checked' : ''%> /> <%=translations.t(unitsItem)%></label>
+      <% }); %>
+    </fieldset>
+  
+</script>
+
+<script type="text/template" id="series_template">
+  
+    <h4>Сериялар</h4>
+    <fieldset>
+      <legend class="sr-only">Сериялар</legend>
+      <% _.each(serieses, function(seriesItem, index) { %>
+        <% var isProxy = (proxySerieses.includes(seriesItem)) %>
+        <% var checked = (selectedSeries) ? (selectedSeries==seriesItem) : (index==0); %>
+        <label><input type="radio" name="series" value="<%=seriesItem%>" tabindex=0 <%=checked ? 'checked' : ''%> /> <%=translations.t(seriesItem)%> <%=isProxy ? proxyPill : ''%></label>
+      <% }); %>
+    </fieldset>
+  
+</script>
+
+<script>translations['indicator'] = {"annotation_2030_target":"2030 көрсөткүч максаттуу","annotation_series_break":"Сериялар тыныгуу","announce_data_added":"Маалыматтарды камтуу үчүн диаграмма жана таблица жаңыланды.","announce_data_not_available":"Диаграммада жана таблицада маалыматтар көрсөтүлбөйт.","announce_data_removed":"Маалыматтарды четке кагуу үчүн диаграмма жана таблица жаңыланды.","announce_series_switched":"Диаграмма жана таблица башка серияларды көрсөтүү үчүн жаңыланды.","announce_unit_switched":"Диаграмма жана таблица башка бирдикти көрсөтүү үчүн жаңыланды.","apply":"Колдонуу","cancel":"Жокко чыгаруу","change_breakdowns":"Сынууларды өзгөртүү","chart":"Диаграмма","chart_annotation":"Диаграмманы аннотациялоо","clear_all":"Баарын тазалоо","clear_selections":"Так тандоолор","data_keyboard_navigation":"Пресс сол жана оң жебе ачкычтары менен маалыматтар пункттарын карап чыгуу үчүн кирет.","data_not_available":"Бул маалыматтар жеткиликтүү эмес. Чагылдыруу үчүн альтернативалык маалыматтарды тандаңыз.","data_tabular_alternative":"Таблицалык маалыматтардын альтернативасы үчүн Таблицанын таблицасын караңыз.","dataset_size_warning":"Диаграммада көрсөтүү үчүн маалыматтар топурагы өтө көп. Кээ бир тандоолорду алып салууга чейин баары эле көрсөтүлбөйт.","download_chart":"Диаграмманын маалыматтарын жүктөө (.csv)","download_chart_image":"Диаграмманы жүктөп алуу (.png)","download_chart_image_title":"Диаграмманы PNG катары жүктөп алуу","download_csv":"Маалыматтарды жүктөө (.csv)","download_csv_title":"Маалыматтарды CSV катары жүктөп алуу","download_geojson":"Карта маалыматтарын жүктөп алуу (.geojson)","download_geojson_title":"Картанын маалыматтарын GeoJSON катары жүктөп алуу","download_headline":"Аталышы тууралуу маалыматтарды жүктөө (.csv)","download_headline_title":"Башкы маалыматтарды CSV катары жүктөп алуу","download_source":"Булак тууралуу маалыматтарды жүктөө (.csv)","download_source_excel":"Excel нускасын жүктөө","download_source_for_disaggregations":"Дисгрегациялар үчүн булак маалыматтарын жүктөп алуу (.csv)","download_source_sdmx":"Жүктөө булагы SDMX (.xml)","download_source_sdmx_title":"Булак маалыматтарын SDMX катары жүктөп алуу","download_source_title":"Булак маалыматтарын CSV катары жүктөп алуу","download_table":"Таблицанын маалыматтарын жүктөө (.csv)","edit":"Көрсөткүчтү оңдоо","edit_configuration":"Конфигурацияны оңдоо","edit_data":"Маалыматтарды оңдоо","edit_metadata":"Метаберилиштерди оңдоо","empty_metadata_placeholder":"Бул көрсөткүч үчүн жеткиликтүү эмес","empty_metadata_placeholder_sources":"Бул булак үчүн жеткиликтүү эмес","footnote":"Шилтеме","geographical_area":"Географиялык аймак","global_metadata":"Глобалдык метаберилиштер","global_metadata_blurb":"Бул таблицада БУУнун Статистикалык комиссиясы аныктаган СДГ көрсөткүчтөрү боюнча метаберилиштер тууралуу маалымат берилген. <a href=\"https://unstats.un.org/sdgs/metadata/\">Толук глобалдык метаберилиштерди</a> БУУнун Статистика бөлүмү тарабынан берилет.","headline_data":"Башкы маалыматтар","legend_help":"Диаграммадан индивидуалдык сызыктарды алып салуу үчүн легенданы басыңыз.","loading":"Жүктөө","loading_map":"Жүктөө картасы","map":"Карта","map_fullscreen":"Картаны толук экрандан көрүү","map_fullscreen_exit":"Толук экран картасын чыгуу","map_search":"Картаны издөө","map_search_cancel":"Картаны так издөө","map_search_hide":"Картаны издөө жашыруу","map_search_show":"Картаны издөө көрсөтүү","map_slider_back":"Картанын мурунку мезгилге карата маалыматтарын көрүү","map_slider_forward":"Картанын маалыматтарын кийинки убакыт аралыгында көрүү","map_slider_keyboard":"Картанын маалыматтарын убакыттын өтүшү менен сол жана оң жебе ачкычтарын колдонуу менен көрүү","map_slider_mouse":"Картанын маалыматтарын убакыттын өтүшү менен багыттоо","map_year_slider":"Жыл дөңгөлөгү","map_zoom_home":"Картаны чоңойтуу үчүн калыбына келтирүү","map_zoom_in":"Картаны чоңойтуу","map_zoom_out":"Картаны чоңойтуу","national_metadata":"Улуттук метаберилиштер","national_metadata_blurb":"Бул таблицада тиешелүү глобалдык СДГ көрсөткүчүнө жакын %country.name статистикасынан жеткиликтүү иш жүзүндөгү көрсөткүч үчүн метаберилиштер берилген. Белгилей кетчү нерсе, СДГнын глобалдык көрсөткүчү %country.adjective статистикасынан толук жеткиликтүү болсо да, бул таблица улуттук методология жана башка %country.adjective-өзгөчө метаберилиштер тууралуу маалымат алуу үчүн консультациялар жүргүзүлүшү керек.","next":"Кийинки көрсөткүч","no_data_hint":"Жогорудагы чыпкалар улам эч кандай параметрлер жеткиликтүү эмес","no_headline_data":"Башкы маалымат жок","note":"эскертүү","plot_legend_description":"Сюжет легендасы: диаграммага кирген саптардын тизмеси","previous":"Мурунку көрсөткүч","proxy":"Прокси","proxy_description":"Бул көрсөткүч Бириккен Улуттар Уюму (БУУ) белгилеген маалыматтарга айрым альтернативалык маалыматтарды камтыйт. Бул көрсөткүч учурда жеткиликтүү эң ылайыктуу дал келет.","select_all":"Бардыгын тандоо","series":"Сериялар","series_help":"Маалыматтардын ар кандай сынууларын көрүү үчүн төмөндөгү тамчылардан категорияларды тандаңыз. Кээ бирлери жогорку деңгээл тандалганга чейин жеткиликтүү болбойт.","source":"Булак","sources":"Булактар","status":"Көрсөткүч абалы","sub_categories":"Суб-категориялар","sub_categories_show":"Суб-категорияларды көрсөтүү:","table":"Таблица","table_column_sort":"Бул колонна менен сорттоо үчүн чертиңиз","tags":"Тегтер","total":"Бардыгы","unit":"Бирдик","unit_of_measurement":"Өлчөө бирдиги","units_type":"Бирдиктер түрү","variable_hint":"«%field» тандалган учурда жеткиликтүү","view_indicator_list":"Бул максаттын көрсөткүч тизмесин көрүү"};</script>
+
+<script>translations['data'] = {"Year":"Жыл"};</script>
+
+
+<div class="heading goal-banner indicator goal-5">
+    <div class="container">
+        <div class="row">
+            
+            <div class="col-4 col-md-3 col-lg-2 goal-icon goal-tiles">
+                <a href="/ky/5/" aria-label="Максаттын максаттарын жана көрсөткүчтөрүн көрүү 5" title="Максаттын максаттарын жана көрсөткүчтөрүн көрүү 5">
+                    <img src="https://sdg-kyrgyzstan.github.io/open-sdg-site-starter/assets/img/goals/ky/5.png"
+                        alt="Гендердик теңдик - Максат 5"
+                        id="goal-5"
+                        class="goal-icon-image goal-icon-image-" />
+                </a>
+            </div>
+            <div class="col-8 col-md-9 col-lg-10 indicator-details">
+            
+                <div>
+                    <h1>
+                        
+                        көрсөткүч 5.2.1.2
+                        
+                        <span class="lead-copy">Число женщин, обратившихся в органы здравоохранения от семейного насилия</span>
+                    </h1>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div id="main-content" class="container goal-5" role="main">
+  
+
+  
+
+  
+
+  
+
+  
+
+
+  
+
+
+
+<div class="row"
+  id="indicatorData"
+  data-indicatorid='indicator_5-2-1-2'
+  data-id="5-2-1-2"
+  data-country="Кыргызская Республика"
+  data-charttitle="Число женщин, обратившихся в органы здравоохранения от семейного насилия"
+  data-charttitles="null"
+  data-measurementunit=""
+  data-xaxislabel=""
+  data-showdata="true"
+  data-graphtype="line"
+  data-graphtypes="null"
+  data-geocoderegex=""
+  data-showmap=""
+  data-startvalues="null"
+  data-graphlimits="null"
+  data-stackeddisaggregation=""
+  data-graphannotations="null"
+  data-graphtargetlines="null"
+  data-graphseriesbreaks="null"
+  data-indicatordownloads="{&quot;indicator.download_source_excel&quot;:{&quot;href&quot;:&quot;downloads/data-excel/5.2.1.2.xlsx&quot;},&quot;indicator.download_source_sdmx&quot;:{&quot;href&quot;:&quot;downloads/data-sdmx/5.2.1.2.xml&quot;}}"
+  data-dataschema="{&quot;fields&quot;:[{&quot;name&quot;:&quot;Year&quot;,&quot;type&quot;:&quot;integer&quot;,&quot;title&quot;:&quot;Жыл&quot;},{&quot;name&quot;:&quot;SERIES&quot;,&quot;type&quot;:&quot;string&quot;,&quot;title&quot;:&quot;SERIES&quot;},{&quot;name&quot;:&quot;Value&quot;,&quot;type&quot;:&quot;integer&quot;,&quot;title&quot;:&quot;Value&quot;}]}"
+  data-compositebreakdownlabel=""
+  data-precision="null"
+  data-proxy=""
+  data-proxyseries="null"
+>
+  
+  <span role="status" class="visually-hidden" id="indicator-data-view-status"></span>
+  <span role="status" class="visually-hidden" id="indicator-data-unit-status"></span>
+  <span role="status" class="visually-hidden" id="indicator-data-series-status"></span>
+  <div id="indicator-sidebar" class="indicator-sidebar col-md-3">
+    <div id="serieses"></div>
+<div id="units"></div>
+<div id="toolbar">
+  <span id="series-help">
+    <h4>Суб-категориялар</h4>
+    <p>Маалыматтардын ар кандай сынууларын көрүү үчүн төмөндөгү тамчылардан категорияларды тандаңыз. Кээ бирлери жогорку деңгээл тандалганга чейин жеткиликтүү болбойт.</p>
+  </span>
+  <div id="fields">
+    <p class="async-loading" data-img="/assets/img/loading-small.gif"></p>
+  </div>
+</div>
+
+  </div>
+  <div id="indicator-main" class="indicator-main col-md-9">
+    
+
+
+
+
+<div id="headlineTable">
+
+  <div id="datatables">
+
+    
+    <a role="button" href="https://sustainabledevelopment-kyrgyzstan.github.io/sdg-data/ky/headline/5-2-1-2.csv" class="btn btn-primary btn-download" download="indicator_5-2-1-2.csv" tabindex="0" role="button">Аталышы тууралуу маалыматтарды жүктөө (.csv)</a>
+    
+    <a role="button" href="https://sustainabledevelopment-kyrgyzstan.github.io/sdg-data/ky/data/5-2-1-2.csv" class="btn btn-primary btn-download" download='indicator_5-2-1-2.csv' tabindex='0' role='button'>Булак тууралуу маалыматтарды жүктөө (.csv)</a>
+
+    <p class="no-js-disaggregation-hint">Дисгрегациялар үчүн булак маалыматтарын жүктөп алуу (.csv)</p>
+
+    
+    <h3>Башкы маалыматтар</h3>
+    <table class="table-responsive table table-hover dataTable no-footer" role="grid">
+      <caption>Число женщин, обратившихся в органы здравоохранения от семейного насилия</caption>
+      <thead>
+        
+        
+        <th scope="col">Year</th>
+        
+        
+        
+        <th scope="col">Value</th>
+        
+        
+        
+        <th scope="col" class="table-value">SERIES</th>
+        
+        
+      </thead>
+      <tbody>
+        
+        <tr>
+          
+          
+          <td>2010</td>
+          
+          
+          
+          <td>1308</td>
+          
+          
+          
+          <td class="table-value">_L_KG_050201_1A1</td>
+          
+          
+        </tr>
+        
+        <tr>
+          
+          
+          <td>2011</td>
+          
+          
+          
+          <td>1453</td>
+          
+          
+          
+          <td class="table-value">_L_KG_050201_1A1</td>
+          
+          
+        </tr>
+        
+        <tr>
+          
+          
+          <td>2012</td>
+          
+          
+          
+          <td>1900</td>
+          
+          
+          
+          <td class="table-value">_L_KG_050201_1A1</td>
+          
+          
+        </tr>
+        
+        <tr>
+          
+          
+          <td>2013</td>
+          
+          
+          
+          <td>1589</td>
+          
+          
+          
+          <td class="table-value">_L_KG_050201_1A1</td>
+          
+          
+        </tr>
+        
+        <tr>
+          
+          
+          <td>2014</td>
+          
+          
+          
+          <td>1988</td>
+          
+          
+          
+          <td class="table-value">_L_KG_050201_1A1</td>
+          
+          
+        </tr>
+        
+        <tr>
+          
+          
+          <td>2015</td>
+          
+          
+          
+          <td>936</td>
+          
+          
+          
+          <td class="table-value">_L_KG_050201_1A1</td>
+          
+          
+        </tr>
+        
+        <tr>
+          
+          
+          <td>2016</td>
+          
+          
+          
+          <td>1172</td>
+          
+          
+          
+          <td class="table-value">_L_KG_050201_1A1</td>
+          
+          
+        </tr>
+        
+        <tr>
+          
+          
+          <td>2017</td>
+          
+          
+          
+          <td>1382</td>
+          
+          
+          
+          <td class="table-value">_L_KG_050201_1A1</td>
+          
+          
+        </tr>
+        
+        <tr>
+          
+          
+          <td>2018</td>
+          
+          
+          
+          <td>1305</td>
+          
+          
+          
+          <td class="table-value">_L_KG_050201_1A1</td>
+          
+          
+        </tr>
+        
+        <tr>
+          
+          
+          <td>2019</td>
+          
+          
+          
+          <td>1764</td>
+          
+          
+          
+          <td class="table-value">_L_KG_050201_1A1</td>
+          
+          
+        </tr>
+        
+        <tr>
+          
+          
+          <td>2020</td>
+          
+          
+          
+          <td>1701</td>
+          
+          
+          
+          <td class="table-value">_L_KG_050201_1A1</td>
+          
+          
+        </tr>
+        
+        <tr>
+          
+          
+          <td>2021</td>
+          
+          
+          
+          <td>1604</td>
+          
+          
+          
+          <td class="table-value">_L_KG_050201_1A1</td>
+          
+          
+        </tr>
+        
+        <tr>
+          
+          
+          <td>2022</td>
+          
+          
+          
+          <td>1373</td>
+          
+          
+          
+          <td class="table-value">_L_KG_050201_1A1</td>
+          
+          
+        </tr>
+        
+        <tr>
+          
+          
+          <td>2023</td>
+          
+          
+          
+          <td>1209</td>
+          
+          
+          
+          <td class="table-value">_L_KG_050201_1A1</td>
+          
+          
+        </tr>
+        
+        <tr>
+          
+          
+          <td>2010</td>
+          
+          
+          
+          <td>68</td>
+          
+          
+          
+          <td class="table-value">_L_KG_050201_1A2</td>
+          
+          
+        </tr>
+        
+        <tr>
+          
+          
+          <td>2011</td>
+          
+          
+          
+          <td>155</td>
+          
+          
+          
+          <td class="table-value">_L_KG_050201_1A2</td>
+          
+          
+        </tr>
+        
+        <tr>
+          
+          
+          <td>2012</td>
+          
+          
+          
+          <td>16</td>
+          
+          
+          
+          <td class="table-value">_L_KG_050201_1A2</td>
+          
+          
+        </tr>
+        
+        <tr>
+          
+          
+          <td>2013</td>
+          
+          
+          
+          <td>48</td>
+          
+          
+          
+          <td class="table-value">_L_KG_050201_1A2</td>
+          
+          
+        </tr>
+        
+        <tr>
+          
+          
+          <td>2014</td>
+          
+          
+          
+          <td>35</td>
+          
+          
+          
+          <td class="table-value">_L_KG_050201_1A2</td>
+          
+          
+        </tr>
+        
+        <tr>
+          
+          
+          <td>2015</td>
+          
+          
+          
+          <td>12</td>
+          
+          
+          
+          <td class="table-value">_L_KG_050201_1A2</td>
+          
+          
+        </tr>
+        
+        <tr>
+          
+          
+          <td>2016</td>
+          
+          
+          
+          <td>2</td>
+          
+          
+          
+          <td class="table-value">_L_KG_050201_1A2</td>
+          
+          
+        </tr>
+        
+        <tr>
+          
+          
+          <td>2017</td>
+          
+          
+          
+          <td>1</td>
+          
+          
+          
+          <td class="table-value">_L_KG_050201_1A2</td>
+          
+          
+        </tr>
+        
+        <tr>
+          
+          
+          <td>2019</td>
+          
+          
+          
+          <td>2</td>
+          
+          
+          
+          <td class="table-value">_L_KG_050201_1A2</td>
+          
+          
+        </tr>
+        
+        <tr>
+          
+          
+          <td>2020</td>
+          
+          
+          
+          <td>1</td>
+          
+          
+          
+          <td class="table-value">_L_KG_050201_1A2</td>
+          
+          
+        </tr>
+        
+        <tr>
+          
+          
+          <td>2021</td>
+          
+          
+          
+          <td>1</td>
+          
+          
+          
+          <td class="table-value">_L_KG_050201_1A2</td>
+          
+          
+        </tr>
+        
+        <tr>
+          
+          
+          <td>2010</td>
+          
+          
+          
+          <td>401</td>
+          
+          
+          
+          <td class="table-value">_L_KG_050201_1A3</td>
+          
+          
+        </tr>
+        
+        <tr>
+          
+          
+          <td>2011</td>
+          
+          
+          
+          <td>581</td>
+          
+          
+          
+          <td class="table-value">_L_KG_050201_1A3</td>
+          
+          
+        </tr>
+        
+        <tr>
+          
+          
+          <td>2012</td>
+          
+          
+          
+          <td>509</td>
+          
+          
+          
+          <td class="table-value">_L_KG_050201_1A3</td>
+          
+          
+        </tr>
+        
+        <tr>
+          
+          
+          <td>2013</td>
+          
+          
+          
+          <td>508</td>
+          
+          
+          
+          <td class="table-value">_L_KG_050201_1A3</td>
+          
+          
+        </tr>
+        
+        <tr>
+          
+          
+          <td>2014</td>
+          
+          
+          
+          <td>495</td>
+          
+          
+          
+          <td class="table-value">_L_KG_050201_1A3</td>
+          
+          
+        </tr>
+        
+        <tr>
+          
+          
+          <td>2015</td>
+          
+          
+          
+          <td>666</td>
+          
+          
+          
+          <td class="table-value">_L_KG_050201_1A3</td>
+          
+          
+        </tr>
+        
+        <tr>
+          
+          
+          <td>2016</td>
+          
+          
+          
+          <td>657</td>
+          
+          
+          
+          <td class="table-value">_L_KG_050201_1A3</td>
+          
+          
+        </tr>
+        
+        <tr>
+          
+          
+          <td>2017</td>
+          
+          
+          
+          <td>629</td>
+          
+          
+          
+          <td class="table-value">_L_KG_050201_1A3</td>
+          
+          
+        </tr>
+        
+        <tr>
+          
+          
+          <td>2018</td>
+          
+          
+          
+          <td>555</td>
+          
+          
+          
+          <td class="table-value">_L_KG_050201_1A3</td>
+          
+          
+        </tr>
+        
+        <tr>
+          
+          
+          <td>2019</td>
+          
+          
+          
+          <td>539</td>
+          
+          
+          
+          <td class="table-value">_L_KG_050201_1A3</td>
+          
+          
+        </tr>
+        
+        <tr>
+          
+          
+          <td>2020</td>
+          
+          
+          
+          <td>379</td>
+          
+          
+          
+          <td class="table-value">_L_KG_050201_1A3</td>
+          
+          
+        </tr>
+        
+        <tr>
+          
+          
+          <td>2021</td>
+          
+          
+          
+          <td>510</td>
+          
+          
+          
+          <td class="table-value">_L_KG_050201_1A3</td>
+          
+          
+        </tr>
+        
+        <tr>
+          
+          
+          <td>2022</td>
+          
+          
+          
+          <td>117</td>
+          
+          
+          
+          <td class="table-value">_L_KG_050201_1A3</td>
+          
+          
+        </tr>
+        
+        <tr>
+          
+          
+          <td>2023</td>
+          
+          
+          
+          <td>373</td>
+          
+          
+          
+          <td class="table-value">_L_KG_050201_1A3</td>
+          
+          
+        </tr>
+        
+        <tr>
+          
+          
+          <td>2010</td>
+          
+          
+          
+          <td>414</td>
+          
+          
+          
+          <td class="table-value">_L_KG_050201_1A4</td>
+          
+          
+        </tr>
+        
+        <tr>
+          
+          
+          <td>2011</td>
+          
+          
+          
+          <td>320</td>
+          
+          
+          
+          <td class="table-value">_L_KG_050201_1A4</td>
+          
+          
+        </tr>
+        
+        <tr>
+          
+          
+          <td>2012</td>
+          
+          
+          
+          <td>498</td>
+          
+          
+          
+          <td class="table-value">_L_KG_050201_1A4</td>
+          
+          
+        </tr>
+        
+        <tr>
+          
+          
+          <td>2013</td>
+          
+          
+          
+          <td>822</td>
+          
+          
+          
+          <td class="table-value">_L_KG_050201_1A4</td>
+          
+          
+        </tr>
+        
+        <tr>
+          
+          
+          <td>2014</td>
+          
+          
+          
+          <td>570</td>
+          
+          
+          
+          <td class="table-value">_L_KG_050201_1A4</td>
+          
+          
+        </tr>
+        
+        <tr>
+          
+          
+          <td>2015</td>
+          
+          
+          
+          <td>485</td>
+          
+          
+          
+          <td class="table-value">_L_KG_050201_1A4</td>
+          
+          
+        </tr>
+        
+        <tr>
+          
+          
+          <td>2016</td>
+          
+          
+          
+          <td>372</td>
+          
+          
+          
+          <td class="table-value">_L_KG_050201_1A4</td>
+          
+          
+        </tr>
+        
+        <tr>
+          
+          
+          <td>2017</td>
+          
+          
+          
+          <td>176</td>
+          
+          
+          
+          <td class="table-value">_L_KG_050201_1A4</td>
+          
+          
+        </tr>
+        
+        <tr>
+          
+          
+          <td>2018</td>
+          
+          
+          
+          <td>47</td>
+          
+          
+          
+          <td class="table-value">_L_KG_050201_1A4</td>
+          
+          
+        </tr>
+        
+        <tr>
+          
+          
+          <td>2019</td>
+          
+          
+          
+          <td>211</td>
+          
+          
+          
+          <td class="table-value">_L_KG_050201_1A4</td>
+          
+          
+        </tr>
+        
+        <tr>
+          
+          
+          <td>2020</td>
+          
+          
+          
+          <td>180</td>
+          
+          
+          
+          <td class="table-value">_L_KG_050201_1A4</td>
+          
+          
+        </tr>
+        
+        <tr>
+          
+          
+          <td>2021</td>
+          
+          
+          
+          <td>178</td>
+          
+          
+          
+          <td class="table-value">_L_KG_050201_1A4</td>
+          
+          
+        </tr>
+        
+        <tr>
+          
+          
+          <td>2022</td>
+          
+          
+          
+          <td>154</td>
+          
+          
+          
+          <td class="table-value">_L_KG_050201_1A4</td>
+          
+          
+        </tr>
+        
+        <tr>
+          
+          
+          <td>2023</td>
+          
+          
+          
+          <td>115</td>
+          
+          
+          
+          <td class="table-value">_L_KG_050201_1A4</td>
+          
+          
+        </tr>
+        
+        <tr>
+          
+          
+          <td>2010</td>
+          
+          
+          
+          <td>445</td>
+          
+          
+          
+          <td class="table-value">_L_KG_050201_1A5</td>
+          
+          
+        </tr>
+        
+        <tr>
+          
+          
+          <td>2011</td>
+          
+          
+          
+          <td>491</td>
+          
+          
+          
+          <td class="table-value">_L_KG_050201_1A5</td>
+          
+          
+        </tr>
+        
+        <tr>
+          
+          
+          <td>2012</td>
+          
+          
+          
+          <td>504</td>
+          
+          
+          
+          <td class="table-value">_L_KG_050201_1A5</td>
+          
+          
+        </tr>
+        
+        <tr>
+          
+          
+          <td>2013</td>
+          
+          
+          
+          <td>600</td>
+          
+          
+          
+          <td class="table-value">_L_KG_050201_1A5</td>
+          
+          
+        </tr>
+        
+        <tr>
+          
+          
+          <td>2014</td>
+          
+          
+          
+          <td>731</td>
+          
+          
+          
+          <td class="table-value">_L_KG_050201_1A5</td>
+          
+          
+        </tr>
+        
+        <tr>
+          
+          
+          <td>2015</td>
+          
+          
+          
+          <td>1896</td>
+          
+          
+          
+          <td class="table-value">_L_KG_050201_1A5</td>
+          
+          
+        </tr>
+        
+        <tr>
+          
+          
+          <td>2016</td>
+          
+          
+          
+          <td>1404</td>
+          
+          
+          
+          <td class="table-value">_L_KG_050201_1A5</td>
+          
+          
+        </tr>
+        
+        <tr>
+          
+          
+          <td>2017</td>
+          
+          
+          
+          <td>1084</td>
+          
+          
+          
+          <td class="table-value">_L_KG_050201_1A5</td>
+          
+          
+        </tr>
+        
+        <tr>
+          
+          
+          <td>2018</td>
+          
+          
+          
+          <td>970</td>
+          
+          
+          
+          <td class="table-value">_L_KG_050201_1A5</td>
+          
+          
+        </tr>
+        
+        <tr>
+          
+          
+          <td>2019</td>
+          
+          
+          
+          <td>939</td>
+          
+          
+          
+          <td class="table-value">_L_KG_050201_1A5</td>
+          
+          
+        </tr>
+        
+        <tr>
+          
+          
+          <td>2020</td>
+          
+          
+          
+          <td>798</td>
+          
+          
+          
+          <td class="table-value">_L_KG_050201_1A5</td>
+          
+          
+        </tr>
+        
+        <tr>
+          
+          
+          <td>2021</td>
+          
+          
+          
+          <td>822</td>
+          
+          
+          
+          <td class="table-value">_L_KG_050201_1A5</td>
+          
+          
+        </tr>
+        
+        <tr>
+          
+          
+          <td>2022</td>
+          
+          
+          
+          <td>885</td>
+          
+          
+          
+          <td class="table-value">_L_KG_050201_1A5</td>
+          
+          
+        </tr>
+        
+        <tr>
+          
+          
+          <td>2023</td>
+          
+          
+          
+          <td>781</td>
+          
+          
+          
+          <td class="table-value">_L_KG_050201_1A5</td>
+          
+          
+        </tr>
+        
+      </tbody>
+    </table>
+    
+  </div>
+
+  
+  <div id="datatableFooter">
+    
+    
+    <p>Географиялык аймак: Кыргызская Республика</p>
+    
+    
+    
+  </div>
+  
+
+</div>
+
+
+<section>
+
+  <p class="async-loading" data-img="/assets/img/loading-small.gif"></p>
+
+  <div class="async-loaded mt-4" style="display:none;">
+
+    <div style="display: none;">
+    <span id="table-alternative">Таблицалык маалыматтардын альтернативасы үчүн Таблицанын таблицасын караңыз.</span>
+  </div>
+  <ul class="nav nav-tabs non-stacking-tabs data-view" role="tablist">
+    
+    <li role="presentation"
+      class="
+        nav-item
+        
+        
+      ">
+      <button
+        class="nav-link active"
+        data-bs-toggle="tab"
+        role="tab"
+        type="button"
+        
+          id="tab-chartview"
+          data-bs-target="#chartview"
+          aria-controls="chartview"
+          aria-describedby="table-alternative"
+          data-on="click"
+data-event-category="Tab change"
+data-event-action="Change data view"
+data-event-label="Change to Chart tab"
+
+        
+      >Диаграмма</button>
+    </li>
+    
+    <li role="presentation"
+      class="
+        nav-item
+        
+        
+      ">
+      <button
+        class="nav-link "
+        data-bs-toggle="tab"
+        role="tab"
+        type="button"
+        
+          id="tab-tableview"
+          data-bs-target="#tableview"
+          aria-controls="tableview"
+          data-on="click"
+data-event-category="Tab change"
+data-event-action="Change data view"
+data-event-label="Change to Table tab"
+
+        
+      >Таблица</button>
+    </li>
+    
+  </ul>
+  
+    <div class="tab-content data-view">
+    
+      
+        <div role="tabpanel" class="tab-pane active" id="chartview">
+          
+
+    <div id="dataset-size-warning" style="display:none" role="alert">
+      <i class="fa fa-bolt"><span class="sr-only">Эскертүү:</span></i>
+      Диаграммада көрсөтүү үчүн маалыматтар топурагы өтө көп. Кээ бир тандоолорду алып салууга чейин баары эле көрсөтүлбөйт.
+    </div>
+
+    
+    <div id="selectionsChart">
+      <figure role="group">
+        <div id="chart-canvas">
+          <h4 id="chart-heading" class="chart-title">
+            Число женщин, обратившихся в органы здравоохранения от семейного насилия
+          </h4>
+          <div id="chart" class="plot-container">
+            <canvas
+    role="img"
+    aria-labelledby="chart-heading"
+    aria-describedby="table-alternative chart-annotations"
+    tabindex="0"
+ ></canvas>
+
+          </div>
+          <div id="plotLegend"></div>
+          
+
+
+
+<div id="selectionChartFooter" class="table-footer-text">
+  <h5 class="sr-only">Chart details</h5>
+    <dl>
+        
+
+        
+        <dt>Географиялык аймак:</dt>
+        <dd>Кыргызская Республика</dd>
+        
+
+        <dt class="data-controlled-footer-field unit-from-data">Өлчөө бирдиги:</dt>
+        <dd class="data-controlled-footer-field unit-from-data"></dd>
+
+        
+
+        
+
+        
+
+        
+        
+        <dt
+          class="data-controlled-footer-field"
+          data-ts-attribute="COMMENT_TS"
+        >Шилтеме:</dt>
+        <dd
+          class="data-controlled-footer-field"
+          data-ts-attribute="COMMENT_TS"
+        ></dd>
+        
+        <dt
+          class="data-controlled-footer-field"
+          data-ts-attribute="DATA_LAST_UPDATE"
+        >Маалыматтар акыркы жаңыланды:</dt>
+        <dd
+          class="data-controlled-footer-field"
+          data-ts-attribute="DATA_LAST_UPDATE"
+        ></dd>
+        
+        
+    </dl>
+    
+    <dl class="observation-attribute-list"></dl>
+    
+</div>
+
+        </div>
+      </figure>
+      <div id="chartSelectionDownload" class="clearfix">
+        <button
+          id="btnSave"
+          title="Диаграмманы PNG катары жүктөп алуу"
+          aria-label="Диаграмманы PNG катары жүктөп алуу"
+          class='btn btn-primary btn-download'>
+          Диаграмманы жүктөп алуу (.png)
+        </button><!--
+   --></div>
+    </div>
+
+
+
+        </div>
+      
+    
+      
+        <div role="tabpanel" class="tab-pane " id="tableview">
+          <div style="display: none;">
+            <span id="column-sort-info">Бул колонна менен сорттоо үчүн чертиңиз</span>
+          </div>
+          <div id="selectionsTable"></div>
+<dl id="tableTargetLines" class="clearfix"></dl>
+
+
+
+
+<div id="selectionTableFooter" class="table-footer-text">
+  <h5 class="sr-only">Chart details</h5>
+    <dl>
+        
+
+        
+        <dt>Географиялык аймак:</dt>
+        <dd>Кыргызская Республика</dd>
+        
+
+        <dt class="data-controlled-footer-field unit-from-data">Өлчөө бирдиги:</dt>
+        <dd class="data-controlled-footer-field unit-from-data"></dd>
+
+        
+
+        
+
+        
+
+        
+        
+        <dt
+          class="data-controlled-footer-field"
+          data-ts-attribute="COMMENT_TS"
+        >Шилтеме:</dt>
+        <dd
+          class="data-controlled-footer-field"
+          data-ts-attribute="COMMENT_TS"
+        ></dd>
+        
+        <dt
+          class="data-controlled-footer-field"
+          data-ts-attribute="DATA_LAST_UPDATE"
+        >Маалыматтар акыркы жаңыланды:</dt>
+        <dd
+          class="data-controlled-footer-field"
+          data-ts-attribute="DATA_LAST_UPDATE"
+        ></dd>
+        
+        
+    </dl>
+    
+    <dl class="observation-attribute-list"></dl>
+    
+</div>
+
+<div id="tableSelectionDownload" class="clearfix"></div>
+
+        </div>
+      
+    
+  </div>
+  
+
+  </div>
+
+</section>
+
+  
+  <div class="mt-4">
+<ul class="nav nav-tabs" role="tablist">
+    
+    
+        
+        
+        
+        
+        <li role="presentation" class="nav-item">
+            <button
+                type="button"
+                class="nav-link active"
+                data-bs-toggle="tab"
+                id="tab-indicator_information"
+                data-bs-target="#indicator_information"
+                aria-controls="indicator_information"
+                role="tab"
+                data-on="click"
+data-event-category="Tab change"
+data-event-action="Change metadata view"
+data-event-label="Change to custom.indicator_information tab"
+
+            >Көрсөткүч жөнүндө маалымат</button>
+        </li>
+    
+        
+        
+        
+        
+        <li role="presentation" class="nav-item">
+            <button
+                type="button"
+                class="nav-link "
+                data-bs-toggle="tab"
+                id="tab-national"
+                data-bs-target="#national"
+                aria-controls="national"
+                role="tab"
+                data-on="click"
+data-event-category="Tab change"
+data-event-action="Change metadata view"
+data-event-label="Change to indicator.national_metadata tab"
+
+            >Улуттук метаберилиштер</button>
+        </li>
+    
+        
+        
+        
+        
+        <li role="presentation" class="nav-item">
+            <button
+                type="button"
+                class="nav-link "
+                data-bs-toggle="tab"
+                id="tab-data_reporter"
+                data-bs-target="#data_reporter"
+                aria-controls="data_reporter"
+                role="tab"
+                data-on="click"
+data-event-category="Tab change"
+data-event-action="Change metadata view"
+data-event-label="Change to custom.data_reporter tab"
+
+            >Маалымат жеткирүүчүлөр</button>
+        </li>
+    
+    
+    
+</ul>
+
+<div class="tab-content">
+    
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        <div role="tabpanel" class="tab-pane active" id="indicator_information">
+            <article>
+                <p>Бул таблица көрсөткүч жөнүндө маалымат берет</p>
+
+                <table class="table metadata-content">
+  <tbody>
+  
+  
+  
+  
+  
+      
+      
+      
+      
+      <tr>
+        <th scope="row">Индикатордун аты </th>
+        <td>
+          
+            <p>5.2.1.2 Число женщин, обратившихся в органы здравоохранения от семейного насилия</p>
+
+          
+        </td>
+        </tr>
+        
+      
+  
+      
+      
+      
+      
+      <tr>
+        <th scope="row">Максаттуу аты </th>
+        <td>
+          
+            <p>5.2 Ликвидировать все формы насилия в отношении всех женщин и девочек в публичной и частной сферах, включая торговлю людьми и сексуальную и иные формы эксплуатации</p>
+
+          
+        </td>
+        </tr>
+        
+      
+  
+      
+      
+      
+      
+      <tr>
+        <th scope="row">Максат </th>
+        <td>
+          
+            <p>Цель 5 Обеспечение гендерного равенства и расширение прав и возможностей всех женщин и девочек</p>
+
+          
+        </td>
+        </tr>
+        
+      
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  </tbody>
+</table>
+
+            </article>
+        </div>
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        <div role="tabpanel" class="tab-pane " id="national">
+            <article>
+                <p>Бул таблицада тиешелүү глобалдык СДГ көрсөткүчүнө жакын Кыргызская Республика статистикасынан жеткиликтүү иш жүзүндөгү көрсөткүч үчүн метаберилиштер берилген. Белгилей кетчү нерсе, СДГнын глобалдык көрсөткүчү Кыргызской Республики статистикасынан толук жеткиликтүү болсо да, бул таблица улуттук методология жана башка Кыргызской Республики-өзгөчө метаберилиштер тууралуу маалымат алуу үчүн консультациялар жүргүзүлүшү керек.</p>
+
+                <table class="table metadata-content">
+  <tbody>
+  
+  
+  
+  
+  
+  
+  
+  
+      
+      
+      
+      
+      <tr>
+        <th scope="row">Географиялык камтуу </th>
+        <td>
+          
+            <p>Кыргызская Республика</p>
+
+          
+        </td>
+        </tr>
+        
+      
+  
+      
+      
+      
+      
+      <tr>
+        <th scope="row">Өлчөө бирдиги </th>
+        <td>
+          
+            <p>Число</p>
+
+          
+        </td>
+        </tr>
+        
+      
+  
+      
+      
+      
+      
+      <tr>
+        <th scope="row">Аныктамалар </th>
+        <td>
+          
+            <p>Количество женщин, обратившихся за медицинской помощью в учреждения здравоохранения в результате семейного насилия в течение отчетного периода. Включает обращения, зафиксированные в учреждениях как следствие физического, психологического или сексуального насилия, совершенного членами семьи.</p>
+
+          
+        </td>
+        </tr>
+        
+      
+  
+      
+      
+      
+      
+      <tr>
+        <th scope="row">Негизги түшүнүктөр </th>
+        <td>
+          
+            <p>Медицинский осмотр – форма лечебно-профилактической помощи, заключающаяся в активном обследовании с целью определения состояния здоровья и раннего выявления заболеваний;                                                                                             Насилие – преднамеренное применение физической силы или власти, действительное или в виде угрозы, направленное против себя, против иного лица, группы лиц или общины, результатом которого являются (либо имеется высокая
+степень вероятности этого) телесные повреждения, смерть, психологическая травма, отклонения в развитии или различного рода ущерб. Данное определение включает все виды насилия, в том числе насилие в семье (семейное, домашнее) насилие, сексуальное насилие, насилие над детьми, насилие в школе, насилие над пожилыми людьми, насилие на улице, на рабочем месте и др.;                                            Пациент – лицо, которому оказывается медико-санитарная помощь в организациях здравоохранения либо у частнопрактикующих медицинских работников с оформлением соответствующей медицинской документации;</p>
+
+          
+        </td>
+        </tr>
+        
+      
+  
+      
+      
+      
+      
+      <tr>
+        <th scope="row">Негиздөө жана чечмелөө </th>
+        <td>
+          
+            <p>Насилие, направленное на женщин и девочек, является наиболее распространенной формой насилия по признаку пола. В обществах, которые одобряют доминирование мужчин над женщинами, насилие между интимными партнерами может восприниматься как обычный компонент межличностной динамики между полами, особенно в контексте брака или других формальных союзов. Поэтому он представляет собой одно из проявлений гендерного неравенства.                                                                 Данные о распространенности необходимы для измерения масштабов проблемы; понимания различных форм насилия и их последствия; выявления группы высокого риска; изучения препятствия для поиска помощи; и обеспечения предоставления соответствующих ответов.            Медицинское обследование в случаях насилия, пыток и жестокого обращения требует проведение обязательного собеседования с предполагаемой жертвой согласно
+стандартам Стамбульского протокола.</p>
+
+          
+        </td>
+        </tr>
+        
+      
+  
+      
+      
+      
+      
+      <tr>
+        <th scope="row">Эсептөө ыкмасы </th>
+        <td>
+          
+            <p>Показатель рассчитывается на основе административных данных о пострадавших от семейного насилия по видам насилия.</p>
+
+          
+        </td>
+        </tr>
+        
+      
+  
+      
+      
+      
+        
+          
+          
+          
+          
+        
+      
+      
+      <tr>
+        <th scope="row">Түшүндүрмөлөр жана чектөөлөр </th>
+        <td>
+          
+            <p><span class="empty-metadata-placeholder">Бул көрсөткүч үчүн жеткиликтүү эмес</span></p>
+
+          
+        </td>
+        </tr>
+        
+      
+  
+      
+      
+      
+        
+          
+          
+          
+          
+        
+      
+      
+      <tr>
+        <th scope="row">Сапат кепилдиги </th>
+        <td>
+          
+            <p><span class="empty-metadata-placeholder">Бул көрсөткүч үчүн жеткиликтүү эмес</span></p>
+
+          
+        </td>
+        </tr>
+        
+      
+  
+      
+      
+      
+        
+          
+          
+          
+          
+        
+      
+      
+      <tr>
+        <th scope="row">Маалыматтардын жеткиликтүүлүгү жана боштуктар </th>
+        <td>
+          
+            <p><span class="empty-metadata-placeholder">Бул көрсөткүч үчүн жеткиликтүү эмес</span></p>
+
+          
+        </td>
+        </tr>
+        
+      
+  
+      
+      
+      
+      
+      <tr>
+        <th scope="row">Бөлүү </th>
+        <td>
+          
+            <p>Детализация показателей осуществляется по территории, полу и возрастным группам.</p>
+
+          
+        </td>
+        </tr>
+        
+      
+  
+      
+      
+      
+        
+          
+          
+          
+          
+        
+      
+      
+      <tr>
+        <th scope="row">Эл аралык маалыматтар/стандарттар менен салыштыруу </th>
+        <td>
+          
+            <p><span class="empty-metadata-placeholder">Бул көрсөткүч үчүн жеткиликтүү эмес</span></p>
+
+          
+        </td>
+        </tr>
+        
+      
+  
+      
+      
+      
+        
+          
+          
+          
+          
+        
+      
+      
+      <tr>
+        <th scope="row">Шилтемелер жана документтер </th>
+        <td>
+          
+            <p><span class="empty-metadata-placeholder">Бул көрсөткүч үчүн жеткиликтүү эмес</span></p>
+
+          
+        </td>
+        </tr>
+        
+      
+  
+      
+      
+      
+      
+      <tr>
+        <th scope="row">Маалымат булагы </th>
+        <td>
+          
+            <p>Министерство здравоохранения Кыргызской Республики является ответственным за сбор и формирование статистического отчета.</p>
+
+          
+        </td>
+        </tr>
+        
+      
+  
+      
+      
+      
+      
+      <tr>
+        <th scope="row">Маалыматтарды чогултуу ыкмалары </th>
+        <td>
+          
+            <p>Форма №6 “Отчет о лицах, подвергшихся насилию (включая пытки), обратившихся в организацию здравоохранения за медицинской помощью (на судебно-медицинское освидетельствование)” является годовым отчетом, который Министерство здравоохранения Кыргызской Республики представляет в Национальный статистический комитет (Нацстатком). Этот отчет собирает статистические данные о лицах, которые обратились в медицинские учреждения за помощью после пережитого насилия, включая пытки, и прошли судебно-медицинское освидетельствование.</p>
+
+          
+        </td>
+        </tr>
+        
+      
+  
+      
+      
+      
+        
+          
+          
+          
+          
+        
+      
+      
+      <tr>
+        <th scope="row">БУУнун метаберилишине шилтеме </th>
+        <td>
+          
+            
+            
+            
+            
+            
+              <span class="empty-metadata-placeholder">Бул көрсөткүч үчүн жеткиликтүү эмес</span>
+            
+
+          
+        </td>
+        </tr>
+        
+      
+  
+      
+      
+      
+      
+      
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  </tbody>
+</table>
+
+            </article>
+        </div>
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        <div role="tabpanel" class="tab-pane " id="data_reporter">
+            <article>
+                <p>Бул таблица маалымат жеткирүүчүлөр жөнүндө маалымат берет</p>
+
+                <table class="table metadata-content">
+  <tbody>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+      
+      
+      
+      
+      <tr>
+        <th scope="row">Уюм </th>
+        <td>
+          
+            <p>НСК КР</p>
+
+          
+        </td>
+        </tr>
+        
+      
+  
+      
+      
+      
+      
+      <tr>
+        <th scope="row">Байланыш адамы(дары)/координатор </th>
+        <td>
+          
+            <p>Рахманова Ж.Ж.</p>
+
+          
+        </td>
+        </tr>
+        
+      
+  
+      
+      
+      
+      
+      <tr>
+        <th scope="row">Байланыш адамынын электрондук почтасы </th>
+        <td>
+          
+            <p>rakhmanovazz@mail.ru</p>
+
+          
+        </td>
+        </tr>
+        
+      
+  
+      
+      
+      
+      
+      <tr>
+        <th scope="row">Байланыш телефон номери </th>
+        <td>
+          
+            <p>(0312) 32 46 52</p>
+
+          
+        </td>
+        </tr>
+        
+      
+  
+      
+      
+      
+      
+      <tr>
+        <th scope="row">Уюмдун сайты </th>
+        <td>
+          
+            <p>www.stat.gov.kg</p>
+
+          
+        </td>
+        </tr>
+        
+      
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  </tbody>
+</table>
+
+            </article>
+        </div>
+        
+    
+    
+</div>
+
+</div>
+  </div>
+</div>
+
+</div>
+
+<script src="https://code.jquery.com/jquery-3.6.1.min.js" integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+<script src="https://cdn.datatables.net/1.11.5/js/jquery.dataTables.min.js"></script>
+<script src="https://cdn.datatables.net/1.11.5/js/dataTables.bootstrap5.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/4.17.21/lodash.min.js" integrity="sha512-WFN04846sdKMIP5LKNphMaWzU7YpMyCU245etK3g/2ARYbPK9Ub18eG+ljU96qKRCWh+quCY7yefSmlkQw1ANQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script src="https://cdn.jsdelivr.net/npm/chart.js@3.7.0/dist/chart.min.js" integrity="sha256-Y26AMvaIfrZ1EQU49pf6H4QzVTrOI8m9wQYKkftBt4s=" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/patternomaly@1.3.2/dist/patternomaly.js"></script>
+
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/autotrack/2.4.1/autotrack.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/html2canvas@1.0.0-rc.3/dist/html2canvas.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/file-saver@2.0.2/dist/FileSaver.min.js"></script>
+
+
+
+
+
+  <script >
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-155242465-1', 'auto');
+ga('require', 'eventTracker', {
+    attributePrefix: 'data-'
+});
+// anonymize user IPs (chops off the last IP triplet)
+ga('set', 'anonymizeIp', true);
+// forces SSL even if the page were somehow loaded over http://
+ga('set', 'forceSSL', true);
+ga('send', 'pageview');
+</script>
+
+
+
+<script>translations['general'] = translations['general'] || {};
+    translations['general']['hide'] = 'жашыруу';</script>
+
+<script>translations['search'] = translations['search'] || {};
+    translations['search']['search'] = 'Издөө';</script>
+
+<script src='/assets/js/sdg.js?v=20250813015559'></script>
+
+
+    
+    
+    <script src="/assets/js/custom.js?v=20250813015559"></script><script>
+    new indicatorInit();
+    new accessibilitySwitcher();
+</script>
+
+<script type="text/javascript" src="https://pym.nprapps.org/pym.v1.min.js"></script>
+<script>
+    new pym.Child();
+</script>
+
+</body>
+</html>

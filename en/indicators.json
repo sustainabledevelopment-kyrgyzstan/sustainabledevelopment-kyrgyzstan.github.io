@@ -14,11 +14,11 @@
           "status": "complete"
         },
         {
-          "id": "1-1-1-1a",
+          "id": "1-1-1-1",
           "title": "Extreme poverty rate",
           "description": "",
           "keywords": "",
-          "href": "/en/1-1-1-1a/",
+          "href": "/en/1-1-1-1/",
           "status": "complete"
         },
         {
@@ -30,11 +30,11 @@
           "status": "complete"
         },
         {
-          "id": "1-2-1-1a",
+          "id": "1-2-1-1",
           "title": "Proportion of employed population living below the official poverty line",
           "description": "",
           "keywords": "",
-          "href": "/en/1-2-1-1a/",
+          "href": "/en/1-2-1-1/",
           "status": "complete"
         },
         {
@@ -54,35 +54,35 @@
           "status": "complete"
         },
         {
-          "id": "1-3-1-1c",
-          "title": "Proportion of population receiving Monthly Allowance for Low-Income Families, social benefits and pensions",
+          "id": "1-3-1-a",
+          "title": "Proportion of population receiving monthly allowance for low-income families/'uy-bulogo komok', social benefits and pensions",
           "description": "",
           "keywords": "",
-          "href": "/en/1-3-1-1c/",
+          "href": "/en/1-3-1-a/",
           "status": "complete"
         },
         {
-          "id": "1-3-1-1e",
-          "title": "Share of officially registered unemployed",
+          "id": "1-3-1-b",
+          "title": "Proportion of population receiving social benefits",
           "description": "",
           "keywords": "",
-          "href": "/en/1-3-1-1e/",
+          "href": "/en/1-3-1-b/",
           "status": "complete"
         },
         {
-          "id": "1-3-1-1f",
-          "title": "Proportion of population with disabilities receiving pensions Monthly Social Allowance to total population",
+          "id": "1-3-1-c",
+          "title": "Proportion of population receiving pensions and disability benefits as percentage of total population",
           "description": "",
           "keywords": "",
-          "href": "/en/1-3-1-1f/",
+          "href": "/en/1-3-1-c/",
           "status": "complete"
         },
         {
-          "id": "1-3-1-1g",
-          "title": "Proportion of pensioners who receive pensions below the subsistence level of the pensioner",
+          "id": "1-3-1-d",
+          "title": "Proportion of older persons receiving pensions below the national poverty line",
           "description": "",
           "keywords": "",
-          "href": "/en/1-3-1-1g/",
+          "href": "/en/1-3-1-d/",
           "status": "complete"
         },
         {
@@ -139,7 +139,7 @@
           "description": "",
           "keywords": "",
           "href": "/en/1-a-1/",
-          "status": "notstarted"
+          "status": "complete"
         },
         {
           "id": "1-a-2",
@@ -190,11 +190,11 @@
           "status": "complete"
         },
         {
-          "id": "2-1-1-1e",
-          "title": "Average per capita consumption of basic food products in relation to the average physiological norms of consumption, in percent",
+          "id": "2-1-1-1",
+          "title": "Per capita consumption of main food products as a percentage of recommended dietary intake",
           "description": "",
           "keywords": "",
-          "href": "/en/2-1-1-1e/",
+          "href": "/en/2-1-1-1/",
           "status": "complete"
         },
         {
@@ -206,11 +206,11 @@
           "status": "complete"
         },
         {
-          "id": "2-1-2-1d",
-          "title": "Ratio of agricultural products  import  to total production in the country",
+          "id": "2-1-2-c",
+          "title": "Ratio of agricultural imports to domestic agricultural production",
           "description": "",
           "keywords": "",
-          "href": "/en/2-1-2-1d/",
+          "href": "/en/2-1-2-c/",
           "status": "complete"
         },
         {
@@ -235,6 +235,14 @@
           "description": "",
           "keywords": "",
           "href": "/en/2-2-3/",
+          "status": "notstarted"
+        },
+        {
+          "id": "2-2-3-1",
+          "title": "Proportion of women with anemia among total female population",
+          "description": "",
+          "keywords": "",
+          "href": "/en/2-2-3-1/",
           "status": "complete"
         },
         {
@@ -254,19 +262,19 @@
           "status": "notstarted"
         },
         {
-          "id": "2-3-2-1",
-          "title": "Proportion of product produced by agricultural cooperatives to total volume of products produced in the country",
+          "id": "2-3-2-a",
+          "title": "Share of agricultural production by cooperatives in total agricultural production in the country",
           "description": "",
           "keywords": "",
-          "href": "/en/2-3-2-1/",
+          "href": "/en/2-3-2-a/",
           "status": "complete"
         },
         {
-          "id": "2-3-3-1c",
-          "title": "Баланс потребления рыбной продукции на душу населения",
+          "id": "2-3-2-b",
+          "title": "Fish consumption balance",
           "description": "",
           "keywords": "",
-          "href": "/en/2-3-3-1c/",
+          "href": "/en/2-3-2-b/",
           "status": "complete"
         },
         {
@@ -315,7 +323,7 @@
           "description": "",
           "keywords": "",
           "href": "/en/2-a-2/",
-          "status": "notapplicable"
+          "status": "complete"
         },
         {
           "id": "2-b-1",
@@ -334,11 +342,11 @@
           "status": "notstarted"
         },
         {
-          "id": "2-c-1-1b",
+          "id": "2-c-1-1",
           "title": "Consumer price index for food products",
           "description": "",
           "keywords": "",
-          "href": "/en/2-c-1-1b/",
+          "href": "/en/2-c-1-1/",
           "status": "complete"
         }]
     }
@@ -382,6 +390,14 @@
           "status": "complete"
         },
         {
+          "id": "3-2-2-1",
+          "title": "Total fertility rate of urban and rural population",
+          "description": "",
+          "keywords": "",
+          "href": "/en/3-2-2-1/",
+          "status": "complete"
+        },
+        {
           "id": "3-3-1",
           "title": "Number of new HIV infections per 1,000 uninfected population, by sex, age and key populations",
           "description": "",
@@ -419,7 +435,7 @@
           "description": "",
           "keywords": "",
           "href": "/en/3-3-5/",
-          "status": "notstarted"
+          "status": "notapplicable"
         },
         {
           "id": "3-4-1",
@@ -427,6 +443,14 @@
           "description": "",
           "keywords": "",
           "href": "/en/3-4-1/",
+          "status": "complete"
+        },
+        {
+          "id": "3-4-1-a",
+          "title": "Life expectancy at age 15, 45, and 65",
+          "description": "",
+          "keywords": "",
+          "href": "/en/3-4-1-a/",
           "status": "complete"
         },
         {
@@ -507,7 +531,7 @@
           "description": "",
           "keywords": "",
           "href": "/en/3-8-2/",
-          "status": "notstarted"
+          "status": "complete"
         },
         {
           "id": "3-9-1",
@@ -563,7 +587,7 @@
           "description": "",
           "keywords": "",
           "href": "/en/3-b-2/",
-          "status": "notapplicable"
+          "status": "complete"
         },
         {
           "id": "3-b-3",
@@ -587,7 +611,7 @@
           "description": "",
           "keywords": "",
           "href": "/en/3-d-1/",
-          "status": "notstarted"
+          "status": "complete"
         }]
     }
   },
@@ -606,19 +630,11 @@
           "status": "complete"
         },
         {
-          "id": "4-1-1-1a",
-          "title": "Number of children and adolescents 7-17 years old who did not start studies in general education organizations",
+          "id": "4-1-1-a",
+          "title": "Number of children and adolescents aged 7–17 (grades 1–11) not enrolled in general education institutions",
           "description": "",
           "keywords": "",
-          "href": "/en/4-1-1-1a/",
-          "status": "complete"
-        },
-        {
-          "id": "4-1-1-1b",
-          "title": "Completion rate of primary education",
-          "description": "",
-          "keywords": "",
-          "href": "/en/4-1-1-1b/",
+          "href": "/en/4-1-1-a/",
           "status": "complete"
         },
         {
@@ -627,6 +643,14 @@
           "description": "",
           "keywords": "",
           "href": "/en/4-1-2/",
+          "status": "complete"
+        },
+        {
+          "id": "4-1-2-a",
+          "title": "Primary education completion rate",
+          "description": "",
+          "keywords": "",
+          "href": "/en/4-1-2-a/",
           "status": "complete"
         },
         {
@@ -646,11 +670,11 @@
           "status": "complete"
         },
         {
-          "id": "4-2-2-1a",
-          "title": "Proportion of children under the age of six who receive preschool education",
+          "id": "4-2-2-1",
+          "title": "Proportion of children under six years receiving pre-primary education",
           "description": "",
           "keywords": "",
-          "href": "/en/4-2-2-1a/",
+          "href": "/en/4-2-2-1/",
           "status": "complete"
         },
         {
@@ -678,11 +702,11 @@
           "status": "complete"
         },
         {
-          "id": "4-4-1-1a",
-          "title": "Number of students studying in the ICT direction in the system of primary vocational, secondary vocational and higher vocational education",
+          "id": "4-4-1-1",
+          "title": "Number of students enrolled in ICT programmes at the levels of initial, secondary and tertiary vocational education",
           "description": "",
           "keywords": "",
-          "href": "/en/4-4-1-1a/",
+          "href": "/en/4-4-1-1/",
           "status": "complete"
         },
         {
@@ -723,11 +747,11 @@
           "description": "",
           "keywords": "",
           "href": "/en/4-b-1/",
-          "status": "notstarted"
+          "status": "complete"
         },
         {
           "id": "4-b-1-1",
-          "title": "Number of fellowships provided to Kyrgyzstan for the training of personnel abroad at the expense of the host country within the framework of official intergovernmental and interstate treaties and agreements",
+          "title": "Number of places allocated to Kyrgyzstan for training abroad funded by the host country under official intergovernmental and interstate agreements and treaties",
           "description": "",
           "keywords": "",
           "href": "/en/4-b-1-1/",
@@ -766,19 +790,27 @@
           "status": "notstarted"
         },
         {
-          "id": "5-2-1-1a",
-          "title": "Number of women who reported to health authorities for domestic violence",
+          "id": "5-2-1-1",
+          "title": "Percentage of women aged 15–49 who believe a husband is justified in hitting or beating his wife for at least one of the reasons",
           "description": "",
           "keywords": "",
-          "href": "/en/5-2-1-1a/",
+          "href": "/en/5-2-1-1/",
+          "status": "notstarted"
+        },
+        {
+          "id": "5-2-1-2",
+          "title": "Number of women who sought healthcare services due to domestic violence",
+          "description": "",
+          "keywords": "",
+          "href": "/en/5-2-1-2/",
           "status": "complete"
         },
         {
-          "id": "5-2-1-1b",
+          "id": "5-2-1-3",
           "title": "Number of victims of domestic violence",
           "description": "",
           "keywords": "",
-          "href": "/en/5-2-1-1b/",
+          "href": "/en/5-2-1-3/",
           "status": "complete"
         },
         {
@@ -902,11 +934,11 @@
           "status": "complete"
         },
         {
-          "id": "6-1-1-2b",
-          "title": "Proportion of water samples that do not meet hygienic standards for sanitary-chemical and microbiological indicators",
+          "id": "6-1-1-1",
+          "title": "Proportion of water samples non-compliant with hygienic standards for sanitary-chemical and microbiological parameters",
           "description": "",
           "keywords": "",
-          "href": "/en/6-1-1-2b/",
+          "href": "/en/6-1-1-1/",
           "status": "complete"
         },
         {
@@ -950,11 +982,11 @@
           "status": "notstarted"
         },
         {
-          "id": "6-4-1-2",
-          "title": "Loss of water during transportation",
+          "id": "6-4-1-1",
+          "title": "Water losses during conveyance",
           "description": "",
           "keywords": "",
-          "href": "/en/6-4-1-2/",
+          "href": "/en/6-4-1-1/",
           "status": "complete"
         },
         {
@@ -1003,11 +1035,11 @@
           "description": "",
           "keywords": "",
           "href": "/en/6-a-1/",
-          "status": "notapplicable"
+          "status": "complete"
         },
         {
           "id": "6-a-1-1",
-          "title": "Amount of water- and sanitation-related official development assistance that is part of a governmentcoordinated spending plan",
+          "title": "Amount of water- and sanitation-related official development assistance that is part of a governmentcoordinated spending plan, based on national data",
           "description": "",
           "keywords": "",
           "href": "/en/6-a-1-1/",
@@ -1091,7 +1123,7 @@
           "description": "",
           "keywords": "",
           "href": "/en/7-a-1/",
-          "status": "notapplicable"
+          "status": "notstarted"
         },
         {
           "id": "7-b-1",
@@ -1102,11 +1134,11 @@
           "status": "notstarted"
         },
         {
-          "id": "7-b-1-1a",
-          "title": "Foreign direct investment inflows for the expansion of energy infrastructure and modernization of technologies to the total volume of foreign direct investment received",
+          "id": "7-b-1-1",
+          "title": "Foreign direct investment inflows in energy infrastructure and technology upgrading",
           "description": "",
           "keywords": "",
-          "href": "/en/7-b-1-1a/",
+          "href": "/en/7-b-1-1/",
           "status": "complete"
         }]
     }
@@ -1123,6 +1155,22 @@
           "description": "",
           "keywords": "",
           "href": "/en/8-1-1/",
+          "status": "complete"
+        },
+        {
+          "id": "8-1-1-1",
+          "title": "Gross domestic product per capita (in US dollars)",
+          "description": "",
+          "keywords": "",
+          "href": "/en/8-1-1-1/",
+          "status": "complete"
+        },
+        {
+          "id": "8-1-1-2",
+          "title": "Gross Regional Product per capita (thousand soms)",
+          "description": "",
+          "keywords": "",
+          "href": "/en/8-1-1-2/",
           "status": "complete"
         },
         {
@@ -1150,11 +1198,11 @@
           "status": "complete"
         },
         {
-          "id": "8-3-1-2",
-          "title": "Proportion of employed in small and medium enterprises of the total employed population in the economy",
+          "id": "8-3-1-a",
+          "title": "Proportion of employed in small and medium-sized enterprises (SMEs) in total employment",
           "description": "",
           "keywords": "",
-          "href": "/en/8-3-1-2/",
+          "href": "/en/8-3-1-a/",
           "status": "complete"
         },
         {
@@ -1163,7 +1211,7 @@
           "description": "",
           "keywords": "",
           "href": "/en/8-4-1/",
-          "status": "notapplicable"
+          "status": "notstarted"
         },
         {
           "id": "8-4-2",
@@ -1195,6 +1243,22 @@
           "description": "",
           "keywords": "",
           "href": "/en/8-5-2/",
+          "status": "complete"
+        },
+        {
+          "id": "8-5-2-1",
+          "title": "Registered unemployment rate",
+          "description": "",
+          "keywords": "",
+          "href": "/en/8-5-2-1/",
+          "status": "complete"
+        },
+        {
+          "id": "8-5-2-2",
+          "title": "Employment rate",
+          "description": "",
+          "keywords": "",
+          "href": "/en/8-5-2-2/",
           "status": "complete"
         },
         {
@@ -1270,11 +1334,11 @@
           "status": "complete"
         },
         {
-          "id": "8-10-2-2",
+          "id": "8-10-2-a",
           "title": "Financial indicators of insurance companies",
           "description": "",
           "keywords": "",
-          "href": "/en/8-10-2-2/",
+          "href": "/en/8-10-2-a/",
           "status": "complete"
         },
         {
@@ -1283,7 +1347,7 @@
           "description": "",
           "keywords": "",
           "href": "/en/8-a-1/",
-          "status": "notapplicable"
+          "status": "complete"
         },
         {
           "id": "8-b-1",
@@ -1359,7 +1423,7 @@
         },
         {
           "id": "9-4-1-1",
-          "title": "Pollutants emitted by stationary sources per km2",
+          "title": "Volume of pollutant emissions from stationary sources per km²",
           "description": "",
           "keywords": "",
           "href": "/en/9-4-1-1/",
@@ -1382,12 +1446,20 @@
           "status": "complete"
         },
         {
+          "id": "9-5-2-1",
+          "title": "Number of registered intellectual property objects in the science and technology sector",
+          "description": "",
+          "keywords": "",
+          "href": "/en/9-5-2-1/",
+          "status": "complete"
+        },
+        {
           "id": "9-a-1",
           "title": "Total official international support (official development assistance plus other official flows) to infrastructure",
           "description": "",
           "keywords": "",
           "href": "/en/9-a-1/",
-          "status": "notapplicable"
+          "status": "complete"
         },
         {
           "id": "9-b-1",
@@ -1438,11 +1510,11 @@
           "status": "complete"
         },
         {
-          "id": "10-3-1-1a",
-          "title": "Number of appeals to the Ombudsman",
+          "id": "10-3-1-1",
+          "title": "Number of complaints submitted to the Ombudsperson",
           "description": "",
           "keywords": "",
-          "href": "/en/10-3-1-1a/",
+          "href": "/en/10-3-1-1/",
           "status": "complete"
         },
         {
@@ -1451,6 +1523,14 @@
           "description": "",
           "keywords": "",
           "href": "/en/10-4-1/",
+          "status": "complete"
+        },
+        {
+          "id": "10-4-2-1",
+          "title": "Gini coefficient (income)",
+          "description": "",
+          "keywords": "",
+          "href": "/en/10-4-2-1/",
           "status": "complete"
         },
         {
@@ -1475,7 +1555,7 @@
           "description": "",
           "keywords": "",
           "href": "/en/10-6-1/",
-          "status": "notapplicable"
+          "status": "notstarted"
         },
         {
           "id": "10-7-1",
@@ -1494,6 +1574,14 @@
           "status": "complete"
         },
         {
+          "id": "10-7-4",
+          "title": "Proportion of the population who are refugees, by country of origin",
+          "description": "",
+          "keywords": "",
+          "href": "/en/10-7-4/",
+          "status": "complete"
+        },
+        {
           "id": "10-a-1",
           "title": "Proportion of tariff lines applied to imports from least developed countries and developing countries with zero-tariff",
           "description": "",
@@ -1507,7 +1595,15 @@
           "description": "",
           "keywords": "",
           "href": "/en/10-b-1/",
-          "status": "notstarted"
+          "status": "complete"
+        },
+        {
+          "id": "10-b-1-1",
+          "title": "Total resource flows for development, by donor and sector",
+          "description": "",
+          "keywords": "",
+          "href": "/en/10-b-1-1/",
+          "status": "complete"
         },
         {
           "id": "10-c-1",
@@ -1548,6 +1644,14 @@
           "keywords": "",
           "href": "/en/11-3-1/",
           "status": "notstarted"
+        },
+        {
+          "id": "11-3-1-a",
+          "title": "Resident population by place of usual residence",
+          "description": "",
+          "keywords": "",
+          "href": "/en/11-3-1-a/",
+          "status": "complete"
         },
         {
           "id": "11-3-2",
@@ -1598,11 +1702,11 @@
           "status": "complete"
         },
         {
-          "id": "11-6-1-1a",
-          "title": "Disposal of solid waste by households by type",
+          "id": "11-6-1-2",
+          "title": "Household disposal of municipal solid waste, by type",
           "description": "",
           "keywords": "",
-          "href": "/en/11-6-1-1a/",
+          "href": "/en/11-6-1-2/",
           "status": "complete"
         },
         {
@@ -1622,11 +1726,11 @@
           "status": "notstarted"
         },
         {
-          "id": "11-7-1-1a",
-          "title": "Green spaces in localities, hectares per 1000 people",
+          "id": "11-7-1-a",
+          "title": "Площадь зеленых насаждений и массивов в населенных пунктах в расчете на 1000 человек",
           "description": "",
           "keywords": "",
-          "href": "/en/11-7-1-1a/",
+          "href": "/en/11-7-1-a/",
           "status": "complete"
         },
         {
@@ -1667,7 +1771,7 @@
           "description": "",
           "keywords": "",
           "href": "/en/11-c-1/",
-          "status": "notapplicable"
+          "status": "notstarted"
         }]
     }
   },
@@ -1691,7 +1795,7 @@
           "description": "",
           "keywords": "",
           "href": "/en/12-2-1/",
-          "status": "notapplicable"
+          "status": "notstarted"
         },
         {
           "id": "12-2-2",
@@ -1763,7 +1867,7 @@
           "description": "",
           "keywords": "",
           "href": "/en/12-a-1/",
-          "status": "notapplicable"
+          "status": "notstarted"
         },
         {
           "id": "12-b-1",
@@ -1827,7 +1931,7 @@
           "description": "",
           "keywords": "",
           "href": "/en/13-3-1/",
-          "status": "notstarted"
+          "status": "complete"
         },
         {
           "id": "13-3-2",
@@ -1835,7 +1939,7 @@
           "description": "",
           "keywords": "",
           "href": "/en/13-3-2/",
-          "status": "complete"
+          "status": "notstarted"
         },
         {
           "id": "13-a-1",
@@ -1955,7 +2059,7 @@
           "description": "",
           "keywords": "",
           "href": "/en/15-1-1/",
-          "status": "notstarted"
+          "status": "complete"
         },
         {
           "id": "15-1-1-1",
@@ -2091,7 +2195,15 @@
           "description": "",
           "keywords": "",
           "href": "/en/15-a-1/",
-          "status": "notstarted"
+          "status": "complete"
+        },
+        {
+          "id": "15-a-1-1",
+          "title": "Government expenditure on environmental protection",
+          "description": "",
+          "keywords": "",
+          "href": "/en/15-a-1-1/",
+          "status": "complete"
         },
         {
           "id": "15-b-1",
@@ -2100,14 +2212,6 @@
           "keywords": "",
           "href": "/en/15-b-1/",
           "status": "notstarted"
-        },
-        {
-          "id": "15-b-1-1",
-          "title": "Amount of public funds allocated for environmental protection",
-          "description": "",
-          "keywords": "",
-          "href": "/en/15-b-1-1/",
-          "status": "complete"
         },
         {
           "id": "15-c-1",
@@ -2155,6 +2259,14 @@
           "description": "",
           "keywords": "",
           "href": "/en/16-1-3/",
+          "status": "notstarted"
+        },
+        {
+          "id": "16-1-3-1",
+          "title": "Proportion of women aged 15–49 subjected to physical violence (robbery or assault) in the last 12 months",
+          "description": "",
+          "keywords": "",
+          "href": "/en/16-1-3-1/",
           "status": "complete"
         },
         {
@@ -2166,11 +2278,11 @@
           "status": "complete"
         },
         {
-          "id": "16-1-4-1a",
-          "title": "Proportion of crimes committed in public places and on the streets of the total number of recorded crimes",
+          "id": "16-1-4-1",
+          "title": "Proportion of crimes committed in public places and on the streets out of total registered crimes",
           "description": "",
           "keywords": "",
-          "href": "/en/16-1-4-1a/",
+          "href": "/en/16-1-4-1/",
           "status": "complete"
         },
         {
@@ -2246,19 +2358,27 @@
           "status": "notstarted"
         },
         {
-          "id": "16-5-1-1a",
-          "title": "Index 'Personal perception of corruption level in state bodies of executive power and local self-government bodies' (results of the 2nd half of the year)",
+          "id": "16-5-1-1",
+          "title": "Index of personal perception of corruption in central executive and local self-government bodies",
           "description": "",
           "keywords": "",
-          "href": "/en/16-5-1-1a/",
+          "href": "/en/16-5-1-1/",
           "status": "complete"
         },
         {
-          "id": "16-5-1-1b",
-          "title": "Number of convictions for malfeasance, including corruption and bribery",
+          "id": "16-5-1-2",
+          "title": "Number of persons convicted of offences against public office, including corruption and bribery",
           "description": "",
           "keywords": "",
-          "href": "/en/16-5-1-1b/",
+          "href": "/en/16-5-1-2/",
+          "status": "complete"
+        },
+        {
+          "id": "16-5-1-a",
+          "title": "Corruption Perceptions Index",
+          "description": "",
+          "keywords": "",
+          "href": "/en/16-5-1-a/",
           "status": "complete"
         },
         {
@@ -2286,11 +2406,11 @@
           "status": "notstarted"
         },
         {
-          "id": "16-6-2-1a",
-          "title": "Executive branch of the government satisfaction index",
+          "id": "16-6-2-1",
+          "title": "Index of performance assessment of central and local government bodies",
           "description": "",
           "keywords": "",
-          "href": "/en/16-6-2-1a/",
+          "href": "/en/16-6-2-1/",
           "status": "complete"
         },
         {
@@ -2302,11 +2422,11 @@
           "status": "notstarted"
         },
         {
-          "id": "16-7-1-1",
+          "id": "16-7-1-a",
           "title": "Proportion of positions in public institutions",
           "description": "",
           "keywords": "",
-          "href": "/en/16-7-1-1/",
+          "href": "/en/16-7-1-a/",
           "status": "complete"
         },
         {
@@ -2323,7 +2443,7 @@
           "description": "",
           "keywords": "",
           "href": "/en/16-8-1/",
-          "status": "notapplicable"
+          "status": "complete"
         },
         {
           "id": "16-9-1",
@@ -2382,6 +2502,14 @@
           "status": "complete"
         },
         {
+          "id": "17-1-1-a",
+          "title": "External public debt as a percentage of GDP",
+          "description": "",
+          "keywords": "",
+          "href": "/en/17-1-1-a/",
+          "status": "complete"
+        },
+        {
           "id": "17-1-2",
           "title": "Proportion of domestic budget funded by domestic taxes",
           "description": "",
@@ -2403,23 +2531,15 @@
           "description": "",
           "keywords": "",
           "href": "/en/17-3-1/",
-          "status": "notstarted"
-        },
-        {
-          "id": "17-3-1-1a",
-          "title": "Foreign direct investment inflow from abroad by type of economic activity",
-          "description": "",
-          "keywords": "",
-          "href": "/en/17-3-1-1a/",
           "status": "complete"
         },
         {
-          "id": "17-3-1-1b",
-          "title": "Foreign direct investment by country of origin",
+          "id": "17-3-1-1",
+          "title": "Inflow of foreign direct investment by country and economic activity",
           "description": "",
           "keywords": "",
-          "href": "/en/17-3-1-1b/",
-          "status": "notstarted"
+          "href": "/en/17-3-1-1/",
+          "status": "complete"
         },
         {
           "id": "17-3-2",
@@ -2427,7 +2547,7 @@
           "description": "",
           "keywords": "",
           "href": "/en/17-3-2/",
-          "status": "notstarted"
+          "status": "complete"
         },
         {
           "id": "17-4-1",
@@ -2451,14 +2571,14 @@
           "description": "",
           "keywords": "",
           "href": "/en/17-6-1/",
-          "status": "notstarted"
+          "status": "complete"
         },
         {
-          "id": "17-6-2",
-          "title": "Fixed Internet broadband subscriptions per 100 inhabitants, by speed",
+          "id": "17-6-1-a",
+          "title": "E-Government Development Index (EGDI)",
           "description": "",
           "keywords": "",
-          "href": "/en/17-6-2/",
+          "href": "/en/17-6-1-a/",
           "status": "complete"
         },
         {
@@ -2467,7 +2587,7 @@
           "description": "",
           "keywords": "",
           "href": "/en/17-7-1/",
-          "status": "notapplicable"
+          "status": "notstarted"
         },
         {
           "id": "17-8-1",
@@ -2483,7 +2603,7 @@
           "description": "",
           "keywords": "",
           "href": "/en/17-9-1/",
-          "status": "notapplicable"
+          "status": "complete"
         },
         {
           "id": "17-10-1",
@@ -2491,7 +2611,7 @@
           "description": "",
           "keywords": "",
           "href": "/en/17-10-1/",
-          "status": "notapplicable"
+          "status": "notstarted"
         },
         {
           "id": "17-11-1",
@@ -2499,14 +2619,22 @@
           "description": "",
           "keywords": "",
           "href": "/en/17-11-1/",
-          "status": "notstarted"
+          "status": "complete"
         },
         {
-          "id": "17-11-1-1",
-          "title": "ICT goods import and export as a percentage of total goods import/export",
+          "id": "17-11-1-a",
+          "title": "Imports of ICT goods as a percentage of total imports of goods",
           "description": "",
           "keywords": "",
-          "href": "/en/17-11-1-1/",
+          "href": "/en/17-11-1-a/",
+          "status": "complete"
+        },
+        {
+          "id": "17-11-1-b",
+          "title": "Exports of ICT goods as a percentage of total exports of goods",
+          "description": "",
+          "keywords": "",
+          "href": "/en/17-11-1-b/",
           "status": "complete"
         },
         {
@@ -2534,6 +2662,14 @@
           "status": "complete"
         },
         {
+          "id": "17-13-1-a",
+          "title": "Global Competitiveness Index",
+          "description": "",
+          "keywords": "",
+          "href": "/en/17-13-1-a/",
+          "status": "complete"
+        },
+        {
           "id": "17-14-1",
           "title": "Number of countries with mechanisms in place to enhance policy coherence of sustainable development",
           "description": "",
@@ -2548,6 +2684,14 @@
           "keywords": "",
           "href": "/en/17-15-1/",
           "status": "notapplicable"
+        },
+        {
+          "id": "17-15-1-a",
+          "title": "Human Development Index (HDI)",
+          "description": "",
+          "keywords": "",
+          "href": "/en/17-15-1-a/",
+          "status": "complete"
         },
         {
           "id": "17-16-1",
@@ -2587,7 +2731,7 @@
           "description": "",
           "keywords": "",
           "href": "/en/17-18-3/",
-          "status": "notstarted"
+          "status": "complete"
         },
         {
           "id": "17-19-1",
@@ -2595,7 +2739,7 @@
           "description": "",
           "keywords": "",
           "href": "/en/17-19-1/",
-          "status": "notstarted"
+          "status": "complete"
         },
         {
           "id": "17-19-2",

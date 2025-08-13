@@ -143,7 +143,7 @@ var translations = {
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
         <link res="stylesheet" href="https://cdn.datatables.net/1.11.5/css/dataTables.bootstrap5.min.css">
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" crossorigin="">
-        <link rel="stylesheet" href="/assets/css/style.css?v=20250306033305">
+        <link rel="stylesheet" href="/assets/css/style.css?v=20250813015559">
         <link rel="stylesheet" href="https://unpkg.com/leaflet@1.3.4/dist/leaflet.css"
           integrity="sha512-puBpdR0798OZvTTbP4A8Ix/l+A4dHDD0DGqYW6RQ+9jxkRFclaxxQb/SJAWZfWAkuyeQUytO7+7N4QKrDh+drA=="
           crossorigin=""/>
@@ -151,7 +151,7 @@ var translations = {
         <link rel="stylesheet" href='https://api.mapbox.com/mapbox.js/plugins/leaflet-fullscreen/v1.0.1/leaflet.fullscreen.css'  crossorigin=""/>
         <link rel="stylesheet" href="https://bowercdn.net/c/leaflet.zoomhome-latest/dist/leaflet.zoomhome.css"  crossorigin=""/>
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet-search@2.9.7/dist/leaflet-search.min.css" crossorigin="">
-        <link rel="stylesheet" href="https://cdn.kiprotect.com/klaro/v0.7/klaro.min.css" crossorigin=""/><link rel="stylesheet" href="/assets/css/custom.css?v=20250306033305">
+        <link rel="stylesheet" href="https://cdn.kiprotect.com/klaro/v0.7/klaro.min.css" crossorigin=""/><link rel="stylesheet" href="/assets/css/custom.css?v=20250813015559">
         
 
         
@@ -432,7 +432,7 @@ data-event-label="high"
   data-charttitles="null"
   data-measurementunit=""
   data-xaxislabel=""
-  data-showdata="true"
+  data-showdata="false"
   data-graphtype="bar"
   data-graphtypes="null"
   data-geocoderegex=""
@@ -443,283 +443,15 @@ data-event-label="high"
   data-graphannotations="null"
   data-graphtargetlines="null"
   data-graphseriesbreaks="null"
-  data-indicatordownloads="{&quot;indicator.download_source_excel&quot;:{&quot;href&quot;:&quot;downloads/data-excel/16.1.3.xlsx&quot;},&quot;indicator.download_source_sdmx&quot;:{&quot;href&quot;:&quot;downloads/data-sdmx/16.1.3.xml&quot;}}"
-  data-dataschema="{&quot;fields&quot;:[{&quot;name&quot;:&quot;Year&quot;,&quot;type&quot;:&quot;integer&quot;,&quot;title&quot;:&quot;Year&quot;},{&quot;name&quot;:&quot;REF_AREA&quot;,&quot;type&quot;:&quot;string&quot;,&quot;constraints&quot;:{&quot;enum&quot;:[&quot;Batken&quot;,&quot;Jalal-Abad&quot;,&quot;Issyk-Kul&quot;,&quot;Naryn&quot;,&quot;Osh&quot;,&quot;Talas&quot;,&quot;Chui&quot;,&quot;Bishkek (city)&quot;,&quot;Osh (city)&quot;,&quot;&quot;]},&quot;title&quot;:&quot;Reference area&quot;},{&quot;name&quot;:&quot;AGE&quot;,&quot;type&quot;:&quot;string&quot;,&quot;constraints&quot;:{&quot;enum&quot;:[&quot;15 to 49 years old&quot;,&quot;15 to 19 years old&quot;,&quot;15 to 17 years old&quot;,&quot;18 to 19 years old&quot;,&quot;20 to 24 years old&quot;,&quot;25 to 29 years old&quot;,&quot;30 to 34 years old&quot;,&quot;35 to 39 years old&quot;,&quot;40 to 44 years old&quot;,&quot;45 to 49 years old&quot;,&quot;&quot;]},&quot;title&quot;:&quot;Age&quot;},{&quot;name&quot;:&quot;URBANISATION&quot;,&quot;type&quot;:&quot;string&quot;,&quot;constraints&quot;:{&quot;enum&quot;:[&quot;Urban&quot;,&quot;Rural&quot;,&quot;&quot;]},&quot;title&quot;:&quot;Degree of urbanisation&quot;},{&quot;name&quot;:&quot;EDUCATION_LEV&quot;,&quot;type&quot;:&quot;string&quot;,&quot;constraints&quot;:{&quot;enum&quot;:[&quot;Lower secondary education&quot;,&quot;Upper secondary education&quot;,&quot;Post-secondary non-tertiary education&quot;,&quot;Tertiary education (Bachelor’s and Master's or equivalent)&quot;,&quot;&quot;]},&quot;title&quot;:&quot;Education level&quot;},{&quot;name&quot;:&quot;GeoCode&quot;,&quot;type&quot;:&quot;string&quot;,&quot;title&quot;:&quot;GeoCode&quot;},{&quot;name&quot;:&quot;Value&quot;,&quot;type&quot;:&quot;number&quot;,&quot;title&quot;:&quot;Value&quot;}]}"
+  data-indicatordownloads="{&quot;indicator.download_source_excel&quot;:{&quot;href&quot;:&quot;downloads/data-excel/16.1.3.xlsx&quot;}}"
+  data-dataschema="{&quot;fields&quot;:[{&quot;name&quot;:&quot;Year&quot;,&quot;type&quot;:&quot;number&quot;,&quot;title&quot;:&quot;Year&quot;},{&quot;name&quot;:&quot;Value&quot;,&quot;type&quot;:&quot;number&quot;,&quot;title&quot;:&quot;Value&quot;}]}"
   data-compositebreakdownlabel=""
   data-precision="null"
   data-proxy=""
   data-proxyseries="null"
 >
   
-  <span role="status" class="visually-hidden" id="indicator-data-view-status"></span>
-  <span role="status" class="visually-hidden" id="indicator-data-unit-status"></span>
-  <span role="status" class="visually-hidden" id="indicator-data-series-status"></span>
-  <div id="indicator-sidebar" class="indicator-sidebar col-md-3">
-    <div id="serieses"></div>
-<div id="units"></div>
-<div id="toolbar">
-  <span id="series-help">
-    <h4>Sub-categories</h4>
-    <p>Choose categories from the dropdowns below to see different breakdowns of the data. Some will not be available until a higher level is chosen.</p>
-  </span>
-  <div id="fields">
-    <p class="async-loading" data-img="/assets/img/loading-small.gif"></p>
-  </div>
-</div>
-
-  </div>
-  <div id="indicator-main" class="indicator-main col-md-9">
-    
-
-
-
-
-<div id="headlineTable">
-
-  <div id="datatables">
-
-    
-    <a role="button" href="https://sustainabledevelopment-kyrgyzstan.github.io/sdg-data/en/data/16-1-3.csv" class="btn btn-primary btn-download" download='indicator_16-1-3.csv' tabindex='0' role='button'>Download source data (.csv)</a>
-
-    <p class="no-js-disaggregation-hint">Download source data for disaggregations (.csv)</p>
-
-    
-    <h3>No headline data available</h3>
-    
-  </div>
-
-  
-
-</div>
-
-
-<section>
-
-  <p class="async-loading" data-img="/assets/img/loading-small.gif"></p>
-
-  <div class="async-loaded mt-4" style="display:none;">
-
-    <div style="display: none;">
-    <span id="table-alternative">For tabular data alternative see Table tab.</span>
-  </div>
-  <ul class="nav nav-tabs non-stacking-tabs data-view" role="tablist">
-    
-    <li role="presentation"
-      class="
-        nav-item
-        
-        
-      ">
-      <button
-        class="nav-link active"
-        data-bs-toggle="tab"
-        role="tab"
-        type="button"
-        
-          id="tab-chartview"
-          data-bs-target="#chartview"
-          aria-controls="chartview"
-          aria-describedby="table-alternative"
-          data-on="click"
-data-event-category="Tab change"
-data-event-action="Change data view"
-data-event-label="Change to Chart tab"
-
-        
-      >Chart</button>
-    </li>
-    
-    <li role="presentation"
-      class="
-        nav-item
-        
-        
-      ">
-      <button
-        class="nav-link "
-        data-bs-toggle="tab"
-        role="tab"
-        type="button"
-        
-          id="tab-tableview"
-          data-bs-target="#tableview"
-          aria-controls="tableview"
-          data-on="click"
-data-event-category="Tab change"
-data-event-action="Change data view"
-data-event-label="Change to Table tab"
-
-        
-      >Table</button>
-    </li>
-    
-  </ul>
-  
-    <div class="tab-content data-view">
-    
-      
-        <div role="tabpanel" class="tab-pane active" id="chartview">
-          
-
-    <div id="dataset-size-warning" style="display:none" role="alert">
-      <i class="fa fa-bolt"><span class="sr-only">Warning:</span></i>
-      There are too many datasets to show on the chart. Not all will be shown until you remove some selections.
-    </div>
-
-    
-    <div id="selectionsChart">
-      <figure role="group">
-        <div id="chart-canvas">
-          <h4 id="chart-heading" class="chart-title">
-            Доля женщин в возрасте 15-49 лет, в последние 12 месяцев подвергшихся физического насилия (ограбления или нападения)
-          </h4>
-          <div id="chart" class="plot-container">
-            <canvas
-    role="img"
-    aria-labelledby="chart-heading"
-    aria-describedby="table-alternative chart-annotations"
-    tabindex="0"
- ></canvas>
-
-          </div>
-          <div id="plotLegend"></div>
-          
-
-
-
-<div id="selectionChartFooter" class="table-footer-text">
-  <h5 class="sr-only">Chart details</h5>
-    <dl>
-        
-
-        
-        <dt>Geographical Area:</dt>
-        <dd>Кыргызская Республика</dd>
-        
-
-        <dt class="data-controlled-footer-field unit-from-data">Unit of Measurement:</dt>
-        <dd class="data-controlled-footer-field unit-from-data"></dd>
-
-        
-
-        
-
-        
-
-        
-        
-        <dt
-          class="data-controlled-footer-field"
-          data-ts-attribute="COMMENT_TS"
-        >Footnote:</dt>
-        <dd
-          class="data-controlled-footer-field"
-          data-ts-attribute="COMMENT_TS"
-        ></dd>
-        
-        <dt
-          class="data-controlled-footer-field"
-          data-ts-attribute="DATA_LAST_UPDATE"
-        >Data last updated:</dt>
-        <dd
-          class="data-controlled-footer-field"
-          data-ts-attribute="DATA_LAST_UPDATE"
-        ></dd>
-        
-        
-    </dl>
-    
-    <dl class="observation-attribute-list"></dl>
-    
-</div>
-
-        </div>
-      </figure>
-      <div id="chartSelectionDownload" class="clearfix">
-        <button
-          id="btnSave"
-          title="Download chart image as PNG"
-          aria-label="Download chart image as PNG"
-          class='btn btn-primary btn-download'>
-          Download chart image (.png)
-        </button><!--
-   --></div>
-    </div>
-
-
-
-        </div>
-      
-    
-      
-        <div role="tabpanel" class="tab-pane " id="tableview">
-          <div style="display: none;">
-            <span id="column-sort-info">Click to sort by this column</span>
-          </div>
-          <div id="selectionsTable"></div>
-<dl id="tableTargetLines" class="clearfix"></dl>
-
-
-
-
-<div id="selectionTableFooter" class="table-footer-text">
-  <h5 class="sr-only">Chart details</h5>
-    <dl>
-        
-
-        
-        <dt>Geographical Area:</dt>
-        <dd>Кыргызская Республика</dd>
-        
-
-        <dt class="data-controlled-footer-field unit-from-data">Unit of Measurement:</dt>
-        <dd class="data-controlled-footer-field unit-from-data"></dd>
-
-        
-
-        
-
-        
-
-        
-        
-        <dt
-          class="data-controlled-footer-field"
-          data-ts-attribute="COMMENT_TS"
-        >Footnote:</dt>
-        <dd
-          class="data-controlled-footer-field"
-          data-ts-attribute="COMMENT_TS"
-        ></dd>
-        
-        <dt
-          class="data-controlled-footer-field"
-          data-ts-attribute="DATA_LAST_UPDATE"
-        >Data last updated:</dt>
-        <dd
-          class="data-controlled-footer-field"
-          data-ts-attribute="DATA_LAST_UPDATE"
-        ></dd>
-        
-        
-    </dl>
-    
-    <dl class="observation-attribute-list"></dl>
-    
-</div>
-
-<div id="tableSelectionDownload" class="clearfix"></div>
-
-        </div>
-      
-    
-  </div>
-  
-
-  </div>
-
-</section>
-
+  <div id="indicator-main" class="indicator-main col-md-12">
   
   <div class="mt-4">
 <ul class="nav nav-tabs" role="tablist">
@@ -817,12 +549,19 @@ data-event-label="Change to custom.data_reporter tab"
       
       
       
+        
+          
+          
+          
+          
+        
+      
       
       <tr>
         <th scope="row">Indicator name </th>
         <td>
           
-            <p>16.1.3 Доля женщин в возрасте 15-49 лет, в последние 12 месяцев подвергшихся физического насилия: ограбления или нападения</p>
+            <p><span class="empty-metadata-placeholder">Not available for this indicator</span></p>
 
           
         </td>
@@ -832,13 +571,20 @@ data-event-label="Change to custom.data_reporter tab"
   
       
       
+      
+        
+          
+          
+          
+          
+        
       
       
       <tr>
         <th scope="row">Target name </th>
         <td>
           
-            <p>16.1 Значительно сократить распространенность всех форм насилия и уменьшить показатели смертности от этого явления во всем мире</p>
+            <p><span class="empty-metadata-placeholder">Not available for this indicator</span></p>
 
           
         </td>
@@ -849,12 +595,19 @@ data-event-label="Change to custom.data_reporter tab"
       
       
       
+        
+          
+          
+          
+          
+        
+      
       
       <tr>
         <th scope="row">Goal </th>
         <td>
           
-            <p>Цель 16. Содействие построению миролюбивого и открытого общества в интересах устойчивого развития, обеспечение доступа к правосудию для всех и создание эффективных, подотчетных и основанных на широком участии учреждений на всех уровнях</p>
+            <p><span class="empty-metadata-placeholder">Not available for this indicator</span></p>
 
           
         </td>
@@ -1000,12 +753,19 @@ data-event-label="Change to custom.data_reporter tab"
       
       
       
+        
+          
+          
+          
+          
+        
+      
       
       <tr>
         <th scope="row">Rationale and interpretation </th>
         <td>
           
-            <p>Преступность может иметь большое влияние на жизнь жертв и сообщество, в котором они живут. Жертвы преступлений могут пострадать физически и психологически, а также потерять имущество и доход. Кроме того, преступность может нанести значительный ущерб сообществу в форме мер, которые могут понадобиться сообществу для предупреждения и/или исправления преступных действий</p>
+            <p><span class="empty-metadata-placeholder">Not available for this indicator</span></p>
 
           
         </td>
@@ -1062,14 +822,19 @@ data-event-label="Change to custom.data_reporter tab"
       
       
       
+        
+          
+          
+          
+          
+        
+      
       
       <tr>
         <th scope="row">Quality assurance </th>
         <td>
           
-            <p>Руководители команд отвечали за ежедневный мониторинг работ на местах. В одном домохозяйстве из кластера проводился обязательный повторный опрос. Проводились ежедневные наблюдения за навыками и результатами интервьюера.
-В ходе работ на местах каждую команду несколько раз посещали руководители обследования, а также организовывались визиты на места членов команды КОМП ЮНИСЕФ.
-В ходе полевых работ каждую неделю создавались проверочные таблицы для анализа и работы с командами на местах, которые представляли собой адаптированные версии стандартных таблиц, созданных Программой КОМП.</p>
+            <p><span class="empty-metadata-placeholder">Not available for this indicator</span></p>
 
           
         </td>
@@ -1103,12 +868,19 @@ data-event-label="Change to custom.data_reporter tab"
       
       
       
+        
+          
+          
+          
+          
+        
+      
       
       <tr>
         <th scope="row">Disaggregation </th>
         <td>
           
-            <p>По доходу, возрасту, территории, местности, образованию, статусу инвалидности.</p>
+            <p><span class="empty-metadata-placeholder">Not available for this indicator</span></p>
 
           
         </td>
@@ -1142,12 +914,19 @@ data-event-label="Change to custom.data_reporter tab"
       
       
       
+        
+          
+          
+          
+          
+        
+      
       
       <tr>
         <th scope="row">References and documentation </th>
         <td>
           
-            <p>Национальная платформа отчетности ЦУР КР: https://sustainabledevelopment-kyrgyzstan.github.io</p>
+            <p><span class="empty-metadata-placeholder">Not available for this indicator</span></p>
 
           
         </td>
@@ -1157,13 +936,20 @@ data-event-label="Change to custom.data_reporter tab"
   
       
       
+      
+        
+          
+          
+          
+          
+        
       
       
       <tr>
         <th scope="row">Data sources </th>
         <td>
           
-            <p>Национальный статистический комитет КР на основе данных Кластерного обследования по многим показателям Кыргызстан</p>
+            <p><span class="empty-metadata-placeholder">Not available for this indicator</span></p>
 
           
         </td>
@@ -1174,13 +960,19 @@ data-event-label="Change to custom.data_reporter tab"
       
       
       
+        
+          
+          
+          
+          
+        
+      
       
       <tr>
         <th scope="row">Data collection methods </th>
         <td>
           
-            <p>В опросах КОМП используется персональное интервью с использованием компьютеров (Computer-Assisted Personal Interview, CAPI). Приложение для сбора данных, в том числе специальная платформа управления данными КОМП, основано на программном обеспечении CSPro (Census and Survey Processing System) версии 6.3. Процедуры и стандартные программы, разработанные в рамках глобальной программы КОМП, были адаптированы к окончательной версии вопросника КОМП Кыргызстан, 2018 года и использовались в опросе. 
-Данные собирались с использованием планшетных компьютеров под управлением операционной системы Windows 8 с использованием приложения Bluetooth для операций на местах, что позволяло передавать задания и заполненные вопросники с/на планшеты руководителя и интервьюера.</p>
+            <p><span class="empty-metadata-placeholder">Not available for this indicator</span></p>
 
           
         </td>
@@ -1278,12 +1070,19 @@ data-event-label="Change to custom.data_reporter tab"
       
       
       
+        
+          
+          
+          
+          
+        
+      
       
       <tr>
         <th scope="row">Organization </th>
         <td>
           
-            <p>Национальный статистический комитет КР (Отдел статистики домашних хозяйств)</p>
+            <p><span class="empty-metadata-placeholder">Not available for this indicator</span></p>
 
           
         </td>
@@ -1293,13 +1092,20 @@ data-event-label="Change to custom.data_reporter tab"
   
       
       
+      
+        
+          
+          
+          
+          
+        
       
       
       <tr>
         <th scope="row">Contact person(s)/focal point </th>
         <td>
           
-            <p>Калымбетова Ы.И.</p>
+            <p><span class="empty-metadata-placeholder">Not available for this indicator</span></p>
 
           
         </td>
@@ -1309,13 +1115,20 @@ data-event-label="Change to custom.data_reporter tab"
   
       
       
+      
+        
+          
+          
+          
+          
+        
       
       
       <tr>
         <th scope="row">Contact person's email </th>
         <td>
           
-            <p>y.kalymbetova@gmail.com</p>
+            <p><span class="empty-metadata-placeholder">Not available for this indicator</span></p>
 
           
         </td>
@@ -1325,13 +1138,20 @@ data-event-label="Change to custom.data_reporter tab"
   
       
       
+      
+        
+          
+          
+          
+          
+        
       
       
       <tr>
         <th scope="row">Contact person's phone </th>
         <td>
           
-            <p>0(312) 664164</p>
+            <p><span class="empty-metadata-placeholder">Not available for this indicator</span></p>
 
           
         </td>
@@ -1342,12 +1162,19 @@ data-event-label="Change to custom.data_reporter tab"
       
       
       
+        
+          
+          
+          
+          
+        
+      
       
       <tr>
         <th scope="row">Organization website </th>
         <td>
           
-            <p>www.stat.kg</p>
+            <p><span class="empty-metadata-placeholder">Not available for this indicator</span></p>
 
           
         </td>
@@ -1451,12 +1278,12 @@ ga('send', 'pageview');
 <script>translations['search'] = translations['search'] || {};
     translations['search']['search'] = 'Search';</script>
 
-<script src='/assets/js/sdg.js?v=20250306033305'></script>
+<script src='/assets/js/sdg.js?v=20250813015559'></script>
 
 
     
     
-    <script src="/assets/js/custom.js?v=20250306033305"></script><script>
+    <script src="/assets/js/custom.js?v=20250813015559"></script><script>
     new indicatorInit();
     new accessibilitySwitcher();
 </script>
