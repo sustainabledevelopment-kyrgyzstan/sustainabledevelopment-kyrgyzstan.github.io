@@ -143,7 +143,7 @@ var translations = {
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
         <link res="stylesheet" href="https://cdn.datatables.net/1.11.5/css/dataTables.bootstrap5.min.css">
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" crossorigin="">
-        <link rel="stylesheet" href="/assets/css/style.css?v=20250813033739">
+        <link rel="stylesheet" href="/assets/css/style.css?v=20251002152602">
         <link rel="stylesheet" href="https://unpkg.com/leaflet@1.3.4/dist/leaflet.css"
           integrity="sha512-puBpdR0798OZvTTbP4A8Ix/l+A4dHDD0DGqYW6RQ+9jxkRFclaxxQb/SJAWZfWAkuyeQUytO7+7N4QKrDh+drA=="
           crossorigin=""/>
@@ -151,7 +151,7 @@ var translations = {
         <link rel="stylesheet" href='https://api.mapbox.com/mapbox.js/plugins/leaflet-fullscreen/v1.0.1/leaflet.fullscreen.css'  crossorigin=""/>
         <link rel="stylesheet" href="https://bowercdn.net/c/leaflet.zoomhome-latest/dist/leaflet.zoomhome.css"  crossorigin=""/>
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet-search@2.9.7/dist/leaflet-search.min.css" crossorigin="">
-        <link rel="stylesheet" href="https://cdn.kiprotect.com/klaro/v0.7/klaro.min.css" crossorigin=""/><link rel="stylesheet" href="/assets/css/custom.css?v=20250813033739">
+        <link rel="stylesheet" href="https://cdn.kiprotect.com/klaro/v0.7/klaro.min.css" crossorigin=""/><link rel="stylesheet" href="/assets/css/custom.css?v=20251002152602">
         
 
         
@@ -445,7 +445,7 @@ data-event-label="high"
   data-graphseriesbreaks="null"
   data-indicatordownloads="{&quot;indicator.download_source_excel&quot;:{&quot;href&quot;:&quot;downloads/data-excel/11.6.1.2.xlsx&quot;},&quot;indicator.download_source_sdmx&quot;:{&quot;href&quot;:&quot;downloads/data-sdmx/11.6.1.2.xml&quot;}}"
   data-dataschema="{&quot;fields&quot;:[{&quot;name&quot;:&quot;Year&quot;,&quot;type&quot;:&quot;integer&quot;,&quot;title&quot;:&quot;Year&quot;},{&quot;name&quot;:&quot;COMPOSITE_BREAKDOWN&quot;,&quot;type&quot;:&quot;string&quot;,&quot;constraints&quot;:{&quot;enum&quot;:[&quot;Waste removal: Garbage chute&quot;,&quot;Waste removal: Collection by truck, container&quot;,&quot;Waste removal: Dumping into garbage heaps&quot;,&quot;Waste removal: Burning&quot;,&quot;Waste removal: Burying&quot;,&quot;&quot;]},&quot;title&quot;:&quot;Composite breakdown&quot;},{&quot;name&quot;:&quot;Value&quot;,&quot;type&quot;:&quot;number&quot;,&quot;title&quot;:&quot;Value&quot;}]}"
-  data-compositebreakdownlabel=""
+  data-compositebreakdownlabel="Вид избавления:"
   data-precision="null"
   data-proxy=""
   data-proxyseries="null"
@@ -822,7 +822,7 @@ data-event-label="Change to custom.data_reporter tab"
         <th scope="row">Indicator name </th>
         <td>
           
-            <p>11.6.1.2 Избавление от твердых бытовых отходов домашними хозяйствами по видам (мусоропровод; сбор грузовиком, контейнером; сброс в мусорные кучи; сжигание; закапывание)</p>
+            <p>11.6.1.2 Household disposal of municipal solid waste, by type</p>
 
           
         </td>
@@ -838,7 +838,7 @@ data-event-label="Change to custom.data_reporter tab"
         <th scope="row">Target name </th>
         <td>
           
-            <p>11.6 К 2030 году уменьшить негативное экологическое воздействие городов в пересчете на душу населения, в том числе посредством уделения особого внимания качеству воздуха и удалению городских и других отходов</p>
+            <p>11.6 By 2030, reduce the adverse per capita environmental impact of cities, including by paying special attention to air quality and municipal and other waste management</p>
 
           
         </td>
@@ -854,8 +854,9 @@ data-event-label="Change to custom.data_reporter tab"
         <th scope="row">Goal </th>
         <td>
           
-            <ol>
-  <li>Обеспечение открытости, безопасности, жизнестойкости и экологической устойчивости городов и населенных пунктов</li>
+            
+<ol>
+  <li>Make cities and human settlements inclusive, safe, resilient and sustainable</li>
 </ol>
 
           
@@ -961,12 +962,12 @@ data-event-label="Change to custom.data_reporter tab"
         <th scope="row">Definitions </th>
         <td>
           
-            <p>Данный индикатор отражает способы, используемые населением, при избавлении от мусора. Данный индикатор отражает способы избавления от мусора по следующим категориям:                                                                                                         - Сброс в мусоропровод;</p>
+            <p>This indicator reflects the ways used by the population to get rid of garbage. This indicator reflects the ways to get rid of garbage in the following categories::                                                                                                         - Dumping into the garbage chute;</p>
 <ul>
-  <li>Сбор грузовиком, контейнером;</li>
-  <li>Сброс в мусорные кучи;</li>
-  <li>Сжигание;</li>
-  <li>Закапывание.</li>
+  <li>Collection by truck, container;</li>
+  <li>Dumping in garbage heaps;</li>
+  <li>Burning;</li>
+  <li>Instillation.</li>
 </ul>
 
           
@@ -983,18 +984,19 @@ data-event-label="Change to custom.data_reporter tab"
         <th scope="row">Concepts </th>
         <td>
           
-            <p>Способы, которыми домохозяйства избавляются от своего мусора включает как организованные системы вывоза, так и неформальные/небезопасные методы.</p>
+            <p>“The ways in which households dispose of their garbage includes both organized disposal systems and informal/unsafe methods.</p>
 
-<p>Виды избавления:
-Мусоропровод – централизованная система сброса мусора внутри здания (обычно в многоквартирных домах).</p>
+<p>Types of disposal:
+A garbage chute is a centralized garbage disposal system inside a building (usually in apartment buildings).</p>
 
-<p>Сбор грузовиком/контейнером – регулярный вывоз отходов коммунальными или частными службами.</p>
+<p>Truck/container collection is the regular disposal of waste by public or private services.</p>
 
-<p>Сброс в мусорные кучи – выбрасывание отходов в несанкционированные места (на пустырях, обочинах и т.п.).</p>
+<p>Dumping in garbage heaps is the disposal of waste in unauthorized places (on vacant lots, roadsides, etc.).</p>
 
-<p>Сжигание – самостоятельное сжигание отходов, часто на открытом воздухе.</p>
+<p>Incineration is the self–incineration of waste, often outdoors.</p>
 
-<p>Закапывание – самостоятельное захоронение отходов в почве, обычно рядом с домом.</p>
+<p>Burying is the independent disposal of waste in the soil, usually near the house.
+“</p>
 
           
         </td>
@@ -1010,7 +1012,7 @@ data-event-label="Change to custom.data_reporter tab"
         <th scope="row">Rationale and interpretation </th>
         <td>
           
-            <p>Показатель способов избавления от производимых отходов свидетельствует об экологической нагрузке на атмосферные, водные и земельные ресурсы. При этом, способы избавления от отходов напрямую зависят от доступа к услугам, предоставляемым коммунальным хозяйством. Сбалансированная программа управления отходами должна стремиться свести к минимуму количество отходов, а также способствовать надлежащему удалению и переработке отходов.</p>
+            <p>The indicator of ways to get rid of waste produced indicates the environmental impact on atmospheric, water and land resources. At the same time, the ways to get rid of waste directly depend on access to services provided by public utilities. A balanced waste management program should aim to minimize the amount of waste, as well as promote proper waste disposal and recycling.</p>
 
           
         </td>
@@ -1026,7 +1028,7 @@ data-event-label="Change to custom.data_reporter tab"
         <th scope="row">Method of computation </th>
         <td>
           
-            <p>Рассчитывается отношением числа домохозяйств, применяющих различные способы избавления от бытового мусора к общему количеству домохозяйств.</p>
+            <p>It is calculated by the ratio of the number of households using various methods of disposal of household waste to the total number of households.</p>
 
           
         </td>
@@ -1065,7 +1067,7 @@ data-event-label="Change to custom.data_reporter tab"
         <th scope="row">Quality assurance </th>
         <td>
           
-            <p>Гарантией качества показателя является использование репрезентативной выборки в ИОДХ, соблюдение сроков и условий проведения обследования, а также многоступенчатый контроль, включающий проверку анкет на полноту и логическую последовательность.</p>
+            <p>The quality of the indicator is guaranteed by the use of a representative sample in the IODH, compliance with the terms and conditions of the survey, as well as multi-stage control, including checking the questionnaires for completeness and logical consistency.</p>
 
           
         </td>
@@ -1081,7 +1083,7 @@ data-event-label="Change to custom.data_reporter tab"
         <th scope="row">Data availability and gaps </th>
         <td>
           
-            <p>1) Ежегодный статистический сборник Окружающая среда в Кыргызской Республике;                                                                                                         2) Ежегодный сборник Уровень жизни населеня</p>
+            <p>1) Annual statistical Compendium of the state of the environment in the Kyrgyz Republic; 2) Annual Compendium of the Standard of Living of the population</p>
 
           
         </td>
@@ -1097,7 +1099,7 @@ data-event-label="Change to custom.data_reporter tab"
         <th scope="row">Disaggregation </th>
         <td>
           
-            <p>По территории (республика, область)</p>
+            <p>By territory (republic, region)</p>
 
           
         </td>
@@ -1152,7 +1154,7 @@ data-event-label="Change to custom.data_reporter tab"
         <th scope="row">Data sources </th>
         <td>
           
-            <p>Интегрированное обследование бюджетов домашних хозяйств и рабочей силы, Нацстатком КР</p>
+            <p>Integrated survey of household budgets and labor force, National Statistical Committee of the Kyrgyz</p>
 
           
         </td>
@@ -1168,9 +1170,11 @@ data-event-label="Change to custom.data_reporter tab"
         <th scope="row">Data collection methods </th>
         <td>
           
-            <p>Сбор данных осуществляется путем опроса дома в рамках выборочного обследования домашних хозяйств, проводимого во всех регионах республики на ежеквартальной основе.
-Объектом статистического наблюдения выступают состав и жилищные условия домашних хозяйств. Единицей наблюдения являются домашние хозяйства.
-Проведение выборочного интегрированного обследования бюджетов домашних хозяйств и рабочей силы регламентировано постановлением Правительства Кыргызской Республики «О статистике выборочных обследований домашних хозяйств» от 17 января 2004 года №25 и Программой статистических работ. Мониторинг индикатора осуществляется с годовой периодичностью.</p>
+            
+<p>Republic “Data collection is carried out by interviewing homes as part of a sample survey of households conducted in all regions of the republic on a quarterly basis.
+The object of statistical observation is the composition and housing conditions of households. The unit of observation is households.
+Conducting a sample integrated survey of household budgets and the workforce is regulated by the Decree of the Government of the Kyrgyz Republic “On statistics of sample household surveys” dated January 17, 2004 No. 25 and the Program of Statistical Work. The indicator is monitored annually.
+“</p>
 
           
         </td>
@@ -1278,7 +1282,7 @@ data-event-label="Change to custom.data_reporter tab"
         <th scope="row">Organization </th>
         <td>
           
-            <p>Национальный статистический комитет КР (Управление статистики домашних хозяств)</p>
+            <p>National Statistical Committee of the Kyrgyz Republic (Department of Household Statistics)</p>
 
           
         </td>
@@ -1294,7 +1298,7 @@ data-event-label="Change to custom.data_reporter tab"
         <th scope="row">Contact person(s)/focal point </th>
         <td>
           
-            <p>Калымбетова Ы.И.</p>
+            <p>Kalymbetova Yryskan</p>
 
           
         </td>
@@ -1310,7 +1314,7 @@ data-event-label="Change to custom.data_reporter tab"
         <th scope="row">Contact person's email </th>
         <td>
           
-            <p>ykalymbetova@stat.kg</p>
+            <p>yryskan.kalymbetova@gmail.com</p>
 
           
         </td>
@@ -1326,7 +1330,7 @@ data-event-label="Change to custom.data_reporter tab"
         <th scope="row">Contact person's phone </th>
         <td>
           
-            <p>0(312) 32 46 55</p>
+            <p>(0312) 32 46 55</p>
 
           
         </td>
@@ -1446,12 +1450,12 @@ ga('send', 'pageview');
 <script>translations['search'] = translations['search'] || {};
     translations['search']['search'] = 'Search';</script>
 
-<script src='/assets/js/sdg.js?v=20250813033739'></script>
+<script src='/assets/js/sdg.js?v=20251002152602'></script>
 
 
     
     
-    <script src="/assets/js/custom.js?v=20250813033739"></script><script>
+    <script src="/assets/js/custom.js?v=20251002152602"></script><script>
     new indicatorInit();
     new accessibilitySwitcher();
 </script>

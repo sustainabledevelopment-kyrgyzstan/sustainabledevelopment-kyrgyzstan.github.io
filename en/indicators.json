@@ -239,7 +239,7 @@
         },
         {
           "id": "2-2-3-1",
-          "title": "Proportion of women with anemia among total female population",
+          "title": "Proportion of women with anemia in the total female population",
           "description": "",
           "keywords": "",
           "href": "/en/2-2-3-1/",
@@ -795,7 +795,7 @@
           "description": "",
           "keywords": "",
           "href": "/en/5-2-1-1/",
-          "status": "notstarted"
+          "status": "complete"
         },
         {
           "id": "5-2-1-2",
@@ -1727,7 +1727,7 @@
         },
         {
           "id": "11-7-1-a",
-          "title": "Площадь зеленых насаждений и массивов в населенных пунктах в расчете на 1000 человек",
+          "title": "Area of green spaces and plantations in settlements per 1,000 inhabitants",
           "description": "",
           "keywords": "",
           "href": "/en/11-7-1-a/",
@@ -2575,7 +2575,7 @@
         },
         {
           "id": "17-6-1-a",
-          "title": "E-Government Development Index (EGDI)",
+          "title": "E-Government Development Index",
           "description": "",
           "keywords": "",
           "href": "/en/17-6-1-a/",
